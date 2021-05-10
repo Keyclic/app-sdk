@@ -231,7 +231,6 @@ Class | Method | HTTP request | Description
 
  - [Activity](docs//Activity.md)
  - [ActivityAggregatedPagination](docs//ActivityAggregatedPagination.md)
- - [ActivityEntity](docs//ActivityEntity.md)
  - [ActivityGroup](docs//ActivityGroup.md)
  - [ActivityPagination](docs//ActivityPagination.md)
  - [AgreementOlderThan](docs//AgreementOlderThan.md)

@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOperationsByOrganization**
-> OperationPagination cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, order, organizations[], query, state, states[], page, limit)
+> OperationPagination cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, null_, order, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit)
 
 Retrieve all Operation resources.
 
@@ -340,16 +340,19 @@ var assignedTo = assignedTo_example; // String |
 var assignedTos[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var null_ = null__example; // String | 
 var order = order_example; // String | 
 var organizations[] = []; // List<String> | 
 var query = query_example; // String | 
+var scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
+var scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 var state = state_example; // String | 
 var states[] = []; // List<String> | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, order, organizations[], query, state, states[], page, limit);
+    var result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, null_, order, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetOperationsByOrganization: $e\n");
@@ -370,9 +373,12 @@ Name | Type | Description  | Notes
  **assignedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
+ **null_** | **String**|  | [optional] 
  **order** | **String**|  | [optional] [default to desc]
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **query** | **String**|  | [optional] 
+ **scheduledAtAfter** | **DateTime**|  | [optional] 
+ **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 
  **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
@@ -730,7 +736,7 @@ Name | Type | Description  | Notes
  **rating** | **String**|  | [optional] 
  **state** | **String**|  | [optional] 
  **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **visibility[]** | **String**|  | [optional] [default to VISIBILITY_PUBLIC]
+ **visibility[]** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 
@@ -982,7 +988,7 @@ Name | Type | Description  | Notes
  **rating** | **String**|  | [optional] 
  **state** | **String**|  | [optional] 
  **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **visibility[]** | **String**|  | [optional] [default to VISIBILITY_PUBLIC]
+ **visibility[]** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 

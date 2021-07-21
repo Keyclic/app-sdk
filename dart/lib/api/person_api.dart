@@ -220,10 +220,13 @@ class PersonApi {
     List<String> assignedTos__,
     DateTime after,
     DateTime before,
+    String null_,
     String order,
     String organization,
     List<String> organizations__,
     String query,
+    DateTime scheduledAtAfter,
+    DateTime scheduledAtBefore,
     String state,
     List<String> states__,
     int page,
@@ -256,6 +259,8 @@ class PersonApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
+      if (null_ != null)
+        ..._convertParametersForCollectionFormat("null", null_),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
@@ -266,6 +271,12 @@ class PersonApi {
             collectionFormat: "multi"),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
+      if (scheduledAtAfter != null)
+        ..._convertParametersForCollectionFormat(
+            "scheduled_at_after", scheduledAtAfter),
+      if (scheduledAtBefore != null)
+        ..._convertParametersForCollectionFormat(
+            "scheduled_at_before", scheduledAtBefore),
       if (state != null)
         ..._convertParametersForCollectionFormat("state", state),
       if (states__ != null)

@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.13.16"
+        "version": "2.13.17"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -8153,6 +8153,9 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
+                        "$ref": "#\/parameters\/null"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -8160,6 +8163,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_before"
                     },
                     {
                         "in": "query",
@@ -9985,6 +9994,9 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
+                        "$ref": "#\/parameters\/null"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -9995,6 +10007,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_before"
                     },
                     {
                         "in": "query",
@@ -12229,6 +12247,9 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
+                        "$ref": "#\/parameters\/null"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -12239,6 +12260,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_before"
                     },
                     {
                         "in": "query",
@@ -18757,7 +18784,9 @@
                     "type": "string",
                     "enum": [
                         "Collaborator",
-                        "Contact"
+                        "Contact",
+                        "collaborator",
+                        "contact"
                     ]
                 }
             },
@@ -23723,6 +23752,32 @@
             "name": "assigned_tos[]",
             "pattern": ".*",
             "type": "array"
+        },
+        "null": {
+            "in": "query",
+            "name": "null",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "scheduled_at_after": {
+            "enum": [
+                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
+                "([+-])(\\d\\d)(:)?(\\d\\d))"
+            ],
+            "format": "date-time",
+            "in": "query",
+            "name": "scheduled_at_after",
+            "type": "string"
+        },
+        "scheduled_at_before": {
+            "enum": [
+                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
+                "([+-])(\\d\\d)(:)?(\\d\\d))"
+            ],
+            "format": "date-time",
+            "in": "query",
+            "name": "scheduled_at_before",
+            "type": "string"
         },
         "states__": {
             "collectionFormat": "multi",

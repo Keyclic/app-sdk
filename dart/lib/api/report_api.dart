@@ -206,7 +206,7 @@ class ReportApi {
     List<String> assignedTos__,
     DateTime after,
     DateTime before,
-    String null_,
+    String isNull,
     String order,
     String organization,
     List<String> organizations__,
@@ -245,8 +245,8 @@ class ReportApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (null_ != null)
-        ..._convertParametersForCollectionFormat("null", null_),
+      if (isNull != null)
+        ..._convertParametersForCollectionFormat("is_null", isNull),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)

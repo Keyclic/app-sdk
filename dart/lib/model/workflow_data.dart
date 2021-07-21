@@ -2,6 +2,8 @@ part of keyclic_sdk_api.api;
 
 class WorkflowData {
   WorkflowData({
+    this.text,
+    this.datetime,
     this.transition,
   });
 
@@ -11,9 +13,15 @@ class WorkflowData {
     }
 
     return WorkflowData(
+      text: json['text'],
+      datetime: json['datetime'],
       transition: json['transition'],
     );
   }
+
+  String text;
+
+  String datetime;
 
   String transition;
 
@@ -26,6 +34,8 @@ class WorkflowData {
 
     return other is WorkflowData &&
         runtimeType == other.runtimeType &&
+        text == other.text &&
+        datetime == other.datetime &&
         transition == other.transition;
   }
 
@@ -34,6 +44,8 @@ class WorkflowData {
   int get hashCode {
     int hashCode = 0;
 
+    hashCode ^= text?.hashCode ?? 0;
+    hashCode ^= datetime?.hashCode ?? 0;
     hashCode ^= transition?.hashCode ?? 0;
 
     return hashCode;
@@ -55,12 +67,14 @@ class WorkflowData {
 
   Map<String, dynamic> toJson() {
     return {
+      if (text != null) 'text': text,
+      if (datetime != null) 'datetime': datetime,
       if (transition != null) 'transition': transition,
     };
   }
 
   @override
   String toString() {
-    return 'WorkflowData[transition=$transition, ]';
+    return 'WorkflowData[text=$text, datetime=$datetime, transition=$transition, ]';
   }
 }

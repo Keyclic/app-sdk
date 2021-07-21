@@ -410,7 +410,7 @@ class OrganizationApi {
     List<String> assignedTos__,
     DateTime after,
     DateTime before,
-    String null_,
+    String isNull,
     String order,
     List<String> organizations__,
     String query,
@@ -448,8 +448,8 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (null_ != null)
-        ..._convertParametersForCollectionFormat("null", null_),
+      if (isNull != null)
+        ..._convertParametersForCollectionFormat("is_null", isNull),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)

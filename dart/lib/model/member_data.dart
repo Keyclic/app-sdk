@@ -3,8 +3,6 @@ part of keyclic_sdk_api.api;
 class MemberDataTypeEnum {
   static const String collaborator_ = "Collaborator";
   static const String contact_ = "Contact";
-  static const String collaborator_ = "collaborator";
-  static const String contact_ = "contact";
 }
 
 class MemberData {

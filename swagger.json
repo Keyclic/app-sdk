@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.13.17"
+        "version": "2.13.18"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -8153,7 +8153,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/null"
+                        "$ref": "#\/parameters\/is_null"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -9994,7 +9994,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/null"
+                        "$ref": "#\/parameters\/is_null"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -12247,7 +12247,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/null"
+                        "$ref": "#\/parameters\/is_null"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -23080,6 +23080,12 @@
         "WorkflowData": {
             "type": "object",
             "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "datetime": {
+                    "type": "string"
+                },
                 "transition": {
                     "type": "string"
                 }
@@ -23173,8 +23179,11 @@
         "WorkflowTransition": {
             "type": "object",
             "properties": {
-                "commentRequired": {
-                    "type": "boolean"
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "description": {
                     "format": "string",
@@ -23193,6 +23202,12 @@
                     "format": "string",
                     "maxLength": 255,
                     "type": "string"
+                },
+                "required": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "to": {
                     "$ref": "#\/definitions\/WorkflowState"
@@ -23751,9 +23766,9 @@
             "pattern": ".*",
             "type": "array"
         },
-        "null": {
+        "is_null": {
             "in": "query",
-            "name": "null",
+            "name": "is_null",
             "pattern": ".*",
             "type": "string"
         },

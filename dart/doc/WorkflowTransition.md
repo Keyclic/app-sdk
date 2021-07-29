@@ -8,11 +8,12 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**commentRequired** | **bool** |  | [optional] [default to null]
+**fields** | **List&lt;String&gt;** |  | [optional] [default to []]
 **description** | **String** |  | [optional] [default to null]
 **from** | [**WorkflowState**](WorkflowState.md) |  | [optional] [default to null]
 **id** | **String** |  | [optional] [default to null]
 **name** | **String** |  | [optional] [default to null]
+**required** | **List&lt;String&gt;** |  | [optional] [default to []]
 **to** | [**WorkflowState**](WorkflowState.md) |  | [optional] [default to null]
 **type** | **String** |  | [optional] [default to null]
 

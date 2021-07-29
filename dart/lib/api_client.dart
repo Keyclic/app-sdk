@@ -791,8 +791,6 @@ class ApiClient {
           return PlaceEmbedded.fromJson(value);
         case 'PlaceEmbeddedTargetGroups':
           return PlaceEmbeddedTargetGroups.fromJson(value);
-        case 'PlaceGeoShape':
-          return PlaceGeoShape.fromJson(value);
         case 'PlaceLinks':
           return PlaceLinks.fromJson(value);
         case 'PlaceLinksChildren':

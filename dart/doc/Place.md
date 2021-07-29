@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **branchCode** | **String** |  | [optional] [default to null]
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 **description** | **String** |  | [optional] [default to null]
-**geo** | [**PlaceGeoShape**](PlaceGeoShape.md) |  | [optional] [default to null]
 **id** | **String** |  | [optional] [default to null]
 **name** | **String** |  | [default to null]
 **preferences** | [**PlacePreferences**](PlacePreferences.md) |  | [optional] [default to null]

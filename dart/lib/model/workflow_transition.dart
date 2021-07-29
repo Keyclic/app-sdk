@@ -2,11 +2,12 @@ part of keyclic_sdk_api.api;
 
 class WorkflowTransition {
   WorkflowTransition({
-    this.commentRequired,
+    this.fields,
     this.description,
     this.from,
     this.id,
     this.name,
+    this.required,
     this.to,
     this.type,
   });
@@ -17,17 +18,19 @@ class WorkflowTransition {
     }
 
     return WorkflowTransition(
-      commentRequired: json['commentRequired'],
+      fields: json['fields'] is List ? List<String>.from(json['fields']) : null,
       description: json['description'],
       from: WorkflowState.fromJson(json['from']),
       id: json['id'],
       name: json['name'],
+      required:
+          json['required'] is List ? List<String>.from(json['required']) : null,
       to: WorkflowState.fromJson(json['to']),
       type: json['type'],
     );
   }
 
-  bool commentRequired;
+  List<String> fields;
 
   String description;
 
@@ -36,6 +39,8 @@ class WorkflowTransition {
   String id;
 
   String name;
+
+  List<String> required;
 
   WorkflowState to;
 
@@ -50,11 +55,12 @@ class WorkflowTransition {
 
     return other is WorkflowTransition &&
         runtimeType == other.runtimeType &&
-        commentRequired == other.commentRequired &&
+        DeepCollectionEquality.unordered().equals(fields, other.fields) &&
         description == other.description &&
         from == other.from &&
         id == other.id &&
         name == other.name &&
+        DeepCollectionEquality.unordered().equals(required, other.required) &&
         to == other.to &&
         type == other.type;
   }
@@ -64,7 +70,17 @@ class WorkflowTransition {
   int get hashCode {
     int hashCode = 0;
 
-    hashCode ^= commentRequired?.hashCode ?? 0;
+    if (fields is List && fields.isNotEmpty) {
+      hashCode ^= fields
+          .map((String element) => element.hashCode)
+          .reduce((int value, int cursor) => value ^ cursor);
+    }
+    if (required is List && required.isNotEmpty) {
+      hashCode ^= required
+          .map((String element) => element.hashCode)
+          .reduce((int value, int cursor) => value ^ cursor);
+    }
+
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= from?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
@@ -92,11 +108,12 @@ class WorkflowTransition {
 
   Map<String, dynamic> toJson() {
     return {
-      if (commentRequired != null) 'commentRequired': commentRequired,
+      if (fields != null) 'fields': fields,
       if (description != null) 'description': description,
       if (from != null) 'from': from.toJson(),
       if (id != null) 'id': id,
       if (name != null) 'name': name,
+      if (required != null) 'required': required,
       if (to != null) 'to': to.toJson(),
       if (type != null) 'type': type,
     };
@@ -104,6 +121,6 @@ class WorkflowTransition {
 
   @override
   String toString() {
-    return 'WorkflowTransition[commentRequired=$commentRequired, description=$description, from=$from, id=$id, name=$name, to=$to, type=$type, ]';
+    return 'WorkflowTransition[fields=$fields, description=$description, from=$from, id=$id, name=$name, required=$required, to=$to, type=$type, ]';
   }
 }

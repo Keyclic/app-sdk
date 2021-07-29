@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.13.17"
+        "version": "2.13.20"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -8153,7 +8153,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/null"
+                        "$ref": "#\/parameters\/is_null"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -9994,7 +9994,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/null"
+                        "$ref": "#\/parameters\/is_null"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -12247,7 +12247,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/null"
+                        "$ref": "#\/parameters\/is_null"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -14809,85 +14809,6 @@
                 },
                 "schemes": [
                     "https"
-                ]
-            }
-        },
-        "\/delegations": {
-            "post": {
-                "tags": [
-                    "Assignment"
-                ],
-                "summary": "Create one Assignment resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postAssignment",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/AssignmentData"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Returned when the resource is created",
-                        "schema": {
-                            "$ref": "#\/definitions\/Assignment"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Error"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Error"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Error"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Error"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
                 ]
             }
         }
@@ -17965,8 +17886,7 @@
                     "type": "integer"
                 },
                 "polygon": {
-                    "$ref": "#\/definitions\/Polygon",
-                    "required": false
+                    "$ref": "#\/definitions\/Polygon"
                 }
             }
         },
@@ -18565,8 +18485,7 @@
                     "type": "string"
                 },
                 "point": {
-                    "$ref": "#\/definitions\/Point",
-                    "required": true
+                    "$ref": "#\/definitions\/Point"
                 },
                 "type": {
                     "format": "string",
@@ -20388,9 +20307,6 @@
                     "format": "string",
                     "type": "string"
                 },
-                "geo": {
-                    "$ref": "#\/definitions\/PlaceGeoShape"
-                },
                 "id": {
                     "format": "uuid",
                     "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
@@ -20453,21 +20369,6 @@
                 "name",
                 "organization"
             ]
-        },
-        "PlaceGeoShape": {
-            "type": "object",
-            "properties": {
-                "centroid": {
-                    "$ref": "#\/definitions\/Point"
-                },
-                "elevation": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "polygon": {
-                    "$ref": "#\/definitions\/Polygon"
-                }
-            }
         },
         "PlaceLinksChildren": {
             "type": "object",
@@ -21773,8 +21674,6 @@
                     "type": "string"
                 },
                 "reviewRating": {
-                    "exclusiveMaximum": false,
-                    "exclusiveMinimum": false,
                     "format": "int32",
                     "maximum": 5,
                     "minimum": 1,
@@ -23080,6 +22979,12 @@
         "WorkflowData": {
             "type": "object",
             "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "datetime": {
+                    "type": "string"
+                },
                 "transition": {
                     "type": "string"
                 }
@@ -23173,8 +23078,11 @@
         "WorkflowTransition": {
             "type": "object",
             "properties": {
-                "commentRequired": {
-                    "type": "boolean"
+                "fields": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "description": {
                     "format": "string",
@@ -23193,6 +23101,12 @@
                     "format": "string",
                     "maxLength": 255,
                     "type": "string"
+                },
+                "required": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "to": {
                     "$ref": "#\/definitions\/WorkflowState"
@@ -23751,9 +23665,9 @@
             "pattern": ".*",
             "type": "array"
         },
-        "null": {
+        "is_null": {
             "in": "query",
-            "name": "null",
+            "name": "is_null",
             "pattern": ".*",
             "type": "string"
         },

@@ -8,7 +8,6 @@ class Place {
     this.branchCode,
     this.createdAt,
     this.description,
-    this.geo,
     this.id,
     this.name,
     this.preferences,
@@ -40,7 +39,6 @@ class Place {
       branchCode: json['branchCode'],
       createdAt: createdAt,
       description: json['description'],
-      geo: PlaceGeoShape.fromJson(json['geo']),
       id: json['id'],
       name: json['name'],
       preferences: PlacePreferences.fromJson(json['preferences']),
@@ -60,8 +58,6 @@ class Place {
   DateTime createdAt;
 
   String description;
-
-  PlaceGeoShape geo;
 
   String id;
 
@@ -88,7 +84,6 @@ class Place {
         branchCode == other.branchCode &&
         createdAt == other.createdAt &&
         description == other.description &&
-        geo == other.geo &&
         id == other.id &&
         name == other.name &&
         preferences == other.preferences &&
@@ -107,7 +102,6 @@ class Place {
     hashCode ^= branchCode?.hashCode ?? 0;
     hashCode ^= createdAt?.hashCode ?? 0;
     hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= geo?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
     hashCode ^= preferences?.hashCode ?? 0;
@@ -137,7 +131,6 @@ class Place {
       if (branchCode != null) 'branchCode': branchCode,
       if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
       if (description != null) 'description': description,
-      if (geo != null) 'geo': geo.toJson(),
       if (id != null) 'id': id,
       if (name != null) 'name': name,
       if (preferences != null) 'preferences': preferences.toJson(),
@@ -148,6 +141,6 @@ class Place {
 
   @override
   String toString() {
-    return 'Place[embedded=$embedded, links=$links, address=$address, branchCode=$branchCode, createdAt=$createdAt, description=$description, geo=$geo, id=$id, name=$name, preferences=$preferences, type=$type, updatedAt=$updatedAt, ]';
+    return 'Place[embedded=$embedded, links=$links, address=$address, branchCode=$branchCode, createdAt=$createdAt, description=$description, id=$id, name=$name, preferences=$preferences, type=$type, updatedAt=$updatedAt, ]';
   }
 }

@@ -391,7 +391,6 @@ part 'model/place_collection.dart';
 part 'model/place_data.dart';
 part 'model/place_embedded.dart';
 part 'model/place_embedded_target_groups.dart';
-part 'model/place_geo_shape.dart';
 part 'model/place_links.dart';
 part 'model/place_links_children.dart';
 part 'model/place_links_children_iri_template.dart';

@@ -15,7 +15,7 @@ class OperationEmbedded {
     return OperationEmbedded(
       createdBy: Person.fromJson(json['createdBy']),
       operator_: Person.fromJson(json['operator']),
-      workflow: AssignmentEmbeddedWorkflow.fromJson(json['workflow']),
+      workflow: OperationEmbeddedWorkflow.fromJson(json['workflow']),
     );
   }
 
@@ -23,7 +23,7 @@ class OperationEmbedded {
 
   Person operator_;
 
-  AssignmentEmbeddedWorkflow workflow;
+  OperationEmbeddedWorkflow workflow;
 
   @override
   bool operator ==(dynamic other) {

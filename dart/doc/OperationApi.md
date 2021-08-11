@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchOperation**
-> Operation patchOperation(xKeyclicApp, operationPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Task patchOperation(xKeyclicApp, taskPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Operation resource.
 
@@ -317,7 +317,7 @@ import 'package:keyclic_sdk_api/api.dart';
 
 var api_instance = OperationApi();
 var xKeyclicApp = xKeyclicApp_example; // String | 
-var operationPatch = OperationPatch(); // OperationPatch | 
+var taskPatch = TaskPatch(); // TaskPatch | 
 var operation = ; // String | The identifier of the resource.
 var acceptLanguage = acceptLanguage_example; // String | 
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -325,7 +325,7 @@ var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchOperation(xKeyclicApp, operationPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    var result = api_instance.patchOperation(xKeyclicApp, taskPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print("Exception when calling OperationApi->patchOperation: $e\n");
@@ -337,7 +337,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operationPatch** | [**OperationPatch**](OperationPatch.md)|  | 
+ **taskPatch** | [**TaskPatch**](TaskPatch.md)|  | 
  **operation** | [**String**](.md)| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
  **xDateTime** | **DateTime**|  | [optional] 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Operation**](Operation.md)
+[**Task**](Task.md)
 
 ### Authorization
 

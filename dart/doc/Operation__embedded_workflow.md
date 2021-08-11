@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.AssignmentEmbeddedWorkflow
+# keyclic_sdk_api.model.OperationEmbeddedWorkflow
 
 ## Load the model package
 ```dart

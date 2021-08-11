@@ -4,7 +4,6 @@ class AssignmentEmbedded {
   AssignmentEmbedded({
     this.createdBy,
     this.service,
-    this.workflow,
   });
 
   factory AssignmentEmbedded.fromJson(Map<String, dynamic> json) {
@@ -15,15 +14,12 @@ class AssignmentEmbedded {
     return AssignmentEmbedded(
       createdBy: Person.fromJson(json['createdBy']),
       service: InternalService.fromJson(json['service']),
-      workflow: AssignmentEmbeddedWorkflow.fromJson(json['workflow']),
     );
   }
 
   Person createdBy;
 
   InternalService service;
-
-  AssignmentEmbeddedWorkflow workflow;
 
   @override
   bool operator ==(dynamic other) {
@@ -35,8 +31,7 @@ class AssignmentEmbedded {
     return other is AssignmentEmbedded &&
         runtimeType == other.runtimeType &&
         createdBy == other.createdBy &&
-        service == other.service &&
-        workflow == other.workflow;
+        service == other.service;
   }
 
   /// By default hashCode return reference
@@ -46,7 +41,6 @@ class AssignmentEmbedded {
 
     hashCode ^= createdBy?.hashCode ?? 0;
     hashCode ^= service?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -70,12 +64,11 @@ class AssignmentEmbedded {
     return {
       if (createdBy != null) 'createdBy': createdBy.toJson(),
       if (service != null) 'service': service.toJson(),
-      if (workflow != null) 'workflow': workflow.toJson(),
     };
   }
 
   @override
   String toString() {
-    return 'AssignmentEmbedded[createdBy=$createdBy, service=$service, workflow=$workflow, ]';
+    return 'AssignmentEmbedded[createdBy=$createdBy, service=$service, ]';
   }
 }

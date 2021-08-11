@@ -458,9 +458,9 @@ class ReportApi {
   /// Edit one Report resource.
   ///
   ///
-  Future<Report> patchReport(
+  Future<Task> patchReport(
     String xKeyclicApp,
-    ReportPatch reportPatch,
+    TaskPatch taskPatch,
     String report, {
     String acceptLanguage,
     DateTime xDateTime,
@@ -473,8 +473,8 @@ class ReportApi {
       throw ApiException(0, "Missing required param: xKeyclicApp");
     }
 
-    if (reportPatch == null) {
-      throw ApiException(0, "Missing required param: reportPatch");
+    if (taskPatch == null) {
+      throw ApiException(0, "Missing required param: taskPatch");
     }
 
     if (report == null) {
@@ -514,7 +514,7 @@ class ReportApi {
       path: path,
       method: 'PATCH',
       queryParams: queryParams,
-      body: reportPatch,
+      body: taskPatch,
       headerParams: headerParams,
       contentType: contentTypes[0],
       authNames: authNames,
@@ -528,7 +528,7 @@ class ReportApi {
       return null;
     }
 
-    return apiClient.deserialize(response.body, 'Report') as Report;
+    return apiClient.deserialize(response.body, 'Task') as Task;
   }
 
   /// Create one Document resource.

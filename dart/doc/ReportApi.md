@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchReport**
-> Report patchReport(xKeyclicApp, reportPatch, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Task patchReport(xKeyclicApp, taskPatch, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Report resource.
 
@@ -367,7 +367,7 @@ import 'package:keyclic_sdk_api/api.dart';
 
 var api_instance = ReportApi();
 var xKeyclicApp = xKeyclicApp_example; // String | 
-var reportPatch = ReportPatch(); // ReportPatch | 
+var taskPatch = TaskPatch(); // TaskPatch | 
 var report = ; // String | The identifier of the resource.
 var acceptLanguage = acceptLanguage_example; // String | 
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -375,7 +375,7 @@ var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchReport(xKeyclicApp, reportPatch, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    var result = api_instance.patchReport(xKeyclicApp, taskPatch, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print("Exception when calling ReportApi->patchReport: $e\n");
@@ -387,7 +387,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **reportPatch** | [**ReportPatch**](ReportPatch.md)|  | 
+ **taskPatch** | [**TaskPatch**](TaskPatch.md)|  | 
  **report** | [**String**](.md)| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
  **xDateTime** | **DateTime**|  | [optional] 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Report**](Report.md)
+[**Task**](Task.md)
 
 ### Authorization
 

@@ -372,9 +372,9 @@ class OperationApi {
   /// Edit one Operation resource.
   ///
   ///
-  Future<Operation> patchOperation(
+  Future<Task> patchOperation(
     String xKeyclicApp,
-    OperationPatch operationPatch,
+    TaskPatch taskPatch,
     String operation, {
     String acceptLanguage,
     DateTime xDateTime,
@@ -387,8 +387,8 @@ class OperationApi {
       throw ApiException(0, "Missing required param: xKeyclicApp");
     }
 
-    if (operationPatch == null) {
-      throw ApiException(0, "Missing required param: operationPatch");
+    if (taskPatch == null) {
+      throw ApiException(0, "Missing required param: taskPatch");
     }
 
     if (operation == null) {
@@ -428,7 +428,7 @@ class OperationApi {
       path: path,
       method: 'PATCH',
       queryParams: queryParams,
-      body: operationPatch,
+      body: taskPatch,
       headerParams: headerParams,
       contentType: contentTypes[0],
       authNames: authNames,
@@ -442,7 +442,7 @@ class OperationApi {
       return null;
     }
 
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
+    return apiClient.deserialize(response.body, 'Task') as Task;
   }
 
   /// Create one Assign resource.

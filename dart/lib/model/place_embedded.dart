@@ -22,7 +22,7 @@ class PlaceEmbedded {
       path: NodePath.listFromJson(json['path']),
       targetGroups:
           PlaceEmbeddedTargetGroups.listFromJson(json['targetGroups']),
-      workflow: AssignmentEmbeddedWorkflow.fromJson(json['workflow']),
+      workflow: OperationEmbeddedWorkflow.fromJson(json['workflow']),
     );
   }
 
@@ -36,7 +36,7 @@ class PlaceEmbedded {
 
   List<PlaceEmbeddedTargetGroups> targetGroups;
 
-  AssignmentEmbeddedWorkflow workflow;
+  OperationEmbeddedWorkflow workflow;
 
   @override
   bool operator ==(dynamic other) {

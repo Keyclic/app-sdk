@@ -185,8 +185,6 @@ class ApiClient {
           return AssignmentData.fromJson(value);
         case 'AssignmentEmbedded':
           return AssignmentEmbedded.fromJson(value);
-        case 'AssignmentEmbeddedWorkflow':
-          return AssignmentEmbeddedWorkflow.fromJson(value);
         case 'AssignmentLinks':
           return AssignmentLinks.fromJson(value);
         case 'AssignmentLinksReport':
@@ -659,6 +657,8 @@ class ApiClient {
           return OperationData.fromJson(value);
         case 'OperationEmbedded':
           return OperationEmbedded.fromJson(value);
+        case 'OperationEmbeddedWorkflow':
+          return OperationEmbeddedWorkflow.fromJson(value);
         case 'OperationLinks':
           return OperationLinks.fromJson(value);
         case 'OperationLinksFeedback':
@@ -699,8 +699,8 @@ class ApiClient {
           return OperationLinksTracking.fromJson(value);
         case 'OperationLinksTrackingIriTemplate':
           return OperationLinksTrackingIriTemplate.fromJson(value);
-        case 'OperationPatch':
-          return OperationPatch.fromJson(value);
+        case 'OperationPriority':
+          return OperationPriority.fromJson(value);
         case 'OperationSignature':
           return OperationSignature.fromJson(value);
         case 'OperationTypeWorkflow':
@@ -923,8 +923,6 @@ class ApiClient {
           return ReportLinksTracking.fromJson(value);
         case 'ReportLinksTrackingIriTemplate':
           return ReportLinksTrackingIriTemplate.fromJson(value);
-        case 'ReportPatch':
-          return ReportPatch.fromJson(value);
         case 'ReportPriority':
           return ReportPriority.fromJson(value);
         case 'ReportTypePriority':
@@ -1055,6 +1053,12 @@ class ApiClient {
           return SuccessLogin.fromJson(value);
         case 'SuccessLoginCredentials':
           return SuccessLoginCredentials.fromJson(value);
+        case 'Task':
+          return Task.fromJson(value);
+        case 'TaskPatch':
+          return TaskPatch.fromJson(value);
+        case 'TaskPriority':
+          return TaskPriority.fromJson(value);
         case 'Tracking':
           return Tracking.fromJson(value);
         case 'TrackingCheckpoint':

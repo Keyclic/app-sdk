@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.13.20"
+        "version": "2.14.6"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -6835,7 +6835,7 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "$ref": "#\/parameters\/OperationPatch"
+                        "$ref": "#\/parameters\/TaskPatch"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -6850,7 +6850,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/Operation"
+                            "$ref": "#\/definitions\/Task"
                         }
                     },
                     "400": {
@@ -12461,7 +12461,7 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "$ref": "#\/parameters\/ReportPatch"
+                        "$ref": "#\/parameters\/TaskPatch"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -12476,7 +12476,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/Report"
+                            "$ref": "#\/definitions\/Task"
                         }
                     },
                     "400": {
@@ -15320,26 +15320,6 @@
                         },
                         "service": {
                             "$ref": "#\/definitions\/InternalService"
-                        },
-                        "workflow": {
-                            "type": "object",
-                            "properties": {
-                                "metrics": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\/definitions\/Metric"
-                                    }
-                                },
-                                "state": {
-                                    "$ref": "#\/definitions\/WorkflowState"
-                                },
-                                "transitions": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#\/definitions\/WorkflowTransition"
-                                    }
-                                }
-                            }
                         }
                     }
                 },
@@ -19140,6 +19120,12 @@
                 },
                 "description": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "dueBy": {
+                    "format": "date-time",
                     "type": "string"
                 },
                 "id": {
@@ -19150,8 +19136,6 @@
                 },
                 "identificationNumber": {
                     "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
                 "name": {
@@ -19160,12 +19144,21 @@
                     "minLength": 1,
                     "type": "string"
                 },
+                "priority": {
+                    "$ref": "#\/definitions\/OperationPriority"
+                },
                 "scheduledAt": {
                     "format": "date-time",
                     "type": "string"
                 },
                 "signature": {
                     "$ref": "#\/definitions\/OperationSignature"
+                },
+                "tags": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "type": {
                     "format": "string",
@@ -19448,27 +19441,30 @@
                 }
             ]
         },
-        "OperationPatch": {
+        "OperationPriority": {
             "type": "object",
             "properties": {
-                "description": {
+                "color": {
                     "format": "string",
                     "type": "string"
                 },
-                "identificationNumber": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
+                "id": {
+                    "format": "uuid",
+                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
+                    "readOnly": true,
                     "type": "string"
                 },
                 "name": {
                     "format": "string",
                     "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
-                "scheduledAt": {
-                    "format": "date-time",
+                "position": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "type": {
+                    "format": "string",
                     "type": "string"
                 }
             }
@@ -21232,7 +21228,7 @@
                     "minLength": 1,
                     "type": "string"
                 },
-                "dueAt": {
+                "dueBy": {
                     "format": "date-time",
                     "type": "string"
                 },
@@ -21244,8 +21240,6 @@
                 },
                 "identificationNumber": {
                     "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
                 "phase": {
@@ -21256,6 +21250,10 @@
                 },
                 "reference": {
                     "format": "string",
+                    "type": "string"
+                },
+                "scheduledAt": {
+                    "format": "date-time",
                     "type": "string"
                 },
                 "tags": {
@@ -21483,41 +21481,6 @@
                     }
                 }
             ]
-        },
-        "ReportPatch": {
-            "type": "object",
-            "properties": {
-                "category": {
-                    "type": "string",
-                    "format": "string"
-                },
-                "description": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                },
-                "dueAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "identificationNumber": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                },
-                "priority": {
-                    "format": "string",
-                    "type": "string"
-                },
-                "tags": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            }
         },
         "ReportPriority": {
             "type": "object",
@@ -22618,6 +22581,131 @@
                 }
             }
         },
+        "Task": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "description": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "dueBy": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "identificationNumber": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "priority": {
+                    "$ref": "#\/definitions\/TaskPriority"
+                },
+                "scheduledAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "tags": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            }
+        },
+        "TaskPatch": {
+            "type": "object",
+            "properties": {
+                "category": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "description": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "dueBy": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "identificationNumber": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "priority": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "scheduledAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "tags": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            }
+        },
+        "TaskPriority": {
+            "type": "object",
+            "properties": {
+                "color": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "name": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "position": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "type": {
+                    "format": "string",
+                    "type": "string"
+                }
+            }
+        },
         "Tracking": {
             "type": "object",
             "properties": {
@@ -22814,10 +22902,8 @@
                 "event": {
                     "type": "string",
                     "enum": [
-                        "operationCreated",
-                        "operationStateChanged",
-                        "reportCreated",
-                        "reportStateChanged"
+                        "taskCreated",
+                        "taskStateChanged"
                     ]
                 },
                 "organization": {
@@ -23599,11 +23685,11 @@
             },
             "required": true
         },
-        "OperationPatch": {
-            "name": "OperationPatch",
+        "TaskPatch": {
+            "name": "TaskPatch",
             "in": "body",
             "schema": {
-                "$ref": "#\/definitions\/OperationPatch"
+                "$ref": "#\/definitions\/TaskPatch"
             },
             "required": true
         },
@@ -23980,14 +24066,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/PublicationData"
-            },
-            "required": true
-        },
-        "ReportPatch": {
-            "name": "ReportPatch",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/ReportPatch"
             },
             "required": true
         },

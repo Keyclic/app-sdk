@@ -26,7 +26,7 @@ class ReportEmbedded {
       place: Place.fromJson(json['place']),
       targetGroups:
           PlaceEmbeddedTargetGroups.listFromJson(json['targetGroups']),
-      workflow: AssignmentEmbeddedWorkflow.fromJson(json['workflow']),
+      workflow: OperationEmbeddedWorkflow.fromJson(json['workflow']),
     );
   }
 
@@ -44,7 +44,7 @@ class ReportEmbedded {
 
   List<PlaceEmbeddedTargetGroups> targetGroups;
 
-  AssignmentEmbeddedWorkflow workflow;
+  OperationEmbeddedWorkflow workflow;
 
   @override
   bool operator ==(dynamic other) {

@@ -1,18 +1,18 @@
 part of keyclic_sdk_api.api;
 
-class AssignmentEmbeddedWorkflow {
-  AssignmentEmbeddedWorkflow({
+class OperationEmbeddedWorkflow {
+  OperationEmbeddedWorkflow({
     this.metrics,
     this.state,
     this.transitions,
   });
 
-  factory AssignmentEmbeddedWorkflow.fromJson(Map<String, dynamic> json) {
+  factory OperationEmbeddedWorkflow.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
-    return AssignmentEmbeddedWorkflow(
+    return OperationEmbeddedWorkflow(
       metrics: Metric.listFromJson(json['metrics']),
       state: WorkflowState.fromJson(json['state']),
       transitions: WorkflowTransition.listFromJson(json['transitions']),
@@ -32,7 +32,7 @@ class AssignmentEmbeddedWorkflow {
       return true;
     }
 
-    return other is AssignmentEmbeddedWorkflow &&
+    return other is OperationEmbeddedWorkflow &&
         runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(metrics, other.metrics) &&
         state == other.state &&
@@ -61,20 +61,20 @@ class AssignmentEmbeddedWorkflow {
     return hashCode;
   }
 
-  static List<AssignmentEmbeddedWorkflow> listFromJson(List<dynamic> json) {
+  static List<OperationEmbeddedWorkflow> listFromJson(List<dynamic> json) {
     return json
-            ?.map((dynamic value) => AssignmentEmbeddedWorkflow.fromJson(value))
+            ?.map((dynamic value) => OperationEmbeddedWorkflow.fromJson(value))
             ?.toList() ??
-        <AssignmentEmbeddedWorkflow>[];
+        <OperationEmbeddedWorkflow>[];
   }
 
-  static Map<String, AssignmentEmbeddedWorkflow> mapFromJson(
+  static Map<String, OperationEmbeddedWorkflow> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, AssignmentEmbeddedWorkflow>(
+    return json?.map<String, OperationEmbeddedWorkflow>(
             (String key, dynamic value) {
-          return MapEntry(key, AssignmentEmbeddedWorkflow.fromJson(value));
+          return MapEntry(key, OperationEmbeddedWorkflow.fromJson(value));
         }) ??
-        <String, AssignmentEmbeddedWorkflow>{};
+        <String, OperationEmbeddedWorkflow>{};
   }
 
   Map<String, dynamic> toJson() {
@@ -87,6 +87,6 @@ class AssignmentEmbeddedWorkflow {
 
   @override
   String toString() {
-    return 'AssignmentEmbeddedWorkflow[metrics=$metrics, state=$state, transitions=$transitions, ]';
+    return 'OperationEmbeddedWorkflow[metrics=$metrics, state=$state, transitions=$transitions, ]';
   }
 }

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **createdBy** | [**Person**](Person.md) |  | [optional] [default to null]
 **operator_** | [**Person**](Person.md) |  | [optional] [default to null]
-**workflow** | [**AssignmentEmbeddedWorkflow**](AssignmentEmbeddedWorkflow.md) |  | [optional] [default to null]
+**workflow** | [**OperationEmbeddedWorkflow**](OperationEmbeddedWorkflow.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

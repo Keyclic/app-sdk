@@ -778,6 +778,9 @@
                         "$ref": "#\/parameters\/leaf"
                     },
                     {
+                        "$ref": "#\/parameters\/level"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -7700,6 +7703,9 @@
                         "$ref": "#\/parameters\/leaf"
                     },
                     {
+                        "$ref": "#\/parameters\/level"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -8156,6 +8162,12 @@
                         "$ref": "#\/parameters\/is_null"
                     },
                     {
+                        "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -8301,6 +8313,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -8565,6 +8580,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/has_documents"
+                    },
+                    {
+                        "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
                     },
                     {
                         "$ref": "#\/parameters\/managed_by"
@@ -9513,6 +9534,12 @@
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
+                        "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
+                    },
+                    {
                         "$ref": "#\/parameters\/managed_by"
                     },
                     {
@@ -10000,6 +10027,12 @@
                         "$ref": "#\/parameters\/is_null"
                     },
                     {
+                        "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -10434,6 +10467,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -12251,6 +12287,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/is_null"
+                    },
+                    {
+                        "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
                     },
                     {
                         "$ref": "#\/parameters\/order"
@@ -23316,6 +23358,12 @@
             "in": "query",
             "name": "leaf",
             "pattern": ".*",
+            "type": "string"
+        },
+        "level": {
+            "in": "query",
+            "name": "level",
+            "pattern": "[-+]?\\d+",
             "type": "string"
         },
         "query": {

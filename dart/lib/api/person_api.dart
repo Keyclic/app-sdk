@@ -221,6 +221,8 @@ class PersonApi {
     DateTime after,
     DateTime before,
     String isNull,
+    String leaf,
+    String level,
     String order,
     String organization,
     List<String> organizations__,
@@ -261,6 +263,9 @@ class PersonApi {
         ..._convertParametersForCollectionFormat("before", before),
       if (isNull != null)
         ..._convertParametersForCollectionFormat("is_null", isNull),
+      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
+      if (level != null)
+        ..._convertParametersForCollectionFormat("level", level),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)

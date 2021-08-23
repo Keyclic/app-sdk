@@ -23,6 +23,7 @@ class OrganizationApi {
     String geoPoint,
     String geoCoordinates,
     String leaf,
+    String level,
     String order,
     List<String> organizations__,
     String query,
@@ -63,6 +64,8 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat(
             "geo_coordinates", geoCoordinates),
       if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
+      if (level != null)
+        ..._convertParametersForCollectionFormat("level", level),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
@@ -411,6 +414,8 @@ class OrganizationApi {
     DateTime after,
     DateTime before,
     String isNull,
+    String leaf,
+    String level,
     String order,
     List<String> organizations__,
     String query,
@@ -450,6 +455,9 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat("before", before),
       if (isNull != null)
         ..._convertParametersForCollectionFormat("is_null", isNull),
+      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
+      if (level != null)
+        ..._convertParametersForCollectionFormat("level", level),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
@@ -644,6 +652,7 @@ class OrganizationApi {
     String geoPoint,
     String geoCoordinates,
     String leaf,
+    String level,
     String order,
     List<String> organizations__,
     String parent,
@@ -691,6 +700,8 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat(
             "geo_coordinates", geoCoordinates),
       if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
+      if (level != null)
+        ..._convertParametersForCollectionFormat("level", level),
       if (order != null)
         ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
@@ -868,6 +879,8 @@ class OrganizationApi {
     String delegatedTo,
     List<String> delegatedTos__,
     String hasDocuments,
+    String leaf,
+    String level,
     String managedBy,
     List<String> managedBies__,
     String operationStateAll,
@@ -940,6 +953,9 @@ class OrganizationApi {
             collectionFormat: "multi"),
       if (hasDocuments != null)
         ..._convertParametersForCollectionFormat("has_documents", hasDocuments),
+      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
+      if (level != null)
+        ..._convertParametersForCollectionFormat("level", level),
       if (managedBy != null)
         ..._convertParametersForCollectionFormat("managed_by", managedBy),
       if (managedBies__ != null)
@@ -1231,6 +1247,8 @@ class OrganizationApi {
     String delegatedTo,
     List<String> delegatedTos__,
     String hasDocuments,
+    String leaf,
+    String level,
     String managedBy,
     List<String> managedBies__,
     String operationStateAll,
@@ -1307,6 +1325,9 @@ class OrganizationApi {
             collectionFormat: "multi"),
       if (hasDocuments != null)
         ..._convertParametersForCollectionFormat("has_documents", hasDocuments),
+      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
+      if (level != null)
+        ..._convertParametersForCollectionFormat("level", level),
       if (managedBy != null)
         ..._convertParametersForCollectionFormat("managed_by", managedBy),
       if (managedBies__ != null)

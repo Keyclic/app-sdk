@@ -374,6 +374,7 @@ Class | Method | HTTP request | Description
  - [Duration](docs//Duration.md)
  - [Error](docs//Error.md)
  - [ErrorEmbedded](docs//ErrorEmbedded.md)
+ - [ExportData](docs//ExportData.md)
  - [ExternalService](docs//ExternalService.md)
  - [ExternalServiceCollection](docs//ExternalServiceCollection.md)
  - [ExternalServiceContactPoint](docs//ExternalServiceContactPoint.md)

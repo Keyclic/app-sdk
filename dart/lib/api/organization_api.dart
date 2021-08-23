@@ -1211,6 +1211,7 @@ class OrganizationApi {
   ///
   Future<void> cpostExportByOrganization(
     String xKeyclicApp,
+    ExportData exportData,
     String organization, {
     String acceptLanguage,
     DateTime xDateTime,
@@ -1254,6 +1255,10 @@ class OrganizationApi {
 
     if (xKeyclicApp == null) {
       throw ApiException(0, "Missing required param: xKeyclicApp");
+    }
+
+    if (exportData == null) {
+      throw ApiException(0, "Missing required param: exportData");
     }
 
     if (organization == null) {
@@ -1376,6 +1381,7 @@ class OrganizationApi {
       path: path,
       method: 'POST',
       queryParams: queryParams,
+      body: exportData,
       headerParams: headerParams,
       contentType: contentTypes[0],
       authNames: authNames,

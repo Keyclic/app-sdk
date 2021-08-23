@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchOperation**
-> Task patchOperation(xKeyclicApp, taskPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation patchOperation(xKeyclicApp, taskPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Operation resource.
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Task**](Task.md)
+[**Operation**](Operation.md)
 
 ### Authorization
 

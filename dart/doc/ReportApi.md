@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchReport**
-> Task patchReport(xKeyclicApp, taskPatch, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Report patchReport(xKeyclicApp, taskPatch, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Report resource.
 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Task**](Task.md)
+[**Report**](Report.md)
 
 ### Authorization
 

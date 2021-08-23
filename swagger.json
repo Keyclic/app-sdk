@@ -6850,7 +6850,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/Task"
+                            "$ref": "#\/definitions\/Operation"
                         }
                     },
                     "400": {
@@ -12476,7 +12476,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/Task"
+                            "$ref": "#\/definitions\/Report"
                         }
                     },
                     "400": {
@@ -22581,60 +22581,6 @@
                 }
             }
         },
-        "Task": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "format": "date-time",
-                    "readOnly": true,
-                    "type": "string"
-                },
-                "description": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                },
-                "dueBy": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "id": {
-                    "format": "uuid",
-                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
-                    "readOnly": true,
-                    "type": "string"
-                },
-                "identificationNumber": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
-                    "type": "string"
-                },
-                "priority": {
-                    "$ref": "#\/definitions\/TaskPriority"
-                },
-                "scheduledAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "tags": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "type": {
-                    "format": "string",
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "format": "date-time",
-                    "readOnly": true,
-                    "type": "string"
-                }
-            }
-        },
         "TaskPatch": {
             "type": "object",
             "properties": {
@@ -22654,13 +22600,13 @@
                 },
                 "identificationNumber": {
                     "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
                 "name": {
-                    "type": "string",
-                    "format": "string"
+                    "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
                 },
                 "priority": {
                     "format": "string",
@@ -22675,34 +22621,6 @@
                         "type": "string"
                     },
                     "type": "array"
-                }
-            }
-        },
-        "TaskPriority": {
-            "type": "object",
-            "properties": {
-                "color": {
-                    "format": "string",
-                    "type": "string"
-                },
-                "id": {
-                    "format": "uuid",
-                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
-                    "readOnly": true,
-                    "type": "string"
-                },
-                "name": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "type": "string"
-                },
-                "position": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "type": {
-                    "format": "string",
-                    "type": "string"
                 }
             }
         },

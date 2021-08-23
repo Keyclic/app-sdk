@@ -372,7 +372,7 @@ class OperationApi {
   /// Edit one Operation resource.
   ///
   ///
-  Future<Task> patchOperation(
+  Future<Operation> patchOperation(
     String xKeyclicApp,
     TaskPatch taskPatch,
     String operation, {
@@ -442,7 +442,7 @@ class OperationApi {
       return null;
     }
 
-    return apiClient.deserialize(response.body, 'Task') as Task;
+    return apiClient.deserialize(response.body, 'Operation') as Operation;
   }
 
   /// Create one Assign resource.

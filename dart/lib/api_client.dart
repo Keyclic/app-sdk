@@ -1053,12 +1053,8 @@ class ApiClient {
           return SuccessLogin.fromJson(value);
         case 'SuccessLoginCredentials':
           return SuccessLoginCredentials.fromJson(value);
-        case 'Task':
-          return Task.fromJson(value);
         case 'TaskPatch':
           return TaskPatch.fromJson(value);
-        case 'TaskPriority':
-          return TaskPriority.fromJson(value);
         case 'Tracking':
           return Tracking.fromJson(value);
         case 'TrackingCheckpoint':

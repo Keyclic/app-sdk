@@ -458,7 +458,7 @@ class ReportApi {
   /// Edit one Report resource.
   ///
   ///
-  Future<Task> patchReport(
+  Future<Report> patchReport(
     String xKeyclicApp,
     TaskPatch taskPatch,
     String report, {
@@ -528,7 +528,7 @@ class ReportApi {
       return null;
     }
 
-    return apiClient.deserialize(response.body, 'Task') as Task;
+    return apiClient.deserialize(response.body, 'Report') as Report;
   }
 
   /// Create one Document resource.

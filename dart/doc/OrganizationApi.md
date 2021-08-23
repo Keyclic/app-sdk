@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 # **cgetCategoriesByOrganization**
-> CategoryPagination cgetCategoriesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoPoint, geoCoordinates, leaf, order, organizations[], query, page, limit)
+> CategoryPagination cgetCategoriesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoPoint, geoCoordinates, leaf, level, order, organizations[], query, page, limit)
 
 Retrieve all Category resources.
 
@@ -55,6 +55,7 @@ var before = 2013-10-20T19:20:30+01:00; // DateTime |
 var geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 var geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 var leaf = leaf_example; // String | 
+var level = level_example; // String | 
 var order = order_example; // String | 
 var organizations[] = []; // List<String> | 
 var query = query_example; // String | 
@@ -62,7 +63,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetCategoriesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoPoint, geoCoordinates, leaf, order, organizations[], query, page, limit);
+    var result = api_instance.cgetCategoriesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoPoint, geoCoordinates, leaf, level, order, organizations[], query, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetCategoriesByOrganization: $e\n");
@@ -86,6 +87,7 @@ Name | Type | Description  | Notes
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
+ **level** | **String**|  | [optional] 
  **order** | **String**|  | [optional] [default to desc]
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **query** | **String**|  | [optional] 
@@ -317,7 +319,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOperationsByOrganization**
-> OperationPagination cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, isNull, order, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit)
+> OperationPagination cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, isNull, leaf, level, order, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit)
 
 Retrieve all Operation resources.
 
@@ -341,6 +343,8 @@ var assignedTos[] = []; // List<String> |
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var isNull = isNull_example; // String | 
+var leaf = leaf_example; // String | 
+var level = level_example; // String | 
 var order = order_example; // String | 
 var organizations[] = []; // List<String> | 
 var query = query_example; // String | 
@@ -352,7 +356,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, isNull, order, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit);
+    var result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, isNull, leaf, level, order, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetOperationsByOrganization: $e\n");
@@ -374,6 +378,8 @@ Name | Type | Description  | Notes
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **isNull** | **String**|  | [optional] 
+ **leaf** | **String**|  | [optional] 
+ **level** | **String**|  | [optional] 
  **order** | **String**|  | [optional] [default to desc]
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **query** | **String**|  | [optional] 
@@ -479,7 +485,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlacesByOrganization**
-> PlacePagination cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, order, organizations[], parent, parents[], query, page, limit)
+> PlacePagination cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, order, organizations[], parent, parents[], query, page, limit)
 
 Retrieve all Place resources.
 
@@ -507,6 +513,7 @@ var geoHash[] = []; // List<String> |
 var geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 var geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 var leaf = leaf_example; // String | 
+var level = level_example; // String | 
 var order = order_example; // String | 
 var organizations[] = []; // List<String> | 
 var parent = parent_example; // String | 
@@ -516,7 +523,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, order, organizations[], parent, parents[], query, page, limit);
+    var result = api_instance.cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, order, organizations[], parent, parents[], query, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetPlacesByOrganization: $e\n");
@@ -542,6 +549,7 @@ Name | Type | Description  | Notes
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
+ **level** | **String**|  | [optional] 
  **order** | **String**|  | [optional] [default to desc]
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **parent** | **String**|  | [optional] 
@@ -635,7 +643,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetReportsByOrganization**
-> ReportPagination cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit)
+> ReportPagination cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit)
 
 Retrieve all Report resources.
 
@@ -668,6 +676,8 @@ var deep = deep_example; // String |
 var delegatedTo = delegatedTo_example; // String | 
 var delegatedTos[] = []; // List<String> | 
 var hasDocuments = hasDocuments_example; // String | 
+var leaf = leaf_example; // String | 
+var level = level_example; // String | 
 var managedBy = managedBy_example; // String | 
 var managedBies[] = []; // List<String> | 
 var operationStateAll = operationStateAll_example; // String | 
@@ -689,7 +699,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit);
+    var result = api_instance.cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetReportsByOrganization: $e\n");
@@ -720,6 +730,8 @@ Name | Type | Description  | Notes
  **delegatedTo** | **String**|  | [optional] 
  **delegatedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **hasDocuments** | **String**|  | [optional] 
+ **leaf** | **String**|  | [optional] 
+ **level** | **String**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **operationStateAll** | **String**|  | [optional] 
@@ -888,7 +900,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cpostExportByOrganization**
-> cpostExportByOrganization(xKeyclicApp, exportData, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit)
+> cpostExportByOrganization(xKeyclicApp, exportData, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit)
 
 Retrieve all Export resources.
 
@@ -922,6 +934,8 @@ var deep = deep_example; // String |
 var delegatedTo = delegatedTo_example; // String | 
 var delegatedTos[] = []; // List<String> | 
 var hasDocuments = hasDocuments_example; // String | 
+var leaf = leaf_example; // String | 
+var level = level_example; // String | 
 var managedBy = managedBy_example; // String | 
 var managedBies[] = []; // List<String> | 
 var operationStateAll = operationStateAll_example; // String | 
@@ -943,7 +957,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    api_instance.cpostExportByOrganization(xKeyclicApp, exportData, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit);
+    api_instance.cpostExportByOrganization(xKeyclicApp, exportData, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, phase, phases[], place, places[], priority, priorities[], query, rating, state, states[], visibility[], page, limit);
 } catch (e) {
     print("Exception when calling OrganizationApi->cpostExportByOrganization: $e\n");
 }
@@ -974,6 +988,8 @@ Name | Type | Description  | Notes
  **delegatedTo** | **String**|  | [optional] 
  **delegatedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **hasDocuments** | **String**|  | [optional] 
+ **leaf** | **String**|  | [optional] 
+ **level** | **String**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **operationStateAll** | **String**|  | [optional] 

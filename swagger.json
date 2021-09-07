@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.14.7"
+        "version": "2.14.8-dev.66f2d1573f"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -20338,6 +20338,9 @@
                         "organization": {
                             "$ref": "#\/definitions\/PlaceLinksOrganization"
                         },
+                        "plans": {
+                            "$ref": "#\/definitions\/PlaceLinksPlans"
+                        },
                         "self": {
                             "$ref": "#\/definitions\/PlaceLinksSelf"
                         }
@@ -20495,6 +20498,32 @@
                     "type": "object",
                     "properties": {
                         "organization": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "PlaceLinksPlans": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the plans associated to the given place.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/PlaceLinksPlansIriTemplate"
+                }
+            }
+        },
+        "PlaceLinksPlansIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "place": {
                             "type": "string"
                         }
                     }

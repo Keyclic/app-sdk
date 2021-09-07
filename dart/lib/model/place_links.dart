@@ -5,6 +5,7 @@ class PlaceLinks {
     this.children,
     this.geo,
     this.organization,
+    this.plans,
     this.self,
   });
 
@@ -17,6 +18,7 @@ class PlaceLinks {
       children: PlaceLinksChildren.fromJson(json['children']),
       geo: PlaceLinksGeo.fromJson(json['geo']),
       organization: PlaceLinksOrganization.fromJson(json['organization']),
+      plans: PlaceLinksPlans.fromJson(json['plans']),
       self: PlaceLinksSelf.fromJson(json['self']),
     );
   }
@@ -26,6 +28,8 @@ class PlaceLinks {
   PlaceLinksGeo geo;
 
   PlaceLinksOrganization organization;
+
+  PlaceLinksPlans plans;
 
   PlaceLinksSelf self;
 
@@ -41,6 +45,7 @@ class PlaceLinks {
         children == other.children &&
         geo == other.geo &&
         organization == other.organization &&
+        plans == other.plans &&
         self == other.self;
   }
 
@@ -52,6 +57,7 @@ class PlaceLinks {
     hashCode ^= children?.hashCode ?? 0;
     hashCode ^= geo?.hashCode ?? 0;
     hashCode ^= organization?.hashCode ?? 0;
+    hashCode ^= plans?.hashCode ?? 0;
     hashCode ^= self?.hashCode ?? 0;
 
     return hashCode;
@@ -74,12 +80,13 @@ class PlaceLinks {
       if (children != null) 'children': children.toJson(),
       if (geo != null) 'geo': geo.toJson(),
       if (organization != null) 'organization': organization.toJson(),
+      if (plans != null) 'plans': plans.toJson(),
       if (self != null) 'self': self.toJson(),
     };
   }
 
   @override
   String toString() {
-    return 'PlaceLinks[children=$children, geo=$geo, organization=$organization, self=$self, ]';
+    return 'PlaceLinks[children=$children, geo=$geo, organization=$organization, plans=$plans, self=$self, ]';
   }
 }

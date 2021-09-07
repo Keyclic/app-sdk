@@ -400,6 +400,8 @@ part 'model/place_links_geo.dart';
 part 'model/place_links_geo_iri_template.dart';
 part 'model/place_links_organization.dart';
 part 'model/place_links_organization_iri_template.dart';
+part 'model/place_links_plans.dart';
+part 'model/place_links_plans_iri_template.dart';
 part 'model/place_links_self.dart';
 part 'model/place_links_self_iri_template.dart';
 part 'model/place_patch.dart';

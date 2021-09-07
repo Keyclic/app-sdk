@@ -809,6 +809,10 @@ class ApiClient {
           return PlaceLinksOrganization.fromJson(value);
         case 'PlaceLinksOrganizationIriTemplate':
           return PlaceLinksOrganizationIriTemplate.fromJson(value);
+        case 'PlaceLinksPlans':
+          return PlaceLinksPlans.fromJson(value);
+        case 'PlaceLinksPlansIriTemplate':
+          return PlaceLinksPlansIriTemplate.fromJson(value);
         case 'PlaceLinksSelf':
           return PlaceLinksSelf.fromJson(value);
         case 'PlaceLinksSelfIriTemplate':

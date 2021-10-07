@@ -1,20 +1,18 @@
 part of keyclic_sdk_api.api;
 
-class Document {
-  Document({
-    this.embedded,
-    this.links,
+class Template {
+  Template({
     this.body,
     this.createdAt,
-    this.file,
+    this.footer,
+    this.header,
     this.id,
-    this.permission,
-    this.text,
+    this.name,
     this.type,
     this.updatedAt,
   });
 
-  factory Document.fromJson(Map<String, dynamic> json) {
+  factory Template.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
@@ -31,35 +29,29 @@ class Document {
       updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
     }
 
-    return Document(
-      embedded: DocumentEmbedded.fromJson(json['_embedded']),
-      links: DocumentLinks.fromJson(json['_links']),
+    return Template(
       body: List<Map<String, dynamic>>.from(json['body']),
       createdAt: createdAt,
-      file: DocumentFile.fromJson(json['file']),
+      footer: List<Map<String, dynamic>>.from(json['footer']),
+      header: List<Map<String, dynamic>>.from(json['header']),
       id: json['id'],
-      permission: DocumentPermission.fromJson(json['permission']),
-      text: json['text'],
+      name: json['name'],
       type: json['type'],
       updatedAt: updatedAt,
     );
   }
 
-  DocumentEmbedded embedded;
-
-  DocumentLinks links;
-
   List<Map<String, dynamic>> body;
 
   DateTime createdAt;
 
-  DocumentFile file;
+  List<Map<String, dynamic>> footer;
+
+  List<Map<String, dynamic>> header;
 
   String id;
 
-  DocumentPermission permission;
-
-  String text;
+  String name;
 
   String type;
 
@@ -72,16 +64,14 @@ class Document {
       return true;
     }
 
-    return other is Document &&
+    return other is Template &&
         runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
         DeepCollectionEquality.unordered().equals(body, other.body) &&
         createdAt == other.createdAt &&
-        file == other.file &&
+        DeepCollectionEquality.unordered().equals(footer, other.footer) &&
+        DeepCollectionEquality.unordered().equals(header, other.header) &&
         id == other.id &&
-        permission == other.permission &&
-        text == other.text &&
+        name == other.name &&
         type == other.type &&
         updatedAt == other.updatedAt;
   }
@@ -96,42 +86,46 @@ class Document {
           .map((Map<String, dynamic> element) => element.hashCode)
           .reduce((int value, int cursor) => value ^ cursor);
     }
+    if (footer is List && footer.isNotEmpty) {
+      hashCode ^= footer
+          .map((Map<String, dynamic> element) => element.hashCode)
+          .reduce((int value, int cursor) => value ^ cursor);
+    }
+    if (header is List && header.isNotEmpty) {
+      hashCode ^= header
+          .map((Map<String, dynamic> element) => element.hashCode)
+          .reduce((int value, int cursor) => value ^ cursor);
+    }
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
     hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= file?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= permission?.hashCode ?? 0;
-    hashCode ^= text?.hashCode ?? 0;
+    hashCode ^= name?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
     hashCode ^= updatedAt?.hashCode ?? 0;
 
     return hashCode;
   }
 
-  static List<Document> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Document.fromJson(value))?.toList() ??
-        <Document>[];
+  static List<Template> listFromJson(List<dynamic> json) {
+    return json?.map((dynamic value) => Template.fromJson(value))?.toList() ??
+        <Template>[];
   }
 
-  static Map<String, Document> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Document>((String key, dynamic value) {
-          return MapEntry(key, Document.fromJson(value));
+  static Map<String, Template> mapFromJson(Map<String, dynamic> json) {
+    return json?.map<String, Template>((String key, dynamic value) {
+          return MapEntry(key, Template.fromJson(value));
         }) ??
-        <String, Document>{};
+        <String, Template>{};
   }
 
   Map<String, dynamic> toJson() {
     return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
       if (body != null) 'body': body,
       if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (file != null) 'file': file.toJson(),
+      if (footer != null) 'footer': footer,
+      if (header != null) 'header': header,
       if (id != null) 'id': id,
-      if (permission != null) 'permission': permission.toJson(),
-      if (text != null) 'text': text,
+      if (name != null) 'name': name,
       if (type != null) 'type': type,
       if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
@@ -139,6 +133,6 @@ class Document {
 
   @override
   String toString() {
-    return 'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, text=$text, type=$type, updatedAt=$updatedAt, ]';
+    return 'Template[body=$body, createdAt=$createdAt, footer=$footer, header=$header, id=$id, name=$name, type=$type, updatedAt=$updatedAt, ]';
   }
 }

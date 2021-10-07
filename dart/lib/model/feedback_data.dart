@@ -67,7 +67,7 @@ class FeedbackData {
         category == other.category &&
         description == other.description &&
         geo == other.geo &&
-        DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
+        metadata == other.metadata &&
         place == other.place &&
         visibility == other.visibility;
   }
@@ -77,20 +77,12 @@ class FeedbackData {
   int get hashCode {
     int hashCode = 0;
 
-    if (metadata is Map && metadata.isNotEmpty) {
-      hashCode ^= metadata.keys
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-      hashCode ^= metadata.values
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
     hashCode ^= batch?.hashCode ?? 0;
     hashCode ^= businessActivity?.hashCode ?? 0;
     hashCode ^= category?.hashCode ?? 0;
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= geo?.hashCode ?? 0;
+    hashCode ^= metadata?.hashCode ?? 0;
     hashCode ^= place?.hashCode ?? 0;
     hashCode ^= visibility?.hashCode ?? 0;
 

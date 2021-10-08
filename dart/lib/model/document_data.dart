@@ -3,9 +3,10 @@ part of keyclic_sdk_api.api;
 class DocumentData {
   DocumentData({
     this.container,
-    this.type,
     this.file,
     this.permission,
+    this.template,
+    this.type,
   });
 
   factory DocumentData.fromJson(Map<String, dynamic> json) {
@@ -15,19 +16,22 @@ class DocumentData {
 
     return DocumentData(
       container: json['container'],
-      type: json['type'],
       file: DocumentDataFile.fromJson(json['file']),
       permission: DocumentDataPermission.fromJson(json['permission']),
+      template: json['template'],
+      type: json['type'],
     );
   }
 
   String container;
 
-  String type;
-
   DocumentDataFile file;
 
   DocumentDataPermission permission;
+
+  String template;
+
+  String type;
 
   @override
   bool operator ==(dynamic other) {
@@ -39,9 +43,10 @@ class DocumentData {
     return other is DocumentData &&
         runtimeType == other.runtimeType &&
         container == other.container &&
-        type == other.type &&
         file == other.file &&
-        permission == other.permission;
+        permission == other.permission &&
+        template == other.template &&
+        type == other.type;
   }
 
   /// By default hashCode return reference
@@ -50,9 +55,10 @@ class DocumentData {
     int hashCode = 0;
 
     hashCode ^= container?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
     hashCode ^= file?.hashCode ?? 0;
     hashCode ^= permission?.hashCode ?? 0;
+    hashCode ^= template?.hashCode ?? 0;
+    hashCode ^= type?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -74,14 +80,15 @@ class DocumentData {
   Map<String, dynamic> toJson() {
     return {
       if (container != null) 'container': container,
-      if (type != null) 'type': type,
       if (file != null) 'file': file.toJson(),
       if (permission != null) 'permission': permission.toJson(),
+      if (template != null) 'template': template,
+      if (type != null) 'type': type,
     };
   }
 
   @override
   String toString() {
-    return 'DocumentData[container=$container, type=$type, file=$file, permission=$permission, ]';
+    return 'DocumentData[container=$container, file=$file, permission=$permission, template=$template, type=$type, ]';
   }
 }

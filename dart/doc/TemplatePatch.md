@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.DocumentPatch
+# keyclic_sdk_api.model.TemplatePatch
 
 ## Load the model package
 ```dart
@@ -9,9 +9,10 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **body** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
-**file** | [**DocumentPatchFile**](DocumentPatchFile.md) |  | [optional] [default to null]
-**permission** | [**DocumentPatchPermission**](DocumentPatchPermission.md) |  | [optional] [default to null]
-**text** | **String** |  | [optional] [default to null]
+**footer** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**header** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**name** | **String** |  | [optional] [default to null]
+**type** | **String** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

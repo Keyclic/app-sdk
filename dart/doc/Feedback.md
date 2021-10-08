@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] [default to null]
 **geoCoordinates** | [**FeedbackGeoCoordinates**](FeedbackGeoCoordinates.md) |  | [optional] [default to null]
 **id** | **String** |  | [optional] [default to null]
-**metadata** | **Map&lt;String, String&gt;** |  | [optional] [default to {}]
+**metadata** | [**Object**](Object.md) |  | [optional] [default to null]
 **public** | **bool** |  | [optional] [default to null]
 **state** | **List&lt;String&gt;** |  | [default to []]
 **type** | **String** |  | [optional] [default to null]

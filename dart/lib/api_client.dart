@@ -755,6 +755,8 @@ class ApiClient {
           return PaginationLink.fromJson(value);
         case 'PaginationLinks':
           return PaginationLinks.fromJson(value);
+        case 'ParseData':
+          return ParseData.fromJson(value);
         case 'PasswordChangeData':
           return PasswordChangeData.fromJson(value);
         case 'Permission':
@@ -1061,6 +1063,14 @@ class ApiClient {
           return SuccessLoginCredentials.fromJson(value);
         case 'TaskPatch':
           return TaskPatch.fromJson(value);
+        case 'Template':
+          return Template.fromJson(value);
+        case 'TemplateCollection':
+          return TemplateCollection.fromJson(value);
+        case 'TemplateData':
+          return TemplateData.fromJson(value);
+        case 'TemplatePatch':
+          return TemplatePatch.fromJson(value);
         case 'Tracking':
           return Tracking.fromJson(value);
         case 'TrackingCheckpoint':
@@ -1153,6 +1163,8 @@ class ApiClient {
           return SectionPagination.fromJson(value);
         case 'ServicePagination':
           return ServicePagination.fromJson(value);
+        case 'TemplatePagination':
+          return TemplatePagination.fromJson(value);
         case 'WebhookPagination':
           return WebhookPagination.fromJson(value);
         default:

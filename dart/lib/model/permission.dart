@@ -31,6 +31,10 @@ class Permission {
         value = data;
         break;
 
+      case "DOCUMENT:ALL":
+        value = data;
+        break;
+
       case "EXPORT:ALL":
         value = data;
         break;
@@ -101,6 +105,8 @@ class Permission {
   static Permission aNALYTICSALL_ = Permission._internal("ANALYTICS:ALL");
 
   static Permission cATEGORYALL_ = Permission._internal("CATEGORY:ALL");
+
+  static Permission dOCUMENTALL_ = Permission._internal("DOCUMENT:ALL");
 
   static Permission eXPORTALL_ = Permission._internal("EXPORT:ALL");
 

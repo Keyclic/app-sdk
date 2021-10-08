@@ -11,7 +11,9 @@ class ParseData {
     }
 
     return ParseData(
-      delta: List<Map<String, dynamic>>.from(json['delta']),
+      delta: json['delta'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['delta'])
+          : [],
     );
   }
 

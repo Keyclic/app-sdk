@@ -30,10 +30,16 @@ class Template {
     }
 
     return Template(
-      body: List<Map<String, dynamic>>.from(json['body']),
+      body: json['body'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['body'])
+          : [],
       createdAt: createdAt,
-      footer: List<Map<String, dynamic>>.from(json['footer']),
-      header: List<Map<String, dynamic>>.from(json['header']),
+      footer: json['footer'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['footer'])
+          : [],
+      header: json['header'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['header'])
+          : [],
       id: json['id'],
       name: json['name'],
       type: json['type'],

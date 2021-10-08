@@ -14,7 +14,9 @@ class DocumentPatch {
     }
 
     return DocumentPatch(
-      body: List<Map<String, dynamic>>.from(json['body']),
+      body: json['body'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['body'])
+          : [],
       file: DocumentPatchFile.fromJson(json['file']),
       permission: DocumentPatchPermission.fromJson(json['permission']),
       text: json['text'],

@@ -15,9 +15,15 @@ class TemplatePatch {
     }
 
     return TemplatePatch(
-      body: List<Map<String, dynamic>>.from(json['body']),
-      footer: List<Map<String, dynamic>>.from(json['footer']),
-      header: List<Map<String, dynamic>>.from(json['header']),
+      body: json['body'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['body'])
+          : [],
+      footer: json['footer'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['footer'])
+          : [],
+      header: json['header'] is Iterable
+          ? List<Map<String, dynamic>>.from(json['header'])
+          : [],
       name: json['name'],
       type: json['type'],
     );

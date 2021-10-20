@@ -755,8 +755,6 @@ class ApiClient {
           return PaginationLink.fromJson(value);
         case 'PaginationLinks':
           return PaginationLinks.fromJson(value);
-        case 'ParseData':
-          return ParseData.fromJson(value);
         case 'PasswordChangeData':
           return PasswordChangeData.fromJson(value);
         case 'Permission':

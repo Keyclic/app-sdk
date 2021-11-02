@@ -71,6 +71,10 @@ class Permission {
         value = data;
         break;
 
+      case "REPORTING:ALL":
+        value = data;
+        break;
+
       case "SERVICE:ALL":
         value = data;
         break;
@@ -127,6 +131,8 @@ class Permission {
   static Permission pUBLICATIONALL_ = Permission._internal("PUBLICATION:ALL");
 
   static Permission rEPORTALL_ = Permission._internal("REPORT:ALL");
+
+  static Permission rEPORTINGALL_ = Permission._internal("REPORTING:ALL");
 
   static Permission sERVICEALL_ = Permission._internal("SERVICE:ALL");
 

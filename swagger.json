@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.15.4"
+        "version": "2.15.4-dev.72911c4255"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -19640,8 +19640,6 @@
                 },
                 "description": {
                     "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
                 "dueBy": {
@@ -20489,6 +20487,7 @@
                 "PLACE:ALL",
                 "PUBLICATION:ALL",
                 "REPORT:ALL",
+                "REPORTING:ALL",
                 "SERVICE:ALL",
                 "WEBHOOK:ALL"
             ]
@@ -20730,12 +20729,6 @@
                 "_embedded": {
                     "type": "object",
                     "properties": {
-                        "children": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#\/definitions\/Place"
-                            }
-                        },
                         "documentTypes": {
                             "type": "array",
                             "items": {
@@ -21774,8 +21767,6 @@
                 },
                 "description": {
                     "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
                 "dueBy": {
@@ -23140,8 +23131,6 @@
                 },
                 "description": {
                     "format": "string",
-                    "maxLength": 255,
-                    "minLength": 1,
                     "type": "string"
                 },
                 "dueBy": {

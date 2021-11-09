@@ -35,26 +35,22 @@ docker run \
     --output /local/dart \
     --template-dir /local/dart-templates
 
-sleep 10
+sleep 3
 
 # Prepare and build package for dart
 cd "${CURRENT_DIR}"/dart || { echo -e "Cannot find dart directory"; exit 1; }
 
-# remove bracket in function parameter name
-sed -i -r 's/([a-zA-Z]+)\[([a-zA-Z]*)\]/\1_\2_/g' lib/api/*
-# replace array query parameter name with bracket instead of underscore
-sed -i -r 's/"([a-zA-Z0-9_]+)_([a-zA-Z0-9]*)_"/"\1\[\2\]"/g' lib/api/*
-sed -i -r 's/"([a-zA-Z0-9]+)__"/"\1\[]"/g' lib/api/*
+# fix list of object
+sed -i 's/Object.listFromJson(\(.*\))/\1 is Iterable ? List<Map<String, dynamic>>.from(\1) : []/g' lib/model/*.dart
+sed -i 's/List<Object>/List<Map<String, dynamic>>/g' lib/model/*.dart
 
-# fix coordinates
-sed -i 's/List<List<num>> coordinates/List<dynamic> coordinates/g' lib/model/*
-# replace coordinates type when mapping
-sed -i 's/coordinates\.map((List<num> element)/coordinates\.map((dynamic element)/' lib/model/feature_geometry.dart
-# remove List.listFromJson
-sed -i 's/List.listFromJson//g' lib/model/*
+# fix List.listFromJson
+sed -i 's/List.listFromJson(\(.*\))/List.from(\1).map<List<List<num>>>((ring) {return List.from(ring).map<List<num>>((point) {return List<num>.from(point, growable: false);}).toList(growable: false);}).toList(growable: false)/g' lib/model/feature_geometry.dart
 
 # change some files to match requirements of pubspec.yaml specifications
 cp ../LICENSE .
+
+rm .travis.yml
 
 pub get
 dartfmt --fix --overwrite lib

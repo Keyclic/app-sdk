@@ -17841,7 +17841,10 @@
                             "items": {
                                 "type": "array",
                                 "items": {
-                                    "type": "number"
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    }
                                 }
                             }
                         }

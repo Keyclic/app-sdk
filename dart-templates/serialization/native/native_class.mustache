@@ -4,49 +4,45 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
 
   /// Returns a new [{{{classname}}}] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory {{{classname}}}.fromJson(Map<String, dynamic> json) => json == null
-    ? null
-    : {{{classname}}}(
+  factory {{{classname}}}.fromJson(Map<String, dynamic> json) {
+    if (json == null) {
+      return null;
+    }
+
+    {{#vars}}
+    {{#isDateTime}}
+        {{{datatype}}} {{{name}}} = json['{{{baseName}}}'] == null ? null : DateTime.parse(json[r'{{{baseName}}}']);
+        if ({{{name}}} is DateTime && {{{name}}}.isUtc == false) {
+          {{=<< >>=}}
+            <<name>> = DateTime.parse('${json[r'<<baseName>>']}Z');
+          <<={{ }}=>>
+        }
+
+      {{/isDateTime}}
+    {{/vars}}
+
+  return {{{classname}}}(
   {{#vars}}
   {{#isDateTime}}
-        {{{name}}}: json[r'{{{baseName}}}'] == null
-          ? null
-    {{#pattern}}
-          : _dateEpochMarker == '{{{pattern}}}'
-            ? DateTime.fromMillisecondsSinceEpoch(json[r'{{{baseName}}}'] as int, isUtc: true)
-            : DateTime.parse(json[r'{{{baseName}}}']),
-    {{/pattern}}
-    {{^pattern}}
-          : DateTime.parse(json[r'{{{baseName}}}']),
-    {{/pattern}}
+        {{{name}}}: {{{name}}},
   {{/isDateTime}}
   {{#isDate}}
         {{{name}}}: json[r'{{{baseName}}}'] == null
           ? null
-    {{#pattern}}
-          : _dateEpochMarker == '{{{pattern}}}'
-            ? DateTime.fromMillisecondsSinceEpoch(json[r'{{{baseName}}}'] as int, isUtc: true)
-            : DateTime.parse(json[r'{{{baseName}}}']),
-    {{/pattern}}
-    {{^pattern}}
           : DateTime.parse(json[r'{{{baseName}}}']),
-    {{/pattern}}
   {{/isDate}}
   {{^isDateTime}}
   {{^isDate}}
     {{#complexType}}
       {{#isArray}}
         {{#items.isArray}}
-        {{{name}}}: json[r'{{{baseName}}}'] == null
-          ? null
-          : (json[r'{{{baseName}}}'] as List).map(
-      {{#items.complexType}}
-              {{items.complexType}}.listFromJson(json[r'{{{baseName}}}'])
-      {{/items.complexType}}
-      {{^items.complexType}}
-              (e) => e == null ? null : (e as List).cast<{{items.items.dataType}}>()
-      {{/items.complexType}}
-            ).toList(growable: false),
+        {{{name}}}:
+            {{#items.complexType}}
+                {{items.complexType}}.listFromJson(json[r'{{{baseName}}}'] ?? []),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                List.from(json[r'{{{baseName}}}'] ?? []).map((e) => List<{{items.items.dataType}}>.from(e ?? [])).toList(growable: false),
+            {{/items.complexType}}
         {{/items.isArray}}
         {{^items.isArray}}
         {{{name}}}: {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
@@ -55,24 +51,22 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
       {{^isArray}}
         {{#isMap}}
           {{#items.isArray}}
-        {{{name}}}: json[r'{{{baseName}}}'] == null
-          ? null
-              {{#items.complexType}}
-          : {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
-              {{/items.complexType}}
-              {{^items.complexType}}
-          : (json[r'{{{baseName}}}'] as Map).cast<String, List>(),
-              {{/items.complexType}}
+        {{{name}}}: 
+            {{#items.complexType}}
+                {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}'] ?? {}),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                Map<String, List>.from(json[r'{{{baseName}}}'] ?? {}),
+            {{/items.complexType}}
           {{/items.isArray}}
           {{^items.isArray}}
               {{#items.isMap}}
-        {{{name}}}: json[r'{{{baseName}}}'] == null
-          ? null
+        {{{name}}}:
             {{#items.complexType}}
-          : {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
+                {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}'] ?? {}),
             {{/items.complexType}}
             {{^items.complexType}}
-          : (json[r'{{{baseName}}}'] as Map).cast<String, Map>(),
+                Map<String, Map>.from(json[r'{{{baseName}}}'] ?? {}),
             {{/items.complexType}}
           {{/items.isMap}}
           {{^items.isMap}}
@@ -96,16 +90,14 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
         {{{name}}}: {{{items.datatypeWithEnum}}}.listFromJson(json[r'{{{baseName}}}']),
         {{/isEnum}}
         {{^isEnum}}
-        {{{name}}}: json[r'{{{baseName}}}'] == null
-          ? null
-          : (json[r'{{{baseName}}}'] as {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}).cast<{{{items.datatype}}}>(),
+        {{{name}}}: {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{{items.datatype}}}>.from(json[r'{{{baseName}}}'] ?? []),
         {{/isEnum}}
       {{/isArray}}
       {{^isArray}}
         {{#isMap}}
         {{{name}}}: json[r'{{{baseName}}}'] == null ?
           null :
-          (json[r'{{{baseName}}}'] as Map).cast<String, {{{items.datatype}}}>(),
+          Map<String, {{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
         {{/isMap}}
         {{^isMap}}
           {{#isNumber}}
@@ -114,12 +106,19 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
           json[r'{{{baseName}}}'].toDouble(),
           {{/isNumber}}
           {{^isNumber}}
-    {{^isEnum}}
-        {{{name}}}: json[r'{{{baseName}}}'],
-    {{/isEnum}}
-    {{#isEnum}}
-        {{{name}}}: {{{enumName}}}.fromJson(json[r'{{{baseName}}}']),
-    {{/isEnum}}
+            {{#isEnum}}
+              {{{name}}}: {{{enumName}}}.fromJson(json[r'{{{baseName}}}']),
+            {{/isEnum}}
+            {{^isEnum}}
+              {{#isFreeFormObject}}
+                {{{name}}}: json[r'{{{baseName}}}'] == null ?
+                null :
+                Map<String, dynamic>.from(json[r'{{{baseName}}}']),
+              {{/isFreeFormObject}}
+              {{^isFreeFormObject}}
+                {{{name}}}: json[r'{{{baseName}}}'],
+              {{/isFreeFormObject}}
+            {{/isEnum}}
           {{/isNumber}}
         {{/isMap}}
       {{/isArray}}
@@ -128,6 +127,7 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
   {{/isDateTime}}
   {{/vars}}
     );
+  }
 
   {{#vars}}
   {{#description}}
@@ -141,14 +141,31 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
   // maximum: {{{maximum}}}
     {{/maximum}}
   {{/isEnum}}
-  {{{datatypeWithEnum}}} {{{name}}};
+  {{#isFreeFormObject}}
+    Map<String, dynamic> {{{name}}};
+  {{/isFreeFormObject}}
+  {{^isFreeFormObject}}
+    {{{datatypeWithEnum}}} {{{name}}};
+  {{/isFreeFormObject}}
 
   {{/vars}}
   @override
-  bool operator ==(Object other) => identical(this, other) || other is {{{classname}}} &&
-  {{#vars}}
-     other.{{{name}}} == {{{name}}}{{^-last}} &&{{/-last}}{{#-last}};{{/-last}}
-  {{/vars}}
+  bool operator ==(Object other) {
+    // Same reference
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is {{{classname}}} {{#vars}}
+        {{#isContainer}}
+          && DeepCollectionEquality.unordered().equals({{name}}, other.{{name}})
+        {{/isContainer}}
+        {{^isContainer}}
+          && other.{{{name}}} == {{{name}}}
+        {{/isContainer}}
+  {{/vars}};
+  }
+  
 
   @override
   int get hashCode =>
@@ -156,69 +173,67 @@ class {{classname}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-las
     ({{{name}}} == null ? 0 : {{{name}}}.hashCode){{^-last}} +{{/-last}}{{#-last}};{{/-last}}
   {{/vars}}
 
+  static List<{{{classname}}}> listFromJson(List<dynamic> json) {
+    return <{{{classname}}}>[
+      if (json is List)
+        for (dynamic value in json) {{{classname}}}.fromJson(value),
+    ];
+  }
+
+  static Map<String, {{{classname}}}> mapFromJson(Map<String, dynamic> json) {
+    return <String, {{{classname}}}>{
+      if (json is Map)
+        for (final entry in json.entries) entry.key: {{{classname}}}.fromJson(entry.value),
+    };
+  }
+
+  // maps a json object with a list of {{{classname}}}-objects as value to a dart map
+  static Map<String, List<{{{classname}}}>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<{{{classname}}}>>{
+      if (json is Map)
+       for (final entry in json.entries) entry.key: {{{classname}}}.listFromJson(entry.value),
+    };
+  }
+
   @override
   String toString() => '{{{classname}}}[{{#vars}}{{{name}}}=${{{name}}}{{^-last}}, {{/-last}}{{/vars}}]';
 
   Map<String, dynamic> toJson() {
-    final json = <String, dynamic>{};
+    return <String, dynamic>{
   {{#vars}}
     {{^required}}
-    if ({{{name}}} != null) {
+    if ({{{name}}} != null)
     {{/required}}
     {{#isDateTime}}
       {{#pattern}}
-      json[r'{{{baseName}}}'] = {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}_dateEpochMarker == '{{{pattern}}}'
+      r'{{{baseName}}}': {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}_dateEpochMarker == '{{{pattern}}}'
         ? {{{name}}}.millisecondsSinceEpoch
-        : {{{name}}}.toUtc().toIso8601String();
+        : {{{name}}}.toUtc().toIso8601String(),
       {{/pattern}}
       {{^pattern}}
-      json[r'{{{baseName}}}'] = {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}{{{name}}}.toUtc().toIso8601String();
+      r'{{{baseName}}}': {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}{{{name}}}.toUtc().toIso8601String(),
       {{/pattern}}
     {{/isDateTime}}
     {{#isDate}}
       {{#pattern}}
-      json[r'{{{baseName}}}'] = {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}_dateEpochMarker == '{{{pattern}}}'
+      r'{{{baseName}}}': {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}_dateEpochMarker == '{{{pattern}}}'
         ? {{{name}}}.millisecondsSinceEpoch
-        : _dateFormatter.format({{{name}}}.toUtc());
+        : _dateFormatter.format({{{name}}}.toUtc()),
       {{/pattern}}
       {{^pattern}}
-      json[r'{{{baseName}}}'] = {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}_dateFormatter.format({{{name}}}.toUtc());
+      r'{{{baseName}}}': {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}_dateFormatter.format({{{name}}}.toUtc()),
       {{/pattern}}
     {{/isDate}}
     {{^isDateTime}}
       {{^isDate}}
-      json[r'{{{baseName}}}'] = {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}{{{name}}};
+      r'{{{baseName}}}': {{#required}}{{#isNullable}}{{{name}}} == null ? null : {{/isNullable}}{{/required}}{{{name}}},
       {{/isDate}}
     {{/isDateTime}}
     {{^required}}
-    }
+
     {{/required}}
   {{/vars}}
-    return json;
-  }
-
-  static List<{{{classname}}}> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <{{{classname}}}>[]
-      : json.map((dynamic value) => {{{classname}}}.fromJson(value)).toList(growable: true == growable);
-
-  static Map<String, {{{classname}}}> mapFromJson(Map<String, dynamic> json) {
-    final map = <String, {{{classname}}}>{};
-    if (json?.isNotEmpty == true) {
-      json.forEach((key, value) => map[key] = {{{classname}}}.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of {{{classname}}}-objects as value to a dart map
-  static Map<String, List<{{{classname}}}>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<{{{classname}}}>>{};
-    if (json?.isNotEmpty == true) {
-      json.forEach((key, value) {
-        map[key] = {{{classname}}}.listFromJson(value, emptyIsNull: emptyIsNull, growable: growable,);
-      });
-    }
-    return map;
+    };
   }
 }
 {{#vars}}

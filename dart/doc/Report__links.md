@@ -9,6 +9,7 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **category** | [**ReportLinksCategory**](ReportLinksCategory.md) |  | [optional] [default to null]
+**children** | [**ReportLinksChildren**](ReportLinksChildren.md) |  | [optional] [default to null]
 **feedback** | [**ReportLinksFeedback**](ReportLinksFeedback.md) |  | [optional] [default to null]
 **operations** | [**ReportLinksOperations**](ReportLinksOperations.md) |  | [optional] [default to null]
 **organization** | [**ReportLinksOrganization**](ReportLinksOrganization.md) |  | [optional] [default to null]

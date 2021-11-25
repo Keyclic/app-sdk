@@ -405,10 +405,6 @@ class ApiClient {
           return DocumentWorkflowData.fromJson(value);
         case 'Duration':
           return Duration.fromJson(value);
-        case 'Error':
-          return Error.fromJson(value);
-        case 'ErrorEmbedded':
-          return ErrorEmbedded.fromJson(value);
         case 'ExportData':
           return ExportData.fromJson(value);
         case 'ExternalService':
@@ -857,6 +853,10 @@ class ApiClient {
           return PreferencesNotification.fromJson(value);
         case 'PreferencesReference':
           return PreferencesReference.fromJson(value);
+        case 'Problem':
+          return Problem.fromJson(value);
+        case 'ProblemEmbedded':
+          return ProblemEmbedded.fromJson(value);
         case 'PropertyConditionList':
           return PropertyConditionList.fromJson(value);
         case 'PropertyItems':

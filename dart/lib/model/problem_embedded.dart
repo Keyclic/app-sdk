@@ -1,21 +1,21 @@
 part of keyclic_sdk_api.api;
 
-class ErrorEmbedded {
-  ErrorEmbedded({
+class ProblemEmbedded {
+  ProblemEmbedded({
     this.errors,
   });
 
-  factory ErrorEmbedded.fromJson(Map<String, dynamic> json) {
+  factory ProblemEmbedded.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
-    return ErrorEmbedded(
-      errors: Error.listFromJson(json['errors']),
+    return ProblemEmbedded(
+      errors: Problem.listFromJson(json['errors']),
     );
   }
 
-  List<Error> errors;
+  List<Problem> errors;
 
   @override
   bool operator ==(dynamic other) {
@@ -24,7 +24,7 @@ class ErrorEmbedded {
       return true;
     }
 
-    return other is ErrorEmbedded &&
+    return other is ProblemEmbedded &&
         runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(errors, other.errors);
   }
@@ -36,25 +36,25 @@ class ErrorEmbedded {
 
     if (errors is List && errors.isNotEmpty) {
       hashCode ^= errors
-          .map((Error element) => element.hashCode)
+          .map((Problem element) => element.hashCode)
           .reduce((int value, int cursor) => value ^ cursor);
     }
 
     return hashCode;
   }
 
-  static List<ErrorEmbedded> listFromJson(List<dynamic> json) {
+  static List<ProblemEmbedded> listFromJson(List<dynamic> json) {
     return json
-            ?.map((dynamic value) => ErrorEmbedded.fromJson(value))
+            ?.map((dynamic value) => ProblemEmbedded.fromJson(value))
             ?.toList() ??
-        <ErrorEmbedded>[];
+        <ProblemEmbedded>[];
   }
 
-  static Map<String, ErrorEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ErrorEmbedded>((String key, dynamic value) {
-          return MapEntry(key, ErrorEmbedded.fromJson(value));
+  static Map<String, ProblemEmbedded> mapFromJson(Map<String, dynamic> json) {
+    return json?.map<String, ProblemEmbedded>((String key, dynamic value) {
+          return MapEntry(key, ProblemEmbedded.fromJson(value));
         }) ??
-        <String, ErrorEmbedded>{};
+        <String, ProblemEmbedded>{};
   }
 
   Map<String, dynamic> toJson() {
@@ -65,6 +65,6 @@ class ErrorEmbedded {
 
   @override
   String toString() {
-    return 'ErrorEmbedded[errors=$errors, ]';
+    return 'ProblemEmbedded[errors=$errors, ]';
   }
 }

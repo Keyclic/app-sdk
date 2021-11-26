@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.17.2-dev.b7caedefb9"
+        "version": "2.17.2-dev.b7899734c1"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -21744,6 +21744,9 @@
                         "category": {
                             "$ref": "#\/definitions\/ReportLinksCategory"
                         },
+                        "children": {
+                            "$ref": "#\/definitions\/ReportLinksChildren"
+                        },
                         "feedback": {
                             "$ref": "#\/definitions\/ReportLinksFeedback"
                         },
@@ -21850,6 +21853,35 @@
                     "type": "object",
                     "properties": {
                         "category": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ReportLinksChildren": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the children associated to the given report.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ReportLinksChildrenIriTemplate"
+                }
+            }
+        },
+        "ReportLinksChildrenIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "organization": {
+                            "type": "string"
+                        },
+                        "parent": {
                             "type": "string"
                         }
                     }

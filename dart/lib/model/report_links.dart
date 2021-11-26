@@ -3,6 +3,7 @@ part of keyclic_sdk_api.api;
 class ReportLinks {
   ReportLinks({
     this.category,
+    this.children,
     this.feedback,
     this.operations,
     this.organization,
@@ -18,6 +19,7 @@ class ReportLinks {
 
     return ReportLinks(
       category: ReportLinksCategory.fromJson(json['category']),
+      children: ReportLinksChildren.fromJson(json['children']),
       feedback: ReportLinksFeedback.fromJson(json['feedback']),
       operations: ReportLinksOperations.fromJson(json['operations']),
       organization: ReportLinksOrganization.fromJson(json['organization']),
@@ -28,6 +30,8 @@ class ReportLinks {
   }
 
   ReportLinksCategory category;
+
+  ReportLinksChildren children;
 
   ReportLinksFeedback feedback;
 
@@ -51,6 +55,7 @@ class ReportLinks {
     return other is ReportLinks &&
         runtimeType == other.runtimeType &&
         category == other.category &&
+        children == other.children &&
         feedback == other.feedback &&
         operations == other.operations &&
         organization == other.organization &&
@@ -65,6 +70,7 @@ class ReportLinks {
     int hashCode = 0;
 
     hashCode ^= category?.hashCode ?? 0;
+    hashCode ^= children?.hashCode ?? 0;
     hashCode ^= feedback?.hashCode ?? 0;
     hashCode ^= operations?.hashCode ?? 0;
     hashCode ^= organization?.hashCode ?? 0;
@@ -92,6 +98,7 @@ class ReportLinks {
   Map<String, dynamic> toJson() {
     return {
       if (category != null) 'category': category.toJson(),
+      if (children != null) 'children': children.toJson(),
       if (feedback != null) 'feedback': feedback.toJson(),
       if (operations != null) 'operations': operations.toJson(),
       if (organization != null) 'organization': organization.toJson(),
@@ -103,6 +110,6 @@ class ReportLinks {
 
   @override
   String toString() {
-    return 'ReportLinks[category=$category, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking, ]';
+    return 'ReportLinks[category=$category, children=$children, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking, ]';
   }
 }

@@ -54,6 +54,7 @@ sed -i 's/Object.listFromJson(\(.*\))/\1 is Iterable ? List<Map<String, dynamic>
 sed -i 's/Object/Map<String, dynamic>/g' lib/model/*.dart
 sed -i 's/metadata.toJson()/metadata/g' lib/model/*.dart
 sed -i 's/container.toJson()/container/g' lib/model/document_embedded.dart
+sed -i 's/result.toJson()/result/g' lib/model/run.dart
 
 # fix coordinates
 sed -i 's/List<List<num>> coordinates/List<dynamic> coordinates/g' lib/model/*

@@ -85,7 +85,7 @@ class Run {
       if (children != null) 'children': children,
       if (error != null) 'error': error,
       if (name != null) 'name': name,
-      if (result != null) 'result': result.toJson(),
+      if (result != null) 'result': result,
       if (state != null) 'state': state,
     };
   }

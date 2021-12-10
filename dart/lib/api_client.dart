@@ -1015,6 +1015,10 @@ class ApiClient {
           return RuleLinksSelfIriTemplateMapping.fromJson(value);
         case 'RulePatch':
           return RulePatch.fromJson(value);
+        case 'Run':
+          return Run.fromJson(value);
+        case 'RunData':
+          return RunData.fromJson(value);
         case 'Schema':
           return Schema.fromJson(value);
         case 'SchemaProperty':

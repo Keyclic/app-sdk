@@ -9,6 +9,7 @@ class ExportDataContentTypeEnum {
 class ExportData {
   ExportData({
     this.contentType,
+    this.organization,
   });
 
   factory ExportData.fromJson(Map<String, dynamic> json) {
@@ -18,11 +19,14 @@ class ExportData {
 
     return ExportData(
       contentType: json['contentType'],
+      organization: json['organization'],
     );
   }
 
   /// use ExportDataContentTypeEnum
   String contentType;
+
+  String organization;
 
   @override
   bool operator ==(dynamic other) {
@@ -33,7 +37,8 @@ class ExportData {
 
     return other is ExportData &&
         runtimeType == other.runtimeType &&
-        contentType == other.contentType;
+        contentType == other.contentType &&
+        organization == other.organization;
   }
 
   /// By default hashCode return reference
@@ -42,6 +47,7 @@ class ExportData {
     int hashCode = 0;
 
     hashCode ^= contentType?.hashCode ?? 0;
+    hashCode ^= organization?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -61,11 +67,12 @@ class ExportData {
   Map<String, dynamic> toJson() {
     return {
       if (contentType != null) 'contentType': contentType,
+      if (organization != null) 'organization': organization,
     };
   }
 
   @override
   String toString() {
-    return 'ExportData[contentType=$contentType, ]';
+    return 'ExportData[contentType=$contentType, organization=$organization, ]';
   }
 }

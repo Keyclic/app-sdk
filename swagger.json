@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.20.0"
+        "version": "2.20.5-dev.c99cc24ba4"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -2895,6 +2895,202 @@
                     },
                     "404": {
                         "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "\/exports": {
+            "post": {
+                "tags": [
+                    "Export"
+                ],
+                "summary": "Create one Export resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "postExport",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/ExportData"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assigned_to"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assigned_tos__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/batch"
+                    },
+                    {
+                        "$ref": "#\/parameters\/batches__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category"
+                    },
+                    {
+                        "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/deep"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_to"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_tos__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/has_documents"
+                    },
+                    {
+                        "$ref": "#\/parameters\/is_null"
+                    },
+                    {
+                        "$ref": "#\/parameters\/leaf"
+                    },
+                    {
+                        "$ref": "#\/parameters\/level"
+                    },
+                    {
+                        "$ref": "#\/parameters\/managed_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state_all"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order"
+                    },
+                    {
+                        "$ref": "#\/parameters\/organization"
+                    },
+                    {
+                        "$ref": "#\/parameters\/organizations__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/phase"
+                    },
+                    {
+                        "$ref": "#\/parameters\/phases__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/place"
+                    },
+                    {
+                        "$ref": "#\/parameters\/places__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priority"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priorities__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/rating"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_before"
+                    },
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "pattern": ".*",
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "#\/parameters\/states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/visibility__"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Export"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
                         "schema": {
                             "$ref": "#\/definitions\/Problem"
                         }
@@ -8252,10 +8448,40 @@
                         "$ref": "#\/parameters\/assigned_tos__"
                     },
                     {
+                        "$ref": "#\/parameters\/batch"
+                    },
+                    {
+                        "$ref": "#\/parameters\/batches__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category"
+                    },
+                    {
+                        "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_bies__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/deep"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_to"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_tos__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/has_documents"
                     },
                     {
                         "$ref": "#\/parameters\/is_null"
@@ -8267,13 +8493,49 @@
                         "$ref": "#\/parameters\/level"
                     },
                     {
+                        "$ref": "#\/parameters\/managed_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state_all"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_states__"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organizations__"
                     },
                     {
+                        "$ref": "#\/parameters\/phase"
+                    },
+                    {
+                        "$ref": "#\/parameters\/phases__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/place"
+                    },
+                    {
+                        "$ref": "#\/parameters\/places__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priority"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priorities__"
+                    },
+                    {
                         "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/rating"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -8289,6 +8551,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/visibility__"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -8681,6 +8946,9 @@
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
+                        "$ref": "#\/parameters\/is_null"
+                    },
+                    {
                         "$ref": "#\/parameters\/leaf"
                     },
                     {
@@ -8705,6 +8973,9 @@
                         "$ref": "#\/parameters\/order"
                     },
                     {
+                        "$ref": "#\/parameters\/organizations__"
+                    },
+                    {
                         "$ref": "#\/parameters\/phase"
                     },
                     {
@@ -8727,6 +8998,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_before"
                     },
                     {
                         "in": "query",
@@ -9659,204 +9936,6 @@
                 ]
             }
         },
-        "\/organizations\/{organization}\/exports": {
-            "post": {
-                "tags": [
-                    "Organization"
-                ],
-                "summary": "Retrieve all Export resources.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "cpostExportByOrganization",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/ExportData"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/batch"
-                    },
-                    {
-                        "$ref": "#\/parameters\/batches__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/category"
-                    },
-                    {
-                        "$ref": "#\/parameters\/categories__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/created_by"
-                    },
-                    {
-                        "$ref": "#\/parameters\/created_bies__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/after"
-                    },
-                    {
-                        "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/deep"
-                    },
-                    {
-                        "$ref": "#\/parameters\/delegated_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/delegated_tos__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/has_documents"
-                    },
-                    {
-                        "$ref": "#\/parameters\/leaf"
-                    },
-                    {
-                        "$ref": "#\/parameters\/level"
-                    },
-                    {
-                        "$ref": "#\/parameters\/managed_by"
-                    },
-                    {
-                        "$ref": "#\/parameters\/managed_bies__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/operation_state_all"
-                    },
-                    {
-                        "$ref": "#\/parameters\/operation_state"
-                    },
-                    {
-                        "$ref": "#\/parameters\/operation_states__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
-                    },
-                    {
-                        "$ref": "#\/parameters\/phase"
-                    },
-                    {
-                        "$ref": "#\/parameters\/phases__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/place"
-                    },
-                    {
-                        "$ref": "#\/parameters\/places__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/priority"
-                    },
-                    {
-                        "$ref": "#\/parameters\/priorities__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/query"
-                    },
-                    {
-                        "$ref": "#\/parameters\/rating"
-                    },
-                    {
-                        "in": "query",
-                        "name": "state",
-                        "pattern": ".*",
-                        "type": "string"
-                    },
-                    {
-                        "$ref": "#\/parameters\/states__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/visibility__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/page"
-                    },
-                    {
-                        "$ref": "#\/parameters\/limit"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "organization",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/pdf\/images": {
             "post": {
                 "tags": [
@@ -10222,10 +10301,40 @@
                         "$ref": "#\/parameters\/assigned_tos__"
                     },
                     {
+                        "$ref": "#\/parameters\/batch"
+                    },
+                    {
+                        "$ref": "#\/parameters\/batches__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category"
+                    },
+                    {
+                        "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_bies__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/deep"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_to"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_tos__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/has_documents"
                     },
                     {
                         "$ref": "#\/parameters\/is_null"
@@ -10237,6 +10346,21 @@
                         "$ref": "#\/parameters\/level"
                     },
                     {
+                        "$ref": "#\/parameters\/managed_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state_all"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_states__"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -10246,7 +10370,28 @@
                         "$ref": "#\/parameters\/organizations__"
                     },
                     {
+                        "$ref": "#\/parameters\/phase"
+                    },
+                    {
+                        "$ref": "#\/parameters\/phases__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/place"
+                    },
+                    {
+                        "$ref": "#\/parameters\/places__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priority"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priorities__"
+                    },
+                    {
                         "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/rating"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -10262,6 +10407,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/visibility__"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -12484,10 +12632,40 @@
                         "$ref": "#\/parameters\/assigned_tos__"
                     },
                     {
+                        "$ref": "#\/parameters\/batch"
+                    },
+                    {
+                        "$ref": "#\/parameters\/batches__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category"
+                    },
+                    {
+                        "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/created_bies__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/deep"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_to"
+                    },
+                    {
+                        "$ref": "#\/parameters\/delegated_tos__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/has_documents"
                     },
                     {
                         "$ref": "#\/parameters\/is_null"
@@ -12499,6 +12677,21 @@
                         "$ref": "#\/parameters\/level"
                     },
                     {
+                        "$ref": "#\/parameters\/managed_by"
+                    },
+                    {
+                        "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state_all"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_state"
+                    },
+                    {
+                        "$ref": "#\/parameters\/operation_states__"
+                    },
+                    {
                         "$ref": "#\/parameters\/order"
                     },
                     {
@@ -12508,7 +12701,28 @@
                         "$ref": "#\/parameters\/organizations__"
                     },
                     {
+                        "$ref": "#\/parameters\/phase"
+                    },
+                    {
+                        "$ref": "#\/parameters\/phases__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/place"
+                    },
+                    {
+                        "$ref": "#\/parameters\/places__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priority"
+                    },
+                    {
+                        "$ref": "#\/parameters\/priorities__"
+                    },
+                    {
                         "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "$ref": "#\/parameters\/rating"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -12524,6 +12738,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/visibility__"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -17431,6 +17648,7 @@
                         "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
                         "image\/jpeg",
                         "image\/jpg",
+                        "application\/json",
                         "application\/pdf",
                         "image\/png",
                         "text\/plain",
@@ -17631,6 +17849,38 @@
                 }
             }
         },
+        "Export": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "type": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "contentType"
+            ]
+        },
         "ExportData": {
             "type": "object",
             "properties": {
@@ -17640,6 +17890,9 @@
                         "application\/pdf",
                         "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                     ]
+                },
+                "organization": {
+                    "type": "string"
                 }
             }
         },
@@ -24351,6 +24604,215 @@
             },
             "required": true
         },
+        "ExportData": {
+            "name": "ExportData",
+            "in": "body",
+            "schema": {
+                "$ref": "#\/definitions\/ExportData"
+            },
+            "required": true
+        },
+        "assigned_to": {
+            "in": "query",
+            "name": "assigned_to",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "assigned_tos__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "assigned_tos[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "created_by": {
+            "in": "query",
+            "name": "created_by",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "created_bies__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "created_bies[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "deep": {
+            "in": "query",
+            "name": "deep",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "delegated_to": {
+            "in": "query",
+            "name": "delegated_to",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "delegated_tos__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "delegated_tos[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "has_documents": {
+            "in": "query",
+            "name": "has_documents",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "is_null": {
+            "in": "query",
+            "name": "is_null",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "managed_by": {
+            "in": "query",
+            "name": "managed_by",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "managed_bies__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "managed_bies[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "operation_state_all": {
+            "in": "query",
+            "name": "operation_state_all",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "operation_state": {
+            "in": "query",
+            "name": "operation_state",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "operation_states__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "operation_states[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "phase": {
+            "in": "query",
+            "name": "phase",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "phases__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "phases[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "place": {
+            "in": "query",
+            "name": "place",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "places__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "places[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "priority": {
+            "in": "query",
+            "name": "priority",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "priorities__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "priorities[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "rating": {
+            "in": "query",
+            "name": "rating",
+            "pattern": "[-+]?\\d+",
+            "type": "string"
+        },
+        "scheduled_at_after": {
+            "enum": [
+                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
+                "([+-])(\\d\\d)(:)?(\\d\\d))"
+            ],
+            "format": "date-time",
+            "in": "query",
+            "name": "scheduled_at_after",
+            "type": "string"
+        },
+        "scheduled_at_before": {
+            "enum": [
+                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
+                "([+-])(\\d\\d)(:)?(\\d\\d))"
+            ],
+            "format": "date-time",
+            "in": "query",
+            "name": "scheduled_at_before",
+            "type": "string"
+        },
+        "states__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "states[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "visibility__": {
+            "collectionFormat": "multi",
+            "enum": [
+                "VISIBILITY_PRIVATE",
+                "VISIBILITY_PUBLIC",
+                "VISIBILITY_RESTRICTED",
+                "VISIBILITY_SHARED"
+            ],
+            "in": "query",
+            "name": "visibility[]",
+            "pattern": "VISIBILITY_PRIVATE|VISIBILITY_PUBLIC|VISIBILITY_RESTRICTED|VISIBILITY_SHARED",
+            "type": "string"
+        },
         "ExternalServicePatch": {
             "name": "ExternalServicePatch",
             "in": "body",
@@ -24557,58 +25019,6 @@
             "name": "disabledAt",
             "type": "string"
         },
-        "assigned_to": {
-            "in": "query",
-            "name": "assigned_to",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "assigned_tos__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "assigned_tos[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "is_null": {
-            "in": "query",
-            "name": "is_null",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "scheduled_at_after": {
-            "enum": [
-                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
-                "([+-])(\\d\\d)(:)?(\\d\\d))"
-            ],
-            "format": "date-time",
-            "in": "query",
-            "name": "scheduled_at_after",
-            "type": "string"
-        },
-        "scheduled_at_before": {
-            "enum": [
-                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
-                "([+-])(\\d\\d)(:)?(\\d\\d))"
-            ],
-            "format": "date-time",
-            "in": "query",
-            "name": "scheduled_at_before",
-            "type": "string"
-        },
-        "states__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "states[]",
-            "pattern": ".*",
-            "type": "array"
-        },
         "geo_elevation": {
             "in": "query",
             "name": "geo_elevation",
@@ -24631,155 +25041,6 @@
             "pattern": ".*",
             "type": "array"
         },
-        "place": {
-            "in": "query",
-            "name": "place",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "places__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "places[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "created_by": {
-            "in": "query",
-            "name": "created_by",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "created_bies__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "created_bies[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "deep": {
-            "in": "query",
-            "name": "deep",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "delegated_to": {
-            "in": "query",
-            "name": "delegated_to",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "delegated_tos__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "delegated_tos[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "has_documents": {
-            "in": "query",
-            "name": "has_documents",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "managed_by": {
-            "in": "query",
-            "name": "managed_by",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "managed_bies__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "managed_bies[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "operation_state_all": {
-            "in": "query",
-            "name": "operation_state_all",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "operation_state": {
-            "in": "query",
-            "name": "operation_state",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "operation_states__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "operation_states[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "phase": {
-            "in": "query",
-            "name": "phase",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "phases__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "phases[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "priority": {
-            "in": "query",
-            "name": "priority",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "priorities__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "priorities[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "rating": {
-            "in": "query",
-            "name": "rating",
-            "pattern": "[-+]?\\d+",
-            "type": "string"
-        },
-        "visibility__": {
-            "collectionFormat": "multi",
-            "enum": [
-                "VISIBILITY_PRIVATE",
-                "VISIBILITY_PUBLIC",
-                "VISIBILITY_RESTRICTED",
-                "VISIBILITY_SHARED"
-            ],
-            "in": "query",
-            "name": "visibility[]",
-            "pattern": "VISIBILITY_PRIVATE|VISIBILITY_PUBLIC|VISIBILITY_RESTRICTED|VISIBILITY_SHARED",
-            "type": "string"
-        },
         "options_property_": {
             "in": "query",
             "name": "options[property]",
@@ -24800,14 +25061,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/OrganizationPatch"
-            },
-            "required": true
-        },
-        "ExportData": {
-            "name": "ExportData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/ExportData"
             },
             "required": true
         },

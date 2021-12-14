@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOperationsByPerson**
-> OperationPagination cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, isNull, leaf, level, order, organization, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit)
+> OperationPagination cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit)
 
 Retrieve all Operation resources.
 
@@ -187,24 +187,47 @@ var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 var assignedTo = assignedTo_example; // String | 
 var assignedTos[] = []; // List<String> | 
+var batch = batch_example; // String | 
+var batches[] = []; // List<String> | 
+var category = category_example; // String | 
+var categories[] = []; // List<String> | 
+var createdBy = createdBy_example; // String | 
+var createdBies[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var deep = deep_example; // String | 
+var delegatedTo = delegatedTo_example; // String | 
+var delegatedTos[] = []; // List<String> | 
+var hasDocuments = hasDocuments_example; // String | 
 var isNull = isNull_example; // String | 
 var leaf = leaf_example; // String | 
 var level = level_example; // String | 
+var managedBy = managedBy_example; // String | 
+var managedBies[] = []; // List<String> | 
+var operationStateAll = operationStateAll_example; // String | 
+var operationState = operationState_example; // String | 
+var operationStates[] = []; // List<String> | 
 var order = order_example; // String | 
 var organization = organization_example; // String | 
 var organizations[] = []; // List<String> | 
+var phase = phase_example; // String | 
+var phases[] = []; // List<String> | 
+var place = place_example; // String | 
+var places[] = []; // List<String> | 
+var priority = priority_example; // String | 
+var priorities[] = []; // List<String> | 
 var query = query_example; // String | 
+var rating = rating_example; // String | 
 var scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
 var scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 var state = state_example; // String | 
 var states[] = []; // List<String> | 
+var visibility[] = visibility[]_example; // String | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], after, before, isNull, leaf, level, order, organization, organizations[], query, scheduledAtAfter, scheduledAtBefore, state, states[], page, limit);
+    var result = api_instance.cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order, organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PersonApi->cgetOperationsByPerson: $e\n");
@@ -223,19 +246,42 @@ Name | Type | Description  | Notes
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **assignedTo** | **String**|  | [optional] 
  **assignedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **batch** | **String**|  | [optional] 
+ **batches[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **category** | **String**|  | [optional] 
+ **categories[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **createdBy** | **String**|  | [optional] 
+ **createdBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
+ **deep** | **String**|  | [optional] 
+ **delegatedTo** | **String**|  | [optional] 
+ **delegatedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **hasDocuments** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
  **leaf** | **String**|  | [optional] 
  **level** | **String**|  | [optional] 
+ **managedBy** | **String**|  | [optional] 
+ **managedBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **operationStateAll** | **String**|  | [optional] 
+ **operationState** | **String**|  | [optional] 
+ **operationStates[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **order** | **String**|  | [optional] [default to desc]
  **organization** | **String**|  | [optional] 
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **phase** | **String**|  | [optional] 
+ **phases[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **place** | **String**|  | [optional] 
+ **places[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **priority** | **String**|  | [optional] 
+ **priorities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **query** | **String**|  | [optional] 
+ **rating** | **String**|  | [optional] 
  **scheduledAtAfter** | **DateTime**|  | [optional] 
  **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 
  **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **visibility[]** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 

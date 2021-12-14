@@ -623,6 +623,8 @@ class ApiClient {
           return MemberTypeRole.fromJson(value);
         case 'Metric':
           return Metric.fromJson(value);
+        case 'ModelExport':
+          return ModelExport.fromJson(value);
         case 'NodePath':
           return NodePath.fromJson(value);
         case 'Occupant':

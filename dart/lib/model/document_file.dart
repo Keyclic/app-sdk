@@ -8,6 +8,7 @@ class DocumentFileContentTypeEnum {
       "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
   static const String imageJpeg_ = "image/jpeg";
   static const String imageJpg_ = "image/jpg";
+  static const String applicationJson_ = "application/json";
   static const String applicationPdf_ = "application/pdf";
   static const String imagePng_ = "image/png";
   static const String textPlain_ = "text/plain";

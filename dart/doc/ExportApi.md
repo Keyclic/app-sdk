@@ -69,7 +69,7 @@ var scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime |
 var scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 var state = state_example; // String | 
 var states[] = []; // List<String> | 
-var visibility[] = visibility[]_example; // String | 
+var visibility[] = []; // List<String> | 
 
 try { 
     var result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[]);
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
  **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 
  **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **visibility[]** | **String**|  | [optional] 
+ **visibility[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
 
 ### Return type
 

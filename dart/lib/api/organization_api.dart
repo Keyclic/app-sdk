@@ -449,7 +449,7 @@ class OrganizationApi {
     DateTime scheduledAtBefore,
     String state,
     List<String> states__,
-    String visibility__,
+    List<String> visibility__,
     int page,
     int limit,
   }) async {
@@ -564,7 +564,8 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat("states[]", states__,
             collectionFormat: "multi"),
       if (visibility__ != null)
-        ..._convertParametersForCollectionFormat("visibility[]", visibility__),
+        ..._convertParametersForCollectionFormat("visibility[]", visibility__,
+            collectionFormat: "multi"),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),
@@ -992,7 +993,7 @@ class OrganizationApi {
     DateTime scheduledAtBefore,
     String state,
     List<String> states__,
-    String visibility__,
+    List<String> visibility__,
     int page,
     int limit,
   }) async {
@@ -1107,7 +1108,8 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat("states[]", states__,
             collectionFormat: "multi"),
       if (visibility__ != null)
-        ..._convertParametersForCollectionFormat("visibility[]", visibility__),
+        ..._convertParametersForCollectionFormat("visibility[]", visibility__,
+            collectionFormat: "multi"),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),

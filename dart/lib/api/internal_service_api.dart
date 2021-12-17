@@ -18,7 +18,7 @@ class InternalServiceApi {
     String xKeyclicAppVersion,
     DateTime after,
     DateTime before,
-    String order,
+    List<String> order__,
     String permission,
     String query,
     String role,
@@ -48,8 +48,9 @@ class InternalServiceApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (permission != null)
         ..._convertParametersForCollectionFormat("permission", permission),
       if (query != null)

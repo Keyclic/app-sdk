@@ -15,6 +15,7 @@ class CategoryApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,
@@ -23,7 +24,6 @@ class CategoryApi {
     String geoCoordinates,
     String leaf,
     String level,
-    String order,
     String organization,
     List<String> organizations__,
     String query,
@@ -41,6 +41,9 @@ class CategoryApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (businessActivity != null)
         ..._convertParametersForCollectionFormat(
             "business_activity", businessActivity),
@@ -60,8 +63,6 @@ class CategoryApi {
       if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
       if (level != null)
         ..._convertParametersForCollectionFormat("level", level),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)

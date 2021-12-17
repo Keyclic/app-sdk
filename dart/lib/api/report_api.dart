@@ -15,9 +15,9 @@ class ReportApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     int page,
     int limit,
   }) async {
@@ -38,12 +38,13 @@ class ReportApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),
@@ -101,9 +102,9 @@ class ReportApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String organization,
     List<String> organizations__,
     String state,
@@ -128,12 +129,13 @@ class ReportApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)
@@ -202,6 +204,7 @@ class ReportApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String assignedTo,
     List<String> assignedTos__,
     String batch,
@@ -224,7 +227,6 @@ class ReportApi {
     String operationStateAll,
     String operationState,
     List<String> operationStates__,
-    String order,
     String organization,
     List<String> organizations__,
     String phase,
@@ -260,6 +262,9 @@ class ReportApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (assignedTo != null)
         ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
       if (assignedTos__ != null)
@@ -316,8 +321,6 @@ class ReportApi {
         ..._convertParametersForCollectionFormat(
             "operation_states[]", operationStates__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)

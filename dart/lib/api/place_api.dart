@@ -15,9 +15,9 @@ class PlaceApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String organization,
     List<String> organizations__,
     String state,
@@ -42,12 +42,13 @@ class PlaceApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)
@@ -116,11 +117,11 @@ class PlaceApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
     String member,
     List<String> members__,
-    String order,
     String person,
     List<String> persons__,
     List<String> places__,
@@ -145,6 +146,9 @@ class PlaceApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
@@ -154,8 +158,6 @@ class PlaceApi {
       if (members__ != null)
         ..._convertParametersForCollectionFormat("members[]", members__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (person != null)
         ..._convertParametersForCollectionFormat("person", person),
       if (persons__ != null)
@@ -222,6 +224,7 @@ class PlaceApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,
@@ -232,7 +235,6 @@ class PlaceApi {
     String geoCoordinates,
     String leaf,
     String level,
-    String order,
     String organization,
     List<String> organizations__,
     String parent,
@@ -252,6 +254,9 @@ class PlaceApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (businessActivity != null)
         ..._convertParametersForCollectionFormat(
             "business_activity", businessActivity),
@@ -276,8 +281,6 @@ class PlaceApi {
       if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
       if (level != null)
         ..._convertParametersForCollectionFormat("level", level),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)
@@ -348,9 +351,9 @@ class PlaceApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     int page,
     int limit,
   }) async {
@@ -371,12 +374,13 @@ class PlaceApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),

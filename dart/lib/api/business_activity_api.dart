@@ -19,7 +19,7 @@ class BusinessActivityApi {
     DateTime before,
     String geoPoint,
     String geoCoordinates,
-    String order,
+    List<String> order__,
     String organization,
     List<String> organizations__,
     int page,
@@ -45,8 +45,9 @@ class BusinessActivityApi {
       if (geoCoordinates != null)
         ..._convertParametersForCollectionFormat(
             "geo_coordinates", geoCoordinates),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)

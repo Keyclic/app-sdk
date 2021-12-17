@@ -16,6 +16,7 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,
@@ -24,7 +25,6 @@ class OrganizationApi {
     String geoCoordinates,
     String leaf,
     String level,
-    String order,
     List<String> organizations__,
     String query,
     int page,
@@ -47,6 +47,9 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (businessActivity != null)
         ..._convertParametersForCollectionFormat(
             "business_activity", businessActivity),
@@ -66,8 +69,6 @@ class OrganizationApi {
       if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
       if (level != null)
         ..._convertParametersForCollectionFormat("level", level),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
         ..._convertParametersForCollectionFormat(
             "organizations[]", organizations__,
@@ -131,9 +132,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String query,
     int page,
     int limit,
@@ -155,12 +156,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
@@ -220,9 +222,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String query,
     int page,
     int limit,
@@ -244,12 +246,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
@@ -309,9 +312,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String permission,
     String query,
     String role,
@@ -337,12 +340,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (permission != null)
         ..._convertParametersForCollectionFormat("permission", permission),
       if (query != null)
@@ -409,6 +413,7 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String assignedTo,
     List<String> assignedTos__,
     String batch,
@@ -431,7 +436,6 @@ class OrganizationApi {
     String operationStateAll,
     String operationState,
     List<String> operationStates__,
-    String order,
     List<String> organizations__,
     String phase,
     List<String> phases__,
@@ -466,6 +470,9 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (assignedTo != null)
         ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
       if (assignedTos__ != null)
@@ -522,8 +529,6 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat(
             "operation_states[]", operationStates__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
         ..._convertParametersForCollectionFormat(
             "organizations[]", organizations__,
@@ -616,6 +621,7 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,
@@ -623,7 +629,6 @@ class OrganizationApi {
     DateTime disabledAt,
     String geoPoint,
     String geoCoordinates,
-    String order,
     String organization,
     List<String> organizations__,
     String query,
@@ -641,6 +646,9 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (businessActivity != null)
         ..._convertParametersForCollectionFormat(
             "business_activity", businessActivity),
@@ -659,8 +667,6 @@ class OrganizationApi {
       if (geoCoordinates != null)
         ..._convertParametersForCollectionFormat(
             "geo_coordinates", geoCoordinates),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)
@@ -726,6 +732,7 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,
@@ -736,7 +743,6 @@ class OrganizationApi {
     String geoCoordinates,
     String leaf,
     String level,
-    String order,
     List<String> organizations__,
     String parent,
     List<String> parents__,
@@ -761,6 +767,9 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (businessActivity != null)
         ..._convertParametersForCollectionFormat(
             "business_activity", businessActivity),
@@ -785,8 +794,6 @@ class OrganizationApi {
       if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
       if (level != null)
         ..._convertParametersForCollectionFormat("level", level),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
         ..._convertParametersForCollectionFormat(
             "organizations[]", organizations__,
@@ -855,9 +862,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String place,
     List<String> places__,
     int page,
@@ -880,12 +887,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (place != null)
         ..._convertParametersForCollectionFormat("place", place),
       if (places__ != null)
@@ -948,6 +956,7 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String assignedTo,
     List<String> assignedTos__,
     String batch,
@@ -970,7 +979,6 @@ class OrganizationApi {
     String operationStateAll,
     String operationState,
     List<String> operationStates__,
-    String order,
     List<String> organizations__,
     String phase,
     List<String> phases__,
@@ -1005,6 +1013,9 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (assignedTo != null)
         ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
       if (assignedTos__ != null)
@@ -1061,8 +1072,6 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat(
             "operation_states[]", operationStates__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organizations__ != null)
         ..._convertParametersForCollectionFormat(
             "organizations[]", organizations__,
@@ -1156,9 +1165,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     String query,
     int page,
     int limit,
@@ -1180,12 +1189,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
@@ -1245,9 +1255,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     int page,
     int limit,
   }) async {
@@ -1268,12 +1278,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),
@@ -1331,9 +1342,9 @@ class OrganizationApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     int page,
     int limit,
   }) async {
@@ -1354,12 +1365,13 @@ class OrganizationApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),

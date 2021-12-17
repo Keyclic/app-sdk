@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 
 # **cgetDocumentsByPlace**
-> DocumentPagination cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order, organization, organizations[], state, states[], page, limit)
+> DocumentPagination cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit)
 
 Retrieve all Document resources.
 
@@ -40,9 +40,9 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var order = order_example; // String | 
 var organization = organization_example; // String | 
 var organizations[] = []; // List<String> | 
 var state = state_example; // String | 
@@ -51,7 +51,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order, organization, organizations[], state, states[], page, limit);
+    var result = api_instance.cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PlaceApi->cgetDocumentsByPlace: $e\n");
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **order** | **String**|  | [optional] [default to desc]
  **organization** | **String**|  | [optional] 
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **state** | **String**|  | [optional] 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOccupantsByPlace**
-> OccupantPagination cgetOccupantsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, member, members[], order, person, persons[], places[], query, page, limit)
+> OccupantPagination cgetOccupantsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, member, members[], person, persons[], places[], query, page, limit)
 
 Retrieve all Occupant resources.
 
@@ -113,11 +113,11 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var member = member_example; // String | 
 var members[] = []; // List<String> | 
-var order = order_example; // String | 
 var person = person_example; // String | 
 var persons[] = []; // List<String> | 
 var places[] = []; // List<String> | 
@@ -126,7 +126,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetOccupantsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, member, members[], order, person, persons[], places[], query, page, limit);
+    var result = api_instance.cgetOccupantsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, member, members[], person, persons[], places[], query, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PlaceApi->cgetOccupantsByPlace: $e\n");
@@ -143,11 +143,11 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **member** | **String**|  | [optional] 
  **members[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **order** | **String**|  | [optional] [default to desc]
  **person** | **String**|  | [optional] 
  **persons[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **places[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlaces**
-> PlacePagination cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, order, organization, organizations[], parent, parents[], query, page, limit)
+> PlacePagination cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organization, organizations[], parent, parents[], query, page, limit)
 
 Retrieve all Place resources.
 
@@ -189,6 +189,7 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
 var businessActivity = businessActivity_example; // String | 
 var businessActivities[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -199,7 +200,6 @@ var geoPoint = geoPoint_example; // String | One latitude and one longitude seri
 var geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 var leaf = leaf_example; // String | 
 var level = level_example; // String | 
-var order = order_example; // String | 
 var organization = organization_example; // String | 
 var organizations[] = []; // List<String> | 
 var parent = parent_example; // String | 
@@ -209,7 +209,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, order, organization, organizations[], parent, parents[], query, page, limit);
+    var result = api_instance.cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organization, organizations[], parent, parents[], query, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PlaceApi->cgetPlaces: $e\n");
@@ -225,6 +225,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **businessActivity** | **String**|  | [optional] 
  **businessActivities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
@@ -235,7 +236,6 @@ Name | Type | Description  | Notes
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
  **level** | **String**|  | [optional] 
- **order** | **String**|  | [optional] [default to desc]
  **organization** | **String**|  | [optional] 
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **parent** | **String**|  | [optional] 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlansByPlace**
-> PlanPagination cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order, page, limit)
+> PlanPagination cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
 
 Retrieve all Plan resources.
 
@@ -279,14 +279,14 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var order = order_example; // String | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order, page, limit);
+    var result = api_instance.cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PlaceApi->cgetPlansByPlace: $e\n");
@@ -303,9 +303,9 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **order** | **String**|  | [optional] [default to desc]
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 

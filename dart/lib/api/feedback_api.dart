@@ -97,7 +97,7 @@ class FeedbackApi {
     DateTime after,
     DateTime before,
     List<String> geoHash__,
-    String order,
+    List<String> order__,
     String organization,
     List<String> organizations__,
     int page,
@@ -126,8 +126,9 @@ class FeedbackApi {
       if (geoHash__ != null)
         ..._convertParametersForCollectionFormat("geo_hash[]", geoHash__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)
@@ -191,9 +192,9 @@ class FeedbackApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
-    String order,
     int page,
     int limit,
   }) async {
@@ -214,12 +215,13 @@ class FeedbackApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),

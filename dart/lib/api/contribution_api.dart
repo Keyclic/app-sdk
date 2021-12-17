@@ -15,11 +15,11 @@ class ContributionApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     DateTime after,
     DateTime before,
     String feedback,
     List<String> feedbacks__,
-    String order,
     int page,
     int limit,
   }) async {
@@ -34,6 +34,9 @@ class ContributionApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (after != null)
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
@@ -43,8 +46,6 @@ class ContributionApi {
       if (feedbacks__ != null)
         ..._convertParametersForCollectionFormat("feedbacks[]", feedbacks__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),

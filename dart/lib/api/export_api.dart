@@ -37,7 +37,7 @@ class ExportApi {
     String operationStateAll,
     String operationState,
     List<String> operationStates__,
-    String order,
+    List<String> order__,
     String organization,
     List<String> organizations__,
     String phase,
@@ -125,8 +125,9 @@ class ExportApi {
         ..._convertParametersForCollectionFormat(
             "operation_states[]", operationStates__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)

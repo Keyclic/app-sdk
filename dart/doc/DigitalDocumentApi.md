@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **cgetFeedbackByDigitalDocument**
-> FeedbackPagination cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batches[], after, before, geoHash[], order, organization, organizations[], page, limit)
+> FeedbackPagination cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], batch, batches[], after, before, geoHash[], organization, organizations[], page, limit)
 
 Retrieve all Feedback resources.
 
@@ -36,19 +36,19 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
 var batch = batch_example; // String | 
 var batches[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var geoHash[] = []; // List<String> | 
-var order = order_example; // String | 
 var organization = organization_example; // String | 
 var organizations[] = []; // List<String> | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batches[], after, before, geoHash[], order, organization, organizations[], page, limit);
+    var result = api_instance.cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], batch, batches[], after, before, geoHash[], organization, organizations[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling DigitalDocumentApi->cgetFeedbackByDigitalDocument: $e\n");
@@ -65,12 +65,12 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **batch** | **String**|  | [optional] 
  **batches[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **geoHash[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **order** | **String**|  | [optional] [default to desc]
  **organization** | **String**|  | [optional] 
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]

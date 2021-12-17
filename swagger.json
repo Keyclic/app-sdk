@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.20.5-dev.c99cc24ba4"
+        "version": "2.21.0"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -486,7 +486,7 @@
                         "$ref": "#\/parameters\/geo_coordinates"
                     },
                     {
-                        "$ref": "#\/parameters\/order"
+                        "$ref": "#\/parameters\/order__"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -757,6 +757,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -779,9 +782,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/level"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -1407,6 +1407,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
@@ -1417,9 +1420,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/feedbacks__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -1919,6 +1919,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/batch"
                     },
                     {
@@ -1932,9 +1935,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/geo_hash__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -2384,6 +2384,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/category"
                     },
                     {
@@ -2394,9 +2397,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/service"
@@ -3019,7 +3019,7 @@
                         "$ref": "#\/parameters\/operation_states__"
                     },
                     {
-                        "$ref": "#\/parameters\/order"
+                        "$ref": "#\/parameters\/order__"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -3691,7 +3691,7 @@
                         "$ref": "#\/parameters\/geo_hash__"
                     },
                     {
-                        "$ref": "#\/parameters\/order"
+                        "$ref": "#\/parameters\/order__"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -3969,13 +3969,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -4610,7 +4610,7 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/order"
+                        "$ref": "#\/parameters\/order__"
                     },
                     {
                         "$ref": "#\/parameters\/permission"
@@ -5509,13 +5509,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/section"
@@ -5620,13 +5620,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -6069,13 +6069,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -7862,6 +7862,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -7881,9 +7884,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/geo_coordinates"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -7977,6 +7977,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -7999,9 +8002,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/level"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organizations__"
@@ -8106,13 +8106,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/query"
@@ -8214,13 +8214,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/query"
@@ -8322,13 +8322,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/permission"
@@ -8442,6 +8442,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -8506,9 +8509,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/operation_states__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organizations__"
@@ -8652,6 +8652,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -8680,9 +8683,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/level"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organizations__"
@@ -8793,13 +8793,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/place"
@@ -8904,6 +8904,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -8968,9 +8971,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/operation_states__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organizations__"
@@ -9114,13 +9114,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/query"
@@ -9222,13 +9222,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -9327,13 +9327,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -10055,13 +10055,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -10175,13 +10175,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/permission"
@@ -10295,6 +10295,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -10359,9 +10362,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/operation_states__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -10508,13 +10508,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -10794,6 +10794,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -10822,9 +10825,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/level"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -11001,13 +11001,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -11212,6 +11212,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
@@ -11222,9 +11225,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/members__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/person"
@@ -11335,13 +11335,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -12310,13 +12310,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -12415,13 +12415,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -12626,6 +12626,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -12690,9 +12693,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/operation_states__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order"
                     },
                     {
                         "$ref": "#\/parameters\/organization"
@@ -24381,16 +24381,22 @@
             "pattern": "^[-+]?\\d*\\.?\\d+[-+]\\d*\\.?\\d+",
             "type": "string"
         },
-        "order": {
-            "default": "desc",
-            "enum": [
-                "asc",
-                "desc"
-            ],
+        "order__": {
+            "collectionFormat": "multi",
+            "default": {
+                "id": "desc"
+            },
             "in": "query",
-            "name": "order",
+            "items": {
+                "enum": [
+                    "asc",
+                    "desc"
+                ],
+                "type": "string"
+            },
+            "name": "order[]",
             "pattern": "asc|desc",
-            "type": "string"
+            "type": "array"
         },
         "organization": {
             "in": "query",

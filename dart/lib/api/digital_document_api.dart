@@ -16,12 +16,12 @@ class DigitalDocumentApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String batch,
     List<String> batches__,
     DateTime after,
     DateTime before,
     List<String> geoHash__,
-    String order,
     String organization,
     List<String> organizations__,
     int page,
@@ -44,6 +44,9 @@ class DigitalDocumentApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (batch != null)
         ..._convertParametersForCollectionFormat("batch", batch),
       if (batches__ != null)
@@ -56,8 +59,6 @@ class DigitalDocumentApi {
       if (geoHash__ != null)
         ..._convertParametersForCollectionFormat("geo_hash[]", geoHash__,
             collectionFormat: "multi"),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (organization != null)
         ..._convertParametersForCollectionFormat("organization", organization),
       if (organizations__ != null)

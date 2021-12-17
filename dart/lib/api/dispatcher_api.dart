@@ -16,11 +16,11 @@ class DispatcherApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    List<String> order__,
     String category,
     List<String> categories__,
     DateTime after,
     DateTime before,
-    String order,
     String service,
     List<String> services__,
     int page,
@@ -43,6 +43,9 @@ class DispatcherApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
       if (category != null)
         ..._convertParametersForCollectionFormat("category", category),
       if (categories__ != null)
@@ -52,8 +55,6 @@ class DispatcherApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (order != null)
-        ..._convertParametersForCollectionFormat("order", order),
       if (service != null)
         ..._convertParametersForCollectionFormat("service", service),
       if (services__ != null)

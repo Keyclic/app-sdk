@@ -52,7 +52,7 @@ class ExportApi {
     DateTime scheduledAtBefore,
     String state,
     List<String> states__,
-    String visibility__,
+    List<String> visibility__,
   }) async {
     // verify required params are set
 
@@ -165,7 +165,8 @@ class ExportApi {
         ..._convertParametersForCollectionFormat("states[]", states__,
             collectionFormat: "multi"),
       if (visibility__ != null)
-        ..._convertParametersForCollectionFormat("visibility[]", visibility__),
+        ..._convertParametersForCollectionFormat("visibility[]", visibility__,
+            collectionFormat: "multi"),
     ];
 
     // header params

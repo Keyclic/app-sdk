@@ -24808,16 +24808,19 @@
         },
         "visibility__": {
             "collectionFormat": "multi",
-            "enum": [
-                "VISIBILITY_PRIVATE",
-                "VISIBILITY_PUBLIC",
-                "VISIBILITY_RESTRICTED",
-                "VISIBILITY_SHARED"
-            ],
             "in": "query",
+            "items": {
+                "enum": [
+                    "VISIBILITY_PRIVATE",
+                    "VISIBILITY_PUBLIC",
+                    "VISIBILITY_RESTRICTED",
+                    "VISIBILITY_SHARED"
+                ],
+                "type": "string"
+            },
             "name": "visibility[]",
             "pattern": "VISIBILITY_PRIVATE|VISIBILITY_PUBLIC|VISIBILITY_RESTRICTED|VISIBILITY_SHARED",
-            "type": "string"
+            "type": "array"
         },
         "ExternalServicePatch": {
             "name": "ExternalServicePatch",

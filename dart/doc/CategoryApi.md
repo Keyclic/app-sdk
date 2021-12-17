@@ -35,7 +35,7 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var businessActivity = businessActivity_example; // String | 
 var businessActivities[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **businessActivity** | **String**|  | [optional] 
  **businessActivities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 

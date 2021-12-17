@@ -16,7 +16,7 @@ class DigitalDocumentApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
-    List<String> order__,
+    Map<String, String> order__,
     String batch,
     List<String> batches__,
     DateTime after,

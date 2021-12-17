@@ -15,7 +15,7 @@ class CategoryApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
-    List<String> order__,
+    Map<String, String> order__,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,

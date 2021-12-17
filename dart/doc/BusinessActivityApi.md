@@ -37,7 +37,7 @@ var after = 2013-10-20T19:20:30+01:00; // DateTime |
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 var geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var organization = organization_example; // String | 
 var organizations[] = []; // List<String> | 
 var page = 56; // int | Page of the overview.
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
  **before** | **DateTime**|  | [optional] 
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **organization** | **String**|  | [optional] 
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]

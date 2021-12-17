@@ -19,7 +19,7 @@ class BusinessActivityApi {
     DateTime before,
     String geoPoint,
     String geoCoordinates,
-    List<String> order__,
+    Map<String, String> order__,
     String organization,
     List<String> organizations__,
     int page,

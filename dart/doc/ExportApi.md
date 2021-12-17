@@ -54,7 +54,7 @@ var managedBies[] = []; // List<String> |
 var operationStateAll = operationStateAll_example; // String | 
 var operationState = operationState_example; // String | 
 var operationStates[] = []; // List<String> | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var organization = organization_example; // String | 
 var organizations[] = []; // List<String> | 
 var phase = phase_example; // String | 
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
  **operationStateAll** | **String**|  | [optional] 
  **operationState** | **String**|  | [optional] 
  **operationStates[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **organization** | **String**|  | [optional] 
  **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **phase** | **String**|  | [optional] 

@@ -37,7 +37,7 @@ class ExportApi {
     String operationStateAll,
     String operationState,
     List<String> operationStates__,
-    List<String> order__,
+    Map<String, String> order__,
     String organization,
     List<String> organizations__,
     String phase,

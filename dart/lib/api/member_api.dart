@@ -15,7 +15,7 @@ class MemberApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
-    List<String> order__,
+    Map<String, String> order__,
     DateTime after,
     DateTime before,
     int page,

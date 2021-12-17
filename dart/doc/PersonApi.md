@@ -37,7 +37,7 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var organization = organization_example; // String | 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **organization** | **String**|  | [optional] 
@@ -110,7 +110,7 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var permission = permission_example; // String | 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **permission** | **String**|  | [optional] 
@@ -185,7 +185,7 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var assignedTo = assignedTo_example; // String | 
 var assignedTos[] = []; // List<String> | 
 var batch = batch_example; // String | 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **assignedTo** | **String**|  | [optional] 
  **assignedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **batch** | **String**|  | [optional] 
@@ -320,7 +320,7 @@ var acceptLanguage = acceptLanguage_example; // String |
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
 var page = 56; // int | Page of the overview.
@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]

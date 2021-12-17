@@ -23777,7 +23777,8 @@
             },
             "name": "order[]",
             "pattern": "asc|desc",
-            "type": "array"
+            "type": "object",
+            "additionalProperties": true
         },
         "organization": {
             "in": "query",

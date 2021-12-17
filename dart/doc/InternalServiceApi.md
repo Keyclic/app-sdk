@@ -40,7 +40,7 @@ var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var order[] = []; // List<String> | 
+var order[] = ; // Map<String, String> | 
 var permission = permission_example; // String | 
 var query = query_example; // String | 
 var role = role_example; // String | 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **order[]** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] 
  **permission** | **String**|  | [optional] 
  **query** | **String**|  | [optional] 
  **role** | **String**|  | [optional] 

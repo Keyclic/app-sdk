@@ -16,7 +16,7 @@ class DispatcherApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
-    List<String> order__,
+    Map<String, String> order__,
     String category,
     List<String> categories__,
     DateTime after,

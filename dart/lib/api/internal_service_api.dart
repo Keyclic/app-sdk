@@ -18,7 +18,7 @@ class InternalServiceApi {
     String xKeyclicAppVersion,
     DateTime after,
     DateTime before,
-    List<String> order__,
+    Map<String, String> order__,
     String permission,
     String query,
     String role,

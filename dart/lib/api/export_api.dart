@@ -47,7 +47,7 @@ class ExportApi {
     String priority,
     List<String> priorities__,
     String query,
-    String rating,
+    List<String> rating__,
     DateTime scheduledAtAfter,
     DateTime scheduledAtBefore,
     String state,
@@ -151,8 +151,9 @@ class ExportApi {
             collectionFormat: "multi"),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
-      if (rating != null)
-        ..._convertParametersForCollectionFormat("rating", rating),
+      if (rating__ != null)
+        ..._convertParametersForCollectionFormat("rating[]", rating__,
+            collectionFormat: "multi"),
       if (scheduledAtAfter != null)
         ..._convertParametersForCollectionFormat(
             "scheduled_at_after", scheduledAtAfter),

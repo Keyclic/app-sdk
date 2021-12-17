@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **postExport**
-> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[])
+> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[])
 
 Create one Export resource.
 
@@ -64,7 +64,7 @@ var places[] = []; // List<String> |
 var priority = priority_example; // String | 
 var priorities[] = []; // List<String> | 
 var query = query_example; // String | 
-var rating = rating_example; // String | 
+var rating[] = []; // List<String> | 
 var scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
 var scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 var state = state_example; // String | 
@@ -72,7 +72,7 @@ var states[] = []; // List<String> |
 var visibility[] = []; // List<String> | 
 
 try { 
-    var result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[]);
+    var result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[]);
     print(result);
 } catch (e) {
     print("Exception when calling ExportApi->postExport: $e\n");
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
  **priority** | **String**|  | [optional] 
  **priorities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **query** | **String**|  | [optional] 
- **rating** | **String**|  | [optional] 
+ **rating[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **scheduledAtAfter** | **DateTime**|  | [optional] 
  **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 

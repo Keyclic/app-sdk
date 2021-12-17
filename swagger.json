@@ -3049,7 +3049,7 @@
                         "$ref": "#\/parameters\/query"
                     },
                     {
-                        "$ref": "#\/parameters\/rating"
+                        "$ref": "#\/parameters\/rating__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -8535,7 +8535,7 @@
                         "$ref": "#\/parameters\/query"
                     },
                     {
-                        "$ref": "#\/parameters\/rating"
+                        "$ref": "#\/parameters\/rating__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -8997,7 +8997,7 @@
                         "$ref": "#\/parameters\/query"
                     },
                     {
-                        "$ref": "#\/parameters\/rating"
+                        "$ref": "#\/parameters\/rating__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -9772,7 +9772,7 @@
                         "$ref": "#\/parameters\/priorities__"
                     },
                     {
-                        "$ref": "#\/parameters\/rating"
+                        "$ref": "#\/parameters\/rating__"
                     },
                     {
                         "in": "query",
@@ -10391,7 +10391,7 @@
                         "$ref": "#\/parameters\/query"
                     },
                     {
-                        "$ref": "#\/parameters\/rating"
+                        "$ref": "#\/parameters\/rating__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -12722,7 +12722,7 @@
                         "$ref": "#\/parameters\/query"
                     },
                     {
-                        "$ref": "#\/parameters\/rating"
+                        "$ref": "#\/parameters\/rating__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -24770,11 +24770,15 @@
             "pattern": ".*",
             "type": "array"
         },
-        "rating": {
+        "rating__": {
+            "collectionFormat": "multi",
             "in": "query",
-            "name": "rating",
+            "items": {
+                "type": "string"
+            },
+            "name": "rating[]",
             "pattern": "[-+]?\\d+",
-            "type": "string"
+            "type": "array"
         },
         "scheduled_at_after": {
             "enum": [

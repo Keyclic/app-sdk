@@ -444,7 +444,7 @@ class OrganizationApi {
     String priority,
     List<String> priorities__,
     String query,
-    String rating,
+    List<String> rating__,
     DateTime scheduledAtAfter,
     DateTime scheduledAtBefore,
     String state,
@@ -550,8 +550,9 @@ class OrganizationApi {
             collectionFormat: "multi"),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
-      if (rating != null)
-        ..._convertParametersForCollectionFormat("rating", rating),
+      if (rating__ != null)
+        ..._convertParametersForCollectionFormat("rating[]", rating__,
+            collectionFormat: "multi"),
       if (scheduledAtAfter != null)
         ..._convertParametersForCollectionFormat(
             "scheduled_at_after", scheduledAtAfter),
@@ -988,7 +989,7 @@ class OrganizationApi {
     String priority,
     List<String> priorities__,
     String query,
-    String rating,
+    List<String> rating__,
     DateTime scheduledAtAfter,
     DateTime scheduledAtBefore,
     String state,
@@ -1094,8 +1095,9 @@ class OrganizationApi {
             collectionFormat: "multi"),
       if (query != null)
         ..._convertParametersForCollectionFormat("query", query),
-      if (rating != null)
-        ..._convertParametersForCollectionFormat("rating", rating),
+      if (rating__ != null)
+        ..._convertParametersForCollectionFormat("rating[]", rating__,
+            collectionFormat: "multi"),
       if (scheduledAtAfter != null)
         ..._convertParametersForCollectionFormat(
             "scheduled_at_after", scheduledAtAfter),
@@ -1454,7 +1456,7 @@ class OrganizationApi {
     List<String> places__,
     String priority,
     List<String> priorities__,
-    String rating,
+    List<String> rating__,
     String state,
     List<String> states__,
     String options_property_,
@@ -1538,8 +1540,9 @@ class OrganizationApi {
       if (priorities__ != null)
         ..._convertParametersForCollectionFormat("priorities[]", priorities__,
             collectionFormat: "multi"),
-      if (rating != null)
-        ..._convertParametersForCollectionFormat("rating", rating),
+      if (rating__ != null)
+        ..._convertParametersForCollectionFormat("rating[]", rating__,
+            collectionFormat: "multi"),
       if (state != null)
         ..._convertParametersForCollectionFormat("state", state),
       if (states__ != null)

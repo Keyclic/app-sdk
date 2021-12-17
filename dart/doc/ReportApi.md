@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOperationsByReport**
-> OperationPagination cgetOperationsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit)
+> OperationPagination cgetOperationsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit)
 
 Retrieve all Operation resources.
 
@@ -209,7 +209,7 @@ var places[] = []; // List<String> |
 var priority = priority_example; // String | 
 var priorities[] = []; // List<String> | 
 var query = query_example; // String | 
-var rating = rating_example; // String | 
+var rating[] = []; // List<String> | 
 var scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
 var scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 var state = state_example; // String | 
@@ -219,7 +219,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetOperationsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating, scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit);
+    var result = api_instance.cgetOperationsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling ReportApi->cgetOperationsByReport: $e\n");
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
  **priority** | **String**|  | [optional] 
  **priorities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **query** | **String**|  | [optional] 
- **rating** | **String**|  | [optional] 
+ **rating[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **scheduledAtAfter** | **DateTime**|  | [optional] 
  **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 

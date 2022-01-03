@@ -79,10 +79,6 @@ class Permission {
         value = data;
         break;
 
-      case "WEBHOOK:ALL":
-        value = data;
-        break;
-
       default:
         throw ('Unknown enum value to decode: $data');
     }
@@ -135,8 +131,6 @@ class Permission {
   static Permission rEPORTINGALL_ = Permission._internal("REPORTING:ALL");
 
   static Permission sERVICEALL_ = Permission._internal("SERVICE:ALL");
-
-  static Permission wEBHOOKALL_ = Permission._internal("WEBHOOK:ALL");
 
   static dynamic encode(Permission data) {
     return data.value;

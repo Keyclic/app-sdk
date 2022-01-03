@@ -1089,26 +1089,6 @@ class ApiClient {
           return TrackingProgression.fromJson(value);
         case 'TransitionState':
           return TransitionState.fromJson(value);
-        case 'Webhook':
-          return Webhook.fromJson(value);
-        case 'WebhookCollection':
-          return WebhookCollection.fromJson(value);
-        case 'WebhookData':
-          return WebhookData.fromJson(value);
-        case 'WebhookLinks':
-          return WebhookLinks.fromJson(value);
-        case 'WebhookLinksOrganization':
-          return WebhookLinksOrganization.fromJson(value);
-        case 'WebhookLinksOrganizationIriTemplate':
-          return WebhookLinksOrganizationIriTemplate.fromJson(value);
-        case 'WebhookLinksSelf':
-          return WebhookLinksSelf.fromJson(value);
-        case 'WebhookLinksSelfIriTemplate':
-          return WebhookLinksSelfIriTemplate.fromJson(value);
-        case 'WebhookLinksSelfIriTemplateMapping':
-          return WebhookLinksSelfIriTemplateMapping.fromJson(value);
-        case 'WebhookPatch':
-          return WebhookPatch.fromJson(value);
         case 'Workflow':
           return Workflow.fromJson(value);
         case 'WorkflowData':
@@ -1175,8 +1155,6 @@ class ApiClient {
           return ServicePagination.fromJson(value);
         case 'TemplatePagination':
           return TemplatePagination.fromJson(value);
-        case 'WebhookPagination':
-          return WebhookPagination.fromJson(value);
         default:
           {
             Match match;

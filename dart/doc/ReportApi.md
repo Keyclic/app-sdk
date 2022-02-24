@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetDocumentsByReport**
-> DocumentPagination cgetDocumentsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit)
+> DocumentPagination cgetDocumentsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, state, states[], page, limit)
 
 Retrieve all Document resources.
 
@@ -107,15 +107,13 @@ var xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 var order[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var organization = organization_example; // String | 
-var organizations[] = []; // List<String> | 
 var state = state_example; // String | 
 var states[] = []; // List<String> | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetDocumentsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit);
+    var result = api_instance.cgetDocumentsByReport(xKeyclicApp, report, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, state, states[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling ReportApi->cgetDocumentsByReport: $e\n");
@@ -135,8 +133,6 @@ Name | Type | Description  | Notes
  **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **organization** | **String**|  | [optional] 
- **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **state** | **String**|  | [optional] 
  **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]

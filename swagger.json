@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.21.1-dev.b56b8115bb"
+        "version": "2.21.10-dev.9446bd342a"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -8072,6 +8072,120 @@
                 ]
             }
         },
+        "\/organizations\/{organization}\/documents": {
+            "get": {
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Retrieve all Document resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetDocumentsByOrganization",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "pattern": ".*",
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "#\/parameters\/states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "organization",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/DocumentPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/organizations\/{organization}\/external-services": {
             "get": {
                 "tags": [
@@ -9959,12 +10073,6 @@
                         "$ref": "#\/parameters\/before"
                     },
                     {
-                        "$ref": "#\/parameters\/organization"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organizations__"
-                    },
-                    {
                         "in": "query",
                         "name": "state",
                         "pattern": ".*",
@@ -10903,12 +11011,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organization"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organizations__"
                     },
                     {
                         "in": "query",
@@ -12317,12 +12419,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organization"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organizations__"
                     },
                     {
                         "in": "query",

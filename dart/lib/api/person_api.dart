@@ -18,8 +18,6 @@ class PersonApi {
     List<String> order__,
     DateTime after,
     DateTime before,
-    String organization,
-    List<String> organizations__,
     String state,
     List<String> states__,
     int page,
@@ -49,12 +47,6 @@ class PersonApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
-      if (organization != null)
-        ..._convertParametersForCollectionFormat("organization", organization),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
       if (state != null)
         ..._convertParametersForCollectionFormat("state", state),
       if (states__ != null)

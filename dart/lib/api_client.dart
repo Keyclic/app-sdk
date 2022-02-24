@@ -74,7 +74,7 @@ class ApiClient {
     final String msgBody = serialize(body);
 
     if (debug) {
-      _logger.info('url: ${url}');
+      _logger.info('$method ${url}');
     }
 
     switch (method) {

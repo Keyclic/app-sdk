@@ -1053,8 +1053,6 @@ class ApiClient {
           return Signer.fromJson(value);
         case 'SignerData':
           return SignerData.fromJson(value);
-        case 'SignerEmbedded':
-          return SignerEmbedded.fromJson(value);
         case 'SignerLinks':
           return SignerLinks.fromJson(value);
         case 'SignerLinksSelf':

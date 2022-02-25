@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**embedded** | [**SignerEmbedded**](SignerEmbedded.md) |  | [optional] [default to null]
+**embedded** | [**InvitationEmbedded**](InvitationEmbedded.md) |  | [optional] [default to null]
 **links** | [**SignerLinks**](SignerLinks.md) |  | [optional] [default to null]
 **id** | **String** |  | [optional] [default to null]
 **signature** | [**SignerSignature**](SignerSignature.md) |  | [optional] [default to null]

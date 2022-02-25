@@ -524,7 +524,6 @@ part 'model/signature_data.dart';
 part 'model/signature_signer.dart';
 part 'model/signer.dart';
 part 'model/signer_data.dart';
-part 'model/signer_embedded.dart';
 part 'model/signer_links.dart';
 part 'model/signer_links_self.dart';
 part 'model/signer_links_self_iri_template.dart';

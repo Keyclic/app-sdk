@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.21.10-dev.50382a21e4"
+        "version": "2.21.10-dev.86044df459"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -18689,8 +18689,8 @@
                 "_embedded": {
                     "type": "object",
                     "properties": {
-                        "organization": {
-                            "$ref": "#\/definitions\/Organization"
+                        "member": {
+                            "$ref": "#\/definitions\/Member"
                         }
                     }
                 },
@@ -19076,9 +19076,6 @@
                 "_embedded": {
                     "type": "object",
                     "properties": {
-                        "invitation": {
-                            "$ref": "#\/definitions\/Invitation"
-                        },
                         "organization": {
                             "$ref": "#\/definitions\/Organization"
                         },

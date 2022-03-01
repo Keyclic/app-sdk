@@ -2,7 +2,7 @@ part of keyclic_sdk_api.api;
 
 class InvitationEmbedded {
   InvitationEmbedded({
-    this.organization,
+    this.member,
   });
 
   factory InvitationEmbedded.fromJson(Map<String, dynamic> json) {
@@ -11,11 +11,11 @@ class InvitationEmbedded {
     }
 
     return InvitationEmbedded(
-      organization: Organization.fromJson(json['organization']),
+      member: Member.fromJson(json['member']),
     );
   }
 
-  Organization organization;
+  Member member;
 
   @override
   bool operator ==(dynamic other) {
@@ -26,7 +26,7 @@ class InvitationEmbedded {
 
     return other is InvitationEmbedded &&
         runtimeType == other.runtimeType &&
-        organization == other.organization;
+        member == other.member;
   }
 
   /// By default hashCode return reference
@@ -34,7 +34,7 @@ class InvitationEmbedded {
   int get hashCode {
     int hashCode = 0;
 
-    hashCode ^= organization?.hashCode ?? 0;
+    hashCode ^= member?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -56,12 +56,12 @@ class InvitationEmbedded {
 
   Map<String, dynamic> toJson() {
     return {
-      if (organization != null) 'organization': organization.toJson(),
+      if (member != null) 'member': member.toJson(),
     };
   }
 
   @override
   String toString() {
-    return 'InvitationEmbedded[organization=$organization, ]';
+    return 'InvitationEmbedded[member=$member, ]';
   }
 }

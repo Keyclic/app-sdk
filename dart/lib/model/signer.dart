@@ -15,7 +15,7 @@ class Signer {
     }
 
     return Signer(
-      embedded: SignerEmbedded.fromJson(json['_embedded']),
+      embedded: InvitationEmbedded.fromJson(json['_embedded']),
       links: SignerLinks.fromJson(json['_links']),
       id: json['id'],
       signature: SignerSignature.fromJson(json['signature']),
@@ -23,7 +23,7 @@ class Signer {
     );
   }
 
-  SignerEmbedded embedded;
+  InvitationEmbedded embedded;
 
   SignerLinks links;
 

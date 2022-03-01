@@ -2,7 +2,6 @@ part of keyclic_sdk_api.api;
 
 class MemberEmbedded {
   MemberEmbedded({
-    this.invitation,
     this.organization,
     this.person,
     this.roles,
@@ -14,14 +13,11 @@ class MemberEmbedded {
     }
 
     return MemberEmbedded(
-      invitation: Invitation.fromJson(json['invitation']),
       organization: Organization.fromJson(json['organization']),
       person: Person.fromJson(json['person']),
       roles: Role.listFromJson(json['roles']),
     );
   }
-
-  Invitation invitation;
 
   Organization organization;
 
@@ -38,7 +34,6 @@ class MemberEmbedded {
 
     return other is MemberEmbedded &&
         runtimeType == other.runtimeType &&
-        invitation == other.invitation &&
         organization == other.organization &&
         person == other.person &&
         DeepCollectionEquality.unordered().equals(roles, other.roles);
@@ -55,7 +50,6 @@ class MemberEmbedded {
           .reduce((int value, int cursor) => value ^ cursor);
     }
 
-    hashCode ^= invitation?.hashCode ?? 0;
     hashCode ^= organization?.hashCode ?? 0;
     hashCode ^= person?.hashCode ?? 0;
 
@@ -78,7 +72,6 @@ class MemberEmbedded {
 
   Map<String, dynamic> toJson() {
     return {
-      if (invitation != null) 'invitation': invitation.toJson(),
       if (organization != null) 'organization': organization.toJson(),
       if (person != null) 'person': person.toJson(),
       if (roles != null) 'roles': roles,
@@ -87,6 +80,6 @@ class MemberEmbedded {
 
   @override
   String toString() {
-    return 'MemberEmbedded[invitation=$invitation, organization=$organization, person=$person, roles=$roles, ]';
+    return 'MemberEmbedded[organization=$organization, person=$person, roles=$roles, ]';
   }
 }

@@ -10,7 +10,6 @@ All URIs are relative to *https://api.keyclic.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cgetDocumentsByPlace**](PlaceApi.md#cgetDocumentsByPlace) | **GET** /places/{place}/documents | Retrieve all Document resources.
-[**cgetOccupantsByPlace**](PlaceApi.md#cgetOccupantsByPlace) | **GET** /places/{place}/occupants | Retrieve all Occupant resources.
 [**cgetPlaces**](PlaceApi.md#cgetPlaces) | **GET** /places | Retrieve all Place resources.
 [**cgetPlansByPlace**](PlaceApi.md#cgetPlansByPlace) | **GET** /places/{place}/plans | Retrieve all Plan resources.
 [**getGeoByPlace**](PlaceApi.md#getGeoByPlace) | **GET** /places/{place}/geo | Retrieve one Geo resource.
@@ -81,83 +80,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DocumentPagination**](DocumentPagination.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cgetOccupantsByPlace**
-> OccupantPagination cgetOccupantsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, member, members[], person, persons[], places[], query, page, limit)
-
-Retrieve all Occupant resources.
-
-### Example 
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
-
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var member = member_example; // String | 
-var members[] = []; // List<String> | 
-var person = person_example; // String | 
-var persons[] = []; // List<String> | 
-var places[] = []; // List<String> | 
-var query = query_example; // String | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
-
-try { 
-    var result = api_instance.cgetOccupantsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, member, members[], person, persons[], places[], query, page, limit);
-    print(result);
-} catch (e) {
-    print("Exception when calling PlaceApi->cgetOccupantsByPlace: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **after** | **DateTime**|  | [optional] 
- **before** | **DateTime**|  | [optional] 
- **member** | **String**|  | [optional] 
- **members[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **person** | **String**|  | [optional] 
- **persons[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **places[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **query** | **String**|  | [optional] 
- **page** | **int**| Page of the overview. | [optional] [default to 1]
- **limit** | **int**| Page of the overview. | [optional] [default to 10]
-
-### Return type
-
-[**OccupantPagination**](OccupantPagination.md)
 
 ### Authorization
 

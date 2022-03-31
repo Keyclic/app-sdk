@@ -6,6 +6,7 @@ class Signer {
     this.links,
     this.id,
     this.signature,
+    this.state,
     this.type,
   });
 
@@ -19,6 +20,7 @@ class Signer {
       links: SignerLinks.fromJson(json['_links']),
       id: json['id'],
       signature: SignerSignature.fromJson(json['signature']),
+      state: json['state'],
       type: json['type'],
     );
   }
@@ -30,6 +32,8 @@ class Signer {
   String id;
 
   SignerSignature signature;
+
+  String state;
 
   String type;
 
@@ -46,6 +50,7 @@ class Signer {
         links == other.links &&
         id == other.id &&
         signature == other.signature &&
+        state == other.state &&
         type == other.type;
   }
 
@@ -58,6 +63,7 @@ class Signer {
     hashCode ^= links?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
     hashCode ^= signature?.hashCode ?? 0;
+    hashCode ^= state?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
 
     return hashCode;
@@ -81,12 +87,13 @@ class Signer {
       if (links != null) '_links': links.toJson(),
       if (id != null) 'id': id,
       if (signature != null) 'signature': signature.toJson(),
+      if (state != null) 'state': state,
       if (type != null) 'type': type,
     };
   }
 
   @override
   String toString() {
-    return 'Signer[embedded=$embedded, links=$links, id=$id, signature=$signature, type=$type, ]';
+    return 'Signer[embedded=$embedded, links=$links, id=$id, signature=$signature, state=$state, type=$type, ]';
   }
 }

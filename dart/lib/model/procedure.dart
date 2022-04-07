@@ -2,6 +2,7 @@ part of keyclic_sdk_api.api;
 
 class Procedure {
   Procedure({
+    this.embedded,
     this.links,
     this.createdAt,
     this.id,
@@ -28,6 +29,7 @@ class Procedure {
     }
 
     return Procedure(
+      embedded: ProcedureEmbedded.fromJson(json['_embedded']),
       links: ProcedureLinks.fromJson(json['_links']),
       createdAt: createdAt,
       id: json['id'],
@@ -36,6 +38,8 @@ class Procedure {
       updatedAt: updatedAt,
     );
   }
+
+  ProcedureEmbedded embedded;
 
   ProcedureLinks links;
 
@@ -58,6 +62,7 @@ class Procedure {
 
     return other is Procedure &&
         runtimeType == other.runtimeType &&
+        embedded == other.embedded &&
         links == other.links &&
         createdAt == other.createdAt &&
         id == other.id &&
@@ -71,6 +76,7 @@ class Procedure {
   int get hashCode {
     int hashCode = 0;
 
+    hashCode ^= embedded?.hashCode ?? 0;
     hashCode ^= links?.hashCode ?? 0;
     hashCode ^= createdAt?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
@@ -95,6 +101,7 @@ class Procedure {
 
   Map<String, dynamic> toJson() {
     return {
+      if (embedded != null) '_embedded': embedded.toJson(),
       if (links != null) '_links': links.toJson(),
       if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
       if (id != null) 'id': id,
@@ -106,6 +113,6 @@ class Procedure {
 
   @override
   String toString() {
-    return 'Procedure[links=$links, createdAt=$createdAt, id=$id, state=$state, type=$type, updatedAt=$updatedAt, ]';
+    return 'Procedure[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, state=$state, type=$type, updatedAt=$updatedAt, ]';
   }
 }

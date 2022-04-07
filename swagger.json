@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.23.5-dev.1fb0a0be28"
+        "version": "2.23.5-dev.70268b8176"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -21795,6 +21795,14 @@
         "Procedure": {
             "type": "object",
             "properties": {
+                "_embedded": {
+                    "type": "object",
+                    "properties": {
+                        "document": {
+                            "$ref": "#\/definitions\/Document"
+                        }
+                    }
+                },
                 "_links": {
                     "type": "object",
                     "properties": {
@@ -23638,6 +23646,9 @@
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "procedure": {
+                            "$ref": "#\/definitions\/SignerLinksProcedure"
+                        },
                         "self": {
                             "$ref": "#\/definitions\/SignerLinksSelf"
                         }
@@ -23692,6 +23703,32 @@
                 "document",
                 "member"
             ]
+        },
+        "SignerLinksProcedure": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the procedure associated to the given signer.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/SignerLinksProcedureIriTemplate"
+                }
+            }
+        },
+        "SignerLinksProcedureIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "procedure": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "SignerLinksSelf": {
             "type": "object",

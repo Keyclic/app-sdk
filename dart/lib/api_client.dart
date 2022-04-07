@@ -869,6 +869,8 @@ class ApiClient {
           return Procedure.fromJson(value);
         case 'ProcedureData':
           return ProcedureData.fromJson(value);
+        case 'ProcedureEmbedded':
+          return ProcedureEmbedded.fromJson(value);
         case 'ProcedureLinks':
           return ProcedureLinks.fromJson(value);
         case 'ProcedureLinksDocument':
@@ -1079,6 +1081,10 @@ class ApiClient {
           return SignerData.fromJson(value);
         case 'SignerLinks':
           return SignerLinks.fromJson(value);
+        case 'SignerLinksProcedure':
+          return SignerLinksProcedure.fromJson(value);
+        case 'SignerLinksProcedureIriTemplate':
+          return SignerLinksProcedureIriTemplate.fromJson(value);
         case 'SignerLinksSelf':
           return SignerLinksSelf.fromJson(value);
         case 'SignerLinksSelfIriTemplate':

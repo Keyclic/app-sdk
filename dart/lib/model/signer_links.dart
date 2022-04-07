@@ -2,6 +2,7 @@ part of keyclic_sdk_api.api;
 
 class SignerLinks {
   SignerLinks({
+    this.procedure,
     this.self,
   });
 
@@ -11,9 +12,12 @@ class SignerLinks {
     }
 
     return SignerLinks(
+      procedure: SignerLinksProcedure.fromJson(json['procedure']),
       self: SignerLinksSelf.fromJson(json['self']),
     );
   }
+
+  SignerLinksProcedure procedure;
 
   SignerLinksSelf self;
 
@@ -26,6 +30,7 @@ class SignerLinks {
 
     return other is SignerLinks &&
         runtimeType == other.runtimeType &&
+        procedure == other.procedure &&
         self == other.self;
   }
 
@@ -34,6 +39,7 @@ class SignerLinks {
   int get hashCode {
     int hashCode = 0;
 
+    hashCode ^= procedure?.hashCode ?? 0;
     hashCode ^= self?.hashCode ?? 0;
 
     return hashCode;
@@ -55,12 +61,13 @@ class SignerLinks {
 
   Map<String, dynamic> toJson() {
     return {
+      if (procedure != null) 'procedure': procedure.toJson(),
       if (self != null) 'self': self.toJson(),
     };
   }
 
   @override
   String toString() {
-    return 'SignerLinks[self=$self, ]';
+    return 'SignerLinks[procedure=$procedure, self=$self, ]';
   }
 }

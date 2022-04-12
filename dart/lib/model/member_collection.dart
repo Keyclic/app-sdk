@@ -1,70 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class MemberCollection {
+  /// Returns a new [MemberCollection] instance.
   MemberCollection({
-    this.items,
+    this.items = const [],
   });
 
+  /// Returns a new [MemberCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory MemberCollection.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return MemberCollection(
-      items: Member.listFromJson(json['items']),
+      items: Member.listFromJson(json[r'items']),
     );
   }
 
   List<Member> items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MemberCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Member element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
   static List<MemberCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MemberCollection.fromJson(value))
-            ?.toList() ??
-        <MemberCollection>[];
+    return <MemberCollection>[
+      if (json is List)
+        for (dynamic value in json) MemberCollection.fromJson(value),
+    ];
   }
 
   static Map<String, MemberCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MemberCollection>((String key, dynamic value) {
-          return MapEntry(key, MemberCollection.fromJson(value));
-        }) ??
-        <String, MemberCollection>{};
+    return <String, MemberCollection>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MemberCollection.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
+  // maps a json object with a list of MemberCollection-objects as value to a dart map
+  static Map<String, List<MemberCollection>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<MemberCollection>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MemberCollection.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'MemberCollection[items=$items, ]';
+  String toString() => 'MemberCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

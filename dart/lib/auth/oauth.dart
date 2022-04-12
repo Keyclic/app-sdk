@@ -1,18 +1,20 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OAuth implements Authentication {
-  String _oauthToken;
+  OAuth({this.accessToken});
+
+  String accessToken;
 
   @override
   void applyToParams(
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (_oauthToken != null) {
-      headerParams["Authorization"] = "Bearer $_oauthToken";
+      List<QueryParam> queryParams, Map<String, String> headerParams) {
+    if (accessToken != null) {
+      headerParams['Authorization'] = 'Bearer $accessToken';
     }
   }
-
-  @override
-  void setAccessToken(String value) => _oauthToken = value;
 }

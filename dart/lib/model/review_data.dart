@@ -1,21 +1,31 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ReviewData {
+  /// Returns a new [ReviewData] instance.
   ReviewData({
     this.reviewBody,
-    this.reviewRating,
-    this.reviewRequest,
+    @required this.reviewRating,
+    @required this.reviewRequest,
   });
 
+  /// Returns a new [ReviewData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ReviewData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ReviewData(
-      reviewBody: json['reviewBody'],
-      reviewRating: json['reviewRating'],
-      reviewRequest: json['reviewRequest'],
+      reviewBody: json[r'reviewBody'],
+      reviewRating: json[r'reviewRating'] == null
+          ? null
+          : json[r'reviewRating'].toDouble(),
+      reviewRequest: json[r'reviewRequest'],
     );
   }
 
@@ -26,53 +36,58 @@ class ReviewData {
   String reviewRequest;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewData &&
-        runtimeType == other.runtimeType &&
-        reviewBody == other.reviewBody &&
-        reviewRating == other.reviewRating &&
-        reviewRequest == other.reviewRequest;
+        other.reviewBody == reviewBody &&
+        other.reviewRating == reviewRating &&
+        other.reviewRequest == reviewRequest;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= reviewBody?.hashCode ?? 0;
-    hashCode ^= reviewRating?.hashCode ?? 0;
-    hashCode ^= reviewRequest?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (reviewBody == null ? 0 : reviewBody.hashCode) +
+      (reviewRating == null ? 0 : reviewRating.hashCode) +
+      (reviewRequest == null ? 0 : reviewRequest.hashCode);
 
   static List<ReviewData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => ReviewData.fromJson(value))?.toList() ??
-        <ReviewData>[];
+    return <ReviewData>[
+      if (json is List)
+        for (dynamic value in json) ReviewData.fromJson(value),
+    ];
   }
 
   static Map<String, ReviewData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewData>((String key, dynamic value) {
-          return MapEntry(key, ReviewData.fromJson(value));
-        }) ??
-        <String, ReviewData>{};
+    return <String, ReviewData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReviewData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (reviewBody != null) 'reviewBody': reviewBody,
-      if (reviewRating != null) 'reviewRating': reviewRating,
-      if (reviewRequest != null) 'reviewRequest': reviewRequest,
+  // maps a json object with a list of ReviewData-objects as value to a dart map
+  static Map<String, List<ReviewData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ReviewData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReviewData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest, ]';
+  String toString() =>
+      'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (reviewBody != null) r'reviewBody': reviewBody,
+      r'reviewRating': reviewRating,
+      r'reviewRequest': reviewRequest,
+    };
   }
 }

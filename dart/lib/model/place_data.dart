@@ -1,23 +1,31 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PlaceData {
+  /// Returns a new [PlaceData] instance.
   PlaceData({
-    this.name,
+    @required this.name,
     this.branchCode,
     this.polygon,
-    this.organization,
+    @required this.organization,
   });
 
+  /// Returns a new [PlaceData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PlaceData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PlaceData(
-      name: json['name'],
-      branchCode: json['branchCode'],
-      polygon: json['polygon'],
-      organization: json['organization'],
+      name: json[r'name'],
+      branchCode: json[r'branchCode'],
+      polygon: json[r'polygon'],
+      organization: json[r'organization'],
     );
   }
 
@@ -30,56 +38,61 @@ class PlaceData {
   String organization;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceData &&
-        runtimeType == other.runtimeType &&
-        name == other.name &&
-        branchCode == other.branchCode &&
-        polygon == other.polygon &&
-        organization == other.organization;
+        other.name == name &&
+        other.branchCode == branchCode &&
+        other.polygon == polygon &&
+        other.organization == organization;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= branchCode?.hashCode ?? 0;
-    hashCode ^= polygon?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (name == null ? 0 : name.hashCode) +
+      (branchCode == null ? 0 : branchCode.hashCode) +
+      (polygon == null ? 0 : polygon.hashCode) +
+      (organization == null ? 0 : organization.hashCode);
 
   static List<PlaceData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlaceData.fromJson(value))?.toList() ??
-        <PlaceData>[];
+    return <PlaceData>[
+      if (json is List)
+        for (dynamic value in json) PlaceData.fromJson(value),
+    ];
   }
 
   static Map<String, PlaceData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlaceData>((String key, dynamic value) {
-          return MapEntry(key, PlaceData.fromJson(value));
-        }) ??
-        <String, PlaceData>{};
+    return <String, PlaceData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlaceData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (name != null) 'name': name,
-      if (branchCode != null) 'branchCode': branchCode,
-      if (polygon != null) 'polygon': polygon,
-      if (organization != null) 'organization': organization,
+  // maps a json object with a list of PlaceData-objects as value to a dart map
+  static Map<String, List<PlaceData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PlaceData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlaceData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PlaceData[name=$name, branchCode=$branchCode, polygon=$polygon, organization=$organization, ]';
+  String toString() =>
+      'PlaceData[name=$name, branchCode=$branchCode, polygon=$polygon, organization=$organization]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'name': name,
+      if (branchCode != null) r'branchCode': branchCode,
+      if (polygon != null) r'polygon': polygon,
+      r'organization': organization,
+    };
   }
 }

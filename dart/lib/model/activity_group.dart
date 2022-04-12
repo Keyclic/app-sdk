@@ -1,8 +1,14 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ActivityGroup {
+  /// Returns a new [ActivityGroup] instance.
   ActivityGroup({
-    this.activities,
+    this.activities = const [],
     this.activityCount,
     this.actorCount,
     this.createdAt,
@@ -14,34 +20,36 @@ class ActivityGroup {
     this.isSeen,
   });
 
+  /// Returns a new [ActivityGroup] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ActivityGroup.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['created_at'] == null ? null : DateTime.parse(json['created_at']);
+        json['created_at'] == null ? null : DateTime.parse(json[r'created_at']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'created_at']}Z');
     }
 
     DateTime updatedAt =
-        json['updated_at'] == null ? null : DateTime.parse(json['updated_at']);
+        json['updated_at'] == null ? null : DateTime.parse(json[r'updated_at']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updated_at']}Z');
     }
 
     return ActivityGroup(
-      activities: Activity.listFromJson(json['activities']),
-      activityCount: json['activity_count'],
-      actorCount: json['actor_count'],
+      activities: Activity.listFromJson(json[r'activities']),
+      activityCount: json[r'activity_count'],
+      actorCount: json[r'actor_count'],
       createdAt: createdAt,
-      group: json['group'],
-      id: json['id'],
+      group: json[r'group'],
+      id: json[r'id'],
       updatedAt: updatedAt,
-      verb: json['verb'],
-      isRead: json['is_read'],
-      isSeen: json['is_seen'],
+      verb: json[r'verb'],
+      isRead: json[r'is_read'],
+      isSeen: json[r'is_seen'],
     );
   }
 
@@ -66,82 +74,80 @@ class ActivityGroup {
   bool isSeen;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ActivityGroup &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered()
             .equals(activities, other.activities) &&
-        activityCount == other.activityCount &&
-        actorCount == other.actorCount &&
-        createdAt == other.createdAt &&
-        group == other.group &&
-        id == other.id &&
-        updatedAt == other.updatedAt &&
-        verb == other.verb &&
-        isRead == other.isRead &&
-        isSeen == other.isSeen;
+        other.activityCount == activityCount &&
+        other.actorCount == actorCount &&
+        other.createdAt == createdAt &&
+        other.group == group &&
+        other.id == id &&
+        other.updatedAt == updatedAt &&
+        other.verb == verb &&
+        other.isRead == isRead &&
+        other.isSeen == isSeen;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (activities is List && activities.isNotEmpty) {
-      hashCode ^= activities
-          .map((Activity element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= activityCount?.hashCode ?? 0;
-    hashCode ^= actorCount?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= group?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-    hashCode ^= verb?.hashCode ?? 0;
-    hashCode ^= isRead?.hashCode ?? 0;
-    hashCode ^= isSeen?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (activities == null ? 0 : activities.hashCode) +
+      (activityCount == null ? 0 : activityCount.hashCode) +
+      (actorCount == null ? 0 : actorCount.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (group == null ? 0 : group.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (verb == null ? 0 : verb.hashCode) +
+      (isRead == null ? 0 : isRead.hashCode) +
+      (isSeen == null ? 0 : isSeen.hashCode);
 
   static List<ActivityGroup> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ActivityGroup.fromJson(value))
-            ?.toList() ??
-        <ActivityGroup>[];
+    return <ActivityGroup>[
+      if (json is List)
+        for (dynamic value in json) ActivityGroup.fromJson(value),
+    ];
   }
 
   static Map<String, ActivityGroup> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ActivityGroup>((String key, dynamic value) {
-          return MapEntry(key, ActivityGroup.fromJson(value));
-        }) ??
-        <String, ActivityGroup>{};
+    return <String, ActivityGroup>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ActivityGroup.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (activities != null) 'activities': activities,
-      if (activityCount != null) 'activity_count': activityCount,
-      if (actorCount != null) 'actor_count': actorCount,
-      if (createdAt != null) 'created_at': createdAt.toUtc().toIso8601String(),
-      if (group != null) 'group': group,
-      if (id != null) 'id': id,
-      if (updatedAt != null) 'updated_at': updatedAt.toUtc().toIso8601String(),
-      if (verb != null) 'verb': verb,
-      if (isRead != null) 'is_read': isRead,
-      if (isSeen != null) 'is_seen': isSeen,
+  // maps a json object with a list of ActivityGroup-objects as value to a dart map
+  static Map<String, List<ActivityGroup>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ActivityGroup>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ActivityGroup.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ActivityGroup[activities=$activities, activityCount=$activityCount, actorCount=$actorCount, createdAt=$createdAt, group=$group, id=$id, updatedAt=$updatedAt, verb=$verb, isRead=$isRead, isSeen=$isSeen, ]';
+  String toString() =>
+      'ActivityGroup[activities=$activities, activityCount=$activityCount, actorCount=$actorCount, createdAt=$createdAt, group=$group, id=$id, updatedAt=$updatedAt, verb=$verb, isRead=$isRead, isSeen=$isSeen]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (activities != null) r'activities': activities,
+      if (activityCount != null) r'activity_count': activityCount,
+      if (actorCount != null) r'actor_count': actorCount,
+      if (createdAt != null) r'created_at': createdAt.toUtc().toIso8601String(),
+      if (group != null) r'group': group,
+      if (id != null) r'id': id,
+      if (updatedAt != null) r'updated_at': updatedAt.toUtc().toIso8601String(),
+      if (verb != null) r'verb': verb,
+      if (isRead != null) r'is_read': isRead,
+      if (isSeen != null) r'is_seen': isSeen,
+    };
   }
 }

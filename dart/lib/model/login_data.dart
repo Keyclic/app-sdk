@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class LoginData {
+  /// Returns a new [LoginData] instance.
   LoginData({
-    this.login,
-    this.password,
+    @required this.login,
+    @required this.password,
   });
 
+  /// Returns a new [LoginData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory LoginData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return LoginData(
-      login: json['login'],
-      password: json['password'],
+      login: json[r'login'],
+      password: json[r'password'],
     );
   }
 
@@ -22,50 +30,54 @@ class LoginData {
   String password;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is LoginData &&
-        runtimeType == other.runtimeType &&
-        login == other.login &&
-        password == other.password;
+        other.login == login &&
+        other.password == password;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= login?.hashCode ?? 0;
-    hashCode ^= password?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (login == null ? 0 : login.hashCode) +
+      (password == null ? 0 : password.hashCode);
 
   static List<LoginData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => LoginData.fromJson(value))?.toList() ??
-        <LoginData>[];
+    return <LoginData>[
+      if (json is List)
+        for (dynamic value in json) LoginData.fromJson(value),
+    ];
   }
 
   static Map<String, LoginData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, LoginData>((String key, dynamic value) {
-          return MapEntry(key, LoginData.fromJson(value));
-        }) ??
-        <String, LoginData>{};
+    return <String, LoginData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: LoginData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (login != null) 'login': login,
-      if (password != null) 'password': password,
+  // maps a json object with a list of LoginData-objects as value to a dart map
+  static Map<String, List<LoginData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<LoginData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: LoginData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'LoginData[login=$login, password=$password, ]';
+  String toString() => 'LoginData[login=$login, password=$password]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'login': login,
+      r'password': password,
+    };
   }
 }

@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OccupantData {
+  /// Returns a new [OccupantData] instance.
   OccupantData({
-    this.member,
-    this.place,
+    @required this.member,
+    @required this.place,
   });
 
+  /// Returns a new [OccupantData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory OccupantData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return OccupantData(
-      member: json['member'],
-      place: json['place'],
+      member: json[r'member'],
+      place: json[r'place'],
     );
   }
 
@@ -22,52 +30,54 @@ class OccupantData {
   String place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OccupantData &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        place == other.place;
+        other.member == member &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (place == null ? 0 : place.hashCode);
 
   static List<OccupantData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OccupantData.fromJson(value))
-            ?.toList() ??
-        <OccupantData>[];
+    return <OccupantData>[
+      if (json is List)
+        for (dynamic value in json) OccupantData.fromJson(value),
+    ];
   }
 
   static Map<String, OccupantData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OccupantData>((String key, dynamic value) {
-          return MapEntry(key, OccupantData.fromJson(value));
-        }) ??
-        <String, OccupantData>{};
+    return <String, OccupantData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OccupantData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member,
-      if (place != null) 'place': place,
+  // maps a json object with a list of OccupantData-objects as value to a dart map
+  static Map<String, List<OccupantData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<OccupantData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OccupantData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'OccupantData[member=$member, place=$place, ]';
+  String toString() => 'OccupantData[member=$member, place=$place]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'member': member,
+      r'place': place,
+    };
   }
 }

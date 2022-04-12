@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Device {
+  /// Returns a new [Device] instance.
   Device({
     this.links,
     this.createdAt,
@@ -9,28 +15,30 @@ class Device {
     this.updatedAt,
   });
 
+  /// Returns a new [Device] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Device.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Device(
-      links: DeviceLinks.fromJson(json['_links']),
+      links: DeviceLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
@@ -46,59 +54,63 @@ class Device {
   DateTime updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Device &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<Device> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Device.fromJson(value))?.toList() ??
-        <Device>[];
+    return <Device>[
+      if (json is List)
+        for (dynamic value in json) Device.fromJson(value),
+    ];
   }
 
   static Map<String, Device> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Device>((String key, dynamic value) {
-          return MapEntry(key, Device.fromJson(value));
-        }) ??
-        <String, Device>{};
+    return <String, Device>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Device.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+  // maps a json object with a list of Device-objects as value to a dart map
+  static Map<String, List<Device>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Device>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Device.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Device[links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'Device[links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+    };
   }
 }

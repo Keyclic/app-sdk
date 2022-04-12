@@ -1,11 +1,19 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ApplicationLinks {
+  /// Returns a new [ApplicationLinks] instance.
   ApplicationLinks({
     this.knowledgeBase,
     this.self,
   });
 
+  /// Returns a new [ApplicationLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ApplicationLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
@@ -13,8 +21,8 @@ class ApplicationLinks {
 
     return ApplicationLinks(
       knowledgeBase:
-          ApplicationLinksKnowledgeBase.fromJson(json['knowledgeBase']),
-      self: ApplicationLinksSelf.fromJson(json['self']),
+          ApplicationLinksKnowledgeBase.fromJson(json[r'knowledgeBase']),
+      self: ApplicationLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -23,52 +31,55 @@ class ApplicationLinks {
   ApplicationLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ApplicationLinks &&
-        runtimeType == other.runtimeType &&
-        knowledgeBase == other.knowledgeBase &&
-        self == other.self;
+        other.knowledgeBase == knowledgeBase &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= knowledgeBase?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (knowledgeBase == null ? 0 : knowledgeBase.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<ApplicationLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ApplicationLinks.fromJson(value))
-            ?.toList() ??
-        <ApplicationLinks>[];
+    return <ApplicationLinks>[
+      if (json is List)
+        for (dynamic value in json) ApplicationLinks.fromJson(value),
+    ];
   }
 
   static Map<String, ApplicationLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ApplicationLinks>((String key, dynamic value) {
-          return MapEntry(key, ApplicationLinks.fromJson(value));
-        }) ??
-        <String, ApplicationLinks>{};
+    return <String, ApplicationLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ApplicationLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (knowledgeBase != null) 'knowledgeBase': knowledgeBase.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of ApplicationLinks-objects as value to a dart map
+  static Map<String, List<ApplicationLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ApplicationLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ApplicationLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ApplicationLinks[knowledgeBase=$knowledgeBase, self=$self, ]';
+  String toString() =>
+      'ApplicationLinks[knowledgeBase=$knowledgeBase, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (knowledgeBase != null) r'knowledgeBase': knowledgeBase,
+      if (self != null) r'self': self,
+    };
   }
 }

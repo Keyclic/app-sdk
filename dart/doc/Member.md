@@ -8,13 +8,13 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**embedded** | [**MemberEmbedded**](MemberEmbedded.md) |  | [optional] [default to null]
-**links** | [**MemberLinks**](MemberLinks.md) |  | [optional] [default to null]
-**contactPoint** | [**MemberContactPoint**](MemberContactPoint.md) |  | [optional] [default to null]
-**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**id** | **String** |  | [optional] [default to null]
-**type** | **String** |  | [optional] [default to null]
-**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
+**embedded** | [**MemberEmbedded**](MemberEmbedded.md) |  | [optional] 
+**links** | [**MemberLinks**](MemberLinks.md) |  | [optional] 
+**contactPoint** | [**MemberContactPoint**](MemberContactPoint.md) |  | [optional] 
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**id** | **String** |  | [optional] [readonly] 
+**type** | **String** |  | [optional] 
+**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

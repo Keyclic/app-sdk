@@ -8,17 +8,17 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**embedded** | [**ExternalServiceEmbedded**](ExternalServiceEmbedded.md) |  | [optional] [default to null]
-**links** | [**ExternalServiceLinks**](ExternalServiceLinks.md) |  | [optional] [default to null]
-**address** | [**ExternalServicePostalAddress**](ExternalServicePostalAddress.md) |  | [optional] [default to null]
-**contactPoint** | [**ExternalServiceContactPoint**](ExternalServiceContactPoint.md) |  | [optional] [default to null]
-**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**description** | **String** |  | [optional] [default to null]
-**id** | **String** |  | [optional] [default to null]
-**name** | **String** |  | [default to null]
-**onCall** | [**ExternalServiceContactPoint**](ExternalServiceContactPoint.md) |  | [optional] [default to null]
-**type** | **String** |  | [optional] [default to null]
-**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
+**embedded** | [**ExternalServiceEmbedded**](ExternalServiceEmbedded.md) |  | [optional] 
+**links** | [**ExternalServiceLinks**](ExternalServiceLinks.md) |  | [optional] 
+**address** | [**ExternalServicePostalAddress**](ExternalServicePostalAddress.md) |  | [optional] 
+**contactPoint** | [**ExternalServiceContactPoint**](ExternalServiceContactPoint.md) |  | [optional] 
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**description** | **String** |  | [optional] 
+**id** | **String** |  | [optional] [readonly] 
+**name** | **String** |  | 
+**onCall** | [**ExternalServiceContactPoint**](ExternalServiceContactPoint.md) |  | [optional] 
+**type** | **String** |  | [optional] 
+**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

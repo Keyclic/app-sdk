@@ -9,9 +9,9 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteMarker**](MarkerApi.md#deleteMarker) | **DELETE** /markers/{marker} | Remove one Marker resource.
-[**getMarker**](MarkerApi.md#getMarker) | **GET** /markers/{marker} | Retrieve one Marker resource.
-[**postMarker**](MarkerApi.md#postMarker) | **POST** /markers | Create one Marker resource.
+[**deleteMarker**](MarkerApi.md#deletemarker) | **DELETE** /markers/{marker} | Remove one Marker resource.
+[**getMarker**](MarkerApi.md#getmarker) | **GET** /markers/{marker} | Retrieve one Marker resource.
+[**postMarker**](MarkerApi.md#postmarker) | **POST** /markers | Create one Marker resource.
 
 
 # **deleteMarker**
@@ -23,22 +23,22 @@ Remove one Marker resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = MarkerApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var marker = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = MarkerApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final marker = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteMarker(xKeyclicApp, marker, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling MarkerApi->deleteMarker: $e\n");
+    print('Exception when calling MarkerApi->deleteMarker: $e\n');
 }
 ```
 
@@ -46,9 +46,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **marker** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -63,7 +63,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -77,23 +77,23 @@ Retrieve one Marker resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = MarkerApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var marker = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = MarkerApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final marker = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getMarker(xKeyclicApp, marker, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getMarker(xKeyclicApp, marker, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling MarkerApi->getMarker: $e\n");
+    print('Exception when calling MarkerApi->getMarker: $e\n');
 }
 ```
 
@@ -101,9 +101,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **marker** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -132,23 +132,23 @@ Create one Marker resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = MarkerApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var markerData = MarkerData(); // MarkerData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = MarkerApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final markerData = MarkerData(); // MarkerData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postMarker(xKeyclicApp, markerData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postMarker(xKeyclicApp, markerData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling MarkerApi->postMarker: $e\n");
+    print('Exception when calling MarkerApi->postMarker: $e\n');
 }
 ```
 
@@ -156,9 +156,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **markerData** | [**MarkerData**](MarkerData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

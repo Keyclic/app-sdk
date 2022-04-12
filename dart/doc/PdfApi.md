@@ -9,7 +9,7 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cpostImage**](PdfApi.md#cpostImage) | **POST** /pdf/images | Retrieve all Image resources.
+[**cpostImage**](PdfApi.md#cpostimage) | **POST** /pdf/images | Retrieve all Image resources.
 
 
 # **cpostImage**
@@ -21,25 +21,25 @@ Retrieve all Image resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PdfApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var fileData = FileData(); // FileData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = PdfApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final fileData = FileData(); // FileData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cpostImage(xKeyclicApp, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
+    final result = api_instance.cpostImage(xKeyclicApp, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling PdfApi->cpostImage: $e\n");
+    print('Exception when calling PdfApi->cpostImage: $e\n');
 }
 ```
 
@@ -47,9 +47,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **fileData** | [**FileData**](FileData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

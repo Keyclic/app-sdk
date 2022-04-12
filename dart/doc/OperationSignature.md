@@ -8,8 +8,8 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**signedAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**signer** | [**SignatureSigner**](SignatureSigner.md) |  | [optional] [default to null]
+**signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**signer** | [**SignatureSigner**](SignatureSigner.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

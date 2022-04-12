@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Assignment {
+  /// Returns a new [Assignment] instance.
   Assignment({
     this.embedded,
     this.links,
@@ -10,29 +16,31 @@ class Assignment {
     this.updatedAt,
   });
 
+  /// Returns a new [Assignment] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Assignment.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Assignment(
-      embedded: AssignmentEmbedded.fromJson(json['_embedded']),
-      links: AssignmentLinks.fromJson(json['_links']),
+      embedded: AssignmentEmbedded.fromJson(json[r'_embedded']),
+      links: AssignmentLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
@@ -50,62 +58,67 @@ class Assignment {
   DateTime updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Assignment &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<Assignment> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Assignment.fromJson(value))?.toList() ??
-        <Assignment>[];
+    return <Assignment>[
+      if (json is List)
+        for (dynamic value in json) Assignment.fromJson(value),
+    ];
   }
 
   static Map<String, Assignment> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Assignment>((String key, dynamic value) {
-          return MapEntry(key, Assignment.fromJson(value));
-        }) ??
-        <String, Assignment>{};
+    return <String, Assignment>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Assignment.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+  // maps a json object with a list of Assignment-objects as value to a dart map
+  static Map<String, List<Assignment>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<Assignment>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Assignment.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Assignment[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'Assignment[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+    };
   }
 }

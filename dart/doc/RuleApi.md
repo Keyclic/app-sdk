@@ -9,10 +9,10 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteRule**](RuleApi.md#deleteRule) | **DELETE** /rules/{rule} | Remove one Rule resource.
-[**getRule**](RuleApi.md#getRule) | **GET** /rules/{rule} | Retrieve one Rule resource.
-[**patchRule**](RuleApi.md#patchRule) | **PATCH** /rules/{rule} | Edit one Rule resource.
-[**postRule**](RuleApi.md#postRule) | **POST** /rules | Create one Rule resource.
+[**deleteRule**](RuleApi.md#deleterule) | **DELETE** /rules/{rule} | Remove one Rule resource.
+[**getRule**](RuleApi.md#getrule) | **GET** /rules/{rule} | Retrieve one Rule resource.
+[**patchRule**](RuleApi.md#patchrule) | **PATCH** /rules/{rule} | Edit one Rule resource.
+[**postRule**](RuleApi.md#postrule) | **POST** /rules | Create one Rule resource.
 
 
 # **deleteRule**
@@ -24,22 +24,22 @@ Remove one Rule resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = RuleApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var rule = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = RuleApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final rule = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteRule(xKeyclicApp, rule, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling RuleApi->deleteRule: $e\n");
+    print('Exception when calling RuleApi->deleteRule: $e\n');
 }
 ```
 
@@ -47,9 +47,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **rule** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -64,7 +64,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -78,23 +78,23 @@ Retrieve one Rule resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = RuleApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var rule = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = RuleApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final rule = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getRule(xKeyclicApp, rule, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getRule(xKeyclicApp, rule, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling RuleApi->getRule: $e\n");
+    print('Exception when calling RuleApi->getRule: $e\n');
 }
 ```
 
@@ -102,9 +102,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **rule** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -119,13 +119,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchRule**
-> Rule patchRule(xKeyclicApp, rulePatch, rule, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Rule patchRule(xKeyclicApp, rule, rulePatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Rule resource.
 
@@ -133,24 +133,24 @@ Edit one Rule resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = RuleApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var rulePatch = RulePatch(); // RulePatch | 
-var rule = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = RuleApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final rule = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final rulePatch = RulePatch(); // RulePatch | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchRule(xKeyclicApp, rulePatch, rule, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.patchRule(xKeyclicApp, rule, rulePatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling RuleApi->patchRule: $e\n");
+    print('Exception when calling RuleApi->patchRule: $e\n');
 }
 ```
 
@@ -158,10 +158,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **rulePatch** | [**RulePatch**](RulePatch.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **rule** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **rulePatch** | [**RulePatch**](RulePatch.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -190,23 +190,23 @@ Create one Rule resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = RuleApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var ruleData = RuleData(); // RuleData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = RuleApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final ruleData = RuleData(); // RuleData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postRule(xKeyclicApp, ruleData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postRule(xKeyclicApp, ruleData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling RuleApi->postRule: $e\n");
+    print('Exception when calling RuleApi->postRule: $e\n');
 }
 ```
 
@@ -214,9 +214,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **ruleData** | [**RuleData**](RuleData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

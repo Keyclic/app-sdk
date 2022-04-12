@@ -1,138 +1,144 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Permission {
-  Permission.fromJson(dynamic data) {
-    switch (data) {
-      case "FILTER:ALL":
-        value = data;
-        break;
-
-      case "ORGANIZATION:AGENT":
-        value = data;
-        break;
-
-      case "ORGANIZATION:MEMBER":
-        value = data;
-        break;
-
-      case "ORGANIZATION:OPERATOR":
-        value = data;
-        break;
-
-      case "ALL":
-        value = data;
-        break;
-
-      case "ANALYTICS:ALL":
-        value = data;
-        break;
-
-      case "CATEGORY:ALL":
-        value = data;
-        break;
-
-      case "DOCUMENT:ALL":
-        value = data;
-        break;
-
-      case "EXPORT:ALL":
-        value = data;
-        break;
-
-      case "MEMBER_COLLABORATOR:ALL":
-        value = data;
-        break;
-
-      case "MEMBER_CONTACT:ALL":
-        value = data;
-        break;
-
-      case "OCCUPANT:ALL":
-        value = data;
-        break;
-
-      case "OPERATION:ALL":
-        value = data;
-        break;
-
-      case "ORGANIZATION:ALL":
-        value = data;
-        break;
-
-      case "PLACE:ALL":
-        value = data;
-        break;
-
-      case "PUBLICATION:ALL":
-        value = data;
-        break;
-
-      case "REPORT:ALL":
-        value = data;
-        break;
-
-      case "REPORTING:ALL":
-        value = data;
-        break;
-
-      case "SERVICE:ALL":
-        value = data;
-        break;
-
-      default:
-        throw ('Unknown enum value to decode: $data');
-    }
-  }
-
-  Permission._internal(this.value);
+  /// Instantiate a new enum with the provided [value].
+  const Permission._(this.value);
 
   /// The underlying value of this enum member.
-  String value;
+  final String value;
 
-  static Permission fILTERALL_ = Permission._internal("FILTER:ALL");
+  @override
+  String toString() => value;
 
-  static Permission oRGANIZATIONAGENT_ =
-      Permission._internal("ORGANIZATION:AGENT");
+  String toJson() => value;
 
-  static Permission oRGANIZATIONMEMBER_ =
-      Permission._internal("ORGANIZATION:MEMBER");
+  static const fILTERColonALL = Permission._(r'FILTER:ALL');
+  static const oRGANIZATIONColonAGENT = Permission._(r'ORGANIZATION:AGENT');
+  static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
+  static const oRGANIZATIONColonOPERATOR =
+      Permission._(r'ORGANIZATION:OPERATOR');
+  static const ALL = Permission._(r'ALL');
+  static const aNALYTICSColonALL = Permission._(r'ANALYTICS:ALL');
+  static const cATEGORYColonALL = Permission._(r'CATEGORY:ALL');
+  static const dOCUMENTColonALL = Permission._(r'DOCUMENT:ALL');
+  static const eXPORTColonALL = Permission._(r'EXPORT:ALL');
+  static const mEMBERCOLLABORATORColonALL =
+      Permission._(r'MEMBER_COLLABORATOR:ALL');
+  static const mEMBERCONTACTColonALL = Permission._(r'MEMBER_CONTACT:ALL');
+  static const oCCUPANTColonALL = Permission._(r'OCCUPANT:ALL');
+  static const oPERATIONColonALL = Permission._(r'OPERATION:ALL');
+  static const oRGANIZATIONColonALL = Permission._(r'ORGANIZATION:ALL');
+  static const pLACEColonALL = Permission._(r'PLACE:ALL');
+  static const pUBLICATIONColonALL = Permission._(r'PUBLICATION:ALL');
+  static const rEPORTColonALL = Permission._(r'REPORT:ALL');
+  static const rEPORTINGColonALL = Permission._(r'REPORTING:ALL');
+  static const sERVICEColonALL = Permission._(r'SERVICE:ALL');
 
-  static Permission oRGANIZATIONOPERATOR_ =
-      Permission._internal("ORGANIZATION:OPERATOR");
+  /// List of all possible values in this [enum][Permission].
+  static const values = <Permission>[
+    fILTERColonALL,
+    oRGANIZATIONColonAGENT,
+    oRGANIZATIONColonMEMBER,
+    oRGANIZATIONColonOPERATOR,
+    ALL,
+    aNALYTICSColonALL,
+    cATEGORYColonALL,
+    dOCUMENTColonALL,
+    eXPORTColonALL,
+    mEMBERCOLLABORATORColonALL,
+    mEMBERCONTACTColonALL,
+    oCCUPANTColonALL,
+    oPERATIONColonALL,
+    oRGANIZATIONColonALL,
+    pLACEColonALL,
+    pUBLICATIONColonALL,
+    rEPORTColonALL,
+    rEPORTINGColonALL,
+    sERVICEColonALL,
+  ];
 
-  static Permission aLL_ = Permission._internal("ALL");
+  static Permission fromJson(dynamic value) =>
+      PermissionTypeTransformer().decode(value);
 
-  static Permission aNALYTICSALL_ = Permission._internal("ANALYTICS:ALL");
-
-  static Permission cATEGORYALL_ = Permission._internal("CATEGORY:ALL");
-
-  static Permission dOCUMENTALL_ = Permission._internal("DOCUMENT:ALL");
-
-  static Permission eXPORTALL_ = Permission._internal("EXPORT:ALL");
-
-  static Permission mEMBERCOLLABORATORALL_ =
-      Permission._internal("MEMBER_COLLABORATOR:ALL");
-
-  static Permission mEMBERCONTACTALL_ =
-      Permission._internal("MEMBER_CONTACT:ALL");
-
-  static Permission oCCUPANTALL_ = Permission._internal("OCCUPANT:ALL");
-
-  static Permission oPERATIONALL_ = Permission._internal("OPERATION:ALL");
-
-  static Permission oRGANIZATIONALL_ = Permission._internal("ORGANIZATION:ALL");
-
-  static Permission pLACEALL_ = Permission._internal("PLACE:ALL");
-
-  static Permission pUBLICATIONALL_ = Permission._internal("PUBLICATION:ALL");
-
-  static Permission rEPORTALL_ = Permission._internal("REPORT:ALL");
-
-  static Permission rEPORTINGALL_ = Permission._internal("REPORTING:ALL");
-
-  static Permission sERVICEALL_ = Permission._internal("SERVICE:ALL");
-
-  static dynamic encode(Permission data) {
-    return data.value;
+  static List<Permission> listFromJson(List<dynamic> json) {
+    return <Permission>[
+      if (json is List)
+        for (dynamic value in json) Permission.fromJson(value),
+    ];
   }
+}
+
+/// Transformation class that can [encode] an instance of [Permission] to String,
+/// and [decode] dynamic data back to [Permission].
+class PermissionTypeTransformer {
+  const PermissionTypeTransformer._();
+
+  factory PermissionTypeTransformer() =>
+      _instance ??= PermissionTypeTransformer._();
+
+  String encode(Permission data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a Permission.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  Permission decode(dynamic data, {bool allowNull}) {
+    switch (data) {
+      case r'FILTER:ALL':
+        return Permission.fILTERColonALL;
+      case r'ORGANIZATION:AGENT':
+        return Permission.oRGANIZATIONColonAGENT;
+      case r'ORGANIZATION:MEMBER':
+        return Permission.oRGANIZATIONColonMEMBER;
+      case r'ORGANIZATION:OPERATOR':
+        return Permission.oRGANIZATIONColonOPERATOR;
+      case r'ALL':
+        return Permission.ALL;
+      case r'ANALYTICS:ALL':
+        return Permission.aNALYTICSColonALL;
+      case r'CATEGORY:ALL':
+        return Permission.cATEGORYColonALL;
+      case r'DOCUMENT:ALL':
+        return Permission.dOCUMENTColonALL;
+      case r'EXPORT:ALL':
+        return Permission.eXPORTColonALL;
+      case r'MEMBER_COLLABORATOR:ALL':
+        return Permission.mEMBERCOLLABORATORColonALL;
+      case r'MEMBER_CONTACT:ALL':
+        return Permission.mEMBERCONTACTColonALL;
+      case r'OCCUPANT:ALL':
+        return Permission.oCCUPANTColonALL;
+      case r'OPERATION:ALL':
+        return Permission.oPERATIONColonALL;
+      case r'ORGANIZATION:ALL':
+        return Permission.oRGANIZATIONColonALL;
+      case r'PLACE:ALL':
+        return Permission.pLACEColonALL;
+      case r'PUBLICATION:ALL':
+        return Permission.pUBLICATIONColonALL;
+      case r'REPORT:ALL':
+        return Permission.rEPORTColonALL;
+      case r'REPORTING:ALL':
+        return Permission.rEPORTINGColonALL;
+      case r'SERVICE:ALL':
+        return Permission.sERVICEColonALL;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [PermissionTypeTransformer] instance.
+  static PermissionTypeTransformer _instance;
 }

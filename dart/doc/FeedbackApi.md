@@ -9,16 +9,16 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cgetCommentsByFeedback**](FeedbackApi.md#cgetCommentsByFeedback) | **GET** /feedbacks/{feedback}/comments | Retrieve all Comment resources.
-[**cgetFeedback**](FeedbackApi.md#cgetFeedback) | **GET** /feedbacks | Retrieve all Feedback resources.
-[**cgetReviewsByFeedback**](FeedbackApi.md#cgetReviewsByFeedback) | **GET** /feedbacks/{feedback}/reviews | Retrieve all Review resources.
-[**deleteFeedback**](FeedbackApi.md#deleteFeedback) | **DELETE** /feedbacks/{feedback} | Remove one Feedback resource.
-[**getFeedback**](FeedbackApi.md#getFeedback) | **GET** /feedbacks/{feedback} | Retrieve one Feedback resource.
-[**getTrackingByFeedback**](FeedbackApi.md#getTrackingByFeedback) | **GET** /feedbacks/{feedback}/tracking | Retrieve one Tracking resource.
-[**postCommentByFeedback**](FeedbackApi.md#postCommentByFeedback) | **POST** /feedbacks/{feedback}/comments | Create one Comment resource.
-[**postImageByFeedback**](FeedbackApi.md#postImageByFeedback) | **POST** /feedbacks/{feedback}/images | Create one Image resource.
-[**postIssue**](FeedbackApi.md#postIssue) | **POST** /feedbacks/issues | Create one Issue resource.
-[**postWorkflowByFeedback**](FeedbackApi.md#postWorkflowByFeedback) | **POST** /feedbacks/{feedback}/workflow | Create one Workflow resource.
+[**cgetCommentsByFeedback**](FeedbackApi.md#cgetcommentsbyfeedback) | **GET** /feedbacks/{feedback}/comments | Retrieve all Comment resources.
+[**cgetFeedback**](FeedbackApi.md#cgetfeedback) | **GET** /feedbacks | Retrieve all Feedback resources.
+[**cgetReviewsByFeedback**](FeedbackApi.md#cgetreviewsbyfeedback) | **GET** /feedbacks/{feedback}/reviews | Retrieve all Review resources.
+[**deleteFeedback**](FeedbackApi.md#deletefeedback) | **DELETE** /feedbacks/{feedback} | Remove one Feedback resource.
+[**getFeedback**](FeedbackApi.md#getfeedback) | **GET** /feedbacks/{feedback} | Retrieve one Feedback resource.
+[**getTrackingByFeedback**](FeedbackApi.md#gettrackingbyfeedback) | **GET** /feedbacks/{feedback}/tracking | Retrieve one Tracking resource.
+[**postCommentByFeedback**](FeedbackApi.md#postcommentbyfeedback) | **POST** /feedbacks/{feedback}/comments | Create one Comment resource.
+[**postImageByFeedback**](FeedbackApi.md#postimagebyfeedback) | **POST** /feedbacks/{feedback}/images | Create one Image resource.
+[**postIssue**](FeedbackApi.md#postissue) | **POST** /feedbacks/issues | Create one Issue resource.
+[**postWorkflowByFeedback**](FeedbackApi.md#postworkflowbyfeedback) | **POST** /feedbacks/{feedback}/workflow | Create one Workflow resource.
 
 
 # **cgetCommentsByFeedback**
@@ -30,25 +30,25 @@ Retrieve all Comment resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetCommentsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
+    final result = api_instance.cgetCommentsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->cgetCommentsByFeedback: $e\n");
+    print('Exception when calling FeedbackApi->cgetCommentsByFeedback: $e\n');
 }
 ```
 
@@ -56,9 +56,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -75,13 +75,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetFeedback**
-> FeedbackPagination cgetFeedback(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batches[], after, before, geoHash[], order[], organization, organizations[], page, limit)
+> FeedbackPagination cgetFeedback(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batchesLeftSquareBracketRightSquareBracket, after, before, geoHashLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, page, limit)
 
 Retrieve all Feedback resources.
 
@@ -89,32 +89,32 @@ Retrieve all Feedback resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var batch = batch_example; // String | 
-var batches[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var geoHash[] = []; // List<String> | 
-var order[] = []; // List<String> | 
-var organization = organization_example; // String | 
-var organizations[] = []; // List<String> | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final batch = batch_example; // String | 
+final batchesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final geoHashLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final organization = organization_example; // String | 
+final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetFeedback(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batches[], after, before, geoHash[], order[], organization, organizations[], page, limit);
+    final result = api_instance.cgetFeedback(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batchesLeftSquareBracketRightSquareBracket, after, before, geoHashLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->cgetFeedback: $e\n");
+    print('Exception when calling FeedbackApi->cgetFeedback: $e\n');
 }
 ```
 
@@ -122,19 +122,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **batch** | **String**|  | [optional] 
- **batches[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **batchesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **geoHash[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **geoHashLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **organization** | **String**|  | [optional] 
- **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 
@@ -148,13 +148,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetReviewsByFeedback**
-> ReviewPagination cgetReviewsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
+> ReviewPagination cgetReviewsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit)
 
 Retrieve all Review resources.
 
@@ -162,28 +162,28 @@ Retrieve all Review resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetReviewsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
+    final result = api_instance.cgetReviewsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->cgetReviewsByFeedback: $e\n");
+    print('Exception when calling FeedbackApi->cgetReviewsByFeedback: $e\n');
 }
 ```
 
@@ -191,13 +191,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -227,22 +227,22 @@ Remove one Feedback resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling FeedbackApi->deleteFeedback: $e\n");
+    print('Exception when calling FeedbackApi->deleteFeedback: $e\n');
 }
 ```
 
@@ -250,9 +250,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -267,7 +267,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -281,23 +281,23 @@ Retrieve one Feedback resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->getFeedback: $e\n");
+    print('Exception when calling FeedbackApi->getFeedback: $e\n');
 }
 ```
 
@@ -305,9 +305,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -336,23 +336,23 @@ Retrieve one Tracking resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getTrackingByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTrackingByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->getTrackingByFeedback: $e\n");
+    print('Exception when calling FeedbackApi->getTrackingByFeedback: $e\n');
 }
 ```
 
@@ -360,9 +360,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -377,13 +377,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postCommentByFeedback**
-> Feedback postCommentByFeedback(xKeyclicApp, commentData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Feedback postCommentByFeedback(xKeyclicApp, feedback, commentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Comment resource.
 
@@ -391,24 +391,24 @@ Create one Comment resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var commentData = CommentData(); // CommentData | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final commentData = CommentData(); // CommentData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postCommentByFeedback(xKeyclicApp, commentData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postCommentByFeedback(xKeyclicApp, feedback, commentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->postCommentByFeedback: $e\n");
+    print('Exception when calling FeedbackApi->postCommentByFeedback: $e\n');
 }
 ```
 
@@ -416,10 +416,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **commentData** | [**CommentData**](CommentData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **commentData** | [**CommentData**](CommentData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postImageByFeedback**
-> Feedback postImageByFeedback(xKeyclicApp, imageData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Feedback postImageByFeedback(xKeyclicApp, feedback, imageData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Image resource.
 
@@ -448,24 +448,24 @@ Create one Image resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var imageData = ImageData(); // ImageData | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final imageData = ImageData(); // ImageData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postImageByFeedback(xKeyclicApp, imageData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postImageByFeedback(xKeyclicApp, feedback, imageData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->postImageByFeedback: $e\n");
+    print('Exception when calling FeedbackApi->postImageByFeedback: $e\n');
 }
 ```
 
@@ -473,10 +473,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **imageData** | [**ImageData**](ImageData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **imageData** | [**ImageData**](ImageData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -505,23 +505,23 @@ Create one Issue resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedbackData = FeedbackData(); // FeedbackData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedbackData = FeedbackData(); // FeedbackData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postIssue(xKeyclicApp, feedbackData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postIssue(xKeyclicApp, feedbackData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->postIssue: $e\n");
+    print('Exception when calling FeedbackApi->postIssue: $e\n');
 }
 ```
 
@@ -529,9 +529,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedbackData** | [**FeedbackData**](FeedbackData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -552,7 +552,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postWorkflowByFeedback**
-> Feedback postWorkflowByFeedback(xKeyclicApp, feedbackWorkflowTransitionData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Feedback postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Workflow resource.
 
@@ -560,24 +560,24 @@ Create one Workflow resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedbackWorkflowTransitionData = FeedbackWorkflowTransitionData(); // FeedbackWorkflowTransitionData | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = FeedbackApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final feedback = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final feedbackWorkflowTransitionData = FeedbackWorkflowTransitionData(); // FeedbackWorkflowTransitionData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postWorkflowByFeedback(xKeyclicApp, feedbackWorkflowTransitionData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling FeedbackApi->postWorkflowByFeedback: $e\n");
+    print('Exception when calling FeedbackApi->postWorkflowByFeedback: $e\n');
 }
 ```
 
@@ -585,10 +585,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **feedbackWorkflowTransitionData** | [**FeedbackWorkflowTransitionData**](FeedbackWorkflowTransitionData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **feedbackWorkflowTransitionData** | [**FeedbackWorkflowTransitionData**](FeedbackWorkflowTransitionData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

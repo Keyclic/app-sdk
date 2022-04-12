@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class TemplateApi {
   TemplateApi([ApiClient apiClient])
@@ -8,7 +13,89 @@ class TemplateApi {
 
   /// Remove one Template resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] template (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> deleteTemplateWithHttpInfo(
+    String xKeyclicApp,
+    String template, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (template == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: template');
+    }
+
+    final path = r'/templates/{template}'
+        .replaceAll('{' + 'template' + '}', template.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'DELETE',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Remove one Template resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] template (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<void> deleteTemplate(
     String xKeyclicApp,
     String template, {
@@ -17,68 +104,104 @@ class TemplateApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (template == null) {
-      throw ApiException(0, "Missing required param: template");
-    }
-
-    // create path and map variables
-    final String path = "/templates/{template}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "template" + "}", template.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'DELETE',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await deleteTemplateWithHttpInfo(
+      xKeyclicApp,
+      template,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    if (response.body == null) {
-      return;
-    }
-
-    return;
   }
 
   /// Retrieve one Template resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] template (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getTemplateWithHttpInfo(
+    String xKeyclicApp,
+    String template, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (template == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: template');
+    }
+
+    final path = r'/templates/{template}'
+        .replaceAll('{' + 'template' + '}', template.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one Template resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] template (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Template> getTemplate(
     String xKeyclicApp,
     String template, {
@@ -87,144 +210,246 @@ class TemplateApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (template == null) {
-      throw ApiException(0, "Missing required param: template");
-    }
-
-    // create path and map variables
-    final String path = "/templates/{template}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "template" + "}", template.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getTemplateWithHttpInfo(
+      xKeyclicApp,
+      template,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Template>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Template') as Template;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Template',
+    ) as Template;
   }
 
   /// Edit one Template resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
-  Future<Template> patchTemplate(
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] template (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [TemplatePatch] templatePatch (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> patchTemplateWithHttpInfo(
     String xKeyclicApp,
-    TemplatePatch templatePatch,
-    String template, {
+    String template,
+    TemplatePatch templatePatch, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (templatePatch == null) {
-      throw ApiException(0, "Missing required param: templatePatch");
-    }
-
     if (template == null) {
-      throw ApiException(0, "Missing required param: template");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: template');
+    }
+    if (templatePatch == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: templatePatch');
     }
 
-    // create path and map variables
-    final String path = "/templates/{template}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "template" + "}", template.toString());
+    final path = r'/templates/{template}'
+        .replaceAll('{' + 'template' + '}', template.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'PATCH',
       queryParams: queryParams,
       body: templatePatch,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
+  }
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+  /// Edit one Template resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] template (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [TemplatePatch] templatePatch (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Template> patchTemplate(
+    String xKeyclicApp,
+    String template,
+    TemplatePatch templatePatch, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    final response = await patchTemplateWithHttpInfo(
+      xKeyclicApp,
+      template,
+      templatePatch,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Template>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Template') as Template;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Template',
+    ) as Template;
   }
 
   /// Create one Template resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [TemplateData] templateData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postTemplateWithHttpInfo(
+    String xKeyclicApp,
+    TemplateData templateData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (templateData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: templateData');
+    }
+
+    final path = r'/templates';
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      body: templateData,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Create one Template resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [TemplateData] templateData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Template> postTemplate(
     String xKeyclicApp,
     TemplateData templateData, {
@@ -233,61 +458,27 @@ class TemplateApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (templateData == null) {
-      throw ApiException(0, "Missing required param: templateData");
-    }
-
-    // create path and map variables
-    final String path = "/templates".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: templateData,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await postTemplateWithHttpInfo(
+      xKeyclicApp,
+      templateData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Template>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Template') as Template;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Template',
+    ) as Template;
   }
 }

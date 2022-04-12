@@ -1,32 +1,40 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ReportEmbedded {
+  /// Returns a new [ReportEmbedded] instance.
   ReportEmbedded({
     this.assignment,
     this.category,
-    this.children,
-    this.documents,
+    this.children = const [],
+    this.documents = const [],
     this.feedback,
     this.place,
-    this.targetGroups,
+    this.targetGroups = const [],
     this.workflow,
   });
 
+  /// Returns a new [ReportEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ReportEmbedded.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ReportEmbedded(
-      assignment: Assignment.fromJson(json['assignment']),
-      category: Category.fromJson(json['category']),
-      children: Operation.listFromJson(json['children']),
-      documents: Document.listFromJson(json['documents']),
-      feedback: Feedback.fromJson(json['feedback']),
-      place: Place.fromJson(json['place']),
+      assignment: Assignment.fromJson(json[r'assignment']),
+      category: Category.fromJson(json[r'category']),
+      children: Operation.listFromJson(json[r'children']),
+      documents: Document.listFromJson(json[r'documents']),
+      feedback: Feedback.fromJson(json[r'feedback']),
+      place: Place.fromJson(json[r'place']),
       targetGroups:
-          PlaceEmbeddedTargetGroups.listFromJson(json['targetGroups']),
-      workflow: OperationEmbeddedWorkflow.fromJson(json['workflow']),
+          PlaceEmbeddedTargetGroups.listFromJson(json[r'targetGroups']),
+      workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -47,84 +55,74 @@ class ReportEmbedded {
   OperationEmbeddedWorkflow workflow;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReportEmbedded &&
-        runtimeType == other.runtimeType &&
-        assignment == other.assignment &&
-        category == other.category &&
+        other.assignment == assignment &&
+        other.category == category &&
         DeepCollectionEquality.unordered().equals(children, other.children) &&
         DeepCollectionEquality.unordered().equals(documents, other.documents) &&
-        feedback == other.feedback &&
-        place == other.place &&
+        other.feedback == feedback &&
+        other.place == place &&
         DeepCollectionEquality.unordered()
             .equals(targetGroups, other.targetGroups) &&
-        workflow == other.workflow;
+        other.workflow == workflow;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (children is List && children.isNotEmpty) {
-      hashCode ^= children
-          .map((Operation element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (documents is List && documents.isNotEmpty) {
-      hashCode ^= documents
-          .map((Document element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (targetGroups is List && targetGroups.isNotEmpty) {
-      hashCode ^= targetGroups
-          .map((PlaceEmbeddedTargetGroups element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= assignment?.hashCode ?? 0;
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= feedback?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (assignment == null ? 0 : assignment.hashCode) +
+      (category == null ? 0 : category.hashCode) +
+      (children == null ? 0 : children.hashCode) +
+      (documents == null ? 0 : documents.hashCode) +
+      (feedback == null ? 0 : feedback.hashCode) +
+      (place == null ? 0 : place.hashCode) +
+      (targetGroups == null ? 0 : targetGroups.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
   static List<ReportEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReportEmbedded.fromJson(value))
-            ?.toList() ??
-        <ReportEmbedded>[];
+    return <ReportEmbedded>[
+      if (json is List)
+        for (dynamic value in json) ReportEmbedded.fromJson(value),
+    ];
   }
 
   static Map<String, ReportEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReportEmbedded>((String key, dynamic value) {
-          return MapEntry(key, ReportEmbedded.fromJson(value));
-        }) ??
-        <String, ReportEmbedded>{};
+    return <String, ReportEmbedded>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReportEmbedded.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (assignment != null) 'assignment': assignment.toJson(),
-      if (category != null) 'category': category.toJson(),
-      if (children != null) 'children': children,
-      if (documents != null) 'documents': documents,
-      if (feedback != null) 'feedback': feedback.toJson(),
-      if (place != null) 'place': place.toJson(),
-      if (targetGroups != null) 'targetGroups': targetGroups,
-      if (workflow != null) 'workflow': workflow.toJson(),
+  // maps a json object with a list of ReportEmbedded-objects as value to a dart map
+  static Map<String, List<ReportEmbedded>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ReportEmbedded>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReportEmbedded.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ReportEmbedded[assignment=$assignment, category=$category, children=$children, documents=$documents, feedback=$feedback, place=$place, targetGroups=$targetGroups, workflow=$workflow, ]';
+  String toString() =>
+      'ReportEmbedded[assignment=$assignment, category=$category, children=$children, documents=$documents, feedback=$feedback, place=$place, targetGroups=$targetGroups, workflow=$workflow]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (assignment != null) r'assignment': assignment,
+      if (category != null) r'category': category,
+      if (children != null) r'children': children,
+      if (documents != null) r'documents': documents,
+      if (feedback != null) r'feedback': feedback,
+      if (place != null) r'place': place,
+      if (targetGroups != null) r'targetGroups': targetGroups,
+      if (workflow != null) r'workflow': workflow,
+    };
   }
 }

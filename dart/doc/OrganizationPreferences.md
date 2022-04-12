@@ -8,13 +8,13 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**categoryRequired** | **bool** |  | [optional] [default to null]
-**electronicSignature** | [**PreferencesElectronicSignature**](PreferencesElectronicSignature.md) |  | [optional] [default to null]
-**form** | [**PreferencesForm**](PreferencesForm.md) |  | [optional] [default to null]
-**offline** | **bool** |  | [optional] [default to null]
-**public** | **bool** |  | [optional] [default to null]
-**reference** | [**PreferencesReference**](PreferencesReference.md) |  | [optional] [default to null]
-**reviewEnabled** | **bool** |  | [optional] [default to null]
+**categoryRequired** | **bool** |  | [optional] 
+**electronicSignature** | [**PreferencesElectronicSignature**](PreferencesElectronicSignature.md) |  | [optional] 
+**form** | [**PreferencesForm**](PreferencesForm.md) |  | [optional] 
+**offline** | **bool** |  | [optional] 
+**public** | **bool** |  | [optional] 
+**reference** | [**PreferencesReference**](PreferencesReference.md) |  | [optional] 
+**reviewEnabled** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

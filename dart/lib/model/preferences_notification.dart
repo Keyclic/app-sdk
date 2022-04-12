@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PreferencesNotification {
+  /// Returns a new [PreferencesNotification] instance.
   PreferencesNotification({
     this.mail,
     this.push,
   });
 
+  /// Returns a new [PreferencesNotification] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PreferencesNotification.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PreferencesNotification(
-      mail: json['mail'],
-      push: json['push'],
+      mail: json[r'mail'],
+      push: json[r'push'],
     );
   }
 
@@ -22,54 +30,54 @@ class PreferencesNotification {
   bool push;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PreferencesNotification &&
-        runtimeType == other.runtimeType &&
-        mail == other.mail &&
-        push == other.push;
+        other.mail == mail &&
+        other.push == push;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mail?.hashCode ?? 0;
-    hashCode ^= push?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
 
   static List<PreferencesNotification> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PreferencesNotification.fromJson(value))
-            ?.toList() ??
-        <PreferencesNotification>[];
+    return <PreferencesNotification>[
+      if (json is List)
+        for (dynamic value in json) PreferencesNotification.fromJson(value),
+    ];
   }
 
   static Map<String, PreferencesNotification> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, PreferencesNotification>((String key, dynamic value) {
-          return MapEntry(key, PreferencesNotification.fromJson(value));
-        }) ??
-        <String, PreferencesNotification>{};
+    return <String, PreferencesNotification>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesNotification.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mail != null) 'mail': mail,
-      if (push != null) 'push': push,
+  // maps a json object with a list of PreferencesNotification-objects as value to a dart map
+  static Map<String, List<PreferencesNotification>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PreferencesNotification>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesNotification.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PreferencesNotification[mail=$mail, push=$push, ]';
+  String toString() => 'PreferencesNotification[mail=$mail, push=$push]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mail != null) r'mail': mail,
+      if (push != null) r'push': push,
+    };
   }
 }

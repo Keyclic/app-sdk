@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ExternalServicePatchContactPoint {
+  /// Returns a new [ExternalServicePatchContactPoint] instance.
   ExternalServicePatchContactPoint({
     this.email,
     this.name,
     this.telephone,
   });
 
+  /// Returns a new [ExternalServicePatchContactPoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ExternalServicePatchContactPoint.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServicePatchContactPoint(
-      email: json['email'],
-      name: json['name'],
-      telephone: json['telephone'],
+      email: json[r'email'],
+      name: json[r'name'],
+      telephone: json[r'telephone'],
     );
   }
 
@@ -26,60 +34,61 @@ class ExternalServicePatchContactPoint {
   String telephone;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServicePatchContactPoint &&
-        runtimeType == other.runtimeType &&
-        email == other.email &&
-        name == other.name &&
-        telephone == other.telephone;
+        other.email == email &&
+        other.name == name &&
+        other.telephone == telephone;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (email == null ? 0 : email.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode);
 
   static List<ExternalServicePatchContactPoint> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ExternalServicePatchContactPoint.fromJson(value))
-            ?.toList() ??
-        <ExternalServicePatchContactPoint>[];
+    return <ExternalServicePatchContactPoint>[
+      if (json is List)
+        for (dynamic value in json)
+          ExternalServicePatchContactPoint.fromJson(value),
+    ];
   }
 
   static Map<String, ExternalServicePatchContactPoint> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ExternalServicePatchContactPoint>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ExternalServicePatchContactPoint.fromJson(value));
-        }) ??
-        <String, ExternalServicePatchContactPoint>{};
+    return <String, ExternalServicePatchContactPoint>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServicePatchContactPoint.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (email != null) 'email': email,
-      if (name != null) 'name': name,
-      if (telephone != null) 'telephone': telephone,
+  // maps a json object with a list of ExternalServicePatchContactPoint-objects as value to a dart map
+  static Map<String, List<ExternalServicePatchContactPoint>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ExternalServicePatchContactPoint>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServicePatchContactPoint.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ExternalServicePatchContactPoint[email=$email, name=$name, telephone=$telephone, ]';
+  String toString() =>
+      'ExternalServicePatchContactPoint[email=$email, name=$name, telephone=$telephone]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (email != null) r'email': email,
+      if (name != null) r'name': name,
+      if (telephone != null) r'telephone': telephone,
+    };
   }
 }

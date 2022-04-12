@@ -9,18 +9,18 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cgetDocumentsByPlace**](PlaceApi.md#cgetDocumentsByPlace) | **GET** /places/{place}/documents | Retrieve all Document resources.
-[**cgetPlaces**](PlaceApi.md#cgetPlaces) | **GET** /places | Retrieve all Place resources.
-[**cgetPlansByPlace**](PlaceApi.md#cgetPlansByPlace) | **GET** /places/{place}/plans | Retrieve all Plan resources.
-[**getGeoByPlace**](PlaceApi.md#getGeoByPlace) | **GET** /places/{place}/geo | Retrieve one Geo resource.
-[**getPlace**](PlaceApi.md#getPlace) | **GET** /places/{place} | Retrieve one Place resource.
-[**patchPlace**](PlaceApi.md#patchPlace) | **PATCH** /places/{place} | Edit one Place resource.
-[**postDocumentByPlace**](PlaceApi.md#postDocumentByPlace) | **POST** /places/{place}/documents | Create one Document resource.
-[**postPlace**](PlaceApi.md#postPlace) | **POST** /places | Create one Place resource.
+[**cgetDocumentsByPlace**](PlaceApi.md#cgetdocumentsbyplace) | **GET** /places/{place}/documents | Retrieve all Document resources.
+[**cgetPlaces**](PlaceApi.md#cgetplaces) | **GET** /places | Retrieve all Place resources.
+[**cgetPlansByPlace**](PlaceApi.md#cgetplansbyplace) | **GET** /places/{place}/plans | Retrieve all Plan resources.
+[**getGeoByPlace**](PlaceApi.md#getgeobyplace) | **GET** /places/{place}/geo | Retrieve one Geo resource.
+[**getPlace**](PlaceApi.md#getplace) | **GET** /places/{place} | Retrieve one Place resource.
+[**patchPlace**](PlaceApi.md#patchplace) | **PATCH** /places/{place} | Edit one Place resource.
+[**postDocumentByPlace**](PlaceApi.md#postdocumentbyplace) | **POST** /places/{place}/documents | Create one Document resource.
+[**postPlace**](PlaceApi.md#postplace) | **POST** /places | Create one Place resource.
 
 
 # **cgetDocumentsByPlace**
-> DocumentPagination cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit)
+> DocumentPagination cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, page, limit)
 
 Retrieve all Document resources.
 
@@ -28,32 +28,32 @@ Retrieve all Document resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var organization = organization_example; // String | 
-var organizations[] = []; // List<String> | 
-var state = state_example; // String | 
-var states[] = []; // List<String> | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final place = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final organization = organization_example; // String | 
+final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final state = state_example; // String | 
+final statesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit);
+    final result = api_instance.cgetDocumentsByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->cgetDocumentsByPlace: $e\n");
+    print('Exception when calling PlaceApi->cgetDocumentsByPlace: $e\n');
 }
 ```
 
@@ -61,19 +61,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **organization** | **String**|  | [optional] 
- **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **state** | **String**|  | [optional] 
- **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **statesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 
@@ -87,13 +87,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlaces**
-> PlacePagination cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organization, organizations[], parent, parents[], query, page, limit)
+> PlacePagination cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit)
 
 Retrieve all Place resources.
 
@@ -101,40 +101,40 @@ Retrieve all Place resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var businessActivity = businessActivity_example; // String | 
-var businessActivities[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var geoElevation = geoElevation_example; // String | 
-var geoHash[] = []; // List<String> | 
-var geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
-var geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
-var leaf = leaf_example; // String | 
-var level = level_example; // String | 
-var organization = organization_example; // String | 
-var organizations[] = []; // List<String> | 
-var parent = parent_example; // String | 
-var parents[] = []; // List<String> | 
-var query = query_example; // String | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final businessActivity = businessActivity_example; // String | 
+final businessActivitiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final geoElevation = geoElevation_example; // String | 
+final geoHashLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
+final geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
+final leaf = leaf_example; // String | 
+final level = level_example; // String | 
+final organization = organization_example; // String | 
+final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final parent = parent_example; // String | 
+final parentsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final query = query_example; // String | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organization, organizations[], parent, parents[], query, page, limit);
+    final result = api_instance.cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->cgetPlaces: $e\n");
+    print('Exception when calling PlaceApi->cgetPlaces: $e\n');
 }
 ```
 
@@ -142,26 +142,26 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **businessActivity** | **String**|  | [optional] 
- **businessActivities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **businessActivitiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **geoElevation** | **String**|  | [optional] 
- **geoHash[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **geoHashLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
  **level** | **String**|  | [optional] 
  **organization** | **String**|  | [optional] 
- **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parent** | **String**|  | [optional] 
- **parents[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **parentsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **query** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
@@ -176,13 +176,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlansByPlace**
-> PlanPagination cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
+> PlanPagination cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit)
 
 Retrieve all Plan resources.
 
@@ -190,28 +190,28 @@ Retrieve all Plan resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final place = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
+    final result = api_instance.cgetPlansByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->cgetPlansByPlace: $e\n");
+    print('Exception when calling PlaceApi->cgetPlansByPlace: $e\n');
 }
 ```
 
@@ -219,13 +219,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -255,23 +255,23 @@ Retrieve one Geo resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final place = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getGeoByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getGeoByPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->getGeoByPlace: $e\n");
+    print('Exception when calling PlaceApi->getGeoByPlace: $e\n');
 }
 ```
 
@@ -279,9 +279,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -310,23 +310,23 @@ Retrieve one Place resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final place = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getPlace(xKeyclicApp, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->getPlace: $e\n");
+    print('Exception when calling PlaceApi->getPlace: $e\n');
 }
 ```
 
@@ -334,9 +334,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -351,13 +351,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchPlace**
-> Place patchPlace(xKeyclicApp, placePatch, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Place patchPlace(xKeyclicApp, place, placePatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Place resource.
 
@@ -365,24 +365,24 @@ Edit one Place resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var placePatch = PlacePatch(); // PlacePatch | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final place = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final placePatch = PlacePatch(); // PlacePatch | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchPlace(xKeyclicApp, placePatch, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.patchPlace(xKeyclicApp, place, placePatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->patchPlace: $e\n");
+    print('Exception when calling PlaceApi->patchPlace: $e\n');
 }
 ```
 
@@ -390,10 +390,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **placePatch** | [**PlacePatch**](PlacePatch.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **placePatch** | [**PlacePatch**](PlacePatch.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -414,7 +414,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postDocumentByPlace**
-> Document postDocumentByPlace(xKeyclicApp, documentData, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Document postDocumentByPlace(xKeyclicApp, place, documentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Document resource.
 
@@ -422,24 +422,24 @@ Create one Document resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var documentData = DocumentData(); // DocumentData | 
-var place = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final place = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final documentData = DocumentData(); // DocumentData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postDocumentByPlace(xKeyclicApp, documentData, place, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postDocumentByPlace(xKeyclicApp, place, documentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->postDocumentByPlace: $e\n");
+    print('Exception when calling PlaceApi->postDocumentByPlace: $e\n');
 }
 ```
 
@@ -447,10 +447,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **documentData** | [**DocumentData**](DocumentData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **place** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **documentData** | [**DocumentData**](DocumentData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -479,23 +479,23 @@ Create one Place resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = PlaceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var placeData = PlaceData(); // PlaceData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final placeData = PlaceData(); // PlaceData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postPlace(xKeyclicApp, placeData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postPlace(xKeyclicApp, placeData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling PlaceApi->postPlace: $e\n");
+    print('Exception when calling PlaceApi->postPlace: $e\n');
 }
 ```
 
@@ -503,9 +503,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **placeData** | [**PlaceData**](PlaceData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

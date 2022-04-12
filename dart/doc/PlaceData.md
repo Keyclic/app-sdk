@@ -8,10 +8,10 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [default to null]
-**branchCode** | **String** |  | [optional] [default to null]
-**polygon** | **String** |  | [optional] [default to null]
-**organization** | **String** |  | [default to null]
+**name** | **String** |  | 
+**branchCode** | **String** |  | [optional] 
+**polygon** | **String** |  | [optional] 
+**organization** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

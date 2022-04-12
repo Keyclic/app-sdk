@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class TransitionState {
+  /// Returns a new [TransitionState] instance.
   TransitionState({
     this.allowAdd,
     this.allowDispatch,
@@ -16,24 +22,26 @@ class TransitionState {
     this.type,
   });
 
+  /// Returns a new [TransitionState] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory TransitionState.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return TransitionState(
-      allowAdd: json['allowAdd'],
-      allowDispatch: json['allowDispatch'],
-      backgroundColor: json['backgroundColor'],
-      color: json['color'],
-      description: json['description'],
-      end: json['end'],
-      id: json['id'],
-      key: json['key'],
-      name: json['name'],
-      progression: json['progression']?.toDouble(),
-      reference: json['reference'],
-      type: json['type'],
+      allowAdd: json[r'allowAdd'],
+      allowDispatch: json[r'allowDispatch'],
+      backgroundColor: json[r'backgroundColor'],
+      color: json[r'color'],
+      description: json[r'description'],
+      end: json[r'end'],
+      id: json[r'id'],
+      key: json[r'key'],
+      name: json[r'name'],
+      progression: json[r'progression'],
+      reference: json[r'reference'],
+      type: json[r'type'],
     );
   }
 
@@ -62,82 +70,85 @@ class TransitionState {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TransitionState &&
-        runtimeType == other.runtimeType &&
-        allowAdd == other.allowAdd &&
-        allowDispatch == other.allowDispatch &&
-        backgroundColor == other.backgroundColor &&
-        color == other.color &&
-        description == other.description &&
-        end == other.end &&
-        id == other.id &&
-        key == other.key &&
-        name == other.name &&
-        progression == other.progression &&
-        reference == other.reference &&
-        type == other.type;
+        other.allowAdd == allowAdd &&
+        other.allowDispatch == allowDispatch &&
+        other.backgroundColor == backgroundColor &&
+        other.color == color &&
+        other.description == description &&
+        other.end == end &&
+        other.id == id &&
+        other.key == key &&
+        other.name == name &&
+        other.progression == progression &&
+        other.reference == reference &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= allowAdd?.hashCode ?? 0;
-    hashCode ^= allowDispatch?.hashCode ?? 0;
-    hashCode ^= backgroundColor?.hashCode ?? 0;
-    hashCode ^= color?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= end?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= key?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= progression?.hashCode ?? 0;
-    hashCode ^= reference?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (allowAdd == null ? 0 : allowAdd.hashCode) +
+      (allowDispatch == null ? 0 : allowDispatch.hashCode) +
+      (backgroundColor == null ? 0 : backgroundColor.hashCode) +
+      (color == null ? 0 : color.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (end == null ? 0 : end.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (key == null ? 0 : key.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (progression == null ? 0 : progression.hashCode) +
+      (reference == null ? 0 : reference.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<TransitionState> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => TransitionState.fromJson(value))
-            ?.toList() ??
-        <TransitionState>[];
+    return <TransitionState>[
+      if (json is List)
+        for (dynamic value in json) TransitionState.fromJson(value),
+    ];
   }
 
   static Map<String, TransitionState> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, TransitionState>((String key, dynamic value) {
-          return MapEntry(key, TransitionState.fromJson(value));
-        }) ??
-        <String, TransitionState>{};
+    return <String, TransitionState>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TransitionState.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (allowAdd != null) 'allowAdd': allowAdd,
-      if (allowDispatch != null) 'allowDispatch': allowDispatch,
-      if (backgroundColor != null) 'backgroundColor': backgroundColor,
-      if (color != null) 'color': color,
-      if (description != null) 'description': description,
-      if (end != null) 'end': end,
-      if (id != null) 'id': id,
-      if (key != null) 'key': key,
-      if (name != null) 'name': name,
-      if (progression != null) 'progression': progression,
-      if (reference != null) 'reference': reference,
-      if (type != null) 'type': type,
+  // maps a json object with a list of TransitionState-objects as value to a dart map
+  static Map<String, List<TransitionState>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<TransitionState>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TransitionState.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'TransitionState[allowAdd=$allowAdd, allowDispatch=$allowDispatch, backgroundColor=$backgroundColor, color=$color, description=$description, end=$end, id=$id, key=$key, name=$name, progression=$progression, reference=$reference, type=$type, ]';
+  String toString() =>
+      'TransitionState[allowAdd=$allowAdd, allowDispatch=$allowDispatch, backgroundColor=$backgroundColor, color=$color, description=$description, end=$end, id=$id, key=$key, name=$name, progression=$progression, reference=$reference, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (allowAdd != null) r'allowAdd': allowAdd,
+      if (allowDispatch != null) r'allowDispatch': allowDispatch,
+      if (backgroundColor != null) r'backgroundColor': backgroundColor,
+      if (color != null) r'color': color,
+      if (description != null) r'description': description,
+      if (end != null) r'end': end,
+      if (id != null) r'id': id,
+      if (key != null) r'key': key,
+      if (name != null) r'name': name,
+      if (progression != null) r'progression': progression,
+      if (reference != null) r'reference': reference,
+      if (type != null) r'type': type,
+    };
   }
 }

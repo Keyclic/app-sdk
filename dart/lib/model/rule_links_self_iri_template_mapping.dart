@@ -1,70 +1,77 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class RuleLinksSelfIriTemplateMapping {
+  /// Returns a new [RuleLinksSelfIriTemplateMapping] instance.
   RuleLinksSelfIriTemplateMapping({
     this.rule,
   });
 
+  /// Returns a new [RuleLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory RuleLinksSelfIriTemplateMapping.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return RuleLinksSelfIriTemplateMapping(
-      rule: json['rule'],
+      rule: json[r'rule'],
     );
   }
 
   String rule;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is RuleLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        rule == other.rule;
+    return other is RuleLinksSelfIriTemplateMapping && other.rule == rule;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= rule?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (rule == null ? 0 : rule.hashCode);
 
   static List<RuleLinksSelfIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                RuleLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <RuleLinksSelfIriTemplateMapping>[];
+    return <RuleLinksSelfIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          RuleLinksSelfIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, RuleLinksSelfIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, RuleLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(key, RuleLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, RuleLinksSelfIriTemplateMapping>{};
+    return <String, RuleLinksSelfIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: RuleLinksSelfIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (rule != null) 'rule': rule,
+  // maps a json object with a list of RuleLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<RuleLinksSelfIriTemplateMapping>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<RuleLinksSelfIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: RuleLinksSelfIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'RuleLinksSelfIriTemplateMapping[rule=$rule, ]';
+  String toString() => 'RuleLinksSelfIriTemplateMapping[rule=$rule]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (rule != null) r'rule': rule,
+    };
   }
 }

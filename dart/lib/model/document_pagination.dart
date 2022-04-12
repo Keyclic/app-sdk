@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
 
-class DocumentPagination extends Pagination {
+part of keyclic_sdk_api;
+
+class DocumentPagination implements Pagination, DocumentPaginationAllOf {
+  /// Returns a new [DocumentPagination] instance.
   DocumentPagination({
     this.limit,
     this.page,
@@ -10,18 +16,20 @@ class DocumentPagination extends Pagination {
     this.embedded,
   });
 
+  /// Returns a new [DocumentPagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory DocumentPagination.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return DocumentPagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: DocumentCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: DocumentCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -38,65 +46,68 @@ class DocumentPagination extends Pagination {
   DocumentCollection embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentPagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<DocumentPagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentPagination.fromJson(value))
-            ?.toList() ??
-        <DocumentPagination>[];
+    return <DocumentPagination>[
+      if (json is List)
+        for (dynamic value in json) DocumentPagination.fromJson(value),
+    ];
   }
 
   static Map<String, DocumentPagination> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, DocumentPagination>((String key, dynamic value) {
-          return MapEntry(key, DocumentPagination.fromJson(value));
-        }) ??
-        <String, DocumentPagination>{};
+    return <String, DocumentPagination>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentPagination.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
+  // maps a json object with a list of DocumentPagination-objects as value to a dart map
+  static Map<String, List<DocumentPagination>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<DocumentPagination>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentPagination.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'DocumentPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'DocumentPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PublicationLinks {
+  /// Returns a new [PublicationLinks] instance.
   PublicationLinks({
     this.author,
     this.feed,
@@ -8,16 +14,19 @@ class PublicationLinks {
     this.self,
   });
 
+  /// Returns a new [PublicationLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PublicationLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PublicationLinks(
-      author: PublicationLinksAuthor.fromJson(json['author']),
-      feed: PublicationLinksFeed.fromJson(json['feed']),
-      organization: PublicationLinksOrganization.fromJson(json['organization']),
-      self: PublicationLinksSelf.fromJson(json['self']),
+      author: PublicationLinksAuthor.fromJson(json[r'author']),
+      feed: PublicationLinksFeed.fromJson(json[r'feed']),
+      organization:
+          PublicationLinksOrganization.fromJson(json[r'organization']),
+      self: PublicationLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -30,58 +39,61 @@ class PublicationLinks {
   PublicationLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PublicationLinks &&
-        runtimeType == other.runtimeType &&
-        author == other.author &&
-        feed == other.feed &&
-        organization == other.organization &&
-        self == other.self;
+        other.author == author &&
+        other.feed == feed &&
+        other.organization == organization &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= author?.hashCode ?? 0;
-    hashCode ^= feed?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (author == null ? 0 : author.hashCode) +
+      (feed == null ? 0 : feed.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<PublicationLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PublicationLinks.fromJson(value))
-            ?.toList() ??
-        <PublicationLinks>[];
+    return <PublicationLinks>[
+      if (json is List)
+        for (dynamic value in json) PublicationLinks.fromJson(value),
+    ];
   }
 
   static Map<String, PublicationLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PublicationLinks>((String key, dynamic value) {
-          return MapEntry(key, PublicationLinks.fromJson(value));
-        }) ??
-        <String, PublicationLinks>{};
+    return <String, PublicationLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PublicationLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (author != null) 'author': author.toJson(),
-      if (feed != null) 'feed': feed.toJson(),
-      if (organization != null) 'organization': organization.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of PublicationLinks-objects as value to a dart map
+  static Map<String, List<PublicationLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PublicationLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PublicationLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PublicationLinks[author=$author, feed=$feed, organization=$organization, self=$self, ]';
+  String toString() =>
+      'PublicationLinks[author=$author, feed=$feed, organization=$organization, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (author != null) r'author': author,
+      if (feed != null) r'feed': feed,
+      if (organization != null) r'organization': organization,
+      if (self != null) r'self': self,
+    };
   }
 }

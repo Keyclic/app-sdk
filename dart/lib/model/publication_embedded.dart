@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PublicationEmbedded {
+  /// Returns a new [PublicationEmbedded] instance.
   PublicationEmbedded({
     this.author,
     this.place,
   });
 
+  /// Returns a new [PublicationEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PublicationEmbedded.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PublicationEmbedded(
-      author: Person.fromJson(json['author']),
-      place: Place.fromJson(json['place']),
+      author: Person.fromJson(json[r'author']),
+      place: Place.fromJson(json[r'place']),
     );
   }
 
@@ -22,53 +30,55 @@ class PublicationEmbedded {
   Place place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PublicationEmbedded &&
-        runtimeType == other.runtimeType &&
-        author == other.author &&
-        place == other.place;
+        other.author == author &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= author?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (author == null ? 0 : author.hashCode) +
+      (place == null ? 0 : place.hashCode);
 
   static List<PublicationEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PublicationEmbedded.fromJson(value))
-            ?.toList() ??
-        <PublicationEmbedded>[];
+    return <PublicationEmbedded>[
+      if (json is List)
+        for (dynamic value in json) PublicationEmbedded.fromJson(value),
+    ];
   }
 
   static Map<String, PublicationEmbedded> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, PublicationEmbedded>((String key, dynamic value) {
-          return MapEntry(key, PublicationEmbedded.fromJson(value));
-        }) ??
-        <String, PublicationEmbedded>{};
+    return <String, PublicationEmbedded>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PublicationEmbedded.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (author != null) 'author': author.toJson(),
-      if (place != null) 'place': place.toJson(),
+  // maps a json object with a list of PublicationEmbedded-objects as value to a dart map
+  static Map<String, List<PublicationEmbedded>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PublicationEmbedded>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PublicationEmbedded.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PublicationEmbedded[author=$author, place=$place, ]';
+  String toString() => 'PublicationEmbedded[author=$author, place=$place]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (author != null) r'author': author,
+      if (place != null) r'place': place,
+    };
   }
 }

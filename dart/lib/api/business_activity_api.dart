@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class BusinessActivityApi {
   BusinessActivityApi([ApiClient apiClient])
@@ -8,7 +13,153 @@ class BusinessActivityApi {
 
   /// Retrieve all BusinessActivity resources.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [DateTime] after:
+  ///
+  /// * [DateTime] before:
+  ///
+  /// * [String] geoPoint:
+  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
+  ///
+  /// * [String] geoCoordinates:
+  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
+  ///
+  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [String] organization:
+  ///
+  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
+  Future<Response> cgetBusinessActivitiesWithHttpInfo(
+    String xKeyclicApp, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+    DateTime after,
+    DateTime before,
+    String geoPoint,
+    String geoCoordinates,
+    List<String> orderLeftSquareBracketRightSquareBracket,
+    String organization,
+    List<String> organizationsLeftSquareBracketRightSquareBracket,
+    int page,
+    int limit,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+
+    final path = r'/business-activities';
+
+    final queryParams = <QueryParam>[
+      if (after != null)
+        ..._convertParametersForCollectionFormat('', 'after', after),
+      if (before != null)
+        ..._convertParametersForCollectionFormat('', 'before', before),
+      if (geoPoint != null)
+        ..._convertParametersForCollectionFormat('', 'geo_point', geoPoint),
+      if (geoCoordinates != null)
+        ..._convertParametersForCollectionFormat(
+            '', 'geo_coordinates', geoCoordinates),
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat(
+            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
+      if (organization != null)
+        ..._convertParametersForCollectionFormat(
+            '', 'organization', organization),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat('multi', 'organizations[]',
+            organizationsLeftSquareBracketRightSquareBracket),
+      if (page != null)
+        ..._convertParametersForCollectionFormat('', 'page', page),
+      if (limit != null)
+        ..._convertParametersForCollectionFormat('', 'limit', limit),
+    ];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve all BusinessActivity resources.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [DateTime] after:
+  ///
+  /// * [DateTime] before:
+  ///
+  /// * [String] geoPoint:
+  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
+  ///
+  /// * [String] geoCoordinates:
+  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
+  ///
+  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [String] organization:
+  ///
+  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
   Future<BusinessActivityPagination> cgetBusinessActivities(
     String xKeyclicApp, {
     String acceptLanguage,
@@ -19,91 +170,131 @@ class BusinessActivityApi {
     DateTime before,
     String geoPoint,
     String geoCoordinates,
-    List<String> order__,
+    List<String> orderLeftSquareBracketRightSquareBracket,
     String organization,
-    List<String> organizations__,
+    List<String> organizationsLeftSquareBracketRightSquareBracket,
     int page,
     int limit,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    // create path and map variables
-    final String path = "/business-activities".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (geoPoint != null)
-        ..._convertParametersForCollectionFormat("geo_point", geoPoint),
-      if (geoCoordinates != null)
-        ..._convertParametersForCollectionFormat(
-            "geo_coordinates", geoCoordinates),
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (organization != null)
-        ..._convertParametersForCollectionFormat("organization", organization),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await cgetBusinessActivitiesWithHttpInfo(
+      xKeyclicApp,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+      after: after,
+      before: before,
+      geoPoint: geoPoint,
+      geoCoordinates: geoCoordinates,
+      orderLeftSquareBracketRightSquareBracket:
+          orderLeftSquareBracketRightSquareBracket,
+      organization: organization,
+      organizationsLeftSquareBracketRightSquareBracket:
+          organizationsLeftSquareBracketRightSquareBracket,
+      page: page,
+      limit: limit,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<BusinessActivityPagination>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'BusinessActivityPagination')
-        as BusinessActivityPagination;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'BusinessActivityPagination',
+    ) as BusinessActivityPagination;
   }
 
   /// Retrieve one BusinessActivity resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] businessActivity (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getBusinessActivityWithHttpInfo(
+    String xKeyclicApp,
+    String businessActivity, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (businessActivity == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: businessActivity');
+    }
+
+    final path = r'/business-activities/{businessActivity}'.replaceAll(
+        '{' + 'businessActivity' + '}', businessActivity.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one BusinessActivity resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] businessActivity (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<BusinessActivity> getBusinessActivity(
     String xKeyclicApp,
     String businessActivity, {
@@ -112,70 +303,115 @@ class BusinessActivityApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (businessActivity == null) {
-      throw ApiException(0, "Missing required param: businessActivity");
-    }
-
-    // create path and map variables
-    final String path = "/business-activities/{businessActivity}"
-        .replaceAll("{format}", "json")
-        .replaceAll(
-            "{" + "businessActivity" + "}", businessActivity.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getBusinessActivityWithHttpInfo(
+      xKeyclicApp,
+      businessActivity,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<BusinessActivity>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'BusinessActivity')
-        as BusinessActivity;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'BusinessActivity',
+    ) as BusinessActivity;
   }
 
   /// Retrieve one Schema resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] businessActivity (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getSchemaByBusinessActivityWithHttpInfo(
+    String xKeyclicApp,
+    String businessActivity, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (businessActivity == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: businessActivity');
+    }
+
+    final path = r'/businessactivities/{businessActivity}/schema'.replaceAll(
+        '{' + 'businessActivity' + '}', businessActivity.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one Schema resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] businessActivity (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Schema> getSchemaByBusinessActivity(
     String xKeyclicApp,
     String businessActivity, {
@@ -184,63 +420,27 @@ class BusinessActivityApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (businessActivity == null) {
-      throw ApiException(0, "Missing required param: businessActivity");
-    }
-
-    // create path and map variables
-    final String path = "/businessactivities/{businessActivity}/schema"
-        .replaceAll("{format}", "json")
-        .replaceAll(
-            "{" + "businessActivity" + "}", businessActivity.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getSchemaByBusinessActivityWithHttpInfo(
+      xKeyclicApp,
+      businessActivity,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Schema>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Schema') as Schema;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Schema',
+    ) as Schema;
   }
 }

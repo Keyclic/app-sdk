@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OperationApi {
   OperationApi([ApiClient apiClient])
@@ -8,7 +13,108 @@ class OperationApi {
 
   /// Retrieve all Comment resources.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
+  Future<Response> cgetCommentsByOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+    int page,
+    int limit,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (operation == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+
+    final path = r'/operations/{operation}/comments'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
+
+    final queryParams = <QueryParam>[
+      if (page != null)
+        ..._convertParametersForCollectionFormat('', 'page', page),
+      if (limit != null)
+        ..._convertParametersForCollectionFormat('', 'limit', limit),
+    ];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve all Comment resources.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
   Future<ActivityPagination> cgetCommentsByOperation(
     String xKeyclicApp,
     String operation, {
@@ -19,73 +125,129 @@ class OperationApi {
     int page,
     int limit,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
-    }
-
-    // create path and map variables
-    final String path = "/operations/{operation}/comments"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await cgetCommentsByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+      page: page,
+      limit: limit,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<ActivityPagination>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'ActivityPagination')
-        as ActivityPagination;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'ActivityPagination',
+    ) as ActivityPagination;
   }
 
   /// Remove one Image resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] image (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> deleteImageByOperationAndImageWithHttpInfo(
+    String xKeyclicApp,
+    String operation,
+    String image, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (operation == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (image == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: image');
+    }
+
+    final path = r'/operations/{operation}/images/{image}'
+        .replaceAll('{' + 'operation' + '}', operation.toString())
+        .replaceAll('{' + 'image' + '}', image.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'DELETE',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Remove one Image resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] image (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<void> deleteImageByOperationAndImage(
     String xKeyclicApp,
     String operation,
@@ -95,73 +257,105 @@ class OperationApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
-    }
-
-    if (image == null) {
-      throw ApiException(0, "Missing required param: image");
-    }
-
-    // create path and map variables
-    final String path = "/operations/{operation}/images/{image}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString())
-        .replaceAll("{" + "image" + "}", image.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'DELETE',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await deleteImageByOperationAndImageWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      image,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    if (response.body == null) {
-      return;
-    }
-
-    return;
   }
 
   /// Remove one Operation resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> deleteOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (operation == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+
+    final path = r'/operations/{operation}'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'DELETE',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Remove one Operation resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<void> deleteOperation(
     String xKeyclicApp,
     String operation, {
@@ -170,68 +364,104 @@ class OperationApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
-    }
-
-    // create path and map variables
-    final String path = "/operations/{operation}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'DELETE',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await deleteOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    if (response.body == null) {
-      return;
-    }
-
-    return;
   }
 
   /// Retrieve one Operation resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (operation == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+
+    final path = r'/operations/{operation}'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one Operation resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Operation> getOperation(
     String xKeyclicApp,
     String operation, {
@@ -240,68 +470,115 @@ class OperationApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
-    }
-
-    // create path and map variables
-    final String path = "/operations/{operation}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
   }
 
   /// Retrieve one Tracking resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getTrackingByOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (operation == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+
+    final path = r'/operations/{operation}/tracking'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one Tracking resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Tracking> getTrackingByOperation(
     String xKeyclicApp,
     String operation, {
@@ -310,372 +587,639 @@ class OperationApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
-    }
-
-    // create path and map variables
-    final String path = "/operations/{operation}/tracking"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getTrackingByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Tracking>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Tracking') as Tracking;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Tracking',
+    ) as Tracking;
   }
 
   /// Edit one Operation resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
-  Future<Operation> patchOperation(
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [TaskPatch] taskPatch (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> patchOperationWithHttpInfo(
     String xKeyclicApp,
-    TaskPatch taskPatch,
-    String operation, {
+    String operation,
+    TaskPatch taskPatch, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (taskPatch == null) {
-      throw ApiException(0, "Missing required param: taskPatch");
-    }
-
     if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (taskPatch == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: taskPatch');
     }
 
-    // create path and map variables
-    final String path = "/operations/{operation}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
+    final path = r'/operations/{operation}'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'PATCH',
       queryParams: queryParams,
       body: taskPatch,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
-    }
-
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
   }
 
-  /// Create one Assign resource.
+  /// Edit one Operation resource.
   ///
+  /// Parameters:
   ///
-  Future<Operation> postAssignByOperation(
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [TaskPatch] taskPatch (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Operation> patchOperation(
     String xKeyclicApp,
-    AssignData assignData,
-    String operation, {
+    String operation,
+    TaskPatch taskPatch, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
+    final response = await patchOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      taskPatch,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
+    }
 
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
+  }
+
+  /// Create one Assign resource.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [AssignData] assignData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postAssignByOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation,
+    AssignData assignData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (assignData == null) {
-      throw ApiException(0, "Missing required param: assignData");
-    }
-
     if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (assignData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: assignData');
     }
 
-    // create path and map variables
-    final String path = "/operations/{operation}/assign"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
+    final path = r'/operations/{operation}/assign'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'POST',
       queryParams: queryParams,
       body: assignData,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
-    }
-
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
   }
 
-  /// Create one Comment resource.
+  /// Create one Assign resource.
   ///
+  /// Parameters:
   ///
-  Future<Operation> postCommentByOperation(
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [AssignData] assignData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Operation> postAssignByOperation(
     String xKeyclicApp,
-    CommentData commentData,
-    String operation, {
+    String operation,
+    AssignData assignData, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
+    final response = await postAssignByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      assignData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
+    }
 
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
+  }
+
+  /// Create one Comment resource.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [CommentData] commentData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postCommentByOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation,
+    CommentData commentData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (commentData == null) {
-      throw ApiException(0, "Missing required param: commentData");
-    }
-
     if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (commentData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: commentData');
     }
 
-    // create path and map variables
-    final String path = "/operations/{operation}/comments"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
+    final path = r'/operations/{operation}/comments'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'POST',
       queryParams: queryParams,
       body: commentData,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
-    }
-
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
   }
 
-  /// Create one Image resource.
+  /// Create one Comment resource.
   ///
+  /// Parameters:
   ///
-  Future<Operation> postImageByOperation(
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [CommentData] commentData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Operation> postCommentByOperation(
     String xKeyclicApp,
-    ImageData imageData,
-    String operation, {
+    String operation,
+    CommentData commentData, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
+    final response = await postCommentByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      commentData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
+    }
 
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
+  }
+
+  /// Create one Image resource.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [ImageData] imageData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postImageByOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation,
+    ImageData imageData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (imageData == null) {
-      throw ApiException(0, "Missing required param: imageData");
-    }
-
     if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (imageData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: imageData');
     }
 
-    // create path and map variables
-    final String path = "/operations/{operation}/images"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
+    final path = r'/operations/{operation}/images'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'POST',
       queryParams: queryParams,
       body: imageData,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
+  }
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+  /// Create one Image resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [ImageData] imageData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Operation> postImageByOperation(
+    String xKeyclicApp,
+    String operation,
+    ImageData imageData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    final response = await postImageByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      imageData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
   }
 
   /// Create one Operation resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [OperationData] operationData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postOperationWithHttpInfo(
+    String xKeyclicApp,
+    OperationData operationData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (operationData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operationData');
+    }
+
+    final path = r'/operations';
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      body: operationData,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Create one Operation resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [OperationData] operationData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Operation> postOperation(
     String xKeyclicApp,
     OperationData operationData, {
@@ -684,213 +1228,289 @@ class OperationApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (operationData == null) {
-      throw ApiException(0, "Missing required param: operationData");
-    }
-
-    // create path and map variables
-    final String path = "/operations".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: operationData,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await postOperationWithHttpInfo(
+      xKeyclicApp,
+      operationData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
   }
 
   /// Create one Sign resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
-  Future<Operation> postSignByOperation(
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [LegacySignatureData] legacySignatureData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postSignByOperationWithHttpInfo(
     String xKeyclicApp,
-    LegacySignatureData legacySignatureData,
-    String operation, {
+    String operation,
+    LegacySignatureData legacySignatureData, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (legacySignatureData == null) {
-      throw ApiException(0, "Missing required param: legacySignatureData");
-    }
-
     if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (legacySignatureData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: legacySignatureData');
     }
 
-    // create path and map variables
-    final String path = "/operations/{operation}/sign"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
+    final path = r'/operations/{operation}/sign'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'POST',
       queryParams: queryParams,
       body: legacySignatureData,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
-    }
-
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
   }
 
-  /// Create one Workflow resource.
+  /// Create one Sign resource.
   ///
+  /// Parameters:
   ///
-  Future<Operation> postWorkflowByOperation(
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [LegacySignatureData] legacySignatureData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Operation> postSignByOperation(
     String xKeyclicApp,
-    WorkflowData workflowData,
-    String operation, {
+    String operation,
+    LegacySignatureData legacySignatureData, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
+    final response = await postSignByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      legacySignatureData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
+    }
 
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
+  }
+
+  /// Create one Workflow resource.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [WorkflowData] workflowData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postWorkflowByOperationWithHttpInfo(
+    String xKeyclicApp,
+    String operation,
+    WorkflowData workflowData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (workflowData == null) {
-      throw ApiException(0, "Missing required param: workflowData");
-    }
-
     if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: operation');
+    }
+    if (workflowData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: workflowData');
     }
 
-    // create path and map variables
-    final String path = "/operations/{operation}/workflow"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
+    final path = r'/operations/{operation}/workflow'
+        .replaceAll('{' + 'operation' + '}', operation.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'POST',
       queryParams: queryParams,
       body: workflowData,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
+  }
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+  /// Create one Workflow resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] operation (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [WorkflowData] workflowData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Operation> postWorkflowByOperation(
+    String xKeyclicApp,
+    String operation,
+    WorkflowData workflowData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    final response = await postWorkflowByOperationWithHttpInfo(
+      xKeyclicApp,
+      operation,
+      workflowData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Operation>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Operation',
+    ) as Operation;
   }
 }

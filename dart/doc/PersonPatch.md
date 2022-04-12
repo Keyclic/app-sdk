@@ -8,15 +8,15 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agreement** | [**PersonPatchAgreement**](PersonPatchAgreement.md) |  | [optional] [default to null]
-**givenName** | **String** |  | [optional] [default to null]
-**familyName** | **String** |  | [optional] [default to null]
-**email** | **String** |  | [optional] [default to null]
-**jobTitle** | **String** |  | [optional] [default to null]
-**image** | **String** |  | [optional] [default to null]
-**optIn** | **bool** |  | [optional] [default to null]
-**preferences** | [**PersonPatchPreferences**](PersonPatchPreferences.md) |  | [optional] [default to null]
-**telephone** | **String** |  | [optional] [default to null]
+**agreement** | [**PersonPatchAgreement**](PersonPatchAgreement.md) |  | [optional] 
+**givenName** | **String** |  | [optional] 
+**familyName** | **String** |  | [optional] 
+**email** | **String** |  | [optional] 
+**jobTitle** | **String** |  | [optional] 
+**image** | **String** |  | [optional] 
+**optIn** | **bool** |  | [optional] 
+**preferences** | [**PersonPatchPreferences**](PersonPatchPreferences.md) |  | [optional] 
+**telephone** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

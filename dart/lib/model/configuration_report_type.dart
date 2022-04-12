@@ -1,23 +1,31 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ConfigurationReportType {
+  /// Returns a new [ConfigurationReportType] instance.
   ConfigurationReportType({
     this.id,
-    this.priorities,
+    this.priorities = const [],
     this.type,
     this.workflow,
   });
 
+  /// Returns a new [ConfigurationReportType] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ConfigurationReportType.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ConfigurationReportType(
-      id: json['id'],
-      priorities: ReportTypePriority.listFromJson(json['priorities']),
-      type: json['type'],
-      workflow: ReportTypeWorkflow.fromJson(json['workflow']),
+      id: json[r'id'],
+      priorities: ReportTypePriority.listFromJson(json[r'priorities']),
+      type: json[r'type'],
+      workflow: ReportTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -30,66 +38,63 @@ class ConfigurationReportType {
   ReportTypeWorkflow workflow;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ConfigurationReportType &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
+        other.id == id &&
         DeepCollectionEquality.unordered()
             .equals(priorities, other.priorities) &&
-        type == other.type &&
-        workflow == other.workflow;
+        other.type == type &&
+        other.workflow == workflow;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (priorities is List && priorities.isNotEmpty) {
-      hashCode ^= priorities
-          .map((ReportTypePriority element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) +
+      (priorities == null ? 0 : priorities.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
   static List<ConfigurationReportType> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ConfigurationReportType.fromJson(value))
-            ?.toList() ??
-        <ConfigurationReportType>[];
+    return <ConfigurationReportType>[
+      if (json is List)
+        for (dynamic value in json) ConfigurationReportType.fromJson(value),
+    ];
   }
 
   static Map<String, ConfigurationReportType> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, ConfigurationReportType>((String key, dynamic value) {
-          return MapEntry(key, ConfigurationReportType.fromJson(value));
-        }) ??
-        <String, ConfigurationReportType>{};
+    return <String, ConfigurationReportType>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ConfigurationReportType.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (priorities != null) 'priorities': priorities,
-      if (type != null) 'type': type,
-      if (workflow != null) 'workflow': workflow.toJson(),
+  // maps a json object with a list of ConfigurationReportType-objects as value to a dart map
+  static Map<String, List<ConfigurationReportType>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ConfigurationReportType>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ConfigurationReportType.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow, ]';
+  String toString() =>
+      'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (priorities != null) r'priorities': priorities,
+      if (type != null) r'type': type,
+      if (workflow != null) r'workflow': workflow,
+    };
   }
 }

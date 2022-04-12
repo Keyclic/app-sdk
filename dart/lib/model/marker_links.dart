@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class MarkerLinks {
+  /// Returns a new [MarkerLinks] instance.
   MarkerLinks({
     this.plan,
     this.self,
   });
 
+  /// Returns a new [MarkerLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory MarkerLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return MarkerLinks(
-      plan: MarkerLinksPlan.fromJson(json['plan']),
-      self: MarkerLinksSelf.fromJson(json['self']),
+      plan: MarkerLinksPlan.fromJson(json[r'plan']),
+      self: MarkerLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -22,52 +30,51 @@ class MarkerLinks {
   MarkerLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is MarkerLinks &&
-        runtimeType == other.runtimeType &&
-        plan == other.plan &&
-        self == other.self;
+    return other is MarkerLinks && other.plan == plan && other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= plan?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (plan == null ? 0 : plan.hashCode) + (self == null ? 0 : self.hashCode);
 
   static List<MarkerLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MarkerLinks.fromJson(value))
-            ?.toList() ??
-        <MarkerLinks>[];
+    return <MarkerLinks>[
+      if (json is List)
+        for (dynamic value in json) MarkerLinks.fromJson(value),
+    ];
   }
 
   static Map<String, MarkerLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MarkerLinks>((String key, dynamic value) {
-          return MapEntry(key, MarkerLinks.fromJson(value));
-        }) ??
-        <String, MarkerLinks>{};
+    return <String, MarkerLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MarkerLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (plan != null) 'plan': plan.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of MarkerLinks-objects as value to a dart map
+  static Map<String, List<MarkerLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<MarkerLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MarkerLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'MarkerLinks[plan=$plan, self=$self, ]';
+  String toString() => 'MarkerLinks[plan=$plan, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (plan != null) r'plan': plan,
+      if (self != null) r'self': self,
+    };
   }
 }

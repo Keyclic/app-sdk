@@ -8,11 +8,11 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**container** | **String** |  | [default to null]
-**file** | [**DocumentDataFile**](DocumentDataFile.md) |  | [default to null]
-**permission** | [**DocumentDataPermission**](DocumentDataPermission.md) |  | [default to null]
-**template** | **String** |  | [optional] [default to null]
-**type** | **String** |  | [default to null]
+**container** | **String** |  | 
+**file** | [**DocumentDataFile**](DocumentDataFile.md) |  | 
+**permission** | [**DocumentDataPermission**](DocumentDataPermission.md) |  | 
+**template** | **String** |  | [optional] 
+**type** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

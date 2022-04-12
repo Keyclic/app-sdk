@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class MarkerLinksSelfIriTemplateMapping {
+  /// Returns a new [MarkerLinksSelfIriTemplateMapping] instance.
   MarkerLinksSelfIriTemplateMapping({
     this.marker,
   });
 
+  /// Returns a new [MarkerLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory MarkerLinksSelfIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,60 @@ class MarkerLinksSelfIriTemplateMapping {
     }
 
     return MarkerLinksSelfIriTemplateMapping(
-      marker: json['marker'],
+      marker: json[r'marker'],
     );
   }
 
   String marker;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is MarkerLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        marker == other.marker;
+    return other is MarkerLinksSelfIriTemplateMapping && other.marker == marker;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= marker?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (marker == null ? 0 : marker.hashCode);
 
   static List<MarkerLinksSelfIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                MarkerLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <MarkerLinksSelfIriTemplateMapping>[];
+    return <MarkerLinksSelfIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          MarkerLinksSelfIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, MarkerLinksSelfIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, MarkerLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, MarkerLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, MarkerLinksSelfIriTemplateMapping>{};
+    return <String, MarkerLinksSelfIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MarkerLinksSelfIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (marker != null) 'marker': marker,
+  // maps a json object with a list of MarkerLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<MarkerLinksSelfIriTemplateMapping>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<MarkerLinksSelfIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              MarkerLinksSelfIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'MarkerLinksSelfIriTemplateMapping[marker=$marker, ]';
+  String toString() => 'MarkerLinksSelfIriTemplateMapping[marker=$marker]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (marker != null) r'marker': marker,
+    };
   }
 }

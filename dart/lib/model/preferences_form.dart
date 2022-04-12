@@ -1,71 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PreferencesForm {
+  /// Returns a new [PreferencesForm] instance.
   PreferencesForm({
-    this.required,
+    this.required_ = const [],
   });
 
+  /// Returns a new [PreferencesForm] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PreferencesForm.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PreferencesForm(
-      required:
-          json['required'] is List ? List<String>.from(json['required']) : null,
+      required_: List<String>.from(json[r'required'] ?? []),
     );
   }
 
-  List<String> required;
+  List<String> required_;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PreferencesForm &&
-        runtimeType == other.runtimeType &&
-        DeepCollectionEquality.unordered().equals(required, other.required);
+        DeepCollectionEquality.unordered().equals(required_, other.required_);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (required is List && required.isNotEmpty) {
-      hashCode ^= required
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode => (required_ == null ? 0 : required_.hashCode);
 
   static List<PreferencesForm> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PreferencesForm.fromJson(value))
-            ?.toList() ??
-        <PreferencesForm>[];
+    return <PreferencesForm>[
+      if (json is List)
+        for (dynamic value in json) PreferencesForm.fromJson(value),
+    ];
   }
 
   static Map<String, PreferencesForm> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PreferencesForm>((String key, dynamic value) {
-          return MapEntry(key, PreferencesForm.fromJson(value));
-        }) ??
-        <String, PreferencesForm>{};
+    return <String, PreferencesForm>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesForm.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (required != null) 'required': required,
+  // maps a json object with a list of PreferencesForm-objects as value to a dart map
+  static Map<String, List<PreferencesForm>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PreferencesForm>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesForm.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PreferencesForm[required=$required, ]';
+  String toString() => 'PreferencesForm[required_=$required_]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (required_ != null) r'required': required_,
+    };
   }
 }

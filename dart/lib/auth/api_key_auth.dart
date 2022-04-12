@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ApiKeyAuth implements Authentication {
   ApiKeyAuth(this.location, this.paramName);
@@ -6,22 +11,27 @@ class ApiKeyAuth implements Authentication {
   final String location;
   final String paramName;
 
-  String _apiKey;
+  String apiKeyPrefix;
+  String apiKey;
 
   @override
   void applyToParams(
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (location == 'query' && _apiKey != null) {
-      queryParams.add(QueryParam(paramName, _apiKey));
+      List<QueryParam> queryParams, Map<String, String> headerParams) {
+    final String value =
+        apiKeyPrefix == null ? apiKey : '$apiKeyPrefix $apiKey';
+
+    if (value == null) {
+      return;
     }
 
-    if (location == 'header' && _apiKey != null) {
-      headerParams[paramName] = _apiKey;
+    if (location == 'query') {
+      queryParams.add(QueryParam(paramName, value));
+    } else if (location == 'header') {
+      headerParams[paramName] = value;
+    } else if (location == 'cookie') {
+      headerParams.update('Cookie', (String existingCookie) {
+        return '$existingCookie; $paramName=$value';
+      }, ifAbsent: () => '$paramName=$value');
     }
   }
-
-  @override
-  void setAccessToken(String value) => _apiKey = value;
 }

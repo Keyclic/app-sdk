@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ExternalServiceContactPoint {
+  /// Returns a new [ExternalServiceContactPoint] instance.
   ExternalServiceContactPoint({
     this.description,
     this.email,
@@ -9,17 +15,19 @@ class ExternalServiceContactPoint {
     this.telephone,
   });
 
+  /// Returns a new [ExternalServiceContactPoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ExternalServiceContactPoint.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServiceContactPoint(
-      description: json['description'],
-      email: json['email'],
-      isOpen: json['isOpen'],
-      name: json['name'],
-      telephone: json['telephone'],
+      description: json[r'description'],
+      email: json[r'email'],
+      isOpen: json[r'isOpen'],
+      name: json[r'name'],
+      telephone: json[r'telephone'],
     );
   }
 
@@ -34,64 +42,65 @@ class ExternalServiceContactPoint {
   String telephone;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServiceContactPoint &&
-        runtimeType == other.runtimeType &&
-        description == other.description &&
-        email == other.email &&
-        isOpen == other.isOpen &&
-        name == other.name &&
-        telephone == other.telephone;
+        other.description == description &&
+        other.email == email &&
+        other.isOpen == isOpen &&
+        other.name == name &&
+        other.telephone == telephone;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= isOpen?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (description == null ? 0 : description.hashCode) +
+      (email == null ? 0 : email.hashCode) +
+      (isOpen == null ? 0 : isOpen.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode);
 
   static List<ExternalServiceContactPoint> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => ExternalServiceContactPoint.fromJson(value))
-            ?.toList() ??
-        <ExternalServiceContactPoint>[];
+    return <ExternalServiceContactPoint>[
+      if (json is List)
+        for (dynamic value in json) ExternalServiceContactPoint.fromJson(value),
+    ];
   }
 
   static Map<String, ExternalServiceContactPoint> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ExternalServiceContactPoint>(
-            (String key, dynamic value) {
-          return MapEntry(key, ExternalServiceContactPoint.fromJson(value));
-        }) ??
-        <String, ExternalServiceContactPoint>{};
+    return <String, ExternalServiceContactPoint>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServiceContactPoint.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (description != null) 'description': description,
-      if (email != null) 'email': email,
-      if (isOpen != null) 'isOpen': isOpen,
-      if (name != null) 'name': name,
-      if (telephone != null) 'telephone': telephone,
+  // maps a json object with a list of ExternalServiceContactPoint-objects as value to a dart map
+  static Map<String, List<ExternalServiceContactPoint>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ExternalServiceContactPoint>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServiceContactPoint.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ExternalServiceContactPoint[description=$description, email=$email, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
+  String toString() =>
+      'ExternalServiceContactPoint[description=$description, email=$email, isOpen=$isOpen, name=$name, telephone=$telephone]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (description != null) r'description': description,
+      if (email != null) r'email': email,
+      if (isOpen != null) r'isOpen': isOpen,
+      if (name != null) r'name': name,
+      if (telephone != null) r'telephone': telephone,
+    };
   }
 }

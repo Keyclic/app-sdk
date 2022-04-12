@@ -1,67 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PreferencesReference {
+  /// Returns a new [PreferencesReference] instance.
   PreferencesReference({
     this.prefix,
   });
 
+  /// Returns a new [PreferencesReference] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PreferencesReference.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PreferencesReference(
-      prefix: json['prefix'],
+      prefix: json[r'prefix'],
     );
   }
 
   String prefix;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PreferencesReference &&
-        runtimeType == other.runtimeType &&
-        prefix == other.prefix;
+    return other is PreferencesReference && other.prefix == prefix;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= prefix?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (prefix == null ? 0 : prefix.hashCode);
 
   static List<PreferencesReference> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PreferencesReference.fromJson(value))
-            ?.toList() ??
-        <PreferencesReference>[];
+    return <PreferencesReference>[
+      if (json is List)
+        for (dynamic value in json) PreferencesReference.fromJson(value),
+    ];
   }
 
   static Map<String, PreferencesReference> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, PreferencesReference>((String key, dynamic value) {
-          return MapEntry(key, PreferencesReference.fromJson(value));
-        }) ??
-        <String, PreferencesReference>{};
+    return <String, PreferencesReference>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesReference.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (prefix != null) 'prefix': prefix,
+  // maps a json object with a list of PreferencesReference-objects as value to a dart map
+  static Map<String, List<PreferencesReference>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PreferencesReference>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesReference.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PreferencesReference[prefix=$prefix, ]';
+  String toString() => 'PreferencesReference[prefix=$prefix]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (prefix != null) r'prefix': prefix,
+    };
   }
 }

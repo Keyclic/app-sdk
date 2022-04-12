@@ -1,69 +1,76 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PreferencesElectronicSignature {
+  /// Returns a new [PreferencesElectronicSignature] instance.
   PreferencesElectronicSignature({
     this.enabled,
   });
 
+  /// Returns a new [PreferencesElectronicSignature] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PreferencesElectronicSignature.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PreferencesElectronicSignature(
-      enabled: json['enabled'],
+      enabled: json[r'enabled'],
     );
   }
 
   bool enabled;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PreferencesElectronicSignature &&
-        runtimeType == other.runtimeType &&
-        enabled == other.enabled;
+    return other is PreferencesElectronicSignature && other.enabled == enabled;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= enabled?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
 
   static List<PreferencesElectronicSignature> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                PreferencesElectronicSignature.fromJson(value))
-            ?.toList() ??
-        <PreferencesElectronicSignature>[];
+    return <PreferencesElectronicSignature>[
+      if (json is List)
+        for (dynamic value in json)
+          PreferencesElectronicSignature.fromJson(value),
+    ];
   }
 
   static Map<String, PreferencesElectronicSignature> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, PreferencesElectronicSignature>(
-            (String key, dynamic value) {
-          return MapEntry(key, PreferencesElectronicSignature.fromJson(value));
-        }) ??
-        <String, PreferencesElectronicSignature>{};
+    return <String, PreferencesElectronicSignature>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesElectronicSignature.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (enabled != null) 'enabled': enabled,
+  // maps a json object with a list of PreferencesElectronicSignature-objects as value to a dart map
+  static Map<String, List<PreferencesElectronicSignature>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PreferencesElectronicSignature>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PreferencesElectronicSignature.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PreferencesElectronicSignature[enabled=$enabled, ]';
+  String toString() => 'PreferencesElectronicSignature[enabled=$enabled]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (enabled != null) r'enabled': enabled,
+    };
   }
 }

@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class SuccessLogin {
+  /// Returns a new [SuccessLogin] instance.
   SuccessLogin({
     this.accessToken,
     this.credentials,
-    this.tokenType,
+    this.tokenType = 'Bearer',
   });
 
+  /// Returns a new [SuccessLogin] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory SuccessLogin.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return SuccessLogin(
-      accessToken: json['accessToken'],
-      credentials: SuccessLoginCredentials.fromJson(json['credentials']),
-      tokenType: json['tokenType'],
+      accessToken: json[r'accessToken'],
+      credentials: SuccessLoginCredentials.fromJson(json[r'credentials']),
+      tokenType: json[r'tokenType'],
     );
   }
 
@@ -26,55 +34,58 @@ class SuccessLogin {
   String tokenType;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is SuccessLogin &&
-        runtimeType == other.runtimeType &&
-        accessToken == other.accessToken &&
-        credentials == other.credentials &&
-        tokenType == other.tokenType;
+        other.accessToken == accessToken &&
+        other.credentials == credentials &&
+        other.tokenType == tokenType;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= accessToken?.hashCode ?? 0;
-    hashCode ^= credentials?.hashCode ?? 0;
-    hashCode ^= tokenType?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (accessToken == null ? 0 : accessToken.hashCode) +
+      (credentials == null ? 0 : credentials.hashCode) +
+      (tokenType == null ? 0 : tokenType.hashCode);
 
   static List<SuccessLogin> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SuccessLogin.fromJson(value))
-            ?.toList() ??
-        <SuccessLogin>[];
+    return <SuccessLogin>[
+      if (json is List)
+        for (dynamic value in json) SuccessLogin.fromJson(value),
+    ];
   }
 
   static Map<String, SuccessLogin> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, SuccessLogin>((String key, dynamic value) {
-          return MapEntry(key, SuccessLogin.fromJson(value));
-        }) ??
-        <String, SuccessLogin>{};
+    return <String, SuccessLogin>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: SuccessLogin.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (accessToken != null) 'accessToken': accessToken,
-      if (credentials != null) 'credentials': credentials.toJson(),
-      if (tokenType != null) 'tokenType': tokenType,
+  // maps a json object with a list of SuccessLogin-objects as value to a dart map
+  static Map<String, List<SuccessLogin>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<SuccessLogin>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: SuccessLogin.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'SuccessLogin[accessToken=$accessToken, credentials=$credentials, tokenType=$tokenType, ]';
+  String toString() =>
+      'SuccessLogin[accessToken=$accessToken, credentials=$credentials, tokenType=$tokenType]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (accessToken != null) r'accessToken': accessToken,
+      if (credentials != null) r'credentials': credentials,
+      if (tokenType != null) r'tokenType': tokenType,
+    };
   }
 }

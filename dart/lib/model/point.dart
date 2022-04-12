@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Point {
+  /// Returns a new [Point] instance.
   Point({
     this.latitude,
     this.longitude,
     this.srid,
   });
 
+  /// Returns a new [Point] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Point.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Point(
-      latitude: json['latitude']?.toDouble(),
-      longitude: json['longitude']?.toDouble(),
-      srid: json['srid'],
+      latitude: json[r'latitude'],
+      longitude: json[r'longitude'],
+      srid: json[r'srid'],
     );
   }
 
@@ -26,53 +34,57 @@ class Point {
   int srid;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Point &&
-        runtimeType == other.runtimeType &&
-        latitude == other.latitude &&
-        longitude == other.longitude &&
-        srid == other.srid;
+        other.latitude == latitude &&
+        other.longitude == longitude &&
+        other.srid == srid;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= latitude?.hashCode ?? 0;
-    hashCode ^= longitude?.hashCode ?? 0;
-    hashCode ^= srid?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (latitude == null ? 0 : latitude.hashCode) +
+      (longitude == null ? 0 : longitude.hashCode) +
+      (srid == null ? 0 : srid.hashCode);
 
   static List<Point> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Point.fromJson(value))?.toList() ??
-        <Point>[];
+    return <Point>[
+      if (json is List)
+        for (dynamic value in json) Point.fromJson(value),
+    ];
   }
 
   static Map<String, Point> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Point>((String key, dynamic value) {
-          return MapEntry(key, Point.fromJson(value));
-        }) ??
-        <String, Point>{};
+    return <String, Point>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Point.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (latitude != null) 'latitude': latitude,
-      if (longitude != null) 'longitude': longitude,
-      if (srid != null) 'srid': srid,
+  // maps a json object with a list of Point-objects as value to a dart map
+  static Map<String, List<Point>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Point>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Point.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Point[latitude=$latitude, longitude=$longitude, srid=$srid, ]';
+  String toString() =>
+      'Point[latitude=$latitude, longitude=$longitude, srid=$srid]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (latitude != null) r'latitude': latitude,
+      if (longitude != null) r'longitude': longitude,
+      if (srid != null) r'srid': srid,
+    };
   }
 }

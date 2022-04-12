@@ -1,25 +1,33 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class SignerSignature {
+  /// Returns a new [SignerSignature] instance.
   SignerSignature({
     this.signedAt,
     this.text,
   });
 
+  /// Returns a new [SignerSignature] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory SignerSignature.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime signedAt =
-        json['signedAt'] == null ? null : DateTime.parse(json['signedAt']);
+        json['signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
     if (signedAt is DateTime && signedAt.isUtc == false) {
-      signedAt = DateTime.parse('${signedAt.toIso8601String()}Z');
+      signedAt = DateTime.parse('${json[r'signedAt']}Z');
     }
 
     return SignerSignature(
       signedAt: signedAt,
-      text: json['text'],
+      text: json[r'text'],
     );
   }
 
@@ -28,52 +36,54 @@ class SignerSignature {
   String text;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is SignerSignature &&
-        runtimeType == other.runtimeType &&
-        signedAt == other.signedAt &&
-        text == other.text;
+        other.signedAt == signedAt &&
+        other.text == text;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= signedAt?.hashCode ?? 0;
-    hashCode ^= text?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (signedAt == null ? 0 : signedAt.hashCode) +
+      (text == null ? 0 : text.hashCode);
 
   static List<SignerSignature> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SignerSignature.fromJson(value))
-            ?.toList() ??
-        <SignerSignature>[];
+    return <SignerSignature>[
+      if (json is List)
+        for (dynamic value in json) SignerSignature.fromJson(value),
+    ];
   }
 
   static Map<String, SignerSignature> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, SignerSignature>((String key, dynamic value) {
-          return MapEntry(key, SignerSignature.fromJson(value));
-        }) ??
-        <String, SignerSignature>{};
+    return <String, SignerSignature>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: SignerSignature.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (signedAt != null) 'signedAt': signedAt.toUtc().toIso8601String(),
-      if (text != null) 'text': text,
+  // maps a json object with a list of SignerSignature-objects as value to a dart map
+  static Map<String, List<SignerSignature>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<SignerSignature>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: SignerSignature.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'SignerSignature[signedAt=$signedAt, text=$text, ]';
+  String toString() => 'SignerSignature[signedAt=$signedAt, text=$text]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (signedAt != null) r'signedAt': signedAt.toUtc().toIso8601String(),
+      if (text != null) r'text': text,
+    };
   }
 }

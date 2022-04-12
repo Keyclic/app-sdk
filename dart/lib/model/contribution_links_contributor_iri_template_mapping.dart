@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ContributionLinksContributorIriTemplateMapping {
+  /// Returns a new [ContributionLinksContributorIriTemplateMapping] instance.
   ContributionLinksContributorIriTemplateMapping({
     this.person,
   });
 
+  /// Returns a new [ContributionLinksContributorIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ContributionLinksContributorIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,64 @@ class ContributionLinksContributorIriTemplateMapping {
     }
 
     return ContributionLinksContributorIriTemplateMapping(
-      person: json['person'],
+      person: json[r'person'],
     );
   }
 
   String person;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ContributionLinksContributorIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        person == other.person;
+        other.person == person;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= person?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (person == null ? 0 : person.hashCode);
 
   static List<ContributionLinksContributorIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ContributionLinksContributorIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <ContributionLinksContributorIriTemplateMapping>[];
+    return <ContributionLinksContributorIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          ContributionLinksContributorIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, ContributionLinksContributorIriTemplateMapping>
       mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ContributionLinksContributorIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(key,
-              ContributionLinksContributorIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, ContributionLinksContributorIriTemplateMapping>{};
+    return <String, ContributionLinksContributorIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ContributionLinksContributorIriTemplateMapping.fromJson(
+              entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (person != null) 'person': person,
+  // maps a json object with a list of ContributionLinksContributorIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<ContributionLinksContributorIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<ContributionLinksContributorIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              ContributionLinksContributorIriTemplateMapping.listFromJson(
+                  entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ContributionLinksContributorIriTemplateMapping[person=$person, ]';
+  String toString() =>
+      'ContributionLinksContributorIriTemplateMapping[person=$person]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (person != null) r'person': person,
+    };
   }
 }

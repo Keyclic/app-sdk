@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Binary {
+  /// Returns a new [Binary] instance.
   Binary({
     this.content,
     this.contentType,
     this.name,
   });
 
+  /// Returns a new [Binary] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Binary.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Binary(
-      content: json['content'],
-      contentType: json['contentType'],
-      name: json['name'],
+      content: json[r'content'],
+      contentType: json[r'contentType'],
+      name: json[r'name'],
     );
   }
 
@@ -26,53 +34,57 @@ class Binary {
   String name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Binary &&
-        runtimeType == other.runtimeType &&
-        content == other.content &&
-        contentType == other.contentType &&
-        name == other.name;
+        other.content == content &&
+        other.contentType == contentType &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= content?.hashCode ?? 0;
-    hashCode ^= contentType?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (content == null ? 0 : content.hashCode) +
+      (contentType == null ? 0 : contentType.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<Binary> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Binary.fromJson(value))?.toList() ??
-        <Binary>[];
+    return <Binary>[
+      if (json is List)
+        for (dynamic value in json) Binary.fromJson(value),
+    ];
   }
 
   static Map<String, Binary> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Binary>((String key, dynamic value) {
-          return MapEntry(key, Binary.fromJson(value));
-        }) ??
-        <String, Binary>{};
+    return <String, Binary>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Binary.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-      if (contentType != null) 'contentType': contentType,
-      if (name != null) 'name': name,
+  // maps a json object with a list of Binary-objects as value to a dart map
+  static Map<String, List<Binary>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Binary>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Binary.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Binary[content=$content, contentType=$contentType, name=$name, ]';
+  String toString() =>
+      'Binary[content=$content, contentType=$contentType, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+      if (contentType != null) r'contentType': contentType,
+      if (name != null) r'name': name,
+    };
   }
 }

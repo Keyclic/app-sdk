@@ -1,77 +1,87 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class FeedbackLinksCategory {
+  /// Returns a new [FeedbackLinksCategory] instance.
   FeedbackLinksCategory({
     this.href,
     this.iriTemplate,
   });
 
+  /// Returns a new [FeedbackLinksCategory] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory FeedbackLinksCategory.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackLinksCategory(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          FeedbackLinksCategoryIriTemplate.fromJson(json['iriTemplate']),
+          FeedbackLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the category associated to the given feedback. */
+  /// The URI of the category associated to the given feedback.
   String href;
 
   FeedbackLinksCategoryIriTemplate iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackLinksCategory &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<FeedbackLinksCategory> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackLinksCategory.fromJson(value))
-            ?.toList() ??
-        <FeedbackLinksCategory>[];
+    return <FeedbackLinksCategory>[
+      if (json is List)
+        for (dynamic value in json) FeedbackLinksCategory.fromJson(value),
+    ];
   }
 
   static Map<String, FeedbackLinksCategory> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, FeedbackLinksCategory>((String key, dynamic value) {
-          return MapEntry(key, FeedbackLinksCategory.fromJson(value));
-        }) ??
-        <String, FeedbackLinksCategory>{};
+    return <String, FeedbackLinksCategory>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackLinksCategory.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+  // maps a json object with a list of FeedbackLinksCategory-objects as value to a dart map
+  static Map<String, List<FeedbackLinksCategory>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<FeedbackLinksCategory>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackLinksCategory.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'FeedbackLinksCategory[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'FeedbackLinksCategory[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

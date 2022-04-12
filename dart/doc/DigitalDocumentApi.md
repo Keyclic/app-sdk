@@ -9,15 +9,15 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cgetFeedbackByDigitalDocument**](DigitalDocumentApi.md#cgetFeedbackByDigitalDocument) | **GET** /digital-documents/{digitalDocument}/feedbacks | Retrieve all Feedback resources.
-[**deleteDigitalDocument**](DigitalDocumentApi.md#deleteDigitalDocument) | **DELETE** /digital-documents/{digitalDocument} | Remove one DigitalDocument resource.
-[**getDigitalDocument**](DigitalDocumentApi.md#getDigitalDocument) | **GET** /digital-documents/{digitalDocument} | Retrieve one DigitalDocument resource.
-[**patchDigitalDocument**](DigitalDocumentApi.md#patchDigitalDocument) | **PATCH** /digital-documents/{digitalDocument} | Edit one DigitalDocument resource.
-[**postDigitalDocument**](DigitalDocumentApi.md#postDigitalDocument) | **POST** /digital-documents | Create one DigitalDocument resource.
+[**cgetFeedbackByDigitalDocument**](DigitalDocumentApi.md#cgetfeedbackbydigitaldocument) | **GET** /digital-documents/{digitalDocument}/feedbacks | Retrieve all Feedback resources.
+[**deleteDigitalDocument**](DigitalDocumentApi.md#deletedigitaldocument) | **DELETE** /digital-documents/{digitalDocument} | Remove one DigitalDocument resource.
+[**getDigitalDocument**](DigitalDocumentApi.md#getdigitaldocument) | **GET** /digital-documents/{digitalDocument} | Retrieve one DigitalDocument resource.
+[**patchDigitalDocument**](DigitalDocumentApi.md#patchdigitaldocument) | **PATCH** /digital-documents/{digitalDocument} | Edit one DigitalDocument resource.
+[**postDigitalDocument**](DigitalDocumentApi.md#postdigitaldocument) | **POST** /digital-documents | Create one DigitalDocument resource.
 
 
 # **cgetFeedbackByDigitalDocument**
-> FeedbackPagination cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], batch, batches[], after, before, geoHash[], organization, organizations[], page, limit)
+> FeedbackPagination cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, after, before, geoHashLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, page, limit)
 
 Retrieve all Feedback resources.
 
@@ -25,33 +25,33 @@ Retrieve all Feedback resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = DigitalDocumentApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var digitalDocument = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var batch = batch_example; // String | 
-var batches[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var geoHash[] = []; // List<String> | 
-var organization = organization_example; // String | 
-var organizations[] = []; // List<String> | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = DigitalDocumentApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final digitalDocument = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final batch = batch_example; // String | 
+final batchesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final geoHashLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final organization = organization_example; // String | 
+final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], batch, batches[], after, before, geoHash[], organization, organizations[], page, limit);
+    final result = api_instance.cgetFeedbackByDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, after, before, geoHashLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling DigitalDocumentApi->cgetFeedbackByDigitalDocument: $e\n");
+    print('Exception when calling DigitalDocumentApi->cgetFeedbackByDigitalDocument: $e\n');
 }
 ```
 
@@ -59,20 +59,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **digitalDocument** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **batch** | **String**|  | [optional] 
- **batches[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **batchesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **geoHash[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **geoHashLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **organization** | **String**|  | [optional] 
- **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -100,22 +100,22 @@ Remove one DigitalDocument resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = DigitalDocumentApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var digitalDocument = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = DigitalDocumentApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final digitalDocument = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling DigitalDocumentApi->deleteDigitalDocument: $e\n");
+    print('Exception when calling DigitalDocumentApi->deleteDigitalDocument: $e\n');
 }
 ```
 
@@ -123,9 +123,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **digitalDocument** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -140,7 +140,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -154,23 +154,23 @@ Retrieve one DigitalDocument resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = DigitalDocumentApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var digitalDocument = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = DigitalDocumentApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final digitalDocument = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getDigitalDocument(xKeyclicApp, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling DigitalDocumentApi->getDigitalDocument: $e\n");
+    print('Exception when calling DigitalDocumentApi->getDigitalDocument: $e\n');
 }
 ```
 
@@ -178,9 +178,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **digitalDocument** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -195,13 +195,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchDigitalDocument**
-> Document patchDigitalDocument(xKeyclicApp, documentPatch, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Document patchDigitalDocument(xKeyclicApp, digitalDocument, documentPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one DigitalDocument resource.
 
@@ -209,24 +209,24 @@ Edit one DigitalDocument resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = DigitalDocumentApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var documentPatch = DocumentPatch(); // DocumentPatch | 
-var digitalDocument = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = DigitalDocumentApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final digitalDocument = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final documentPatch = DocumentPatch(); // DocumentPatch | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchDigitalDocument(xKeyclicApp, documentPatch, digitalDocument, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.patchDigitalDocument(xKeyclicApp, digitalDocument, documentPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling DigitalDocumentApi->patchDigitalDocument: $e\n");
+    print('Exception when calling DigitalDocumentApi->patchDigitalDocument: $e\n');
 }
 ```
 
@@ -234,10 +234,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **documentPatch** | [**DocumentPatch**](DocumentPatch.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **digitalDocument** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **documentPatch** | [**DocumentPatch**](DocumentPatch.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -266,23 +266,23 @@ Create one DigitalDocument resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = DigitalDocumentApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var documentData = DocumentData(); // DocumentData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = DigitalDocumentApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final documentData = DocumentData(); // DocumentData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postDigitalDocument(xKeyclicApp, documentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postDigitalDocument(xKeyclicApp, documentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling DigitalDocumentApi->postDigitalDocument: $e\n");
+    print('Exception when calling DigitalDocumentApi->postDigitalDocument: $e\n');
 }
 ```
 
@@ -290,9 +290,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **documentData** | [**DocumentData**](DocumentData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

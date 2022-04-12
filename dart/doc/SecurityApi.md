@@ -9,10 +9,10 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postLogin**](SecurityApi.md#postLogin) | **POST** /security/login | Create one Login resource.
-[**postPasswordChangeByToken**](SecurityApi.md#postPasswordChangeByToken) | **POST** /security/password/change/{token} | Create one PasswordChange resource.
-[**postPasswordReset**](SecurityApi.md#postPasswordReset) | **POST** /security/password/change-request | Create one PasswordReset resource.
-[**postRegister**](SecurityApi.md#postRegister) | **POST** /security/register | Create one Register resource.
+[**postLogin**](SecurityApi.md#postlogin) | **POST** /security/login | Create one Login resource.
+[**postPasswordChangeByToken**](SecurityApi.md#postpasswordchangebytoken) | **POST** /security/password/change/{token} | Create one PasswordChange resource.
+[**postPasswordReset**](SecurityApi.md#postpasswordreset) | **POST** /security/password/change-request | Create one PasswordReset resource.
+[**postRegister**](SecurityApi.md#postregister) | **POST** /security/register | Create one Register resource.
 
 
 # **postLogin**
@@ -24,19 +24,19 @@ Create one Login resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 
-var api_instance = SecurityApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var loginData = LoginData(); // LoginData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = SecurityApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final loginData = LoginData(); // LoginData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postLogin(xKeyclicApp, loginData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postLogin(xKeyclicApp, loginData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling SecurityApi->postLogin: $e\n");
+    print('Exception when calling SecurityApi->postLogin: $e\n');
 }
 ```
 
@@ -44,9 +44,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **loginData** | [**LoginData**](LoginData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -67,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postPasswordChangeByToken**
-> postPasswordChangeByToken(xKeyclicApp, passwordChangeData, token, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> postPasswordChangeByToken(xKeyclicApp, token, passwordChangeData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one PasswordChange resource.
 
@@ -75,19 +75,19 @@ Create one PasswordChange resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 
-var api_instance = SecurityApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var passwordChangeData = PasswordChangeData(); // PasswordChangeData | 
-var token = token_example; // String | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = SecurityApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final token = token_example; // String | 
+final passwordChangeData = PasswordChangeData(); // PasswordChangeData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    api_instance.postPasswordChangeByToken(xKeyclicApp, passwordChangeData, token, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    api_instance.postPasswordChangeByToken(xKeyclicApp, token, passwordChangeData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling SecurityApi->postPasswordChangeByToken: $e\n");
+    print('Exception when calling SecurityApi->postPasswordChangeByToken: $e\n');
 }
 ```
 
@@ -95,10 +95,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **passwordChangeData** | [**PasswordChangeData**](PasswordChangeData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **token** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **passwordChangeData** | [**PasswordChangeData**](PasswordChangeData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -127,18 +127,18 @@ Create one PasswordReset resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 
-var api_instance = SecurityApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var resetPasswordData = ResetPasswordData(); // ResetPasswordData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = SecurityApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final resetPasswordData = ResetPasswordData(); // ResetPasswordData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.postPasswordReset(xKeyclicApp, resetPasswordData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling SecurityApi->postPasswordReset: $e\n");
+    print('Exception when calling SecurityApi->postPasswordReset: $e\n');
 }
 ```
 
@@ -146,9 +146,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **resetPasswordData** | [**ResetPasswordData**](ResetPasswordData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -177,23 +177,23 @@ Create one Register resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = SecurityApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var registerData = RegisterData(); // RegisterData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = SecurityApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final registerData = RegisterData(); // RegisterData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postRegister(xKeyclicApp, registerData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postRegister(xKeyclicApp, registerData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling SecurityApi->postRegister: $e\n");
+    print('Exception when calling SecurityApi->postRegister: $e\n');
 }
 ```
 
@@ -201,9 +201,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **registerData** | [**RegisterData**](RegisterData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

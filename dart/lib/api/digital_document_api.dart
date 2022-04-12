@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class DigitalDocumentApi {
   DigitalDocumentApi([ApiClient apiClient])
@@ -8,7 +13,169 @@ class DigitalDocumentApi {
 
   /// Retrieve all Feedback resources.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [String] batch:
+  ///
+  /// * [List<String>] batchesLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [DateTime] after:
+  ///
+  /// * [DateTime] before:
+  ///
+  /// * [List<String>] geoHashLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [String] organization:
+  ///
+  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
+  Future<Response> cgetFeedbackByDigitalDocumentWithHttpInfo(
+    String xKeyclicApp,
+    String digitalDocument, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+    List<String> orderLeftSquareBracketRightSquareBracket,
+    String batch,
+    List<String> batchesLeftSquareBracketRightSquareBracket,
+    DateTime after,
+    DateTime before,
+    List<String> geoHashLeftSquareBracketRightSquareBracket,
+    String organization,
+    List<String> organizationsLeftSquareBracketRightSquareBracket,
+    int page,
+    int limit,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (digitalDocument == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: digitalDocument');
+    }
+
+    final path = r'/digital-documents/{digitalDocument}/feedbacks'
+        .replaceAll('{' + 'digitalDocument' + '}', digitalDocument.toString());
+
+    final queryParams = <QueryParam>[
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat(
+            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
+      if (batch != null)
+        ..._convertParametersForCollectionFormat('', 'batch', batch),
+      if (batchesLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat(
+            'multi', 'batches[]', batchesLeftSquareBracketRightSquareBracket),
+      if (after != null)
+        ..._convertParametersForCollectionFormat('', 'after', after),
+      if (before != null)
+        ..._convertParametersForCollectionFormat('', 'before', before),
+      if (geoHashLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat(
+            'multi', 'geo_hash[]', geoHashLeftSquareBracketRightSquareBracket),
+      if (organization != null)
+        ..._convertParametersForCollectionFormat(
+            '', 'organization', organization),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat('multi', 'organizations[]',
+            organizationsLeftSquareBracketRightSquareBracket),
+      if (page != null)
+        ..._convertParametersForCollectionFormat('', 'page', page),
+      if (limit != null)
+        ..._convertParametersForCollectionFormat('', 'limit', limit),
+    ];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve all Feedback resources.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [String] batch:
+  ///
+  /// * [List<String>] batchesLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [DateTime] after:
+  ///
+  /// * [DateTime] before:
+  ///
+  /// * [List<String>] geoHashLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [String] organization:
+  ///
+  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
   Future<FeedbackPagination> cgetFeedbackByDigitalDocument(
     String xKeyclicApp,
     String digitalDocument, {
@@ -16,105 +183,140 @@ class DigitalDocumentApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
-    List<String> order__,
+    List<String> orderLeftSquareBracketRightSquareBracket,
     String batch,
-    List<String> batches__,
+    List<String> batchesLeftSquareBracketRightSquareBracket,
     DateTime after,
     DateTime before,
-    List<String> geoHash__,
+    List<String> geoHashLeftSquareBracketRightSquareBracket,
     String organization,
-    List<String> organizations__,
+    List<String> organizationsLeftSquareBracketRightSquareBracket,
     int page,
     int limit,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (digitalDocument == null) {
-      throw ApiException(0, "Missing required param: digitalDocument");
-    }
-
-    // create path and map variables
-    final String path = "/digital-documents/{digitalDocument}/feedbacks"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "digitalDocument" + "}", digitalDocument.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (batch != null)
-        ..._convertParametersForCollectionFormat("batch", batch),
-      if (batches__ != null)
-        ..._convertParametersForCollectionFormat("batches[]", batches__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (geoHash__ != null)
-        ..._convertParametersForCollectionFormat("geo_hash[]", geoHash__,
-            collectionFormat: "multi"),
-      if (organization != null)
-        ..._convertParametersForCollectionFormat("organization", organization),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await cgetFeedbackByDigitalDocumentWithHttpInfo(
+      xKeyclicApp,
+      digitalDocument,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+      orderLeftSquareBracketRightSquareBracket:
+          orderLeftSquareBracketRightSquareBracket,
+      batch: batch,
+      batchesLeftSquareBracketRightSquareBracket:
+          batchesLeftSquareBracketRightSquareBracket,
+      after: after,
+      before: before,
+      geoHashLeftSquareBracketRightSquareBracket:
+          geoHashLeftSquareBracketRightSquareBracket,
+      organization: organization,
+      organizationsLeftSquareBracketRightSquareBracket:
+          organizationsLeftSquareBracketRightSquareBracket,
+      page: page,
+      limit: limit,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<FeedbackPagination>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'FeedbackPagination')
-        as FeedbackPagination;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'FeedbackPagination',
+    ) as FeedbackPagination;
   }
 
   /// Remove one DigitalDocument resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> deleteDigitalDocumentWithHttpInfo(
+    String xKeyclicApp,
+    String digitalDocument, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (digitalDocument == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: digitalDocument');
+    }
+
+    final path = r'/digital-documents/{digitalDocument}'
+        .replaceAll('{' + 'digitalDocument' + '}', digitalDocument.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'DELETE',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Remove one DigitalDocument resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<void> deleteDigitalDocument(
     String xKeyclicApp,
     String digitalDocument, {
@@ -123,68 +325,104 @@ class DigitalDocumentApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (digitalDocument == null) {
-      throw ApiException(0, "Missing required param: digitalDocument");
-    }
-
-    // create path and map variables
-    final String path = "/digital-documents/{digitalDocument}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "digitalDocument" + "}", digitalDocument.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'DELETE',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await deleteDigitalDocumentWithHttpInfo(
+      xKeyclicApp,
+      digitalDocument,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    if (response.body == null) {
-      return;
-    }
-
-    return;
   }
 
   /// Retrieve one DigitalDocument resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getDigitalDocumentWithHttpInfo(
+    String xKeyclicApp,
+    String digitalDocument, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (digitalDocument == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: digitalDocument');
+    }
+
+    final path = r'/digital-documents/{digitalDocument}'
+        .replaceAll('{' + 'digitalDocument' + '}', digitalDocument.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one DigitalDocument resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Document> getDigitalDocument(
     String xKeyclicApp,
     String digitalDocument, {
@@ -193,144 +431,246 @@ class DigitalDocumentApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (digitalDocument == null) {
-      throw ApiException(0, "Missing required param: digitalDocument");
-    }
-
-    // create path and map variables
-    final String path = "/digital-documents/{digitalDocument}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "digitalDocument" + "}", digitalDocument.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getDigitalDocumentWithHttpInfo(
+      xKeyclicApp,
+      digitalDocument,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Document>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Document') as Document;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Document',
+    ) as Document;
   }
 
   /// Edit one DigitalDocument resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
-  Future<Document> patchDigitalDocument(
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [DocumentPatch] documentPatch (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> patchDigitalDocumentWithHttpInfo(
     String xKeyclicApp,
-    DocumentPatch documentPatch,
-    String digitalDocument, {
+    String digitalDocument,
+    DocumentPatch documentPatch, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (documentPatch == null) {
-      throw ApiException(0, "Missing required param: documentPatch");
-    }
-
     if (digitalDocument == null) {
-      throw ApiException(0, "Missing required param: digitalDocument");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: digitalDocument');
+    }
+    if (documentPatch == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: documentPatch');
     }
 
-    // create path and map variables
-    final String path = "/digital-documents/{digitalDocument}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "digitalDocument" + "}", digitalDocument.toString());
+    final path = r'/digital-documents/{digitalDocument}'
+        .replaceAll('{' + 'digitalDocument' + '}', digitalDocument.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'PATCH',
       queryParams: queryParams,
       body: documentPatch,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
+  }
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+  /// Edit one DigitalDocument resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] digitalDocument (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [DocumentPatch] documentPatch (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Document> patchDigitalDocument(
+    String xKeyclicApp,
+    String digitalDocument,
+    DocumentPatch documentPatch, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    final response = await patchDigitalDocumentWithHttpInfo(
+      xKeyclicApp,
+      digitalDocument,
+      documentPatch,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Document>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Document') as Document;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Document',
+    ) as Document;
   }
 
   /// Create one DigitalDocument resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [DocumentData] documentData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postDigitalDocumentWithHttpInfo(
+    String xKeyclicApp,
+    DocumentData documentData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (documentData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: documentData');
+    }
+
+    final path = r'/digital-documents';
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      body: documentData,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Create one DigitalDocument resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [DocumentData] documentData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Document> postDigitalDocument(
     String xKeyclicApp,
     DocumentData documentData, {
@@ -339,61 +679,27 @@ class DigitalDocumentApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (documentData == null) {
-      throw ApiException(0, "Missing required param: documentData");
-    }
-
-    // create path and map variables
-    final String path = "/digital-documents".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: documentData,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await postDigitalDocumentWithHttpInfo(
+      xKeyclicApp,
+      documentData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Document>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Document') as Document;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Document',
+    ) as Document;
   }
 }

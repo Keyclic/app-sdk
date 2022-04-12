@@ -1,74 +1,85 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class DocumentLinksSelf {
+  /// Returns a new [DocumentLinksSelf] instance.
   DocumentLinksSelf({
     this.href,
     this.iriTemplate,
   });
 
+  /// Returns a new [DocumentLinksSelf] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory DocumentLinksSelf.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return DocumentLinksSelf(
-      href: json['href'],
-      iriTemplate: DocumentLinksSelfIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: DocumentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the self associated to the given document. */
+  /// The URI of the self associated to the given document.
   String href;
 
   DocumentLinksSelfIriTemplate iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentLinksSelf &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<DocumentLinksSelf> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentLinksSelf.fromJson(value))
-            ?.toList() ??
-        <DocumentLinksSelf>[];
+    return <DocumentLinksSelf>[
+      if (json is List)
+        for (dynamic value in json) DocumentLinksSelf.fromJson(value),
+    ];
   }
 
   static Map<String, DocumentLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, DocumentLinksSelf>((String key, dynamic value) {
-          return MapEntry(key, DocumentLinksSelf.fromJson(value));
-        }) ??
-        <String, DocumentLinksSelf>{};
+    return <String, DocumentLinksSelf>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentLinksSelf.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+  // maps a json object with a list of DocumentLinksSelf-objects as value to a dart map
+  static Map<String, List<DocumentLinksSelf>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<DocumentLinksSelf>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentLinksSelf.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'DocumentLinksSelf[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'DocumentLinksSelf[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

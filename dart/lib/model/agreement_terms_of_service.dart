@@ -1,68 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class AgreementTermsOfService {
+  /// Returns a new [AgreementTermsOfService] instance.
   AgreementTermsOfService({
     this.content,
   });
 
+  /// Returns a new [AgreementTermsOfService] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory AgreementTermsOfService.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return AgreementTermsOfService(
-      content: json['content'],
+      content: json[r'content'],
     );
   }
 
   String content;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is AgreementTermsOfService &&
-        runtimeType == other.runtimeType &&
-        content == other.content;
+    return other is AgreementTermsOfService && other.content == content;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= content?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (content == null ? 0 : content.hashCode);
 
   static List<AgreementTermsOfService> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => AgreementTermsOfService.fromJson(value))
-            ?.toList() ??
-        <AgreementTermsOfService>[];
+    return <AgreementTermsOfService>[
+      if (json is List)
+        for (dynamic value in json) AgreementTermsOfService.fromJson(value),
+    ];
   }
 
   static Map<String, AgreementTermsOfService> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, AgreementTermsOfService>((String key, dynamic value) {
-          return MapEntry(key, AgreementTermsOfService.fromJson(value));
-        }) ??
-        <String, AgreementTermsOfService>{};
+    return <String, AgreementTermsOfService>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: AgreementTermsOfService.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
+  // maps a json object with a list of AgreementTermsOfService-objects as value to a dart map
+  static Map<String, List<AgreementTermsOfService>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<AgreementTermsOfService>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: AgreementTermsOfService.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'AgreementTermsOfService[content=$content, ]';
+  String toString() => 'AgreementTermsOfService[content=$content]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+    };
   }
 }

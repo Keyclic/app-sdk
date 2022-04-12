@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class NodePath {
+  /// Returns a new [NodePath] instance.
   NodePath({
     this.id,
     this.name,
   });
 
+  /// Returns a new [NodePath] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory NodePath.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return NodePath(
-      id: json['id'],
-      name: json['name'],
+      id: json[r'id'],
+      name: json[r'name'],
     );
   }
 
@@ -22,50 +30,51 @@ class NodePath {
   String name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is NodePath &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
-        name == other.name;
+    return other is NodePath && other.id == id && other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
 
   static List<NodePath> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => NodePath.fromJson(value))?.toList() ??
-        <NodePath>[];
+    return <NodePath>[
+      if (json is List)
+        for (dynamic value in json) NodePath.fromJson(value),
+    ];
   }
 
   static Map<String, NodePath> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, NodePath>((String key, dynamic value) {
-          return MapEntry(key, NodePath.fromJson(value));
-        }) ??
-        <String, NodePath>{};
+    return <String, NodePath>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: NodePath.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
+  // maps a json object with a list of NodePath-objects as value to a dart map
+  static Map<String, List<NodePath>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<NodePath>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: NodePath.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'NodePath[id=$id, name=$name, ]';
+  String toString() => 'NodePath[id=$id, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (name != null) r'name': name,
+    };
   }
 }

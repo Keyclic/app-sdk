@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class AssignmentLinksSelfIriTemplateMapping {
 
   /// Returns a new [AssignmentLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory AssignmentLinksSelfIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static AssignmentLinksSelfIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class AssignmentLinksSelfIriTemplateMapping {
     );
   }
 
-  String assignment;
+  String? assignment;
 
   @override
   bool operator ==(Object other) {
@@ -41,30 +40,38 @@ class AssignmentLinksSelfIriTemplateMapping {
   int get hashCode => (assignment == null ? 0 : assignment.hashCode);
 
   static List<AssignmentLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <AssignmentLinksSelfIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          AssignmentLinksSelfIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <AssignmentLinksSelfIriTemplateMapping>[];
+    }
+    return json
+        .map((value) {
+          return AssignmentLinksSelfIriTemplateMapping.fromJson(value);
+        })
+        .whereType<AssignmentLinksSelfIriTemplateMapping>()
+        .toList();
   }
 
   static Map<String, AssignmentLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, AssignmentLinksSelfIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              AssignmentLinksSelfIriTemplateMapping.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AssignmentLinksSelfIriTemplateMapping>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, AssignmentLinksSelfIriTemplateMapping?>(
+            key, AssignmentLinksSelfIriTemplateMapping.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, AssignmentLinksSelfIriTemplateMapping>;
   }
 
   // maps a json object with a list of AssignmentLinksSelfIriTemplateMapping-objects as value to a dart map
   static Map<String, List<AssignmentLinksSelfIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic> json) {
+      mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<AssignmentLinksSelfIriTemplateMapping>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key:
               AssignmentLinksSelfIriTemplateMapping.listFromJson(entry.value),
     };

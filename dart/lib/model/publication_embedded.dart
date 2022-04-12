@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PublicationEmbedded {
 
   /// Returns a new [PublicationEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PublicationEmbedded.fromJson(Map<String, dynamic> json) {
+  static PublicationEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class PublicationEmbedded {
     );
   }
 
-  Person author;
+  Person? author;
 
-  Place place;
+  Place? place;
 
   @override
   bool operator ==(Object other) {
@@ -46,28 +45,37 @@ class PublicationEmbedded {
       (author == null ? 0 : author.hashCode) +
       (place == null ? 0 : place.hashCode);
 
-  static List<PublicationEmbedded> listFromJson(List<dynamic> json) {
-    return <PublicationEmbedded>[
-      if (json is List)
-        for (dynamic value in json) PublicationEmbedded.fromJson(value),
-    ];
+  static List<PublicationEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PublicationEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return PublicationEmbedded.fromJson(value);
+        })
+        .whereType<PublicationEmbedded>()
+        .toList();
   }
 
   static Map<String, PublicationEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PublicationEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationEmbedded.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PublicationEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, PublicationEmbedded?>(
+        key, PublicationEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PublicationEmbedded>;
   }
 
   // maps a json object with a list of PublicationEmbedded-objects as value to a dart map
   static Map<String, List<PublicationEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PublicationEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PublicationEmbedded.listFromJson(entry.value),
     };
   }

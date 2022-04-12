@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class RegisterDataAgreement {
 
   /// Returns a new [RegisterDataAgreement] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RegisterDataAgreement.fromJson(Map<String, dynamic> json) {
+  static RegisterDataAgreement? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class RegisterDataAgreement {
     );
   }
 
-  bool olderThan;
+  bool? olderThan;
 
-  bool privacyPolicy;
+  bool? privacyPolicy;
 
-  bool termsOfService;
+  bool? termsOfService;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,38 @@ class RegisterDataAgreement {
       (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
       (termsOfService == null ? 0 : termsOfService.hashCode);
 
-  static List<RegisterDataAgreement> listFromJson(List<dynamic> json) {
-    return <RegisterDataAgreement>[
-      if (json is List)
-        for (dynamic value in json) RegisterDataAgreement.fromJson(value),
-    ];
+  static List<RegisterDataAgreement> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RegisterDataAgreement>[];
+    }
+    return json
+        .map((value) {
+          return RegisterDataAgreement.fromJson(value);
+        })
+        .whereType<RegisterDataAgreement>()
+        .toList();
   }
 
   static Map<String, RegisterDataAgreement> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, RegisterDataAgreement>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RegisterDataAgreement.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RegisterDataAgreement>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RegisterDataAgreement?>(
+            key, RegisterDataAgreement.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RegisterDataAgreement>;
   }
 
   // maps a json object with a list of RegisterDataAgreement-objects as value to a dart map
   static Map<String, List<RegisterDataAgreement>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RegisterDataAgreement>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RegisterDataAgreement.listFromJson(entry.value),
     };
   }

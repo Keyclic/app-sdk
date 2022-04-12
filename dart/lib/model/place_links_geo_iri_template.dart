@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PlaceLinksGeoIriTemplate {
 
   /// Returns a new [PlaceLinksGeoIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlaceLinksGeoIriTemplate.fromJson(Map<String, dynamic> json) {
+  static PlaceLinksGeoIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PlaceLinksGeoIriTemplate {
     );
   }
 
-  BookmarkLinksPlaceIriTemplateMapping mapping;
+  BookmarkLinksPlaceIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class PlaceLinksGeoIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlaceLinksGeoIriTemplate> listFromJson(List<dynamic> json) {
-    return <PlaceLinksGeoIriTemplate>[
-      if (json is List)
-        for (dynamic value in json) PlaceLinksGeoIriTemplate.fromJson(value),
-    ];
+  static List<PlaceLinksGeoIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksGeoIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return PlaceLinksGeoIriTemplate.fromJson(value);
+        })
+        .whereType<PlaceLinksGeoIriTemplate>()
+        .toList();
   }
 
   static Map<String, PlaceLinksGeoIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PlaceLinksGeoIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceLinksGeoIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksGeoIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PlaceLinksGeoIriTemplate?>(
+            key, PlaceLinksGeoIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlaceLinksGeoIriTemplate>;
   }
 
   // maps a json object with a list of PlaceLinksGeoIriTemplate-objects as value to a dart map
   static Map<String, List<PlaceLinksGeoIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlaceLinksGeoIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlaceLinksGeoIriTemplate.listFromJson(entry.value),
     };
   }

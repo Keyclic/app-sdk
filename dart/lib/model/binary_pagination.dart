@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class BinaryPagination implements Pagination, BinaryPaginationAllOf {
 
   /// Returns a new [BinaryPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BinaryPagination.fromJson(Map<String, dynamic> json) {
+  static BinaryPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class BinaryPagination implements Pagination, BinaryPaginationAllOf {
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  BinaryCollection embedded;
+  BinaryCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,27 +69,36 @@ class BinaryPagination implements Pagination, BinaryPaginationAllOf {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<BinaryPagination> listFromJson(List<dynamic> json) {
-    return <BinaryPagination>[
-      if (json is List)
-        for (dynamic value in json) BinaryPagination.fromJson(value),
-    ];
+  static List<BinaryPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BinaryPagination>[];
+    }
+    return json
+        .map((value) {
+          return BinaryPagination.fromJson(value);
+        })
+        .whereType<BinaryPagination>()
+        .toList();
   }
 
-  static Map<String, BinaryPagination> mapFromJson(Map<String, dynamic> json) {
-    return <String, BinaryPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BinaryPagination.fromJson(entry.value),
-    };
+  static Map<String, BinaryPagination> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BinaryPagination>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, BinaryPagination?>(
+        key, BinaryPagination.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BinaryPagination>;
   }
 
   // maps a json object with a list of BinaryPagination-objects as value to a dart map
   static Map<String, List<BinaryPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<BinaryPagination>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BinaryPagination.listFromJson(entry.value),
     };
   }

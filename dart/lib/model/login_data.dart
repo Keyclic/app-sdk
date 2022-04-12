@@ -1,20 +1,19 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class LoginData {
   /// Returns a new [LoginData] instance.
   LoginData({
-    @required this.login,
-    @required this.password,
+    required this.login,
+    required this.password,
   });
 
   /// Returns a new [LoginData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory LoginData.fromJson(Map<String, dynamic> json) {
+  static LoginData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -42,31 +41,38 @@ class LoginData {
   }
 
   @override
-  int get hashCode =>
-      (login == null ? 0 : login.hashCode) +
-      (password == null ? 0 : password.hashCode);
+  int get hashCode => login.hashCode + password.hashCode;
 
-  static List<LoginData> listFromJson(List<dynamic> json) {
-    return <LoginData>[
-      if (json is List)
-        for (dynamic value in json) LoginData.fromJson(value),
-    ];
+  static List<LoginData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <LoginData>[];
+    }
+    return json
+        .map((value) {
+          return LoginData.fromJson(value);
+        })
+        .whereType<LoginData>()
+        .toList();
   }
 
-  static Map<String, LoginData> mapFromJson(Map<String, dynamic> json) {
-    return <String, LoginData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: LoginData.fromJson(entry.value),
-    };
+  static Map<String, LoginData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, LoginData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, LoginData?>(key, LoginData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, LoginData>;
   }
 
   // maps a json object with a list of LoginData-objects as value to a dart map
   static Map<String, List<LoginData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<LoginData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: LoginData.listFromJson(entry.value),
     };
   }

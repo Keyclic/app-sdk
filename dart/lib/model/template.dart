@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,26 +12,24 @@ class Template {
     this.footer = const [],
     this.header = const [],
     this.id,
-    @required this.name,
-    @required this.type,
+    required this.name,
+    required this.type,
     this.updatedAt,
   });
 
   /// Returns a new [Template] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Template.fromJson(Map<String, dynamic> json) {
+  static Template? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,21 +52,21 @@ class Template {
     );
   }
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  List<Map<String, dynamic>> footer;
+  List<Map<String, dynamic>>? footer;
 
-  List<Map<String, dynamic>> header;
+  List<Map<String, dynamic>>? header;
 
-  String id;
+  final String? id;
 
   String name;
 
   String type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -96,31 +93,40 @@ class Template {
       (footer == null ? 0 : footer.hashCode) +
       (header == null ? 0 : header.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (type == null ? 0 : type.hashCode) +
+      name.hashCode +
+      type.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Template> listFromJson(List<dynamic> json) {
-    return <Template>[
-      if (json is List)
-        for (dynamic value in json) Template.fromJson(value),
-    ];
+  static List<Template> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Template>[];
+    }
+    return json
+        .map((value) {
+          return Template.fromJson(value);
+        })
+        .whereType<Template>()
+        .toList();
   }
 
-  static Map<String, Template> mapFromJson(Map<String, dynamic> json) {
-    return <String, Template>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Template.fromJson(entry.value),
-    };
+  static Map<String, Template> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Template>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, Template?>(key, Template.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Template>;
   }
 
   // maps a json object with a list of Template-objects as value to a dart map
   static Map<String, List<Template>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<Template>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Template.listFromJson(entry.value),
     };
   }
@@ -132,13 +138,13 @@ class Template {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (body != null) r'body': body,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (footer != null) r'footer': footer,
       if (header != null) r'header': header,
       if (id != null) r'id': id,
       r'name': name,
       r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

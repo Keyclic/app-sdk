@@ -1,20 +1,19 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class SignerData {
   /// Returns a new [SignerData] instance.
   SignerData({
-    @required this.document,
-    @required this.member,
+    required this.document,
+    required this.member,
   });
 
   /// Returns a new [SignerData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SignerData.fromJson(Map<String, dynamic> json) {
+  static SignerData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -42,31 +41,38 @@ class SignerData {
   }
 
   @override
-  int get hashCode =>
-      (document == null ? 0 : document.hashCode) +
-      (member == null ? 0 : member.hashCode);
+  int get hashCode => document.hashCode + member.hashCode;
 
-  static List<SignerData> listFromJson(List<dynamic> json) {
-    return <SignerData>[
-      if (json is List)
-        for (dynamic value in json) SignerData.fromJson(value),
-    ];
+  static List<SignerData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignerData>[];
+    }
+    return json
+        .map((value) {
+          return SignerData.fromJson(value);
+        })
+        .whereType<SignerData>()
+        .toList();
   }
 
-  static Map<String, SignerData> mapFromJson(Map<String, dynamic> json) {
-    return <String, SignerData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerData.fromJson(entry.value),
-    };
+  static Map<String, SignerData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignerData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, SignerData?>(key, SignerData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, SignerData>;
   }
 
   // maps a json object with a list of SignerData-objects as value to a dart map
   static Map<String, List<SignerData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<SignerData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: SignerData.listFromJson(entry.value),
     };
   }

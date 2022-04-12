@@ -1,339 +1,247 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class DispatcherApi {
-  DispatcherApi([ApiClient apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  const DispatcherApi(this._apiClient);
 
-  final ApiClient apiClient;
+  final ApiClient _apiClient;
 
   /// Retrieve all Rule resources.
   ///
-  /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [dispatcher] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [category]
+  /// * [categoriesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [service]
+  /// * [servicesLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] dispatcher (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] category:
-  ///
-  /// * [List<String>] categoriesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [String] service:
-  ///
-  /// * [List<String>] servicesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<Response> cgetRulesByDispatcherWithHttpInfo(
-    String xKeyclicApp,
-    String dispatcher, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    String category,
-    List<String> categoriesLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    String service,
-    List<String> servicesLeftSquareBracketRightSquareBracket,
-    int page,
-    int limit,
+  /// Returns a [Future] containing a [Response] with a [RulePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Rule resources. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<RulePagination>> cgetRulesByDispatcher({
+    required String xKeyclicApp,
+    required String dispatcher,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? category,
+    List<String>? categoriesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? service,
+    List<String>? servicesLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (dispatcher == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: dispatcher');
-    }
+    final String path = r'/dispatchers/{dispatcher}/rules'
+        .replaceAll('{' r'dispatcher' '}', dispatcher.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
 
-    final path = r'/dispatchers/{dispatcher}/rules'
-        .replaceAll('{' + 'dispatcher' + '}', dispatcher.toString());
-
-    final queryParams = <QueryParam>[
+    final queryParameters = <String, dynamic>{
       if (orderLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
-      if (category != null)
-        ..._convertParametersForCollectionFormat('', 'category', category),
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (category != null) r'category': encodeQueryParameter(category),
       if (categoriesLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat('multi', 'categories[]',
-            categoriesLeftSquareBracketRightSquareBracket),
-      if (after != null)
-        ..._convertParametersForCollectionFormat('', 'after', after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat('', 'before', before),
-      if (service != null)
-        ..._convertParametersForCollectionFormat('', 'service', service),
+        r'categories[]': encodeCollectionQueryParameter(
+            categoriesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (service != null) r'service': encodeQueryParameter(service),
       if (servicesLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'services[]', servicesLeftSquareBracketRightSquareBracket),
-      if (page != null)
-        ..._convertParametersForCollectionFormat('', 'page', page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat('', 'limit', limit),
-    ];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+        r'services[]': encodeCollectionQueryParameter(
+            servicesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
     };
 
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
-  }
 
-  /// Retrieve all Rule resources.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] dispatcher (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] category:
-  ///
-  /// * [List<String>] categoriesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [String] service:
-  ///
-  /// * [List<String>] servicesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<RulePagination> cgetRulesByDispatcher(
-    String xKeyclicApp,
-    String dispatcher, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    String category,
-    List<String> categoriesLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    String service,
-    List<String> servicesLeftSquareBracketRightSquareBracket,
-    int page,
-    int limit,
-  }) async {
-    final response = await cgetRulesByDispatcherWithHttpInfo(
-      xKeyclicApp,
-      dispatcher,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
-      orderLeftSquareBracketRightSquareBracket:
-          orderLeftSquareBracketRightSquareBracket,
-      category: category,
-      categoriesLeftSquareBracketRightSquareBracket:
-          categoriesLeftSquareBracketRightSquareBracket,
-      after: after,
-      before: before,
-      service: service,
-      servicesLeftSquareBracketRightSquareBracket:
-          servicesLeftSquareBracketRightSquareBracket,
-      page: page,
-      limit: limit,
-    );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<RulePagination>.value(null);
+    RulePagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<RulePagination>(
+          response.data!, 'RulePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'RulePagination',
-    ) as RulePagination;
-  }
-
-  /// Retrieve one Dispatcher resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] dispatcher (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> getDispatcherWithHttpInfo(
-    String xKeyclicApp,
-    String dispatcher, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (dispatcher == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: dispatcher');
-    }
-
-    final path = r'/dispatchers/{dispatcher}'
-        .replaceAll('{' + 'dispatcher' + '}', dispatcher.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<RulePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Retrieve one Dispatcher resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [dispatcher] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] dispatcher (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Dispatcher> getDispatcher(
-    String xKeyclicApp,
-    String dispatcher, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Dispatcher] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Dispatcher resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Dispatcher>> getDispatcher({
+    required String xKeyclicApp,
+    required String dispatcher,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await getDispatcherWithHttpInfo(
-      xKeyclicApp,
-      dispatcher,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/dispatchers/{dispatcher}'
+        .replaceAll('{' r'dispatcher' '}', dispatcher.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Dispatcher>.value(null);
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Dispatcher responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Dispatcher>(
+          response.data!, 'Dispatcher');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Dispatcher',
-    ) as Dispatcher;
+    return Response<Dispatcher>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 }

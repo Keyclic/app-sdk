@@ -55,7 +55,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **member** | [**String**](.md)| The identifier of the resource. | 
+ **member** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -114,7 +114,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **member** | [**String**](.md)| The identifier of the resource. | 
+ **member** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -169,7 +169,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **member** | [**String**](.md)| The identifier of the resource. | 
+ **member** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -225,7 +225,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **member** | [**String**](.md)| The identifier of the resource. | 
+ **member** | **String**| The identifier of the resource. | 
  **memberPatch** | [**MemberPatch**](MemberPatch.md)|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 

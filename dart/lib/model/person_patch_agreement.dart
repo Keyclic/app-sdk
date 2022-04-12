@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class PersonPatchAgreement {
 
   /// Returns a new [PersonPatchAgreement] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PersonPatchAgreement.fromJson(Map<String, dynamic> json) {
+  static PersonPatchAgreement? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class PersonPatchAgreement {
     );
   }
 
-  bool privacyPolicy;
+  bool? privacyPolicy;
 
-  bool termsOfService;
+  bool? termsOfService;
 
-  bool olderThan;
+  bool? olderThan;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,38 @@ class PersonPatchAgreement {
       (termsOfService == null ? 0 : termsOfService.hashCode) +
       (olderThan == null ? 0 : olderThan.hashCode);
 
-  static List<PersonPatchAgreement> listFromJson(List<dynamic> json) {
-    return <PersonPatchAgreement>[
-      if (json is List)
-        for (dynamic value in json) PersonPatchAgreement.fromJson(value),
-    ];
+  static List<PersonPatchAgreement> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PersonPatchAgreement>[];
+    }
+    return json
+        .map((value) {
+          return PersonPatchAgreement.fromJson(value);
+        })
+        .whereType<PersonPatchAgreement>()
+        .toList();
   }
 
   static Map<String, PersonPatchAgreement> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PersonPatchAgreement>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PersonPatchAgreement.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PersonPatchAgreement>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PersonPatchAgreement?>(
+            key, PersonPatchAgreement.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PersonPatchAgreement>;
   }
 
   // maps a json object with a list of PersonPatchAgreement-objects as value to a dart map
   static Map<String, List<PersonPatchAgreement>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PersonPatchAgreement>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PersonPatchAgreement.listFromJson(entry.value),
     };
   }

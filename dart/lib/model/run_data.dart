@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -16,7 +15,7 @@ class RunData {
 
   /// Returns a new [RunData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RunData.fromJson(Map<String, dynamic> json) {
+  static RunData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -35,13 +34,13 @@ class RunData {
     );
   }
 
-  List<Map<String, dynamic>> event;
+  List<Map<String, dynamic>>? event;
 
-  List<Map<String, dynamic>> inputs;
+  List<Map<String, dynamic>>? inputs;
 
-  List<Map<String, dynamic>> outputs;
+  List<Map<String, dynamic>>? outputs;
 
-  bool verbose;
+  bool? verbose;
 
   @override
   bool operator ==(Object other) {
@@ -64,26 +63,36 @@ class RunData {
       (outputs == null ? 0 : outputs.hashCode) +
       (verbose == null ? 0 : verbose.hashCode);
 
-  static List<RunData> listFromJson(List<dynamic> json) {
-    return <RunData>[
-      if (json is List)
-        for (dynamic value in json) RunData.fromJson(value),
-    ];
+  static List<RunData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RunData>[];
+    }
+    return json
+        .map((value) {
+          return RunData.fromJson(value);
+        })
+        .whereType<RunData>()
+        .toList();
   }
 
-  static Map<String, RunData> mapFromJson(Map<String, dynamic> json) {
-    return <String, RunData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RunData.fromJson(entry.value),
-    };
+  static Map<String, RunData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RunData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RunData?>(key, RunData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RunData>;
   }
 
   // maps a json object with a list of RunData-objects as value to a dart map
-  static Map<String, List<RunData>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<RunData>> mapListFromJson(
+      Map<String, dynamic>? json) {
     return <String, List<RunData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RunData.listFromJson(entry.value),
     };
   }

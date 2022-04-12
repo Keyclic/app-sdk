@@ -1,353 +1,298 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class PublicationApi {
-  PublicationApi([ApiClient apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  const PublicationApi(this._apiClient);
 
-  final ApiClient apiClient;
-
-  /// Remove one Publication resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] publication (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> deletePublicationWithHttpInfo(
-    String xKeyclicApp,
-    String publication, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (publication == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: publication');
-    }
-
-    final path = r'/publications/{publication}'
-        .replaceAll('{' + 'publication' + '}', publication.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'DELETE',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
-    );
-  }
+  final ApiClient _apiClient;
 
   /// Remove one Publication resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [publication] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] publication (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<void> deletePublication(
-    String xKeyclicApp,
-    String publication, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future]
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Remove one Publication resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<void>> deletePublication({
+    required String xKeyclicApp,
+    required String publication,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await deletePublicationWithHttpInfo(
-      xKeyclicApp,
-      publication,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/publications/{publication}'
+        .replaceAll('{' r'publication' '}', publication.toString());
+    final options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-  }
 
-  /// Retrieve one Publication resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] publication (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> getPublicationWithHttpInfo(
-    String xKeyclicApp,
-    String publication, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (publication == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: publication');
-    }
-
-    final path = r'/publications/{publication}'
-        .replaceAll('{' + 'publication' + '}', publication.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
   }
 
   /// Retrieve one Publication resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [publication] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] publication (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Publication> getPublication(
-    String xKeyclicApp,
-    String publication, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Publication] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Publication resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Publication>> getPublication({
+    required String xKeyclicApp,
+    required String publication,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await getPublicationWithHttpInfo(
-      xKeyclicApp,
-      publication,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/publications/{publication}'
+        .replaceAll('{' r'publication' '}', publication.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Publication>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Publication',
-    ) as Publication;
-  }
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-  /// Create one Publication resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [PublicationData] publicationData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> postPublicationWithHttpInfo(
-    String xKeyclicApp,
-    PublicationData publicationData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (publicationData == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: publicationData');
+    Publication responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Publication>(
+          response.data!, 'Publication');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path = r'/publications';
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[
-      'application/json;charset=UTF-8',
-    ];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: publicationData,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<Publication>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Create one Publication resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [publicationData]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [PublicationData] publicationData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Publication> postPublication(
-    String xKeyclicApp,
-    PublicationData publicationData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Publication] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Create one Publication resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Publication>> postPublication({
+    required String xKeyclicApp,
+    required PublicationData publicationData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await postPublicationWithHttpInfo(
-      xKeyclicApp,
-      publicationData,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/publications';
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Publication>.value(null);
+
+    dynamic bodyData;
+
+    try {
+      bodyData = publicationData.toJson();
+      // bodyData = jsonEncode(publicationData);
+      // bodyData = jsonDecode(jsonEncode(publicationData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Publication',
-    ) as Publication;
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Publication responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Publication>(
+          response.data!, 'Publication');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<Publication>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 }

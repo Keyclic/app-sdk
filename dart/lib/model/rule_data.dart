@@ -1,21 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class RuleData {
   /// Returns a new [RuleData] instance.
   RuleData({
-    @required this.category,
-    @required this.dispatcher,
-    @required this.service,
+    required this.category,
+    required this.dispatcher,
+    required this.service,
   });
 
   /// Returns a new [RuleData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RuleData.fromJson(Map<String, dynamic> json) {
+  static RuleData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -48,31 +47,38 @@ class RuleData {
 
   @override
   int get hashCode =>
-      (category == null ? 0 : category.hashCode) +
-      (dispatcher == null ? 0 : dispatcher.hashCode) +
-      (service == null ? 0 : service.hashCode);
+      category.hashCode + dispatcher.hashCode + service.hashCode;
 
-  static List<RuleData> listFromJson(List<dynamic> json) {
-    return <RuleData>[
-      if (json is List)
-        for (dynamic value in json) RuleData.fromJson(value),
-    ];
+  static List<RuleData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RuleData>[];
+    }
+    return json
+        .map((value) {
+          return RuleData.fromJson(value);
+        })
+        .whereType<RuleData>()
+        .toList();
   }
 
-  static Map<String, RuleData> mapFromJson(Map<String, dynamic> json) {
-    return <String, RuleData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RuleData.fromJson(entry.value),
-    };
+  static Map<String, RuleData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RuleData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RuleData?>(key, RuleData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RuleData>;
   }
 
   // maps a json object with a list of RuleData-objects as value to a dart map
   static Map<String, List<RuleData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RuleData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RuleData.listFromJson(entry.value),
     };
   }

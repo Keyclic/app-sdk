@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class DocumentPatchPermission {
 
   /// Returns a new [DocumentPatchPermission] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentPatchPermission.fromJson(Map<String, dynamic> json) {
+  static DocumentPatchPermission? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class DocumentPatchPermission {
     );
   }
 
-  String targetGroup;
+  String? targetGroup;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class DocumentPatchPermission {
   @override
   int get hashCode => (targetGroup == null ? 0 : targetGroup.hashCode);
 
-  static List<DocumentPatchPermission> listFromJson(List<dynamic> json) {
-    return <DocumentPatchPermission>[
-      if (json is List)
-        for (dynamic value in json) DocumentPatchPermission.fromJson(value),
-    ];
+  static List<DocumentPatchPermission> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentPatchPermission>[];
+    }
+    return json
+        .map((value) {
+          return DocumentPatchPermission.fromJson(value);
+        })
+        .whereType<DocumentPatchPermission>()
+        .toList();
   }
 
   static Map<String, DocumentPatchPermission> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, DocumentPatchPermission>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentPatchPermission.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentPatchPermission>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, DocumentPatchPermission?>(
+            key, DocumentPatchPermission.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DocumentPatchPermission>;
   }
 
   // maps a json object with a list of DocumentPatchPermission-objects as value to a dart map
   static Map<String, List<DocumentPatchPermission>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DocumentPatchPermission>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DocumentPatchPermission.listFromJson(entry.value),
     };
   }

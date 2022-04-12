@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class CategoryEmbedded {
 
   /// Returns a new [CategoryEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CategoryEmbedded.fromJson(Map<String, dynamic> json) {
+  static CategoryEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class CategoryEmbedded {
     );
   }
 
-  List<Category> children;
+  List<Category>? children;
 
-  List<NodePath> path;
+  List<NodePath>? path;
 
   @override
   bool operator ==(Object other) {
@@ -46,27 +45,36 @@ class CategoryEmbedded {
       (children == null ? 0 : children.hashCode) +
       (path == null ? 0 : path.hashCode);
 
-  static List<CategoryEmbedded> listFromJson(List<dynamic> json) {
-    return <CategoryEmbedded>[
-      if (json is List)
-        for (dynamic value in json) CategoryEmbedded.fromJson(value),
-    ];
+  static List<CategoryEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return CategoryEmbedded.fromJson(value);
+        })
+        .whereType<CategoryEmbedded>()
+        .toList();
   }
 
-  static Map<String, CategoryEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return <String, CategoryEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CategoryEmbedded.fromJson(entry.value),
-    };
+  static Map<String, CategoryEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, CategoryEmbedded?>(
+        key, CategoryEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, CategoryEmbedded>;
   }
 
   // maps a json object with a list of CategoryEmbedded-objects as value to a dart map
   static Map<String, List<CategoryEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<CategoryEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: CategoryEmbedded.listFromJson(entry.value),
     };
   }

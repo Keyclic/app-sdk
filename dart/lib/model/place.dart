@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class Place {
     this.createdAt,
     this.description,
     this.id,
-    @required this.name,
+    required this.name,
     this.preferences,
     this.type,
     this.updatedAt,
@@ -23,19 +22,17 @@ class Place {
 
   /// Returns a new [Place] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Place.fromJson(Map<String, dynamic> json) {
+  static Place? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,27 +52,27 @@ class Place {
     );
   }
 
-  PlaceEmbedded embedded;
+  PlaceEmbedded? embedded;
 
-  PlaceLinks links;
+  PlaceLinks? links;
 
-  PlacePostalAddress address;
+  PlacePostalAddress? address;
 
-  String branchCode;
+  String? branchCode;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  PlacePreferences preferences;
+  PlacePreferences? preferences;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -107,31 +104,40 @@ class Place {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Place> listFromJson(List<dynamic> json) {
-    return <Place>[
-      if (json is List)
-        for (dynamic value in json) Place.fromJson(value),
-    ];
+  static List<Place> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Place>[];
+    }
+    return json
+        .map((value) {
+          return Place.fromJson(value);
+        })
+        .whereType<Place>()
+        .toList();
   }
 
-  static Map<String, Place> mapFromJson(Map<String, dynamic> json) {
-    return <String, Place>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Place.fromJson(entry.value),
-    };
+  static Map<String, Place> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Place>{};
+    }
+
+    final map = json.map(
+        (key, value) => MapEntry<String, Place?>(key, Place.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Place>;
   }
 
   // maps a json object with a list of Place-objects as value to a dart map
-  static Map<String, List<Place>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Place>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Place>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Place.listFromJson(entry.value),
     };
   }
@@ -146,13 +152,13 @@ class Place {
       if (links != null) r'_links': links,
       if (address != null) r'address': address,
       if (branchCode != null) r'branchCode': branchCode,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       r'name': name,
       if (preferences != null) r'preferences': preferences,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

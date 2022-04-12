@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class InternalServiceEmbedded {
 
   /// Returns a new [InternalServiceEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServiceEmbedded.fromJson(Map<String, dynamic> json) {
+  static InternalServiceEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class InternalServiceEmbedded {
     );
   }
 
-  Member manager;
+  Member? manager;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class InternalServiceEmbedded {
   @override
   int get hashCode => (manager == null ? 0 : manager.hashCode);
 
-  static List<InternalServiceEmbedded> listFromJson(List<dynamic> json) {
-    return <InternalServiceEmbedded>[
-      if (json is List)
-        for (dynamic value in json) InternalServiceEmbedded.fromJson(value),
-    ];
+  static List<InternalServiceEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return InternalServiceEmbedded.fromJson(value);
+        })
+        .whereType<InternalServiceEmbedded>()
+        .toList();
   }
 
   static Map<String, InternalServiceEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServiceEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceEmbedded.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceEmbedded>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, InternalServiceEmbedded?>(
+            key, InternalServiceEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, InternalServiceEmbedded>;
   }
 
   // maps a json object with a list of InternalServiceEmbedded-objects as value to a dart map
   static Map<String, List<InternalServiceEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<InternalServiceEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: InternalServiceEmbedded.listFromJson(entry.value),
     };
   }

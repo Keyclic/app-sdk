@@ -130,7 +130,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **category** | [**String**](.md)| The identifier of the resource. | 
+ **category** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -185,7 +185,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **category** | [**String**](.md)| The identifier of the resource. | 
+ **category** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -241,7 +241,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **category** | [**String**](.md)| The identifier of the resource. | 
+ **category** | **String**| The identifier of the resource. | 
  **categoryPatch** | [**CategoryPatch**](CategoryPatch.md)|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 

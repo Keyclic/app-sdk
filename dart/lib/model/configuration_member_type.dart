@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class ConfigurationMemberType {
 
   /// Returns a new [ConfigurationMemberType] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ConfigurationMemberType.fromJson(Map<String, dynamic> json) {
+  static ConfigurationMemberType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class ConfigurationMemberType {
     );
   }
 
-  String id;
+  final String? id;
 
-  List<MemberTypeRole> roles;
+  List<MemberTypeRole>? roles;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,38 @@ class ConfigurationMemberType {
       (roles == null ? 0 : roles.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ConfigurationMemberType> listFromJson(List<dynamic> json) {
-    return <ConfigurationMemberType>[
-      if (json is List)
-        for (dynamic value in json) ConfigurationMemberType.fromJson(value),
-    ];
+  static List<ConfigurationMemberType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationMemberType>[];
+    }
+    return json
+        .map((value) {
+          return ConfigurationMemberType.fromJson(value);
+        })
+        .whereType<ConfigurationMemberType>()
+        .toList();
   }
 
   static Map<String, ConfigurationMemberType> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ConfigurationMemberType>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ConfigurationMemberType.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationMemberType>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ConfigurationMemberType?>(
+            key, ConfigurationMemberType.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ConfigurationMemberType>;
   }
 
   // maps a json object with a list of ConfigurationMemberType-objects as value to a dart map
   static Map<String, List<ConfigurationMemberType>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ConfigurationMemberType>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ConfigurationMemberType.listFromJson(entry.value),
     };
   }

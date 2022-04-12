@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -12,26 +11,24 @@ class KnowledgeBase {
     this.createdAt,
     this.description,
     this.id,
-    @required this.name,
+    required this.name,
     this.type,
     this.updatedAt,
   });
 
   /// Returns a new [KnowledgeBase] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory KnowledgeBase.fromJson(Map<String, dynamic> json) {
+  static KnowledgeBase? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -47,19 +44,19 @@ class KnowledgeBase {
     );
   }
 
-  KnowledgeBaseLinks links;
+  KnowledgeBaseLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -84,31 +81,40 @@ class KnowledgeBase {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<KnowledgeBase> listFromJson(List<dynamic> json) {
-    return <KnowledgeBase>[
-      if (json is List)
-        for (dynamic value in json) KnowledgeBase.fromJson(value),
-    ];
+  static List<KnowledgeBase> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <KnowledgeBase>[];
+    }
+    return json
+        .map((value) {
+          return KnowledgeBase.fromJson(value);
+        })
+        .whereType<KnowledgeBase>()
+        .toList();
   }
 
-  static Map<String, KnowledgeBase> mapFromJson(Map<String, dynamic> json) {
-    return <String, KnowledgeBase>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: KnowledgeBase.fromJson(entry.value),
-    };
+  static Map<String, KnowledgeBase> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, KnowledgeBase>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, KnowledgeBase?>(key, KnowledgeBase.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, KnowledgeBase>;
   }
 
   // maps a json object with a list of KnowledgeBase-objects as value to a dart map
   static Map<String, List<KnowledgeBase>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<KnowledgeBase>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: KnowledgeBase.listFromJson(entry.value),
     };
   }
@@ -120,12 +126,12 @@ class KnowledgeBase {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       r'name': name,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

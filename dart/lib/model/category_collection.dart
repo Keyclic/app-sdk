@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class CategoryCollection {
 
   /// Returns a new [CategoryCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CategoryCollection.fromJson(Map<String, dynamic> json) {
+  static CategoryCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class CategoryCollection {
     );
   }
 
-  List<Category> items;
+  List<Category>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,28 +38,37 @@ class CategoryCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<CategoryCollection> listFromJson(List<dynamic> json) {
-    return <CategoryCollection>[
-      if (json is List)
-        for (dynamic value in json) CategoryCollection.fromJson(value),
-    ];
+  static List<CategoryCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryCollection>[];
+    }
+    return json
+        .map((value) {
+          return CategoryCollection.fromJson(value);
+        })
+        .whereType<CategoryCollection>()
+        .toList();
   }
 
   static Map<String, CategoryCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, CategoryCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CategoryCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryCollection>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, CategoryCollection?>(
+        key, CategoryCollection.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, CategoryCollection>;
   }
 
   // maps a json object with a list of CategoryCollection-objects as value to a dart map
   static Map<String, List<CategoryCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<CategoryCollection>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: CategoryCollection.listFromJson(entry.value),
     };
   }

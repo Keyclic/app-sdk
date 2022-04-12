@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class AssignmentPaginationAllOf {
 
   /// Returns a new [AssignmentPaginationAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory AssignmentPaginationAllOf.fromJson(Map<String, dynamic> json) {
+  static AssignmentPaginationAllOf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class AssignmentPaginationAllOf {
     );
   }
 
-  AssignmentCollection embedded;
+  AssignmentCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class AssignmentPaginationAllOf {
   @override
   int get hashCode => (embedded == null ? 0 : embedded.hashCode);
 
-  static List<AssignmentPaginationAllOf> listFromJson(List<dynamic> json) {
-    return <AssignmentPaginationAllOf>[
-      if (json is List)
-        for (dynamic value in json) AssignmentPaginationAllOf.fromJson(value),
-    ];
+  static List<AssignmentPaginationAllOf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AssignmentPaginationAllOf>[];
+    }
+    return json
+        .map((value) {
+          return AssignmentPaginationAllOf.fromJson(value);
+        })
+        .whereType<AssignmentPaginationAllOf>()
+        .toList();
   }
 
   static Map<String, AssignmentPaginationAllOf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, AssignmentPaginationAllOf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AssignmentPaginationAllOf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AssignmentPaginationAllOf>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, AssignmentPaginationAllOf?>(
+            key, AssignmentPaginationAllOf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, AssignmentPaginationAllOf>;
   }
 
   // maps a json object with a list of AssignmentPaginationAllOf-objects as value to a dart map
   static Map<String, List<AssignmentPaginationAllOf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<AssignmentPaginationAllOf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: AssignmentPaginationAllOf.listFromJson(entry.value),
     };
   }

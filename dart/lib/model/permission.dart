@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -62,14 +61,16 @@ class Permission {
     sERVICEColonALL,
   ];
 
-  static Permission fromJson(dynamic value) =>
+  static Permission? fromJson(dynamic value) =>
       PermissionTypeTransformer().decode(value);
 
   static List<Permission> listFromJson(List<dynamic> json) {
-    return <Permission>[
-      if (json is List)
-        for (dynamic value in json) Permission.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return Permission.fromJson(value);
+        })
+        .whereType<Permission>()
+        .toList();
   }
 }
 
@@ -91,7 +92,7 @@ class PermissionTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  Permission decode(dynamic data, {bool allowNull}) {
+  Permission? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'FILTER:ALL':
         return Permission.fILTERColonALL;
@@ -140,5 +141,5 @@ class PermissionTypeTransformer {
   }
 
   /// Singleton [PermissionTypeTransformer] instance.
-  static PermissionTypeTransformer _instance;
+  static PermissionTypeTransformer? _instance;
 }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class CheckpointLinks {
 
   /// Returns a new [CheckpointLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CheckpointLinks.fromJson(Map<String, dynamic> json) {
+  static CheckpointLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class CheckpointLinks {
     );
   }
 
-  CheckpointLinksOrganization organization;
+  CheckpointLinksOrganization? organization;
 
   @override
   bool operator ==(Object other) {
@@ -38,27 +37,36 @@ class CheckpointLinks {
   @override
   int get hashCode => (organization == null ? 0 : organization.hashCode);
 
-  static List<CheckpointLinks> listFromJson(List<dynamic> json) {
-    return <CheckpointLinks>[
-      if (json is List)
-        for (dynamic value in json) CheckpointLinks.fromJson(value),
-    ];
+  static List<CheckpointLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CheckpointLinks>[];
+    }
+    return json
+        .map((value) {
+          return CheckpointLinks.fromJson(value);
+        })
+        .whereType<CheckpointLinks>()
+        .toList();
   }
 
-  static Map<String, CheckpointLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, CheckpointLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CheckpointLinks.fromJson(entry.value),
-    };
+  static Map<String, CheckpointLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CheckpointLinks>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, CheckpointLinks?>(
+        key, CheckpointLinks.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, CheckpointLinks>;
   }
 
   // maps a json object with a list of CheckpointLinks-objects as value to a dart map
   static Map<String, List<CheckpointLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<CheckpointLinks>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: CheckpointLinks.listFromJson(entry.value),
     };
   }

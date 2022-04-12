@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class RulePatch {
 
   /// Returns a new [RulePatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RulePatch.fromJson(Map<String, dynamic> json) {
+  static RulePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class RulePatch {
     );
   }
 
-  String category;
+  String? category;
 
-  String service;
+  String? service;
 
   @override
   bool operator ==(Object other) {
@@ -46,27 +45,36 @@ class RulePatch {
       (category == null ? 0 : category.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<RulePatch> listFromJson(List<dynamic> json) {
-    return <RulePatch>[
-      if (json is List)
-        for (dynamic value in json) RulePatch.fromJson(value),
-    ];
+  static List<RulePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RulePatch>[];
+    }
+    return json
+        .map((value) {
+          return RulePatch.fromJson(value);
+        })
+        .whereType<RulePatch>()
+        .toList();
   }
 
-  static Map<String, RulePatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, RulePatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RulePatch.fromJson(entry.value),
-    };
+  static Map<String, RulePatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RulePatch>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RulePatch?>(key, RulePatch.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RulePatch>;
   }
 
   // maps a json object with a list of RulePatch-objects as value to a dart map
   static Map<String, List<RulePatch>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RulePatch>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RulePatch.listFromJson(entry.value),
     };
   }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -10,13 +9,13 @@ class Marker {
   Marker({
     this.links,
     this.id,
-    @required this.point,
+    required this.point,
     this.type,
   });
 
   /// Returns a new [Marker] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Marker.fromJson(Map<String, dynamic> json) {
+  static Marker? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,18 +23,18 @@ class Marker {
     return Marker(
       links: MarkerLinks.fromJson(json[r'_links']),
       id: json[r'id'],
-      point: Point.fromJson(json[r'point']),
+      point: Point.fromJson(json[r'point'])!,
       type: json[r'type'],
     );
   }
 
-  MarkerLinks links;
+  MarkerLinks? links;
 
-  String id;
+  final String? id;
 
   Point point;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -55,29 +54,38 @@ class Marker {
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (point == null ? 0 : point.hashCode) +
+      point.hashCode +
       (type == null ? 0 : type.hashCode);
 
-  static List<Marker> listFromJson(List<dynamic> json) {
-    return <Marker>[
-      if (json is List)
-        for (dynamic value in json) Marker.fromJson(value),
-    ];
+  static List<Marker> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Marker>[];
+    }
+    return json
+        .map((value) {
+          return Marker.fromJson(value);
+        })
+        .whereType<Marker>()
+        .toList();
   }
 
-  static Map<String, Marker> mapFromJson(Map<String, dynamic> json) {
-    return <String, Marker>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Marker.fromJson(entry.value),
-    };
+  static Map<String, Marker> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Marker>{};
+    }
+
+    final map = json.map(
+        (key, value) => MapEntry<String, Marker?>(key, Marker.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Marker>;
   }
 
   // maps a json object with a list of Marker-objects as value to a dart map
-  static Map<String, List<Marker>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Marker>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Marker>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Marker.listFromJson(entry.value),
     };
   }

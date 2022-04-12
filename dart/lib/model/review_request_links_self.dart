@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ReviewRequestLinksSelf {
 
   /// Returns a new [ReviewRequestLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReviewRequestLinksSelf.fromJson(Map<String, dynamic> json) {
+  static ReviewRequestLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class ReviewRequestLinksSelf {
   }
 
   /// The URI of the self associated to the given reviewrequest.
-  String href;
+  String? href;
 
-  ReviewRequestLinksSelfIriTemplate iriTemplate;
+  ReviewRequestLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class ReviewRequestLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReviewRequestLinksSelf> listFromJson(List<dynamic> json) {
-    return <ReviewRequestLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) ReviewRequestLinksSelf.fromJson(value),
-    ];
+  static List<ReviewRequestLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewRequestLinksSelf>[];
+    }
+    return json
+        .map((value) {
+          return ReviewRequestLinksSelf.fromJson(value);
+        })
+        .whereType<ReviewRequestLinksSelf>()
+        .toList();
   }
 
   static Map<String, ReviewRequestLinksSelf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ReviewRequestLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReviewRequestLinksSelf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewRequestLinksSelf>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ReviewRequestLinksSelf?>(
+            key, ReviewRequestLinksSelf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ReviewRequestLinksSelf>;
   }
 
   // maps a json object with a list of ReviewRequestLinksSelf-objects as value to a dart map
   static Map<String, List<ReviewRequestLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ReviewRequestLinksSelf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ReviewRequestLinksSelf.listFromJson(entry.value),
     };
   }

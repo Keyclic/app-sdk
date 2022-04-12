@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -9,13 +8,13 @@ class ReviewData {
   /// Returns a new [ReviewData] instance.
   ReviewData({
     this.reviewBody,
-    @required this.reviewRating,
-    @required this.reviewRequest,
+    required this.reviewRating,
+    required this.reviewRequest,
   });
 
   /// Returns a new [ReviewData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReviewData.fromJson(Map<String, dynamic> json) {
+  static ReviewData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,7 +28,7 @@ class ReviewData {
     );
   }
 
-  String reviewBody;
+  String? reviewBody;
 
   num reviewRating;
 
@@ -51,30 +50,39 @@ class ReviewData {
   @override
   int get hashCode =>
       (reviewBody == null ? 0 : reviewBody.hashCode) +
-      (reviewRating == null ? 0 : reviewRating.hashCode) +
-      (reviewRequest == null ? 0 : reviewRequest.hashCode);
+      reviewRating.hashCode +
+      reviewRequest.hashCode;
 
-  static List<ReviewData> listFromJson(List<dynamic> json) {
-    return <ReviewData>[
-      if (json is List)
-        for (dynamic value in json) ReviewData.fromJson(value),
-    ];
+  static List<ReviewData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewData>[];
+    }
+    return json
+        .map((value) {
+          return ReviewData.fromJson(value);
+        })
+        .whereType<ReviewData>()
+        .toList();
   }
 
-  static Map<String, ReviewData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ReviewData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReviewData.fromJson(entry.value),
-    };
+  static Map<String, ReviewData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ReviewData?>(key, ReviewData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ReviewData>;
   }
 
   // maps a json object with a list of ReviewData-objects as value to a dart map
   static Map<String, List<ReviewData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ReviewData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ReviewData.listFromJson(entry.value),
     };
   }

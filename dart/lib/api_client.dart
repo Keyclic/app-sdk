@@ -1,220 +1,319 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ApiClient {
   ApiClient({
-    this.basePath = 'https://api.keyclic.com',
-    this.debug = false,
-  }) {
-    // Setup authentications (key: authentication name, value: authentication).
-    _authentications[r'bearer'] = ApiKeyAuth('header', 'Authorization');
+    Dio? dio,
+    String? basePathOverride,
+    List<Interceptor>? interceptors,
+  }) : this.dio = dio ??
+            Dio(BaseOptions(
+              baseUrl: basePathOverride ?? basePath,
+              connectTimeout: 5000,
+              receiveTimeout: 3000,
+            )) {
+    this.dio.interceptors.addAll(interceptors ??
+        [
+          OAuthInterceptor(),
+          BasicAuthInterceptor(),
+          BearerAuthInterceptor(),
+          ApiKeyAuthInterceptor(),
+        ]);
   }
 
-  final String basePath;
-  final bool debug;
+  static const String basePath = r'https://api.keyclic.com';
 
-  final _authentications = <String, Authentication>{};
-  final _defaultHeaderMap = <String, String>{};
-  final Logger _logger = Logger('ApiClient');
+  final Dio dio;
+  // final Logger _logger = Logger('ApiClient');
 
-  var _client = Client();
-
-  /// Returns the current HTTP [Client] instance to use in this class.
-  ///
-  /// The return value is guaranteed to never be null.
-  Client get client => _client;
-
-  /// Requests to use a new HTTP [Client] in this class.
-  ///
-  /// If the [newClient] is null, an [ArgumentError] is thrown.
-  set client(Client newClient) {
-    if (newClient == null) {
-      throw ArgumentError('New client instance cannot be null.');
+  void setOAuthToken(String name, String token) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is OAuthInterceptor) {
+        interceptor.tokens[name] = token;
+        break;
+      }
     }
-    _client = newClient;
   }
 
-  void addDefaultHeader(String key, String value) {
-    _defaultHeaderMap[key] = value;
+  void setBearerAuth(String name, String token) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is BearerAuthInterceptor) {
+        interceptor.tokens[name] = token;
+        break;
+      }
+    }
   }
 
-  Map<String, String> get defaultHeaderMap => _defaultHeaderMap;
-
-  /// Returns an unmodifiable [Map] of the authentications, since none should be added
-  /// or deleted.
-  Map<String, Authentication> get authentications =>
-      Map.unmodifiable(_authentications);
-
-  T getAuthentication<T extends Authentication>(String name) {
-    final authentication = _authentications[name];
-    return authentication is T ? authentication : null;
+  void setBasicAuth(String name, String username, String password) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is BasicAuthInterceptor) {
+        interceptor.authInfo[name] = BasicAuthInfo(username, password);
+        break;
+      }
+    }
   }
 
-  // We don't use a Map<String, String> for queryParams.
-  // If collectionFormat is 'multi', a key might appear multiple times.
-  Future<Response> invokeAPI({
-    String path,
-    String method,
-    List<QueryParam> queryParams,
-    Object body,
-    Map<String, String> headerParams,
-    Map<String, String> formParams,
-    String contentType,
-    List<String> authNames,
+  void setApiKey(String name, String apiKey) {
+    // ApiKeyAuth('query', '');
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is ApiKeyAuthInterceptor) {
+        interceptor.apiKeys[name] = apiKey;
+        break;
+      }
+    }
+  }
+
+  /// Get ApplicationApi instance
+  ApplicationApi getApplicationApi() {
+    return ApplicationApi(this);
+  }
+
+  /// Get ArticleApi instance
+  ArticleApi getArticleApi() {
+    return ArticleApi(this);
+  }
+
+  /// Get AssignmentApi instance
+  AssignmentApi getAssignmentApi() {
+    return AssignmentApi(this);
+  }
+
+  /// Get BookmarkApi instance
+  BookmarkApi getBookmarkApi() {
+    return BookmarkApi(this);
+  }
+
+  /// Get BusinessActivityApi instance
+  BusinessActivityApi getBusinessActivityApi() {
+    return BusinessActivityApi(this);
+  }
+
+  /// Get CategoryApi instance
+  CategoryApi getCategoryApi() {
+    return CategoryApi(this);
+  }
+
+  /// Get ConfigurationApi instance
+  ConfigurationApi getConfigurationApi() {
+    return ConfigurationApi(this);
+  }
+
+  /// Get ConnectorApi instance
+  ConnectorApi getConnectorApi() {
+    return ConnectorApi(this);
+  }
+
+  /// Get ContributionApi instance
+  ContributionApi getContributionApi() {
+    return ContributionApi(this);
+  }
+
+  /// Get DeviceApi instance
+  DeviceApi getDeviceApi() {
+    return DeviceApi(this);
+  }
+
+  /// Get DigitalDocumentApi instance
+  DigitalDocumentApi getDigitalDocumentApi() {
+    return DigitalDocumentApi(this);
+  }
+
+  /// Get DispatcherApi instance
+  DispatcherApi getDispatcherApi() {
+    return DispatcherApi(this);
+  }
+
+  /// Get DocumentApi instance
+  DocumentApi getDocumentApi() {
+    return DocumentApi(this);
+  }
+
+  /// Get ExportApi instance
+  ExportApi getExportApi() {
+    return ExportApi(this);
+  }
+
+  /// Get ExternalServiceApi instance
+  ExternalServiceApi getExternalServiceApi() {
+    return ExternalServiceApi(this);
+  }
+
+  /// Get FeedApi instance
+  FeedApi getFeedApi() {
+    return FeedApi(this);
+  }
+
+  /// Get FeedbackApi instance
+  FeedbackApi getFeedbackApi() {
+    return FeedbackApi(this);
+  }
+
+  /// Get InternalServiceApi instance
+  InternalServiceApi getInternalServiceApi() {
+    return InternalServiceApi(this);
+  }
+
+  /// Get InvitationApi instance
+  InvitationApi getInvitationApi() {
+    return InvitationApi(this);
+  }
+
+  /// Get KnowledgeBaseApi instance
+  KnowledgeBaseApi getKnowledgeBaseApi() {
+    return KnowledgeBaseApi(this);
+  }
+
+  /// Get MarkerApi instance
+  MarkerApi getMarkerApi() {
+    return MarkerApi(this);
+  }
+
+  /// Get MemberApi instance
+  MemberApi getMemberApi() {
+    return MemberApi(this);
+  }
+
+  /// Get OccupantApi instance
+  OccupantApi getOccupantApi() {
+    return OccupantApi(this);
+  }
+
+  /// Get OperationApi instance
+  OperationApi getOperationApi() {
+    return OperationApi(this);
+  }
+
+  /// Get OrganizationApi instance
+  OrganizationApi getOrganizationApi() {
+    return OrganizationApi(this);
+  }
+
+  /// Get PdfApi instance
+  PdfApi getPdfApi() {
+    return PdfApi(this);
+  }
+
+  /// Get PersonApi instance
+  PersonApi getPersonApi() {
+    return PersonApi(this);
+  }
+
+  /// Get PlaceApi instance
+  PlaceApi getPlaceApi() {
+    return PlaceApi(this);
+  }
+
+  /// Get PlanApi instance
+  PlanApi getPlanApi() {
+    return PlanApi(this);
+  }
+
+  /// Get PublicationApi instance
+  PublicationApi getPublicationApi() {
+    return PublicationApi(this);
+  }
+
+  /// Get ReportApi instance
+  ReportApi getReportApi() {
+    return ReportApi(this);
+  }
+
+  /// Get ReviewApi instance
+  ReviewApi getReviewApi() {
+    return ReviewApi(this);
+  }
+
+  /// Get ReviewRequestApi instance
+  ReviewRequestApi getReviewRequestApi() {
+    return ReviewRequestApi(this);
+  }
+
+  /// Get RoleApi instance
+  RoleApi getRoleApi() {
+    return RoleApi(this);
+  }
+
+  /// Get RuleApi instance
+  RuleApi getRuleApi() {
+    return RuleApi(this);
+  }
+
+  /// Get SectionApi instance
+  SectionApi getSectionApi() {
+    return SectionApi(this);
+  }
+
+  /// Get SecurityApi instance
+  SecurityApi getSecurityApi() {
+    return SecurityApi(this);
+  }
+
+  /// Get ServiceApi instance
+  ServiceApi getServiceApi() {
+    return ServiceApi(this);
+  }
+
+  /// Get SignerApi instance
+  SignerApi getSignerApi() {
+    return SignerApi(this);
+  }
+
+  /// Get TemplateApi instance
+  TemplateApi getTemplateApi() {
+    return TemplateApi(this);
+  }
+
+  /// Get WorkflowApi instance
+  WorkflowApi getWorkflowApi() {
+    return WorkflowApi(this);
+  }
+
+  Future<Response<Object>> invokeAPI({
+    required String path,
+    Object? body,
+    Options? options,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    _updateParamsForAuth(authNames, queryParams, headerParams);
-
-    headerParams.addAll(_defaultHeaderMap);
-
-    final urlEncodedQueryParams = <String>[
-      for (final param in queryParams)
-        if (param.value != null) '$param',
-    ];
-
-    final queryString = urlEncodedQueryParams.isNotEmpty
-        ? '?${urlEncodedQueryParams.join('&')}'
-        : '';
-
-    final Uri uri = Uri.parse('$basePath$path$queryString');
-
-    if (contentType != null) {
-      headerParams['Content-Type'] = contentType;
-    }
-
-    try {
-      // Special case for uploading a single file which isn't a 'multipart/form-data'.
-      if (body is MultipartFile &&
-          (contentType == null ||
-              !contentType.toLowerCase().startsWith('multipart/form-data'))) {
-        final request = StreamedRequest(method, uri);
-        request
-          ..headers.addAll(headerParams)
-          ..contentLength = body.length;
-        body.finalize().listen(
-              request.sink.add,
-              onDone: request.sink.close,
-              onError: (error, trace) => request.sink.close(),
-              cancelOnError: true,
-            );
-        final response = await _client.send(request);
-        return Response.fromStream(response);
-      }
-
-      if (body is MultipartRequest) {
-        final request = MultipartRequest(method, uri);
-        request
-          ..fields.addAll(body.fields)
-          ..files.addAll(body.files)
-          ..headers.addAll(body.headers)
-          ..headers.addAll(headerParams);
-        final response = await _client.send(request);
-        return Response.fromStream(response);
-      }
-
-      final msgBody = contentType == 'application/x-www-form-urlencoded'
-          ? formParams
-          : await serializeAsync(body);
-      final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
-
-      if (debug) {
-        _logger.info('$method $uri');
-      }
-
-      switch (method) {
-        case 'POST':
-          return await _client.post(uri,
-              headers: nullableHeaderParams, body: msgBody);
-        case 'PUT':
-          return await _client.put(uri,
-              headers: nullableHeaderParams, body: msgBody);
-        case 'DELETE':
-          return await _client.delete(uri, headers: nullableHeaderParams);
-        case 'PATCH':
-          return await _client.patch(uri,
-              headers: nullableHeaderParams, body: msgBody);
-        case 'HEAD':
-          return await _client.head(uri, headers: nullableHeaderParams);
-        case 'GET':
-          return await _client.get(uri, headers: nullableHeaderParams);
-      }
-      // the next 3 exceptions come from dart:io which cannot be used for web clients
-    } /* on SocketException catch (e, trace) {
-      throw ApiException.withInner(HttpStatus.badRequest, 'Socket operation failed: $method $path', e, trace,);
-    } on TlsException catch (e, trace) {
-      throw ApiException.withInner(HttpStatus.badRequest, 'TLS/SSL communication failed: $method $path', e, trace,);
-    } on IOException catch (e, trace) {
-      throw ApiException.withInner(HttpStatus.badRequest, 'I/O operation failed: $method $path', e, trace,);
-    }*/
-    on ClientException catch (e, trace) {
-      throw ApiException.withInner(
-        HttpStatus.badRequest,
-        'HTTP connection failed: $method $path',
-        e,
-        trace,
-      );
-    } on Exception catch (e, trace) {
-      throw ApiException.withInner(
-        HttpStatus.badRequest,
-        'Exception occurred: $method $path',
-        e,
-        trace,
-      );
-    }
-
-    throw ApiException(
-      HttpStatus.badRequest,
-      'Invalid HTTP operation: $method $path',
+    return dio.request<Object>(
+      path,
+      data: body,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
   }
 
-  Future<dynamic> deserializeAsync(String json, String targetType,
-          {bool growable}) async =>
+  Future<T> deserializeAsync<T>(dynamic json, String targetType,
+          {bool growable = false}) async =>
       // ignore: deprecated_member_use_from_same_package
-      deserialize(json, targetType, growable: growable);
+      deserialize(json, targetType, growable: growable) as T;
 
   @Deprecated(
       'Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(String json, String targetType, {bool growable}) {
+  dynamic deserialize(dynamic json, String targetType,
+      {bool growable = false}) {
+    print('ApiClient.deserialize');
+    print(json.runtimeType);
     // Remove all spaces. Necessary for regular expressions as well.
     targetType =
         targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
     // If the expected target type is String, nothing to do...
     return targetType == 'String'
-        ? json
-        : _deserialize(jsonDecode(json), targetType,
-            growable: growable == true);
-  }
-
-  // ignore: deprecated_member_use_from_same_package
-  Future<String> serializeAsync(Object value) async => serialize(value);
-
-  @Deprecated(
-      'Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
-  String serialize(Object value) => value == null ? '' : json.encode(value);
-
-  /// Update query and header parameters based on authentication settings.
-  /// @param authNames The authentications to apply
-  void _updateParamsForAuth(
-    List<String> authNames,
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    for (final authName in authNames) {
-      final auth = _authentications[authName];
-      if (auth == null) {
-        throw ArgumentError('Authentication undefined: $authName');
-      }
-      auth.applyToParams(queryParams, headerParams);
-    }
+        ? jsonEncode(json)
+        : _deserialize(json, targetType, growable: growable == true);
   }
 
   static dynamic _deserialize(dynamic value, String targetType,
-      {bool growable}) {
+      {bool growable = false}) {
     try {
       switch (targetType) {
         case 'String':
@@ -227,7 +326,6 @@ class ApiClient {
           }
           final valueString = '$value'.toLowerCase();
           return valueString == 'true' || valueString == '1';
-          break;
         case 'double':
           return value is double ? value : double.parse('$value');
         case 'Activity':
@@ -1319,24 +1417,24 @@ class ApiClient {
         case 'WorkflowTransition':
           return WorkflowTransition.fromJson(value);
         default:
-          Match match;
+          Match? match;
           if (value is List &&
               (match = _regList.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
+            targetType = match![1]!; // ignore: parameter_assignments
             return value
                 .map((v) => _deserialize(v, targetType, growable: growable))
                 .toList(growable: growable);
           }
           if (value is Set &&
               (match = _regSet.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
+            targetType = match![1]!; // ignore: parameter_assignments
             return value
                 .map((v) => _deserialize(v, targetType, growable: growable))
                 .toSet();
           }
           if (value is Map &&
               (match = _regMap.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
+            targetType = match![1]!; // ignore: parameter_assignments
             return Map.fromIterables(
               value.keys,
               value.values
@@ -1345,7 +1443,7 @@ class ApiClient {
           }
           break;
       }
-    } catch (error, trace) {
+    } on Exception catch (error, trace) {
       throw ApiException.withInner(
         HttpStatus.internalServerError,
         'Exception during deserialization.',
@@ -1359,40 +1457,3 @@ class ApiClient {
     );
   }
 }
-
-/// Primarily intended for use in an isolate.
-class DeserializationMessage {
-  const DeserializationMessage({
-    @required this.json,
-    @required this.targetType,
-    this.growable,
-  });
-
-  /// The JSON value to deserialize.
-  final String json;
-
-  /// Target type to deserialize to.
-  final String targetType;
-
-  /// Whether to make deserialized lists or maps growable.
-  final bool growable;
-}
-
-/// Primarily intended for use in an isolate.
-Future<dynamic> deserializeAsync(DeserializationMessage message) async {
-  // Remove all spaces. Necessary for regular expressions as well.
-  final targetType = message.targetType.replaceAll(' ', '');
-
-  // If the expected target type is String, nothing to do...
-  return targetType == 'String'
-      ? message.json
-      : ApiClient._deserialize(
-          jsonDecode(message.json),
-          targetType,
-          growable: message.growable == true,
-        );
-}
-
-/// Primarily intended for use in an isolate.
-Future<String> serializeAsync(Object value) async =>
-    value == null ? '' : json.encode(value);

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class State {
 
   /// Returns a new [State] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory State.fromJson(Map<String, dynamic> json) {
+  static State? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,21 +28,21 @@ class State {
       name: json[r'name'],
       description: json[r'description'],
       color: json[r'color'],
-      progression: json[r'progression'],
+      progression: json[r'progression']?.toDouble(),
     );
   }
 
-  String id;
+  String? id;
 
-  String type;
+  String? type;
 
-  String name;
+  String? name;
 
-  String description;
+  String? description;
 
-  String color;
+  String? color;
 
-  double progression;
+  double? progression;
 
   @override
   bool operator ==(Object other) {
@@ -70,26 +69,35 @@ class State {
       (color == null ? 0 : color.hashCode) +
       (progression == null ? 0 : progression.hashCode);
 
-  static List<State> listFromJson(List<dynamic> json) {
-    return <State>[
-      if (json is List)
-        for (dynamic value in json) State.fromJson(value),
-    ];
+  static List<State> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <State>[];
+    }
+    return json
+        .map((value) {
+          return State.fromJson(value);
+        })
+        .whereType<State>()
+        .toList();
   }
 
-  static Map<String, State> mapFromJson(Map<String, dynamic> json) {
-    return <String, State>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: State.fromJson(entry.value),
-    };
+  static Map<String, State> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, State>{};
+    }
+
+    final map = json.map(
+        (key, value) => MapEntry<String, State?>(key, State.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, State>;
   }
 
   // maps a json object with a list of State-objects as value to a dart map
-  static Map<String, List<State>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<State>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<State>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: State.listFromJson(entry.value),
     };
   }

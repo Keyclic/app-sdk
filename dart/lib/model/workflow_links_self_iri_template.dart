@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class WorkflowLinksSelfIriTemplate {
 
   /// Returns a new [WorkflowLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory WorkflowLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  static WorkflowLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class WorkflowLinksSelfIriTemplate {
     );
   }
 
-  WorkflowLinksSelfIriTemplateMapping mapping;
+  WorkflowLinksSelfIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -38,29 +37,38 @@ class WorkflowLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<WorkflowLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return <WorkflowLinksSelfIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          WorkflowLinksSelfIriTemplate.fromJson(value),
-    ];
+  static List<WorkflowLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <WorkflowLinksSelfIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return WorkflowLinksSelfIriTemplate.fromJson(value);
+        })
+        .whereType<WorkflowLinksSelfIriTemplate>()
+        .toList();
   }
 
   static Map<String, WorkflowLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, WorkflowLinksSelfIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: WorkflowLinksSelfIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, WorkflowLinksSelfIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, WorkflowLinksSelfIriTemplate?>(
+            key, WorkflowLinksSelfIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, WorkflowLinksSelfIriTemplate>;
   }
 
   // maps a json object with a list of WorkflowLinksSelfIriTemplate-objects as value to a dart map
   static Map<String, List<WorkflowLinksSelfIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<WorkflowLinksSelfIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: WorkflowLinksSelfIriTemplate.listFromJson(entry.value),
     };
   }

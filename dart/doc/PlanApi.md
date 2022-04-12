@@ -48,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **plan** | [**String**](.md)| The identifier of the resource. | 
+ **plan** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -103,7 +103,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **plan** | [**String**](.md)| The identifier of the resource. | 
+ **plan** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -159,7 +159,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **plan** | [**String**](.md)| The identifier of the resource. | 
+ **plan** | **String**| The identifier of the resource. | 
  **planPatch** | [**PlanPatch**](PlanPatch.md)|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 

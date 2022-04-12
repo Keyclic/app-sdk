@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PublicationLinksAuthor {
 
   /// Returns a new [PublicationLinksAuthor] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PublicationLinksAuthor.fromJson(Map<String, dynamic> json) {
+  static PublicationLinksAuthor? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class PublicationLinksAuthor {
   }
 
   /// The URI of the author associated to the given publication.
-  String href;
+  String? href;
 
-  PublicationLinksAuthorIriTemplate iriTemplate;
+  PublicationLinksAuthorIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class PublicationLinksAuthor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PublicationLinksAuthor> listFromJson(List<dynamic> json) {
-    return <PublicationLinksAuthor>[
-      if (json is List)
-        for (dynamic value in json) PublicationLinksAuthor.fromJson(value),
-    ];
+  static List<PublicationLinksAuthor> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PublicationLinksAuthor>[];
+    }
+    return json
+        .map((value) {
+          return PublicationLinksAuthor.fromJson(value);
+        })
+        .whereType<PublicationLinksAuthor>()
+        .toList();
   }
 
   static Map<String, PublicationLinksAuthor> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PublicationLinksAuthor>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationLinksAuthor.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PublicationLinksAuthor>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PublicationLinksAuthor?>(
+            key, PublicationLinksAuthor.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PublicationLinksAuthor>;
   }
 
   // maps a json object with a list of PublicationLinksAuthor-objects as value to a dart map
   static Map<String, List<PublicationLinksAuthor>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PublicationLinksAuthor>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PublicationLinksAuthor.listFromJson(entry.value),
     };
   }

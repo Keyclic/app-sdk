@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class DocumentLinksCreatedBy {
 
   /// Returns a new [DocumentLinksCreatedBy] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentLinksCreatedBy.fromJson(Map<String, dynamic> json) {
+  static DocumentLinksCreatedBy? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class DocumentLinksCreatedBy {
   }
 
   /// The URI of the createdBy associated to the given document.
-  String href;
+  String? href;
 
-  DocumentLinksCreatedByIriTemplate iriTemplate;
+  DocumentLinksCreatedByIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class DocumentLinksCreatedBy {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DocumentLinksCreatedBy> listFromJson(List<dynamic> json) {
-    return <DocumentLinksCreatedBy>[
-      if (json is List)
-        for (dynamic value in json) DocumentLinksCreatedBy.fromJson(value),
-    ];
+  static List<DocumentLinksCreatedBy> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentLinksCreatedBy>[];
+    }
+    return json
+        .map((value) {
+          return DocumentLinksCreatedBy.fromJson(value);
+        })
+        .whereType<DocumentLinksCreatedBy>()
+        .toList();
   }
 
   static Map<String, DocumentLinksCreatedBy> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, DocumentLinksCreatedBy>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentLinksCreatedBy.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentLinksCreatedBy>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, DocumentLinksCreatedBy?>(
+            key, DocumentLinksCreatedBy.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DocumentLinksCreatedBy>;
   }
 
   // maps a json object with a list of DocumentLinksCreatedBy-objects as value to a dart map
   static Map<String, List<DocumentLinksCreatedBy>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DocumentLinksCreatedBy>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DocumentLinksCreatedBy.listFromJson(entry.value),
     };
   }

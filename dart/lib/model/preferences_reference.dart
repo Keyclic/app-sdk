@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PreferencesReference {
 
   /// Returns a new [PreferencesReference] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PreferencesReference.fromJson(Map<String, dynamic> json) {
+  static PreferencesReference? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PreferencesReference {
     );
   }
 
-  String prefix;
+  String? prefix;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class PreferencesReference {
   @override
   int get hashCode => (prefix == null ? 0 : prefix.hashCode);
 
-  static List<PreferencesReference> listFromJson(List<dynamic> json) {
-    return <PreferencesReference>[
-      if (json is List)
-        for (dynamic value in json) PreferencesReference.fromJson(value),
-    ];
+  static List<PreferencesReference> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PreferencesReference>[];
+    }
+    return json
+        .map((value) {
+          return PreferencesReference.fromJson(value);
+        })
+        .whereType<PreferencesReference>()
+        .toList();
   }
 
   static Map<String, PreferencesReference> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PreferencesReference>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PreferencesReference.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PreferencesReference>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PreferencesReference?>(
+            key, PreferencesReference.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PreferencesReference>;
   }
 
   // maps a json object with a list of PreferencesReference-objects as value to a dart map
   static Map<String, List<PreferencesReference>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PreferencesReference>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PreferencesReference.listFromJson(entry.value),
     };
   }

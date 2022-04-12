@@ -1,28 +1,27 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class DeviceData {
   /// Returns a new [DeviceData] instance.
   DeviceData({
-    @required this.token,
-    @required this.platform,
-    @required this.person,
+    required this.token,
+    required this.platform,
+    required this.person,
   });
 
   /// Returns a new [DeviceData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DeviceData.fromJson(Map<String, dynamic> json) {
+  static DeviceData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DeviceData(
       token: json[r'token'],
-      platform: DeviceDataPlatformEnum.fromJson(json[r'platform']),
+      platform: DeviceDataPlatformEnum.fromJson(json[r'platform'])!,
       person: json[r'person'],
     );
   }
@@ -47,32 +46,38 @@ class DeviceData {
   }
 
   @override
-  int get hashCode =>
-      (token == null ? 0 : token.hashCode) +
-      (platform == null ? 0 : platform.hashCode) +
-      (person == null ? 0 : person.hashCode);
+  int get hashCode => token.hashCode + platform.hashCode + person.hashCode;
 
-  static List<DeviceData> listFromJson(List<dynamic> json) {
-    return <DeviceData>[
-      if (json is List)
-        for (dynamic value in json) DeviceData.fromJson(value),
-    ];
+  static List<DeviceData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DeviceData>[];
+    }
+    return json
+        .map((value) {
+          return DeviceData.fromJson(value);
+        })
+        .whereType<DeviceData>()
+        .toList();
   }
 
-  static Map<String, DeviceData> mapFromJson(Map<String, dynamic> json) {
-    return <String, DeviceData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DeviceData.fromJson(entry.value),
-    };
+  static Map<String, DeviceData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DeviceData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, DeviceData?>(key, DeviceData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DeviceData>;
   }
 
   // maps a json object with a list of DeviceData-objects as value to a dart map
   static Map<String, List<DeviceData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DeviceData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DeviceData.listFromJson(entry.value),
     };
   }
@@ -111,14 +116,16 @@ class DeviceDataPlatformEnum {
     ios,
   ];
 
-  static DeviceDataPlatformEnum fromJson(dynamic value) =>
+  static DeviceDataPlatformEnum? fromJson(dynamic value) =>
       DeviceDataPlatformEnumTypeTransformer().decode(value);
 
   static List<DeviceDataPlatformEnum> listFromJson(List<dynamic> json) {
-    return <DeviceDataPlatformEnum>[
-      if (json is List)
-        for (dynamic value in json) DeviceDataPlatformEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return DeviceDataPlatformEnum.fromJson(value);
+        })
+        .whereType<DeviceDataPlatformEnum>()
+        .toList();
   }
 }
 
@@ -140,7 +147,7 @@ class DeviceDataPlatformEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DeviceDataPlatformEnum decode(dynamic data, {bool allowNull}) {
+  DeviceDataPlatformEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'android':
         return DeviceDataPlatformEnum.android;
@@ -155,5 +162,5 @@ class DeviceDataPlatformEnumTypeTransformer {
   }
 
   /// Singleton [DeviceDataPlatformEnumTypeTransformer] instance.
-  static DeviceDataPlatformEnumTypeTransformer _instance;
+  static DeviceDataPlatformEnumTypeTransformer? _instance;
 }

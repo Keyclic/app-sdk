@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class PlacePostalAddress {
 
   /// Returns a new [PlacePostalAddress] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlacePostalAddress.fromJson(Map<String, dynamic> json) {
+  static PlacePostalAddress? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class PlacePostalAddress {
     );
   }
 
-  String locality;
+  String? locality;
 
-  int postalCode;
+  int? postalCode;
 
-  String streetAddress;
+  String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,37 @@ class PlacePostalAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<PlacePostalAddress> listFromJson(List<dynamic> json) {
-    return <PlacePostalAddress>[
-      if (json is List)
-        for (dynamic value in json) PlacePostalAddress.fromJson(value),
-    ];
+  static List<PlacePostalAddress> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlacePostalAddress>[];
+    }
+    return json
+        .map((value) {
+          return PlacePostalAddress.fromJson(value);
+        })
+        .whereType<PlacePostalAddress>()
+        .toList();
   }
 
   static Map<String, PlacePostalAddress> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PlacePostalAddress>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlacePostalAddress.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlacePostalAddress>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, PlacePostalAddress?>(
+        key, PlacePostalAddress.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlacePostalAddress>;
   }
 
   // maps a json object with a list of PlacePostalAddress-objects as value to a dart map
   static Map<String, List<PlacePostalAddress>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlacePostalAddress>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlacePostalAddress.listFromJson(entry.value),
     };
   }

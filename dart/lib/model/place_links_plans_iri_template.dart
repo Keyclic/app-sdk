@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PlaceLinksPlansIriTemplate {
 
   /// Returns a new [PlaceLinksPlansIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlaceLinksPlansIriTemplate.fromJson(Map<String, dynamic> json) {
+  static PlaceLinksPlansIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PlaceLinksPlansIriTemplate {
     );
   }
 
-  BookmarkLinksPlaceIriTemplateMapping mapping;
+  BookmarkLinksPlaceIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class PlaceLinksPlansIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlaceLinksPlansIriTemplate> listFromJson(List<dynamic> json) {
-    return <PlaceLinksPlansIriTemplate>[
-      if (json is List)
-        for (dynamic value in json) PlaceLinksPlansIriTemplate.fromJson(value),
-    ];
+  static List<PlaceLinksPlansIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksPlansIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return PlaceLinksPlansIriTemplate.fromJson(value);
+        })
+        .whereType<PlaceLinksPlansIriTemplate>()
+        .toList();
   }
 
   static Map<String, PlaceLinksPlansIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PlaceLinksPlansIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceLinksPlansIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksPlansIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PlaceLinksPlansIriTemplate?>(
+            key, PlaceLinksPlansIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlaceLinksPlansIriTemplate>;
   }
 
   // maps a json object with a list of PlaceLinksPlansIriTemplate-objects as value to a dart map
   static Map<String, List<PlaceLinksPlansIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlaceLinksPlansIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlaceLinksPlansIriTemplate.listFromJson(entry.value),
     };
   }

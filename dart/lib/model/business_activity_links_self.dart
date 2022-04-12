@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class BusinessActivityLinksSelf {
 
   /// Returns a new [BusinessActivityLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BusinessActivityLinksSelf.fromJson(Map<String, dynamic> json) {
+  static BusinessActivityLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class BusinessActivityLinksSelf {
   }
 
   /// The URI of the self associated to the given businessactivity.
-  String href;
+  String? href;
 
-  BusinessActivityLinksSelfIriTemplate iriTemplate;
+  BusinessActivityLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class BusinessActivityLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<BusinessActivityLinksSelf> listFromJson(List<dynamic> json) {
-    return <BusinessActivityLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) BusinessActivityLinksSelf.fromJson(value),
-    ];
+  static List<BusinessActivityLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityLinksSelf>[];
+    }
+    return json
+        .map((value) {
+          return BusinessActivityLinksSelf.fromJson(value);
+        })
+        .whereType<BusinessActivityLinksSelf>()
+        .toList();
   }
 
   static Map<String, BusinessActivityLinksSelf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BusinessActivityLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivityLinksSelf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityLinksSelf>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, BusinessActivityLinksSelf?>(
+            key, BusinessActivityLinksSelf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BusinessActivityLinksSelf>;
   }
 
   // maps a json object with a list of BusinessActivityLinksSelf-objects as value to a dart map
   static Map<String, List<BusinessActivityLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<BusinessActivityLinksSelf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BusinessActivityLinksSelf.listFromJson(entry.value),
     };
   }

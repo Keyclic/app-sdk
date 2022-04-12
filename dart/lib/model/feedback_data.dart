@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -12,15 +11,15 @@ class FeedbackData {
     this.businessActivity,
     this.category,
     this.description,
-    @required this.geo,
+    required this.geo,
     this.metadata,
-    @required this.place,
-    @required this.visibility,
+    required this.place,
+    required this.visibility,
   });
 
   /// Returns a new [FeedbackData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackData.fromJson(Map<String, dynamic> json) {
+  static FeedbackData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -30,26 +29,26 @@ class FeedbackData {
       businessActivity: json[r'businessActivity'],
       category: json[r'category'],
       description: json[r'description'],
-      geo: FeedbackDataGeo.fromJson(json[r'geo']),
+      geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, dynamic>.from(json[r'metadata']),
       place: json[r'place'],
-      visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility']),
+      visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility'])!,
     );
   }
 
-  String batch;
+  String? batch;
 
-  String businessActivity;
+  String? businessActivity;
 
-  String category;
+  String? category;
 
-  String description;
+  String? description;
 
   FeedbackDataGeo geo;
 
-  Map<String, dynamic> metadata;
+  Map<String, dynamic>? metadata;
 
   String place;
 
@@ -79,32 +78,41 @@ class FeedbackData {
       (businessActivity == null ? 0 : businessActivity.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
-      (geo == null ? 0 : geo.hashCode) +
+      geo.hashCode +
       (metadata == null ? 0 : metadata.hashCode) +
-      (place == null ? 0 : place.hashCode) +
-      (visibility == null ? 0 : visibility.hashCode);
+      place.hashCode +
+      visibility.hashCode;
 
-  static List<FeedbackData> listFromJson(List<dynamic> json) {
-    return <FeedbackData>[
-      if (json is List)
-        for (dynamic value in json) FeedbackData.fromJson(value),
-    ];
+  static List<FeedbackData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackData>[];
+    }
+    return json
+        .map((value) {
+          return FeedbackData.fromJson(value);
+        })
+        .whereType<FeedbackData>()
+        .toList();
   }
 
-  static Map<String, FeedbackData> mapFromJson(Map<String, dynamic> json) {
-    return <String, FeedbackData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackData.fromJson(entry.value),
-    };
+  static Map<String, FeedbackData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, FeedbackData?>(key, FeedbackData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, FeedbackData>;
   }
 
   // maps a json object with a list of FeedbackData-objects as value to a dart map
   static Map<String, List<FeedbackData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<FeedbackData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: FeedbackData.listFromJson(entry.value),
     };
   }
@@ -153,14 +161,16 @@ class FeedbackDataVisibilityEnum {
     SHARED,
   ];
 
-  static FeedbackDataVisibilityEnum fromJson(dynamic value) =>
+  static FeedbackDataVisibilityEnum? fromJson(dynamic value) =>
       FeedbackDataVisibilityEnumTypeTransformer().decode(value);
 
   static List<FeedbackDataVisibilityEnum> listFromJson(List<dynamic> json) {
-    return <FeedbackDataVisibilityEnum>[
-      if (json is List)
-        for (dynamic value in json) FeedbackDataVisibilityEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return FeedbackDataVisibilityEnum.fromJson(value);
+        })
+        .whereType<FeedbackDataVisibilityEnum>()
+        .toList();
   }
 }
 
@@ -182,7 +192,7 @@ class FeedbackDataVisibilityEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  FeedbackDataVisibilityEnum decode(dynamic data, {bool allowNull}) {
+  FeedbackDataVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'VISIBILITY_PRIVATE':
         return FeedbackDataVisibilityEnum.PRIVATE;
@@ -201,5 +211,5 @@ class FeedbackDataVisibilityEnumTypeTransformer {
   }
 
   /// Singleton [FeedbackDataVisibilityEnumTypeTransformer] instance.
-  static FeedbackDataVisibilityEnumTypeTransformer _instance;
+  static FeedbackDataVisibilityEnumTypeTransformer? _instance;
 }

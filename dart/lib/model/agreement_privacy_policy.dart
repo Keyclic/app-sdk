@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class AgreementPrivacyPolicy {
 
   /// Returns a new [AgreementPrivacyPolicy] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory AgreementPrivacyPolicy.fromJson(Map<String, dynamic> json) {
+  static AgreementPrivacyPolicy? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class AgreementPrivacyPolicy {
     );
   }
 
-  String content;
+  String? content;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class AgreementPrivacyPolicy {
   @override
   int get hashCode => (content == null ? 0 : content.hashCode);
 
-  static List<AgreementPrivacyPolicy> listFromJson(List<dynamic> json) {
-    return <AgreementPrivacyPolicy>[
-      if (json is List)
-        for (dynamic value in json) AgreementPrivacyPolicy.fromJson(value),
-    ];
+  static List<AgreementPrivacyPolicy> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AgreementPrivacyPolicy>[];
+    }
+    return json
+        .map((value) {
+          return AgreementPrivacyPolicy.fromJson(value);
+        })
+        .whereType<AgreementPrivacyPolicy>()
+        .toList();
   }
 
   static Map<String, AgreementPrivacyPolicy> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, AgreementPrivacyPolicy>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AgreementPrivacyPolicy.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AgreementPrivacyPolicy>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, AgreementPrivacyPolicy?>(
+            key, AgreementPrivacyPolicy.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, AgreementPrivacyPolicy>;
   }
 
   // maps a json object with a list of AgreementPrivacyPolicy-objects as value to a dart map
   static Map<String, List<AgreementPrivacyPolicy>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<AgreementPrivacyPolicy>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: AgreementPrivacyPolicy.listFromJson(entry.value),
     };
   }

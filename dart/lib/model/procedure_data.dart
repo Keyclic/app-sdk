@@ -1,27 +1,26 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ProcedureData {
   /// Returns a new [ProcedureData] instance.
   ProcedureData({
-    @required this.document,
-    @required this.type,
+    required this.document,
+    required this.type,
   });
 
   /// Returns a new [ProcedureData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ProcedureData.fromJson(Map<String, dynamic> json) {
+  static ProcedureData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ProcedureData(
       document: json[r'document'],
-      type: ProcedureDataTypeEnum.fromJson(json[r'type']),
+      type: ProcedureDataTypeEnum.fromJson(json[r'type'])!,
     );
   }
 
@@ -42,31 +41,38 @@ class ProcedureData {
   }
 
   @override
-  int get hashCode =>
-      (document == null ? 0 : document.hashCode) +
-      (type == null ? 0 : type.hashCode);
+  int get hashCode => document.hashCode + type.hashCode;
 
-  static List<ProcedureData> listFromJson(List<dynamic> json) {
-    return <ProcedureData>[
-      if (json is List)
-        for (dynamic value in json) ProcedureData.fromJson(value),
-    ];
+  static List<ProcedureData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureData>[];
+    }
+    return json
+        .map((value) {
+          return ProcedureData.fromJson(value);
+        })
+        .whereType<ProcedureData>()
+        .toList();
   }
 
-  static Map<String, ProcedureData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ProcedureData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureData.fromJson(entry.value),
-    };
+  static Map<String, ProcedureData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ProcedureData?>(key, ProcedureData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ProcedureData>;
   }
 
   // maps a json object with a list of ProcedureData-objects as value to a dart map
   static Map<String, List<ProcedureData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ProcedureData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ProcedureData.listFromJson(entry.value),
     };
   }
@@ -103,14 +109,16 @@ class ProcedureDataTypeEnum {
     signature,
   ];
 
-  static ProcedureDataTypeEnum fromJson(dynamic value) =>
+  static ProcedureDataTypeEnum? fromJson(dynamic value) =>
       ProcedureDataTypeEnumTypeTransformer().decode(value);
 
   static List<ProcedureDataTypeEnum> listFromJson(List<dynamic> json) {
-    return <ProcedureDataTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) ProcedureDataTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return ProcedureDataTypeEnum.fromJson(value);
+        })
+        .whereType<ProcedureDataTypeEnum>()
+        .toList();
   }
 }
 
@@ -132,7 +140,7 @@ class ProcedureDataTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ProcedureDataTypeEnum decode(dynamic data, {bool allowNull}) {
+  ProcedureDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'e-signature':
         return ProcedureDataTypeEnum.eSignature;
@@ -147,5 +155,5 @@ class ProcedureDataTypeEnumTypeTransformer {
   }
 
   /// Singleton [ProcedureDataTypeEnumTypeTransformer] instance.
-  static ProcedureDataTypeEnumTypeTransformer _instance;
+  static ProcedureDataTypeEnumTypeTransformer? _instance;
 }

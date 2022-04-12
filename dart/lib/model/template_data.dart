@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -11,14 +10,14 @@ class TemplateData {
     this.body = const [],
     this.footer = const [],
     this.header = const [],
-    @required this.name,
-    @required this.organization,
-    @required this.type,
+    required this.name,
+    required this.organization,
+    required this.type,
   });
 
   /// Returns a new [TemplateData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory TemplateData.fromJson(Map<String, dynamic> json) {
+  static TemplateData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -39,11 +38,11 @@ class TemplateData {
     );
   }
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  List<Map<String, dynamic>> footer;
+  List<Map<String, dynamic>>? footer;
 
-  List<Map<String, dynamic>> header;
+  List<Map<String, dynamic>>? header;
 
   String name;
 
@@ -72,31 +71,40 @@ class TemplateData {
       (body == null ? 0 : body.hashCode) +
       (footer == null ? 0 : footer.hashCode) +
       (header == null ? 0 : header.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      name.hashCode +
+      organization.hashCode +
+      type.hashCode;
 
-  static List<TemplateData> listFromJson(List<dynamic> json) {
-    return <TemplateData>[
-      if (json is List)
-        for (dynamic value in json) TemplateData.fromJson(value),
-    ];
+  static List<TemplateData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TemplateData>[];
+    }
+    return json
+        .map((value) {
+          return TemplateData.fromJson(value);
+        })
+        .whereType<TemplateData>()
+        .toList();
   }
 
-  static Map<String, TemplateData> mapFromJson(Map<String, dynamic> json) {
-    return <String, TemplateData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TemplateData.fromJson(entry.value),
-    };
+  static Map<String, TemplateData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TemplateData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, TemplateData?>(key, TemplateData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, TemplateData>;
   }
 
   // maps a json object with a list of TemplateData-objects as value to a dart map
   static Map<String, List<TemplateData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<TemplateData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: TemplateData.listFromJson(entry.value),
     };
   }

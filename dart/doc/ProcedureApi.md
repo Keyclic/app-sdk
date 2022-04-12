@@ -54,7 +54,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **procedure** | [**String**](.md)| The identifier of the resource. | 
+ **procedure** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -114,7 +114,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **procedure** | [**String**](.md)| The identifier of the resource. | 
+ **procedure** | **String**| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -225,7 +225,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **procedure** | [**String**](.md)| The identifier of the resource. | 
+ **procedure** | **String**| The identifier of the resource. | 
  **procedureWorkflowData** | [**ProcedureWorkflowData**](ProcedureWorkflowData.md)|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 

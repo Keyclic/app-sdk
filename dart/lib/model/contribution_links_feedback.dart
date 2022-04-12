@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ContributionLinksFeedback {
 
   /// Returns a new [ContributionLinksFeedback] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ContributionLinksFeedback.fromJson(Map<String, dynamic> json) {
+  static ContributionLinksFeedback? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class ContributionLinksFeedback {
   }
 
   /// The URI of the feedback associated to the given contribution.
-  String href;
+  String? href;
 
-  ContributionLinksFeedbackIriTemplate iriTemplate;
+  ContributionLinksFeedbackIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class ContributionLinksFeedback {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ContributionLinksFeedback> listFromJson(List<dynamic> json) {
-    return <ContributionLinksFeedback>[
-      if (json is List)
-        for (dynamic value in json) ContributionLinksFeedback.fromJson(value),
-    ];
+  static List<ContributionLinksFeedback> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ContributionLinksFeedback>[];
+    }
+    return json
+        .map((value) {
+          return ContributionLinksFeedback.fromJson(value);
+        })
+        .whereType<ContributionLinksFeedback>()
+        .toList();
   }
 
   static Map<String, ContributionLinksFeedback> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ContributionLinksFeedback>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ContributionLinksFeedback.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ContributionLinksFeedback>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ContributionLinksFeedback?>(
+            key, ContributionLinksFeedback.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ContributionLinksFeedback>;
   }
 
   // maps a json object with a list of ContributionLinksFeedback-objects as value to a dart map
   static Map<String, List<ContributionLinksFeedback>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ContributionLinksFeedback>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ContributionLinksFeedback.listFromJson(entry.value),
     };
   }

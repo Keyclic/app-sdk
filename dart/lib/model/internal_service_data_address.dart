@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class InternalServiceDataAddress {
 
   /// Returns a new [InternalServiceDataAddress] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServiceDataAddress.fromJson(Map<String, dynamic> json) {
+  static InternalServiceDataAddress? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -28,11 +27,11 @@ class InternalServiceDataAddress {
     );
   }
 
-  String locality;
+  String? locality;
 
-  num postalCode;
+  num? postalCode;
 
-  String streetAddress;
+  String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -53,28 +52,38 @@ class InternalServiceDataAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<InternalServiceDataAddress> listFromJson(List<dynamic> json) {
-    return <InternalServiceDataAddress>[
-      if (json is List)
-        for (dynamic value in json) InternalServiceDataAddress.fromJson(value),
-    ];
+  static List<InternalServiceDataAddress> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceDataAddress>[];
+    }
+    return json
+        .map((value) {
+          return InternalServiceDataAddress.fromJson(value);
+        })
+        .whereType<InternalServiceDataAddress>()
+        .toList();
   }
 
   static Map<String, InternalServiceDataAddress> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServiceDataAddress>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceDataAddress.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceDataAddress>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, InternalServiceDataAddress?>(
+            key, InternalServiceDataAddress.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, InternalServiceDataAddress>;
   }
 
   // maps a json object with a list of InternalServiceDataAddress-objects as value to a dart map
   static Map<String, List<InternalServiceDataAddress>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<InternalServiceDataAddress>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: InternalServiceDataAddress.listFromJson(entry.value),
     };
   }

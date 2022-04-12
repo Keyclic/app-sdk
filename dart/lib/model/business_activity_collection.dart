@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class BusinessActivityCollection {
 
   /// Returns a new [BusinessActivityCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BusinessActivityCollection.fromJson(Map<String, dynamic> json) {
+  static BusinessActivityCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class BusinessActivityCollection {
     );
   }
 
-  List<BusinessActivity> items;
+  List<BusinessActivity>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,28 +38,38 @@ class BusinessActivityCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BusinessActivityCollection> listFromJson(List<dynamic> json) {
-    return <BusinessActivityCollection>[
-      if (json is List)
-        for (dynamic value in json) BusinessActivityCollection.fromJson(value),
-    ];
+  static List<BusinessActivityCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityCollection>[];
+    }
+    return json
+        .map((value) {
+          return BusinessActivityCollection.fromJson(value);
+        })
+        .whereType<BusinessActivityCollection>()
+        .toList();
   }
 
   static Map<String, BusinessActivityCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BusinessActivityCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivityCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityCollection>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, BusinessActivityCollection?>(
+            key, BusinessActivityCollection.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BusinessActivityCollection>;
   }
 
   // maps a json object with a list of BusinessActivityCollection-objects as value to a dart map
   static Map<String, List<BusinessActivityCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<BusinessActivityCollection>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BusinessActivityCollection.listFromJson(entry.value),
     };
   }

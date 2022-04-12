@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PlaceCollection {
 
   /// Returns a new [PlaceCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlaceCollection.fromJson(Map<String, dynamic> json) {
+  static PlaceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PlaceCollection {
     );
   }
 
-  List<Place> items;
+  List<Place>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +38,36 @@ class PlaceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<PlaceCollection> listFromJson(List<dynamic> json) {
-    return <PlaceCollection>[
-      if (json is List)
-        for (dynamic value in json) PlaceCollection.fromJson(value),
-    ];
+  static List<PlaceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceCollection>[];
+    }
+    return json
+        .map((value) {
+          return PlaceCollection.fromJson(value);
+        })
+        .whereType<PlaceCollection>()
+        .toList();
   }
 
-  static Map<String, PlaceCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlaceCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceCollection.fromJson(entry.value),
-    };
+  static Map<String, PlaceCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceCollection>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, PlaceCollection?>(
+        key, PlaceCollection.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlaceCollection>;
   }
 
   // maps a json object with a list of PlaceCollection-objects as value to a dart map
   static Map<String, List<PlaceCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlaceCollection>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlaceCollection.listFromJson(entry.value),
     };
   }

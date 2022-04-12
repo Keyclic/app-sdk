@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class BookmarkCollection {
 
   /// Returns a new [BookmarkCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BookmarkCollection.fromJson(Map<String, dynamic> json) {
+  static BookmarkCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class BookmarkCollection {
     );
   }
 
-  List<Bookmark> items;
+  List<Bookmark>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,28 +38,37 @@ class BookmarkCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BookmarkCollection> listFromJson(List<dynamic> json) {
-    return <BookmarkCollection>[
-      if (json is List)
-        for (dynamic value in json) BookmarkCollection.fromJson(value),
-    ];
+  static List<BookmarkCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkCollection>[];
+    }
+    return json
+        .map((value) {
+          return BookmarkCollection.fromJson(value);
+        })
+        .whereType<BookmarkCollection>()
+        .toList();
   }
 
   static Map<String, BookmarkCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BookmarkCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BookmarkCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkCollection>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, BookmarkCollection?>(
+        key, BookmarkCollection.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BookmarkCollection>;
   }
 
   // maps a json object with a list of BookmarkCollection-objects as value to a dart map
   static Map<String, List<BookmarkCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<BookmarkCollection>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BookmarkCollection.listFromJson(entry.value),
     };
   }

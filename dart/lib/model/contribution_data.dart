@@ -1,19 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ContributionData {
   /// Returns a new [ContributionData] instance.
   ContributionData({
-    @required this.feedback,
+    required this.feedback,
   });
 
   /// Returns a new [ContributionData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ContributionData.fromJson(Map<String, dynamic> json) {
+  static ContributionData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -36,29 +35,38 @@ class ContributionData {
   }
 
   @override
-  int get hashCode => (feedback == null ? 0 : feedback.hashCode);
+  int get hashCode => feedback.hashCode;
 
-  static List<ContributionData> listFromJson(List<dynamic> json) {
-    return <ContributionData>[
-      if (json is List)
-        for (dynamic value in json) ContributionData.fromJson(value),
-    ];
+  static List<ContributionData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ContributionData>[];
+    }
+    return json
+        .map((value) {
+          return ContributionData.fromJson(value);
+        })
+        .whereType<ContributionData>()
+        .toList();
   }
 
-  static Map<String, ContributionData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ContributionData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ContributionData.fromJson(entry.value),
-    };
+  static Map<String, ContributionData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ContributionData>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, ContributionData?>(
+        key, ContributionData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ContributionData>;
   }
 
   // maps a json object with a list of ContributionData-objects as value to a dart map
   static Map<String, List<ContributionData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ContributionData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ContributionData.listFromJson(entry.value),
     };
   }

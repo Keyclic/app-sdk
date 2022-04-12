@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class RuleLinksSelf {
 
   /// Returns a new [RuleLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RuleLinksSelf.fromJson(Map<String, dynamic> json) {
+  static RuleLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class RuleLinksSelf {
   }
 
   /// The URI of the self associated to the given rule.
-  String href;
+  String? href;
 
-  RuleLinksSelfIriTemplate iriTemplate;
+  RuleLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,27 +46,36 @@ class RuleLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<RuleLinksSelf> listFromJson(List<dynamic> json) {
-    return <RuleLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) RuleLinksSelf.fromJson(value),
-    ];
+  static List<RuleLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RuleLinksSelf>[];
+    }
+    return json
+        .map((value) {
+          return RuleLinksSelf.fromJson(value);
+        })
+        .whereType<RuleLinksSelf>()
+        .toList();
   }
 
-  static Map<String, RuleLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return <String, RuleLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RuleLinksSelf.fromJson(entry.value),
-    };
+  static Map<String, RuleLinksSelf> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RuleLinksSelf>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RuleLinksSelf?>(key, RuleLinksSelf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RuleLinksSelf>;
   }
 
   // maps a json object with a list of RuleLinksSelf-objects as value to a dart map
   static Map<String, List<RuleLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RuleLinksSelf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RuleLinksSelf.listFromJson(entry.value),
     };
   }

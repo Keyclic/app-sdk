@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class OperationEmbeddedWorkflow {
 
   /// Returns a new [OperationEmbeddedWorkflow] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationEmbeddedWorkflow.fromJson(Map<String, dynamic> json) {
+  static OperationEmbeddedWorkflow? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class OperationEmbeddedWorkflow {
     );
   }
 
-  List<Metric> metrics;
+  List<Metric>? metrics;
 
-  WorkflowState state;
+  WorkflowState? state;
 
-  List<WorkflowTransition> transitions;
+  List<WorkflowTransition>? transitions;
 
   @override
   bool operator ==(Object other) {
@@ -53,28 +52,38 @@ class OperationEmbeddedWorkflow {
       (state == null ? 0 : state.hashCode) +
       (transitions == null ? 0 : transitions.hashCode);
 
-  static List<OperationEmbeddedWorkflow> listFromJson(List<dynamic> json) {
-    return <OperationEmbeddedWorkflow>[
-      if (json is List)
-        for (dynamic value in json) OperationEmbeddedWorkflow.fromJson(value),
-    ];
+  static List<OperationEmbeddedWorkflow> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationEmbeddedWorkflow>[];
+    }
+    return json
+        .map((value) {
+          return OperationEmbeddedWorkflow.fromJson(value);
+        })
+        .whereType<OperationEmbeddedWorkflow>()
+        .toList();
   }
 
   static Map<String, OperationEmbeddedWorkflow> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OperationEmbeddedWorkflow>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationEmbeddedWorkflow.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationEmbeddedWorkflow>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, OperationEmbeddedWorkflow?>(
+            key, OperationEmbeddedWorkflow.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, OperationEmbeddedWorkflow>;
   }
 
   // maps a json object with a list of OperationEmbeddedWorkflow-objects as value to a dart map
   static Map<String, List<OperationEmbeddedWorkflow>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<OperationEmbeddedWorkflow>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: OperationEmbeddedWorkflow.listFromJson(entry.value),
     };
   }

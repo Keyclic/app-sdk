@@ -1,1294 +1,992 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class PlaceApi {
-  PlaceApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  const PlaceApi(this._apiClient);
 
-  final ApiClient apiClient;
+  final ApiClient _apiClient;
 
   /// Retrieve all Document resources.
   ///
-  /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [place] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [organization]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [state]
+  /// * [statesLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [String] organization:
-  ///
-  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] state:
-  ///
-  /// * [List<String>] statesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<Response> cgetDocumentsByPlaceWithHttpInfo(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    String organization,
-    List<String> organizationsLeftSquareBracketRightSquareBracket,
-    String state,
-    List<String> statesLeftSquareBracketRightSquareBracket,
-    int page,
-    int limit,
+  /// Returns a [Future] containing a [Response] with a [DocumentPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Document resources. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<DocumentPagination>> cgetDocumentsByPlace({
+    required String xKeyclicApp,
+    required String place,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? organization,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? state,
+    List<String>? statesLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (place == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: place');
-    }
+    final String path = r'/places/{place}/documents'
+        .replaceAll('{' r'place' '}', place.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
 
-    final path = r'/places/{place}/documents'
-        .replaceAll('{' + 'place' + '}', place.toString());
-
-    final queryParams = <QueryParam>[
+    final queryParameters = <String, dynamic>{
       if (orderLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
-      if (after != null)
-        ..._convertParametersForCollectionFormat('', 'after', after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat('', 'before', before),
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
       if (organization != null)
-        ..._convertParametersForCollectionFormat(
-            '', 'organization', organization),
+        r'organization': encodeQueryParameter(organization),
       if (organizationsLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat('multi', 'organizations[]',
-            organizationsLeftSquareBracketRightSquareBracket),
-      if (state != null)
-        ..._convertParametersForCollectionFormat('', 'state', state),
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (state != null) r'state': encodeQueryParameter(state),
       if (statesLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'states[]', statesLeftSquareBracketRightSquareBracket),
-      if (page != null)
-        ..._convertParametersForCollectionFormat('', 'page', page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat('', 'limit', limit),
-    ];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+        r'states[]': encodeCollectionQueryParameter(
+            statesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
     };
 
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
-  }
 
-  /// Retrieve all Document resources.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [String] organization:
-  ///
-  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] state:
-  ///
-  /// * [List<String>] statesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<DocumentPagination> cgetDocumentsByPlace(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    String organization,
-    List<String> organizationsLeftSquareBracketRightSquareBracket,
-    String state,
-    List<String> statesLeftSquareBracketRightSquareBracket,
-    int page,
-    int limit,
-  }) async {
-    final response = await cgetDocumentsByPlaceWithHttpInfo(
-      xKeyclicApp,
-      place,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
-      orderLeftSquareBracketRightSquareBracket:
-          orderLeftSquareBracketRightSquareBracket,
-      after: after,
-      before: before,
-      organization: organization,
-      organizationsLeftSquareBracketRightSquareBracket:
-          organizationsLeftSquareBracketRightSquareBracket,
-      state: state,
-      statesLeftSquareBracketRightSquareBracket:
-          statesLeftSquareBracketRightSquareBracket,
-      page: page,
-      limit: limit,
-    );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<DocumentPagination>.value(null);
+    DocumentPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<DocumentPagination>(
+          response.data!, 'DocumentPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'DocumentPagination',
-    ) as DocumentPagination;
+    return Response<DocumentPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Place resources.
   ///
-  /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [businessActivity]
+  /// * [businessActivitiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [geoElevation]
+  /// * [geoHashLeftSquareBracketRightSquareBracket]
+  /// * [geoPoint] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [geoCoordinates] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [leaf]
+  /// * [level]
+  /// * [organization]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [parent]
+  /// * [parentsLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] businessActivity:
-  ///
-  /// * [List<String>] businessActivitiesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [String] geoElevation:
-  ///
-  /// * [List<String>] geoHashLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] geoPoint:
-  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
-  ///
-  /// * [String] geoCoordinates:
-  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
-  ///
-  /// * [String] leaf:
-  ///
-  /// * [String] level:
-  ///
-  /// * [String] organization:
-  ///
-  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] parent:
-  ///
-  /// * [List<String>] parentsLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] query:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<Response> cgetPlacesWithHttpInfo(
-    String xKeyclicApp, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    String businessActivity,
-    List<String> businessActivitiesLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    String geoElevation,
-    List<String> geoHashLeftSquareBracketRightSquareBracket,
-    String geoPoint,
-    String geoCoordinates,
-    String leaf,
-    String level,
-    String organization,
-    List<String> organizationsLeftSquareBracketRightSquareBracket,
-    String parent,
-    List<String> parentsLeftSquareBracketRightSquareBracket,
-    String query,
-    int page,
-    int limit,
+  /// Returns a [Future] containing a [Response] with a [PlacePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Place resources. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<PlacePagination>> cgetPlaces({
+    required String xKeyclicApp,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? businessActivity,
+    List<String>? businessActivitiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? geoElevation,
+    List<String>? geoHashLeftSquareBracketRightSquareBracket,
+    String? geoPoint,
+    String? geoCoordinates,
+    String? leaf,
+    String? level,
+    String? organization,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? parent,
+    List<String>? parentsLeftSquareBracketRightSquareBracket,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
+    final String path = r'/places';
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
 
-    final path = r'/places';
-
-    final queryParams = <QueryParam>[
+    final queryParameters = <String, dynamic>{
       if (orderLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (businessActivity != null)
-        ..._convertParametersForCollectionFormat(
-            '', 'business_activity', businessActivity),
+        r'business_activity': encodeQueryParameter(businessActivity),
       if (businessActivitiesLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi',
-            'business_activities[]',
-            businessActivitiesLeftSquareBracketRightSquareBracket),
-      if (after != null)
-        ..._convertParametersForCollectionFormat('', 'after', after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat('', 'before', before),
+        r'business_activities[]': encodeCollectionQueryParameter(
+            businessActivitiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
       if (geoElevation != null)
-        ..._convertParametersForCollectionFormat(
-            '', 'geo_elevation', geoElevation),
+        r'geo_elevation': encodeQueryParameter(geoElevation),
       if (geoHashLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'geo_hash[]', geoHashLeftSquareBracketRightSquareBracket),
-      if (geoPoint != null)
-        ..._convertParametersForCollectionFormat('', 'geo_point', geoPoint),
+        r'geo_hash[]': encodeCollectionQueryParameter(
+            geoHashLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (geoPoint != null) r'geo_point': encodeQueryParameter(geoPoint),
       if (geoCoordinates != null)
-        ..._convertParametersForCollectionFormat(
-            '', 'geo_coordinates', geoCoordinates),
-      if (leaf != null)
-        ..._convertParametersForCollectionFormat('', 'leaf', leaf),
-      if (level != null)
-        ..._convertParametersForCollectionFormat('', 'level', level),
+        r'geo_coordinates': encodeQueryParameter(geoCoordinates),
+      if (leaf != null) r'leaf': encodeQueryParameter(leaf),
+      if (level != null) r'level': encodeQueryParameter(level),
       if (organization != null)
-        ..._convertParametersForCollectionFormat(
-            '', 'organization', organization),
+        r'organization': encodeQueryParameter(organization),
       if (organizationsLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat('multi', 'organizations[]',
-            organizationsLeftSquareBracketRightSquareBracket),
-      if (parent != null)
-        ..._convertParametersForCollectionFormat('', 'parent', parent),
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (parent != null) r'parent': encodeQueryParameter(parent),
       if (parentsLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'parents[]', parentsLeftSquareBracketRightSquareBracket),
-      if (query != null)
-        ..._convertParametersForCollectionFormat('', 'query', query),
-      if (page != null)
-        ..._convertParametersForCollectionFormat('', 'page', page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat('', 'limit', limit),
-    ];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+        r'parents[]': encodeCollectionQueryParameter(
+            parentsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
     };
 
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
-  }
 
-  /// Retrieve all Place resources.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] businessActivity:
-  ///
-  /// * [List<String>] businessActivitiesLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [String] geoElevation:
-  ///
-  /// * [List<String>] geoHashLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] geoPoint:
-  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
-  ///
-  /// * [String] geoCoordinates:
-  ///   One latitude and one longitude serialized and separated by a plus or a minus sign.
-  ///
-  /// * [String] leaf:
-  ///
-  /// * [String] level:
-  ///
-  /// * [String] organization:
-  ///
-  /// * [List<String>] organizationsLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] parent:
-  ///
-  /// * [List<String>] parentsLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [String] query:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<PlacePagination> cgetPlaces(
-    String xKeyclicApp, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    String businessActivity,
-    List<String> businessActivitiesLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    String geoElevation,
-    List<String> geoHashLeftSquareBracketRightSquareBracket,
-    String geoPoint,
-    String geoCoordinates,
-    String leaf,
-    String level,
-    String organization,
-    List<String> organizationsLeftSquareBracketRightSquareBracket,
-    String parent,
-    List<String> parentsLeftSquareBracketRightSquareBracket,
-    String query,
-    int page,
-    int limit,
-  }) async {
-    final response = await cgetPlacesWithHttpInfo(
-      xKeyclicApp,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
-      orderLeftSquareBracketRightSquareBracket:
-          orderLeftSquareBracketRightSquareBracket,
-      businessActivity: businessActivity,
-      businessActivitiesLeftSquareBracketRightSquareBracket:
-          businessActivitiesLeftSquareBracketRightSquareBracket,
-      after: after,
-      before: before,
-      geoElevation: geoElevation,
-      geoHashLeftSquareBracketRightSquareBracket:
-          geoHashLeftSquareBracketRightSquareBracket,
-      geoPoint: geoPoint,
-      geoCoordinates: geoCoordinates,
-      leaf: leaf,
-      level: level,
-      organization: organization,
-      organizationsLeftSquareBracketRightSquareBracket:
-          organizationsLeftSquareBracketRightSquareBracket,
-      parent: parent,
-      parentsLeftSquareBracketRightSquareBracket:
-          parentsLeftSquareBracketRightSquareBracket,
-      query: query,
-      page: page,
-      limit: limit,
-    );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<PlacePagination>.value(null);
+    PlacePagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<PlacePagination>(
+          response.data!, 'PlacePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'PlacePagination',
-    ) as PlacePagination;
+    return Response<PlacePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Plan resources.
   ///
-  /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [place] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<Response> cgetPlansByPlaceWithHttpInfo(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    int page,
-    int limit,
+  /// Returns a [Future] containing a [Response] with a [PlanPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Plan resources. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<PlanPagination>> cgetPlansByPlace({
+    required String xKeyclicApp,
+    required String place,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (place == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: place');
-    }
+    final String path =
+        r'/places/{place}/plans'.replaceAll('{' r'place' '}', place.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
 
-    final path = r'/places/{place}/plans'
-        .replaceAll('{' + 'place' + '}', place.toString());
-
-    final queryParams = <QueryParam>[
+    final queryParameters = <String, dynamic>{
       if (orderLeftSquareBracketRightSquareBracket != null)
-        ..._convertParametersForCollectionFormat(
-            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
-      if (after != null)
-        ..._convertParametersForCollectionFormat('', 'after', after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat('', 'before', before),
-      if (page != null)
-        ..._convertParametersForCollectionFormat('', 'page', page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat('', 'limit', limit),
-    ];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
     };
 
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
-  }
 
-  /// Retrieve all Plan resources.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  ///
-  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
-  ///
-  /// * [DateTime] after:
-  ///
-  /// * [DateTime] before:
-  ///
-  /// * [int] page:
-  ///   Page of the overview.
-  ///
-  /// * [int] limit:
-  ///   Page of the overview.
-  Future<PlanPagination> cgetPlansByPlace(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> orderLeftSquareBracketRightSquareBracket,
-    DateTime after,
-    DateTime before,
-    int page,
-    int limit,
-  }) async {
-    final response = await cgetPlansByPlaceWithHttpInfo(
-      xKeyclicApp,
-      place,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
-      orderLeftSquareBracketRightSquareBracket:
-          orderLeftSquareBracketRightSquareBracket,
-      after: after,
-      before: before,
-      page: page,
-      limit: limit,
-    );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<PlanPagination>.value(null);
+    PlanPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<PlanPagination>(
+          response.data!, 'PlanPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'PlanPagination',
-    ) as PlanPagination;
-  }
-
-  /// Retrieve one Geo resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> getGeoByPlaceWithHttpInfo(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (place == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: place');
-    }
-
-    final path = r'/places/{place}/geo'
-        .replaceAll('{' + 'place' + '}', place.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<PlanPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Retrieve one Geo resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [place] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<GeoShape> getGeoByPlace(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [GeoShape] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Geo resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<GeoShape>> getGeoByPlace({
+    required String xKeyclicApp,
+    required String place,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await getGeoByPlaceWithHttpInfo(
-      xKeyclicApp,
-      place,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path =
+        r'/places/{place}/geo'.replaceAll('{' r'place' '}', place.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<GeoShape>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'GeoShape',
-    ) as GeoShape;
-  }
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-  /// Retrieve one Place resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> getPlaceWithHttpInfo(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (place == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: place');
+    GeoShape responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<GeoShape>(
+          response.data!, 'GeoShape');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path =
-        r'/places/{place}'.replaceAll('{' + 'place' + '}', place.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<GeoShape>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Retrieve one Place resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [place] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Place> getPlace(
-    String xKeyclicApp,
-    String place, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Place] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Place resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Place>> getPlace({
+    required String xKeyclicApp,
+    required String place,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await getPlaceWithHttpInfo(
-      xKeyclicApp,
-      place,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path =
+        r'/places/{place}'.replaceAll('{' r'place' '}', place.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Place>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Place',
-    ) as Place;
-  }
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-  /// Edit one Place resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [PlacePatch] placePatch (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> patchPlaceWithHttpInfo(
-    String xKeyclicApp,
-    String place,
-    PlacePatch placePatch, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (place == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: place');
-    }
-    if (placePatch == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: placePatch');
+    Place responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Place>(response.data!, 'Place');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path =
-        r'/places/{place}'.replaceAll('{' + 'place' + '}', place.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[
-      'application/json;charset=UTF-8',
-    ];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'PATCH',
-      queryParams: queryParams,
-      body: placePatch,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<Place>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Edit one Place resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [place] - The identifier of the resource.
+  /// * [placePatch]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [PlacePatch] placePatch (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Place> patchPlace(
-    String xKeyclicApp,
-    String place,
-    PlacePatch placePatch, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Place] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Edit one Place resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Place>> patchPlace({
+    required String xKeyclicApp,
+    required String place,
+    required PlacePatch placePatch,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await patchPlaceWithHttpInfo(
-      xKeyclicApp,
-      place,
-      placePatch,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path =
+        r'/places/{place}'.replaceAll('{' r'place' '}', place.toString());
+    final options = Options(
+      method: r'PATCH',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Place>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Place',
-    ) as Place;
-  }
+    dynamic bodyData;
 
-  /// Create one Document resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [DocumentData] documentData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> postDocumentByPlaceWithHttpInfo(
-    String xKeyclicApp,
-    String place,
-    DocumentData documentData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (place == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: place');
-    }
-    if (documentData == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: documentData');
+    try {
+      bodyData = placePatch.toJson();
+      // bodyData = jsonEncode(placePatch);
+      // bodyData = jsonDecode(jsonEncode(placePatch));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path = r'/places/{place}/documents'
-        .replaceAll('{' + 'place' + '}', place.toString());
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
+    Place responseData;
 
-    final formParams = <String, String>{};
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Place>(response.data!, 'Place');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
 
-    final contentTypes = <String>[
-      'application/json;charset=UTF-8',
-    ];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: documentData,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<Place>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Create one Document resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [place] - The identifier of the resource.
+  /// * [documentData]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] place (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [DocumentData] documentData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Document> postDocumentByPlace(
-    String xKeyclicApp,
-    String place,
-    DocumentData documentData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Document] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Create one Document resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Document>> postDocumentByPlace({
+    required String xKeyclicApp,
+    required String place,
+    required DocumentData documentData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await postDocumentByPlaceWithHttpInfo(
-      xKeyclicApp,
-      place,
-      documentData,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/places/{place}/documents'
+        .replaceAll('{' r'place' '}', place.toString());
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Document>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Document',
-    ) as Document;
-  }
+    dynamic bodyData;
 
-  /// Create one Place resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [PlaceData] placeData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> postPlaceWithHttpInfo(
-    String xKeyclicApp,
-    PlaceData placeData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (placeData == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: placeData');
+    try {
+      bodyData = documentData.toJson();
+      // bodyData = jsonEncode(documentData);
+      // bodyData = jsonDecode(jsonEncode(documentData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path = r'/places';
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
+    Document responseData;
 
-    final formParams = <String, String>{};
+    try {
+      responseData = await _apiClient.deserializeAsync<Document>(
+          response.data!, 'Document');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
 
-    final contentTypes = <String>[
-      'application/json;charset=UTF-8',
-    ];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: placeData,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<Document>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Create one Place resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [placeData]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [PlaceData] placeData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Place> postPlace(
-    String xKeyclicApp,
-    PlaceData placeData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Place] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Create one Place resource. Documentation](http://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Place>> postPlace({
+    required String xKeyclicApp,
+    required PlaceData placeData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await postPlaceWithHttpInfo(
-      xKeyclicApp,
-      placeData,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/places';
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Place>.value(null);
+
+    dynamic bodyData;
+
+    try {
+      bodyData = placeData.toJson();
+      // bodyData = jsonEncode(placeData);
+      // bodyData = jsonDecode(jsonEncode(placeData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Place',
-    ) as Place;
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Place responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Place>(response.data!, 'Place');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<Place>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 }

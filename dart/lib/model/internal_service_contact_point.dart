@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class InternalServiceContactPoint {
 
   /// Returns a new [InternalServiceContactPoint] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServiceContactPoint.fromJson(Map<String, dynamic> json) {
+  static InternalServiceContactPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class InternalServiceContactPoint {
     );
   }
 
-  String description;
+  String? description;
 
-  String email;
+  String? email;
 
-  bool isOpen;
+  bool? isOpen;
 
-  String name;
+  String? name;
 
-  String telephone;
+  String? telephone;
 
   @override
   bool operator ==(Object other) {
@@ -64,28 +63,38 @@ class InternalServiceContactPoint {
       (name == null ? 0 : name.hashCode) +
       (telephone == null ? 0 : telephone.hashCode);
 
-  static List<InternalServiceContactPoint> listFromJson(List<dynamic> json) {
-    return <InternalServiceContactPoint>[
-      if (json is List)
-        for (dynamic value in json) InternalServiceContactPoint.fromJson(value),
-    ];
+  static List<InternalServiceContactPoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceContactPoint>[];
+    }
+    return json
+        .map((value) {
+          return InternalServiceContactPoint.fromJson(value);
+        })
+        .whereType<InternalServiceContactPoint>()
+        .toList();
   }
 
   static Map<String, InternalServiceContactPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServiceContactPoint>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceContactPoint.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceContactPoint>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, InternalServiceContactPoint?>(
+            key, InternalServiceContactPoint.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, InternalServiceContactPoint>;
   }
 
   // maps a json object with a list of InternalServiceContactPoint-objects as value to a dart map
   static Map<String, List<InternalServiceContactPoint>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<InternalServiceContactPoint>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: InternalServiceContactPoint.listFromJson(entry.value),
     };
   }

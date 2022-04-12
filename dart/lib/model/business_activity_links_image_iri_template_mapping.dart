@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class BusinessActivityLinksImageIriTemplateMapping {
 
   /// Returns a new [BusinessActivityLinksImageIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BusinessActivityLinksImageIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static BusinessActivityLinksImageIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class BusinessActivityLinksImageIriTemplateMapping {
     );
   }
 
-  String businessActivity;
+  String? businessActivity;
 
   @override
   bool operator ==(Object other) {
@@ -42,30 +41,38 @@ class BusinessActivityLinksImageIriTemplateMapping {
       (businessActivity == null ? 0 : businessActivity.hashCode);
 
   static List<BusinessActivityLinksImageIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <BusinessActivityLinksImageIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          BusinessActivityLinksImageIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityLinksImageIriTemplateMapping>[];
+    }
+    return json
+        .map((value) {
+          return BusinessActivityLinksImageIriTemplateMapping.fromJson(value);
+        })
+        .whereType<BusinessActivityLinksImageIriTemplateMapping>()
+        .toList();
   }
 
   static Map<String, BusinessActivityLinksImageIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BusinessActivityLinksImageIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivityLinksImageIriTemplateMapping.fromJson(
-              entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityLinksImageIriTemplateMapping>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, BusinessActivityLinksImageIriTemplateMapping?>(
+            key, BusinessActivityLinksImageIriTemplateMapping.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BusinessActivityLinksImageIriTemplateMapping>;
   }
 
   // maps a json object with a list of BusinessActivityLinksImageIriTemplateMapping-objects as value to a dart map
   static Map<String, List<BusinessActivityLinksImageIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic> json) {
+      mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<BusinessActivityLinksImageIriTemplateMapping>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BusinessActivityLinksImageIriTemplateMapping.listFromJson(
               entry.value),
     };

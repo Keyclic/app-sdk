@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class ConfigurationPlaceType {
 
   /// Returns a new [ConfigurationPlaceType] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ConfigurationPlaceType.fromJson(Map<String, dynamic> json) {
+  static ConfigurationPlaceType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class ConfigurationPlaceType {
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  PlaceTypeWorkflow workflow;
+  PlaceTypeWorkflow? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,38 @@ class ConfigurationPlaceType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationPlaceType> listFromJson(List<dynamic> json) {
-    return <ConfigurationPlaceType>[
-      if (json is List)
-        for (dynamic value in json) ConfigurationPlaceType.fromJson(value),
-    ];
+  static List<ConfigurationPlaceType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationPlaceType>[];
+    }
+    return json
+        .map((value) {
+          return ConfigurationPlaceType.fromJson(value);
+        })
+        .whereType<ConfigurationPlaceType>()
+        .toList();
   }
 
   static Map<String, ConfigurationPlaceType> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ConfigurationPlaceType>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ConfigurationPlaceType.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationPlaceType>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ConfigurationPlaceType?>(
+            key, ConfigurationPlaceType.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ConfigurationPlaceType>;
   }
 
   // maps a json object with a list of ConfigurationPlaceType-objects as value to a dart map
   static Map<String, List<ConfigurationPlaceType>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ConfigurationPlaceType>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ConfigurationPlaceType.listFromJson(entry.value),
     };
   }

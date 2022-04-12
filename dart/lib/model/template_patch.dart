@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class TemplatePatch {
 
   /// Returns a new [TemplatePatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory TemplatePatch.fromJson(Map<String, dynamic> json) {
+  static TemplatePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -37,15 +36,15 @@ class TemplatePatch {
     );
   }
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  List<Map<String, dynamic>> footer;
+  List<Map<String, dynamic>>? footer;
 
-  List<Map<String, dynamic>> header;
+  List<Map<String, dynamic>>? header;
 
-  String name;
+  String? name;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -70,27 +69,36 @@ class TemplatePatch {
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<TemplatePatch> listFromJson(List<dynamic> json) {
-    return <TemplatePatch>[
-      if (json is List)
-        for (dynamic value in json) TemplatePatch.fromJson(value),
-    ];
+  static List<TemplatePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TemplatePatch>[];
+    }
+    return json
+        .map((value) {
+          return TemplatePatch.fromJson(value);
+        })
+        .whereType<TemplatePatch>()
+        .toList();
   }
 
-  static Map<String, TemplatePatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, TemplatePatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TemplatePatch.fromJson(entry.value),
-    };
+  static Map<String, TemplatePatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TemplatePatch>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, TemplatePatch?>(key, TemplatePatch.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, TemplatePatch>;
   }
 
   // maps a json object with a list of TemplatePatch-objects as value to a dart map
   static Map<String, List<TemplatePatch>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<TemplatePatch>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: TemplatePatch.listFromJson(entry.value),
     };
   }

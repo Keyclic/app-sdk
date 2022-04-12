@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class MemberPaginationAllOf {
 
   /// Returns a new [MemberPaginationAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MemberPaginationAllOf.fromJson(Map<String, dynamic> json) {
+  static MemberPaginationAllOf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class MemberPaginationAllOf {
     );
   }
 
-  MemberCollection embedded;
+  MemberCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,38 @@ class MemberPaginationAllOf {
   @override
   int get hashCode => (embedded == null ? 0 : embedded.hashCode);
 
-  static List<MemberPaginationAllOf> listFromJson(List<dynamic> json) {
-    return <MemberPaginationAllOf>[
-      if (json is List)
-        for (dynamic value in json) MemberPaginationAllOf.fromJson(value),
-    ];
+  static List<MemberPaginationAllOf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberPaginationAllOf>[];
+    }
+    return json
+        .map((value) {
+          return MemberPaginationAllOf.fromJson(value);
+        })
+        .whereType<MemberPaginationAllOf>()
+        .toList();
   }
 
   static Map<String, MemberPaginationAllOf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, MemberPaginationAllOf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MemberPaginationAllOf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberPaginationAllOf>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, MemberPaginationAllOf?>(
+            key, MemberPaginationAllOf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, MemberPaginationAllOf>;
   }
 
   // maps a json object with a list of MemberPaginationAllOf-objects as value to a dart map
   static Map<String, List<MemberPaginationAllOf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<MemberPaginationAllOf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: MemberPaginationAllOf.listFromJson(entry.value),
     };
   }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class ConfigurationOperationType {
 
   /// Returns a new [ConfigurationOperationType] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ConfigurationOperationType.fromJson(Map<String, dynamic> json) {
+  static ConfigurationOperationType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class ConfigurationOperationType {
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  OperationTypeWorkflow workflow;
+  OperationTypeWorkflow? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,38 @@ class ConfigurationOperationType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationOperationType> listFromJson(List<dynamic> json) {
-    return <ConfigurationOperationType>[
-      if (json is List)
-        for (dynamic value in json) ConfigurationOperationType.fromJson(value),
-    ];
+  static List<ConfigurationOperationType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationOperationType>[];
+    }
+    return json
+        .map((value) {
+          return ConfigurationOperationType.fromJson(value);
+        })
+        .whereType<ConfigurationOperationType>()
+        .toList();
   }
 
   static Map<String, ConfigurationOperationType> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ConfigurationOperationType>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ConfigurationOperationType.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationOperationType>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ConfigurationOperationType?>(
+            key, ConfigurationOperationType.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ConfigurationOperationType>;
   }
 
   // maps a json object with a list of ConfigurationOperationType-objects as value to a dart map
   static Map<String, List<ConfigurationOperationType>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ConfigurationOperationType>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ConfigurationOperationType.listFromJson(entry.value),
     };
   }

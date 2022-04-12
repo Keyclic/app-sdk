@@ -48,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **connector** | [**String**](.md)| The identifier of the resource. | 
+ **connector** | **String**| The identifier of the resource. | 
  **workflow** | **String**|  | 
  **runData** | [**RunData**](RunData.md)|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class KnowledgeBaseLinksSelfIriTemplate {
 
   /// Returns a new [KnowledgeBaseLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory KnowledgeBaseLinksSelfIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static KnowledgeBaseLinksSelfIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class KnowledgeBaseLinksSelfIriTemplate {
     );
   }
 
-  ApplicationLinksKnowledgeBaseIriTemplateMapping mapping;
+  ApplicationLinksKnowledgeBaseIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,29 +41,38 @@ class KnowledgeBaseLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<KnowledgeBaseLinksSelfIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <KnowledgeBaseLinksSelfIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          KnowledgeBaseLinksSelfIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <KnowledgeBaseLinksSelfIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return KnowledgeBaseLinksSelfIriTemplate.fromJson(value);
+        })
+        .whereType<KnowledgeBaseLinksSelfIriTemplate>()
+        .toList();
   }
 
   static Map<String, KnowledgeBaseLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, KnowledgeBaseLinksSelfIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: KnowledgeBaseLinksSelfIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, KnowledgeBaseLinksSelfIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, KnowledgeBaseLinksSelfIriTemplate?>(
+            key, KnowledgeBaseLinksSelfIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, KnowledgeBaseLinksSelfIriTemplate>;
   }
 
   // maps a json object with a list of KnowledgeBaseLinksSelfIriTemplate-objects as value to a dart map
   static Map<String, List<KnowledgeBaseLinksSelfIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<KnowledgeBaseLinksSelfIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key:
               KnowledgeBaseLinksSelfIriTemplate.listFromJson(entry.value),
     };

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class FeedbackEmbedded {
 
   /// Returns a new [FeedbackEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackEmbedded.fromJson(Map<String, dynamic> json) {
+  static FeedbackEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class FeedbackEmbedded {
     );
   }
 
-  Category category;
+  Category? category;
 
-  List<Marker> markers;
+  List<Marker>? markers;
 
-  Person reporter;
+  Person? reporter;
 
-  List<String> stateTransitions;
+  List<String>? stateTransitions;
 
-  String tracking;
+  String? tracking;
 
   @override
   bool operator ==(Object other) {
@@ -65,27 +64,36 @@ class FeedbackEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<FeedbackEmbedded> listFromJson(List<dynamic> json) {
-    return <FeedbackEmbedded>[
-      if (json is List)
-        for (dynamic value in json) FeedbackEmbedded.fromJson(value),
-    ];
+  static List<FeedbackEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return FeedbackEmbedded.fromJson(value);
+        })
+        .whereType<FeedbackEmbedded>()
+        .toList();
   }
 
-  static Map<String, FeedbackEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return <String, FeedbackEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackEmbedded.fromJson(entry.value),
-    };
+  static Map<String, FeedbackEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, FeedbackEmbedded?>(
+        key, FeedbackEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, FeedbackEmbedded>;
   }
 
   // maps a json object with a list of FeedbackEmbedded-objects as value to a dart map
   static Map<String, List<FeedbackEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<FeedbackEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: FeedbackEmbedded.listFromJson(entry.value),
     };
   }

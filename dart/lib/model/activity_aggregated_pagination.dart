@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class ActivityAggregatedPagination {
 
   /// Returns a new [ActivityAggregatedPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ActivityAggregatedPagination.fromJson(Map<String, dynamic> json) {
+  static ActivityAggregatedPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class ActivityAggregatedPagination {
     );
   }
 
-  String duration;
+  String? duration;
 
-  String next;
+  String? next;
 
-  int unseen;
+  int? unseen;
 
-  int unread;
+  int? unread;
 
-  List<ActivityGroup> results;
+  List<ActivityGroup>? results;
 
   @override
   bool operator ==(Object other) {
@@ -64,29 +63,38 @@ class ActivityAggregatedPagination {
       (unread == null ? 0 : unread.hashCode) +
       (results == null ? 0 : results.hashCode);
 
-  static List<ActivityAggregatedPagination> listFromJson(List<dynamic> json) {
-    return <ActivityAggregatedPagination>[
-      if (json is List)
-        for (dynamic value in json)
-          ActivityAggregatedPagination.fromJson(value),
-    ];
+  static List<ActivityAggregatedPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ActivityAggregatedPagination>[];
+    }
+    return json
+        .map((value) {
+          return ActivityAggregatedPagination.fromJson(value);
+        })
+        .whereType<ActivityAggregatedPagination>()
+        .toList();
   }
 
   static Map<String, ActivityAggregatedPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ActivityAggregatedPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityAggregatedPagination.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ActivityAggregatedPagination>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ActivityAggregatedPagination?>(
+            key, ActivityAggregatedPagination.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ActivityAggregatedPagination>;
   }
 
   // maps a json object with a list of ActivityAggregatedPagination-objects as value to a dart map
   static Map<String, List<ActivityAggregatedPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ActivityAggregatedPagination>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ActivityAggregatedPagination.listFromJson(entry.value),
     };
   }

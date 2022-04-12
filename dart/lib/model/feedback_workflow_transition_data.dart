@@ -1,26 +1,25 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class FeedbackWorkflowTransitionData {
   /// Returns a new [FeedbackWorkflowTransitionData] instance.
   FeedbackWorkflowTransitionData({
-    @required this.transition,
+    required this.transition,
   });
 
   /// Returns a new [FeedbackWorkflowTransitionData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackWorkflowTransitionData.fromJson(Map<String, dynamic> json) {
+  static FeedbackWorkflowTransitionData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackWorkflowTransitionData(
       transition: FeedbackWorkflowTransitionDataTransitionEnum.fromJson(
-          json[r'transition']),
+          json[r'transition'])!,
     );
   }
 
@@ -38,31 +37,41 @@ class FeedbackWorkflowTransitionData {
   }
 
   @override
-  int get hashCode => (transition == null ? 0 : transition.hashCode);
+  int get hashCode => transition.hashCode;
 
-  static List<FeedbackWorkflowTransitionData> listFromJson(List<dynamic> json) {
-    return <FeedbackWorkflowTransitionData>[
-      if (json is List)
-        for (dynamic value in json)
-          FeedbackWorkflowTransitionData.fromJson(value),
-    ];
+  static List<FeedbackWorkflowTransitionData> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackWorkflowTransitionData>[];
+    }
+    return json
+        .map((value) {
+          return FeedbackWorkflowTransitionData.fromJson(value);
+        })
+        .whereType<FeedbackWorkflowTransitionData>()
+        .toList();
   }
 
   static Map<String, FeedbackWorkflowTransitionData> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, FeedbackWorkflowTransitionData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackWorkflowTransitionData.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackWorkflowTransitionData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, FeedbackWorkflowTransitionData?>(
+            key, FeedbackWorkflowTransitionData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, FeedbackWorkflowTransitionData>;
   }
 
   // maps a json object with a list of FeedbackWorkflowTransitionData-objects as value to a dart map
   static Map<String, List<FeedbackWorkflowTransitionData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<FeedbackWorkflowTransitionData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: FeedbackWorkflowTransitionData.listFromJson(entry.value),
     };
   }
@@ -100,17 +109,19 @@ class FeedbackWorkflowTransitionDataTransitionEnum {
     publish,
   ];
 
-  static FeedbackWorkflowTransitionDataTransitionEnum fromJson(dynamic value) =>
+  static FeedbackWorkflowTransitionDataTransitionEnum? fromJson(
+          dynamic value) =>
       FeedbackWorkflowTransitionDataTransitionEnumTypeTransformer()
           .decode(value);
 
   static List<FeedbackWorkflowTransitionDataTransitionEnum> listFromJson(
       List<dynamic> json) {
-    return <FeedbackWorkflowTransitionDataTransitionEnum>[
-      if (json is List)
-        for (dynamic value in json)
-          FeedbackWorkflowTransitionDataTransitionEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return FeedbackWorkflowTransitionDataTransitionEnum.fromJson(value);
+        })
+        .whereType<FeedbackWorkflowTransitionDataTransitionEnum>()
+        .toList();
   }
 }
 
@@ -134,8 +145,8 @@ class FeedbackWorkflowTransitionDataTransitionEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  FeedbackWorkflowTransitionDataTransitionEnum decode(dynamic data,
-      {bool allowNull}) {
+  FeedbackWorkflowTransitionDataTransitionEnum? decode(dynamic data,
+      {bool allowNull = true}) {
     switch (data) {
       case r'process':
         return FeedbackWorkflowTransitionDataTransitionEnum.process;
@@ -150,5 +161,5 @@ class FeedbackWorkflowTransitionDataTransitionEnumTypeTransformer {
   }
 
   /// Singleton [FeedbackWorkflowTransitionDataTransitionEnumTypeTransformer] instance.
-  static FeedbackWorkflowTransitionDataTransitionEnumTypeTransformer _instance;
+  static FeedbackWorkflowTransitionDataTransitionEnumTypeTransformer? _instance;
 }

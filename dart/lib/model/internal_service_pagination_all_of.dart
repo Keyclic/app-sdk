@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class InternalServicePaginationAllOf {
 
   /// Returns a new [InternalServicePaginationAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServicePaginationAllOf.fromJson(Map<String, dynamic> json) {
+  static InternalServicePaginationAllOf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class InternalServicePaginationAllOf {
     );
   }
 
-  InternalServiceCollection embedded;
+  InternalServiceCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -39,29 +38,39 @@ class InternalServicePaginationAllOf {
   @override
   int get hashCode => (embedded == null ? 0 : embedded.hashCode);
 
-  static List<InternalServicePaginationAllOf> listFromJson(List<dynamic> json) {
-    return <InternalServicePaginationAllOf>[
-      if (json is List)
-        for (dynamic value in json)
-          InternalServicePaginationAllOf.fromJson(value),
-    ];
+  static List<InternalServicePaginationAllOf> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServicePaginationAllOf>[];
+    }
+    return json
+        .map((value) {
+          return InternalServicePaginationAllOf.fromJson(value);
+        })
+        .whereType<InternalServicePaginationAllOf>()
+        .toList();
   }
 
   static Map<String, InternalServicePaginationAllOf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServicePaginationAllOf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServicePaginationAllOf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServicePaginationAllOf>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, InternalServicePaginationAllOf?>(
+            key, InternalServicePaginationAllOf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, InternalServicePaginationAllOf>;
   }
 
   // maps a json object with a list of InternalServicePaginationAllOf-objects as value to a dart map
   static Map<String, List<InternalServicePaginationAllOf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<InternalServicePaginationAllOf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: InternalServicePaginationAllOf.listFromJson(entry.value),
     };
   }

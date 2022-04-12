@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class ExternalService {
     this.createdAt,
     this.description,
     this.id,
-    @required this.name,
+    required this.name,
     this.onCall,
     this.type,
     this.updatedAt,
@@ -23,19 +22,17 @@ class ExternalService {
 
   /// Returns a new [ExternalService] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ExternalService.fromJson(Map<String, dynamic> json) {
+  static ExternalService? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,27 +52,27 @@ class ExternalService {
     );
   }
 
-  ExternalServiceEmbedded embedded;
+  ExternalServiceEmbedded? embedded;
 
-  ExternalServiceLinks links;
+  ExternalServiceLinks? links;
 
-  ExternalServicePostalAddress address;
+  ExternalServicePostalAddress? address;
 
-  ExternalServiceContactPoint contactPoint;
+  ExternalServiceContactPoint? contactPoint;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  ExternalServiceContactPoint onCall;
+  ExternalServiceContactPoint? onCall;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -107,32 +104,41 @@ class ExternalService {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ExternalService> listFromJson(List<dynamic> json) {
-    return <ExternalService>[
-      if (json is List)
-        for (dynamic value in json) ExternalService.fromJson(value),
-    ];
+  static List<ExternalService> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalService>[];
+    }
+    return json
+        .map((value) {
+          return ExternalService.fromJson(value);
+        })
+        .whereType<ExternalService>()
+        .toList();
   }
 
-  static Map<String, ExternalService> mapFromJson(Map<String, dynamic> json) {
-    return <String, ExternalService>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalService.fromJson(entry.value),
-    };
+  static Map<String, ExternalService> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalService>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, ExternalService?>(
+        key, ExternalService.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ExternalService>;
   }
 
   // maps a json object with a list of ExternalService-objects as value to a dart map
   static Map<String, List<ExternalService>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ExternalService>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ExternalService.listFromJson(entry.value),
     };
   }
@@ -147,13 +153,13 @@ class ExternalService {
       if (links != null) r'_links': links,
       if (address != null) r'address': address,
       if (contactPoint != null) r'contactPoint': contactPoint,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       r'name': name,
       if (onCall != null) r'onCall': onCall,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

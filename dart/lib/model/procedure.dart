@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -19,19 +18,17 @@ class Procedure {
 
   /// Returns a new [Procedure] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Procedure.fromJson(Map<String, dynamic> json) {
+  static Procedure? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -47,19 +44,19 @@ class Procedure {
     );
   }
 
-  ProcedureEmbedded embedded;
+  ProcedureEmbedded? embedded;
 
-  ProcedureLinks links;
+  ProcedureLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String state;
+  String? state;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -88,27 +85,36 @@ class Procedure {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Procedure> listFromJson(List<dynamic> json) {
-    return <Procedure>[
-      if (json is List)
-        for (dynamic value in json) Procedure.fromJson(value),
-    ];
+  static List<Procedure> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Procedure>[];
+    }
+    return json
+        .map((value) {
+          return Procedure.fromJson(value);
+        })
+        .whereType<Procedure>()
+        .toList();
   }
 
-  static Map<String, Procedure> mapFromJson(Map<String, dynamic> json) {
-    return <String, Procedure>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Procedure.fromJson(entry.value),
-    };
+  static Map<String, Procedure> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Procedure>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, Procedure?>(key, Procedure.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Procedure>;
   }
 
   // maps a json object with a list of Procedure-objects as value to a dart map
   static Map<String, List<Procedure>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<Procedure>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Procedure.listFromJson(entry.value),
     };
   }
@@ -121,11 +127,11 @@ class Procedure {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (state != null) r'state': state,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

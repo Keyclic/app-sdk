@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class CheckpointEmbedded {
 
   /// Returns a new [CheckpointEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CheckpointEmbedded.fromJson(Map<String, dynamic> json) {
+  static CheckpointEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class CheckpointEmbedded {
     );
   }
 
-  Person createdBy;
+  Person? createdBy;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,37 @@ class CheckpointEmbedded {
   @override
   int get hashCode => (createdBy == null ? 0 : createdBy.hashCode);
 
-  static List<CheckpointEmbedded> listFromJson(List<dynamic> json) {
-    return <CheckpointEmbedded>[
-      if (json is List)
-        for (dynamic value in json) CheckpointEmbedded.fromJson(value),
-    ];
+  static List<CheckpointEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CheckpointEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return CheckpointEmbedded.fromJson(value);
+        })
+        .whereType<CheckpointEmbedded>()
+        .toList();
   }
 
   static Map<String, CheckpointEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, CheckpointEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CheckpointEmbedded.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CheckpointEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, CheckpointEmbedded?>(
+        key, CheckpointEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, CheckpointEmbedded>;
   }
 
   // maps a json object with a list of CheckpointEmbedded-objects as value to a dart map
   static Map<String, List<CheckpointEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<CheckpointEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: CheckpointEmbedded.listFromJson(entry.value),
     };
   }

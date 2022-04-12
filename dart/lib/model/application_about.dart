@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ApplicationAbout {
 
   /// Returns a new [ApplicationAbout] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ApplicationAbout.fromJson(Map<String, dynamic> json) {
+  static ApplicationAbout? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class ApplicationAbout {
     );
   }
 
-  String name;
+  String? name;
 
-  String text;
+  String? text;
 
   @override
   bool operator ==(Object other) {
@@ -45,27 +44,36 @@ class ApplicationAbout {
   int get hashCode =>
       (name == null ? 0 : name.hashCode) + (text == null ? 0 : text.hashCode);
 
-  static List<ApplicationAbout> listFromJson(List<dynamic> json) {
-    return <ApplicationAbout>[
-      if (json is List)
-        for (dynamic value in json) ApplicationAbout.fromJson(value),
-    ];
+  static List<ApplicationAbout> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ApplicationAbout>[];
+    }
+    return json
+        .map((value) {
+          return ApplicationAbout.fromJson(value);
+        })
+        .whereType<ApplicationAbout>()
+        .toList();
   }
 
-  static Map<String, ApplicationAbout> mapFromJson(Map<String, dynamic> json) {
-    return <String, ApplicationAbout>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ApplicationAbout.fromJson(entry.value),
-    };
+  static Map<String, ApplicationAbout> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ApplicationAbout>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, ApplicationAbout?>(
+        key, ApplicationAbout.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ApplicationAbout>;
   }
 
   // maps a json object with a list of ApplicationAbout-objects as value to a dart map
   static Map<String, List<ApplicationAbout>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ApplicationAbout>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ApplicationAbout.listFromJson(entry.value),
     };
   }

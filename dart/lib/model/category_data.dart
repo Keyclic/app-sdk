@@ -1,21 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class CategoryData {
   /// Returns a new [CategoryData] instance.
   CategoryData({
-    @required this.name,
-    @required this.organization,
+    required this.name,
+    required this.organization,
     this.parent,
   });
 
   /// Returns a new [CategoryData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CategoryData.fromJson(Map<String, dynamic> json) {
+  static CategoryData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,7 +30,7 @@ class CategoryData {
 
   String organization;
 
-  String parent;
+  String? parent;
 
   @override
   bool operator ==(Object other) {
@@ -48,31 +47,40 @@ class CategoryData {
 
   @override
   int get hashCode =>
-      (name == null ? 0 : name.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
+      name.hashCode +
+      organization.hashCode +
       (parent == null ? 0 : parent.hashCode);
 
-  static List<CategoryData> listFromJson(List<dynamic> json) {
-    return <CategoryData>[
-      if (json is List)
-        for (dynamic value in json) CategoryData.fromJson(value),
-    ];
+  static List<CategoryData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryData>[];
+    }
+    return json
+        .map((value) {
+          return CategoryData.fromJson(value);
+        })
+        .whereType<CategoryData>()
+        .toList();
   }
 
-  static Map<String, CategoryData> mapFromJson(Map<String, dynamic> json) {
-    return <String, CategoryData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CategoryData.fromJson(entry.value),
-    };
+  static Map<String, CategoryData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, CategoryData?>(key, CategoryData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, CategoryData>;
   }
 
   // maps a json object with a list of CategoryData-objects as value to a dart map
   static Map<String, List<CategoryData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<CategoryData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: CategoryData.listFromJson(entry.value),
     };
   }

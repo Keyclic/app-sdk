@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ProcedureEmbedded {
 
   /// Returns a new [ProcedureEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ProcedureEmbedded.fromJson(Map<String, dynamic> json) {
+  static ProcedureEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ProcedureEmbedded {
     );
   }
 
-  Document document;
+  Document? document;
 
   @override
   bool operator ==(Object other) {
@@ -38,27 +37,37 @@ class ProcedureEmbedded {
   @override
   int get hashCode => (document == null ? 0 : document.hashCode);
 
-  static List<ProcedureEmbedded> listFromJson(List<dynamic> json) {
-    return <ProcedureEmbedded>[
-      if (json is List)
-        for (dynamic value in json) ProcedureEmbedded.fromJson(value),
-    ];
+  static List<ProcedureEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return ProcedureEmbedded.fromJson(value);
+        })
+        .whereType<ProcedureEmbedded>()
+        .toList();
   }
 
-  static Map<String, ProcedureEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return <String, ProcedureEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureEmbedded.fromJson(entry.value),
-    };
+  static Map<String, ProcedureEmbedded> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, ProcedureEmbedded?>(
+        key, ProcedureEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ProcedureEmbedded>;
   }
 
   // maps a json object with a list of ProcedureEmbedded-objects as value to a dart map
   static Map<String, List<ProcedureEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ProcedureEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ProcedureEmbedded.listFromJson(entry.value),
     };
   }

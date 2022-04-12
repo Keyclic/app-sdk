@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class MarkerLinks {
 
   /// Returns a new [MarkerLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MarkerLinks.fromJson(Map<String, dynamic> json) {
+  static MarkerLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class MarkerLinks {
     );
   }
 
-  MarkerLinksPlan plan;
+  MarkerLinksPlan? plan;
 
-  MarkerLinksSelf self;
+  MarkerLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -43,27 +42,36 @@ class MarkerLinks {
   int get hashCode =>
       (plan == null ? 0 : plan.hashCode) + (self == null ? 0 : self.hashCode);
 
-  static List<MarkerLinks> listFromJson(List<dynamic> json) {
-    return <MarkerLinks>[
-      if (json is List)
-        for (dynamic value in json) MarkerLinks.fromJson(value),
-    ];
+  static List<MarkerLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MarkerLinks>[];
+    }
+    return json
+        .map((value) {
+          return MarkerLinks.fromJson(value);
+        })
+        .whereType<MarkerLinks>()
+        .toList();
   }
 
-  static Map<String, MarkerLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, MarkerLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MarkerLinks.fromJson(entry.value),
-    };
+  static Map<String, MarkerLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MarkerLinks>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, MarkerLinks?>(key, MarkerLinks.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, MarkerLinks>;
   }
 
   // maps a json object with a list of MarkerLinks-objects as value to a dart map
   static Map<String, List<MarkerLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<MarkerLinks>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: MarkerLinks.listFromJson(entry.value),
     };
   }

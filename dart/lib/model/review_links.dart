@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class ReviewLinks {
 
   /// Returns a new [ReviewLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReviewLinks.fromJson(Map<String, dynamic> json) {
+  static ReviewLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class ReviewLinks {
     );
   }
 
-  ReviewLinksAuthor author;
+  ReviewLinksAuthor? author;
 
-  ReviewLinksItemReviewed itemReviewed;
+  ReviewLinksItemReviewed? itemReviewed;
 
-  ReviewLinksSelf self;
+  ReviewLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -52,27 +51,36 @@ class ReviewLinks {
       (itemReviewed == null ? 0 : itemReviewed.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ReviewLinks> listFromJson(List<dynamic> json) {
-    return <ReviewLinks>[
-      if (json is List)
-        for (dynamic value in json) ReviewLinks.fromJson(value),
-    ];
+  static List<ReviewLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewLinks>[];
+    }
+    return json
+        .map((value) {
+          return ReviewLinks.fromJson(value);
+        })
+        .whereType<ReviewLinks>()
+        .toList();
   }
 
-  static Map<String, ReviewLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, ReviewLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReviewLinks.fromJson(entry.value),
-    };
+  static Map<String, ReviewLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewLinks>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ReviewLinks?>(key, ReviewLinks.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ReviewLinks>;
   }
 
   // maps a json object with a list of ReviewLinks-objects as value to a dart map
   static Map<String, List<ReviewLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ReviewLinks>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ReviewLinks.listFromJson(entry.value),
     };
   }

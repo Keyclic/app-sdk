@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -19,19 +18,17 @@ class Member {
 
   /// Returns a new [Member] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Member.fromJson(Map<String, dynamic> json) {
+  static Member? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -47,19 +44,19 @@ class Member {
     );
   }
 
-  MemberEmbedded embedded;
+  MemberEmbedded? embedded;
 
-  MemberLinks links;
+  MemberLinks? links;
 
-  MemberContactPoint contactPoint;
+  MemberContactPoint? contactPoint;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -88,26 +85,35 @@ class Member {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Member> listFromJson(List<dynamic> json) {
-    return <Member>[
-      if (json is List)
-        for (dynamic value in json) Member.fromJson(value),
-    ];
+  static List<Member> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Member>[];
+    }
+    return json
+        .map((value) {
+          return Member.fromJson(value);
+        })
+        .whereType<Member>()
+        .toList();
   }
 
-  static Map<String, Member> mapFromJson(Map<String, dynamic> json) {
-    return <String, Member>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Member.fromJson(entry.value),
-    };
+  static Map<String, Member> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Member>{};
+    }
+
+    final map = json.map(
+        (key, value) => MapEntry<String, Member?>(key, Member.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Member>;
   }
 
   // maps a json object with a list of Member-objects as value to a dart map
-  static Map<String, List<Member>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Member>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Member>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Member.listFromJson(entry.value),
     };
   }
@@ -121,10 +127,10 @@ class Member {
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
       if (contactPoint != null) r'contactPoint': contactPoint,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

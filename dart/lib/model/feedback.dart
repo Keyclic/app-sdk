@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -24,19 +23,17 @@ class Feedback {
 
   /// Returns a new [Feedback] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Feedback.fromJson(Map<String, dynamic> json) {
+  static Feedback? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime createdAt = DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime updatedAt = DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -59,29 +56,29 @@ class Feedback {
     );
   }
 
-  FeedbackEmbedded embedded;
+  FeedbackEmbedded? embedded;
 
-  FeedbackLinks links;
+  FeedbackLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  FeedbackGeoCoordinates geoCoordinates;
+  FeedbackGeoCoordinates? geoCoordinates;
 
-  String id;
+  final String? id;
 
-  Map<String, dynamic> metadata;
+  Map<String, dynamic>? metadata;
 
-  bool public;
+  bool? public;
 
   List<String> state;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
-  FeedbackVisibilityEnum visibility;
+  FeedbackVisibilityEnum? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -115,32 +112,41 @@ class Feedback {
       (id == null ? 0 : id.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       (public == null ? 0 : public.hashCode) +
-      (state == null ? 0 : state.hashCode) +
+      state.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
-  static List<Feedback> listFromJson(List<dynamic> json) {
-    return <Feedback>[
-      if (json is List)
-        for (dynamic value in json) Feedback.fromJson(value),
-    ];
+  static List<Feedback> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Feedback>[];
+    }
+    return json
+        .map((value) {
+          return Feedback.fromJson(value);
+        })
+        .whereType<Feedback>()
+        .toList();
   }
 
-  static Map<String, Feedback> mapFromJson(Map<String, dynamic> json) {
-    return <String, Feedback>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Feedback.fromJson(entry.value),
-    };
+  static Map<String, Feedback> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Feedback>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, Feedback?>(key, Feedback.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Feedback>;
   }
 
   // maps a json object with a list of Feedback-objects as value to a dart map
   static Map<String, List<Feedback>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<Feedback>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Feedback.listFromJson(entry.value),
     };
   }
@@ -153,7 +159,7 @@ class Feedback {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (geoCoordinates != null) r'geoCoordinates': geoCoordinates,
       if (id != null) r'id': id,
@@ -161,7 +167,7 @@ class Feedback {
       if (public != null) r'public': public,
       r'state': state,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
       if (visibility != null) r'visibility': visibility,
     };
   }
@@ -192,14 +198,16 @@ class FeedbackVisibilityEnum {
     SHARED,
   ];
 
-  static FeedbackVisibilityEnum fromJson(dynamic value) =>
+  static FeedbackVisibilityEnum? fromJson(dynamic value) =>
       FeedbackVisibilityEnumTypeTransformer().decode(value);
 
   static List<FeedbackVisibilityEnum> listFromJson(List<dynamic> json) {
-    return <FeedbackVisibilityEnum>[
-      if (json is List)
-        for (dynamic value in json) FeedbackVisibilityEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return FeedbackVisibilityEnum.fromJson(value);
+        })
+        .whereType<FeedbackVisibilityEnum>()
+        .toList();
   }
 }
 
@@ -221,7 +229,7 @@ class FeedbackVisibilityEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  FeedbackVisibilityEnum decode(dynamic data, {bool allowNull}) {
+  FeedbackVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'VISIBILITY_PRIVATE':
         return FeedbackVisibilityEnum.PRIVATE;
@@ -240,5 +248,5 @@ class FeedbackVisibilityEnumTypeTransformer {
   }
 
   /// Singleton [FeedbackVisibilityEnumTypeTransformer] instance.
-  static FeedbackVisibilityEnumTypeTransformer _instance;
+  static FeedbackVisibilityEnumTypeTransformer? _instance;
 }

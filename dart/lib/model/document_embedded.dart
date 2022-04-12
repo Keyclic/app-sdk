@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class DocumentEmbedded {
 
   /// Returns a new [DocumentEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentEmbedded.fromJson(Map<String, dynamic> json) {
+  static DocumentEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,15 +32,15 @@ class DocumentEmbedded {
     );
   }
 
-  Map<String, dynamic> container;
+  Map<String, dynamic>? container;
 
-  Person createdBy;
+  Person? createdBy;
 
-  List<Signer> signers;
+  List<Signer>? signers;
 
-  List<String> stateTransitions;
+  List<String>? stateTransitions;
 
-  DocumentType type;
+  DocumentType? type;
 
   @override
   bool operator ==(Object other) {
@@ -67,27 +66,36 @@ class DocumentEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentEmbedded> listFromJson(List<dynamic> json) {
-    return <DocumentEmbedded>[
-      if (json is List)
-        for (dynamic value in json) DocumentEmbedded.fromJson(value),
-    ];
+  static List<DocumentEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return DocumentEmbedded.fromJson(value);
+        })
+        .whereType<DocumentEmbedded>()
+        .toList();
   }
 
-  static Map<String, DocumentEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentEmbedded.fromJson(entry.value),
-    };
+  static Map<String, DocumentEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, DocumentEmbedded?>(
+        key, DocumentEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DocumentEmbedded>;
   }
 
   // maps a json object with a list of DocumentEmbedded-objects as value to a dart map
   static Map<String, List<DocumentEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DocumentEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DocumentEmbedded.listFromJson(entry.value),
     };
   }

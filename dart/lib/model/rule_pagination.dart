@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class RulePagination implements Pagination, RulePaginationAllOf {
 
   /// Returns a new [RulePagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RulePagination.fromJson(Map<String, dynamic> json) {
+  static RulePagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class RulePagination implements Pagination, RulePaginationAllOf {
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  RuleCollection embedded;
+  RuleCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,27 +69,36 @@ class RulePagination implements Pagination, RulePaginationAllOf {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<RulePagination> listFromJson(List<dynamic> json) {
-    return <RulePagination>[
-      if (json is List)
-        for (dynamic value in json) RulePagination.fromJson(value),
-    ];
+  static List<RulePagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RulePagination>[];
+    }
+    return json
+        .map((value) {
+          return RulePagination.fromJson(value);
+        })
+        .whereType<RulePagination>()
+        .toList();
   }
 
-  static Map<String, RulePagination> mapFromJson(Map<String, dynamic> json) {
-    return <String, RulePagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RulePagination.fromJson(entry.value),
-    };
+  static Map<String, RulePagination> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RulePagination>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RulePagination?>(key, RulePagination.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RulePagination>;
   }
 
   // maps a json object with a list of RulePagination-objects as value to a dart map
   static Map<String, List<RulePagination>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RulePagination>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RulePagination.listFromJson(entry.value),
     };
   }

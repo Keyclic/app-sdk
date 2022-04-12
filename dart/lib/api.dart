@@ -1,17 +1,14 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 library keyclic_sdk_api;
 
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:http/http.dart';
-import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
+import 'package:dio/dio.dart';
+// import 'package:logging/logging.dart';
 
 part 'api_client.dart';
 part 'api_helper.dart';
@@ -628,7 +625,6 @@ part 'model/workflow_links_self_iri_template_mapping.dart';
 part 'model/workflow_state.dart';
 part 'model/workflow_transition.dart';
 
-const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');

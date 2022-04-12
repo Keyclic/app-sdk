@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PreferencesForm {
 
   /// Returns a new [PreferencesForm] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PreferencesForm.fromJson(Map<String, dynamic> json) {
+  static PreferencesForm? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PreferencesForm {
     );
   }
 
-  List<String> required_;
+  List<String>? required_;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +38,36 @@ class PreferencesForm {
   @override
   int get hashCode => (required_ == null ? 0 : required_.hashCode);
 
-  static List<PreferencesForm> listFromJson(List<dynamic> json) {
-    return <PreferencesForm>[
-      if (json is List)
-        for (dynamic value in json) PreferencesForm.fromJson(value),
-    ];
+  static List<PreferencesForm> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PreferencesForm>[];
+    }
+    return json
+        .map((value) {
+          return PreferencesForm.fromJson(value);
+        })
+        .whereType<PreferencesForm>()
+        .toList();
   }
 
-  static Map<String, PreferencesForm> mapFromJson(Map<String, dynamic> json) {
-    return <String, PreferencesForm>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PreferencesForm.fromJson(entry.value),
-    };
+  static Map<String, PreferencesForm> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PreferencesForm>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, PreferencesForm?>(
+        key, PreferencesForm.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PreferencesForm>;
   }
 
   // maps a json object with a list of PreferencesForm-objects as value to a dart map
   static Map<String, List<PreferencesForm>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PreferencesForm>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PreferencesForm.listFromJson(entry.value),
     };
   }

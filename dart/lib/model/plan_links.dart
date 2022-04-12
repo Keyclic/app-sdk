@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class PlanLinks {
 
   /// Returns a new [PlanLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlanLinks.fromJson(Map<String, dynamic> json) {
+  static PlanLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class PlanLinks {
     );
   }
 
-  PlanLinksImage image;
+  PlanLinksImage? image;
 
-  PlanLinksPlace place;
+  PlanLinksPlace? place;
 
-  PlanLinksSelf self;
+  PlanLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -52,27 +51,36 @@ class PlanLinks {
       (place == null ? 0 : place.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<PlanLinks> listFromJson(List<dynamic> json) {
-    return <PlanLinks>[
-      if (json is List)
-        for (dynamic value in json) PlanLinks.fromJson(value),
-    ];
+  static List<PlanLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanLinks>[];
+    }
+    return json
+        .map((value) {
+          return PlanLinks.fromJson(value);
+        })
+        .whereType<PlanLinks>()
+        .toList();
   }
 
-  static Map<String, PlanLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlanLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlanLinks.fromJson(entry.value),
-    };
+  static Map<String, PlanLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanLinks>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PlanLinks?>(key, PlanLinks.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlanLinks>;
   }
 
   // maps a json object with a list of PlanLinks-objects as value to a dart map
   static Map<String, List<PlanLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlanLinks>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlanLinks.listFromJson(entry.value),
     };
   }

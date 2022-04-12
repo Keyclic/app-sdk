@@ -1,19 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ImageData {
   /// Returns a new [ImageData] instance.
   ImageData({
-    @required this.image,
+    required this.image,
   });
 
   /// Returns a new [ImageData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ImageData.fromJson(Map<String, dynamic> json) {
+  static ImageData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -36,29 +35,38 @@ class ImageData {
   }
 
   @override
-  int get hashCode => (image == null ? 0 : image.hashCode);
+  int get hashCode => image.hashCode;
 
-  static List<ImageData> listFromJson(List<dynamic> json) {
-    return <ImageData>[
-      if (json is List)
-        for (dynamic value in json) ImageData.fromJson(value),
-    ];
+  static List<ImageData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ImageData>[];
+    }
+    return json
+        .map((value) {
+          return ImageData.fromJson(value);
+        })
+        .whereType<ImageData>()
+        .toList();
   }
 
-  static Map<String, ImageData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ImageData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ImageData.fromJson(entry.value),
-    };
+  static Map<String, ImageData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ImageData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ImageData?>(key, ImageData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ImageData>;
   }
 
   // maps a json object with a list of ImageData-objects as value to a dart map
   static Map<String, List<ImageData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ImageData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ImageData.listFromJson(entry.value),
     };
   }

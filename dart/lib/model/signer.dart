@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Signer {
+  /// Returns a new [Signer] instance.
   Signer({
     this.embedded,
     this.links,
@@ -9,17 +15,19 @@ class Signer {
     this.type,
   });
 
+  /// Returns a new [Signer] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Signer.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Signer(
-      embedded: InvitationEmbedded.fromJson(json['_embedded']),
-      links: SignerLinks.fromJson(json['_links']),
-      id: json['id'],
-      signature: SignerSignature.fromJson(json['signature']),
-      type: json['type'],
+      embedded: InvitationEmbedded.fromJson(json[r'_embedded']),
+      links: SignerLinks.fromJson(json[r'_links']),
+      id: json[r'id'],
+      signature: SignerSignature.fromJson(json[r'signature']),
+      type: json[r'type'],
     );
   }
 
@@ -34,59 +42,63 @@ class Signer {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Signer &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        id == other.id &&
-        signature == other.signature &&
-        type == other.type;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.id == id &&
+        other.signature == signature &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= signature?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (signature == null ? 0 : signature.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<Signer> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Signer.fromJson(value))?.toList() ??
-        <Signer>[];
+    return <Signer>[
+      if (json is List)
+        for (dynamic value in json) Signer.fromJson(value),
+    ];
   }
 
   static Map<String, Signer> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Signer>((String key, dynamic value) {
-          return MapEntry(key, Signer.fromJson(value));
-        }) ??
-        <String, Signer>{};
+    return <String, Signer>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Signer.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (id != null) 'id': id,
-      if (signature != null) 'signature': signature.toJson(),
-      if (type != null) 'type': type,
+  // maps a json object with a list of Signer-objects as value to a dart map
+  static Map<String, List<Signer>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Signer>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Signer.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Signer[embedded=$embedded, links=$links, id=$id, signature=$signature, type=$type, ]';
+  String toString() =>
+      'Signer[embedded=$embedded, links=$links, id=$id, signature=$signature, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (id != null) r'id': id,
+      if (signature != null) r'signature': signature,
+      if (type != null) r'type': type,
+    };
   }
 }

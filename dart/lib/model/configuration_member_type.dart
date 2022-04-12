@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ConfigurationMemberType {
+  /// Returns a new [ConfigurationMemberType] instance.
   ConfigurationMemberType({
     this.id,
-    this.roles,
+    this.roles = const [],
     this.type,
   });
 
+  /// Returns a new [ConfigurationMemberType] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ConfigurationMemberType.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ConfigurationMemberType(
-      id: json['id'],
-      roles: MemberTypeRole.listFromJson(json['roles']),
-      type: json['type'],
+      id: json[r'id'],
+      roles: MemberTypeRole.listFromJson(json[r'roles']),
+      type: json[r'type'],
     );
   }
 
@@ -26,62 +34,59 @@ class ConfigurationMemberType {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ConfigurationMemberType &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
+        other.id == id &&
         DeepCollectionEquality.unordered().equals(roles, other.roles) &&
-        type == other.type;
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (roles is List && roles.isNotEmpty) {
-      hashCode ^= roles
-          .map((MemberTypeRole element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) +
+      (roles == null ? 0 : roles.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<ConfigurationMemberType> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ConfigurationMemberType.fromJson(value))
-            ?.toList() ??
-        <ConfigurationMemberType>[];
+    return <ConfigurationMemberType>[
+      if (json is List)
+        for (dynamic value in json) ConfigurationMemberType.fromJson(value),
+    ];
   }
 
   static Map<String, ConfigurationMemberType> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, ConfigurationMemberType>((String key, dynamic value) {
-          return MapEntry(key, ConfigurationMemberType.fromJson(value));
-        }) ??
-        <String, ConfigurationMemberType>{};
+    return <String, ConfigurationMemberType>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ConfigurationMemberType.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (roles != null) 'roles': roles,
-      if (type != null) 'type': type,
+  // maps a json object with a list of ConfigurationMemberType-objects as value to a dart map
+  static Map<String, List<ConfigurationMemberType>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ConfigurationMemberType>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ConfigurationMemberType.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ConfigurationMemberType[id=$id, roles=$roles, type=$type, ]';
+  String toString() =>
+      'ConfigurationMemberType[id=$id, roles=$roles, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (roles != null) r'roles': roles,
+      if (type != null) r'type': type,
+    };
   }
 }

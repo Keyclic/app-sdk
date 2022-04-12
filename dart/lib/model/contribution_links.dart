@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ContributionLinks {
+  /// Returns a new [ContributionLinks] instance.
   ContributionLinks({
     this.contributor,
     this.feedback,
   });
 
+  /// Returns a new [ContributionLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ContributionLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ContributionLinks(
-      contributor: ContributionLinksContributor.fromJson(json['contributor']),
-      feedback: ContributionLinksFeedback.fromJson(json['feedback']),
+      contributor: ContributionLinksContributor.fromJson(json[r'contributor']),
+      feedback: ContributionLinksFeedback.fromJson(json[r'feedback']),
     );
   }
 
@@ -22,52 +30,55 @@ class ContributionLinks {
   ContributionLinksFeedback feedback;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ContributionLinks &&
-        runtimeType == other.runtimeType &&
-        contributor == other.contributor &&
-        feedback == other.feedback;
+        other.contributor == contributor &&
+        other.feedback == feedback;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= contributor?.hashCode ?? 0;
-    hashCode ^= feedback?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (contributor == null ? 0 : contributor.hashCode) +
+      (feedback == null ? 0 : feedback.hashCode);
 
   static List<ContributionLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ContributionLinks.fromJson(value))
-            ?.toList() ??
-        <ContributionLinks>[];
+    return <ContributionLinks>[
+      if (json is List)
+        for (dynamic value in json) ContributionLinks.fromJson(value),
+    ];
   }
 
   static Map<String, ContributionLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ContributionLinks>((String key, dynamic value) {
-          return MapEntry(key, ContributionLinks.fromJson(value));
-        }) ??
-        <String, ContributionLinks>{};
+    return <String, ContributionLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ContributionLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (contributor != null) 'contributor': contributor.toJson(),
-      if (feedback != null) 'feedback': feedback.toJson(),
+  // maps a json object with a list of ContributionLinks-objects as value to a dart map
+  static Map<String, List<ContributionLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ContributionLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ContributionLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ContributionLinks[contributor=$contributor, feedback=$feedback, ]';
+  String toString() =>
+      'ContributionLinks[contributor=$contributor, feedback=$feedback]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (contributor != null) r'contributor': contributor,
+      if (feedback != null) r'feedback': feedback,
+    };
   }
 }

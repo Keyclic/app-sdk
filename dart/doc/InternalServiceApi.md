@@ -9,17 +9,17 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cgetMembersByInternalService**](InternalServiceApi.md#cgetMembersByInternalService) | **GET** /internal-services/{internalService}/members | Retrieve all Member resources.
-[**deleteInternalService**](InternalServiceApi.md#deleteInternalService) | **DELETE** /internal-services/{internalService} | Remove one InternalService resource.
-[**deleteMemberByInternalServiceAndMember**](InternalServiceApi.md#deleteMemberByInternalServiceAndMember) | **DELETE** /internal-services/{internalService}/members/{member} | Remove one Member resource.
-[**getInternalService**](InternalServiceApi.md#getInternalService) | **GET** /internal-services/{internalService} | Retrieve one InternalService resource.
-[**patchInternalService**](InternalServiceApi.md#patchInternalService) | **PATCH** /internal-services/{internalService} | Edit one InternalService resource.
-[**postInternalService**](InternalServiceApi.md#postInternalService) | **POST** /internal-services | Create one InternalService resource.
-[**postMemberByInternalService**](InternalServiceApi.md#postMemberByInternalService) | **POST** /internal-services/{internalService}/members | Create one Member resource.
+[**cgetMembersByInternalService**](InternalServiceApi.md#cgetmembersbyinternalservice) | **GET** /internal-services/{internalService}/members | Retrieve all Member resources.
+[**deleteInternalService**](InternalServiceApi.md#deleteinternalservice) | **DELETE** /internal-services/{internalService} | Remove one InternalService resource.
+[**deleteMemberByInternalServiceAndMember**](InternalServiceApi.md#deletememberbyinternalserviceandmember) | **DELETE** /internal-services/{internalService}/members/{member} | Remove one Member resource.
+[**getInternalService**](InternalServiceApi.md#getinternalservice) | **GET** /internal-services/{internalService} | Retrieve one InternalService resource.
+[**patchInternalService**](InternalServiceApi.md#patchinternalservice) | **PATCH** /internal-services/{internalService} | Edit one InternalService resource.
+[**postInternalService**](InternalServiceApi.md#postinternalservice) | **POST** /internal-services | Create one InternalService resource.
+[**postMemberByInternalService**](InternalServiceApi.md#postmemberbyinternalservice) | **POST** /internal-services/{internalService}/members | Create one Member resource.
 
 
 # **cgetMembersByInternalService**
-> MemberPagination cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[], permission, query, role, roles[], type, page, limit)
+> MemberPagination cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, orderLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
 
 Retrieve all Member resources.
 
@@ -27,33 +27,33 @@ Retrieve all Member resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var internalService = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var order[] = []; // List<String> | 
-var permission = permission_example; // String | 
-var query = query_example; // String | 
-var role = role_example; // String | 
-var roles[] = []; // List<String> | 
-var type = type_example; // String | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalService = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final permission = permission_example; // String | 
+final query = query_example; // String | 
+final role = role_example; // String | 
+final rolesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final type = type_example; // String | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[], permission, query, role, roles[], type, page, limit);
+    final result = api_instance.cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, orderLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->cgetMembersByInternalService: $e\n");
+    print('Exception when calling InternalServiceApi->cgetMembersByInternalService: $e\n');
 }
 ```
 
@@ -61,19 +61,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalService** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **permission** | **String**|  | [optional] 
  **query** | **String**|  | [optional] 
  **role** | **String**|  | [optional] 
- **roles[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **rolesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **type** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -102,22 +102,22 @@ Remove one InternalService resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var internalService = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalService = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->deleteInternalService: $e\n");
+    print('Exception when calling InternalServiceApi->deleteInternalService: $e\n');
 }
 ```
 
@@ -125,9 +125,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalService** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -142,7 +142,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -156,23 +156,23 @@ Remove one Member resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var internalService = ; // String | The identifier of the resource.
-var member = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalService = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final member = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteMemberByInternalServiceAndMember(xKeyclicApp, internalService, member, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->deleteMemberByInternalServiceAndMember: $e\n");
+    print('Exception when calling InternalServiceApi->deleteMemberByInternalServiceAndMember: $e\n');
 }
 ```
 
@@ -180,10 +180,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalService** | [**String**](.md)| The identifier of the resource. | 
  **member** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -198,7 +198,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -212,23 +212,23 @@ Retrieve one InternalService resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var internalService = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalService = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->getInternalService: $e\n");
+    print('Exception when calling InternalServiceApi->getInternalService: $e\n');
 }
 ```
 
@@ -236,9 +236,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalService** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -253,13 +253,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchInternalService**
-> InternalService patchInternalService(xKeyclicApp, internalServicePatch, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> InternalService patchInternalService(xKeyclicApp, internalService, internalServicePatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one InternalService resource.
 
@@ -267,24 +267,24 @@ Edit one InternalService resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var internalServicePatch = InternalServicePatch(); // InternalServicePatch | 
-var internalService = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalService = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final internalServicePatch = InternalServicePatch(); // InternalServicePatch | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchInternalService(xKeyclicApp, internalServicePatch, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.patchInternalService(xKeyclicApp, internalService, internalServicePatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->patchInternalService: $e\n");
+    print('Exception when calling InternalServiceApi->patchInternalService: $e\n');
 }
 ```
 
@@ -292,10 +292,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **internalServicePatch** | [**InternalServicePatch**](InternalServicePatch.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalService** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **internalServicePatch** | [**InternalServicePatch**](InternalServicePatch.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -324,23 +324,23 @@ Create one InternalService resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var internalServiceData = InternalServiceData(); // InternalServiceData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalServiceData = InternalServiceData(); // InternalServiceData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postInternalService(xKeyclicApp, internalServiceData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postInternalService(xKeyclicApp, internalServiceData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->postInternalService: $e\n");
+    print('Exception when calling InternalServiceApi->postInternalService: $e\n');
 }
 ```
 
@@ -348,9 +348,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalServiceData** | [**InternalServiceData**](InternalServiceData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -371,7 +371,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postMemberByInternalService**
-> InternalService postMemberByInternalService(xKeyclicApp, serviceMemberData, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> InternalService postMemberByInternalService(xKeyclicApp, internalService, serviceMemberData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Member resource.
 
@@ -379,24 +379,24 @@ Create one Member resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = InternalServiceApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var serviceMemberData = ServiceMemberData(); // ServiceMemberData | 
-var internalService = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = InternalServiceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final internalService = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final serviceMemberData = ServiceMemberData(); // ServiceMemberData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postMemberByInternalService(xKeyclicApp, serviceMemberData, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postMemberByInternalService(xKeyclicApp, internalService, serviceMemberData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling InternalServiceApi->postMemberByInternalService: $e\n");
+    print('Exception when calling InternalServiceApi->postMemberByInternalService: $e\n');
 }
 ```
 
@@ -404,10 +404,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **serviceMemberData** | [**ServiceMemberData**](ServiceMemberData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **internalService** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **serviceMemberData** | [**ServiceMemberData**](ServiceMemberData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

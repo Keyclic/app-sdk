@@ -8,8 +8,8 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**resolved** | **double** |  | [optional] [default to null]
-**total** | **int** |  | [optional] [default to null]
+**resolved** | **double** |  | [optional] 
+**total** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

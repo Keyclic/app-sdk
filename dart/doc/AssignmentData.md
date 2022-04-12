@@ -8,9 +8,9 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**description** | **String** |  | [optional] [default to null]
-**report** | **String** |  | [default to null]
-**service** | **String** |  | [default to null]
+**description** | **String** |  | [optional] 
+**report** | **String** |  | 
+**service** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

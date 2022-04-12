@@ -23884,9 +23884,6 @@
         },
         "order__": {
             "collectionFormat": "multi",
-            "default": {
-                "id": "desc"
-            },
             "in": "query",
             "items": {
                 "enum": [

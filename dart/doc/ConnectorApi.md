@@ -9,11 +9,11 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postConnectorByConnectorAndWorkflow**](ConnectorApi.md#postConnectorByConnectorAndWorkflow) | **POST** /connectors/{connector}/workflows/{workflow}/runs | Create one Connector resource.
+[**postConnectorByConnectorAndWorkflow**](ConnectorApi.md#postconnectorbyconnectorandworkflow) | **POST** /connectors/{connector}/workflows/{workflow}/runs | Create one Connector resource.
 
 
 # **postConnectorByConnectorAndWorkflow**
-> Run postConnectorByConnectorAndWorkflow(xKeyclicApp, runData, connector, workflow, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Run postConnectorByConnectorAndWorkflow(xKeyclicApp, connector, workflow, runData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Connector resource.
 
@@ -21,25 +21,25 @@ Create one Connector resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = ConnectorApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var runData = RunData(); // RunData | 
-var connector = ; // String | The identifier of the resource.
-var workflow = workflow_example; // String | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = ConnectorApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final connector = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final workflow = workflow_example; // String | 
+final runData = RunData(); // RunData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postConnectorByConnectorAndWorkflow(xKeyclicApp, runData, connector, workflow, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postConnectorByConnectorAndWorkflow(xKeyclicApp, connector, workflow, runData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling ConnectorApi->postConnectorByConnectorAndWorkflow: $e\n");
+    print('Exception when calling ConnectorApi->postConnectorByConnectorAndWorkflow: $e\n');
 }
 ```
 
@@ -47,11 +47,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **runData** | [**RunData**](RunData.md)|  | 
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **connector** | [**String**](.md)| The identifier of the resource. | 
  **workflow** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **runData** | [**RunData**](RunData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

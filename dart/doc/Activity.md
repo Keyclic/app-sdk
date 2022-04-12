@@ -8,14 +8,14 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**actor** | **String** |  | [optional] [default to null]
-**message** | **String** |  | [optional] [default to null]
-**object** | **String** |  | [optional] [default to null]
-**origin** | **String** |  | [optional] [default to null]
-**subject** | [**ActivityEntity**](ActivityEntity.md) |  | [optional] [default to null]
-**time** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**title** | **String** |  | [optional] [default to null]
-**verb** | **String** |  | [optional] [default to null]
+**actor** | **String** |  | [optional] 
+**message** | **String** |  | [optional] 
+**object** | **String** |  | [optional] 
+**origin** | **String** |  | [optional] 
+**subject** | [**ActivityEntity**](ActivityEntity.md) |  | [optional] 
+**time** | [**DateTime**](DateTime.md) |  | [optional] 
+**title** | **String** |  | [optional] 
+**verb** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

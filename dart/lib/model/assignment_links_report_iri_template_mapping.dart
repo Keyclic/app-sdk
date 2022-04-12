@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class AssignmentLinksReportIriTemplateMapping {
+  /// Returns a new [AssignmentLinksReportIriTemplateMapping] instance.
   AssignmentLinksReportIriTemplateMapping({
     this.report,
   });
 
+  /// Returns a new [AssignmentLinksReportIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory AssignmentLinksReportIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,63 @@ class AssignmentLinksReportIriTemplateMapping {
     }
 
     return AssignmentLinksReportIriTemplateMapping(
-      report: json['report'],
+      report: json[r'report'],
     );
   }
 
   String report;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is AssignmentLinksReportIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        report == other.report;
+        other.report == report;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= report?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (report == null ? 0 : report.hashCode);
 
   static List<AssignmentLinksReportIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                AssignmentLinksReportIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <AssignmentLinksReportIriTemplateMapping>[];
+    return <AssignmentLinksReportIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          AssignmentLinksReportIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, AssignmentLinksReportIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, AssignmentLinksReportIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, AssignmentLinksReportIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, AssignmentLinksReportIriTemplateMapping>{};
+    return <String, AssignmentLinksReportIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              AssignmentLinksReportIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (report != null) 'report': report,
+  // maps a json object with a list of AssignmentLinksReportIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<AssignmentLinksReportIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<AssignmentLinksReportIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              AssignmentLinksReportIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'AssignmentLinksReportIriTemplateMapping[report=$report, ]';
+  String toString() =>
+      'AssignmentLinksReportIriTemplateMapping[report=$report]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (report != null) r'report': report,
+    };
   }
 }

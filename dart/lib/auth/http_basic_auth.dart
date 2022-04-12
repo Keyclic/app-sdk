@@ -1,20 +1,19 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class HttpBasicAuth implements Authentication {
-  String _basicToken;
+  String username;
+  String password;
 
   @override
   void applyToParams(
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (_basicToken != null) {
-      headerParams["Authorization"] = "Basic $_basicToken";
-    }
+      List<QueryParam> queryParams, Map<String, String> headerParams) {
+    final String credentials = '${username ?? ''}:${password ?? ''}';
+    headerParams['Authorization'] =
+        'Basic ${base64.encode(utf8.encode(credentials))}';
   }
-
-  /// value must be '${username ?? ""}:${password ?? ""}'
-  @override
-  void setAccessToken(String value) =>
-      _basicToken = base64.encode(utf8.encode(value));
 }

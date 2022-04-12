@@ -8,14 +8,14 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | **String** |  | [optional] [default to null]
-**description** | **String** |  | [optional] [default to null]
-**dueBy** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**identificationNumber** | **String** |  | [optional] [default to null]
-**name** | **String** |  | [optional] [default to null]
-**priority** | **String** |  | [optional] [default to null]
-**scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**tags** | **List&lt;String&gt;** |  | [optional] [default to []]
+**category** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
+**dueBy** | [**DateTime**](DateTime.md) |  | [optional] 
+**identificationNumber** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**priority** | **String** |  | [optional] 
+**scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**tags** | **List<String>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

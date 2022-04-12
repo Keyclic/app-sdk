@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Configuration {
+  /// Returns a new [Configuration] instance.
   Configuration({
     this.links,
     this.createdAt,
@@ -15,34 +21,37 @@ class Configuration {
     this.updatedAt,
   });
 
+  /// Returns a new [Configuration] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Configuration.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Configuration(
-      links: ConfigurationLinks.fromJson(json['_links']),
+      links: ConfigurationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      description: json['description'],
-      id: json['id'],
-      memberType: ConfigurationMemberType.fromJson(json['memberType']),
-      name: json['name'],
-      operationType: ConfigurationOperationType.fromJson(json['operationType']),
-      placeType: ConfigurationPlaceType.fromJson(json['placeType']),
-      reportType: ConfigurationReportType.fromJson(json['reportType']),
-      type: json['type'],
+      description: json[r'description'],
+      id: json[r'id'],
+      memberType: ConfigurationMemberType.fromJson(json[r'memberType']),
+      name: json[r'name'],
+      operationType:
+          ConfigurationOperationType.fromJson(json[r'operationType']),
+      placeType: ConfigurationPlaceType.fromJson(json[r'placeType']),
+      reportType: ConfigurationReportType.fromJson(json[r'reportType']),
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
@@ -70,79 +79,82 @@ class Configuration {
   DateTime updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Configuration &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        id == other.id &&
-        memberType == other.memberType &&
-        name == other.name &&
-        operationType == other.operationType &&
-        placeType == other.placeType &&
-        reportType == other.reportType &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.id == id &&
+        other.memberType == memberType &&
+        other.name == name &&
+        other.operationType == operationType &&
+        other.placeType == placeType &&
+        other.reportType == reportType &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= memberType?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= operationType?.hashCode ?? 0;
-    hashCode ^= placeType?.hashCode ?? 0;
-    hashCode ^= reportType?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (memberType == null ? 0 : memberType.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (operationType == null ? 0 : operationType.hashCode) +
+      (placeType == null ? 0 : placeType.hashCode) +
+      (reportType == null ? 0 : reportType.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<Configuration> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => Configuration.fromJson(value))
-            ?.toList() ??
-        <Configuration>[];
+    return <Configuration>[
+      if (json is List)
+        for (dynamic value in json) Configuration.fromJson(value),
+    ];
   }
 
   static Map<String, Configuration> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Configuration>((String key, dynamic value) {
-          return MapEntry(key, Configuration.fromJson(value));
-        }) ??
-        <String, Configuration>{};
+    return <String, Configuration>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Configuration.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (id != null) 'id': id,
-      if (memberType != null) 'memberType': memberType.toJson(),
-      if (name != null) 'name': name,
-      if (operationType != null) 'operationType': operationType.toJson(),
-      if (placeType != null) 'placeType': placeType.toJson(),
-      if (reportType != null) 'reportType': reportType.toJson(),
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+  // maps a json object with a list of Configuration-objects as value to a dart map
+  static Map<String, List<Configuration>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<Configuration>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Configuration.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Configuration[links=$links, createdAt=$createdAt, description=$description, id=$id, memberType=$memberType, name=$name, operationType=$operationType, placeType=$placeType, reportType=$reportType, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'Configuration[links=$links, createdAt=$createdAt, description=$description, id=$id, memberType=$memberType, name=$name, operationType=$operationType, placeType=$placeType, reportType=$reportType, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (id != null) r'id': id,
+      if (memberType != null) r'memberType': memberType,
+      if (name != null) r'name': name,
+      if (operationType != null) r'operationType': operationType,
+      if (placeType != null) r'placeType': placeType,
+      if (reportType != null) r'reportType': reportType,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+    };
   }
 }

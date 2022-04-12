@@ -1,85 +1,83 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Schema {
+  /// Returns a new [Schema] instance.
   Schema({
-    this.properties,
-    this.required,
+    this.properties = const {},
+    this.required_ = const [],
   });
 
+  /// Returns a new [Schema] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Schema.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Schema(
-      properties: SchemaProperty.mapFromJson(json['properties']),
-      required:
-          json['required'] is List ? List<String>.from(json['required']) : null,
+      properties: json[r'properties'],
+      required_: List<String>.from(json[r'required'] ?? []),
     );
   }
 
   Map<String, SchemaProperty> properties;
 
-  List<String> required;
+  List<String> required_;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Schema &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered()
             .equals(properties, other.properties) &&
-        DeepCollectionEquality.unordered().equals(required, other.required);
+        DeepCollectionEquality.unordered().equals(required_, other.required_);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (required is List && required.isNotEmpty) {
-      hashCode ^= required
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    if (properties is Map && properties.isNotEmpty) {
-      hashCode ^= properties.keys
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-      hashCode ^= properties.values
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (properties == null ? 0 : properties.hashCode) +
+      (required_ == null ? 0 : required_.hashCode);
 
   static List<Schema> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Schema.fromJson(value))?.toList() ??
-        <Schema>[];
+    return <Schema>[
+      if (json is List)
+        for (dynamic value in json) Schema.fromJson(value),
+    ];
   }
 
   static Map<String, Schema> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Schema>((String key, dynamic value) {
-          return MapEntry(key, Schema.fromJson(value));
-        }) ??
-        <String, Schema>{};
+    return <String, Schema>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Schema.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (properties != null) 'properties': properties,
-      if (required != null) 'required': required,
+  // maps a json object with a list of Schema-objects as value to a dart map
+  static Map<String, List<Schema>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Schema>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Schema.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Schema[properties=$properties, required=$required, ]';
+  String toString() => 'Schema[properties=$properties, required_=$required_]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (properties != null) r'properties': properties,
+      if (required_ != null) r'required': required_,
+    };
   }
 }

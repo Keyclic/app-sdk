@@ -1,6 +1,13 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
 
-class BusinessActivityPagination extends Pagination {
+part of keyclic_sdk_api;
+
+class BusinessActivityPagination
+    implements Pagination, BusinessActivityPaginationAllOf {
+  /// Returns a new [BusinessActivityPagination] instance.
   BusinessActivityPagination({
     this.limit,
     this.page,
@@ -10,18 +17,20 @@ class BusinessActivityPagination extends Pagination {
     this.embedded,
   });
 
+  /// Returns a new [BusinessActivityPagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory BusinessActivityPagination.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return BusinessActivityPagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: BusinessActivityCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: BusinessActivityCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -38,66 +47,68 @@ class BusinessActivityPagination extends Pagination {
   BusinessActivityCollection embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BusinessActivityPagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<BusinessActivityPagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BusinessActivityPagination.fromJson(value))
-            ?.toList() ??
-        <BusinessActivityPagination>[];
+    return <BusinessActivityPagination>[
+      if (json is List)
+        for (dynamic value in json) BusinessActivityPagination.fromJson(value),
+    ];
   }
 
   static Map<String, BusinessActivityPagination> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, BusinessActivityPagination>(
-            (String key, dynamic value) {
-          return MapEntry(key, BusinessActivityPagination.fromJson(value));
-        }) ??
-        <String, BusinessActivityPagination>{};
+    return <String, BusinessActivityPagination>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: BusinessActivityPagination.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
+  // maps a json object with a list of BusinessActivityPagination-objects as value to a dart map
+  static Map<String, List<BusinessActivityPagination>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<BusinessActivityPagination>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: BusinessActivityPagination.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'BusinessActivityPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'BusinessActivityPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

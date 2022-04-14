@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.22.0-dev.fed8e1efd7"
+        "version": "2.24.3-dev.d508cf2e79"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -6035,111 +6035,6 @@
                 ]
             }
         },
-        "\/members\/{member}\/bookmarks": {
-            "get": {
-                "tags": [
-                    "Member"
-                ],
-                "summary": "Retrieve all Bookmark resources.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "cgetBookmarksByMember",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/after"
-                    },
-                    {
-                        "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/page"
-                    },
-                    {
-                        "$ref": "#\/parameters\/limit"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "member",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/BookmarkPagination"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/members\/{member}": {
             "delete": {
                 "tags": [
@@ -10138,6 +10033,111 @@
                     },
                     "403": {
                         "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "\/people\/{person}\/bookmarks": {
+            "get": {
+                "tags": [
+                    "Person"
+                ],
+                "summary": "Retrieve all Bookmark resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetBookmarksByPerson",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "person",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/BookmarkPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
                         "schema": {
                             "$ref": "#\/definitions\/Problem"
                         }

@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.23.5-dev.70268b8176"
+        "version": "2.24.9-dev.c80f53d71f"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -15320,6 +15320,62 @@
                 ]
             }
         },
+        "\/webhooks\/incoming": {
+            "post": {
+                "tags": [
+                    "Webhook"
+                ],
+                "summary": "Create one Incoming resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "postIncoming",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ]
+            }
+        },
         "\/workflows\/{workflow}": {
             "get": {
                 "tags": [
@@ -17871,6 +17927,9 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "signed": {
+                    "type": "boolean"
                 }
             }
         },
@@ -20770,6 +20829,9 @@
                 "categoryRequired": {
                     "type": "boolean"
                 },
+                "electronicSignature": {
+                    "$ref": "#\/definitions\/PreferencesElectronicSignature"
+                },
                 "form": {
                     "$ref": "#\/definitions\/PreferencesForm"
                 },
@@ -21733,6 +21795,14 @@
                 }
             }
         },
+        "PreferencesElectronicSignature": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
         "PreferencesForm": {
             "type": "object",
             "properties": {
@@ -21846,6 +21916,13 @@
             "properties": {
                 "document": {
                     "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "e-signature",
+                        "signature"
+                    ]
                 }
             },
             "required": [

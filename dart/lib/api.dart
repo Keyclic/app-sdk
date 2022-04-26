@@ -55,6 +55,7 @@ part 'api/security_api.dart';
 part 'api/service_api.dart';
 part 'api/signer_api.dart';
 part 'api/template_api.dart';
+part 'api/webhook_api.dart';
 part 'api/workflow_api.dart';
 
 part 'model/activity.dart';
@@ -426,6 +427,7 @@ part 'model/plan_links_self_iri_template.dart';
 part 'model/plan_patch.dart';
 part 'model/point.dart';
 part 'model/polygon.dart';
+part 'model/preferences_electronic_signature.dart';
 part 'model/preferences_form.dart';
 part 'model/preferences_notification.dart';
 part 'model/preferences_reference.dart';

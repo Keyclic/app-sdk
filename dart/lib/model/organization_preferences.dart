@@ -3,6 +3,7 @@ part of keyclic_sdk_api.api;
 class OrganizationPreferences {
   OrganizationPreferences({
     this.categoryRequired,
+    this.electronicSignature,
     this.form,
     this.offline,
     this.public,
@@ -17,6 +18,8 @@ class OrganizationPreferences {
 
     return OrganizationPreferences(
       categoryRequired: json['categoryRequired'],
+      electronicSignature:
+          PreferencesElectronicSignature.fromJson(json['electronicSignature']),
       form: PreferencesForm.fromJson(json['form']),
       offline: json['offline'],
       public: json['public'],
@@ -26,6 +29,8 @@ class OrganizationPreferences {
   }
 
   bool categoryRequired;
+
+  PreferencesElectronicSignature electronicSignature;
 
   PreferencesForm form;
 
@@ -47,6 +52,7 @@ class OrganizationPreferences {
     return other is OrganizationPreferences &&
         runtimeType == other.runtimeType &&
         categoryRequired == other.categoryRequired &&
+        electronicSignature == other.electronicSignature &&
         form == other.form &&
         offline == other.offline &&
         public == other.public &&
@@ -60,6 +66,7 @@ class OrganizationPreferences {
     int hashCode = 0;
 
     hashCode ^= categoryRequired?.hashCode ?? 0;
+    hashCode ^= electronicSignature?.hashCode ?? 0;
     hashCode ^= form?.hashCode ?? 0;
     hashCode ^= offline?.hashCode ?? 0;
     hashCode ^= public?.hashCode ?? 0;
@@ -88,6 +95,8 @@ class OrganizationPreferences {
   Map<String, dynamic> toJson() {
     return {
       if (categoryRequired != null) 'categoryRequired': categoryRequired,
+      if (electronicSignature != null)
+        'electronicSignature': electronicSignature.toJson(),
       if (form != null) 'form': form.toJson(),
       if (offline != null) 'offline': offline,
       if (public != null) 'public': public,
@@ -98,6 +107,6 @@ class OrganizationPreferences {
 
   @override
   String toString() {
-    return 'OrganizationPreferences[categoryRequired=$categoryRequired, form=$form, offline=$offline, public=$public, reference=$reference, reviewEnabled=$reviewEnabled, ]';
+    return 'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, form=$form, offline=$offline, public=$public, reference=$reference, reviewEnabled=$reviewEnabled, ]';
   }
 }

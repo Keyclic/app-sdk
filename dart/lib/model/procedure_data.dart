@@ -1,8 +1,14 @@
 part of keyclic_sdk_api.api;
 
+class ProcedureDataTypeEnum {
+  static const String eSignature_ = "e-signature";
+  static const String signature_ = "signature";
+}
+
 class ProcedureData {
   ProcedureData({
     this.document,
+    this.type,
   });
 
   factory ProcedureData.fromJson(Map<String, dynamic> json) {
@@ -12,10 +18,14 @@ class ProcedureData {
 
     return ProcedureData(
       document: json['document'],
+      type: json['type'],
     );
   }
 
   String document;
+
+  /// use ProcedureDataTypeEnum
+  String type;
 
   @override
   bool operator ==(dynamic other) {
@@ -26,7 +36,8 @@ class ProcedureData {
 
     return other is ProcedureData &&
         runtimeType == other.runtimeType &&
-        document == other.document;
+        document == other.document &&
+        type == other.type;
   }
 
   /// By default hashCode return reference
@@ -35,6 +46,7 @@ class ProcedureData {
     int hashCode = 0;
 
     hashCode ^= document?.hashCode ?? 0;
+    hashCode ^= type?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -56,11 +68,12 @@ class ProcedureData {
   Map<String, dynamic> toJson() {
     return {
       if (document != null) 'document': document,
+      if (type != null) 'type': type,
     };
   }
 
   @override
   String toString() {
-    return 'ProcedureData[document=$document, ]';
+    return 'ProcedureData[document=$document, type=$type, ]';
   }
 }

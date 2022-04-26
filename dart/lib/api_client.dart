@@ -855,6 +855,8 @@ class ApiClient {
           return Point.fromJson(value);
         case 'Polygon':
           return Polygon.fromJson(value);
+        case 'PreferencesElectronicSignature':
+          return PreferencesElectronicSignature.fromJson(value);
         case 'PreferencesForm':
           return PreferencesForm.fromJson(value);
         case 'PreferencesNotification':

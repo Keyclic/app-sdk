@@ -3,6 +3,7 @@ part of keyclic_sdk_api.api;
 class SignerData {
   SignerData({
     this.document,
+    this.procedure,
     this.member,
   });
 
@@ -13,11 +14,14 @@ class SignerData {
 
     return SignerData(
       document: json['document'],
+      procedure: json['procedure'],
       member: json['member'],
     );
   }
 
   String document;
+
+  String procedure;
 
   String member;
 
@@ -31,6 +35,7 @@ class SignerData {
     return other is SignerData &&
         runtimeType == other.runtimeType &&
         document == other.document &&
+        procedure == other.procedure &&
         member == other.member;
   }
 
@@ -40,6 +45,7 @@ class SignerData {
     int hashCode = 0;
 
     hashCode ^= document?.hashCode ?? 0;
+    hashCode ^= procedure?.hashCode ?? 0;
     hashCode ^= member?.hashCode ?? 0;
 
     return hashCode;
@@ -60,12 +66,13 @@ class SignerData {
   Map<String, dynamic> toJson() {
     return {
       if (document != null) 'document': document,
+      if (procedure != null) 'procedure': procedure,
       if (member != null) 'member': member,
     };
   }
 
   @override
   String toString() {
-    return 'SignerData[document=$document, member=$member, ]';
+    return 'SignerData[document=$document, procedure=$procedure, member=$member, ]';
   }
 }

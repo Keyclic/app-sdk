@@ -6,6 +6,7 @@ class DocumentType {
     this.type,
     this.name,
     this.description,
+    this.signed,
   });
 
   factory DocumentType.fromJson(Map<String, dynamic> json) {
@@ -18,6 +19,7 @@ class DocumentType {
       type: json['type'],
       name: json['name'],
       description: json['description'],
+      signed: json['signed'],
     );
   }
 
@@ -28,6 +30,8 @@ class DocumentType {
   String name;
 
   String description;
+
+  bool signed;
 
   @override
   bool operator ==(dynamic other) {
@@ -41,7 +45,8 @@ class DocumentType {
         id == other.id &&
         type == other.type &&
         name == other.name &&
-        description == other.description;
+        description == other.description &&
+        signed == other.signed;
   }
 
   /// By default hashCode return reference
@@ -53,6 +58,7 @@ class DocumentType {
     hashCode ^= type?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
     hashCode ^= description?.hashCode ?? 0;
+    hashCode ^= signed?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -77,11 +83,12 @@ class DocumentType {
       if (type != null) 'type': type,
       if (name != null) 'name': name,
       if (description != null) 'description': description,
+      if (signed != null) 'signed': signed,
     };
   }
 
   @override
   String toString() {
-    return 'DocumentType[id=$id, type=$type, name=$name, description=$description, ]';
+    return 'DocumentType[id=$id, type=$type, name=$name, description=$description, signed=$signed, ]';
   }
 }

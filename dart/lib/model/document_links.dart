@@ -4,6 +4,7 @@ class DocumentLinks {
   DocumentLinks({
     this.createdBy,
     this.file,
+    this.procedure,
     this.self,
   });
 
@@ -15,6 +16,7 @@ class DocumentLinks {
     return DocumentLinks(
       createdBy: DocumentLinksCreatedBy.fromJson(json['createdBy']),
       file: DocumentLinksFile.fromJson(json['file']),
+      procedure: DocumentLinksProcedure.fromJson(json['procedure']),
       self: DocumentLinksSelf.fromJson(json['self']),
     );
   }
@@ -22,6 +24,8 @@ class DocumentLinks {
   DocumentLinksCreatedBy createdBy;
 
   DocumentLinksFile file;
+
+  DocumentLinksProcedure procedure;
 
   DocumentLinksSelf self;
 
@@ -36,6 +40,7 @@ class DocumentLinks {
         runtimeType == other.runtimeType &&
         createdBy == other.createdBy &&
         file == other.file &&
+        procedure == other.procedure &&
         self == other.self;
   }
 
@@ -46,6 +51,7 @@ class DocumentLinks {
 
     hashCode ^= createdBy?.hashCode ?? 0;
     hashCode ^= file?.hashCode ?? 0;
+    hashCode ^= procedure?.hashCode ?? 0;
     hashCode ^= self?.hashCode ?? 0;
 
     return hashCode;
@@ -69,12 +75,13 @@ class DocumentLinks {
     return {
       if (createdBy != null) 'createdBy': createdBy.toJson(),
       if (file != null) 'file': file.toJson(),
+      if (procedure != null) 'procedure': procedure.toJson(),
       if (self != null) 'self': self.toJson(),
     };
   }
 
   @override
   String toString() {
-    return 'DocumentLinks[createdBy=$createdBy, file=$file, self=$self, ]';
+    return 'DocumentLinks[createdBy=$createdBy, file=$file, procedure=$procedure, self=$self, ]';
   }
 }

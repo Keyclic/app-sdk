@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.SignerLinks
+# keyclic_sdk_api.model.SignerCollection
 
 ## Load the model package
 ```dart
@@ -8,8 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**procedure** | [**SignerLinksProcedure**](SignerLinksProcedure.md) |  | [optional] [default to null]
-**self** | [**SignerLinksSelf**](SignerLinksSelf.md) |  | [optional] [default to null]
+**items** | [**List&lt;Signer&gt;**](Signer.md) |  | [optional] [default to []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

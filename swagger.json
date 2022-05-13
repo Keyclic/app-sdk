@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.24.7"
+        "version": "2.24.10-dev.33afd5803d"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -12027,6 +12027,373 @@
                 ]
             }
         },
+        "\/procedures\/{procedure}\/signers": {
+            "get": {
+                "tags": [
+                    "Procedure"
+                ],
+                "summary": "Retrieve all Signer resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetSignersByProcedure",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "procedure",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/SignerPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "\/procedures\/{procedure}": {
+            "get": {
+                "tags": [
+                    "Procedure"
+                ],
+                "summary": "Retrieve one Procedure resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "getProcedure",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "procedure",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Procedure"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "\/procedures": {
+            "post": {
+                "tags": [
+                    "Procedure"
+                ],
+                "summary": "Create one Procedure resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "postProcedure",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/ProcedureData"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Returned when the resource is created",
+                        "schema": {
+                            "$ref": "#\/definitions\/Procedure"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "\/procedures\/{procedure}\/workflow": {
+            "post": {
+                "tags": [
+                    "Procedure"
+                ],
+                "summary": "Create one Workflow resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "postWorkflowByProcedure",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/ProcedureWorkflowData"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "procedure",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Procedure"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/publications\/{publication}": {
             "delete": {
                 "tags": [
@@ -14953,6 +15320,62 @@
                 ]
             }
         },
+        "\/webhooks\/incoming": {
+            "post": {
+                "tags": [
+                    "Webhook"
+                ],
+                "summary": "Create one Incoming resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "postIncoming",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ]
+            }
+        },
         "\/workflows\/{workflow}": {
             "get": {
                 "tags": [
@@ -17200,6 +17623,9 @@
                         "file": {
                             "$ref": "#\/definitions\/DocumentLinksFile"
                         },
+                        "procedure": {
+                            "$ref": "#\/definitions\/DocumentLinksProcedure"
+                        },
                         "self": {
                             "$ref": "#\/definitions\/DocumentLinksSelf"
                         }
@@ -17377,6 +17803,32 @@
                 }
             }
         },
+        "DocumentLinksProcedure": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the procedure associated to the given document.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/DocumentLinksProcedureIriTemplate"
+                }
+            }
+        },
+        "DocumentLinksProcedureIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "procedure": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "DocumentLinksSelf": {
             "type": "object",
             "properties": {
@@ -17475,6 +17927,9 @@
                 },
                 "description": {
                     "type": "string"
+                },
+                "signed": {
+                    "type": "boolean"
                 }
             }
         },
@@ -20374,6 +20829,9 @@
                 "categoryRequired": {
                     "type": "boolean"
                 },
+                "electronicSignature": {
+                    "$ref": "#\/definitions\/PreferencesElectronicSignature"
+                },
                 "form": {
                     "$ref": "#\/definitions\/PreferencesForm"
                 },
@@ -21337,6 +21795,14 @@
                 }
             }
         },
+        "PreferencesElectronicSignature": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
         "PreferencesForm": {
             "type": "object",
             "properties": {
@@ -21395,6 +21861,140 @@
                     }
                 }
             }
+        },
+        "Procedure": {
+            "type": "object",
+            "properties": {
+                "_embedded": {
+                    "type": "object",
+                    "properties": {
+                        "document": {
+                            "$ref": "#\/definitions\/Document"
+                        }
+                    }
+                },
+                "_links": {
+                    "type": "object",
+                    "properties": {
+                        "document": {
+                            "$ref": "#\/definitions\/ProcedureLinksDocument"
+                        },
+                        "self": {
+                            "$ref": "#\/definitions\/ProcedureLinksSelf"
+                        }
+                    }
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "state": {
+                    "format": "string",
+                    "maxLength": 18,
+                    "type": "string"
+                },
+                "type": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
+                }
+            }
+        },
+        "ProcedureData": {
+            "type": "object",
+            "properties": {
+                "document": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "e-signature",
+                        "signature"
+                    ]
+                }
+            },
+            "required": [
+                "document",
+                "type"
+            ]
+        },
+        "ProcedureLinksDocument": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the document associated to the given procedure.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ProcedureLinksDocumentIriTemplate"
+                }
+            }
+        },
+        "ProcedureLinksDocumentIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "document": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ProcedureLinksSelf": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the self associated to the given procedure.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ProcedureLinksSelfIriTemplate"
+                }
+            }
+        },
+        "ProcedureLinksSelfIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "procedure": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ProcedureWorkflowData": {
+            "type": "object",
+            "properties": {
+                "transition": {
+                    "type": "string",
+                    "enum": [
+                        "activate"
+                    ]
+                }
+            },
+            "required": [
+                "transition"
+            ]
         },
         "PropertyConditionList": {
             "type": "object",
@@ -23124,6 +23724,9 @@
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "procedure": {
+                            "$ref": "#\/definitions\/SignerLinksProcedure"
+                        },
                         "self": {
                             "$ref": "#\/definitions\/SignerLinksSelf"
                         }
@@ -23138,9 +23741,26 @@
                 "signature": {
                     "$ref": "#\/definitions\/SignerSignature"
                 },
+                "state": {
+                    "format": "string",
+                    "maxLength": 18,
+                    "type": "string"
+                },
                 "type": {
                     "format": "string",
                     "type": "string"
+                }
+            }
+        },
+        "SignerCollection": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "$ref": "#\/definitions\/Signer"
+                    }
                 }
             }
         },
@@ -23148,6 +23768,9 @@
             "type": "object",
             "properties": {
                 "document": {
+                    "type": "string"
+                },
+                "procedure": {
                     "type": "string"
                 },
                 "member": {
@@ -23158,6 +23781,32 @@
                 "document",
                 "member"
             ]
+        },
+        "SignerLinksProcedure": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the procedure associated to the given signer.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/SignerLinksProcedureIriTemplate"
+                }
+            }
+        },
+        "SignerLinksProcedureIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "procedure": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "SignerLinksSelf": {
             "type": "object",
@@ -23184,6 +23833,21 @@
                     }
                 }
             }
+        },
+        "SignerPagination": {
+            "allOf": [
+                {
+                    "$ref": "#\/definitions\/Pagination"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "_embedded": {
+                            "$ref": "#\/definitions\/SignerCollection"
+                        }
+                    }
+                }
+            ]
         },
         "SignerSignature": {
             "type": "object",
@@ -24642,6 +25306,22 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/PlanData"
+            },
+            "required": true
+        },
+        "ProcedureData": {
+            "name": "ProcedureData",
+            "in": "body",
+            "schema": {
+                "$ref": "#\/definitions\/ProcedureData"
+            },
+            "required": true
+        },
+        "ProcedureWorkflowData": {
+            "name": "ProcedureWorkflowData",
+            "in": "body",
+            "schema": {
+                "$ref": "#\/definitions\/ProcedureWorkflowData"
             },
             "required": true
         },

@@ -387,6 +387,12 @@ class ApiClient {
           return DocumentLinksFileIriTemplate.fromJson(value);
         case 'DocumentLinksFileIriTemplateMapping':
           return DocumentLinksFileIriTemplateMapping.fromJson(value);
+        case 'DocumentLinksProcedure':
+          return DocumentLinksProcedure.fromJson(value);
+        case 'DocumentLinksProcedureIriTemplate':
+          return DocumentLinksProcedureIriTemplate.fromJson(value);
+        case 'DocumentLinksProcedureIriTemplateMapping':
+          return DocumentLinksProcedureIriTemplateMapping.fromJson(value);
         case 'DocumentLinksSelf':
           return DocumentLinksSelf.fromJson(value);
         case 'DocumentLinksSelfIriTemplate':
@@ -849,6 +855,8 @@ class ApiClient {
           return Point.fromJson(value);
         case 'Polygon':
           return Polygon.fromJson(value);
+        case 'PreferencesElectronicSignature':
+          return PreferencesElectronicSignature.fromJson(value);
         case 'PreferencesForm':
           return PreferencesForm.fromJson(value);
         case 'PreferencesNotification':
@@ -859,6 +867,24 @@ class ApiClient {
           return Problem.fromJson(value);
         case 'ProblemEmbedded':
           return ProblemEmbedded.fromJson(value);
+        case 'Procedure':
+          return Procedure.fromJson(value);
+        case 'ProcedureData':
+          return ProcedureData.fromJson(value);
+        case 'ProcedureEmbedded':
+          return ProcedureEmbedded.fromJson(value);
+        case 'ProcedureLinks':
+          return ProcedureLinks.fromJson(value);
+        case 'ProcedureLinksDocument':
+          return ProcedureLinksDocument.fromJson(value);
+        case 'ProcedureLinksDocumentIriTemplate':
+          return ProcedureLinksDocumentIriTemplate.fromJson(value);
+        case 'ProcedureLinksSelf':
+          return ProcedureLinksSelf.fromJson(value);
+        case 'ProcedureLinksSelfIriTemplate':
+          return ProcedureLinksSelfIriTemplate.fromJson(value);
+        case 'ProcedureWorkflowData':
+          return ProcedureWorkflowData.fromJson(value);
         case 'PropertyConditionList':
           return PropertyConditionList.fromJson(value);
         case 'PropertyItems':
@@ -1051,10 +1077,16 @@ class ApiClient {
           return SignatureSigner.fromJson(value);
         case 'Signer':
           return Signer.fromJson(value);
+        case 'SignerCollection':
+          return SignerCollection.fromJson(value);
         case 'SignerData':
           return SignerData.fromJson(value);
         case 'SignerLinks':
           return SignerLinks.fromJson(value);
+        case 'SignerLinksProcedure':
+          return SignerLinksProcedure.fromJson(value);
+        case 'SignerLinksProcedureIriTemplate':
+          return SignerLinksProcedureIriTemplate.fromJson(value);
         case 'SignerLinksSelf':
           return SignerLinksSelf.fromJson(value);
         case 'SignerLinksSelfIriTemplate':
@@ -1151,6 +1183,8 @@ class ApiClient {
           return SectionPagination.fromJson(value);
         case 'ServicePagination':
           return ServicePagination.fromJson(value);
+        case 'SignerPagination':
+          return SignerPagination.fromJson(value);
         case 'TemplatePagination':
           return TemplatePagination.fromJson(value);
         default:

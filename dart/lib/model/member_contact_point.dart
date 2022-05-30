@@ -4,6 +4,8 @@ class MemberContactPoint {
   MemberContactPoint({
     this.description,
     this.email,
+    this.familyName,
+    this.givenName,
     this.isOpen,
     this.name,
     this.telephone,
@@ -17,6 +19,8 @@ class MemberContactPoint {
     return MemberContactPoint(
       description: json['description'],
       email: json['email'],
+      familyName: json['familyName'],
+      givenName: json['givenName'],
       isOpen: json['isOpen'],
       name: json['name'],
       telephone: json['telephone'],
@@ -26,6 +30,10 @@ class MemberContactPoint {
   String description;
 
   String email;
+
+  String familyName;
+
+  String givenName;
 
   bool isOpen;
 
@@ -44,6 +52,8 @@ class MemberContactPoint {
         runtimeType == other.runtimeType &&
         description == other.description &&
         email == other.email &&
+        familyName == other.familyName &&
+        givenName == other.givenName &&
         isOpen == other.isOpen &&
         name == other.name &&
         telephone == other.telephone;
@@ -56,6 +66,8 @@ class MemberContactPoint {
 
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= email?.hashCode ?? 0;
+    hashCode ^= familyName?.hashCode ?? 0;
+    hashCode ^= givenName?.hashCode ?? 0;
     hashCode ^= isOpen?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
     hashCode ^= telephone?.hashCode ?? 0;
@@ -82,6 +94,8 @@ class MemberContactPoint {
     return {
       if (description != null) 'description': description,
       if (email != null) 'email': email,
+      if (familyName != null) 'familyName': familyName,
+      if (givenName != null) 'givenName': givenName,
       if (isOpen != null) 'isOpen': isOpen,
       if (name != null) 'name': name,
       if (telephone != null) 'telephone': telephone,
@@ -90,6 +104,6 @@ class MemberContactPoint {
 
   @override
   String toString() {
-    return 'MemberContactPoint[description=$description, email=$email, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
+    return 'MemberContactPoint[description=$description, email=$email, familyName=$familyName, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
   }
 }

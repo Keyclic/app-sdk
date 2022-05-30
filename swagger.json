@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.25.6"
+        "version": "2.26.0-dev.cd14aa0bed"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -18098,6 +18098,16 @@
                     "format": "string",
                     "type": "string"
                 },
+                "familyName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "givenName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
                 "isOpen": {
                     "type": "boolean"
                 },
@@ -18931,6 +18941,16 @@
                     "format": "string",
                     "type": "string"
                 },
+                "familyName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "givenName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
                 "isOpen": {
                     "type": "boolean"
                 },
@@ -18968,6 +18988,12 @@
                             "type": "string"
                         },
                         "email": {
+                            "type": "string"
+                        },
+                        "familyName": {
+                            "type": "string"
+                        },
+                        "givenName": {
                             "type": "string"
                         },
                         "name": {
@@ -19600,6 +19626,16 @@
                     "format": "string",
                     "type": "string"
                 },
+                "familyName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "givenName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
                 "isOpen": {
                     "type": "boolean"
                 },
@@ -19623,6 +19659,12 @@
                             "type": "string"
                         },
                         "email": {
+                            "type": "string"
+                        },
+                        "familyName": {
+                            "type": "string"
+                        },
+                        "givenName": {
                             "type": "string"
                         },
                         "name": {
@@ -19756,6 +19798,16 @@
                         },
                         "email": {
                             "format": "string",
+                            "type": "string"
+                        },
+                        "familyName": {
+                            "format": "string",
+                            "maxLength": 255,
+                            "type": "string"
+                        },
+                        "givenName": {
+                            "format": "string",
+                            "maxLength": 255,
                             "type": "string"
                         },
                         "telephone": {
@@ -23625,6 +23677,16 @@
                 },
                 "email": {
                     "format": "string",
+                    "type": "string"
+                },
+                "familyName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "givenName": {
+                    "format": "string",
+                    "maxLength": 255,
                     "type": "string"
                 },
                 "isOpen": {

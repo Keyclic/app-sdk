@@ -4,6 +4,8 @@ class MemberPatchContactPoint {
   MemberPatchContactPoint({
     this.description,
     this.email,
+    this.familyName,
+    this.givenName,
     this.telephone,
     this.name,
   });
@@ -16,6 +18,8 @@ class MemberPatchContactPoint {
     return MemberPatchContactPoint(
       description: json['description'],
       email: json['email'],
+      familyName: json['familyName'],
+      givenName: json['givenName'],
       telephone: json['telephone'],
       name: json['name'],
     );
@@ -24,6 +28,10 @@ class MemberPatchContactPoint {
   String description;
 
   String email;
+
+  String familyName;
+
+  String givenName;
 
   String telephone;
 
@@ -40,6 +48,8 @@ class MemberPatchContactPoint {
         runtimeType == other.runtimeType &&
         description == other.description &&
         email == other.email &&
+        familyName == other.familyName &&
+        givenName == other.givenName &&
         telephone == other.telephone &&
         name == other.name;
   }
@@ -51,6 +61,8 @@ class MemberPatchContactPoint {
 
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= email?.hashCode ?? 0;
+    hashCode ^= familyName?.hashCode ?? 0;
+    hashCode ^= givenName?.hashCode ?? 0;
     hashCode ^= telephone?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
 
@@ -77,6 +89,8 @@ class MemberPatchContactPoint {
     return {
       if (description != null) 'description': description,
       if (email != null) 'email': email,
+      if (familyName != null) 'familyName': familyName,
+      if (givenName != null) 'givenName': givenName,
       if (telephone != null) 'telephone': telephone,
       if (name != null) 'name': name,
     };
@@ -84,6 +98,6 @@ class MemberPatchContactPoint {
 
   @override
   String toString() {
-    return 'MemberPatchContactPoint[description=$description, email=$email, telephone=$telephone, name=$name, ]';
+    return 'MemberPatchContactPoint[description=$description, email=$email, familyName=$familyName, givenName=$givenName, telephone=$telephone, name=$name, ]';
   }
 }

@@ -4,6 +4,8 @@ class InternalServiceDataContactPoint {
   InternalServiceDataContactPoint({
     this.description,
     this.email,
+    this.familyName,
+    this.givenName,
     this.name,
     this.telephone,
   });
@@ -16,6 +18,8 @@ class InternalServiceDataContactPoint {
     return InternalServiceDataContactPoint(
       description: json['description'],
       email: json['email'],
+      familyName: json['familyName'],
+      givenName: json['givenName'],
       name: json['name'],
       telephone: json['telephone'],
     );
@@ -24,6 +28,10 @@ class InternalServiceDataContactPoint {
   String description;
 
   String email;
+
+  String familyName;
+
+  String givenName;
 
   String name;
 
@@ -40,6 +48,8 @@ class InternalServiceDataContactPoint {
         runtimeType == other.runtimeType &&
         description == other.description &&
         email == other.email &&
+        familyName == other.familyName &&
+        givenName == other.givenName &&
         name == other.name &&
         telephone == other.telephone;
   }
@@ -51,6 +61,8 @@ class InternalServiceDataContactPoint {
 
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= email?.hashCode ?? 0;
+    hashCode ^= familyName?.hashCode ?? 0;
+    hashCode ^= givenName?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
     hashCode ^= telephone?.hashCode ?? 0;
 
@@ -79,6 +91,8 @@ class InternalServiceDataContactPoint {
     return {
       if (description != null) 'description': description,
       if (email != null) 'email': email,
+      if (familyName != null) 'familyName': familyName,
+      if (givenName != null) 'givenName': givenName,
       if (name != null) 'name': name,
       if (telephone != null) 'telephone': telephone,
     };
@@ -86,6 +100,6 @@ class InternalServiceDataContactPoint {
 
   @override
   String toString() {
-    return 'InternalServiceDataContactPoint[description=$description, email=$email, name=$name, telephone=$telephone, ]';
+    return 'InternalServiceDataContactPoint[description=$description, email=$email, familyName=$familyName, givenName=$givenName, name=$name, telephone=$telephone, ]';
   }
 }

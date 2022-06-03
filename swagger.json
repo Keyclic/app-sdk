@@ -18492,6 +18492,9 @@
                 "place": {
                     "type": "string"
                 },
+                "reporter": {
+                    "type": "string"
+                },
                 "visibility": {
                     "type": "string",
                     "enum": [

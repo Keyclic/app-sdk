@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **links** | [**ProcedureLinks**](ProcedureLinks.md) |  | [optional] [default to null]
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 **id** | **String** |  | [optional] [default to null]
+**mode** | **String** |  | [optional] [default to null]
 **state** | **String** |  | [optional] [default to null]
 **type** | **String** |  | [optional] [default to null]
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]

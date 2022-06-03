@@ -1,5 +1,10 @@
 part of keyclic_sdk_api.api;
 
+class ProcedureDataModeEnum {
+  static const String remote_ = "remote";
+  static const String onSite_ = "on_site";
+}
+
 class ProcedureDataTypeEnum {
   static const String eSignature_ = "e-signature";
   static const String signature_ = "signature";
@@ -8,6 +13,7 @@ class ProcedureDataTypeEnum {
 class ProcedureData {
   ProcedureData({
     this.document,
+    this.mode,
     this.type,
   });
 
@@ -18,11 +24,15 @@ class ProcedureData {
 
     return ProcedureData(
       document: json['document'],
+      mode: json['mode'],
       type: json['type'],
     );
   }
 
   String document;
+
+  /// use ProcedureDataModeEnum
+  String mode;
 
   /// use ProcedureDataTypeEnum
   String type;
@@ -37,6 +47,7 @@ class ProcedureData {
     return other is ProcedureData &&
         runtimeType == other.runtimeType &&
         document == other.document &&
+        mode == other.mode &&
         type == other.type;
   }
 
@@ -46,6 +57,7 @@ class ProcedureData {
     int hashCode = 0;
 
     hashCode ^= document?.hashCode ?? 0;
+    hashCode ^= mode?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
 
     return hashCode;
@@ -68,12 +80,13 @@ class ProcedureData {
   Map<String, dynamic> toJson() {
     return {
       if (document != null) 'document': document,
+      if (mode != null) 'mode': mode,
       if (type != null) 'type': type,
     };
   }
 
   @override
   String toString() {
-    return 'ProcedureData[document=$document, type=$type, ]';
+    return 'ProcedureData[document=$document, mode=$mode, type=$type, ]';
   }
 }

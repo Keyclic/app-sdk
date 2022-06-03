@@ -6,6 +6,7 @@ class Procedure {
     this.links,
     this.createdAt,
     this.id,
+    this.mode,
     this.state,
     this.type,
     this.updatedAt,
@@ -33,6 +34,7 @@ class Procedure {
       links: ProcedureLinks.fromJson(json['_links']),
       createdAt: createdAt,
       id: json['id'],
+      mode: json['mode'],
       state: json['state'],
       type: json['type'],
       updatedAt: updatedAt,
@@ -46,6 +48,8 @@ class Procedure {
   DateTime createdAt;
 
   String id;
+
+  String mode;
 
   String state;
 
@@ -66,6 +70,7 @@ class Procedure {
         links == other.links &&
         createdAt == other.createdAt &&
         id == other.id &&
+        mode == other.mode &&
         state == other.state &&
         type == other.type &&
         updatedAt == other.updatedAt;
@@ -80,6 +85,7 @@ class Procedure {
     hashCode ^= links?.hashCode ?? 0;
     hashCode ^= createdAt?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
+    hashCode ^= mode?.hashCode ?? 0;
     hashCode ^= state?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
     hashCode ^= updatedAt?.hashCode ?? 0;
@@ -105,6 +111,7 @@ class Procedure {
       if (links != null) '_links': links.toJson(),
       if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
       if (id != null) 'id': id,
+      if (mode != null) 'mode': mode,
       if (state != null) 'state': state,
       if (type != null) 'type': type,
       if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
@@ -113,6 +120,6 @@ class Procedure {
 
   @override
   String toString() {
-    return 'Procedure[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, state=$state, type=$type, updatedAt=$updatedAt, ]';
+    return 'Procedure[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, mode=$mode, state=$state, type=$type, updatedAt=$updatedAt, ]';
   }
 }

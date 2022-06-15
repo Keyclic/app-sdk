@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class OperationPriority {
 
   /// Returns a new [OperationPriority] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationPriority.fromJson(Map<String, dynamic> json) {
+  static OperationPriority? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class OperationPriority {
     );
   }
 
-  String color;
+  String? color;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  int position;
+  int? position;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -64,27 +63,37 @@ class OperationPriority {
       (position == null ? 0 : position.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<OperationPriority> listFromJson(List<dynamic> json) {
-    return <OperationPriority>[
-      if (json is List)
-        for (dynamic value in json) OperationPriority.fromJson(value),
-    ];
+  static List<OperationPriority> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationPriority>[];
+    }
+    return json
+        .map((value) {
+          return OperationPriority.fromJson(value);
+        })
+        .whereType<OperationPriority>()
+        .toList();
   }
 
-  static Map<String, OperationPriority> mapFromJson(Map<String, dynamic> json) {
-    return <String, OperationPriority>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationPriority.fromJson(entry.value),
-    };
+  static Map<String, OperationPriority> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationPriority>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, OperationPriority?>(
+        key, OperationPriority.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, OperationPriority>;
   }
 
   // maps a json object with a list of OperationPriority-objects as value to a dart map
   static Map<String, List<OperationPriority>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<OperationPriority>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: OperationPriority.listFromJson(entry.value),
     };
   }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class Organization {
     this.description,
     this.enabled,
     this.id,
-    @required this.name,
+    required this.name,
     this.preferences,
     this.type,
     this.updatedAt,
@@ -23,19 +22,21 @@ class Organization {
 
   /// Returns a new [Organization] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Organization.fromJson(Map<String, dynamic> json) {
+  static Organization? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,27 +56,27 @@ class Organization {
     );
   }
 
-  OrganizationLinks links;
+  OrganizationLinks? links;
 
-  OrganizationPostalAddress address;
+  OrganizationPostalAddress? address;
 
-  String alternateName;
+  String? alternateName;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  bool enabled;
+  bool? enabled;
 
-  String id;
+  final String? id;
 
   String name;
 
-  OrganizationPreferences preferences;
+  OrganizationPreferences? preferences;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -107,32 +108,41 @@ class Organization {
       (description == null ? 0 : description.hashCode) +
       (enabled == null ? 0 : enabled.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Organization> listFromJson(List<dynamic> json) {
-    return <Organization>[
-      if (json is List)
-        for (dynamic value in json) Organization.fromJson(value),
-    ];
+  static List<Organization> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Organization>[];
+    }
+    return json
+        .map((value) {
+          return Organization.fromJson(value);
+        })
+        .whereType<Organization>()
+        .toList();
   }
 
-  static Map<String, Organization> mapFromJson(Map<String, dynamic> json) {
-    return <String, Organization>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Organization.fromJson(entry.value),
-    };
+  static Map<String, Organization> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Organization>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, Organization?>(key, Organization.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Organization>;
   }
 
   // maps a json object with a list of Organization-objects as value to a dart map
   static Map<String, List<Organization>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<Organization>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Organization.listFromJson(entry.value),
     };
   }
@@ -146,14 +156,14 @@ class Organization {
       if (links != null) r'_links': links,
       if (address != null) r'address': address,
       if (alternateName != null) r'alternateName': alternateName,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (enabled != null) r'enabled': enabled,
       if (id != null) r'id': id,
       r'name': name,
       if (preferences != null) r'preferences': preferences,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

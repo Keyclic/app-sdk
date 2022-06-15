@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class PublicationLinksAuthorIriTemplate {
 
   /// Returns a new [PublicationLinksAuthorIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PublicationLinksAuthorIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static PublicationLinksAuthorIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class PublicationLinksAuthorIriTemplate {
     );
   }
 
-  ContributionLinksContributorIriTemplateMapping mapping;
+  ContributionLinksContributorIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,29 +41,38 @@ class PublicationLinksAuthorIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<PublicationLinksAuthorIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <PublicationLinksAuthorIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          PublicationLinksAuthorIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <PublicationLinksAuthorIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return PublicationLinksAuthorIriTemplate.fromJson(value);
+        })
+        .whereType<PublicationLinksAuthorIriTemplate>()
+        .toList();
   }
 
   static Map<String, PublicationLinksAuthorIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PublicationLinksAuthorIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationLinksAuthorIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PublicationLinksAuthorIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PublicationLinksAuthorIriTemplate?>(
+            key, PublicationLinksAuthorIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PublicationLinksAuthorIriTemplate>;
   }
 
   // maps a json object with a list of PublicationLinksAuthorIriTemplate-objects as value to a dart map
   static Map<String, List<PublicationLinksAuthorIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PublicationLinksAuthorIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key:
               PublicationLinksAuthorIriTemplate.listFromJson(entry.value),
     };

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -9,12 +8,12 @@ class LegacySignatureData {
   /// Returns a new [LegacySignatureData] instance.
   LegacySignatureData({
     this.signer,
-    @required this.image,
+    required this.image,
   });
 
   /// Returns a new [LegacySignatureData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory LegacySignatureData.fromJson(Map<String, dynamic> json) {
+  static LegacySignatureData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class LegacySignatureData {
     );
   }
 
-  LegacySignatureDataSigner signer;
+  LegacySignatureDataSigner? signer;
 
   String image;
 
@@ -42,32 +41,39 @@ class LegacySignatureData {
   }
 
   @override
-  int get hashCode =>
-      (signer == null ? 0 : signer.hashCode) +
-      (image == null ? 0 : image.hashCode);
+  int get hashCode => (signer == null ? 0 : signer.hashCode) + image.hashCode;
 
-  static List<LegacySignatureData> listFromJson(List<dynamic> json) {
-    return <LegacySignatureData>[
-      if (json is List)
-        for (dynamic value in json) LegacySignatureData.fromJson(value),
-    ];
+  static List<LegacySignatureData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <LegacySignatureData>[];
+    }
+    return json
+        .map((value) {
+          return LegacySignatureData.fromJson(value);
+        })
+        .whereType<LegacySignatureData>()
+        .toList();
   }
 
   static Map<String, LegacySignatureData> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, LegacySignatureData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: LegacySignatureData.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, LegacySignatureData>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, LegacySignatureData?>(
+        key, LegacySignatureData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, LegacySignatureData>;
   }
 
   // maps a json object with a list of LegacySignatureData-objects as value to a dart map
   static Map<String, List<LegacySignatureData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<LegacySignatureData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: LegacySignatureData.listFromJson(entry.value),
     };
   }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class Run {
 
   /// Returns a new [Run] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Run.fromJson(Map<String, dynamic> json) {
+  static Run? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,15 +32,15 @@ class Run {
     );
   }
 
-  List<Run> children;
+  List<Run>? children;
 
-  String error;
+  String? error;
 
-  String name;
+  String? name;
 
-  Map<String, dynamic> result;
+  Map<String, dynamic>? result;
 
-  String state;
+  String? state;
 
   @override
   bool operator ==(Object other) {
@@ -66,25 +65,35 @@ class Run {
       (result == null ? 0 : result.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<Run> listFromJson(List<dynamic> json) {
-    return <Run>[
-      if (json is List)
-        for (dynamic value in json) Run.fromJson(value),
-    ];
+  static List<Run> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Run>[];
+    }
+    return json
+        .map((value) {
+          return Run.fromJson(value);
+        })
+        .whereType<Run>()
+        .toList();
   }
 
-  static Map<String, Run> mapFromJson(Map<String, dynamic> json) {
-    return <String, Run>{
-      if (json is Map)
-        for (final entry in json.entries) entry.key: Run.fromJson(entry.value),
-    };
+  static Map<String, Run> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Run>{};
+    }
+
+    final map = json
+        .map((key, value) => MapEntry<String, Run?>(key, Run.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Run>;
   }
 
   // maps a json object with a list of Run-objects as value to a dart map
-  static Map<String, List<Run>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Run>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Run>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Run.listFromJson(entry.value),
     };
   }

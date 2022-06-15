@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class RulePaginationAllOf {
 
   /// Returns a new [RulePaginationAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RulePaginationAllOf.fromJson(Map<String, dynamic> json) {
+  static RulePaginationAllOf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class RulePaginationAllOf {
     );
   }
 
-  RuleCollection embedded;
+  RuleCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,37 @@ class RulePaginationAllOf {
   @override
   int get hashCode => (embedded == null ? 0 : embedded.hashCode);
 
-  static List<RulePaginationAllOf> listFromJson(List<dynamic> json) {
-    return <RulePaginationAllOf>[
-      if (json is List)
-        for (dynamic value in json) RulePaginationAllOf.fromJson(value),
-    ];
+  static List<RulePaginationAllOf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RulePaginationAllOf>[];
+    }
+    return json
+        .map((value) {
+          return RulePaginationAllOf.fromJson(value);
+        })
+        .whereType<RulePaginationAllOf>()
+        .toList();
   }
 
   static Map<String, RulePaginationAllOf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, RulePaginationAllOf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RulePaginationAllOf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RulePaginationAllOf>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, RulePaginationAllOf?>(
+        key, RulePaginationAllOf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RulePaginationAllOf>;
   }
 
   // maps a json object with a list of RulePaginationAllOf-objects as value to a dart map
   static Map<String, List<RulePaginationAllOf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RulePaginationAllOf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RulePaginationAllOf.listFromJson(entry.value),
     };
   }

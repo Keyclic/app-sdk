@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class SectionCollection {
 
   /// Returns a new [SectionCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SectionCollection.fromJson(Map<String, dynamic> json) {
+  static SectionCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class SectionCollection {
     );
   }
 
-  List<Section> items;
+  List<Section>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,27 +38,37 @@ class SectionCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<SectionCollection> listFromJson(List<dynamic> json) {
-    return <SectionCollection>[
-      if (json is List)
-        for (dynamic value in json) SectionCollection.fromJson(value),
-    ];
+  static List<SectionCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SectionCollection>[];
+    }
+    return json
+        .map((value) {
+          return SectionCollection.fromJson(value);
+        })
+        .whereType<SectionCollection>()
+        .toList();
   }
 
-  static Map<String, SectionCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, SectionCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SectionCollection.fromJson(entry.value),
-    };
+  static Map<String, SectionCollection> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SectionCollection>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, SectionCollection?>(
+        key, SectionCollection.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, SectionCollection>;
   }
 
   // maps a json object with a list of SectionCollection-objects as value to a dart map
   static Map<String, List<SectionCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<SectionCollection>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: SectionCollection.listFromJson(entry.value),
     };
   }

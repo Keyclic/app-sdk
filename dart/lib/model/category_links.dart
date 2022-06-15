@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class CategoryLinks {
 
   /// Returns a new [CategoryLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CategoryLinks.fromJson(Map<String, dynamic> json) {
+  static CategoryLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class CategoryLinks {
     );
   }
 
-  CategoryLinksOrganization organization;
+  CategoryLinksOrganization? organization;
 
-  CategoryLinksSelf self;
+  CategoryLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -46,27 +45,36 @@ class CategoryLinks {
       (organization == null ? 0 : organization.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<CategoryLinks> listFromJson(List<dynamic> json) {
-    return <CategoryLinks>[
-      if (json is List)
-        for (dynamic value in json) CategoryLinks.fromJson(value),
-    ];
+  static List<CategoryLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryLinks>[];
+    }
+    return json
+        .map((value) {
+          return CategoryLinks.fromJson(value);
+        })
+        .whereType<CategoryLinks>()
+        .toList();
   }
 
-  static Map<String, CategoryLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, CategoryLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CategoryLinks.fromJson(entry.value),
-    };
+  static Map<String, CategoryLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryLinks>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, CategoryLinks?>(key, CategoryLinks.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, CategoryLinks>;
   }
 
   // maps a json object with a list of CategoryLinks-objects as value to a dart map
   static Map<String, List<CategoryLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<CategoryLinks>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: CategoryLinks.listFromJson(entry.value),
     };
   }

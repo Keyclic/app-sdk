@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class OrganizationPatch {
 
   /// Returns a new [OrganizationPatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationPatch.fromJson(Map<String, dynamic> json) {
+  static OrganizationPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class OrganizationPatch {
     );
   }
 
-  ExternalServicePatchAddress address;
+  ExternalServicePatchAddress? address;
 
-  String alternateName;
+  String? alternateName;
 
-  String description;
+  String? description;
 
-  String logo;
+  String? logo;
 
-  String name;
+  String? name;
 
-  OrganizationPatchPreferences preferences;
+  OrganizationPatchPreferences? preferences;
 
   @override
   bool operator ==(Object other) {
@@ -70,27 +69,37 @@ class OrganizationPatch {
       (name == null ? 0 : name.hashCode) +
       (preferences == null ? 0 : preferences.hashCode);
 
-  static List<OrganizationPatch> listFromJson(List<dynamic> json) {
-    return <OrganizationPatch>[
-      if (json is List)
-        for (dynamic value in json) OrganizationPatch.fromJson(value),
-    ];
+  static List<OrganizationPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationPatch>[];
+    }
+    return json
+        .map((value) {
+          return OrganizationPatch.fromJson(value);
+        })
+        .whereType<OrganizationPatch>()
+        .toList();
   }
 
-  static Map<String, OrganizationPatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, OrganizationPatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationPatch.fromJson(entry.value),
-    };
+  static Map<String, OrganizationPatch> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationPatch>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, OrganizationPatch?>(
+        key, OrganizationPatch.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, OrganizationPatch>;
   }
 
   // maps a json object with a list of OrganizationPatch-objects as value to a dart map
   static Map<String, List<OrganizationPatch>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<OrganizationPatch>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: OrganizationPatch.listFromJson(entry.value),
     };
   }

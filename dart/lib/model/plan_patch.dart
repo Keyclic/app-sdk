@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PlanPatch {
 
   /// Returns a new [PlanPatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlanPatch.fromJson(Map<String, dynamic> json) {
+  static PlanPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PlanPatch {
     );
   }
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -38,27 +37,36 @@ class PlanPatch {
   @override
   int get hashCode => (name == null ? 0 : name.hashCode);
 
-  static List<PlanPatch> listFromJson(List<dynamic> json) {
-    return <PlanPatch>[
-      if (json is List)
-        for (dynamic value in json) PlanPatch.fromJson(value),
-    ];
+  static List<PlanPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanPatch>[];
+    }
+    return json
+        .map((value) {
+          return PlanPatch.fromJson(value);
+        })
+        .whereType<PlanPatch>()
+        .toList();
   }
 
-  static Map<String, PlanPatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlanPatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlanPatch.fromJson(entry.value),
-    };
+  static Map<String, PlanPatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanPatch>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PlanPatch?>(key, PlanPatch.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlanPatch>;
   }
 
   // maps a json object with a list of PlanPatch-objects as value to a dart map
   static Map<String, List<PlanPatch>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlanPatch>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlanPatch.listFromJson(entry.value),
     };
   }

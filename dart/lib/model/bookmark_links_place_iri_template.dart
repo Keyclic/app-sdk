@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class BookmarkLinksPlaceIriTemplate {
 
   /// Returns a new [BookmarkLinksPlaceIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BookmarkLinksPlaceIriTemplate.fromJson(Map<String, dynamic> json) {
+  static BookmarkLinksPlaceIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class BookmarkLinksPlaceIriTemplate {
     );
   }
 
-  BookmarkLinksPlaceIriTemplateMapping mapping;
+  BookmarkLinksPlaceIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -38,29 +37,38 @@ class BookmarkLinksPlaceIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<BookmarkLinksPlaceIriTemplate> listFromJson(List<dynamic> json) {
-    return <BookmarkLinksPlaceIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          BookmarkLinksPlaceIriTemplate.fromJson(value),
-    ];
+  static List<BookmarkLinksPlaceIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkLinksPlaceIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return BookmarkLinksPlaceIriTemplate.fromJson(value);
+        })
+        .whereType<BookmarkLinksPlaceIriTemplate>()
+        .toList();
   }
 
   static Map<String, BookmarkLinksPlaceIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BookmarkLinksPlaceIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BookmarkLinksPlaceIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkLinksPlaceIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, BookmarkLinksPlaceIriTemplate?>(
+            key, BookmarkLinksPlaceIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BookmarkLinksPlaceIriTemplate>;
   }
 
   // maps a json object with a list of BookmarkLinksPlaceIriTemplate-objects as value to a dart map
   static Map<String, List<BookmarkLinksPlaceIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<BookmarkLinksPlaceIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BookmarkLinksPlaceIriTemplate.listFromJson(entry.value),
     };
   }

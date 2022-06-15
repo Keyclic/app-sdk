@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -9,14 +8,14 @@ class RegisterData {
   /// Returns a new [RegisterData] instance.
   RegisterData({
     this.agreement,
-    @required this.email,
+    required this.email,
     this.invitation,
-    @required this.password,
+    required this.password,
   });
 
   /// Returns a new [RegisterData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RegisterData.fromJson(Map<String, dynamic> json) {
+  static RegisterData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,11 +28,11 @@ class RegisterData {
     );
   }
 
-  RegisterDataAgreement agreement;
+  RegisterDataAgreement? agreement;
 
   String email;
 
-  String invitation;
+  String? invitation;
 
   String password;
 
@@ -54,31 +53,40 @@ class RegisterData {
   @override
   int get hashCode =>
       (agreement == null ? 0 : agreement.hashCode) +
-      (email == null ? 0 : email.hashCode) +
+      email.hashCode +
       (invitation == null ? 0 : invitation.hashCode) +
-      (password == null ? 0 : password.hashCode);
+      password.hashCode;
 
-  static List<RegisterData> listFromJson(List<dynamic> json) {
-    return <RegisterData>[
-      if (json is List)
-        for (dynamic value in json) RegisterData.fromJson(value),
-    ];
+  static List<RegisterData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RegisterData>[];
+    }
+    return json
+        .map((value) {
+          return RegisterData.fromJson(value);
+        })
+        .whereType<RegisterData>()
+        .toList();
   }
 
-  static Map<String, RegisterData> mapFromJson(Map<String, dynamic> json) {
-    return <String, RegisterData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RegisterData.fromJson(entry.value),
-    };
+  static Map<String, RegisterData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RegisterData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, RegisterData?>(key, RegisterData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, RegisterData>;
   }
 
   // maps a json object with a list of RegisterData-objects as value to a dart map
   static Map<String, List<RegisterData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<RegisterData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: RegisterData.listFromJson(entry.value),
     };
   }

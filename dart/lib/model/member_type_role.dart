@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -19,19 +18,21 @@ class MemberTypeRole {
 
   /// Returns a new [MemberTypeRole] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MemberTypeRole.fromJson(Map<String, dynamic> json) {
+  static MemberTypeRole? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -47,19 +48,19 @@ class MemberTypeRole {
     );
   }
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  List<String> permissions;
+  List<String>? permissions;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -89,27 +90,36 @@ class MemberTypeRole {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<MemberTypeRole> listFromJson(List<dynamic> json) {
-    return <MemberTypeRole>[
-      if (json is List)
-        for (dynamic value in json) MemberTypeRole.fromJson(value),
-    ];
+  static List<MemberTypeRole> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberTypeRole>[];
+    }
+    return json
+        .map((value) {
+          return MemberTypeRole.fromJson(value);
+        })
+        .whereType<MemberTypeRole>()
+        .toList();
   }
 
-  static Map<String, MemberTypeRole> mapFromJson(Map<String, dynamic> json) {
-    return <String, MemberTypeRole>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MemberTypeRole.fromJson(entry.value),
-    };
+  static Map<String, MemberTypeRole> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberTypeRole>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, MemberTypeRole?>(key, MemberTypeRole.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, MemberTypeRole>;
   }
 
   // maps a json object with a list of MemberTypeRole-objects as value to a dart map
   static Map<String, List<MemberTypeRole>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<MemberTypeRole>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: MemberTypeRole.listFromJson(entry.value),
     };
   }
@@ -120,13 +130,13 @@ class MemberTypeRole {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       if (name != null) r'name': name,
       if (permissions != null) r'permissions': permissions,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

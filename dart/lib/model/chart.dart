@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class Chart {
 
   /// Returns a new [Chart] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Chart.fromJson(Map<String, dynamic> json) {
+  static Chart? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class Chart {
     );
   }
 
-  List<int> data;
+  List<int>? data;
 
-  List<String> labels;
+  List<String>? labels;
 
   @override
   bool operator ==(Object other) {
@@ -46,26 +45,35 @@ class Chart {
       (data == null ? 0 : data.hashCode) +
       (labels == null ? 0 : labels.hashCode);
 
-  static List<Chart> listFromJson(List<dynamic> json) {
-    return <Chart>[
-      if (json is List)
-        for (dynamic value in json) Chart.fromJson(value),
-    ];
+  static List<Chart> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Chart>[];
+    }
+    return json
+        .map((value) {
+          return Chart.fromJson(value);
+        })
+        .whereType<Chart>()
+        .toList();
   }
 
-  static Map<String, Chart> mapFromJson(Map<String, dynamic> json) {
-    return <String, Chart>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Chart.fromJson(entry.value),
-    };
+  static Map<String, Chart> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Chart>{};
+    }
+
+    final map = json.map(
+        (key, value) => MapEntry<String, Chart?>(key, Chart.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Chart>;
   }
 
   // maps a json object with a list of Chart-objects as value to a dart map
-  static Map<String, List<Chart>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Chart>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Chart>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Chart.listFromJson(entry.value),
     };
   }

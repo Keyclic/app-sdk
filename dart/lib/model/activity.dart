@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -20,12 +19,13 @@ class Activity {
 
   /// Returns a new [Activity] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Activity.fromJson(Map<String, dynamic> json) {
+  static Activity? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime time = json['time'] == null ? null : DateTime.parse(json[r'time']);
+    DateTime? time =
+        json[r'time'] is String ? DateTime.parse(json[r'time']) : null;
     if (time is DateTime && time.isUtc == false) {
       time = DateTime.parse('${json[r'time']}Z');
     }
@@ -42,21 +42,21 @@ class Activity {
     );
   }
 
-  String actor;
+  String? actor;
 
-  String message;
+  String? message;
 
-  String object;
+  String? object;
 
-  String origin;
+  String? origin;
 
-  ActivityEntity subject;
+  ActivityEntity? subject;
 
-  DateTime time;
+  DateTime? time;
 
-  String title;
+  String? title;
 
-  String verb;
+  String? verb;
 
   @override
   bool operator ==(Object other) {
@@ -87,27 +87,36 @@ class Activity {
       (title == null ? 0 : title.hashCode) +
       (verb == null ? 0 : verb.hashCode);
 
-  static List<Activity> listFromJson(List<dynamic> json) {
-    return <Activity>[
-      if (json is List)
-        for (dynamic value in json) Activity.fromJson(value),
-    ];
+  static List<Activity> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Activity>[];
+    }
+    return json
+        .map((value) {
+          return Activity.fromJson(value);
+        })
+        .whereType<Activity>()
+        .toList();
   }
 
-  static Map<String, Activity> mapFromJson(Map<String, dynamic> json) {
-    return <String, Activity>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Activity.fromJson(entry.value),
-    };
+  static Map<String, Activity> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Activity>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, Activity?>(key, Activity.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Activity>;
   }
 
   // maps a json object with a list of Activity-objects as value to a dart map
   static Map<String, List<Activity>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<Activity>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Activity.listFromJson(entry.value),
     };
   }
@@ -123,7 +132,7 @@ class Activity {
       if (object != null) r'object': object,
       if (origin != null) r'origin': origin,
       if (subject != null) r'subject': subject,
-      if (time != null) r'time': time.toUtc().toIso8601String(),
+      if (time != null) r'time': time!.toUtc().toIso8601String(),
       if (title != null) r'title': title,
       if (verb != null) r'verb': verb,
     };

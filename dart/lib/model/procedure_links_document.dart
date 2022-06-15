@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ProcedureLinksDocument {
 
   /// Returns a new [ProcedureLinksDocument] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ProcedureLinksDocument.fromJson(Map<String, dynamic> json) {
+  static ProcedureLinksDocument? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class ProcedureLinksDocument {
   }
 
   /// The URI of the document associated to the given procedure.
-  String href;
+  String? href;
 
-  ProcedureLinksDocumentIriTemplate iriTemplate;
+  ProcedureLinksDocumentIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class ProcedureLinksDocument {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksDocument> listFromJson(List<dynamic> json) {
-    return <ProcedureLinksDocument>[
-      if (json is List)
-        for (dynamic value in json) ProcedureLinksDocument.fromJson(value),
-    ];
+  static List<ProcedureLinksDocument> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureLinksDocument>[];
+    }
+    return json
+        .map((value) {
+          return ProcedureLinksDocument.fromJson(value);
+        })
+        .whereType<ProcedureLinksDocument>()
+        .toList();
   }
 
   static Map<String, ProcedureLinksDocument> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ProcedureLinksDocument>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureLinksDocument.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureLinksDocument>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ProcedureLinksDocument?>(
+            key, ProcedureLinksDocument.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ProcedureLinksDocument>;
   }
 
   // maps a json object with a list of ProcedureLinksDocument-objects as value to a dart map
   static Map<String, List<ProcedureLinksDocument>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ProcedureLinksDocument>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ProcedureLinksDocument.listFromJson(entry.value),
     };
   }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class OrganizationPatchPreferencesReference {
 
   /// Returns a new [OrganizationPatchPreferencesReference] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationPatchPreferencesReference.fromJson(
-      Map<String, dynamic> json) {
+  static OrganizationPatchPreferencesReference? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class OrganizationPatchPreferencesReference {
     );
   }
 
-  String prefix;
+  String? prefix;
 
   @override
   bool operator ==(Object other) {
@@ -41,30 +40,38 @@ class OrganizationPatchPreferencesReference {
   int get hashCode => (prefix == null ? 0 : prefix.hashCode);
 
   static List<OrganizationPatchPreferencesReference> listFromJson(
-      List<dynamic> json) {
-    return <OrganizationPatchPreferencesReference>[
-      if (json is List)
-        for (dynamic value in json)
-          OrganizationPatchPreferencesReference.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationPatchPreferencesReference>[];
+    }
+    return json
+        .map((value) {
+          return OrganizationPatchPreferencesReference.fromJson(value);
+        })
+        .whereType<OrganizationPatchPreferencesReference>()
+        .toList();
   }
 
   static Map<String, OrganizationPatchPreferencesReference> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationPatchPreferencesReference>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              OrganizationPatchPreferencesReference.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationPatchPreferencesReference>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, OrganizationPatchPreferencesReference?>(
+            key, OrganizationPatchPreferencesReference.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, OrganizationPatchPreferencesReference>;
   }
 
   // maps a json object with a list of OrganizationPatchPreferencesReference-objects as value to a dart map
   static Map<String, List<OrganizationPatchPreferencesReference>>
-      mapListFromJson(Map<String, dynamic> json) {
+      mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<OrganizationPatchPreferencesReference>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key:
               OrganizationPatchPreferencesReference.listFromJson(entry.value),
     };

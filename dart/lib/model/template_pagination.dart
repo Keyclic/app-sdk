@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class TemplatePagination implements Pagination, TemplatePaginationAllOf {
 
   /// Returns a new [TemplatePagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory TemplatePagination.fromJson(Map<String, dynamic> json) {
+  static TemplatePagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class TemplatePagination implements Pagination, TemplatePaginationAllOf {
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  TemplateCollection embedded;
+  TemplateCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,28 +69,37 @@ class TemplatePagination implements Pagination, TemplatePaginationAllOf {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<TemplatePagination> listFromJson(List<dynamic> json) {
-    return <TemplatePagination>[
-      if (json is List)
-        for (dynamic value in json) TemplatePagination.fromJson(value),
-    ];
+  static List<TemplatePagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TemplatePagination>[];
+    }
+    return json
+        .map((value) {
+          return TemplatePagination.fromJson(value);
+        })
+        .whereType<TemplatePagination>()
+        .toList();
   }
 
   static Map<String, TemplatePagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, TemplatePagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TemplatePagination.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TemplatePagination>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, TemplatePagination?>(
+        key, TemplatePagination.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, TemplatePagination>;
   }
 
   // maps a json object with a list of TemplatePagination-objects as value to a dart map
   static Map<String, List<TemplatePagination>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<TemplatePagination>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: TemplatePagination.listFromJson(entry.value),
     };
   }

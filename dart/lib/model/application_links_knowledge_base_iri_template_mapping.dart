@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class ApplicationLinksKnowledgeBaseIriTemplateMapping {
 
   /// Returns a new [ApplicationLinksKnowledgeBaseIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static ApplicationLinksKnowledgeBaseIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class ApplicationLinksKnowledgeBaseIriTemplateMapping {
     );
   }
 
-  String knowledgeBase;
+  String? knowledgeBase;
 
   @override
   bool operator ==(Object other) {
@@ -41,30 +40,39 @@ class ApplicationLinksKnowledgeBaseIriTemplateMapping {
   int get hashCode => (knowledgeBase == null ? 0 : knowledgeBase.hashCode);
 
   static List<ApplicationLinksKnowledgeBaseIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <ApplicationLinksKnowledgeBaseIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ApplicationLinksKnowledgeBaseIriTemplateMapping>[];
+    }
+    return json
+        .map((value) {
+          return ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
+              value);
+        })
+        .whereType<ApplicationLinksKnowledgeBaseIriTemplateMapping>()
+        .toList();
   }
 
   static Map<String, ApplicationLinksKnowledgeBaseIriTemplateMapping>
-      mapFromJson(Map<String, dynamic> json) {
-    return <String, ApplicationLinksKnowledgeBaseIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-              entry.value),
-    };
+      mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ApplicationLinksKnowledgeBaseIriTemplateMapping>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ApplicationLinksKnowledgeBaseIriTemplateMapping?>(key,
+            ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ApplicationLinksKnowledgeBaseIriTemplateMapping>;
   }
 
   // maps a json object with a list of ApplicationLinksKnowledgeBaseIriTemplateMapping-objects as value to a dart map
   static Map<String, List<ApplicationLinksKnowledgeBaseIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic> json) {
+      mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<ApplicationLinksKnowledgeBaseIriTemplateMapping>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key:
               ApplicationLinksKnowledgeBaseIriTemplateMapping.listFromJson(
                   entry.value),

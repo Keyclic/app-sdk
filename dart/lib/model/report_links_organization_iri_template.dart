@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class ReportLinksOrganizationIriTemplate {
 
   /// Returns a new [ReportLinksOrganizationIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReportLinksOrganizationIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static ReportLinksOrganizationIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class ReportLinksOrganizationIriTemplate {
     );
   }
 
-  CategoryLinksOrganizationIriTemplateMapping mapping;
+  CategoryLinksOrganizationIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,29 +41,38 @@ class ReportLinksOrganizationIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReportLinksOrganizationIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <ReportLinksOrganizationIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          ReportLinksOrganizationIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksOrganizationIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return ReportLinksOrganizationIriTemplate.fromJson(value);
+        })
+        .whereType<ReportLinksOrganizationIriTemplate>()
+        .toList();
   }
 
   static Map<String, ReportLinksOrganizationIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ReportLinksOrganizationIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportLinksOrganizationIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksOrganizationIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ReportLinksOrganizationIriTemplate?>(
+            key, ReportLinksOrganizationIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ReportLinksOrganizationIriTemplate>;
   }
 
   // maps a json object with a list of ReportLinksOrganizationIriTemplate-objects as value to a dart map
   static Map<String, List<ReportLinksOrganizationIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ReportLinksOrganizationIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key:
               ReportLinksOrganizationIriTemplate.listFromJson(entry.value),
     };

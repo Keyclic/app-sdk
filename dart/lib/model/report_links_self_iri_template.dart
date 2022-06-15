@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ReportLinksSelfIriTemplate {
 
   /// Returns a new [ReportLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReportLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  static ReportLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class ReportLinksSelfIriTemplate {
     );
   }
 
-  AssignmentLinksReportIriTemplateMapping mapping;
+  AssignmentLinksReportIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -39,28 +38,38 @@ class ReportLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReportLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return <ReportLinksSelfIriTemplate>[
-      if (json is List)
-        for (dynamic value in json) ReportLinksSelfIriTemplate.fromJson(value),
-    ];
+  static List<ReportLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksSelfIriTemplate>[];
+    }
+    return json
+        .map((value) {
+          return ReportLinksSelfIriTemplate.fromJson(value);
+        })
+        .whereType<ReportLinksSelfIriTemplate>()
+        .toList();
   }
 
   static Map<String, ReportLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ReportLinksSelfIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportLinksSelfIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksSelfIriTemplate>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ReportLinksSelfIriTemplate?>(
+            key, ReportLinksSelfIriTemplate.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ReportLinksSelfIriTemplate>;
   }
 
   // maps a json object with a list of ReportLinksSelfIriTemplate-objects as value to a dart map
   static Map<String, List<ReportLinksSelfIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ReportLinksSelfIriTemplate>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ReportLinksSelfIriTemplate.listFromJson(entry.value),
     };
   }

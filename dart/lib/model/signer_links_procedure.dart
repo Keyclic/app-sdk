@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class SignerLinksProcedure {
 
   /// Returns a new [SignerLinksProcedure] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SignerLinksProcedure.fromJson(Map<String, dynamic> json) {
+  static SignerLinksProcedure? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class SignerLinksProcedure {
   }
 
   /// The URI of the procedure associated to the given signer.
-  String href;
+  String? href;
 
-  SignerLinksProcedureIriTemplate iriTemplate;
+  SignerLinksProcedureIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,28 +47,38 @@ class SignerLinksProcedure {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<SignerLinksProcedure> listFromJson(List<dynamic> json) {
-    return <SignerLinksProcedure>[
-      if (json is List)
-        for (dynamic value in json) SignerLinksProcedure.fromJson(value),
-    ];
+  static List<SignerLinksProcedure> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignerLinksProcedure>[];
+    }
+    return json
+        .map((value) {
+          return SignerLinksProcedure.fromJson(value);
+        })
+        .whereType<SignerLinksProcedure>()
+        .toList();
   }
 
   static Map<String, SignerLinksProcedure> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, SignerLinksProcedure>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerLinksProcedure.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignerLinksProcedure>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, SignerLinksProcedure?>(
+            key, SignerLinksProcedure.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, SignerLinksProcedure>;
   }
 
   // maps a json object with a list of SignerLinksProcedure-objects as value to a dart map
   static Map<String, List<SignerLinksProcedure>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<SignerLinksProcedure>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: SignerLinksProcedure.listFromJson(entry.value),
     };
   }

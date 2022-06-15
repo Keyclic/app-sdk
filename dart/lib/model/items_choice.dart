@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -23,7 +22,7 @@ class ItemsChoice {
 
   /// Returns a new [ItemsChoice] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ItemsChoice.fromJson(Map<String, dynamic> json) {
+  static ItemsChoice? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -43,27 +42,27 @@ class ItemsChoice {
     );
   }
 
-  String default_;
+  String? default_;
 
-  String description;
+  String? description;
 
-  List<String> enum_;
+  List<String>? enum_;
 
-  String format;
+  String? format;
 
-  String id;
+  final String? id;
 
-  int maxItems;
+  int? maxItems;
 
-  int minItems;
+  int? minItems;
 
-  List<ItemsChoice> oneOf;
+  List<ItemsChoice>? oneOf;
 
-  int propertyOrder;
+  int? propertyOrder;
 
-  String title;
+  String? title;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -100,27 +99,36 @@ class ItemsChoice {
       (title == null ? 0 : title.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ItemsChoice> listFromJson(List<dynamic> json) {
-    return <ItemsChoice>[
-      if (json is List)
-        for (dynamic value in json) ItemsChoice.fromJson(value),
-    ];
+  static List<ItemsChoice> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ItemsChoice>[];
+    }
+    return json
+        .map((value) {
+          return ItemsChoice.fromJson(value);
+        })
+        .whereType<ItemsChoice>()
+        .toList();
   }
 
-  static Map<String, ItemsChoice> mapFromJson(Map<String, dynamic> json) {
-    return <String, ItemsChoice>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ItemsChoice.fromJson(entry.value),
-    };
+  static Map<String, ItemsChoice> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ItemsChoice>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ItemsChoice?>(key, ItemsChoice.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ItemsChoice>;
   }
 
   // maps a json object with a list of ItemsChoice-objects as value to a dart map
   static Map<String, List<ItemsChoice>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ItemsChoice>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ItemsChoice.listFromJson(entry.value),
     };
   }

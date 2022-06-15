@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class InvitationEmbedded {
 
   /// Returns a new [InvitationEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InvitationEmbedded.fromJson(Map<String, dynamic> json) {
+  static InvitationEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class InvitationEmbedded {
     );
   }
 
-  Member member;
+  Member? member;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,37 @@ class InvitationEmbedded {
   @override
   int get hashCode => (member == null ? 0 : member.hashCode);
 
-  static List<InvitationEmbedded> listFromJson(List<dynamic> json) {
-    return <InvitationEmbedded>[
-      if (json is List)
-        for (dynamic value in json) InvitationEmbedded.fromJson(value),
-    ];
+  static List<InvitationEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InvitationEmbedded>[];
+    }
+    return json
+        .map((value) {
+          return InvitationEmbedded.fromJson(value);
+        })
+        .whereType<InvitationEmbedded>()
+        .toList();
   }
 
   static Map<String, InvitationEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InvitationEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InvitationEmbedded.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InvitationEmbedded>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, InvitationEmbedded?>(
+        key, InvitationEmbedded.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, InvitationEmbedded>;
   }
 
   // maps a json object with a list of InvitationEmbedded-objects as value to a dart map
   static Map<String, List<InvitationEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<InvitationEmbedded>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: InvitationEmbedded.listFromJson(entry.value),
     };
   }

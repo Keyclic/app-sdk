@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class DocumentCollection {
 
   /// Returns a new [DocumentCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentCollection.fromJson(Map<String, dynamic> json) {
+  static DocumentCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class DocumentCollection {
     );
   }
 
-  List<Document> items;
+  List<Document>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,28 +38,37 @@ class DocumentCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<DocumentCollection> listFromJson(List<dynamic> json) {
-    return <DocumentCollection>[
-      if (json is List)
-        for (dynamic value in json) DocumentCollection.fromJson(value),
-    ];
+  static List<DocumentCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentCollection>[];
+    }
+    return json
+        .map((value) {
+          return DocumentCollection.fromJson(value);
+        })
+        .whereType<DocumentCollection>()
+        .toList();
   }
 
   static Map<String, DocumentCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, DocumentCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentCollection>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, DocumentCollection?>(
+        key, DocumentCollection.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DocumentCollection>;
   }
 
   // maps a json object with a list of DocumentCollection-objects as value to a dart map
   static Map<String, List<DocumentCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DocumentCollection>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DocumentCollection.listFromJson(entry.value),
     };
   }

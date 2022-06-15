@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PreferencesNotification {
 
   /// Returns a new [PreferencesNotification] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PreferencesNotification.fromJson(Map<String, dynamic> json) {
+  static PreferencesNotification? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class PreferencesNotification {
     );
   }
 
-  bool mail;
+  bool? mail;
 
-  bool push;
+  bool? push;
 
   @override
   bool operator ==(Object other) {
@@ -45,28 +44,38 @@ class PreferencesNotification {
   int get hashCode =>
       (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
 
-  static List<PreferencesNotification> listFromJson(List<dynamic> json) {
-    return <PreferencesNotification>[
-      if (json is List)
-        for (dynamic value in json) PreferencesNotification.fromJson(value),
-    ];
+  static List<PreferencesNotification> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PreferencesNotification>[];
+    }
+    return json
+        .map((value) {
+          return PreferencesNotification.fromJson(value);
+        })
+        .whereType<PreferencesNotification>()
+        .toList();
   }
 
   static Map<String, PreferencesNotification> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PreferencesNotification>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PreferencesNotification.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PreferencesNotification>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PreferencesNotification?>(
+            key, PreferencesNotification.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PreferencesNotification>;
   }
 
   // maps a json object with a list of PreferencesNotification-objects as value to a dart map
   static Map<String, List<PreferencesNotification>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PreferencesNotification>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PreferencesNotification.listFromJson(entry.value),
     };
   }

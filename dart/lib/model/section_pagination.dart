@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class SectionPagination implements Pagination, SectionPaginationAllOf {
 
   /// Returns a new [SectionPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SectionPagination.fromJson(Map<String, dynamic> json) {
+  static SectionPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class SectionPagination implements Pagination, SectionPaginationAllOf {
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  SectionCollection embedded;
+  SectionCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,27 +69,37 @@ class SectionPagination implements Pagination, SectionPaginationAllOf {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<SectionPagination> listFromJson(List<dynamic> json) {
-    return <SectionPagination>[
-      if (json is List)
-        for (dynamic value in json) SectionPagination.fromJson(value),
-    ];
+  static List<SectionPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SectionPagination>[];
+    }
+    return json
+        .map((value) {
+          return SectionPagination.fromJson(value);
+        })
+        .whereType<SectionPagination>()
+        .toList();
   }
 
-  static Map<String, SectionPagination> mapFromJson(Map<String, dynamic> json) {
-    return <String, SectionPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SectionPagination.fromJson(entry.value),
-    };
+  static Map<String, SectionPagination> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SectionPagination>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, SectionPagination?>(
+        key, SectionPagination.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, SectionPagination>;
   }
 
   // maps a json object with a list of SectionPagination-objects as value to a dart map
   static Map<String, List<SectionPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<SectionPagination>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: SectionPagination.listFromJson(entry.value),
     };
   }

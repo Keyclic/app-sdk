@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,19 +17,21 @@ class Plan {
 
   /// Returns a new [Plan] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Plan.fromJson(Map<String, dynamic> json) {
+  static Plan? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -45,17 +46,17 @@ class Plan {
     );
   }
 
-  PlanLinks links;
+  PlanLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -82,25 +83,35 @@ class Plan {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Plan> listFromJson(List<dynamic> json) {
-    return <Plan>[
-      if (json is List)
-        for (dynamic value in json) Plan.fromJson(value),
-    ];
+  static List<Plan> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Plan>[];
+    }
+    return json
+        .map((value) {
+          return Plan.fromJson(value);
+        })
+        .whereType<Plan>()
+        .toList();
   }
 
-  static Map<String, Plan> mapFromJson(Map<String, dynamic> json) {
-    return <String, Plan>{
-      if (json is Map)
-        for (final entry in json.entries) entry.key: Plan.fromJson(entry.value),
-    };
+  static Map<String, Plan> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Plan>{};
+    }
+
+    final map = json
+        .map((key, value) => MapEntry<String, Plan?>(key, Plan.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Plan>;
   }
 
   // maps a json object with a list of Plan-objects as value to a dart map
-  static Map<String, List<Plan>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Plan>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Plan>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Plan.listFromJson(entry.value),
     };
   }
@@ -112,11 +123,11 @@ class Plan {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (name != null) r'name': name,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

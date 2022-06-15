@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ConfigurationLinks {
 
   /// Returns a new [ConfigurationLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ConfigurationLinks.fromJson(Map<String, dynamic> json) {
+  static ConfigurationLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ConfigurationLinks {
     );
   }
 
-  ConfigurationLinksSelf self;
+  ConfigurationLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -38,28 +37,37 @@ class ConfigurationLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<ConfigurationLinks> listFromJson(List<dynamic> json) {
-    return <ConfigurationLinks>[
-      if (json is List)
-        for (dynamic value in json) ConfigurationLinks.fromJson(value),
-    ];
+  static List<ConfigurationLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationLinks>[];
+    }
+    return json
+        .map((value) {
+          return ConfigurationLinks.fromJson(value);
+        })
+        .whereType<ConfigurationLinks>()
+        .toList();
   }
 
   static Map<String, ConfigurationLinks> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ConfigurationLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ConfigurationLinks.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationLinks>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, ConfigurationLinks?>(
+        key, ConfigurationLinks.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ConfigurationLinks>;
   }
 
   // maps a json object with a list of ConfigurationLinks-objects as value to a dart map
   static Map<String, List<ConfigurationLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ConfigurationLinks>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ConfigurationLinks.listFromJson(entry.value),
     };
   }

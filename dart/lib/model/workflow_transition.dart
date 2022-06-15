@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -20,7 +19,7 @@ class WorkflowTransition {
 
   /// Returns a new [WorkflowTransition] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory WorkflowTransition.fromJson(Map<String, dynamic> json) {
+  static WorkflowTransition? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -37,21 +36,21 @@ class WorkflowTransition {
     );
   }
 
-  List<String> fields;
+  List<String>? fields;
 
-  String description;
+  String? description;
 
-  WorkflowState from;
+  WorkflowState? from;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  List<String> required_;
+  List<String>? required_;
 
-  WorkflowState to;
+  WorkflowState? to;
 
-  String type;
+  final String? type;
 
   @override
   bool operator ==(Object other) {
@@ -82,28 +81,37 @@ class WorkflowTransition {
       (to == null ? 0 : to.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<WorkflowTransition> listFromJson(List<dynamic> json) {
-    return <WorkflowTransition>[
-      if (json is List)
-        for (dynamic value in json) WorkflowTransition.fromJson(value),
-    ];
+  static List<WorkflowTransition> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <WorkflowTransition>[];
+    }
+    return json
+        .map((value) {
+          return WorkflowTransition.fromJson(value);
+        })
+        .whereType<WorkflowTransition>()
+        .toList();
   }
 
   static Map<String, WorkflowTransition> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, WorkflowTransition>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: WorkflowTransition.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, WorkflowTransition>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, WorkflowTransition?>(
+        key, WorkflowTransition.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, WorkflowTransition>;
   }
 
   // maps a json object with a list of WorkflowTransition-objects as value to a dart map
   static Map<String, List<WorkflowTransition>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<WorkflowTransition>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: WorkflowTransition.listFromJson(entry.value),
     };
   }

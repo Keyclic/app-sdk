@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -16,7 +15,7 @@ class PlacePatch {
 
   /// Returns a new [PlacePatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlacePatch.fromJson(Map<String, dynamic> json) {
+  static PlacePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,13 +28,13 @@ class PlacePatch {
     );
   }
 
-  ExternalServicePatchAddress address;
+  ExternalServicePatchAddress? address;
 
-  String branchCode;
+  String? branchCode;
 
-  String description;
+  String? description;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -58,27 +57,36 @@ class PlacePatch {
       (description == null ? 0 : description.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<PlacePatch> listFromJson(List<dynamic> json) {
-    return <PlacePatch>[
-      if (json is List)
-        for (dynamic value in json) PlacePatch.fromJson(value),
-    ];
+  static List<PlacePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlacePatch>[];
+    }
+    return json
+        .map((value) {
+          return PlacePatch.fromJson(value);
+        })
+        .whereType<PlacePatch>()
+        .toList();
   }
 
-  static Map<String, PlacePatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlacePatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlacePatch.fromJson(entry.value),
-    };
+  static Map<String, PlacePatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlacePatch>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PlacePatch?>(key, PlacePatch.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PlacePatch>;
   }
 
   // maps a json object with a list of PlacePatch-objects as value to a dart map
   static Map<String, List<PlacePatch>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PlacePatch>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PlacePatch.listFromJson(entry.value),
     };
   }

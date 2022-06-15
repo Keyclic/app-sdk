@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -26,32 +25,34 @@ class Report {
 
   /// Returns a new [Report] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Report.fromJson(Map<String, dynamic> json) {
+  static Report? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime dueBy =
-        json['dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
+    DateTime? dueBy =
+        json[r'dueBy'] is String ? DateTime.parse(json[r'dueBy']) : null;
     if (dueBy is DateTime && dueBy.isUtc == false) {
       dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
-    DateTime scheduledAt = json['scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
+    DateTime? scheduledAt = json[r'scheduledAt'] is String
+        ? DateTime.parse(json[r'scheduledAt'])
+        : null;
     if (scheduledAt is DateTime && scheduledAt.isUtc == false) {
       scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -74,33 +75,33 @@ class Report {
     );
   }
 
-  ReportEmbedded embedded;
+  ReportEmbedded? embedded;
 
-  ReportLinks links;
+  ReportLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  DateTime dueBy;
+  DateTime? dueBy;
 
-  String id;
+  final String? id;
 
-  String identificationNumber;
+  String? identificationNumber;
 
-  WorkflowState phase;
+  WorkflowState? phase;
 
-  ReportPriority priority;
+  ReportPriority? priority;
 
-  String reference;
+  String? reference;
 
-  DateTime scheduledAt;
+  DateTime? scheduledAt;
 
-  List<String> tags;
+  List<String>? tags;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -143,26 +144,35 @@ class Report {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Report> listFromJson(List<dynamic> json) {
-    return <Report>[
-      if (json is List)
-        for (dynamic value in json) Report.fromJson(value),
-    ];
+  static List<Report> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Report>[];
+    }
+    return json
+        .map((value) {
+          return Report.fromJson(value);
+        })
+        .whereType<Report>()
+        .toList();
   }
 
-  static Map<String, Report> mapFromJson(Map<String, dynamic> json) {
-    return <String, Report>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Report.fromJson(entry.value),
-    };
+  static Map<String, Report> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Report>{};
+    }
+
+    final map = json.map(
+        (key, value) => MapEntry<String, Report?>(key, Report.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, Report>;
   }
 
   // maps a json object with a list of Report-objects as value to a dart map
-  static Map<String, List<Report>> mapListFromJson(Map<String, dynamic> json) {
+  static Map<String, List<Report>> mapListFromJson(Map<String, dynamic>? json) {
     return <String, List<Report>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: Report.listFromJson(entry.value),
     };
   }
@@ -175,9 +185,9 @@ class Report {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
-      if (dueBy != null) r'dueBy': dueBy.toUtc().toIso8601String(),
+      if (dueBy != null) r'dueBy': dueBy!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (identificationNumber != null)
         r'identificationNumber': identificationNumber,
@@ -185,10 +195,10 @@ class Report {
       if (priority != null) r'priority': priority,
       if (reference != null) r'reference': reference,
       if (scheduledAt != null)
-        r'scheduledAt': scheduledAt.toUtc().toIso8601String(),
+        r'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
       if (tags != null) r'tags': tags,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

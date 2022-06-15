@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class ApplicationContactPoint {
 
   /// Returns a new [ApplicationContactPoint] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ApplicationContactPoint.fromJson(Map<String, dynamic> json) {
+  static ApplicationContactPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class ApplicationContactPoint {
     );
   }
 
-  String email;
+  String? email;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  String telephone;
+  String? telephone;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -64,28 +63,38 @@ class ApplicationContactPoint {
       (telephone == null ? 0 : telephone.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ApplicationContactPoint> listFromJson(List<dynamic> json) {
-    return <ApplicationContactPoint>[
-      if (json is List)
-        for (dynamic value in json) ApplicationContactPoint.fromJson(value),
-    ];
+  static List<ApplicationContactPoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ApplicationContactPoint>[];
+    }
+    return json
+        .map((value) {
+          return ApplicationContactPoint.fromJson(value);
+        })
+        .whereType<ApplicationContactPoint>()
+        .toList();
   }
 
   static Map<String, ApplicationContactPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ApplicationContactPoint>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ApplicationContactPoint.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ApplicationContactPoint>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, ApplicationContactPoint?>(
+            key, ApplicationContactPoint.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, ApplicationContactPoint>;
   }
 
   // maps a json object with a list of ApplicationContactPoint-objects as value to a dart map
   static Map<String, List<ApplicationContactPoint>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<ApplicationContactPoint>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: ApplicationContactPoint.listFromJson(entry.value),
     };
   }

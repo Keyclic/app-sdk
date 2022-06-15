@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class OrganizationLinksApplication {
 
   /// Returns a new [OrganizationLinksApplication] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationLinksApplication.fromJson(Map<String, dynamic> json) {
+  static OrganizationLinksApplication? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class OrganizationLinksApplication {
   }
 
   /// The URI of the application associated to the given organization.
-  String href;
+  String? href;
 
-  OrganizationLinksApplicationIriTemplate iriTemplate;
+  OrganizationLinksApplicationIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,29 +47,38 @@ class OrganizationLinksApplication {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OrganizationLinksApplication> listFromJson(List<dynamic> json) {
-    return <OrganizationLinksApplication>[
-      if (json is List)
-        for (dynamic value in json)
-          OrganizationLinksApplication.fromJson(value),
-    ];
+  static List<OrganizationLinksApplication> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationLinksApplication>[];
+    }
+    return json
+        .map((value) {
+          return OrganizationLinksApplication.fromJson(value);
+        })
+        .whereType<OrganizationLinksApplication>()
+        .toList();
   }
 
   static Map<String, OrganizationLinksApplication> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationLinksApplication>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationLinksApplication.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationLinksApplication>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, OrganizationLinksApplication?>(
+            key, OrganizationLinksApplication.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, OrganizationLinksApplication>;
   }
 
   // maps a json object with a list of OrganizationLinksApplication-objects as value to a dart map
   static Map<String, List<OrganizationLinksApplication>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<OrganizationLinksApplication>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: OrganizationLinksApplication.listFromJson(entry.value),
     };
   }

@@ -1,21 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class FileData {
   /// Returns a new [FileData] instance.
   FileData({
-    @required this.content,
-    @required this.contentType,
-    @required this.name,
+    required this.content,
+    required this.contentType,
+    required this.name,
   });
 
   /// Returns a new [FileData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FileData.fromJson(Map<String, dynamic> json) {
+  static FileData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -47,32 +46,38 @@ class FileData {
   }
 
   @override
-  int get hashCode =>
-      (content == null ? 0 : content.hashCode) +
-      (contentType == null ? 0 : contentType.hashCode) +
-      (name == null ? 0 : name.hashCode);
+  int get hashCode => content.hashCode + contentType.hashCode + name.hashCode;
 
-  static List<FileData> listFromJson(List<dynamic> json) {
-    return <FileData>[
-      if (json is List)
-        for (dynamic value in json) FileData.fromJson(value),
-    ];
+  static List<FileData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FileData>[];
+    }
+    return json
+        .map((value) {
+          return FileData.fromJson(value);
+        })
+        .whereType<FileData>()
+        .toList();
   }
 
-  static Map<String, FileData> mapFromJson(Map<String, dynamic> json) {
-    return <String, FileData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FileData.fromJson(entry.value),
-    };
+  static Map<String, FileData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FileData>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, FileData?>(key, FileData.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, FileData>;
   }
 
   // maps a json object with a list of FileData-objects as value to a dart map
   static Map<String, List<FileData>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<FileData>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: FileData.listFromJson(entry.value),
     };
   }

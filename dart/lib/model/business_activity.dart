@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,26 +12,28 @@ class BusinessActivity {
     this.createdAt,
     this.id,
     this.metadataSchema,
-    @required this.name,
+    required this.name,
     this.type,
     this.updatedAt,
   });
 
   /// Returns a new [BusinessActivity] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BusinessActivity.fromJson(Map<String, dynamic> json) {
+  static BusinessActivity? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -49,21 +50,21 @@ class BusinessActivity {
     );
   }
 
-  BusinessActivityLinks links;
+  BusinessActivityLinks? links;
 
-  String alternateName;
+  String? alternateName;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  BusinessActivitySchema metadataSchema;
+  BusinessActivitySchema? metadataSchema;
 
   String name;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -90,31 +91,40 @@ class BusinessActivity {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (metadataSchema == null ? 0 : metadataSchema.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<BusinessActivity> listFromJson(List<dynamic> json) {
-    return <BusinessActivity>[
-      if (json is List)
-        for (dynamic value in json) BusinessActivity.fromJson(value),
-    ];
+  static List<BusinessActivity> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivity>[];
+    }
+    return json
+        .map((value) {
+          return BusinessActivity.fromJson(value);
+        })
+        .whereType<BusinessActivity>()
+        .toList();
   }
 
-  static Map<String, BusinessActivity> mapFromJson(Map<String, dynamic> json) {
-    return <String, BusinessActivity>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivity.fromJson(entry.value),
-    };
+  static Map<String, BusinessActivity> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivity>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, BusinessActivity?>(
+        key, BusinessActivity.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, BusinessActivity>;
   }
 
   // maps a json object with a list of BusinessActivity-objects as value to a dart map
   static Map<String, List<BusinessActivity>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<BusinessActivity>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: BusinessActivity.listFromJson(entry.value),
     };
   }
@@ -127,12 +137,12 @@ class BusinessActivity {
     return <String, dynamic>{
       if (links != null) r'_links': links,
       if (alternateName != null) r'alternateName': alternateName,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (metadataSchema != null) r'metadataSchema': metadataSchema,
       r'name': name,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

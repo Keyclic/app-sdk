@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class DocumentLinksFile {
 
   /// Returns a new [DocumentLinksFile] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentLinksFile.fromJson(Map<String, dynamic> json) {
+  static DocumentLinksFile? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class DocumentLinksFile {
   }
 
   /// The URI of the file associated to the given document.
-  String href;
+  String? href;
 
-  DocumentLinksFileIriTemplate iriTemplate;
+  DocumentLinksFileIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,27 +46,37 @@ class DocumentLinksFile {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DocumentLinksFile> listFromJson(List<dynamic> json) {
-    return <DocumentLinksFile>[
-      if (json is List)
-        for (dynamic value in json) DocumentLinksFile.fromJson(value),
-    ];
+  static List<DocumentLinksFile> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentLinksFile>[];
+    }
+    return json
+        .map((value) {
+          return DocumentLinksFile.fromJson(value);
+        })
+        .whereType<DocumentLinksFile>()
+        .toList();
   }
 
-  static Map<String, DocumentLinksFile> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentLinksFile>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentLinksFile.fromJson(entry.value),
-    };
+  static Map<String, DocumentLinksFile> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentLinksFile>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, DocumentLinksFile?>(
+        key, DocumentLinksFile.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DocumentLinksFile>;
   }
 
   // maps a json object with a list of DocumentLinksFile-objects as value to a dart map
   static Map<String, List<DocumentLinksFile>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DocumentLinksFile>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DocumentLinksFile.listFromJson(entry.value),
     };
   }

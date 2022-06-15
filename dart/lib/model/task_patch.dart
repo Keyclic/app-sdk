@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -20,20 +19,20 @@ class TaskPatch {
 
   /// Returns a new [TaskPatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory TaskPatch.fromJson(Map<String, dynamic> json) {
+  static TaskPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime dueBy =
-        json['dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
+    DateTime? dueBy =
+        json[r'dueBy'] is String ? DateTime.parse(json[r'dueBy']) : null;
     if (dueBy is DateTime && dueBy.isUtc == false) {
       dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
-    DateTime scheduledAt = json['scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
+    DateTime? scheduledAt = json[r'scheduledAt'] is String
+        ? DateTime.parse(json[r'scheduledAt'])
+        : null;
     if (scheduledAt is DateTime && scheduledAt.isUtc == false) {
       scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
     }
@@ -50,21 +49,21 @@ class TaskPatch {
     );
   }
 
-  String category;
+  String? category;
 
-  String description;
+  String? description;
 
-  DateTime dueBy;
+  DateTime? dueBy;
 
-  String identificationNumber;
+  String? identificationNumber;
 
-  String name;
+  String? name;
 
-  String priority;
+  String? priority;
 
-  DateTime scheduledAt;
+  DateTime? scheduledAt;
 
-  List<String> tags;
+  List<String>? tags;
 
   @override
   bool operator ==(Object other) {
@@ -95,27 +94,36 @@ class TaskPatch {
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (tags == null ? 0 : tags.hashCode);
 
-  static List<TaskPatch> listFromJson(List<dynamic> json) {
-    return <TaskPatch>[
-      if (json is List)
-        for (dynamic value in json) TaskPatch.fromJson(value),
-    ];
+  static List<TaskPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TaskPatch>[];
+    }
+    return json
+        .map((value) {
+          return TaskPatch.fromJson(value);
+        })
+        .whereType<TaskPatch>()
+        .toList();
   }
 
-  static Map<String, TaskPatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, TaskPatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TaskPatch.fromJson(entry.value),
-    };
+  static Map<String, TaskPatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TaskPatch>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, TaskPatch?>(key, TaskPatch.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, TaskPatch>;
   }
 
   // maps a json object with a list of TaskPatch-objects as value to a dart map
   static Map<String, List<TaskPatch>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<TaskPatch>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: TaskPatch.listFromJson(entry.value),
     };
   }
@@ -128,13 +136,13 @@ class TaskPatch {
     return <String, dynamic>{
       if (category != null) r'category': category,
       if (description != null) r'description': description,
-      if (dueBy != null) r'dueBy': dueBy.toUtc().toIso8601String(),
+      if (dueBy != null) r'dueBy': dueBy!.toUtc().toIso8601String(),
       if (identificationNumber != null)
         r'identificationNumber': identificationNumber,
       if (name != null) r'name': name,
       if (priority != null) r'priority': priority,
       if (scheduledAt != null)
-        r'scheduledAt': scheduledAt.toUtc().toIso8601String(),
+        r'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
       if (tags != null) r'tags': tags,
     };
   }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class DeviceLinksSelf {
 
   /// Returns a new [DeviceLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DeviceLinksSelf.fromJson(Map<String, dynamic> json) {
+  static DeviceLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class DeviceLinksSelf {
   }
 
   /// The URI of the self associated to the given device.
-  String href;
+  String? href;
 
-  DeviceLinksSelfIriTemplate iriTemplate;
+  DeviceLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,27 +46,36 @@ class DeviceLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DeviceLinksSelf> listFromJson(List<dynamic> json) {
-    return <DeviceLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) DeviceLinksSelf.fromJson(value),
-    ];
+  static List<DeviceLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DeviceLinksSelf>[];
+    }
+    return json
+        .map((value) {
+          return DeviceLinksSelf.fromJson(value);
+        })
+        .whereType<DeviceLinksSelf>()
+        .toList();
   }
 
-  static Map<String, DeviceLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return <String, DeviceLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DeviceLinksSelf.fromJson(entry.value),
-    };
+  static Map<String, DeviceLinksSelf> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DeviceLinksSelf>{};
+    }
+
+    final map = json.map((key, value) => MapEntry<String, DeviceLinksSelf?>(
+        key, DeviceLinksSelf.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, DeviceLinksSelf>;
   }
 
   // maps a json object with a list of DeviceLinksSelf-objects as value to a dart map
   static Map<String, List<DeviceLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<DeviceLinksSelf>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: DeviceLinksSelf.listFromJson(entry.value),
     };
   }

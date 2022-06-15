@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class FeedbackDataGeoPoint {
 
   /// Returns a new [FeedbackDataGeoPoint] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackDataGeoPoint.fromJson(Map<String, dynamic> json) {
+  static FeedbackDataGeoPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -28,11 +27,11 @@ class FeedbackDataGeoPoint {
     );
   }
 
-  num latitude;
+  num? latitude;
 
-  num longitude;
+  num? longitude;
 
-  num srid;
+  num? srid;
 
   @override
   bool operator ==(Object other) {
@@ -53,28 +52,38 @@ class FeedbackDataGeoPoint {
       (longitude == null ? 0 : longitude.hashCode) +
       (srid == null ? 0 : srid.hashCode);
 
-  static List<FeedbackDataGeoPoint> listFromJson(List<dynamic> json) {
-    return <FeedbackDataGeoPoint>[
-      if (json is List)
-        for (dynamic value in json) FeedbackDataGeoPoint.fromJson(value),
-    ];
+  static List<FeedbackDataGeoPoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackDataGeoPoint>[];
+    }
+    return json
+        .map((value) {
+          return FeedbackDataGeoPoint.fromJson(value);
+        })
+        .whereType<FeedbackDataGeoPoint>()
+        .toList();
   }
 
   static Map<String, FeedbackDataGeoPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, FeedbackDataGeoPoint>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackDataGeoPoint.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackDataGeoPoint>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, FeedbackDataGeoPoint?>(
+            key, FeedbackDataGeoPoint.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, FeedbackDataGeoPoint>;
   }
 
   // maps a json object with a list of FeedbackDataGeoPoint-objects as value to a dart map
   static Map<String, List<FeedbackDataGeoPoint>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<FeedbackDataGeoPoint>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: FeedbackDataGeoPoint.listFromJson(entry.value),
     };
   }

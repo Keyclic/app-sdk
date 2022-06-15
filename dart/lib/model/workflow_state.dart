@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -24,7 +23,7 @@ class WorkflowState {
 
   /// Returns a new [WorkflowState] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory WorkflowState.fromJson(Map<String, dynamic> json) {
+  static WorkflowState? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -39,35 +38,35 @@ class WorkflowState {
       id: json[r'id'],
       key: json[r'key'],
       name: json[r'name'],
-      progression: json[r'progression'],
+      progression: json[r'progression']?.toDouble(),
       reference: json[r'reference'],
       type: json[r'type'],
     );
   }
 
-  bool allowAdd;
+  bool? allowAdd;
 
-  bool allowDispatch;
+  bool? allowDispatch;
 
-  String backgroundColor;
+  String? backgroundColor;
 
-  String color;
+  String? color;
 
-  String description;
+  String? description;
 
-  bool end;
+  bool? end;
 
-  String id;
+  final String? id;
 
-  String key;
+  String? key;
 
-  String name;
+  String? name;
 
-  double progression;
+  double? progression;
 
-  String reference;
+  String? reference;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -106,27 +105,36 @@ class WorkflowState {
       (reference == null ? 0 : reference.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<WorkflowState> listFromJson(List<dynamic> json) {
-    return <WorkflowState>[
-      if (json is List)
-        for (dynamic value in json) WorkflowState.fromJson(value),
-    ];
+  static List<WorkflowState> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <WorkflowState>[];
+    }
+    return json
+        .map((value) {
+          return WorkflowState.fromJson(value);
+        })
+        .whereType<WorkflowState>()
+        .toList();
   }
 
-  static Map<String, WorkflowState> mapFromJson(Map<String, dynamic> json) {
-    return <String, WorkflowState>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: WorkflowState.fromJson(entry.value),
-    };
+  static Map<String, WorkflowState> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, WorkflowState>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, WorkflowState?>(key, WorkflowState.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, WorkflowState>;
   }
 
   // maps a json object with a list of WorkflowState-objects as value to a dart map
   static Map<String, List<WorkflowState>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<WorkflowState>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: WorkflowState.listFromJson(entry.value),
     };
   }

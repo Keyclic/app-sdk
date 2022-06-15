@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PaginationLink {
 
   /// Returns a new [PaginationLink] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PaginationLink.fromJson(Map<String, dynamic> json) {
+  static PaginationLink? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PaginationLink {
     );
   }
 
-  String href;
+  String? href;
 
   @override
   bool operator ==(Object other) {
@@ -38,27 +37,36 @@ class PaginationLink {
   @override
   int get hashCode => (href == null ? 0 : href.hashCode);
 
-  static List<PaginationLink> listFromJson(List<dynamic> json) {
-    return <PaginationLink>[
-      if (json is List)
-        for (dynamic value in json) PaginationLink.fromJson(value),
-    ];
+  static List<PaginationLink> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PaginationLink>[];
+    }
+    return json
+        .map((value) {
+          return PaginationLink.fromJson(value);
+        })
+        .whereType<PaginationLink>()
+        .toList();
   }
 
-  static Map<String, PaginationLink> mapFromJson(Map<String, dynamic> json) {
-    return <String, PaginationLink>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PaginationLink.fromJson(entry.value),
-    };
+  static Map<String, PaginationLink> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PaginationLink>{};
+    }
+
+    final map = json.map((key, value) =>
+        MapEntry<String, PaginationLink?>(key, PaginationLink.fromJson(value)))
+      ..removeWhere((_, value) => value != null);
+
+    return map as Map<String, PaginationLink>;
   }
 
   // maps a json object with a list of PaginationLink-objects as value to a dart map
   static Map<String, List<PaginationLink>> mapListFromJson(
-      Map<String, dynamic> json) {
+      Map<String, dynamic>? json) {
     return <String, List<PaginationLink>>{
       if (json is Map)
-        for (final entry in json.entries)
+        for (final entry in json!.entries)
           entry.key: PaginationLink.listFromJson(entry.value),
     };
   }

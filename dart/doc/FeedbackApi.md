@@ -11,7 +11,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cgetCommentsByFeedback**](FeedbackApi.md#cgetCommentsByFeedback) | **GET** /feedbacks/{feedback}/comments | Retrieve all Comment resources.
 [**cgetFeedback**](FeedbackApi.md#cgetFeedback) | **GET** /feedbacks | Retrieve all Feedback resources.
-[**cgetReviewsByFeedback**](FeedbackApi.md#cgetReviewsByFeedback) | **GET** /feedbacks/{feedback}/reviews | Retrieve all Review resources.
 [**deleteFeedback**](FeedbackApi.md#deleteFeedback) | **DELETE** /feedbacks/{feedback} | Remove one Feedback resource.
 [**getFeedback**](FeedbackApi.md#getFeedback) | **GET** /feedbacks/{feedback} | Retrieve one Feedback resource.
 [**getTrackingByFeedback**](FeedbackApi.md#getTrackingByFeedback) | **GET** /feedbacks/{feedback}/tracking | Retrieve one Tracking resource.
@@ -141,71 +140,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FeedbackPagination**](FeedbackPagination.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cgetReviewsByFeedback**
-> ReviewPagination cgetReviewsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
-
-Retrieve all Review resources.
-
-### Example 
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
-
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
-
-try { 
-    var result = api_instance.cgetReviewsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
-    print(result);
-} catch (e) {
-    print("Exception when calling FeedbackApi->cgetReviewsByFeedback: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **after** | **DateTime**|  | [optional] 
- **before** | **DateTime**|  | [optional] 
- **page** | **int**| Page of the overview. | [optional] [default to 1]
- **limit** | **int**| Page of the overview. | [optional] [default to 10]
-
-### Return type
-
-[**ReviewPagination**](ReviewPagination.md)
 
 ### Authorization
 

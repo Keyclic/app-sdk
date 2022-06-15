@@ -1005,6 +1005,9 @@ class ApiClient {
           return ReviewRequestLinksItemToReview.fromJson(value);
         case 'ReviewRequestLinksItemToReviewIriTemplate':
           return ReviewRequestLinksItemToReviewIriTemplate.fromJson(value);
+        case 'ReviewRequestLinksItemToReviewIriTemplateMapping':
+          return ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
+              value);
         case 'ReviewRequestLinksOrganization':
           return ReviewRequestLinksOrganization.fromJson(value);
         case 'ReviewRequestLinksOrganizationIriTemplate':

@@ -13,11 +13,11 @@ class ReviewLinksItemReviewedIriTemplate {
 
     return ReviewLinksItemReviewedIriTemplate(
       mapping:
-          ContributionLinksFeedbackIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksReportIriTemplateMapping.fromJson(json['mapping']),
     );
   }
 
-  ContributionLinksFeedbackIriTemplateMapping mapping;
+  AssignmentLinksReportIriTemplateMapping mapping;
 
   @override
   bool operator ==(dynamic other) {

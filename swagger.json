@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.26.1-dev.c82ee7c931"
+        "version": "2.26.5-dev.3b9e8ef42a"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -3987,111 +3987,6 @@
                         "description": "",
                         "schema": {
                             "$ref": "#\/definitions\/Feedback"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
-        "\/feedbacks\/{feedback}\/reviews": {
-            "get": {
-                "tags": [
-                    "Feedback"
-                ],
-                "summary": "Retrieve all Review resources.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "cgetReviewsByFeedback",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/after"
-                    },
-                    {
-                        "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/page"
-                    },
-                    {
-                        "$ref": "#\/parameters\/limit"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "feedback",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/ReviewPagination"
                         }
                     },
                     "400": {
@@ -9313,6 +9208,234 @@
                 ]
             }
         },
+        "\/organizations\/{organization}\/reviews": {
+            "get": {
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Retrieve all Review resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetReviewsByOrganization",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category"
+                    },
+                    {
+                        "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/task"
+                    },
+                    {
+                        "$ref": "#\/parameters\/tasks__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "organization",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/ReviewPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "\/organizations\/{organization}\/review-requests": {
+            "get": {
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Retrieve all ReviewRequest resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetReviewRequestsByOrganization",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/has_review"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "organization",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/ReviewRequestPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/organizations\/{organization}\/services": {
             "get": {
                 "tags": [
@@ -10643,6 +10766,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/has_review"
                     },
                     {
                         "$ref": "#\/parameters\/page"
@@ -22883,7 +23009,7 @@
                 },
                 "reviewBody": {
                     "format": "string",
-                    "maxLength": 255,
+                    "maxLength": 65535,
                     "minLength": 1,
                     "type": "string"
                 },
@@ -22979,7 +23105,7 @@
                 "mapping": {
                     "type": "object",
                     "properties": {
-                        "feedback": {
+                        "report": {
                             "type": "string"
                         }
                     }
@@ -23112,6 +23238,9 @@
                     "type": "object",
                     "properties": {
                         "feedback": {
+                            "type": "string"
+                        },
+                        "task": {
                             "type": "string"
                         }
                     }
@@ -25313,6 +25442,28 @@
             "name": "parents[]",
             "pattern": ".*",
             "type": "array"
+        },
+        "task": {
+            "in": "query",
+            "name": "task",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "tasks__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "tasks[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "has_review": {
+            "in": "query",
+            "name": "has_review",
+            "pattern": ".*",
+            "type": "string"
         },
         "options_property_": {
             "in": "query",

@@ -502,6 +502,7 @@ part 'model/review_request_embedded.dart';
 part 'model/review_request_links.dart';
 part 'model/review_request_links_item_to_review.dart';
 part 'model/review_request_links_item_to_review_iri_template.dart';
+part 'model/review_request_links_item_to_review_iri_template_mapping.dart';
 part 'model/review_request_links_organization.dart';
 part 'model/review_request_links_organization_iri_template.dart';
 part 'model/review_request_links_review.dart';

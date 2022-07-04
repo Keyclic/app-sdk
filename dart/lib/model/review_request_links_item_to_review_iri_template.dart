@@ -12,12 +12,12 @@ class ReviewRequestLinksItemToReviewIriTemplate {
     }
 
     return ReviewRequestLinksItemToReviewIriTemplate(
-      mapping:
-          ContributionLinksFeedbackIriTemplateMapping.fromJson(json['mapping']),
+      mapping: ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
+          json['mapping']),
     );
   }
 
-  ContributionLinksFeedbackIriTemplateMapping mapping;
+  ReviewRequestLinksItemToReviewIriTemplateMapping mapping;
 
   @override
   bool operator ==(dynamic other) {

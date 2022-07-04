@@ -435,6 +435,7 @@ class PersonApi {
     List<String> order__,
     DateTime after,
     DateTime before,
+    String hasReview,
     int page,
     int limit,
   }) async {
@@ -462,6 +463,8 @@ class PersonApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
+      if (hasReview != null)
+        ..._convertParametersForCollectionFormat("has_review", hasReview),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),
       if (limit != null)
         ..._convertParametersForCollectionFormat("limit", limit),

@@ -20,6 +20,8 @@ Method | HTTP request | Description
 [**cgetPlacesByOrganization**](OrganizationApi.md#cgetPlacesByOrganization) | **GET** /organizations/{organization}/places | Retrieve all Place resources.
 [**cgetPublicationsByOrganization**](OrganizationApi.md#cgetPublicationsByOrganization) | **GET** /organizations/{organization}/publications | Retrieve all Publication resources.
 [**cgetReportsByOrganization**](OrganizationApi.md#cgetReportsByOrganization) | **GET** /organizations/{organization}/reports | Retrieve all Report resources.
+[**cgetReviewRequestsByOrganization**](OrganizationApi.md#cgetReviewRequestsByOrganization) | **GET** /organizations/{organization}/review-requests | Retrieve all ReviewRequest resources.
+[**cgetReviewsByOrganization**](OrganizationApi.md#cgetReviewsByOrganization) | **GET** /organizations/{organization}/reviews | Retrieve all Review resources.
 [**cgetServicesByOrganization**](OrganizationApi.md#cgetServicesByOrganization) | **GET** /organizations/{organization}/services | Retrieve all Service resources.
 [**cgetTemplatesByOrganization**](OrganizationApi.md#cgetTemplatesByOrganization) | **GET** /organizations/{organization}/templates | Retrieve all Template resources.
 [**getAnalyticByOrganization**](OrganizationApi.md#getAnalyticByOrganization) | **GET** /organizations/{organization}/analytics | Retrieve one Analytic resource.
@@ -960,6 +962,148 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ReportPagination**](ReportPagination.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cgetReviewRequestsByOrganization**
+> ReviewRequestPagination cgetReviewRequestsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, hasReview, page, limit)
+
+Retrieve all ReviewRequest resources.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = OrganizationApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var organization = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
+var after = 2013-10-20T19:20:30+01:00; // DateTime | 
+var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var hasReview = hasReview_example; // String | 
+var page = 56; // int | Page of the overview.
+var limit = 56; // int | Page of the overview.
+
+try { 
+    var result = api_instance.cgetReviewRequestsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, hasReview, page, limit);
+    print(result);
+} catch (e) {
+    print("Exception when calling OrganizationApi->cgetReviewRequestsByOrganization: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **organization** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **hasReview** | **String**|  | [optional] 
+ **page** | **int**| Page of the overview. | [optional] [default to 1]
+ **limit** | **int**| Page of the overview. | [optional] [default to 10]
+
+### Return type
+
+[**ReviewRequestPagination**](ReviewRequestPagination.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cgetReviewsByOrganization**
+> ReviewPagination cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], category, categories[], after, before, rating[], task, tasks[], page, limit)
+
+Retrieve all Review resources.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = OrganizationApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var organization = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
+var category = category_example; // String | 
+var categories[] = []; // List<String> | 
+var after = 2013-10-20T19:20:30+01:00; // DateTime | 
+var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var rating[] = []; // List<String> | 
+var task = task_example; // String | 
+var tasks[] = []; // List<String> | 
+var page = 56; // int | Page of the overview.
+var limit = 56; // int | Page of the overview.
+
+try { 
+    var result = api_instance.cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], category, categories[], after, before, rating[], task, tasks[], page, limit);
+    print(result);
+} catch (e) {
+    print("Exception when calling OrganizationApi->cgetReviewsByOrganization: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **organization** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **category** | **String**|  | [optional] 
+ **categories[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **rating[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **task** | **String**|  | [optional] 
+ **tasks[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **page** | **int**| Page of the overview. | [optional] [default to 1]
+ **limit** | **int**| Page of the overview. | [optional] [default to 10]
+
+### Return type
+
+[**ReviewPagination**](ReviewPagination.md)
 
 ### Authorization
 

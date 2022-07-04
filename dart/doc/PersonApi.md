@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetReviewRequestsByPerson**
-> ReviewRequestPagination cgetReviewRequestsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
+> ReviewRequestPagination cgetReviewRequestsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, hasReview, page, limit)
 
 Retrieve all ReviewRequest resources.
 
@@ -323,11 +323,12 @@ var xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 var order[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var hasReview = hasReview_example; // String | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetReviewRequestsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
+    var result = api_instance.cgetReviewRequestsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, hasReview, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PersonApi->cgetReviewRequestsByPerson: $e\n");
@@ -347,6 +348,7 @@ Name | Type | Description  | Notes
  **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
+ **hasReview** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
 

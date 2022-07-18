@@ -5,6 +5,7 @@ class InternalServiceDataContactPoint {
     this.description,
     this.email,
     this.familyName,
+    this.faxNumber,
     this.givenName,
     this.name,
     this.telephone,
@@ -19,6 +20,7 @@ class InternalServiceDataContactPoint {
       description: json['description'],
       email: json['email'],
       familyName: json['familyName'],
+      faxNumber: json['faxNumber'],
       givenName: json['givenName'],
       name: json['name'],
       telephone: json['telephone'],
@@ -30,6 +32,8 @@ class InternalServiceDataContactPoint {
   String email;
 
   String familyName;
+
+  String faxNumber;
 
   String givenName;
 
@@ -49,6 +53,7 @@ class InternalServiceDataContactPoint {
         description == other.description &&
         email == other.email &&
         familyName == other.familyName &&
+        faxNumber == other.faxNumber &&
         givenName == other.givenName &&
         name == other.name &&
         telephone == other.telephone;
@@ -62,6 +67,7 @@ class InternalServiceDataContactPoint {
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= email?.hashCode ?? 0;
     hashCode ^= familyName?.hashCode ?? 0;
+    hashCode ^= faxNumber?.hashCode ?? 0;
     hashCode ^= givenName?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
     hashCode ^= telephone?.hashCode ?? 0;
@@ -92,6 +98,7 @@ class InternalServiceDataContactPoint {
       if (description != null) 'description': description,
       if (email != null) 'email': email,
       if (familyName != null) 'familyName': familyName,
+      if (faxNumber != null) 'faxNumber': faxNumber,
       if (givenName != null) 'givenName': givenName,
       if (name != null) 'name': name,
       if (telephone != null) 'telephone': telephone,
@@ -100,6 +107,6 @@ class InternalServiceDataContactPoint {
 
   @override
   String toString() {
-    return 'InternalServiceDataContactPoint[description=$description, email=$email, familyName=$familyName, givenName=$givenName, name=$name, telephone=$telephone, ]';
+    return 'InternalServiceDataContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, name=$name, telephone=$telephone, ]';
   }
 }

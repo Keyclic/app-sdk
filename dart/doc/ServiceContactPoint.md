@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] [default to null]
 **email** | **String** |  | [optional] [default to null]
 **familyName** | **String** |  | [optional] [default to null]
+**faxNumber** | **String** |  | [optional] [default to null]
 **givenName** | **String** |  | [optional] [default to null]
 **isOpen** | **bool** |  | [optional] [default to null]
 **name** | **String** |  | [optional] [default to null]

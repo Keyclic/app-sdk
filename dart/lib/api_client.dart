@@ -667,6 +667,10 @@ class ApiClient {
           return OperationEmbeddedWorkflow.fromJson(value);
         case 'OperationLinks':
           return OperationLinks.fromJson(value);
+        case 'OperationLinksAssignees':
+          return OperationLinksAssignees.fromJson(value);
+        case 'OperationLinksAssigneesIriTemplate':
+          return OperationLinksAssigneesIriTemplate.fromJson(value);
         case 'OperationLinksFeedback':
           return OperationLinksFeedback.fromJson(value);
         case 'OperationLinksFeedbackIriTemplate':

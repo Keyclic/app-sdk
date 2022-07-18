@@ -2,6 +2,7 @@ part of keyclic_sdk_api.api;
 
 class OperationLinks {
   OperationLinks({
+    this.assignees,
     this.feedback,
     this.image,
     this.images,
@@ -18,6 +19,7 @@ class OperationLinks {
     }
 
     return OperationLinks(
+      assignees: OperationLinksAssignees.listFromJson(json['assignees']),
       feedback: OperationLinksFeedback.fromJson(json['feedback']),
       image: OperationLinksImage.fromJson(json['image']),
       images: OperationLinksImages.listFromJson(json['images']),
@@ -28,6 +30,8 @@ class OperationLinks {
       tracking: OperationLinksTracking.fromJson(json['tracking']),
     );
   }
+
+  List<OperationLinksAssignees> assignees;
 
   OperationLinksFeedback feedback;
 
@@ -54,6 +58,7 @@ class OperationLinks {
 
     return other is OperationLinks &&
         runtimeType == other.runtimeType &&
+        DeepCollectionEquality.unordered().equals(assignees, other.assignees) &&
         feedback == other.feedback &&
         image == other.image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
@@ -69,6 +74,11 @@ class OperationLinks {
   int get hashCode {
     int hashCode = 0;
 
+    if (assignees is List && assignees.isNotEmpty) {
+      hashCode ^= assignees
+          .map((OperationLinksAssignees element) => element.hashCode)
+          .reduce((int value, int cursor) => value ^ cursor);
+    }
     if (images is List && images.isNotEmpty) {
       hashCode ^= images
           .map((OperationLinksImages element) => element.hashCode)
@@ -102,6 +112,7 @@ class OperationLinks {
 
   Map<String, dynamic> toJson() {
     return {
+      if (assignees != null) 'assignees': assignees,
       if (feedback != null) 'feedback': feedback.toJson(),
       if (image != null) 'image': image.toJson(),
       if (images != null) 'images': images,
@@ -115,6 +126,6 @@ class OperationLinks {
 
   @override
   String toString() {
-    return 'OperationLinks[feedback=$feedback, image=$image, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking, ]';
+    return 'OperationLinks[assignees=$assignees, feedback=$feedback, image=$image, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking, ]';
   }
 }

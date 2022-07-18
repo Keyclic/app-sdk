@@ -5,6 +5,7 @@ class MemberContactPoint {
     this.description,
     this.email,
     this.familyName,
+    this.faxNumber,
     this.givenName,
     this.isOpen,
     this.name,
@@ -20,6 +21,7 @@ class MemberContactPoint {
       description: json['description'],
       email: json['email'],
       familyName: json['familyName'],
+      faxNumber: json['faxNumber'],
       givenName: json['givenName'],
       isOpen: json['isOpen'],
       name: json['name'],
@@ -32,6 +34,8 @@ class MemberContactPoint {
   String email;
 
   String familyName;
+
+  String faxNumber;
 
   String givenName;
 
@@ -53,6 +57,7 @@ class MemberContactPoint {
         description == other.description &&
         email == other.email &&
         familyName == other.familyName &&
+        faxNumber == other.faxNumber &&
         givenName == other.givenName &&
         isOpen == other.isOpen &&
         name == other.name &&
@@ -67,6 +72,7 @@ class MemberContactPoint {
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= email?.hashCode ?? 0;
     hashCode ^= familyName?.hashCode ?? 0;
+    hashCode ^= faxNumber?.hashCode ?? 0;
     hashCode ^= givenName?.hashCode ?? 0;
     hashCode ^= isOpen?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
@@ -95,6 +101,7 @@ class MemberContactPoint {
       if (description != null) 'description': description,
       if (email != null) 'email': email,
       if (familyName != null) 'familyName': familyName,
+      if (faxNumber != null) 'faxNumber': faxNumber,
       if (givenName != null) 'givenName': givenName,
       if (isOpen != null) 'isOpen': isOpen,
       if (name != null) 'name': name,
@@ -104,6 +111,6 @@ class MemberContactPoint {
 
   @override
   String toString() {
-    return 'MemberContactPoint[description=$description, email=$email, familyName=$familyName, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
+    return 'MemberContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
   }
 }

@@ -5,6 +5,7 @@ class MemberPatchContactPoint {
     this.description,
     this.email,
     this.familyName,
+    this.faxNumber,
     this.givenName,
     this.telephone,
     this.name,
@@ -19,6 +20,7 @@ class MemberPatchContactPoint {
       description: json['description'],
       email: json['email'],
       familyName: json['familyName'],
+      faxNumber: json['faxNumber'],
       givenName: json['givenName'],
       telephone: json['telephone'],
       name: json['name'],
@@ -30,6 +32,8 @@ class MemberPatchContactPoint {
   String email;
 
   String familyName;
+
+  String faxNumber;
 
   String givenName;
 
@@ -49,6 +53,7 @@ class MemberPatchContactPoint {
         description == other.description &&
         email == other.email &&
         familyName == other.familyName &&
+        faxNumber == other.faxNumber &&
         givenName == other.givenName &&
         telephone == other.telephone &&
         name == other.name;
@@ -62,6 +67,7 @@ class MemberPatchContactPoint {
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= email?.hashCode ?? 0;
     hashCode ^= familyName?.hashCode ?? 0;
+    hashCode ^= faxNumber?.hashCode ?? 0;
     hashCode ^= givenName?.hashCode ?? 0;
     hashCode ^= telephone?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
@@ -90,6 +96,7 @@ class MemberPatchContactPoint {
       if (description != null) 'description': description,
       if (email != null) 'email': email,
       if (familyName != null) 'familyName': familyName,
+      if (faxNumber != null) 'faxNumber': faxNumber,
       if (givenName != null) 'givenName': givenName,
       if (telephone != null) 'telephone': telephone,
       if (name != null) 'name': name,
@@ -98,6 +105,6 @@ class MemberPatchContactPoint {
 
   @override
   String toString() {
-    return 'MemberPatchContactPoint[description=$description, email=$email, familyName=$familyName, givenName=$givenName, telephone=$telephone, name=$name, ]';
+    return 'MemberPatchContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, telephone=$telephone, name=$name, ]';
   }
 }

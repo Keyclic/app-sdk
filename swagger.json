@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.26.6-dev.2a2bc3fe95"
+        "version": "2.29.3"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -18314,6 +18314,11 @@
                     "maxLength": 255,
                     "type": "string"
                 },
+                "faxNumber": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
@@ -19160,6 +19165,11 @@
                     "maxLength": 255,
                     "type": "string"
                 },
+                "faxNumber": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
@@ -19845,6 +19855,11 @@
                     "maxLength": 255,
                     "type": "string"
                 },
+                "faxNumber": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
@@ -20015,6 +20030,11 @@
                             "type": "string"
                         },
                         "familyName": {
+                            "format": "string",
+                            "maxLength": 255,
+                            "type": "string"
+                        },
+                        "faxNumber": {
                             "format": "string",
                             "maxLength": 255,
                             "type": "string"
@@ -23908,6 +23928,11 @@
                     "type": "string"
                 },
                 "familyName": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "faxNumber": {
                     "format": "string",
                     "maxLength": 255,
                     "type": "string"

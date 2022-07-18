@@ -19217,6 +19217,9 @@
                         "familyName": {
                             "type": "string"
                         },
+                        "faxNumber": {
+                            "type": "string"
+                        },
                         "givenName": {
                             "type": "string"
                         },
@@ -19891,6 +19894,9 @@
                             "type": "string"
                         },
                         "familyName": {
+                            "type": "string"
+                        },
+                        "faxNumber": {
                             "type": "string"
                         },
                         "givenName": {

@@ -21,7 +21,7 @@ class InternalServiceDataAddress {
 
   String locality;
 
-  num postalCode;
+  String postalCode;
 
   String streetAddress;
 

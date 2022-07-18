@@ -21,7 +21,7 @@ class ExternalServicePostalAddress {
 
   String locality;
 
-  int postalCode;
+  String postalCode;
 
   String streetAddress;
 

@@ -21,7 +21,7 @@ class OrganizationPostalAddress {
 
   String locality;
 
-  int postalCode;
+  String postalCode;
 
   String streetAddress;
 

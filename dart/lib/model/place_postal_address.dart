@@ -21,7 +21,7 @@ class PlacePostalAddress {
 
   String locality;
 
-  int postalCode;
+  String postalCode;
 
   String streetAddress;
 

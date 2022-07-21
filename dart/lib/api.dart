@@ -333,6 +333,8 @@ part 'model/operation_data.dart';
 part 'model/operation_embedded.dart';
 part 'model/operation_embedded_workflow.dart';
 part 'model/operation_links.dart';
+part 'model/operation_links_assignees.dart';
+part 'model/operation_links_assignees_iri_template.dart';
 part 'model/operation_links_feedback.dart';
 part 'model/operation_links_feedback_iri_template.dart';
 part 'model/operation_links_image.dart';

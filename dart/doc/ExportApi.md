@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **postExport**
-> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[])
+> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[])
 
 Create one Export resource.
 
@@ -51,6 +51,8 @@ var leaf = leaf_example; // String |
 var level = level_example; // String | 
 var managedBy = managedBy_example; // String | 
 var managedBies[] = []; // List<String> | 
+var member = member_example; // String | 
+var members[] = []; // List<String> | 
 var operationStateAll = operationStateAll_example; // String | 
 var operationState = operationState_example; // String | 
 var operationStates[] = []; // List<String> | 
@@ -72,7 +74,7 @@ var states[] = []; // List<String> |
 var visibility[] = []; // List<String> | 
 
 try { 
-    var result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[]);
+    var result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[]);
     print(result);
 } catch (e) {
     print("Exception when calling ExportApi->postExport: $e\n");
@@ -108,6 +110,8 @@ Name | Type | Description  | Notes
  **level** | **String**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **member** | **String**|  | [optional] 
+ **members[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **operationStateAll** | **String**|  | [optional] 
  **operationState** | **String**|  | [optional] 
  **operationStates[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 

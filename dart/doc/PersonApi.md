@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOperationsByPerson**
-> OperationPagination cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit)
+> OperationPagination cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit)
 
 Retrieve all Operation resources.
 
@@ -206,6 +206,8 @@ var leaf = leaf_example; // String |
 var level = level_example; // String | 
 var managedBy = managedBy_example; // String | 
 var managedBies[] = []; // List<String> | 
+var member = member_example; // String | 
+var members[] = []; // List<String> | 
 var operationStateAll = operationStateAll_example; // String | 
 var operationState = operationState_example; // String | 
 var operationStates[] = []; // List<String> | 
@@ -228,7 +230,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit);
+    var result = api_instance.cgetOperationsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PersonApi->cgetOperationsByPerson: $e\n");
@@ -265,6 +267,8 @@ Name | Type | Description  | Notes
  **level** | **String**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **member** | **String**|  | [optional] 
+ **members[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **operationStateAll** | **String**|  | [optional] 
  **operationState** | **String**|  | [optional] 
  **operationStates[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 

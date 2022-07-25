@@ -1050,7 +1050,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetReviewsByOrganization**
-> ReviewPagination cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], category, categories[], after, before, rating[], task, tasks[], page, limit)
+> ReviewPagination cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], category, categories[], after, before, delegatedTo, delegatedTos[], rating[], task, tasks[], page, limit)
 
 Retrieve all Review resources.
 
@@ -1074,6 +1074,8 @@ var category = category_example; // String |
 var categories[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var delegatedTo = delegatedTo_example; // String | 
+var delegatedTos[] = []; // List<String> | 
 var rating[] = []; // List<String> | 
 var task = task_example; // String | 
 var tasks[] = []; // List<String> | 
@@ -1081,7 +1083,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], category, categories[], after, before, rating[], task, tasks[], page, limit);
+    var result = api_instance.cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], category, categories[], after, before, delegatedTo, delegatedTos[], rating[], task, tasks[], page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetReviewsByOrganization: $e\n");
@@ -1103,6 +1105,8 @@ Name | Type | Description  | Notes
  **categories[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
+ **delegatedTo** | **String**|  | [optional] 
+ **delegatedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **rating[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **task** | **String**|  | [optional] 
  **tasks[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 

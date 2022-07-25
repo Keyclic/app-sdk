@@ -1488,6 +1488,8 @@ class OrganizationApi {
     List<String> categories__,
     DateTime after,
     DateTime before,
+    String delegatedTo,
+    List<String> delegatedTos__,
     List<String> rating__,
     String task,
     List<String> tasks__,
@@ -1523,6 +1525,12 @@ class OrganizationApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
+      if (delegatedTo != null)
+        ..._convertParametersForCollectionFormat("delegated_to", delegatedTo),
+      if (delegatedTos__ != null)
+        ..._convertParametersForCollectionFormat(
+            "delegated_tos[]", delegatedTos__,
+            collectionFormat: "multi"),
       if (rating__ != null)
         ..._convertParametersForCollectionFormat("rating[]", rating__,
             collectionFormat: "multi"),

@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.29.4-dev.6e7f667763"
+        "version": "2.29.4-dev.12314fa9cc"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -3103,6 +3103,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/operation_state_all"
@@ -8630,6 +8636,12 @@
                         "$ref": "#\/parameters\/managed_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
+                    },
+                    {
                         "$ref": "#\/parameters\/operation_state_all"
                     },
                     {
@@ -9090,6 +9102,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/operation_state_all"
@@ -10604,6 +10622,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/operation_state_all"
@@ -13267,6 +13291,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/operation_state_all"
@@ -25205,6 +25235,22 @@
             "pattern": ".*",
             "type": "array"
         },
+        "member": {
+            "in": "query",
+            "name": "member",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "members__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "members[]",
+            "pattern": ".*",
+            "type": "array"
+        },
         "operation_state_all": {
             "in": "query",
             "name": "operation_state_all",
@@ -25536,22 +25582,6 @@
             "in": "query",
             "name": "disabledAt",
             "type": "string"
-        },
-        "member": {
-            "in": "query",
-            "name": "member",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "members__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "members[]",
-            "pattern": ".*",
-            "type": "array"
         },
         "person": {
             "in": "query",

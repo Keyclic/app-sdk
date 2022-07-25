@@ -224,6 +224,8 @@ class ReportApi {
     String level,
     String managedBy,
     List<String> managedBies__,
+    String member,
+    List<String> members__,
     String operationStateAll,
     String operationState,
     List<String> operationStates__,
@@ -310,6 +312,11 @@ class ReportApi {
       if (managedBies__ != null)
         ..._convertParametersForCollectionFormat(
             "managed_bies[]", managedBies__,
+            collectionFormat: "multi"),
+      if (member != null)
+        ..._convertParametersForCollectionFormat("member", member),
+      if (members__ != null)
+        ..._convertParametersForCollectionFormat("members[]", members__,
             collectionFormat: "multi"),
       if (operationStateAll != null)
         ..._convertParametersForCollectionFormat(

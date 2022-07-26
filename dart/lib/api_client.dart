@@ -627,12 +627,36 @@ class ApiClient {
           return MemberPatchContactPoint.fromJson(value);
         case 'MemberTypeRole':
           return MemberTypeRole.fromJson(value);
+        case 'MessageData':
+          return MessageData.fromJson(value);
         case 'Metric':
           return Metric.fromJson(value);
         case 'ModelExport':
           return ModelExport.fromJson(value);
         case 'NodePath':
           return NodePath.fromJson(value);
+        case 'Note':
+          return Note.fromJson(value);
+        case 'NoteCollection':
+          return NoteCollection.fromJson(value);
+        case 'NoteLinks':
+          return NoteLinks.fromJson(value);
+        case 'NoteLinksAbout':
+          return NoteLinksAbout.fromJson(value);
+        case 'NoteLinksAboutIriTemplate':
+          return NoteLinksAboutIriTemplate.fromJson(value);
+        case 'NoteLinksAuthor':
+          return NoteLinksAuthor.fromJson(value);
+        case 'NoteLinksAuthorIriTemplate':
+          return NoteLinksAuthorIriTemplate.fromJson(value);
+        case 'NoteLinksSelf':
+          return NoteLinksSelf.fromJson(value);
+        case 'NoteLinksSelfIriTemplate':
+          return NoteLinksSelfIriTemplate.fromJson(value);
+        case 'NoteLinksSelfIriTemplateMapping':
+          return NoteLinksSelfIriTemplateMapping.fromJson(value);
+        case 'NotePatch':
+          return NotePatch.fromJson(value);
         case 'Occupant':
           return Occupant.fromJson(value);
         case 'OccupantCollection':
@@ -1166,6 +1190,8 @@ class ApiClient {
           return InternalServicePagination.fromJson(value);
         case 'MemberPagination':
           return MemberPagination.fromJson(value);
+        case 'NotePagination':
+          return NotePagination.fromJson(value);
         case 'OccupantPagination':
           return OccupantPagination.fromJson(value);
         case 'OperationPagination':

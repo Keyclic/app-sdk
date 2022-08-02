@@ -79,6 +79,14 @@ class Permission {
         value = data;
         break;
 
+      case "NOTE_READ":
+        value = data;
+        break;
+
+      case "NOTE_WRITE":
+        value = data;
+        break;
+
       default:
         throw ('Unknown enum value to decode: $data');
     }
@@ -131,6 +139,10 @@ class Permission {
   static Permission rEPORTINGALL_ = Permission._internal("REPORTING:ALL");
 
   static Permission sERVICEALL_ = Permission._internal("SERVICE:ALL");
+
+  static Permission nOTEREAD_ = Permission._internal("NOTE_READ");
+
+  static Permission nOTEWRITE_ = Permission._internal("NOTE_WRITE");
 
   static dynamic encode(Permission data) {
     return data.value;

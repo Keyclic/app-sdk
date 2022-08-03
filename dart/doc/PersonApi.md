@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetMembershipsByPerson**
-> MemberPagination cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, permission, query, role, roles[], type, page, limit)
+> MemberPagination cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, permission, query, role, roles[], task, tasks[], type, page, limit)
 
 Retrieve all Membership resources.
 
@@ -118,12 +118,14 @@ var permission = permission_example; // String |
 var query = query_example; // String | 
 var role = role_example; // String | 
 var roles[] = []; // List<String> | 
+var task = task_example; // String | 
+var tasks[] = []; // List<String> | 
 var type = type_example; // String | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, permission, query, role, roles[], type, page, limit);
+    var result = api_instance.cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, permission, query, role, roles[], task, tasks[], type, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PersonApi->cgetMembershipsByPerson: $e\n");
@@ -147,6 +149,8 @@ Name | Type | Description  | Notes
  **query** | **String**|  | [optional] 
  **role** | **String**|  | [optional] 
  **roles[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **task** | **String**|  | [optional] 
+ **tasks[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **type** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]

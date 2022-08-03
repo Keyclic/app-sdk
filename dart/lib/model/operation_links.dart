@@ -19,7 +19,7 @@ class OperationLinks {
     }
 
     return OperationLinks(
-      assignees: OperationLinksAssignees.listFromJson(json['assignees']),
+      assignees: OperationLinksAssignees.fromJson(json['assignees']),
       feedback: OperationLinksFeedback.fromJson(json['feedback']),
       image: OperationLinksImage.fromJson(json['image']),
       images: OperationLinksImages.listFromJson(json['images']),
@@ -31,7 +31,7 @@ class OperationLinks {
     );
   }
 
-  List<OperationLinksAssignees> assignees;
+  OperationLinksAssignees assignees;
 
   OperationLinksFeedback feedback;
 
@@ -58,7 +58,7 @@ class OperationLinks {
 
     return other is OperationLinks &&
         runtimeType == other.runtimeType &&
-        DeepCollectionEquality.unordered().equals(assignees, other.assignees) &&
+        assignees == other.assignees &&
         feedback == other.feedback &&
         image == other.image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
@@ -74,17 +74,13 @@ class OperationLinks {
   int get hashCode {
     int hashCode = 0;
 
-    if (assignees is List && assignees.isNotEmpty) {
-      hashCode ^= assignees
-          .map((OperationLinksAssignees element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
     if (images is List && images.isNotEmpty) {
       hashCode ^= images
           .map((OperationLinksImages element) => element.hashCode)
           .reduce((int value, int cursor) => value ^ cursor);
     }
 
+    hashCode ^= assignees?.hashCode ?? 0;
     hashCode ^= feedback?.hashCode ?? 0;
     hashCode ^= image?.hashCode ?? 0;
     hashCode ^= operator_?.hashCode ?? 0;
@@ -112,7 +108,7 @@ class OperationLinks {
 
   Map<String, dynamic> toJson() {
     return {
-      if (assignees != null) 'assignees': assignees,
+      if (assignees != null) 'assignees': assignees.toJson(),
       if (feedback != null) 'feedback': feedback.toJson(),
       if (image != null) 'image': image.toJson(),
       if (images != null) 'images': images,

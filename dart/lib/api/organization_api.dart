@@ -418,6 +418,8 @@ class OrganizationApi {
     String query,
     String role,
     List<String> roles__,
+    String task,
+    List<String> tasks__,
     String type,
     int page,
     int limit,
@@ -453,6 +455,10 @@ class OrganizationApi {
       if (role != null) ..._convertParametersForCollectionFormat("role", role),
       if (roles__ != null)
         ..._convertParametersForCollectionFormat("roles[]", roles__,
+            collectionFormat: "multi"),
+      if (task != null) ..._convertParametersForCollectionFormat("task", task),
+      if (tasks__ != null)
+        ..._convertParametersForCollectionFormat("tasks[]", tasks__,
             collectionFormat: "multi"),
       if (type != null) ..._convertParametersForCollectionFormat("type", type),
       if (page != null) ..._convertParametersForCollectionFormat("page", page),

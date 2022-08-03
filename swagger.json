@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.30.0-dev.1837fc2457"
+        "version": "2.30.1-dev.444f96a1bb"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -4621,6 +4621,12 @@
                         "$ref": "#\/parameters\/roles__"
                     },
                     {
+                        "$ref": "#\/parameters\/task"
+                    },
+                    {
+                        "$ref": "#\/parameters\/tasks__"
+                    },
+                    {
                         "$ref": "#\/parameters\/type"
                     },
                     {
@@ -8696,6 +8702,12 @@
                         "$ref": "#\/parameters\/roles__"
                     },
                     {
+                        "$ref": "#\/parameters\/task"
+                    },
+                    {
+                        "$ref": "#\/parameters\/tasks__"
+                    },
+                    {
                         "$ref": "#\/parameters\/type"
                     },
                     {
@@ -10814,6 +10826,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/roles__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/task"
+                    },
+                    {
+                        "$ref": "#\/parameters\/tasks__"
                     },
                     {
                         "$ref": "#\/parameters\/type"
@@ -21004,10 +21022,7 @@
                     "type": "object",
                     "properties": {
                         "assignees": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#\/definitions\/OperationLinksAssignees"
-                            }
+                            "$ref": "#\/definitions\/OperationLinksAssignees"
                         },
                         "feedback": {
                             "$ref": "#\/definitions\/OperationLinksFeedback"
@@ -21154,7 +21169,10 @@
                 "mapping": {
                     "type": "object",
                     "properties": {
-                        "member": {
+                        "organization": {
+                            "type": "string"
+                        },
+                        "task": {
                             "type": "string"
                         }
                     }
@@ -26086,6 +26104,22 @@
             "pattern": ".*",
             "type": "array"
         },
+        "task": {
+            "in": "query",
+            "name": "task",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "tasks__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "tasks[]",
+            "pattern": ".*",
+            "type": "array"
+        },
         "type": {
             "in": "query",
             "name": "type",
@@ -26273,22 +26307,6 @@
                 "type": "string"
             },
             "name": "parents[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "task": {
-            "in": "query",
-            "name": "task",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "tasks__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "tasks[]",
             "pattern": ".*",
             "type": "array"
         },

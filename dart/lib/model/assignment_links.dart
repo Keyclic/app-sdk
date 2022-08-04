@@ -2,6 +2,7 @@ part of keyclic_sdk_api.api;
 
 class AssignmentLinks {
   AssignmentLinks({
+    this.member,
     this.report,
     this.self,
     this.service,
@@ -13,11 +14,14 @@ class AssignmentLinks {
     }
 
     return AssignmentLinks(
+      member: AssignmentLinksMember.fromJson(json['member']),
       report: AssignmentLinksReport.fromJson(json['report']),
       self: AssignmentLinksSelf.fromJson(json['self']),
       service: AssignmentLinksService.fromJson(json['service']),
     );
   }
+
+  AssignmentLinksMember member;
 
   AssignmentLinksReport report;
 
@@ -34,6 +38,7 @@ class AssignmentLinks {
 
     return other is AssignmentLinks &&
         runtimeType == other.runtimeType &&
+        member == other.member &&
         report == other.report &&
         self == other.self &&
         service == other.service;
@@ -44,6 +49,7 @@ class AssignmentLinks {
   int get hashCode {
     int hashCode = 0;
 
+    hashCode ^= member?.hashCode ?? 0;
     hashCode ^= report?.hashCode ?? 0;
     hashCode ^= self?.hashCode ?? 0;
     hashCode ^= service?.hashCode ?? 0;
@@ -67,6 +73,7 @@ class AssignmentLinks {
 
   Map<String, dynamic> toJson() {
     return {
+      if (member != null) 'member': member.toJson(),
       if (report != null) 'report': report.toJson(),
       if (self != null) 'self': self.toJson(),
       if (service != null) 'service': service.toJson(),
@@ -75,6 +82,6 @@ class AssignmentLinks {
 
   @override
   String toString() {
-    return 'AssignmentLinks[report=$report, self=$self, service=$service, ]';
+    return 'AssignmentLinks[member=$member, report=$report, self=$self, service=$service, ]';
   }
 }

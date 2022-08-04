@@ -9,6 +9,7 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**cgetAssignmentsByOperation**](OperationApi.md#cgetAssignmentsByOperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 [**cgetCommentsByOperation**](OperationApi.md#cgetCommentsByOperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
 [**deleteImageByOperationAndImage**](OperationApi.md#deleteImageByOperationAndImage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
 [**deleteOperation**](OperationApi.md#deleteOperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
@@ -22,6 +23,71 @@ Method | HTTP request | Description
 [**postSignByOperation**](OperationApi.md#postSignByOperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
 [**postWorkflowByOperation**](OperationApi.md#postWorkflowByOperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
 
+
+# **cgetAssignmentsByOperation**
+> AssignmentPagination cgetAssignmentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
+
+Retrieve all Assignment resources.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = OperationApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var operation = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
+var after = 2013-10-20T19:20:30+01:00; // DateTime | 
+var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var page = 56; // int | Page of the overview.
+var limit = 56; // int | Page of the overview.
+
+try { 
+    var result = api_instance.cgetAssignmentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
+    print(result);
+} catch (e) {
+    print("Exception when calling OperationApi->cgetAssignmentsByOperation: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **operation** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **page** | **int**| Page of the overview. | [optional] [default to 1]
+ **limit** | **int**| Page of the overview. | [optional] [default to 10]
+
+### Return type
+
+[**AssignmentPagination**](AssignmentPagination.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetCommentsByOperation**
 > ActivityPagination cgetCommentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit)

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **cgetMembersByInternalService**
-> MemberPagination cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[], permission, query, role, roles[], task, tasks[], type, page, limit)
+> MemberPagination cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[], permission, query, role, roles[], type, page, limit)
 
 Retrieve all Member resources.
 
@@ -45,14 +45,12 @@ var permission = permission_example; // String |
 var query = query_example; // String | 
 var role = role_example; // String | 
 var roles[] = []; // List<String> | 
-var task = task_example; // String | 
-var tasks[] = []; // List<String> | 
 var type = type_example; // String | 
 var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[], permission, query, role, roles[], task, tasks[], type, page, limit);
+    var result = api_instance.cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[], permission, query, role, roles[], type, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling InternalServiceApi->cgetMembersByInternalService: $e\n");
@@ -76,8 +74,6 @@ Name | Type | Description  | Notes
  **query** | **String**|  | [optional] 
  **role** | **String**|  | [optional] 
  **roles[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **task** | **String**|  | [optional] 
- **tasks[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **type** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
  **limit** | **int**| Page of the overview. | [optional] [default to 10]

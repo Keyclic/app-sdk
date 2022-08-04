@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.30.1-dev.444f96a1bb"
+        "version": "2.30.1-dev.4c79a75c6f"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -4621,12 +4621,6 @@
                         "$ref": "#\/parameters\/roles__"
                     },
                     {
-                        "$ref": "#\/parameters\/task"
-                    },
-                    {
-                        "$ref": "#\/parameters\/tasks__"
-                    },
-                    {
                         "$ref": "#\/parameters\/type"
                     },
                     {
@@ -6981,6 +6975,111 @@
                 ]
             }
         },
+        "\/operations\/{operation}\/assignments": {
+            "get": {
+                "tags": [
+                    "Operation"
+                ],
+                "summary": "Retrieve all Assignment resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetAssignmentsByOperation",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "operation",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/AssignmentPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/operations\/{operation}\/comments": {
             "get": {
                 "tags": [
@@ -8700,12 +8799,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/roles__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/task"
-                    },
-                    {
-                        "$ref": "#\/parameters\/tasks__"
                     },
                     {
                         "$ref": "#\/parameters\/type"
@@ -10826,12 +10919,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/roles__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/task"
-                    },
-                    {
-                        "$ref": "#\/parameters\/tasks__"
                     },
                     {
                         "$ref": "#\/parameters\/type"
@@ -16935,6 +17022,9 @@
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "member": {
+                            "$ref": "#\/definitions\/AssignmentLinksMember"
+                        },
                         "report": {
                             "$ref": "#\/definitions\/AssignmentLinksReport"
                         },
@@ -16997,6 +17087,32 @@
                 "report",
                 "service"
             ]
+        },
+        "AssignmentLinksMember": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the member associated to the given assignment.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/AssignmentLinksMemberIriTemplate"
+                }
+            }
+        },
+        "AssignmentLinksMemberIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "member": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "AssignmentLinksReport": {
             "type": "object",
@@ -21021,8 +21137,8 @@
                 "_links": {
                     "type": "object",
                     "properties": {
-                        "assignees": {
-                            "$ref": "#\/definitions\/OperationLinksAssignees"
+                        "assignments": {
+                            "$ref": "#\/definitions\/OperationLinksAssignments"
                         },
                         "feedback": {
                             "$ref": "#\/definitions\/OperationLinksFeedback"
@@ -21150,29 +21266,26 @@
                 "report"
             ]
         },
-        "OperationLinksAssignees": {
+        "OperationLinksAssignments": {
             "type": "object",
             "properties": {
                 "href": {
-                    "description": "The URI of the assignees associated to the given operation.",
+                    "description": "The URI of the assignments associated to the given operation.",
                     "type": "string",
                     "format": "string"
                 },
                 "iriTemplate": {
-                    "$ref": "#\/definitions\/OperationLinksAssigneesIriTemplate"
+                    "$ref": "#\/definitions\/OperationLinksAssignmentsIriTemplate"
                 }
             }
         },
-        "OperationLinksAssigneesIriTemplate": {
+        "OperationLinksAssignmentsIriTemplate": {
             "type": "object",
             "properties": {
                 "mapping": {
                     "type": "object",
                     "properties": {
-                        "organization": {
-                            "type": "string"
-                        },
-                        "task": {
+                        "operation": {
                             "type": "string"
                         }
                     }
@@ -26104,22 +26217,6 @@
             "pattern": ".*",
             "type": "array"
         },
-        "task": {
-            "in": "query",
-            "name": "task",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "tasks__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "tasks[]",
-            "pattern": ".*",
-            "type": "array"
-        },
         "type": {
             "in": "query",
             "name": "type",
@@ -26307,6 +26404,22 @@
                 "type": "string"
             },
             "name": "parents[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "task": {
+            "in": "query",
+            "name": "task",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "tasks__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "tasks[]",
             "pattern": ".*",
             "type": "array"
         },

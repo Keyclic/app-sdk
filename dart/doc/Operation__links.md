@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assignees** | [**OperationLinksAssignees**](OperationLinksAssignees.md) |  | [optional] [default to null]
+**assignments** | [**OperationLinksAssignments**](OperationLinksAssignments.md) |  | [optional] [default to null]
 **feedback** | [**OperationLinksFeedback**](OperationLinksFeedback.md) |  | [optional] [default to null]
 **image** | [**OperationLinksImage**](OperationLinksImage.md) |  | [optional] [default to null]
 **images** | [**List&lt;OperationLinksImages&gt;**](OperationLinksImages.md) |  | [optional] [default to []]

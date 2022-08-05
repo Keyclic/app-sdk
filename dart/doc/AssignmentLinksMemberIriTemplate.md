@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.InvitationLinksMemberIriTemplate
+# keyclic_sdk_api.model.AssignmentLinksMemberIriTemplate
 
 ## Load the model package
 ```dart

@@ -11,11 +11,12 @@ class OccupantLinksMemberIriTemplate {
     }
 
     return OccupantLinksMemberIriTemplate(
-      mapping: BookmarkLinksMemberIriTemplateMapping.fromJson(json['mapping']),
+      mapping:
+          AssignmentLinksMemberIriTemplateMapping.fromJson(json['mapping']),
     );
   }
 
-  BookmarkLinksMemberIriTemplateMapping mapping;
+  AssignmentLinksMemberIriTemplateMapping mapping;
 
   @override
   bool operator ==(dynamic other) {

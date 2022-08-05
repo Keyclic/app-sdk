@@ -187,6 +187,12 @@ class ApiClient {
           return AssignmentEmbedded.fromJson(value);
         case 'AssignmentLinks':
           return AssignmentLinks.fromJson(value);
+        case 'AssignmentLinksMember':
+          return AssignmentLinksMember.fromJson(value);
+        case 'AssignmentLinksMemberIriTemplate':
+          return AssignmentLinksMemberIriTemplate.fromJson(value);
+        case 'AssignmentLinksMemberIriTemplateMapping':
+          return AssignmentLinksMemberIriTemplateMapping.fromJson(value);
         case 'AssignmentLinksReport':
           return AssignmentLinksReport.fromJson(value);
         case 'AssignmentLinksReportIriTemplate':
@@ -223,8 +229,6 @@ class ApiClient {
           return BookmarkLinksMember.fromJson(value);
         case 'BookmarkLinksMemberIriTemplate':
           return BookmarkLinksMemberIriTemplate.fromJson(value);
-        case 'BookmarkLinksMemberIriTemplateMapping':
-          return BookmarkLinksMemberIriTemplateMapping.fromJson(value);
         case 'BookmarkLinksPlace':
           return BookmarkLinksPlace.fromJson(value);
         case 'BookmarkLinksPlaceIriTemplate':
@@ -691,10 +695,12 @@ class ApiClient {
           return OperationEmbeddedWorkflow.fromJson(value);
         case 'OperationLinks':
           return OperationLinks.fromJson(value);
-        case 'OperationLinksAssignees':
-          return OperationLinksAssignees.fromJson(value);
-        case 'OperationLinksAssigneesIriTemplate':
-          return OperationLinksAssigneesIriTemplate.fromJson(value);
+        case 'OperationLinksAssignments':
+          return OperationLinksAssignments.fromJson(value);
+        case 'OperationLinksAssignmentsIriTemplate':
+          return OperationLinksAssignmentsIriTemplate.fromJson(value);
+        case 'OperationLinksAssignmentsIriTemplateMapping':
+          return OperationLinksAssignmentsIriTemplateMapping.fromJson(value);
         case 'OperationLinksFeedback':
           return OperationLinksFeedback.fromJson(value);
         case 'OperationLinksFeedbackIriTemplate':
@@ -727,8 +733,6 @@ class ApiClient {
           return OperationLinksSelf.fromJson(value);
         case 'OperationLinksSelfIriTemplate':
           return OperationLinksSelfIriTemplate.fromJson(value);
-        case 'OperationLinksSelfIriTemplateMapping':
-          return OperationLinksSelfIriTemplateMapping.fromJson(value);
         case 'OperationLinksTracking':
           return OperationLinksTracking.fromJson(value);
         case 'OperationLinksTrackingIriTemplate':

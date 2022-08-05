@@ -1,16 +1,16 @@
 part of keyclic_sdk_api.api;
 
-class MemberLinksSelfIriTemplate {
-  MemberLinksSelfIriTemplate({
+class AssignmentLinksMemberIriTemplate {
+  AssignmentLinksMemberIriTemplate({
     this.mapping,
   });
 
-  factory MemberLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  factory AssignmentLinksMemberIriTemplate.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
-    return MemberLinksSelfIriTemplate(
+    return AssignmentLinksMemberIriTemplate(
       mapping:
           AssignmentLinksMemberIriTemplateMapping.fromJson(json['mapping']),
     );
@@ -25,7 +25,7 @@ class MemberLinksSelfIriTemplate {
       return true;
     }
 
-    return other is MemberLinksSelfIriTemplate &&
+    return other is AssignmentLinksMemberIriTemplate &&
         runtimeType == other.runtimeType &&
         mapping == other.mapping;
   }
@@ -40,20 +40,23 @@ class MemberLinksSelfIriTemplate {
     return hashCode;
   }
 
-  static List<MemberLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
+  static List<AssignmentLinksMemberIriTemplate> listFromJson(
+      List<dynamic> json) {
     return json
-            ?.map((dynamic value) => MemberLinksSelfIriTemplate.fromJson(value))
+            ?.map((dynamic value) =>
+                AssignmentLinksMemberIriTemplate.fromJson(value))
             ?.toList() ??
-        <MemberLinksSelfIriTemplate>[];
+        <AssignmentLinksMemberIriTemplate>[];
   }
 
-  static Map<String, MemberLinksSelfIriTemplate> mapFromJson(
+  static Map<String, AssignmentLinksMemberIriTemplate> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, MemberLinksSelfIriTemplate>(
+    return json?.map<String, AssignmentLinksMemberIriTemplate>(
             (String key, dynamic value) {
-          return MapEntry(key, MemberLinksSelfIriTemplate.fromJson(value));
+          return MapEntry(
+              key, AssignmentLinksMemberIriTemplate.fromJson(value));
         }) ??
-        <String, MemberLinksSelfIriTemplate>{};
+        <String, AssignmentLinksMemberIriTemplate>{};
   }
 
   Map<String, dynamic> toJson() {
@@ -64,6 +67,6 @@ class MemberLinksSelfIriTemplate {
 
   @override
   String toString() {
-    return 'MemberLinksSelfIriTemplate[mapping=$mapping, ]';
+    return 'AssignmentLinksMemberIriTemplate[mapping=$mapping, ]';
   }
 }

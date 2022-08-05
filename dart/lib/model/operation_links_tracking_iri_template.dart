@@ -12,11 +12,12 @@ class OperationLinksTrackingIriTemplate {
     }
 
     return OperationLinksTrackingIriTemplate(
-      mapping: OperationLinksSelfIriTemplateMapping.fromJson(json['mapping']),
+      mapping:
+          OperationLinksAssignmentsIriTemplateMapping.fromJson(json['mapping']),
     );
   }
 
-  OperationLinksSelfIriTemplateMapping mapping;
+  OperationLinksAssignmentsIriTemplateMapping mapping;
 
   @override
   bool operator ==(dynamic other) {

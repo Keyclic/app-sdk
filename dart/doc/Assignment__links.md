@@ -8,6 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**member** | [**AssignmentLinksMember**](AssignmentLinksMember.md) |  | [optional] [default to null]
 **report** | [**AssignmentLinksReport**](AssignmentLinksReport.md) |  | [optional] [default to null]
 **self** | [**AssignmentLinksSelf**](AssignmentLinksSelf.md) |  | [optional] [default to null]
 **service** | [**AssignmentLinksService**](AssignmentLinksService.md) |  | [optional] [default to null]

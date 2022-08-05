@@ -1,16 +1,17 @@
 part of keyclic_sdk_api.api;
 
-class OperationLinksSelfIriTemplate {
-  OperationLinksSelfIriTemplate({
+class OperationLinksAssignmentsIriTemplate {
+  OperationLinksAssignmentsIriTemplate({
     this.mapping,
   });
 
-  factory OperationLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  factory OperationLinksAssignmentsIriTemplate.fromJson(
+      Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
-    return OperationLinksSelfIriTemplate(
+    return OperationLinksAssignmentsIriTemplate(
       mapping:
           OperationLinksAssignmentsIriTemplateMapping.fromJson(json['mapping']),
     );
@@ -25,7 +26,7 @@ class OperationLinksSelfIriTemplate {
       return true;
     }
 
-    return other is OperationLinksSelfIriTemplate &&
+    return other is OperationLinksAssignmentsIriTemplate &&
         runtimeType == other.runtimeType &&
         mapping == other.mapping;
   }
@@ -40,21 +41,23 @@ class OperationLinksSelfIriTemplate {
     return hashCode;
   }
 
-  static List<OperationLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
+  static List<OperationLinksAssignmentsIriTemplate> listFromJson(
+      List<dynamic> json) {
     return json
             ?.map((dynamic value) =>
-                OperationLinksSelfIriTemplate.fromJson(value))
+                OperationLinksAssignmentsIriTemplate.fromJson(value))
             ?.toList() ??
-        <OperationLinksSelfIriTemplate>[];
+        <OperationLinksAssignmentsIriTemplate>[];
   }
 
-  static Map<String, OperationLinksSelfIriTemplate> mapFromJson(
+  static Map<String, OperationLinksAssignmentsIriTemplate> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, OperationLinksSelfIriTemplate>(
+    return json?.map<String, OperationLinksAssignmentsIriTemplate>(
             (String key, dynamic value) {
-          return MapEntry(key, OperationLinksSelfIriTemplate.fromJson(value));
+          return MapEntry(
+              key, OperationLinksAssignmentsIriTemplate.fromJson(value));
         }) ??
-        <String, OperationLinksSelfIriTemplate>{};
+        <String, OperationLinksAssignmentsIriTemplate>{};
   }
 
   Map<String, dynamic> toJson() {
@@ -65,6 +68,6 @@ class OperationLinksSelfIriTemplate {
 
   @override
   String toString() {
-    return 'OperationLinksSelfIriTemplate[mapping=$mapping, ]';
+    return 'OperationLinksAssignmentsIriTemplate[mapping=$mapping, ]';
   }
 }

@@ -3,6 +3,7 @@ part of keyclic_sdk_api.api;
 class Marker {
   Marker({
     this.links,
+    this.createdAt,
     this.id,
     this.point,
     this.type,
@@ -13,8 +14,15 @@ class Marker {
       return null;
     }
 
+    DateTime createdAt =
+        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    if (createdAt is DateTime && createdAt.isUtc == false) {
+      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+    }
+
     return Marker(
       links: MarkerLinks.fromJson(json['_links']),
+      createdAt: createdAt,
       id: json['id'],
       point: Point.fromJson(json['point']),
       type: json['type'],
@@ -22,6 +30,8 @@ class Marker {
   }
 
   MarkerLinks links;
+
+  DateTime createdAt;
 
   String id;
 
@@ -39,6 +49,7 @@ class Marker {
     return other is Marker &&
         runtimeType == other.runtimeType &&
         links == other.links &&
+        createdAt == other.createdAt &&
         id == other.id &&
         point == other.point &&
         type == other.type;
@@ -50,6 +61,7 @@ class Marker {
     int hashCode = 0;
 
     hashCode ^= links?.hashCode ?? 0;
+    hashCode ^= createdAt?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
     hashCode ^= point?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
@@ -72,6 +84,7 @@ class Marker {
   Map<String, dynamic> toJson() {
     return {
       if (links != null) '_links': links.toJson(),
+      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
       if (id != null) 'id': id,
       if (point != null) 'point': point.toJson(),
       if (type != null) 'type': type,
@@ -80,6 +93,6 @@ class Marker {
 
   @override
   String toString() {
-    return 'Marker[links=$links, id=$id, point=$point, type=$type, ]';
+    return 'Marker[links=$links, createdAt=$createdAt, id=$id, point=$point, type=$type, ]';
   }
 }

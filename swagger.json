@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.30.3"
+        "version": "2.32.1-dev.727d8234ae"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -20293,6 +20293,11 @@
                             "$ref": "#\/definitions\/MarkerLinksSelf"
                         }
                     }
+                },
+                "createdAt": {
+                    "format": "date-time",
+                    "readOnly": true,
+                    "type": "string"
                 },
                 "id": {
                     "format": "uuid",

@@ -9,6 +9,7 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**MarkerLinks**](MarkerLinks.md) |  | [optional] [default to null]
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 **id** | **String** |  | [optional] [default to null]
 **point** | [**Point**](Point.md) |  | [default to null]
 **type** | **String** |  | [optional] [default to null]

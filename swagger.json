@@ -4600,13 +4600,13 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
                         "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order__"
                     },
                     {
                         "$ref": "#\/parameters\/permission"

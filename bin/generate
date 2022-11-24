@@ -25,7 +25,7 @@ echo "Dart generation."
 rm -rf "${CURRENT_DIR}"/dart/* 2>&1
 docker run \
     --rm \
-    --volume ${PWD}:/local \
+    --volume "${PWD}":/local \
     --user "$(id -u)":"$(id -g)" \
     openapitools/openapi-generator-cli:v6.2.1 \
     generate \

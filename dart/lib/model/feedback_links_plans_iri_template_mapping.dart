@@ -1,11 +1,19 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class FeedbackLinksPlansIriTemplateMapping {
+  /// Returns a new [FeedbackLinksPlansIriTemplateMapping] instance.
   FeedbackLinksPlansIriTemplateMapping({
     this.plan,
     this.feedback,
   });
 
+  /// Returns a new [FeedbackLinksPlansIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory FeedbackLinksPlansIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -13,8 +21,8 @@ class FeedbackLinksPlansIriTemplateMapping {
     }
 
     return FeedbackLinksPlansIriTemplateMapping(
-      plan: json['plan'],
-      feedback: json['feedback'],
+      plan: json[r'plan'],
+      feedback: json[r'feedback'],
     );
   }
 
@@ -23,57 +31,59 @@ class FeedbackLinksPlansIriTemplateMapping {
   String feedback;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackLinksPlansIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        plan == other.plan &&
-        feedback == other.feedback;
+        other.plan == plan &&
+        other.feedback == feedback;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= plan?.hashCode ?? 0;
-    hashCode ^= feedback?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (plan == null ? 0 : plan.hashCode) +
+      (feedback == null ? 0 : feedback.hashCode);
 
   static List<FeedbackLinksPlansIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                FeedbackLinksPlansIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <FeedbackLinksPlansIriTemplateMapping>[];
+    return <FeedbackLinksPlansIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          FeedbackLinksPlansIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, FeedbackLinksPlansIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, FeedbackLinksPlansIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, FeedbackLinksPlansIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, FeedbackLinksPlansIriTemplateMapping>{};
+    return <String, FeedbackLinksPlansIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackLinksPlansIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (plan != null) 'plan': plan,
-      if (feedback != null) 'feedback': feedback,
+  // maps a json object with a list of FeedbackLinksPlansIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<FeedbackLinksPlansIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<FeedbackLinksPlansIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              FeedbackLinksPlansIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'FeedbackLinksPlansIriTemplateMapping[plan=$plan, feedback=$feedback, ]';
+  String toString() =>
+      'FeedbackLinksPlansIriTemplateMapping[plan=$plan, feedback=$feedback]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (plan != null) r'plan': plan,
+      if (feedback != null) r'feedback': feedback,
+    };
   }
 }

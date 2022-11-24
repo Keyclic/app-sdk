@@ -25949,9 +25949,6 @@
         },
         "order__": {
             "collectionFormat": "multi",
-            "default": {
-                "place.name": "asc"
-            },
             "in": "query",
             "items": {
                 "enum": [

@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
 
-class TemplatePagination extends Pagination {
+part of keyclic_sdk_api;
+
+class TemplatePagination implements Pagination, TemplatePaginationAllOf {
+  /// Returns a new [TemplatePagination] instance.
   TemplatePagination({
     this.limit,
     this.page,
@@ -10,18 +16,20 @@ class TemplatePagination extends Pagination {
     this.embedded,
   });
 
+  /// Returns a new [TemplatePagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory TemplatePagination.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return TemplatePagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: TemplateCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: TemplateCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -38,65 +46,68 @@ class TemplatePagination extends Pagination {
   TemplateCollection embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TemplatePagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<TemplatePagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => TemplatePagination.fromJson(value))
-            ?.toList() ??
-        <TemplatePagination>[];
+    return <TemplatePagination>[
+      if (json is List)
+        for (dynamic value in json) TemplatePagination.fromJson(value),
+    ];
   }
 
   static Map<String, TemplatePagination> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, TemplatePagination>((String key, dynamic value) {
-          return MapEntry(key, TemplatePagination.fromJson(value));
-        }) ??
-        <String, TemplatePagination>{};
+    return <String, TemplatePagination>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TemplatePagination.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
+  // maps a json object with a list of TemplatePagination-objects as value to a dart map
+  static Map<String, List<TemplatePagination>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<TemplatePagination>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TemplatePagination.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'TemplatePagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'TemplatePagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class NoteLinks {
+  /// Returns a new [NoteLinks] instance.
   NoteLinks({
     this.about,
     this.author,
     this.self,
   });
 
+  /// Returns a new [NoteLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory NoteLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return NoteLinks(
-      about: NoteLinksAbout.fromJson(json['about']),
-      author: NoteLinksAuthor.fromJson(json['author']),
-      self: NoteLinksSelf.fromJson(json['self']),
+      about: NoteLinksAbout.fromJson(json[r'about']),
+      author: NoteLinksAuthor.fromJson(json[r'author']),
+      self: NoteLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -26,53 +34,57 @@ class NoteLinks {
   NoteLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is NoteLinks &&
-        runtimeType == other.runtimeType &&
-        about == other.about &&
-        author == other.author &&
-        self == other.self;
+        other.about == about &&
+        other.author == author &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= about?.hashCode ?? 0;
-    hashCode ^= author?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (about == null ? 0 : about.hashCode) +
+      (author == null ? 0 : author.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<NoteLinks> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => NoteLinks.fromJson(value))?.toList() ??
-        <NoteLinks>[];
+    return <NoteLinks>[
+      if (json is List)
+        for (dynamic value in json) NoteLinks.fromJson(value),
+    ];
   }
 
   static Map<String, NoteLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, NoteLinks>((String key, dynamic value) {
-          return MapEntry(key, NoteLinks.fromJson(value));
-        }) ??
-        <String, NoteLinks>{};
+    return <String, NoteLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: NoteLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (about != null) 'about': about.toJson(),
-      if (author != null) 'author': author.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of NoteLinks-objects as value to a dart map
+  static Map<String, List<NoteLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<NoteLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: NoteLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'NoteLinks[about=$about, author=$author, self=$self, ]';
+  String toString() => 'NoteLinks[about=$about, author=$author, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (about != null) r'about': about,
+      if (author != null) r'author': author,
+      if (self != null) r'self': self,
+    };
   }
 }

@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Rule {
+  /// Returns a new [Rule] instance.
   Rule({
     this.embedded,
     this.links,
@@ -8,16 +14,18 @@ class Rule {
     this.type,
   });
 
+  /// Returns a new [Rule] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Rule.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Rule(
-      embedded: RuleEmbedded.fromJson(json['_embedded']),
-      links: RuleLinks.fromJson(json['_links']),
-      id: json['id'],
-      type: json['type'],
+      embedded: RuleEmbedded.fromJson(json[r'_embedded']),
+      links: RuleLinks.fromJson(json[r'_links']),
+      id: json[r'id'],
+      type: json[r'type'],
     );
   }
 
@@ -30,56 +38,59 @@ class Rule {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Rule &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        id == other.id &&
-        type == other.type;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.id == id &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<Rule> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Rule.fromJson(value))?.toList() ??
-        <Rule>[];
+    return <Rule>[
+      if (json is List)
+        for (dynamic value in json) Rule.fromJson(value),
+    ];
   }
 
   static Map<String, Rule> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Rule>((String key, dynamic value) {
-          return MapEntry(key, Rule.fromJson(value));
-        }) ??
-        <String, Rule>{};
+    return <String, Rule>{
+      if (json is Map)
+        for (final entry in json.entries) entry.key: Rule.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
+  // maps a json object with a list of Rule-objects as value to a dart map
+  static Map<String, List<Rule>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Rule>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Rule.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Rule[embedded=$embedded, links=$links, id=$id, type=$type, ]';
+  String toString() =>
+      'Rule[embedded=$embedded, links=$links, id=$id, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+    };
   }
 }

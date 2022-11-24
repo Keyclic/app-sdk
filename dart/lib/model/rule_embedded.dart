@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class RuleEmbedded {
+  /// Returns a new [RuleEmbedded] instance.
   RuleEmbedded({
     this.category,
     this.service,
   });
 
+  /// Returns a new [RuleEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory RuleEmbedded.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return RuleEmbedded(
-      category: Category.fromJson(json['category']),
-      service: InternalService.fromJson(json['service']),
+      category: Category.fromJson(json[r'category']),
+      service: InternalService.fromJson(json[r'service']),
     );
   }
 
@@ -22,52 +30,54 @@ class RuleEmbedded {
   InternalService service;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is RuleEmbedded &&
-        runtimeType == other.runtimeType &&
-        category == other.category &&
-        service == other.service;
+        other.category == category &&
+        other.service == service;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= service?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (category == null ? 0 : category.hashCode) +
+      (service == null ? 0 : service.hashCode);
 
   static List<RuleEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => RuleEmbedded.fromJson(value))
-            ?.toList() ??
-        <RuleEmbedded>[];
+    return <RuleEmbedded>[
+      if (json is List)
+        for (dynamic value in json) RuleEmbedded.fromJson(value),
+    ];
   }
 
   static Map<String, RuleEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, RuleEmbedded>((String key, dynamic value) {
-          return MapEntry(key, RuleEmbedded.fromJson(value));
-        }) ??
-        <String, RuleEmbedded>{};
+    return <String, RuleEmbedded>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: RuleEmbedded.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (category != null) 'category': category.toJson(),
-      if (service != null) 'service': service.toJson(),
+  // maps a json object with a list of RuleEmbedded-objects as value to a dart map
+  static Map<String, List<RuleEmbedded>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<RuleEmbedded>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: RuleEmbedded.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'RuleEmbedded[category=$category, service=$service, ]';
+  String toString() => 'RuleEmbedded[category=$category, service=$service]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (category != null) r'category': category,
+      if (service != null) r'service': service,
+    };
   }
 }

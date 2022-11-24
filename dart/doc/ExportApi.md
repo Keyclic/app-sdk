@@ -9,75 +9,35 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postExport**](ExportApi.md#postExport) | **POST** /exports | Create one Export resource.
+[**getExport**](ExportApi.md#getexport) | **GET** /exports/{export} | Retrieve one Export resource.
+[**postExport**](ExportApi.md#postexport) | **POST** /exports | Create one Export resource.
 
 
-# **postExport**
-> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[])
+# **getExport**
+> ModelExport getExport(xKeyclicApp, export_, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, orderLeftSquareBracketRightSquareBracket)
 
-Create one Export resource.
+Retrieve one Export resource.
 
 ### Example 
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
 
-var api_instance = ExportApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var exportData = ExportData(); // ExportData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var assignedTo = assignedTo_example; // String | 
-var assignedTos[] = []; // List<String> | 
-var batch = batch_example; // String | 
-var batches[] = []; // List<String> | 
-var category = category_example; // String | 
-var categories[] = []; // List<String> | 
-var createdBy = createdBy_example; // String | 
-var createdBies[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var deep = deep_example; // String | 
-var delegatedTo = delegatedTo_example; // String | 
-var delegatedTos[] = []; // List<String> | 
-var hasDocuments = hasDocuments_example; // String | 
-var isNull = isNull_example; // String | 
-var leaf = leaf_example; // String | 
-var level = level_example; // String | 
-var managedBy = managedBy_example; // String | 
-var managedBies[] = []; // List<String> | 
-var member = member_example; // String | 
-var members[] = []; // List<String> | 
-var operationStateAll = operationStateAll_example; // String | 
-var operationState = operationState_example; // String | 
-var operationStates[] = []; // List<String> | 
-var order[] = []; // List<String> | 
-var organization = organization_example; // String | 
-var organizations[] = []; // List<String> | 
-var phase = phase_example; // String | 
-var phases[] = []; // List<String> | 
-var place = place_example; // String | 
-var places[] = []; // List<String> | 
-var priority = priority_example; // String | 
-var priorities[] = []; // List<String> | 
-var query = query_example; // String | 
-var rating[] = []; // List<String> | 
-var scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
-var scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
-var state = state_example; // String | 
-var states[] = []; // List<String> | 
-var visibility[] = []; // List<String> | 
+final api_instance = ExportApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final export_ = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
 
 try { 
-    var result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[]);
+    final result = api_instance.getExport(xKeyclicApp, export_, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, orderLeftSquareBracketRightSquareBracket);
     print(result);
 } catch (e) {
-    print("Exception when calling ExportApi->postExport: $e\n");
+    print('Exception when calling ExportApi->getExport: $e\n');
 }
 ```
 
@@ -85,52 +45,150 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **export_** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+
+### Return type
+
+[**ModelExport**](ModelExport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postExport**
+> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket)
+
+Create one Export resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
+
+final api_instance = ExportApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final exportData = ExportData(); // ExportData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final assignedTo = assignedTo_example; // String | 
+final assignedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final batch = batch_example; // String | 
+final batchesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final category = category_example; // String | 
+final categoriesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final createdBy = createdBy_example; // String | 
+final createdBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final deep = deep_example; // String | 
+final delegatedTo = delegatedTo_example; // String | 
+final delegatedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final hasDocuments = hasDocuments_example; // String | 
+final isNull = isNull_example; // String | 
+final leaf = leaf_example; // String | 
+final level = level_example; // String | 
+final managedBy = managedBy_example; // String | 
+final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final member = member_example; // String | 
+final membersLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final operationStateAll = operationStateAll_example; // String | 
+final operationState = operationState_example; // String | 
+final operationStatesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final organization = organization_example; // String | 
+final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final phase = phase_example; // String | 
+final phasesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final place = place_example; // String | 
+final placesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final priority = priority_example; // String | 
+final prioritiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final query = query_example; // String | 
+final ratingLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
+final scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
+final state = state_example; // String | 
+final statesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final visibilityLeftSquareBracketRightSquareBracket = []; // List<String> | 
+
+try { 
+    final result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket);
+    print(result);
+} catch (e) {
+    print('Exception when calling ExportApi->postExport: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **exportData** | [**ExportData**](ExportData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **assignedTo** | **String**|  | [optional] 
- **assignedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **assignedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **batch** | **String**|  | [optional] 
- **batches[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **batchesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **category** | **String**|  | [optional] 
- **categories[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **categoriesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **createdBy** | **String**|  | [optional] 
- **createdBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **createdBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **deep** | **String**|  | [optional] 
  **delegatedTo** | **String**|  | [optional] 
- **delegatedTos[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **delegatedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **hasDocuments** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
  **leaf** | **String**|  | [optional] 
  **level** | **String**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
- **managedBies[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **member** | **String**|  | [optional] 
- **members[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **membersLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **operationStateAll** | **String**|  | [optional] 
  **operationState** | **String**|  | [optional] 
- **operationStates[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **operationStatesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **organization** | **String**|  | [optional] 
- **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **phase** | **String**|  | [optional] 
- **phases[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **phasesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **place** | **String**|  | [optional] 
- **places[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **placesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **priority** | **String**|  | [optional] 
- **priorities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **prioritiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **query** | **String**|  | [optional] 
- **rating[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **ratingLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **scheduledAtAfter** | **DateTime**|  | [optional] 
  **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 
- **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
- **visibility[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **statesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **visibilityLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
 
 ### Return type
 

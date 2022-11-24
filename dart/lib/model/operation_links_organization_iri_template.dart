@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OperationLinksOrganizationIriTemplate {
+  /// Returns a new [OperationLinksOrganizationIriTemplate] instance.
   OperationLinksOrganizationIriTemplate({
     this.mapping,
   });
 
+  /// Returns a new [OperationLinksOrganizationIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory OperationLinksOrganizationIriTemplate.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,62 +20,64 @@ class OperationLinksOrganizationIriTemplate {
     }
 
     return OperationLinksOrganizationIriTemplate(
-      mapping:
-          CategoryLinksOrganizationIriTemplateMapping.fromJson(json['mapping']),
+      mapping: CategoryLinksOrganizationIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
   CategoryLinksOrganizationIriTemplateMapping mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OperationLinksOrganizationIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+        other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<OperationLinksOrganizationIriTemplate> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                OperationLinksOrganizationIriTemplate.fromJson(value))
-            ?.toList() ??
-        <OperationLinksOrganizationIriTemplate>[];
+    return <OperationLinksOrganizationIriTemplate>[
+      if (json is List)
+        for (dynamic value in json)
+          OperationLinksOrganizationIriTemplate.fromJson(value),
+    ];
   }
 
   static Map<String, OperationLinksOrganizationIriTemplate> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, OperationLinksOrganizationIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, OperationLinksOrganizationIriTemplate.fromJson(value));
-        }) ??
-        <String, OperationLinksOrganizationIriTemplate>{};
+    return <String, OperationLinksOrganizationIriTemplate>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              OperationLinksOrganizationIriTemplate.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
+  // maps a json object with a list of OperationLinksOrganizationIriTemplate-objects as value to a dart map
+  static Map<String, List<OperationLinksOrganizationIriTemplate>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<OperationLinksOrganizationIriTemplate>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              OperationLinksOrganizationIriTemplate.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'OperationLinksOrganizationIriTemplate[mapping=$mapping, ]';
+  String toString() =>
+      'OperationLinksOrganizationIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OccupantLinks {
+  /// Returns a new [OccupantLinks] instance.
   OccupantLinks({
     this.member,
     this.place,
     this.self,
   });
 
+  /// Returns a new [OccupantLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory OccupantLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return OccupantLinks(
-      member: OccupantLinksMember.fromJson(json['member']),
-      place: OccupantLinksPlace.fromJson(json['place']),
-      self: OccupantLinksSelf.fromJson(json['self']),
+      member: OccupantLinksMember.fromJson(json[r'member']),
+      place: OccupantLinksPlace.fromJson(json[r'place']),
+      self: OccupantLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -26,55 +34,58 @@ class OccupantLinks {
   OccupantLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OccupantLinks &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        place == other.place &&
-        self == other.self;
+        other.member == member &&
+        other.place == place &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (place == null ? 0 : place.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<OccupantLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OccupantLinks.fromJson(value))
-            ?.toList() ??
-        <OccupantLinks>[];
+    return <OccupantLinks>[
+      if (json is List)
+        for (dynamic value in json) OccupantLinks.fromJson(value),
+    ];
   }
 
   static Map<String, OccupantLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OccupantLinks>((String key, dynamic value) {
-          return MapEntry(key, OccupantLinks.fromJson(value));
-        }) ??
-        <String, OccupantLinks>{};
+    return <String, OccupantLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OccupantLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member.toJson(),
-      if (place != null) 'place': place.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of OccupantLinks-objects as value to a dart map
+  static Map<String, List<OccupantLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<OccupantLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OccupantLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'OccupantLinks[member=$member, place=$place, self=$self, ]';
+  String toString() =>
+      'OccupantLinks[member=$member, place=$place, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+      if (place != null) r'place': place,
+      if (self != null) r'self': self,
+    };
   }
 }

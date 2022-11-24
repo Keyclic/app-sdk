@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ServiceContactPoint {
+  /// Returns a new [ServiceContactPoint] instance.
   ServiceContactPoint({
     this.description,
     this.email,
@@ -12,20 +18,22 @@ class ServiceContactPoint {
     this.telephone,
   });
 
+  /// Returns a new [ServiceContactPoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ServiceContactPoint.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ServiceContactPoint(
-      description: json['description'],
-      email: json['email'],
-      familyName: json['familyName'],
-      faxNumber: json['faxNumber'],
-      givenName: json['givenName'],
-      isOpen: json['isOpen'],
-      name: json['name'],
-      telephone: json['telephone'],
+      description: json[r'description'],
+      email: json[r'email'],
+      familyName: json[r'familyName'],
+      faxNumber: json[r'faxNumber'],
+      givenName: json[r'givenName'],
+      isOpen: json[r'isOpen'],
+      name: json[r'name'],
+      telephone: json[r'telephone'],
     );
   }
 
@@ -46,71 +54,74 @@ class ServiceContactPoint {
   String telephone;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ServiceContactPoint &&
-        runtimeType == other.runtimeType &&
-        description == other.description &&
-        email == other.email &&
-        familyName == other.familyName &&
-        faxNumber == other.faxNumber &&
-        givenName == other.givenName &&
-        isOpen == other.isOpen &&
-        name == other.name &&
-        telephone == other.telephone;
+        other.description == description &&
+        other.email == email &&
+        other.familyName == familyName &&
+        other.faxNumber == faxNumber &&
+        other.givenName == givenName &&
+        other.isOpen == isOpen &&
+        other.name == name &&
+        other.telephone == telephone;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= familyName?.hashCode ?? 0;
-    hashCode ^= faxNumber?.hashCode ?? 0;
-    hashCode ^= givenName?.hashCode ?? 0;
-    hashCode ^= isOpen?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (description == null ? 0 : description.hashCode) +
+      (email == null ? 0 : email.hashCode) +
+      (familyName == null ? 0 : familyName.hashCode) +
+      (faxNumber == null ? 0 : faxNumber.hashCode) +
+      (givenName == null ? 0 : givenName.hashCode) +
+      (isOpen == null ? 0 : isOpen.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode);
 
   static List<ServiceContactPoint> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ServiceContactPoint.fromJson(value))
-            ?.toList() ??
-        <ServiceContactPoint>[];
+    return <ServiceContactPoint>[
+      if (json is List)
+        for (dynamic value in json) ServiceContactPoint.fromJson(value),
+    ];
   }
 
   static Map<String, ServiceContactPoint> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ServiceContactPoint>((String key, dynamic value) {
-          return MapEntry(key, ServiceContactPoint.fromJson(value));
-        }) ??
-        <String, ServiceContactPoint>{};
+    return <String, ServiceContactPoint>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ServiceContactPoint.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (description != null) 'description': description,
-      if (email != null) 'email': email,
-      if (familyName != null) 'familyName': familyName,
-      if (faxNumber != null) 'faxNumber': faxNumber,
-      if (givenName != null) 'givenName': givenName,
-      if (isOpen != null) 'isOpen': isOpen,
-      if (name != null) 'name': name,
-      if (telephone != null) 'telephone': telephone,
+  // maps a json object with a list of ServiceContactPoint-objects as value to a dart map
+  static Map<String, List<ServiceContactPoint>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ServiceContactPoint>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ServiceContactPoint.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ServiceContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
+  String toString() =>
+      'ServiceContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (description != null) r'description': description,
+      if (email != null) r'email': email,
+      if (familyName != null) r'familyName': familyName,
+      if (faxNumber != null) r'faxNumber': faxNumber,
+      if (givenName != null) r'givenName': givenName,
+      if (isOpen != null) r'isOpen': isOpen,
+      if (name != null) r'name': name,
+      if (telephone != null) r'telephone': telephone,
+    };
   }
 }

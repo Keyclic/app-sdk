@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class MemberPatch {
+  /// Returns a new [MemberPatch] instance.
   MemberPatch({
     this.contactPoint,
-    this.roles,
+    this.roles = const [],
   });
 
+  /// Returns a new [MemberPatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory MemberPatch.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return MemberPatch(
-      contactPoint: MemberPatchContactPoint.fromJson(json['contactPoint']),
-      roles: json['roles'] is List ? List<String>.from(json['roles']) : null,
+      contactPoint: MemberPatchContactPoint.fromJson(json[r'contactPoint']),
+      roles: List<String>.from(json[r'roles'] ?? []),
     );
   }
 
@@ -22,57 +30,54 @@ class MemberPatch {
   List<String> roles;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MemberPatch &&
-        runtimeType == other.runtimeType &&
-        contactPoint == other.contactPoint &&
+        other.contactPoint == contactPoint &&
         DeepCollectionEquality.unordered().equals(roles, other.roles);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (roles is List && roles.isNotEmpty) {
-      hashCode ^= roles
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= contactPoint?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (roles == null ? 0 : roles.hashCode);
 
   static List<MemberPatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MemberPatch.fromJson(value))
-            ?.toList() ??
-        <MemberPatch>[];
+    return <MemberPatch>[
+      if (json is List)
+        for (dynamic value in json) MemberPatch.fromJson(value),
+    ];
   }
 
   static Map<String, MemberPatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MemberPatch>((String key, dynamic value) {
-          return MapEntry(key, MemberPatch.fromJson(value));
-        }) ??
-        <String, MemberPatch>{};
+    return <String, MemberPatch>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MemberPatch.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (roles != null) 'roles': roles,
+  // maps a json object with a list of MemberPatch-objects as value to a dart map
+  static Map<String, List<MemberPatch>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<MemberPatch>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MemberPatch.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'MemberPatch[contactPoint=$contactPoint, roles=$roles, ]';
+  String toString() => 'MemberPatch[contactPoint=$contactPoint, roles=$roles]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (roles != null) r'roles': roles,
+    };
   }
 }

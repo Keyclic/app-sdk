@@ -1,71 +1,76 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class DocumentCollection {
+  /// Returns a new [DocumentCollection] instance.
   DocumentCollection({
-    this.items,
+    this.items = const [],
   });
 
+  /// Returns a new [DocumentCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory DocumentCollection.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return DocumentCollection(
-      items: Document.listFromJson(json['items']),
+      items: Document.listFromJson(json[r'items']),
     );
   }
 
   List<Document> items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Document element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
   static List<DocumentCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentCollection.fromJson(value))
-            ?.toList() ??
-        <DocumentCollection>[];
+    return <DocumentCollection>[
+      if (json is List)
+        for (dynamic value in json) DocumentCollection.fromJson(value),
+    ];
   }
 
   static Map<String, DocumentCollection> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, DocumentCollection>((String key, dynamic value) {
-          return MapEntry(key, DocumentCollection.fromJson(value));
-        }) ??
-        <String, DocumentCollection>{};
+    return <String, DocumentCollection>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentCollection.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
+  // maps a json object with a list of DocumentCollection-objects as value to a dart map
+  static Map<String, List<DocumentCollection>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<DocumentCollection>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentCollection.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'DocumentCollection[items=$items, ]';
+  String toString() => 'DocumentCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

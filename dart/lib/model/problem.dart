@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Problem {
+  /// Returns a new [Problem] instance.
   Problem({
     this.type,
     this.title,
@@ -8,16 +14,18 @@ class Problem {
     this.embedded,
   });
 
+  /// Returns a new [Problem] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Problem.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Problem(
-      type: json['type'],
-      title: json['title'],
-      detail: json['detail'],
-      embedded: ProblemEmbedded.fromJson(json['_embedded']),
+      type: json[r'type'],
+      title: json[r'title'],
+      detail: json[r'detail'],
+      embedded: ProblemEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -30,56 +38,60 @@ class Problem {
   ProblemEmbedded embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Problem &&
-        runtimeType == other.runtimeType &&
-        type == other.type &&
-        title == other.title &&
-        detail == other.detail &&
-        embedded == other.embedded;
+        other.type == type &&
+        other.title == title &&
+        other.detail == detail &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= title?.hashCode ?? 0;
-    hashCode ^= detail?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (type == null ? 0 : type.hashCode) +
+      (title == null ? 0 : title.hashCode) +
+      (detail == null ? 0 : detail.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<Problem> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Problem.fromJson(value))?.toList() ??
-        <Problem>[];
+    return <Problem>[
+      if (json is List)
+        for (dynamic value in json) Problem.fromJson(value),
+    ];
   }
 
   static Map<String, Problem> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Problem>((String key, dynamic value) {
-          return MapEntry(key, Problem.fromJson(value));
-        }) ??
-        <String, Problem>{};
+    return <String, Problem>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Problem.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (type != null) 'type': type,
-      if (title != null) 'title': title,
-      if (detail != null) 'detail': detail,
-      if (embedded != null) '_embedded': embedded.toJson(),
+  // maps a json object with a list of Problem-objects as value to a dart map
+  static Map<String, List<Problem>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<Problem>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Problem.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Problem[type=$type, title=$title, detail=$detail, embedded=$embedded, ]';
+  String toString() =>
+      'Problem[type=$type, title=$title, detail=$detail, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (type != null) r'type': type,
+      if (title != null) r'title': title,
+      if (detail != null) r'detail': detail,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

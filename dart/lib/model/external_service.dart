@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ExternalService {
+  /// Returns a new [ExternalService] instance.
   ExternalService({
     this.embedded,
     this.links,
@@ -9,40 +15,42 @@ class ExternalService {
     this.createdAt,
     this.description,
     this.id,
-    this.name,
+    @required this.name,
     this.onCall,
     this.type,
     this.updatedAt,
   });
 
+  /// Returns a new [ExternalService] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ExternalService.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return ExternalService(
-      embedded: ExternalServiceEmbedded.fromJson(json['_embedded']),
-      links: ExternalServiceLinks.fromJson(json['_links']),
-      address: ExternalServicePostalAddress.fromJson(json['address']),
-      contactPoint: ExternalServiceContactPoint.fromJson(json['contactPoint']),
+      embedded: ExternalServiceEmbedded.fromJson(json[r'_embedded']),
+      links: ExternalServiceLinks.fromJson(json[r'_links']),
+      address: ExternalServicePostalAddress.fromJson(json[r'address']),
+      contactPoint: ExternalServiceContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
-      description: json['description'],
-      id: json['id'],
-      name: json['name'],
-      onCall: ExternalServiceContactPoint.fromJson(json['onCall']),
-      type: json['type'],
+      description: json[r'description'],
+      id: json[r'id'],
+      name: json[r'name'],
+      onCall: ExternalServiceContactPoint.fromJson(json[r'onCall']),
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
@@ -70,79 +78,82 @@ class ExternalService {
   DateTime updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalService &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        address == other.address &&
-        contactPoint == other.contactPoint &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
-        onCall == other.onCall &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.address == address &&
+        other.contactPoint == contactPoint &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.id == id &&
+        other.name == name &&
+        other.onCall == onCall &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= contactPoint?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= onCall?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (address == null ? 0 : address.hashCode) +
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (onCall == null ? 0 : onCall.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<ExternalService> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ExternalService.fromJson(value))
-            ?.toList() ??
-        <ExternalService>[];
+    return <ExternalService>[
+      if (json is List)
+        for (dynamic value in json) ExternalService.fromJson(value),
+    ];
   }
 
   static Map<String, ExternalService> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ExternalService>((String key, dynamic value) {
-          return MapEntry(key, ExternalService.fromJson(value));
-        }) ??
-        <String, ExternalService>{};
+    return <String, ExternalService>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalService.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (address != null) 'address': address.toJson(),
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (onCall != null) 'onCall': onCall.toJson(),
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+  // maps a json object with a list of ExternalService-objects as value to a dart map
+  static Map<String, List<ExternalService>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ExternalService>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalService.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ExternalService[embedded=$embedded, links=$links, address=$address, contactPoint=$contactPoint, createdAt=$createdAt, description=$description, id=$id, name=$name, onCall=$onCall, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'ExternalService[embedded=$embedded, links=$links, address=$address, contactPoint=$contactPoint, createdAt=$createdAt, description=$description, id=$id, name=$name, onCall=$onCall, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (address != null) r'address': address,
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (id != null) r'id': id,
+      r'name': name,
+      if (onCall != null) r'onCall': onCall,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+    };
   }
 }

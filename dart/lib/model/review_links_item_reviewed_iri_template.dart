@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ReviewLinksItemReviewedIriTemplate {
+  /// Returns a new [ReviewLinksItemReviewedIriTemplate] instance.
   ReviewLinksItemReviewedIriTemplate({
     this.mapping,
   });
 
+  /// Returns a new [ReviewLinksItemReviewedIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ReviewLinksItemReviewedIriTemplate.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -13,61 +21,61 @@ class ReviewLinksItemReviewedIriTemplate {
 
     return ReviewLinksItemReviewedIriTemplate(
       mapping:
-          AssignmentLinksReportIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
   AssignmentLinksReportIriTemplateMapping mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewLinksItemReviewedIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+        other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReviewLinksItemReviewedIriTemplate> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ReviewLinksItemReviewedIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ReviewLinksItemReviewedIriTemplate>[];
+    return <ReviewLinksItemReviewedIriTemplate>[
+      if (json is List)
+        for (dynamic value in json)
+          ReviewLinksItemReviewedIriTemplate.fromJson(value),
+    ];
   }
 
   static Map<String, ReviewLinksItemReviewedIriTemplate> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ReviewLinksItemReviewedIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ReviewLinksItemReviewedIriTemplate.fromJson(value));
-        }) ??
-        <String, ReviewLinksItemReviewedIriTemplate>{};
+    return <String, ReviewLinksItemReviewedIriTemplate>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReviewLinksItemReviewedIriTemplate.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
+  // maps a json object with a list of ReviewLinksItemReviewedIriTemplate-objects as value to a dart map
+  static Map<String, List<ReviewLinksItemReviewedIriTemplate>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ReviewLinksItemReviewedIriTemplate>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              ReviewLinksItemReviewedIriTemplate.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ReviewLinksItemReviewedIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ReviewLinksItemReviewedIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

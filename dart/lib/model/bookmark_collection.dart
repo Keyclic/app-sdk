@@ -1,71 +1,76 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class BookmarkCollection {
+  /// Returns a new [BookmarkCollection] instance.
   BookmarkCollection({
-    this.items,
+    this.items = const [],
   });
 
+  /// Returns a new [BookmarkCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory BookmarkCollection.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkCollection(
-      items: Bookmark.listFromJson(json['items']),
+      items: Bookmark.listFromJson(json[r'items']),
     );
   }
 
   List<Bookmark> items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BookmarkCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Bookmark element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
   static List<BookmarkCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BookmarkCollection.fromJson(value))
-            ?.toList() ??
-        <BookmarkCollection>[];
+    return <BookmarkCollection>[
+      if (json is List)
+        for (dynamic value in json) BookmarkCollection.fromJson(value),
+    ];
   }
 
   static Map<String, BookmarkCollection> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, BookmarkCollection>((String key, dynamic value) {
-          return MapEntry(key, BookmarkCollection.fromJson(value));
-        }) ??
-        <String, BookmarkCollection>{};
+    return <String, BookmarkCollection>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: BookmarkCollection.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
+  // maps a json object with a list of BookmarkCollection-objects as value to a dart map
+  static Map<String, List<BookmarkCollection>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<BookmarkCollection>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: BookmarkCollection.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'BookmarkCollection[items=$items, ]';
+  String toString() => 'BookmarkCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

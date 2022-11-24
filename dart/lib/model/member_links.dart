@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class MemberLinks {
+  /// Returns a new [MemberLinks] instance.
   MemberLinks({
     this.organization,
     this.person,
     this.self,
   });
 
+  /// Returns a new [MemberLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory MemberLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return MemberLinks(
-      organization: MemberLinksOrganization.fromJson(json['organization']),
-      person: MemberLinksPerson.fromJson(json['person']),
-      self: MemberLinksSelf.fromJson(json['self']),
+      organization: MemberLinksOrganization.fromJson(json[r'organization']),
+      person: MemberLinksPerson.fromJson(json[r'person']),
+      self: MemberLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -26,55 +34,58 @@ class MemberLinks {
   MemberLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MemberLinks &&
-        runtimeType == other.runtimeType &&
-        organization == other.organization &&
-        person == other.person &&
-        self == other.self;
+        other.organization == organization &&
+        other.person == person &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= person?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (organization == null ? 0 : organization.hashCode) +
+      (person == null ? 0 : person.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<MemberLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MemberLinks.fromJson(value))
-            ?.toList() ??
-        <MemberLinks>[];
+    return <MemberLinks>[
+      if (json is List)
+        for (dynamic value in json) MemberLinks.fromJson(value),
+    ];
   }
 
   static Map<String, MemberLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MemberLinks>((String key, dynamic value) {
-          return MapEntry(key, MemberLinks.fromJson(value));
-        }) ??
-        <String, MemberLinks>{};
+    return <String, MemberLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MemberLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (organization != null) 'organization': organization.toJson(),
-      if (person != null) 'person': person.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of MemberLinks-objects as value to a dart map
+  static Map<String, List<MemberLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<MemberLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MemberLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'MemberLinks[organization=$organization, person=$person, self=$self, ]';
+  String toString() =>
+      'MemberLinks[organization=$organization, person=$person, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (organization != null) r'organization': organization,
+      if (person != null) r'person': person,
+      if (self != null) r'self': self,
+    };
   }
 }

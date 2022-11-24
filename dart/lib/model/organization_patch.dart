@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OrganizationPatch {
+  /// Returns a new [OrganizationPatch] instance.
   OrganizationPatch({
     this.address,
     this.alternateName,
@@ -10,18 +16,20 @@ class OrganizationPatch {
     this.preferences,
   });
 
+  /// Returns a new [OrganizationPatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory OrganizationPatch.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return OrganizationPatch(
-      address: ExternalServicePatchAddress.fromJson(json['address']),
-      alternateName: json['alternateName'],
-      description: json['description'],
-      logo: json['logo'],
-      name: json['name'],
-      preferences: OrganizationPatchPreferences.fromJson(json['preferences']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+      alternateName: json[r'alternateName'],
+      description: json[r'description'],
+      logo: json[r'logo'],
+      name: json[r'name'],
+      preferences: OrganizationPatchPreferences.fromJson(json[r'preferences']),
     );
   }
 
@@ -38,64 +46,67 @@ class OrganizationPatch {
   OrganizationPatchPreferences preferences;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OrganizationPatch &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        alternateName == other.alternateName &&
-        description == other.description &&
-        logo == other.logo &&
-        name == other.name &&
-        preferences == other.preferences;
+        other.address == address &&
+        other.alternateName == alternateName &&
+        other.description == description &&
+        other.logo == logo &&
+        other.name == name &&
+        other.preferences == preferences;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= alternateName?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= logo?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= preferences?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (alternateName == null ? 0 : alternateName.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (logo == null ? 0 : logo.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (preferences == null ? 0 : preferences.hashCode);
 
   static List<OrganizationPatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OrganizationPatch.fromJson(value))
-            ?.toList() ??
-        <OrganizationPatch>[];
+    return <OrganizationPatch>[
+      if (json is List)
+        for (dynamic value in json) OrganizationPatch.fromJson(value),
+    ];
   }
 
   static Map<String, OrganizationPatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OrganizationPatch>((String key, dynamic value) {
-          return MapEntry(key, OrganizationPatch.fromJson(value));
-        }) ??
-        <String, OrganizationPatch>{};
+    return <String, OrganizationPatch>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OrganizationPatch.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (alternateName != null) 'alternateName': alternateName,
-      if (description != null) 'description': description,
-      if (logo != null) 'logo': logo,
-      if (name != null) 'name': name,
-      if (preferences != null) 'preferences': preferences.toJson(),
+  // maps a json object with a list of OrganizationPatch-objects as value to a dart map
+  static Map<String, List<OrganizationPatch>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<OrganizationPatch>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OrganizationPatch.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'OrganizationPatch[address=$address, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences, ]';
+  String toString() =>
+      'OrganizationPatch[address=$address, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (alternateName != null) r'alternateName': alternateName,
+      if (description != null) r'description': description,
+      if (logo != null) r'logo': logo,
+      if (name != null) r'name': name,
+      if (preferences != null) r'preferences': preferences,
+    };
   }
 }

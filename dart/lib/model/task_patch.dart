@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class TaskPatch {
+  /// Returns a new [TaskPatch] instance.
   TaskPatch({
     this.category,
     this.description,
@@ -9,36 +15,38 @@ class TaskPatch {
     this.name,
     this.priority,
     this.scheduledAt,
-    this.tags,
+    this.tags = const [],
   });
 
+  /// Returns a new [TaskPatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory TaskPatch.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime dueBy =
-        json['dueBy'] == null ? null : DateTime.parse(json['dueBy']);
+        json['dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
     if (dueBy is DateTime && dueBy.isUtc == false) {
-      dueBy = DateTime.parse('${dueBy.toIso8601String()}Z');
+      dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
     DateTime scheduledAt = json['scheduledAt'] == null
         ? null
-        : DateTime.parse(json['scheduledAt']);
+        : DateTime.parse(json[r'scheduledAt']);
     if (scheduledAt is DateTime && scheduledAt.isUtc == false) {
-      scheduledAt = DateTime.parse('${scheduledAt.toIso8601String()}Z');
+      scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
     }
 
     return TaskPatch(
-      category: json['category'],
-      description: json['description'],
+      category: json[r'category'],
+      description: json[r'description'],
       dueBy: dueBy,
-      identificationNumber: json['identificationNumber'],
-      name: json['name'],
-      priority: json['priority'],
+      identificationNumber: json[r'identificationNumber'],
+      name: json[r'name'],
+      priority: json[r'priority'],
       scheduledAt: scheduledAt,
-      tags: json['tags'] is List ? List<String>.from(json['tags']) : null,
+      tags: List<String>.from(json[r'tags'] ?? []),
     );
   }
 
@@ -59,75 +67,75 @@ class TaskPatch {
   List<String> tags;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TaskPatch &&
-        runtimeType == other.runtimeType &&
-        category == other.category &&
-        description == other.description &&
-        dueBy == other.dueBy &&
-        identificationNumber == other.identificationNumber &&
-        name == other.name &&
-        priority == other.priority &&
-        scheduledAt == other.scheduledAt &&
+        other.category == category &&
+        other.description == description &&
+        other.dueBy == dueBy &&
+        other.identificationNumber == identificationNumber &&
+        other.name == name &&
+        other.priority == priority &&
+        other.scheduledAt == scheduledAt &&
         DeepCollectionEquality.unordered().equals(tags, other.tags);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (tags is List && tags.isNotEmpty) {
-      hashCode ^= tags
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= dueBy?.hashCode ?? 0;
-    hashCode ^= identificationNumber?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= priority?.hashCode ?? 0;
-    hashCode ^= scheduledAt?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (category == null ? 0 : category.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (dueBy == null ? 0 : dueBy.hashCode) +
+      (identificationNumber == null ? 0 : identificationNumber.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (priority == null ? 0 : priority.hashCode) +
+      (scheduledAt == null ? 0 : scheduledAt.hashCode) +
+      (tags == null ? 0 : tags.hashCode);
 
   static List<TaskPatch> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => TaskPatch.fromJson(value))?.toList() ??
-        <TaskPatch>[];
+    return <TaskPatch>[
+      if (json is List)
+        for (dynamic value in json) TaskPatch.fromJson(value),
+    ];
   }
 
   static Map<String, TaskPatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, TaskPatch>((String key, dynamic value) {
-          return MapEntry(key, TaskPatch.fromJson(value));
-        }) ??
-        <String, TaskPatch>{};
+    return <String, TaskPatch>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TaskPatch.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (category != null) 'category': category,
-      if (description != null) 'description': description,
-      if (dueBy != null) 'dueBy': dueBy.toUtc().toIso8601String(),
-      if (identificationNumber != null)
-        'identificationNumber': identificationNumber,
-      if (name != null) 'name': name,
-      if (priority != null) 'priority': priority,
-      if (scheduledAt != null)
-        'scheduledAt': scheduledAt.toUtc().toIso8601String(),
-      if (tags != null) 'tags': tags,
+  // maps a json object with a list of TaskPatch-objects as value to a dart map
+  static Map<String, List<TaskPatch>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<TaskPatch>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TaskPatch.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'TaskPatch[category=$category, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags, ]';
+  String toString() =>
+      'TaskPatch[category=$category, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (category != null) r'category': category,
+      if (description != null) r'description': description,
+      if (dueBy != null) r'dueBy': dueBy.toUtc().toIso8601String(),
+      if (identificationNumber != null)
+        r'identificationNumber': identificationNumber,
+      if (name != null) r'name': name,
+      if (priority != null) r'priority': priority,
+      if (scheduledAt != null)
+        r'scheduledAt': scheduledAt.toUtc().toIso8601String(),
+      if (tags != null) r'tags': tags,
+    };
   }
 }

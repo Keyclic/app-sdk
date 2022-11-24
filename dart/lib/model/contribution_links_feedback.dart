@@ -1,77 +1,87 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ContributionLinksFeedback {
+  /// Returns a new [ContributionLinksFeedback] instance.
   ContributionLinksFeedback({
     this.href,
     this.iriTemplate,
   });
 
+  /// Returns a new [ContributionLinksFeedback] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ContributionLinksFeedback.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ContributionLinksFeedback(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          ContributionLinksFeedbackIriTemplate.fromJson(json['iriTemplate']),
+          ContributionLinksFeedbackIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the feedback associated to the given contribution. */
+  /// The URI of the feedback associated to the given contribution.
   String href;
 
   ContributionLinksFeedbackIriTemplate iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ContributionLinksFeedback &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<ContributionLinksFeedback> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ContributionLinksFeedback.fromJson(value))
-            ?.toList() ??
-        <ContributionLinksFeedback>[];
+    return <ContributionLinksFeedback>[
+      if (json is List)
+        for (dynamic value in json) ContributionLinksFeedback.fromJson(value),
+    ];
   }
 
   static Map<String, ContributionLinksFeedback> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ContributionLinksFeedback>(
-            (String key, dynamic value) {
-          return MapEntry(key, ContributionLinksFeedback.fromJson(value));
-        }) ??
-        <String, ContributionLinksFeedback>{};
+    return <String, ContributionLinksFeedback>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ContributionLinksFeedback.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+  // maps a json object with a list of ContributionLinksFeedback-objects as value to a dart map
+  static Map<String, List<ContributionLinksFeedback>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ContributionLinksFeedback>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ContributionLinksFeedback.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ContributionLinksFeedback[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'ContributionLinksFeedback[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

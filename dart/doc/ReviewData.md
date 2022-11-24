@@ -8,9 +8,9 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reviewBody** | **String** |  | [optional] [default to null]
-**reviewRating** | **num** |  | [default to null]
-**reviewRequest** | **String** |  | [default to null]
+**reviewBody** | **String** |  | [optional] 
+**reviewRating** | **num** |  | 
+**reviewRequest** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

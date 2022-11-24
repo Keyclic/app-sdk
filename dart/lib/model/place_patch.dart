@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PlacePatch {
+  /// Returns a new [PlacePatch] instance.
   PlacePatch({
     this.address,
     this.branchCode,
@@ -8,16 +14,18 @@ class PlacePatch {
     this.name,
   });
 
+  /// Returns a new [PlacePatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PlacePatch.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PlacePatch(
-      address: ExternalServicePatchAddress.fromJson(json['address']),
-      branchCode: json['branchCode'],
-      description: json['description'],
-      name: json['name'],
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+      branchCode: json[r'branchCode'],
+      description: json[r'description'],
+      name: json[r'name'],
     );
   }
 
@@ -30,56 +38,61 @@ class PlacePatch {
   String name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlacePatch &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        branchCode == other.branchCode &&
-        description == other.description &&
-        name == other.name;
+        other.address == address &&
+        other.branchCode == branchCode &&
+        other.description == description &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= branchCode?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (branchCode == null ? 0 : branchCode.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<PlacePatch> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlacePatch.fromJson(value))?.toList() ??
-        <PlacePatch>[];
+    return <PlacePatch>[
+      if (json is List)
+        for (dynamic value in json) PlacePatch.fromJson(value),
+    ];
   }
 
   static Map<String, PlacePatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlacePatch>((String key, dynamic value) {
-          return MapEntry(key, PlacePatch.fromJson(value));
-        }) ??
-        <String, PlacePatch>{};
+    return <String, PlacePatch>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlacePatch.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (branchCode != null) 'branchCode': branchCode,
-      if (description != null) 'description': description,
-      if (name != null) 'name': name,
+  // maps a json object with a list of PlacePatch-objects as value to a dart map
+  static Map<String, List<PlacePatch>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PlacePatch>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlacePatch.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PlacePatch[address=$address, branchCode=$branchCode, description=$description, name=$name, ]';
+  String toString() =>
+      'PlacePatch[address=$address, branchCode=$branchCode, description=$description, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (branchCode != null) r'branchCode': branchCode,
+      if (description != null) r'description': description,
+      if (name != null) r'name': name,
+    };
   }
 }

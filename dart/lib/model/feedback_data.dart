@@ -16,6 +16,7 @@ class FeedbackData {
     this.geo,
     this.metadata,
     this.place,
+    this.priority,
     this.reporter,
     this.visibility,
   });
@@ -33,6 +34,7 @@ class FeedbackData {
       geo: FeedbackDataGeo.fromJson(json['geo']),
       metadata: json['metadata'],
       place: json['place'],
+      priority: json['priority'],
       reporter: json['reporter'],
       visibility: json['visibility'],
     );
@@ -51,6 +53,8 @@ class FeedbackData {
   Map<String, dynamic> metadata;
 
   String place;
+
+  String priority;
 
   String reporter;
 
@@ -73,6 +77,7 @@ class FeedbackData {
         geo == other.geo &&
         metadata == other.metadata &&
         place == other.place &&
+        priority == other.priority &&
         reporter == other.reporter &&
         visibility == other.visibility;
   }
@@ -89,6 +94,7 @@ class FeedbackData {
     hashCode ^= geo?.hashCode ?? 0;
     hashCode ^= metadata?.hashCode ?? 0;
     hashCode ^= place?.hashCode ?? 0;
+    hashCode ^= priority?.hashCode ?? 0;
     hashCode ^= reporter?.hashCode ?? 0;
     hashCode ^= visibility?.hashCode ?? 0;
 
@@ -118,6 +124,7 @@ class FeedbackData {
       if (geo != null) 'geo': geo.toJson(),
       if (metadata != null) 'metadata': metadata,
       if (place != null) 'place': place,
+      if (priority != null) 'priority': priority,
       if (reporter != null) 'reporter': reporter,
       if (visibility != null) 'visibility': visibility,
     };
@@ -125,6 +132,6 @@ class FeedbackData {
 
   @override
   String toString() {
-    return 'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, place=$place, reporter=$reporter, visibility=$visibility, ]';
+    return 'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility, ]';
   }
 }

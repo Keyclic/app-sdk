@@ -10,6 +10,13 @@ class QueryParam {
   String toString() => '${Uri.encodeQueryComponent(name)}=${Uri.encodeQueryComponent(value)}';
 }
 
+// extracted from dart:io package which cannot be used for web clients
+class HttpStatus {
+  static const int noContent = 204;
+  static const int badRequest = 400;
+  static const int internalServerError = 500;
+}
+
 // Ported from the Java version.
 Iterable<QueryParam> _convertParametersForCollectionFormat(
   String collectionFormat,
@@ -31,7 +38,9 @@ Iterable<QueryParam> _convertParametersForCollectionFormat(
   collectionFormat = (collectionFormat?.isEmpty ?? true) ? 'csv' : collectionFormat;
 
   if (collectionFormat == 'multi') {
-    return value.map((v) => QueryParam(name, parameterToString(v)));
+    return <QueryParam>[
+        for (final v in value) QueryParam(name, parameterToString(v)),
+    ];
   }
 
   final delimiter = _delimiters[collectionFormat] ?? ',';

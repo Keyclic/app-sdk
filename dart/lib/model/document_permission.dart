@@ -1,67 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class DocumentPermission {
+  /// Returns a new [DocumentPermission] instance.
   DocumentPermission({
     this.targetGroup,
   });
 
+  /// Returns a new [DocumentPermission] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory DocumentPermission.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return DocumentPermission(
-      targetGroup: json['targetGroup'],
+      targetGroup: json[r'targetGroup'],
     );
   }
 
   String targetGroup;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is DocumentPermission &&
-        runtimeType == other.runtimeType &&
-        targetGroup == other.targetGroup;
+    return other is DocumentPermission && other.targetGroup == targetGroup;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= targetGroup?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (targetGroup == null ? 0 : targetGroup.hashCode);
 
   static List<DocumentPermission> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentPermission.fromJson(value))
-            ?.toList() ??
-        <DocumentPermission>[];
+    return <DocumentPermission>[
+      if (json is List)
+        for (dynamic value in json) DocumentPermission.fromJson(value),
+    ];
   }
 
   static Map<String, DocumentPermission> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, DocumentPermission>((String key, dynamic value) {
-          return MapEntry(key, DocumentPermission.fromJson(value));
-        }) ??
-        <String, DocumentPermission>{};
+    return <String, DocumentPermission>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentPermission.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (targetGroup != null) 'targetGroup': targetGroup,
+  // maps a json object with a list of DocumentPermission-objects as value to a dart map
+  static Map<String, List<DocumentPermission>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<DocumentPermission>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentPermission.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'DocumentPermission[targetGroup=$targetGroup, ]';
+  String toString() => 'DocumentPermission[targetGroup=$targetGroup]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (targetGroup != null) r'targetGroup': targetGroup,
+    };
   }
 }

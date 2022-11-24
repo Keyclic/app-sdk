@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PublicationLinksSelfIriTemplateMapping {
+  /// Returns a new [PublicationLinksSelfIriTemplateMapping] instance.
   PublicationLinksSelfIriTemplateMapping({
     this.publication,
   });
 
+  /// Returns a new [PublicationLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PublicationLinksSelfIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,63 @@ class PublicationLinksSelfIriTemplateMapping {
     }
 
     return PublicationLinksSelfIriTemplateMapping(
-      publication: json['publication'],
+      publication: json[r'publication'],
     );
   }
 
   String publication;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PublicationLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        publication == other.publication;
+        other.publication == publication;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= publication?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (publication == null ? 0 : publication.hashCode);
 
   static List<PublicationLinksSelfIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                PublicationLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <PublicationLinksSelfIriTemplateMapping>[];
+    return <PublicationLinksSelfIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          PublicationLinksSelfIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, PublicationLinksSelfIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, PublicationLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, PublicationLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, PublicationLinksSelfIriTemplateMapping>{};
+    return <String, PublicationLinksSelfIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              PublicationLinksSelfIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (publication != null) 'publication': publication,
+  // maps a json object with a list of PublicationLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<PublicationLinksSelfIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<PublicationLinksSelfIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              PublicationLinksSelfIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PublicationLinksSelfIriTemplateMapping[publication=$publication, ]';
+  String toString() =>
+      'PublicationLinksSelfIriTemplateMapping[publication=$publication]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (publication != null) r'publication': publication,
+    };
   }
 }

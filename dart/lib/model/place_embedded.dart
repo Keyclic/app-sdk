@@ -1,26 +1,34 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PlaceEmbedded {
+  /// Returns a new [PlaceEmbedded] instance.
   PlaceEmbedded({
-    this.documentTypes,
+    this.documentTypes = const [],
     this.organization,
-    this.path,
-    this.targetGroups,
+    this.path = const [],
+    this.targetGroups = const [],
     this.workflow,
   });
 
+  /// Returns a new [PlaceEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PlaceEmbedded.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PlaceEmbedded(
-      documentTypes: DocumentType.listFromJson(json['documentTypes']),
-      organization: Organization.fromJson(json['organization']),
-      path: NodePath.listFromJson(json['path']),
+      documentTypes: DocumentType.listFromJson(json[r'documentTypes']),
+      organization: Organization.fromJson(json[r'organization']),
+      path: NodePath.listFromJson(json[r'path']),
       targetGroups:
-          PlaceEmbeddedTargetGroups.listFromJson(json['targetGroups']),
-      workflow: OperationEmbeddedWorkflow.fromJson(json['workflow']),
+          PlaceEmbeddedTargetGroupsInner.listFromJson(json[r'targetGroups']),
+      workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -30,81 +38,71 @@ class PlaceEmbedded {
 
   List<NodePath> path;
 
-  List<PlaceEmbeddedTargetGroups> targetGroups;
+  List<PlaceEmbeddedTargetGroupsInner> targetGroups;
 
   OperationEmbeddedWorkflow workflow;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceEmbedded &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered()
             .equals(documentTypes, other.documentTypes) &&
-        organization == other.organization &&
+        other.organization == organization &&
         DeepCollectionEquality.unordered().equals(path, other.path) &&
         DeepCollectionEquality.unordered()
             .equals(targetGroups, other.targetGroups) &&
-        workflow == other.workflow;
+        other.workflow == workflow;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (documentTypes is List && documentTypes.isNotEmpty) {
-      hashCode ^= documentTypes
-          .map((DocumentType element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (path is List && path.isNotEmpty) {
-      hashCode ^= path
-          .map((NodePath element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (targetGroups is List && targetGroups.isNotEmpty) {
-      hashCode ^= targetGroups
-          .map((PlaceEmbeddedTargetGroups element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (documentTypes == null ? 0 : documentTypes.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (path == null ? 0 : path.hashCode) +
+      (targetGroups == null ? 0 : targetGroups.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
   static List<PlaceEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlaceEmbedded.fromJson(value))
-            ?.toList() ??
-        <PlaceEmbedded>[];
+    return <PlaceEmbedded>[
+      if (json is List)
+        for (dynamic value in json) PlaceEmbedded.fromJson(value),
+    ];
   }
 
   static Map<String, PlaceEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlaceEmbedded>((String key, dynamic value) {
-          return MapEntry(key, PlaceEmbedded.fromJson(value));
-        }) ??
-        <String, PlaceEmbedded>{};
+    return <String, PlaceEmbedded>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlaceEmbedded.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (documentTypes != null) 'documentTypes': documentTypes,
-      if (organization != null) 'organization': organization.toJson(),
-      if (path != null) 'path': path,
-      if (targetGroups != null) 'targetGroups': targetGroups,
-      if (workflow != null) 'workflow': workflow.toJson(),
+  // maps a json object with a list of PlaceEmbedded-objects as value to a dart map
+  static Map<String, List<PlaceEmbedded>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PlaceEmbedded>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlaceEmbedded.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PlaceEmbedded[documentTypes=$documentTypes, organization=$organization, path=$path, targetGroups=$targetGroups, workflow=$workflow, ]';
+  String toString() =>
+      'PlaceEmbedded[documentTypes=$documentTypes, organization=$organization, path=$path, targetGroups=$targetGroups, workflow=$workflow]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (documentTypes != null) r'documentTypes': documentTypes,
+      if (organization != null) r'organization': organization,
+      if (path != null) r'path': path,
+      if (targetGroups != null) r'targetGroups': targetGroups,
+      if (workflow != null) r'workflow': workflow,
+    };
   }
 }

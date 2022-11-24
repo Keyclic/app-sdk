@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ProcedureApi {
   ProcedureApi([ApiClient apiClient])
@@ -8,7 +13,130 @@ class ProcedureApi {
 
   /// Retrieve all Signer resources.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] procedure (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [DateTime] after:
+  ///
+  /// * [DateTime] before:
+  ///
+  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
+  Future<Response> cgetSignersByProcedureWithHttpInfo(
+    String xKeyclicApp,
+    String procedure, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+    DateTime after,
+    DateTime before,
+    List<String> orderLeftSquareBracketRightSquareBracket,
+    int page,
+    int limit,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (procedure == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: procedure');
+    }
+
+    final path = r'/procedures/{procedure}/signers'
+        .replaceAll('{' + 'procedure' + '}', procedure.toString());
+
+    final queryParams = <QueryParam>[
+      if (after != null)
+        ..._convertParametersForCollectionFormat('', 'after', after),
+      if (before != null)
+        ..._convertParametersForCollectionFormat('', 'before', before),
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        ..._convertParametersForCollectionFormat(
+            'multi', 'order[]', orderLeftSquareBracketRightSquareBracket),
+      if (page != null)
+        ..._convertParametersForCollectionFormat('', 'page', page),
+      if (limit != null)
+        ..._convertParametersForCollectionFormat('', 'limit', limit),
+    ];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve all Signer resources.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] procedure (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  ///
+  /// * [DateTime] after:
+  ///
+  /// * [DateTime] before:
+  ///
+  /// * [List<String>] orderLeftSquareBracketRightSquareBracket:
+  ///
+  /// * [int] page:
+  ///   Page of the overview.
+  ///
+  /// * [int] limit:
+  ///   Page of the overview.
   Future<SignerPagination> cgetSignersByProcedure(
     String xKeyclicApp,
     String procedure, {
@@ -18,84 +146,125 @@ class ProcedureApi {
     String xKeyclicAppVersion,
     DateTime after,
     DateTime before,
-    List<String> order__,
+    List<String> orderLeftSquareBracketRightSquareBracket,
     int page,
     int limit,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (procedure == null) {
-      throw ApiException(0, "Missing required param: procedure");
-    }
-
-    // create path and map variables
-    final String path = "/procedures/{procedure}/signers"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "procedure" + "}", procedure.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await cgetSignersByProcedureWithHttpInfo(
+      xKeyclicApp,
+      procedure,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+      after: after,
+      before: before,
+      orderLeftSquareBracketRightSquareBracket:
+          orderLeftSquareBracketRightSquareBracket,
+      page: page,
+      limit: limit,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<SignerPagination>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'SignerPagination')
-        as SignerPagination;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'SignerPagination',
+    ) as SignerPagination;
   }
 
   /// Retrieve one Procedure resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] procedure (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> getProcedureWithHttpInfo(
+    String xKeyclicApp,
+    String procedure, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (procedure == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: procedure');
+    }
+
+    final path = r'/procedures/{procedure}'
+        .replaceAll('{' + 'procedure' + '}', procedure.toString());
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Retrieve one Procedure resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] procedure (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Procedure> getProcedure(
     String xKeyclicApp,
     String procedure, {
@@ -104,68 +273,115 @@ class ProcedureApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (procedure == null) {
-      throw ApiException(0, "Missing required param: procedure");
-    }
-
-    // create path and map variables
-    final String path = "/procedures/{procedure}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "procedure" + "}", procedure.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await getProcedureWithHttpInfo(
+      xKeyclicApp,
+      procedure,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Procedure>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Procedure') as Procedure;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Procedure',
+    ) as Procedure;
   }
 
   /// Create one Procedure resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [ProcedureData] procedureData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postProcedureWithHttpInfo(
+    String xKeyclicApp,
+    ProcedureData procedureData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+    if (procedureData == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: procedureData');
+    }
+
+    final path = r'/procedures';
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
+    ];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      body: procedureData,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Create one Procedure resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [ProcedureData] procedureData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<Procedure> postProcedure(
     String xKeyclicApp,
     ProcedureData procedureData, {
@@ -174,137 +390,158 @@ class ProcedureApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (procedureData == null) {
-      throw ApiException(0, "Missing required param: procedureData");
-    }
-
-    // create path and map variables
-    final String path = "/procedures".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: procedureData,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await postProcedureWithHttpInfo(
+      xKeyclicApp,
+      procedureData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Procedure>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Procedure') as Procedure;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Procedure',
+    ) as Procedure;
   }
 
   /// Create one Workflow resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
-  Future<Procedure> postWorkflowByProcedure(
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] procedure (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [ProcedureWorkflowData] procedureWorkflowData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postWorkflowByProcedureWithHttpInfo(
     String xKeyclicApp,
-    ProcedureWorkflowData procedureWorkflowData,
-    String procedure, {
+    String procedure,
+    ProcedureWorkflowData procedureWorkflowData, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
+    // Verify required params are set.
     if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
     }
-
-    if (procedureWorkflowData == null) {
-      throw ApiException(0, "Missing required param: procedureWorkflowData");
-    }
-
     if (procedure == null) {
-      throw ApiException(0, "Missing required param: procedure");
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: procedure');
+    }
+    if (procedureWorkflowData == null) {
+      throw ApiException(HttpStatus.badRequest,
+          'Missing required param: procedureWorkflowData');
     }
 
-    // create path and map variables
-    final String path = "/procedures/{procedure}/workflow"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "procedure" + "}", procedure.toString());
+    final path = r'/procedures/{procedure}/workflow'
+        .replaceAll('{' + 'procedure' + '}', procedure.toString());
 
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
     };
 
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[
+      'application/json;charset=UTF-8',
+    ];
+    final authNames = <String>[
+      'bearer',
     ];
 
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
+    return apiClient.invokeAPI(
       path: path,
       method: 'POST',
       queryParams: queryParams,
       body: procedureWorkflowData,
       headerParams: headerParams,
-      contentType: contentTypes[0],
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
       authNames: authNames,
     );
+  }
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+  /// Create one Workflow resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] procedure (required):
+  ///   The identifier of the resource.
+  ///
+  /// * [ProcedureWorkflowData] procedureWorkflowData (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Procedure> postWorkflowByProcedure(
+    String xKeyclicApp,
+    String procedure,
+    ProcedureWorkflowData procedureWorkflowData, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    final response = await postWorkflowByProcedureWithHttpInfo(
+      xKeyclicApp,
+      procedure,
+      procedureWorkflowData,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body == null || response.statusCode == HttpStatus.noContent) {
+      return Future<Procedure>.value(null);
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Procedure') as Procedure;
+    return await apiClient.deserializeAsync(
+      await _decodeBodyBytes(response),
+      'Procedure',
+    ) as Procedure;
   }
 }

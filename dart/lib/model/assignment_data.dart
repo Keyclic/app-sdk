@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class AssignmentData {
+  /// Returns a new [AssignmentData] instance.
   AssignmentData({
     this.description,
-    this.report,
-    this.service,
+    @required this.report,
+    @required this.service,
   });
 
+  /// Returns a new [AssignmentData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory AssignmentData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return AssignmentData(
-      description: json['description'],
-      report: json['report'],
-      service: json['service'],
+      description: json[r'description'],
+      report: json[r'report'],
+      service: json[r'service'],
     );
   }
 
@@ -26,55 +34,58 @@ class AssignmentData {
   String service;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is AssignmentData &&
-        runtimeType == other.runtimeType &&
-        description == other.description &&
-        report == other.report &&
-        service == other.service;
+        other.description == description &&
+        other.report == report &&
+        other.service == service;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= report?.hashCode ?? 0;
-    hashCode ^= service?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (description == null ? 0 : description.hashCode) +
+      (report == null ? 0 : report.hashCode) +
+      (service == null ? 0 : service.hashCode);
 
   static List<AssignmentData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => AssignmentData.fromJson(value))
-            ?.toList() ??
-        <AssignmentData>[];
+    return <AssignmentData>[
+      if (json is List)
+        for (dynamic value in json) AssignmentData.fromJson(value),
+    ];
   }
 
   static Map<String, AssignmentData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, AssignmentData>((String key, dynamic value) {
-          return MapEntry(key, AssignmentData.fromJson(value));
-        }) ??
-        <String, AssignmentData>{};
+    return <String, AssignmentData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: AssignmentData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (description != null) 'description': description,
-      if (report != null) 'report': report,
-      if (service != null) 'service': service,
+  // maps a json object with a list of AssignmentData-objects as value to a dart map
+  static Map<String, List<AssignmentData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<AssignmentData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: AssignmentData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'AssignmentData[description=$description, report=$report, service=$service, ]';
+  String toString() =>
+      'AssignmentData[description=$description, report=$report, service=$service]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (description != null) r'description': description,
+      r'report': report,
+      r'service': service,
+    };
   }
 }

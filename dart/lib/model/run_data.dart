@@ -1,29 +1,37 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class RunData {
+  /// Returns a new [RunData] instance.
   RunData({
-    this.event,
-    this.inputs,
-    this.outputs,
+    this.event = const [],
+    this.inputs = const [],
+    this.outputs = const [],
     this.verbose,
   });
 
+  /// Returns a new [RunData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory RunData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return RunData(
-      event: json['event'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['event'])
+      event: json[r'event'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'event'])
           : [],
-      inputs: json['inputs'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['inputs'])
+      inputs: json[r'inputs'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'inputs'])
           : [],
-      outputs: json['outputs'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['outputs'])
+      outputs: json[r'outputs'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'outputs'])
           : [],
-      verbose: json['verbose'],
+      verbose: json[r'verbose'],
     );
   }
 
@@ -36,69 +44,60 @@ class RunData {
   bool verbose;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is RunData &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(event, other.event) &&
         DeepCollectionEquality.unordered().equals(inputs, other.inputs) &&
         DeepCollectionEquality.unordered().equals(outputs, other.outputs) &&
-        verbose == other.verbose;
+        other.verbose == verbose;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (event is List && event.isNotEmpty) {
-      hashCode ^= event
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (inputs is List && inputs.isNotEmpty) {
-      hashCode ^= inputs
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (outputs is List && outputs.isNotEmpty) {
-      hashCode ^= outputs
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= verbose?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (event == null ? 0 : event.hashCode) +
+      (inputs == null ? 0 : inputs.hashCode) +
+      (outputs == null ? 0 : outputs.hashCode) +
+      (verbose == null ? 0 : verbose.hashCode);
 
   static List<RunData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => RunData.fromJson(value))?.toList() ??
-        <RunData>[];
+    return <RunData>[
+      if (json is List)
+        for (dynamic value in json) RunData.fromJson(value),
+    ];
   }
 
   static Map<String, RunData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, RunData>((String key, dynamic value) {
-          return MapEntry(key, RunData.fromJson(value));
-        }) ??
-        <String, RunData>{};
+    return <String, RunData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: RunData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (event != null) 'event': event,
-      if (inputs != null) 'inputs': inputs,
-      if (outputs != null) 'outputs': outputs,
-      if (verbose != null) 'verbose': verbose,
+  // maps a json object with a list of RunData-objects as value to a dart map
+  static Map<String, List<RunData>> mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<RunData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: RunData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'RunData[event=$event, inputs=$inputs, outputs=$outputs, verbose=$verbose, ]';
+  String toString() =>
+      'RunData[event=$event, inputs=$inputs, outputs=$outputs, verbose=$verbose]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (event != null) r'event': event,
+      if (inputs != null) r'inputs': inputs,
+      if (outputs != null) r'outputs': outputs,
+      if (verbose != null) r'verbose': verbose,
+    };
   }
 }

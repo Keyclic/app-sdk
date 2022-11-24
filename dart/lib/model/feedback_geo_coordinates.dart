@@ -1,76 +1,87 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class FeedbackGeoCoordinates {
+  /// Returns a new [FeedbackGeoCoordinates] instance.
   FeedbackGeoCoordinates({
     this.elevation,
     this.point,
   });
 
+  /// Returns a new [FeedbackGeoCoordinates] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory FeedbackGeoCoordinates.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackGeoCoordinates(
-      elevation: json['elevation']?.toDouble(),
-      point: Point.fromJson(json['point']),
+      elevation: json[r'elevation'],
+      point: Point.fromJson(json[r'point']),
     );
   }
 
-  /// range from -10000 to 8000
+  // minimum: -1E+4
+  // maximum: 8E+3
   double elevation;
 
   Point point;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackGeoCoordinates &&
-        runtimeType == other.runtimeType &&
-        elevation == other.elevation &&
-        point == other.point;
+        other.elevation == elevation &&
+        other.point == point;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= elevation?.hashCode ?? 0;
-    hashCode ^= point?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (elevation == null ? 0 : elevation.hashCode) +
+      (point == null ? 0 : point.hashCode);
 
   static List<FeedbackGeoCoordinates> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackGeoCoordinates.fromJson(value))
-            ?.toList() ??
-        <FeedbackGeoCoordinates>[];
+    return <FeedbackGeoCoordinates>[
+      if (json is List)
+        for (dynamic value in json) FeedbackGeoCoordinates.fromJson(value),
+    ];
   }
 
   static Map<String, FeedbackGeoCoordinates> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, FeedbackGeoCoordinates>((String key, dynamic value) {
-          return MapEntry(key, FeedbackGeoCoordinates.fromJson(value));
-        }) ??
-        <String, FeedbackGeoCoordinates>{};
+    return <String, FeedbackGeoCoordinates>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackGeoCoordinates.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (elevation != null) 'elevation': elevation,
-      if (point != null) 'point': point.toJson(),
+  // maps a json object with a list of FeedbackGeoCoordinates-objects as value to a dart map
+  static Map<String, List<FeedbackGeoCoordinates>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<FeedbackGeoCoordinates>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackGeoCoordinates.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'FeedbackGeoCoordinates[elevation=$elevation, point=$point, ]';
+  String toString() =>
+      'FeedbackGeoCoordinates[elevation=$elevation, point=$point]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (elevation != null) r'elevation': elevation,
+      if (point != null) r'point': point,
+    };
   }
 }

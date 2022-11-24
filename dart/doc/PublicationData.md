@@ -8,10 +8,10 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | [default to null]
-**feed** | **String** |  | [default to null]
-**title** | **String** |  | [default to null]
-**organization** | **String** |  | [default to null]
+**message** | **String** |  | 
+**feed** | **String** |  | 
+**title** | **String** |  | 
+**organization** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

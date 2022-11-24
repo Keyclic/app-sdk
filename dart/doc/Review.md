@@ -8,13 +8,13 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**ReviewLinks**](ReviewLinks.md) |  | [optional] [default to null]
-**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**id** | **String** |  | [optional] [default to null]
-**reviewBody** | **String** |  | [optional] [default to null]
-**reviewRating** | **int** |  | [optional] [default to null]
-**type** | **String** |  | [optional] [default to null]
-**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
+**links** | [**ReviewLinks**](ReviewLinks.md) |  | [optional] 
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**id** | **String** |  | [optional] [readonly] 
+**reviewBody** | **String** |  | [optional] 
+**reviewRating** | **int** |  | [optional] 
+**type** | **String** |  | [optional] 
+**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

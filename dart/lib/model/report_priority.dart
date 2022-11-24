@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ReportPriority {
+  /// Returns a new [ReportPriority] instance.
   ReportPriority({
     this.color,
     this.id,
@@ -9,17 +15,19 @@ class ReportPriority {
     this.type,
   });
 
+  /// Returns a new [ReportPriority] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ReportPriority.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ReportPriority(
-      color: json['color'],
-      id: json['id'],
-      name: json['name'],
-      position: json['position'],
-      type: json['type'],
+      color: json[r'color'],
+      id: json[r'id'],
+      name: json[r'name'],
+      position: json[r'position'],
+      type: json[r'type'],
     );
   }
 
@@ -34,61 +42,64 @@ class ReportPriority {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReportPriority &&
-        runtimeType == other.runtimeType &&
-        color == other.color &&
-        id == other.id &&
-        name == other.name &&
-        position == other.position &&
-        type == other.type;
+        other.color == color &&
+        other.id == id &&
+        other.name == name &&
+        other.position == position &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= color?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= position?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (color == null ? 0 : color.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (position == null ? 0 : position.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<ReportPriority> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReportPriority.fromJson(value))
-            ?.toList() ??
-        <ReportPriority>[];
+    return <ReportPriority>[
+      if (json is List)
+        for (dynamic value in json) ReportPriority.fromJson(value),
+    ];
   }
 
   static Map<String, ReportPriority> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReportPriority>((String key, dynamic value) {
-          return MapEntry(key, ReportPriority.fromJson(value));
-        }) ??
-        <String, ReportPriority>{};
+    return <String, ReportPriority>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReportPriority.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (color != null) 'color': color,
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (position != null) 'position': position,
-      if (type != null) 'type': type,
+  // maps a json object with a list of ReportPriority-objects as value to a dart map
+  static Map<String, List<ReportPriority>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ReportPriority>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReportPriority.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ReportPriority[color=$color, id=$id, name=$name, position=$position, type=$type, ]';
+  String toString() =>
+      'ReportPriority[color=$color, id=$id, name=$name, position=$position, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (color != null) r'color': color,
+      if (id != null) r'id': id,
+      if (name != null) r'name': name,
+      if (position != null) r'position': position,
+      if (type != null) r'type': type,
+    };
   }
 }

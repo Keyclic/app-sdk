@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Pagination {
+  /// Returns a new [Pagination] instance.
   Pagination({
     this.limit,
     this.page,
@@ -9,17 +15,19 @@ class Pagination {
     this.links,
   });
 
+  /// Returns a new [Pagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Pagination.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return Pagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
     );
   }
 
@@ -34,59 +42,64 @@ class Pagination {
   PaginationLinks links;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Pagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode);
 
   static List<Pagination> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Pagination.fromJson(value))?.toList() ??
-        <Pagination>[];
+    return <Pagination>[
+      if (json is List)
+        for (dynamic value in json) Pagination.fromJson(value),
+    ];
   }
 
   static Map<String, Pagination> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Pagination>((String key, dynamic value) {
-          return MapEntry(key, Pagination.fromJson(value));
-        }) ??
-        <String, Pagination>{};
+    return <String, Pagination>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Pagination.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
+  // maps a json object with a list of Pagination-objects as value to a dart map
+  static Map<String, List<Pagination>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<Pagination>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Pagination.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Pagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, ]';
+  String toString() =>
+      'Pagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+    };
   }
 }

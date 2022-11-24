@@ -1,11 +1,17 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OperationLinks {
+  /// Returns a new [OperationLinks] instance.
   OperationLinks({
     this.assignments,
     this.feedback,
     this.image,
-    this.images,
+    this.images = const [],
     this.operator_,
     this.organization,
     this.report,
@@ -13,21 +19,23 @@ class OperationLinks {
     this.tracking,
   });
 
+  /// Returns a new [OperationLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory OperationLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return OperationLinks(
-      assignments: OperationLinksAssignments.fromJson(json['assignments']),
-      feedback: OperationLinksFeedback.fromJson(json['feedback']),
-      image: OperationLinksImage.fromJson(json['image']),
-      images: OperationLinksImages.listFromJson(json['images']),
-      operator_: OperationLinksOperator.fromJson(json['operator']),
-      organization: OperationLinksOrganization.fromJson(json['organization']),
-      report: OperationLinksReport.fromJson(json['report']),
-      self: OperationLinksSelf.fromJson(json['self']),
-      tracking: OperationLinksTracking.fromJson(json['tracking']),
+      assignments: OperationLinksAssignments.fromJson(json[r'assignments']),
+      feedback: OperationLinksFeedback.fromJson(json[r'feedback']),
+      image: OperationLinksImage.fromJson(json[r'image']),
+      images: OperationLinksImages.listFromJson(json[r'images']),
+      operator_: OperationLinksOperator.fromJson(json[r'operator']),
+      organization: OperationLinksOrganization.fromJson(json[r'organization']),
+      report: OperationLinksReport.fromJson(json[r'report']),
+      self: OperationLinksSelf.fromJson(json[r'self']),
+      tracking: OperationLinksTracking.fromJson(json[r'tracking']),
     );
   }
 
@@ -50,78 +58,76 @@ class OperationLinks {
   OperationLinksTracking tracking;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OperationLinks &&
-        runtimeType == other.runtimeType &&
-        assignments == other.assignments &&
-        feedback == other.feedback &&
-        image == other.image &&
+        other.assignments == assignments &&
+        other.feedback == feedback &&
+        other.image == image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
-        operator_ == other.operator_ &&
-        organization == other.organization &&
-        report == other.report &&
-        self == other.self &&
-        tracking == other.tracking;
+        other.operator_ == operator_ &&
+        other.organization == organization &&
+        other.report == report &&
+        other.self == self &&
+        other.tracking == tracking;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (images is List && images.isNotEmpty) {
-      hashCode ^= images
-          .map((OperationLinksImages element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= assignments?.hashCode ?? 0;
-    hashCode ^= feedback?.hashCode ?? 0;
-    hashCode ^= image?.hashCode ?? 0;
-    hashCode ^= operator_?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= report?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-    hashCode ^= tracking?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (assignments == null ? 0 : assignments.hashCode) +
+      (feedback == null ? 0 : feedback.hashCode) +
+      (image == null ? 0 : image.hashCode) +
+      (images == null ? 0 : images.hashCode) +
+      (operator_ == null ? 0 : operator_.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (report == null ? 0 : report.hashCode) +
+      (self == null ? 0 : self.hashCode) +
+      (tracking == null ? 0 : tracking.hashCode);
 
   static List<OperationLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OperationLinks.fromJson(value))
-            ?.toList() ??
-        <OperationLinks>[];
+    return <OperationLinks>[
+      if (json is List)
+        for (dynamic value in json) OperationLinks.fromJson(value),
+    ];
   }
 
   static Map<String, OperationLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OperationLinks>((String key, dynamic value) {
-          return MapEntry(key, OperationLinks.fromJson(value));
-        }) ??
-        <String, OperationLinks>{};
+    return <String, OperationLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OperationLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (assignments != null) 'assignments': assignments.toJson(),
-      if (feedback != null) 'feedback': feedback.toJson(),
-      if (image != null) 'image': image.toJson(),
-      if (images != null) 'images': images,
-      if (operator_ != null) 'operator': operator_.toJson(),
-      if (organization != null) 'organization': organization.toJson(),
-      if (report != null) 'report': report.toJson(),
-      if (self != null) 'self': self.toJson(),
-      if (tracking != null) 'tracking': tracking.toJson(),
+  // maps a json object with a list of OperationLinks-objects as value to a dart map
+  static Map<String, List<OperationLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<OperationLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OperationLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'OperationLinks[assignments=$assignments, feedback=$feedback, image=$image, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking, ]';
+  String toString() =>
+      'OperationLinks[assignments=$assignments, feedback=$feedback, image=$image, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (assignments != null) r'assignments': assignments,
+      if (feedback != null) r'feedback': feedback,
+      if (image != null) r'image': image,
+      if (images != null) r'images': images,
+      if (operator_ != null) r'operator': operator_,
+      if (organization != null) r'organization': organization,
+      if (report != null) r'report': report,
+      if (self != null) r'self': self,
+      if (tracking != null) r'tracking': tracking,
+    };
   }
 }

@@ -1,11 +1,19 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class OrganizationLinksBusinessActivity {
+  /// Returns a new [OrganizationLinksBusinessActivity] instance.
   OrganizationLinksBusinessActivity({
     this.href,
     this.iriTemplate,
   });
 
+  /// Returns a new [OrganizationLinksBusinessActivity] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory OrganizationLinksBusinessActivity.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -13,69 +21,71 @@ class OrganizationLinksBusinessActivity {
     }
 
     return OrganizationLinksBusinessActivity(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate: OrganizationLinksBusinessActivityIriTemplate.fromJson(
-          json['iriTemplate']),
+          json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the businessActivity associated to the given organization. */
+  /// The URI of the businessActivity associated to the given organization.
   String href;
 
   OrganizationLinksBusinessActivityIriTemplate iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OrganizationLinksBusinessActivity &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<OrganizationLinksBusinessActivity> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                OrganizationLinksBusinessActivity.fromJson(value))
-            ?.toList() ??
-        <OrganizationLinksBusinessActivity>[];
+    return <OrganizationLinksBusinessActivity>[
+      if (json is List)
+        for (dynamic value in json)
+          OrganizationLinksBusinessActivity.fromJson(value),
+    ];
   }
 
   static Map<String, OrganizationLinksBusinessActivity> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, OrganizationLinksBusinessActivity>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, OrganizationLinksBusinessActivity.fromJson(value));
-        }) ??
-        <String, OrganizationLinksBusinessActivity>{};
+    return <String, OrganizationLinksBusinessActivity>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: OrganizationLinksBusinessActivity.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+  // maps a json object with a list of OrganizationLinksBusinessActivity-objects as value to a dart map
+  static Map<String, List<OrganizationLinksBusinessActivity>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<OrganizationLinksBusinessActivity>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              OrganizationLinksBusinessActivity.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'OrganizationLinksBusinessActivity[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'OrganizationLinksBusinessActivity[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

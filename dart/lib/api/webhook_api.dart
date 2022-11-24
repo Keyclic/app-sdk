@@ -1,4 +1,9 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class WebhookApi {
   WebhookApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
@@ -7,7 +12,75 @@ class WebhookApi {
 
   /// Create one Incoming resource.
   ///
+  /// Note: This method returns the HTTP [Response].
   ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
+  Future<Response> postIncomingWithHttpInfo(
+    String xKeyclicApp, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // Verify required params are set.
+    if (xKeyclicApp == null) {
+      throw ApiException(
+          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
+    }
+
+    final path = r'/webhooks/incoming';
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{
+      if (acceptLanguage != null)
+        r'accept-language': parameterToString(acceptLanguage),
+      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
+      r'x-keyclic-app': parameterToString(xKeyclicApp),
+      if (xKeyclicAppPlatform != null)
+        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
+      if (xKeyclicAppVersion != null)
+        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
+    };
+
+    final formParams = <String, String>{};
+
+    final contentTypes = <String>[];
+    final authNames = <String>[];
+
+    return apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      formParams: formParams,
+      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
+      authNames: authNames,
+    );
+  }
+
+  /// Create one Incoming resource.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] xKeyclicApp (required):
+  ///
+  /// * [String] acceptLanguage:
+  ///
+  /// * [DateTime] xDateTime:
+  ///
+  /// * [String] xKeyclicAppPlatform:
+  ///
+  /// * [String] xKeyclicAppVersion:
   Future<void> postIncoming(
     String xKeyclicApp, {
     String acceptLanguage,
@@ -15,54 +88,15 @@ class WebhookApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    // create path and map variables
-    final String path = "/webhooks/incoming".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final response = await postIncomingWithHttpInfo(
+      xKeyclicApp,
+      acceptLanguage: acceptLanguage,
+      xDateTime: xDateTime,
+      xKeyclicAppPlatform: xKeyclicAppPlatform,
+      xKeyclicAppVersion: xKeyclicAppVersion,
     );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    if (response.body == null) {
-      return;
-    }
-
-    return;
   }
 }

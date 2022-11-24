@@ -9,23 +9,23 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cgetAssignmentsByOperation**](OperationApi.md#cgetAssignmentsByOperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
-[**cgetCommentsByOperation**](OperationApi.md#cgetCommentsByOperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
-[**deleteImageByOperationAndImage**](OperationApi.md#deleteImageByOperationAndImage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
-[**deleteOperation**](OperationApi.md#deleteOperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
-[**getOperation**](OperationApi.md#getOperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
-[**getTrackingByOperation**](OperationApi.md#getTrackingByOperation) | **GET** /operations/{operation}/tracking | Retrieve one Tracking resource.
-[**patchOperation**](OperationApi.md#patchOperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
-[**postAssignByOperation**](OperationApi.md#postAssignByOperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
-[**postCommentByOperation**](OperationApi.md#postCommentByOperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
-[**postImageByOperation**](OperationApi.md#postImageByOperation) | **POST** /operations/{operation}/images | Create one Image resource.
-[**postOperation**](OperationApi.md#postOperation) | **POST** /operations | Create one Operation resource.
-[**postSignByOperation**](OperationApi.md#postSignByOperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
-[**postWorkflowByOperation**](OperationApi.md#postWorkflowByOperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
+[**cgetAssignmentsByOperation**](OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
+[**cgetCommentsByOperation**](OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
+[**deleteImageByOperationAndImage**](OperationApi.md#deleteimagebyoperationandimage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
+[**deleteOperation**](OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
+[**getOperation**](OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
+[**getTrackingByOperation**](OperationApi.md#gettrackingbyoperation) | **GET** /operations/{operation}/tracking | Retrieve one Tracking resource.
+[**patchOperation**](OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
+[**postAssignByOperation**](OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
+[**postCommentByOperation**](OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
+[**postImageByOperation**](OperationApi.md#postimagebyoperation) | **POST** /operations/{operation}/images | Create one Image resource.
+[**postOperation**](OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
+[**postSignByOperation**](OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
+[**postWorkflowByOperation**](OperationApi.md#postworkflowbyoperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
 
 
 # **cgetAssignmentsByOperation**
-> AssignmentPagination cgetAssignmentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit)
+> AssignmentPagination cgetAssignmentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit)
 
 Retrieve all Assignment resources.
 
@@ -33,28 +33,28 @@ Retrieve all Assignment resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var order[] = []; // List<String> | 
-var after = 2013-10-20T19:20:30+01:00; // DateTime | 
-var before = 2013-10-20T19:20:30+01:00; // DateTime | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetAssignmentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, page, limit);
+    final result = api_instance.cgetAssignmentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->cgetAssignmentsByOperation: $e\n");
+    print('Exception when calling OperationApi->cgetAssignmentsByOperation: $e\n');
 }
 ```
 
@@ -62,13 +62,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -98,25 +98,25 @@ Retrieve all Comment resources.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-var page = 56; // int | Page of the overview.
-var limit = 56; // int | Page of the overview.
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetCommentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
+    final result = api_instance.cgetCommentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->cgetCommentsByOperation: $e\n");
+    print('Exception when calling OperationApi->cgetCommentsByOperation: $e\n');
 }
 ```
 
@@ -124,9 +124,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -157,23 +157,23 @@ Remove one Image resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operation = ; // String | The identifier of the resource.
-var image = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final image = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteImageByOperationAndImage(xKeyclicApp, operation, image, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling OperationApi->deleteImageByOperationAndImage: $e\n");
+    print('Exception when calling OperationApi->deleteImageByOperationAndImage: $e\n');
 }
 ```
 
@@ -181,10 +181,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **image** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **image** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -199,7 +199,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -213,22 +213,22 @@ Remove one Operation resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
     api_instance.deleteOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
-    print("Exception when calling OperationApi->deleteOperation: $e\n");
+    print('Exception when calling OperationApi->deleteOperation: $e\n');
 }
 ```
 
@@ -236,9 +236,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -253,7 +253,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -267,23 +267,23 @@ Retrieve one Operation resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->getOperation: $e\n");
+    print('Exception when calling OperationApi->getOperation: $e\n');
 }
 ```
 
@@ -291,9 +291,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -322,23 +322,23 @@ Retrieve one Tracking resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.getTrackingByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTrackingByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->getTrackingByOperation: $e\n");
+    print('Exception when calling OperationApi->getTrackingByOperation: $e\n');
 }
 ```
 
@@ -346,9 +346,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -363,13 +363,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json;charset=UTF-8
+ - **Content-Type**: Not defined
  - **Accept**: application/hal+json;charset=UTF-8
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchOperation**
-> Operation patchOperation(xKeyclicApp, taskPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation patchOperation(xKeyclicApp, operation, taskPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Edit one Operation resource.
 
@@ -377,24 +377,24 @@ Edit one Operation resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var taskPatch = TaskPatch(); // TaskPatch | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final taskPatch = TaskPatch(); // TaskPatch | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.patchOperation(xKeyclicApp, taskPatch, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.patchOperation(xKeyclicApp, operation, taskPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->patchOperation: $e\n");
+    print('Exception when calling OperationApi->patchOperation: $e\n');
 }
 ```
 
@@ -402,10 +402,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
  **taskPatch** | [**TaskPatch**](TaskPatch.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postAssignByOperation**
-> Operation postAssignByOperation(xKeyclicApp, assignData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation postAssignByOperation(xKeyclicApp, operation, assignData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Assign resource.
 
@@ -434,24 +434,24 @@ Create one Assign resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var assignData = AssignData(); // AssignData | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final assignData = AssignData(); // AssignData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postAssignByOperation(xKeyclicApp, assignData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postAssignByOperation(xKeyclicApp, operation, assignData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->postAssignByOperation: $e\n");
+    print('Exception when calling OperationApi->postAssignByOperation: $e\n');
 }
 ```
 
@@ -459,10 +459,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
  **assignData** | [**AssignData**](AssignData.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postCommentByOperation**
-> Operation postCommentByOperation(xKeyclicApp, commentData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation postCommentByOperation(xKeyclicApp, operation, commentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Comment resource.
 
@@ -491,24 +491,24 @@ Create one Comment resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var commentData = CommentData(); // CommentData | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final commentData = CommentData(); // CommentData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postCommentByOperation(xKeyclicApp, commentData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postCommentByOperation(xKeyclicApp, operation, commentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->postCommentByOperation: $e\n");
+    print('Exception when calling OperationApi->postCommentByOperation: $e\n');
 }
 ```
 
@@ -516,10 +516,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
  **commentData** | [**CommentData**](CommentData.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -540,7 +540,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postImageByOperation**
-> Operation postImageByOperation(xKeyclicApp, imageData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation postImageByOperation(xKeyclicApp, operation, imageData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Image resource.
 
@@ -548,24 +548,24 @@ Create one Image resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var imageData = ImageData(); // ImageData | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final imageData = ImageData(); // ImageData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postImageByOperation(xKeyclicApp, imageData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postImageByOperation(xKeyclicApp, operation, imageData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->postImageByOperation: $e\n");
+    print('Exception when calling OperationApi->postImageByOperation: $e\n');
 }
 ```
 
@@ -573,10 +573,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
  **imageData** | [**ImageData**](ImageData.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -605,23 +605,23 @@ Create one Operation resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var operationData = OperationData(); // OperationData | 
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operationData = OperationData(); // OperationData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postOperation(xKeyclicApp, operationData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postOperation(xKeyclicApp, operationData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->postOperation: $e\n");
+    print('Exception when calling OperationApi->postOperation: $e\n');
 }
 ```
 
@@ -629,9 +629,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
  **operationData** | [**OperationData**](OperationData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postSignByOperation**
-> Operation postSignByOperation(xKeyclicApp, legacySignatureData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation postSignByOperation(xKeyclicApp, operation, legacySignatureData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Sign resource.
 
@@ -660,24 +660,24 @@ Create one Sign resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var legacySignatureData = LegacySignatureData(); // LegacySignatureData | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final legacySignatureData = LegacySignatureData(); // LegacySignatureData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postSignByOperation(xKeyclicApp, legacySignatureData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postSignByOperation(xKeyclicApp, operation, legacySignatureData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->postSignByOperation: $e\n");
+    print('Exception when calling OperationApi->postSignByOperation: $e\n');
 }
 ```
 
@@ -685,10 +685,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
  **legacySignatureData** | [**LegacySignatureData**](LegacySignatureData.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -709,7 +709,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postWorkflowByOperation**
-> Operation postWorkflowByOperation(xKeyclicApp, workflowData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Operation postWorkflowByOperation(xKeyclicApp, operation, workflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Create one Workflow resource.
 
@@ -717,24 +717,24 @@ Create one Workflow resource.
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var workflowData = WorkflowData(); // WorkflowData | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final workflowData = WorkflowData(); // WorkflowData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    var result = api_instance.postWorkflowByOperation(xKeyclicApp, workflowData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postWorkflowByOperation(xKeyclicApp, operation, workflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->postWorkflowByOperation: $e\n");
+    print('Exception when calling OperationApi->postWorkflowByOperation: $e\n');
 }
 ```
 
@@ -742,10 +742,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
  **workflowData** | [**WorkflowData**](WorkflowData.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

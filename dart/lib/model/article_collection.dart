@@ -1,70 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ArticleCollection {
+  /// Returns a new [ArticleCollection] instance.
   ArticleCollection({
-    this.items,
+    this.items = const [],
   });
 
+  /// Returns a new [ArticleCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ArticleCollection.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ArticleCollection(
-      items: Article.listFromJson(json['items']),
+      items: Article.listFromJson(json[r'items']),
     );
   }
 
   List<Article> items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ArticleCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Article element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
   static List<ArticleCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ArticleCollection.fromJson(value))
-            ?.toList() ??
-        <ArticleCollection>[];
+    return <ArticleCollection>[
+      if (json is List)
+        for (dynamic value in json) ArticleCollection.fromJson(value),
+    ];
   }
 
   static Map<String, ArticleCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ArticleCollection>((String key, dynamic value) {
-          return MapEntry(key, ArticleCollection.fromJson(value));
-        }) ??
-        <String, ArticleCollection>{};
+    return <String, ArticleCollection>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ArticleCollection.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
+  // maps a json object with a list of ArticleCollection-objects as value to a dart map
+  static Map<String, List<ArticleCollection>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ArticleCollection>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ArticleCollection.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ArticleCollection[items=$items, ]';
+  String toString() => 'ArticleCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

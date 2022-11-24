@@ -1,31 +1,39 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class TrackingCheckpoint {
+  /// Returns a new [TrackingCheckpoint] instance.
   TrackingCheckpoint({
     this.createdAt,
     this.data,
-    this.state,
+    this.state = const [],
     this.links,
     this.embedded,
   });
 
+  /// Returns a new [TrackingCheckpoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory TrackingCheckpoint.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     return TrackingCheckpoint(
       createdAt: createdAt,
-      data: CheckpointState.fromJson(json['data']),
-      state: json['state'] is List ? List<String>.from(json['state']) : null,
-      links: CheckpointLinks.fromJson(json['_links']),
-      embedded: CheckpointEmbedded.fromJson(json['_embedded']),
+      data: CheckpointState.fromJson(json[r'data']),
+      state: List<String>.from(json[r'state'] ?? []),
+      links: CheckpointLinks.fromJson(json[r'_links']),
+      embedded: CheckpointEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -40,67 +48,65 @@ class TrackingCheckpoint {
   CheckpointEmbedded embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TrackingCheckpoint &&
-        runtimeType == other.runtimeType &&
-        createdAt == other.createdAt &&
-        data == other.data &&
+        other.createdAt == createdAt &&
+        other.data == data &&
         DeepCollectionEquality.unordered().equals(state, other.state) &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (state is List && state.isNotEmpty) {
-      hashCode ^= state
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= data?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (data == null ? 0 : data.hashCode) +
+      (state == null ? 0 : state.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<TrackingCheckpoint> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => TrackingCheckpoint.fromJson(value))
-            ?.toList() ??
-        <TrackingCheckpoint>[];
+    return <TrackingCheckpoint>[
+      if (json is List)
+        for (dynamic value in json) TrackingCheckpoint.fromJson(value),
+    ];
   }
 
   static Map<String, TrackingCheckpoint> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, TrackingCheckpoint>((String key, dynamic value) {
-          return MapEntry(key, TrackingCheckpoint.fromJson(value));
-        }) ??
-        <String, TrackingCheckpoint>{};
+    return <String, TrackingCheckpoint>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TrackingCheckpoint.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (data != null) 'data': data.toJson(),
-      if (state != null) 'state': state,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
+  // maps a json object with a list of TrackingCheckpoint-objects as value to a dart map
+  static Map<String, List<TrackingCheckpoint>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<TrackingCheckpoint>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TrackingCheckpoint.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'TrackingCheckpoint[createdAt=$createdAt, data=$data, state=$state, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'TrackingCheckpoint[createdAt=$createdAt, data=$data, state=$state, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (data != null) r'data': data,
+      if (state != null) r'state': state,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

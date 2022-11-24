@@ -1,77 +1,87 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ReviewLinksItemReviewed {
+  /// Returns a new [ReviewLinksItemReviewed] instance.
   ReviewLinksItemReviewed({
     this.href,
     this.iriTemplate,
   });
 
+  /// Returns a new [ReviewLinksItemReviewed] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ReviewLinksItemReviewed.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ReviewLinksItemReviewed(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          ReviewLinksItemReviewedIriTemplate.fromJson(json['iriTemplate']),
+          ReviewLinksItemReviewedIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the itemReviewed associated to the given review. */
+  /// The URI of the itemReviewed associated to the given review.
   String href;
 
   ReviewLinksItemReviewedIriTemplate iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewLinksItemReviewed &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<ReviewLinksItemReviewed> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewLinksItemReviewed.fromJson(value))
-            ?.toList() ??
-        <ReviewLinksItemReviewed>[];
+    return <ReviewLinksItemReviewed>[
+      if (json is List)
+        for (dynamic value in json) ReviewLinksItemReviewed.fromJson(value),
+    ];
   }
 
   static Map<String, ReviewLinksItemReviewed> mapFromJson(
       Map<String, dynamic> json) {
-    return json
-            ?.map<String, ReviewLinksItemReviewed>((String key, dynamic value) {
-          return MapEntry(key, ReviewLinksItemReviewed.fromJson(value));
-        }) ??
-        <String, ReviewLinksItemReviewed>{};
+    return <String, ReviewLinksItemReviewed>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReviewLinksItemReviewed.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+  // maps a json object with a list of ReviewLinksItemReviewed-objects as value to a dart map
+  static Map<String, List<ReviewLinksItemReviewed>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ReviewLinksItemReviewed>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReviewLinksItemReviewed.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ReviewLinksItemReviewed[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'ReviewLinksItemReviewed[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ConfigurationLinksSelfIriTemplateMapping {
+  /// Returns a new [ConfigurationLinksSelfIriTemplateMapping] instance.
   ConfigurationLinksSelfIriTemplateMapping({
     this.configuration,
   });
 
+  /// Returns a new [ConfigurationLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ConfigurationLinksSelfIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,63 @@ class ConfigurationLinksSelfIriTemplateMapping {
     }
 
     return ConfigurationLinksSelfIriTemplateMapping(
-      configuration: json['configuration'],
+      configuration: json[r'configuration'],
     );
   }
 
   String configuration;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ConfigurationLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        configuration == other.configuration;
+        other.configuration == configuration;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= configuration?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (configuration == null ? 0 : configuration.hashCode);
 
   static List<ConfigurationLinksSelfIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ConfigurationLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <ConfigurationLinksSelfIriTemplateMapping>[];
+    return <ConfigurationLinksSelfIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          ConfigurationLinksSelfIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, ConfigurationLinksSelfIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ConfigurationLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ConfigurationLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, ConfigurationLinksSelfIriTemplateMapping>{};
+    return <String, ConfigurationLinksSelfIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              ConfigurationLinksSelfIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (configuration != null) 'configuration': configuration,
+  // maps a json object with a list of ConfigurationLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<ConfigurationLinksSelfIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<ConfigurationLinksSelfIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ConfigurationLinksSelfIriTemplateMapping.listFromJson(
+              entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ConfigurationLinksSelfIriTemplateMapping[configuration=$configuration, ]';
+  String toString() =>
+      'ConfigurationLinksSelfIriTemplateMapping[configuration=$configuration]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (configuration != null) r'configuration': configuration,
+    };
   }
 }

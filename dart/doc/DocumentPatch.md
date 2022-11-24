@@ -8,10 +8,10 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
-**file** | [**DocumentPatchFile**](DocumentPatchFile.md) |  | [optional] [default to null]
-**permission** | [**DocumentPatchPermission**](DocumentPatchPermission.md) |  | [optional] [default to null]
-**text** | **String** |  | [optional] [default to null]
+**body** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**file** | [**DocumentPatchFile**](DocumentPatchFile.md) |  | [optional] 
+**permission** | [**DocumentPatchPermission**](DocumentPatchPermission.md) |  | [optional] 
+**text** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

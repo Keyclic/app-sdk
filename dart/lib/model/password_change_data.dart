@@ -1,67 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PasswordChangeData {
+  /// Returns a new [PasswordChangeData] instance.
   PasswordChangeData({
-    this.password,
+    @required this.password,
   });
 
+  /// Returns a new [PasswordChangeData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PasswordChangeData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PasswordChangeData(
-      password: json['password'],
+      password: json[r'password'],
     );
   }
 
   String password;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PasswordChangeData &&
-        runtimeType == other.runtimeType &&
-        password == other.password;
+    return other is PasswordChangeData && other.password == password;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= password?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (password == null ? 0 : password.hashCode);
 
   static List<PasswordChangeData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PasswordChangeData.fromJson(value))
-            ?.toList() ??
-        <PasswordChangeData>[];
+    return <PasswordChangeData>[
+      if (json is List)
+        for (dynamic value in json) PasswordChangeData.fromJson(value),
+    ];
   }
 
   static Map<String, PasswordChangeData> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, PasswordChangeData>((String key, dynamic value) {
-          return MapEntry(key, PasswordChangeData.fromJson(value));
-        }) ??
-        <String, PasswordChangeData>{};
+    return <String, PasswordChangeData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PasswordChangeData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (password != null) 'password': password,
+  // maps a json object with a list of PasswordChangeData-objects as value to a dart map
+  static Map<String, List<PasswordChangeData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PasswordChangeData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PasswordChangeData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PasswordChangeData[password=$password, ]';
+  String toString() => 'PasswordChangeData[password=$password]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'password': password,
+    };
   }
 }

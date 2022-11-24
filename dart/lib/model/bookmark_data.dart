@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class BookmarkData {
+  /// Returns a new [BookmarkData] instance.
   BookmarkData({
-    this.member,
-    this.place,
+    @required this.member,
+    @required this.place,
   });
 
+  /// Returns a new [BookmarkData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory BookmarkData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkData(
-      member: json['member'],
-      place: json['place'],
+      member: json[r'member'],
+      place: json[r'place'],
     );
   }
 
@@ -22,52 +30,54 @@ class BookmarkData {
   String place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BookmarkData &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        place == other.place;
+        other.member == member &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (place == null ? 0 : place.hashCode);
 
   static List<BookmarkData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BookmarkData.fromJson(value))
-            ?.toList() ??
-        <BookmarkData>[];
+    return <BookmarkData>[
+      if (json is List)
+        for (dynamic value in json) BookmarkData.fromJson(value),
+    ];
   }
 
   static Map<String, BookmarkData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, BookmarkData>((String key, dynamic value) {
-          return MapEntry(key, BookmarkData.fromJson(value));
-        }) ??
-        <String, BookmarkData>{};
+    return <String, BookmarkData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: BookmarkData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member,
-      if (place != null) 'place': place,
+  // maps a json object with a list of BookmarkData-objects as value to a dart map
+  static Map<String, List<BookmarkData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<BookmarkData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: BookmarkData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'BookmarkData[member=$member, place=$place, ]';
+  String toString() => 'BookmarkData[member=$member, place=$place]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'member': member,
+      r'place': place,
+    };
   }
 }

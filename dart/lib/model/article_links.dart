@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ArticleLinks {
+  /// Returns a new [ArticleLinks] instance.
   ArticleLinks({
     this.section,
     this.self,
   });
 
+  /// Returns a new [ArticleLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ArticleLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ArticleLinks(
-      section: ArticleLinksSection.fromJson(json['section']),
-      self: ArticleLinksSelf.fromJson(json['self']),
+      section: ArticleLinksSection.fromJson(json[r'section']),
+      self: ArticleLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -22,52 +30,54 @@ class ArticleLinks {
   ArticleLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ArticleLinks &&
-        runtimeType == other.runtimeType &&
-        section == other.section &&
-        self == other.self;
+        other.section == section &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= section?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (section == null ? 0 : section.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<ArticleLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ArticleLinks.fromJson(value))
-            ?.toList() ??
-        <ArticleLinks>[];
+    return <ArticleLinks>[
+      if (json is List)
+        for (dynamic value in json) ArticleLinks.fromJson(value),
+    ];
   }
 
   static Map<String, ArticleLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ArticleLinks>((String key, dynamic value) {
-          return MapEntry(key, ArticleLinks.fromJson(value));
-        }) ??
-        <String, ArticleLinks>{};
+    return <String, ArticleLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ArticleLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (section != null) 'section': section.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of ArticleLinks-objects as value to a dart map
+  static Map<String, List<ArticleLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ArticleLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ArticleLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ArticleLinks[section=$section, self=$self, ]';
+  String toString() => 'ArticleLinks[section=$section, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (section != null) r'section': section,
+      if (self != null) r'self': self,
+    };
   }
 }

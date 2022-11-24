@@ -29,12 +29,12 @@ class {{{classname}}} {
   static {{{classname}}} fromJson(dynamic value) =>
     {{{classname}}}TypeTransformer().decode(value);
 
-  static List<{{{classname}}}> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
-    json == null || json.isEmpty
-      ? true == emptyIsNull ? null : <{{{classname}}}>[]
-      : json
-          .map((value) => {{{classname}}}.fromJson(value))
-          .toList(growable: true == growable);
+  static List<{{{classname}}}> listFromJson(List<dynamic> json) {
+    return <{{{classname}}}>[
+      if (json is List)
+        for (dynamic value in json) {{{classname}}}.fromJson(value),
+    ];
+  }
 }
 
 /// Transformation class that can [encode] an instance of [{{{classname}}}] to {{{dataType}}},

@@ -45,16 +45,17 @@ sed -i 's/Object.listFromJson(\(.*\))/\1 is Iterable ? List<Map<String, dynamic>
 sed -i 's/List<Object>/List<Map<String, dynamic>>/g' lib/model/*.dart
 
 # fix List.listFromJson
-sed -i 's/List.listFromJson(\(.*\))/List.from(\1).map<List<List<num>>>((ring) {return List.from(ring).map<List<num>>((point) {return List<num>.from(point, growable: false);}).toList(growable: false);}).toList(growable: false)/g' lib/model/feature_geometry.dart
+sed -i 's/List.listFromJson(\(.*\))/List.from(\1 ?? []).map<List<List<num>>>((ring) {return List.from(ring).map<List<num>>((point) {return List<num>.from(point, growable: false);}).toList(growable: false);}).toList(growable: false)/g' lib/model/feature_geometry.dart
 
 # change some files to match requirements of pubspec.yaml specifications
 cp ../LICENSE .
 
 rm .travis.yml
 
-pub get
-dartfmt --fix --overwrite lib
-dartfmt --fix --overwrite test
+/usr/bin/dart pub get
+/usr/bin/dart --version
+/usr/bin/dart format --fix lib
+/usr/bin/dart format --fix test
 
 # When the script exits call cleanup function
 trap cleanup EXIT

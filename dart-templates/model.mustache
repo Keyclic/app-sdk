@@ -4,7 +4,7 @@
 {{#model}}
 {{#isEnum}}
 {{#native_serialization}}
-{{>serialization/native/native_enum}}
+{{>serialization/native/enum}}
 {{/native_serialization}}
 {{#json_serializable}}
 {{>serialization/json_serializable/json_serializable_enum}}
@@ -12,7 +12,7 @@
 {{/isEnum}}
 {{^isEnum}}
 {{#native_serialization}}
-{{>serialization/native/native_class}}
+{{>serialization/native/class}}
 {{/native_serialization}}
 {{#json_serializable}}
 {{>serialization/json_serializable/json_serializable_class}}

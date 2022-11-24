@@ -1,19 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class InvitationData {
   /// Returns a new [InvitationData] instance.
   InvitationData({
-    @required this.member,
+    required this.member,
   });
 
   /// Returns a new [InvitationData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InvitationData.fromJson(Map<String, dynamic> json) {
+  static InvitationData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -36,31 +35,51 @@ class InvitationData {
   }
 
   @override
-  int get hashCode => (member == null ? 0 : member.hashCode);
+  int get hashCode => member.hashCode;
 
-  static List<InvitationData> listFromJson(List<dynamic> json) {
-    return <InvitationData>[
-      if (json is List)
-        for (dynamic value in json) InvitationData.fromJson(value),
-    ];
+  static List<InvitationData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InvitationData>[];
+    }
+
+    return json.fold(<InvitationData>[],
+        (List<InvitationData> previousValue, element) {
+      final InvitationData? object = InvitationData.fromJson(element);
+      if (object is InvitationData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, InvitationData> mapFromJson(Map<String, dynamic> json) {
-    return <String, InvitationData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InvitationData.fromJson(entry.value),
-    };
+  static Map<String, InvitationData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InvitationData>{};
+    }
+
+    return json.entries.fold(<String, InvitationData>{},
+        (Map<String, InvitationData> previousValue, element) {
+      final InvitationData? object = InvitationData.fromJson(element.value);
+      if (object is InvitationData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InvitationData-objects as value to a dart map
   static Map<String, List<InvitationData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<InvitationData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InvitationData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InvitationData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InvitationData>>(
+          key, InvitationData.listFromJson(value));
+    });
   }
 
   @override

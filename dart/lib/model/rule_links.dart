@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class RuleLinks {
 
   /// Returns a new [RuleLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RuleLinks.fromJson(Map<String, dynamic> json) {
+  static RuleLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class RuleLinks {
     );
   }
 
-  RuleLinksSelf self;
+  RuleLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -38,29 +37,48 @@ class RuleLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<RuleLinks> listFromJson(List<dynamic> json) {
-    return <RuleLinks>[
-      if (json is List)
-        for (dynamic value in json) RuleLinks.fromJson(value),
-    ];
+  static List<RuleLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RuleLinks>[];
+    }
+
+    return json.fold(<RuleLinks>[], (List<RuleLinks> previousValue, element) {
+      final RuleLinks? object = RuleLinks.fromJson(element);
+      if (object is RuleLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, RuleLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, RuleLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RuleLinks.fromJson(entry.value),
-    };
+  static Map<String, RuleLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RuleLinks>{};
+    }
+
+    return json.entries.fold(<String, RuleLinks>{},
+        (Map<String, RuleLinks> previousValue, element) {
+      final RuleLinks? object = RuleLinks.fromJson(element.value);
+      if (object is RuleLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of RuleLinks-objects as value to a dart map
   static Map<String, List<RuleLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<RuleLinks>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RuleLinks.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<RuleLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<RuleLinks>>(
+          key, RuleLinks.listFromJson(value));
+    });
   }
 
   @override

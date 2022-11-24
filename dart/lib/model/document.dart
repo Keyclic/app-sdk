@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -22,19 +21,21 @@ class Document {
 
   /// Returns a new [Document] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Document.fromJson(Map<String, dynamic> json) {
+  static Document? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,25 +56,25 @@ class Document {
     );
   }
 
-  DocumentEmbedded embedded;
+  DocumentEmbedded? embedded;
 
-  DocumentLinks links;
+  DocumentLinks? links;
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  DocumentFile file;
+  DocumentFile? file;
 
-  String id;
+  final String? id;
 
-  DocumentPermission permission;
+  DocumentPermission? permission;
 
-  String text;
+  String? text;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -108,29 +109,48 @@ class Document {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Document> listFromJson(List<dynamic> json) {
-    return <Document>[
-      if (json is List)
-        for (dynamic value in json) Document.fromJson(value),
-    ];
+  static List<Document> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Document>[];
+    }
+
+    return json.fold(<Document>[], (List<Document> previousValue, element) {
+      final Document? object = Document.fromJson(element);
+      if (object is Document) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Document> mapFromJson(Map<String, dynamic> json) {
-    return <String, Document>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Document.fromJson(entry.value),
-    };
+  static Map<String, Document> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Document>{};
+    }
+
+    return json.entries.fold(<String, Document>{},
+        (Map<String, Document> previousValue, element) {
+      final Document? object = Document.fromJson(element.value);
+      if (object is Document) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Document-objects as value to a dart map
   static Map<String, List<Document>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Document>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Document.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Document>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Document>>(
+          key, Document.listFromJson(value));
+    });
   }
 
   @override
@@ -142,13 +162,13 @@ class Document {
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
       if (body != null) r'body': body,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (file != null) r'file': file,
       if (id != null) r'id': id,
       if (permission != null) r'permission': permission,
       if (text != null) r'text': text,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

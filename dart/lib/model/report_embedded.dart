@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -20,7 +19,7 @@ class ReportEmbedded {
 
   /// Returns a new [ReportEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReportEmbedded.fromJson(Map<String, dynamic> json) {
+  static ReportEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -38,21 +37,21 @@ class ReportEmbedded {
     );
   }
 
-  Assignment assignment;
+  Assignment? assignment;
 
-  Category category;
+  Category? category;
 
-  List<Operation> children;
+  List<Operation>? children;
 
-  List<Document> documents;
+  List<Document>? documents;
 
-  Feedback feedback;
+  Feedback? feedback;
 
-  Place place;
+  Place? place;
 
-  List<PlaceEmbeddedTargetGroupsInner> targetGroups;
+  List<PlaceEmbeddedTargetGroupsInner>? targetGroups;
 
-  OperationEmbeddedWorkflow workflow;
+  OperationEmbeddedWorkflow? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -84,29 +83,49 @@ class ReportEmbedded {
       (targetGroups == null ? 0 : targetGroups.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ReportEmbedded> listFromJson(List<dynamic> json) {
-    return <ReportEmbedded>[
-      if (json is List)
-        for (dynamic value in json) ReportEmbedded.fromJson(value),
-    ];
+  static List<ReportEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReportEmbedded>[];
+    }
+
+    return json.fold(<ReportEmbedded>[],
+        (List<ReportEmbedded> previousValue, element) {
+      final ReportEmbedded? object = ReportEmbedded.fromJson(element);
+      if (object is ReportEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReportEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return <String, ReportEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportEmbedded.fromJson(entry.value),
-    };
+  static Map<String, ReportEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportEmbedded>{};
+    }
+
+    return json.entries.fold(<String, ReportEmbedded>{},
+        (Map<String, ReportEmbedded> previousValue, element) {
+      final ReportEmbedded? object = ReportEmbedded.fromJson(element.value);
+      if (object is ReportEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ReportEmbedded-objects as value to a dart map
   static Map<String, List<ReportEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ReportEmbedded>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportEmbedded.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportEmbedded>>(
+          key, ReportEmbedded.listFromJson(value));
+    });
   }
 
   @override

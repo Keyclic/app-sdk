@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class OrganizationPatchPreferences {
 
   /// Returns a new [OrganizationPatchPreferences] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationPatchPreferences.fromJson(Map<String, dynamic> json) {
+  static OrganizationPatchPreferences? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class OrganizationPatchPreferences {
     );
   }
 
-  OrganizationPatchPreferencesReference reference;
+  OrganizationPatchPreferencesReference? reference;
 
   @override
   bool operator ==(Object other) {
@@ -40,31 +39,52 @@ class OrganizationPatchPreferences {
   @override
   int get hashCode => (reference == null ? 0 : reference.hashCode);
 
-  static List<OrganizationPatchPreferences> listFromJson(List<dynamic> json) {
-    return <OrganizationPatchPreferences>[
-      if (json is List)
-        for (dynamic value in json)
-          OrganizationPatchPreferences.fromJson(value),
-    ];
+  static List<OrganizationPatchPreferences> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationPatchPreferences>[];
+    }
+
+    return json.fold(<OrganizationPatchPreferences>[],
+        (List<OrganizationPatchPreferences> previousValue, element) {
+      final OrganizationPatchPreferences? object =
+          OrganizationPatchPreferences.fromJson(element);
+      if (object is OrganizationPatchPreferences) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationPatchPreferences> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationPatchPreferences>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationPatchPreferences.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationPatchPreferences>{};
+    }
+
+    return json.entries.fold(<String, OrganizationPatchPreferences>{},
+        (Map<String, OrganizationPatchPreferences> previousValue, element) {
+      final OrganizationPatchPreferences? object =
+          OrganizationPatchPreferences.fromJson(element.value);
+      if (object is OrganizationPatchPreferences) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OrganizationPatchPreferences-objects as value to a dart map
   static Map<String, List<OrganizationPatchPreferences>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OrganizationPatchPreferences>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationPatchPreferences.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationPatchPreferences>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationPatchPreferences>>(
+          key, OrganizationPatchPreferences.listFromJson(value));
+    });
   }
 
   @override

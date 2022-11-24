@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class FeedbackLinksReport {
 
   /// Returns a new [FeedbackLinksReport] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackLinksReport.fromJson(Map<String, dynamic> json) {
+  static FeedbackLinksReport? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class FeedbackLinksReport {
   }
 
   /// The URI of the report associated to the given feedback.
-  String href;
+  String? href;
 
-  FeedbackLinksReportIriTemplate iriTemplate;
+  FeedbackLinksReportIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,30 +47,51 @@ class FeedbackLinksReport {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<FeedbackLinksReport> listFromJson(List<dynamic> json) {
-    return <FeedbackLinksReport>[
-      if (json is List)
-        for (dynamic value in json) FeedbackLinksReport.fromJson(value),
-    ];
+  static List<FeedbackLinksReport> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackLinksReport>[];
+    }
+
+    return json.fold(<FeedbackLinksReport>[],
+        (List<FeedbackLinksReport> previousValue, element) {
+      final FeedbackLinksReport? object = FeedbackLinksReport.fromJson(element);
+      if (object is FeedbackLinksReport) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackLinksReport> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, FeedbackLinksReport>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackLinksReport.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackLinksReport>{};
+    }
+
+    return json.entries.fold(<String, FeedbackLinksReport>{},
+        (Map<String, FeedbackLinksReport> previousValue, element) {
+      final FeedbackLinksReport? object =
+          FeedbackLinksReport.fromJson(element.value);
+      if (object is FeedbackLinksReport) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of FeedbackLinksReport-objects as value to a dart map
   static Map<String, List<FeedbackLinksReport>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<FeedbackLinksReport>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackLinksReport.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackLinksReport>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackLinksReport>>(
+          key, FeedbackLinksReport.listFromJson(value));
+    });
   }
 
   @override

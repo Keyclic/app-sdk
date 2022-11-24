@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -12,7 +11,7 @@ class Procedure {
     this.links,
     this.createdAt,
     this.id,
-    @required this.mode,
+    required this.mode,
     this.state,
     this.type,
     this.updatedAt,
@@ -20,19 +19,21 @@ class Procedure {
 
   /// Returns a new [Procedure] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Procedure.fromJson(Map<String, dynamic> json) {
+  static Procedure? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -49,21 +50,21 @@ class Procedure {
     );
   }
 
-  ProcedureEmbedded embedded;
+  ProcedureEmbedded? embedded;
 
-  ProcedureLinks links;
+  ProcedureLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
   String mode;
 
-  String state;
+  String? state;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -89,34 +90,53 @@ class Procedure {
       (links == null ? 0 : links.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (mode == null ? 0 : mode.hashCode) +
+      mode.hashCode +
       (state == null ? 0 : state.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Procedure> listFromJson(List<dynamic> json) {
-    return <Procedure>[
-      if (json is List)
-        for (dynamic value in json) Procedure.fromJson(value),
-    ];
+  static List<Procedure> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Procedure>[];
+    }
+
+    return json.fold(<Procedure>[], (List<Procedure> previousValue, element) {
+      final Procedure? object = Procedure.fromJson(element);
+      if (object is Procedure) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Procedure> mapFromJson(Map<String, dynamic> json) {
-    return <String, Procedure>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Procedure.fromJson(entry.value),
-    };
+  static Map<String, Procedure> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Procedure>{};
+    }
+
+    return json.entries.fold(<String, Procedure>{},
+        (Map<String, Procedure> previousValue, element) {
+      final Procedure? object = Procedure.fromJson(element.value);
+      if (object is Procedure) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Procedure-objects as value to a dart map
   static Map<String, List<Procedure>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Procedure>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Procedure.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Procedure>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Procedure>>(
+          key, Procedure.listFromJson(value));
+    });
   }
 
   @override
@@ -127,12 +147,12 @@ class Procedure {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       r'mode': mode,
       if (state != null) r'state': state,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

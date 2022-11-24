@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class MemberLinksSelfIriTemplate {
 
   /// Returns a new [MemberLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MemberLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  static MemberLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class MemberLinksSelfIriTemplate {
     );
   }
 
-  AssignmentLinksMemberIriTemplateMapping mapping;
+  AssignmentLinksMemberIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -39,30 +38,52 @@ class MemberLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<MemberLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return <MemberLinksSelfIriTemplate>[
-      if (json is List)
-        for (dynamic value in json) MemberLinksSelfIriTemplate.fromJson(value),
-    ];
+  static List<MemberLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberLinksSelfIriTemplate>[];
+    }
+
+    return json.fold(<MemberLinksSelfIriTemplate>[],
+        (List<MemberLinksSelfIriTemplate> previousValue, element) {
+      final MemberLinksSelfIriTemplate? object =
+          MemberLinksSelfIriTemplate.fromJson(element);
+      if (object is MemberLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, MemberLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, MemberLinksSelfIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MemberLinksSelfIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, MemberLinksSelfIriTemplate>{},
+        (Map<String, MemberLinksSelfIriTemplate> previousValue, element) {
+      final MemberLinksSelfIriTemplate? object =
+          MemberLinksSelfIriTemplate.fromJson(element.value);
+      if (object is MemberLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of MemberLinksSelfIriTemplate-objects as value to a dart map
   static Map<String, List<MemberLinksSelfIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<MemberLinksSelfIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MemberLinksSelfIriTemplate.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MemberLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MemberLinksSelfIriTemplate>>(
+          key, MemberLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class ActivityAggregatedPagination {
 
   /// Returns a new [ActivityAggregatedPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ActivityAggregatedPagination.fromJson(Map<String, dynamic> json) {
+  static ActivityAggregatedPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class ActivityAggregatedPagination {
     );
   }
 
-  String duration;
+  String? duration;
 
-  String next;
+  String? next;
 
-  int unseen;
+  int? unseen;
 
-  int unread;
+  int? unread;
 
-  List<ActivityGroup> results;
+  List<ActivityGroup>? results;
 
   @override
   bool operator ==(Object other) {
@@ -64,31 +63,52 @@ class ActivityAggregatedPagination {
       (unread == null ? 0 : unread.hashCode) +
       (results == null ? 0 : results.hashCode);
 
-  static List<ActivityAggregatedPagination> listFromJson(List<dynamic> json) {
-    return <ActivityAggregatedPagination>[
-      if (json is List)
-        for (dynamic value in json)
-          ActivityAggregatedPagination.fromJson(value),
-    ];
+  static List<ActivityAggregatedPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ActivityAggregatedPagination>[];
+    }
+
+    return json.fold(<ActivityAggregatedPagination>[],
+        (List<ActivityAggregatedPagination> previousValue, element) {
+      final ActivityAggregatedPagination? object =
+          ActivityAggregatedPagination.fromJson(element);
+      if (object is ActivityAggregatedPagination) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ActivityAggregatedPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ActivityAggregatedPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityAggregatedPagination.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ActivityAggregatedPagination>{};
+    }
+
+    return json.entries.fold(<String, ActivityAggregatedPagination>{},
+        (Map<String, ActivityAggregatedPagination> previousValue, element) {
+      final ActivityAggregatedPagination? object =
+          ActivityAggregatedPagination.fromJson(element.value);
+      if (object is ActivityAggregatedPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ActivityAggregatedPagination-objects as value to a dart map
   static Map<String, List<ActivityAggregatedPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ActivityAggregatedPagination>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityAggregatedPagination.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ActivityAggregatedPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ActivityAggregatedPagination>>(
+          key, ActivityAggregatedPagination.listFromJson(value));
+    });
   }
 
   @override

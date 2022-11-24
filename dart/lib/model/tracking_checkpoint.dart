@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,13 +16,14 @@ class TrackingCheckpoint {
 
   /// Returns a new [TrackingCheckpoint] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory TrackingCheckpoint.fromJson(Map<String, dynamic> json) {
+  static TrackingCheckpoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
@@ -37,15 +37,15 @@ class TrackingCheckpoint {
     );
   }
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  CheckpointState data;
+  CheckpointState? data;
 
-  List<String> state;
+  List<String>? state;
 
-  CheckpointLinks links;
+  CheckpointLinks? links;
 
-  CheckpointEmbedded embedded;
+  CheckpointEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,30 +70,51 @@ class TrackingCheckpoint {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<TrackingCheckpoint> listFromJson(List<dynamic> json) {
-    return <TrackingCheckpoint>[
-      if (json is List)
-        for (dynamic value in json) TrackingCheckpoint.fromJson(value),
-    ];
+  static List<TrackingCheckpoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TrackingCheckpoint>[];
+    }
+
+    return json.fold(<TrackingCheckpoint>[],
+        (List<TrackingCheckpoint> previousValue, element) {
+      final TrackingCheckpoint? object = TrackingCheckpoint.fromJson(element);
+      if (object is TrackingCheckpoint) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, TrackingCheckpoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, TrackingCheckpoint>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TrackingCheckpoint.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TrackingCheckpoint>{};
+    }
+
+    return json.entries.fold(<String, TrackingCheckpoint>{},
+        (Map<String, TrackingCheckpoint> previousValue, element) {
+      final TrackingCheckpoint? object =
+          TrackingCheckpoint.fromJson(element.value);
+      if (object is TrackingCheckpoint) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of TrackingCheckpoint-objects as value to a dart map
   static Map<String, List<TrackingCheckpoint>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<TrackingCheckpoint>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TrackingCheckpoint.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<TrackingCheckpoint>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<TrackingCheckpoint>>(
+          key, TrackingCheckpoint.listFromJson(value));
+    });
   }
 
   @override
@@ -102,7 +123,7 @@ class TrackingCheckpoint {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (data != null) r'data': data,
       if (state != null) r'state': state,
       if (links != null) r'_links': links,

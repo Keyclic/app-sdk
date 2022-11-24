@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class SuccessLogin {
 
   /// Returns a new [SuccessLogin] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SuccessLogin.fromJson(Map<String, dynamic> json) {
+  static SuccessLogin? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class SuccessLogin {
     );
   }
 
-  String accessToken;
+  String? accessToken;
 
-  SuccessLoginCredentials credentials;
+  SuccessLoginCredentials? credentials;
 
-  String tokenType;
+  String? tokenType;
 
   @override
   bool operator ==(Object other) {
@@ -52,29 +51,49 @@ class SuccessLogin {
       (credentials == null ? 0 : credentials.hashCode) +
       (tokenType == null ? 0 : tokenType.hashCode);
 
-  static List<SuccessLogin> listFromJson(List<dynamic> json) {
-    return <SuccessLogin>[
-      if (json is List)
-        for (dynamic value in json) SuccessLogin.fromJson(value),
-    ];
+  static List<SuccessLogin> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SuccessLogin>[];
+    }
+
+    return json.fold(<SuccessLogin>[],
+        (List<SuccessLogin> previousValue, element) {
+      final SuccessLogin? object = SuccessLogin.fromJson(element);
+      if (object is SuccessLogin) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SuccessLogin> mapFromJson(Map<String, dynamic> json) {
-    return <String, SuccessLogin>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SuccessLogin.fromJson(entry.value),
-    };
+  static Map<String, SuccessLogin> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SuccessLogin>{};
+    }
+
+    return json.entries.fold(<String, SuccessLogin>{},
+        (Map<String, SuccessLogin> previousValue, element) {
+      final SuccessLogin? object = SuccessLogin.fromJson(element.value);
+      if (object is SuccessLogin) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of SuccessLogin-objects as value to a dart map
   static Map<String, List<SuccessLogin>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<SuccessLogin>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SuccessLogin.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SuccessLogin>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SuccessLogin>>(
+          key, SuccessLogin.listFromJson(value));
+    });
   }
 
   @override

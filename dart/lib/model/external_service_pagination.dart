@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -19,7 +18,7 @@ class ExternalServicePagination
 
   /// Returns a new [ExternalServicePagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ExternalServicePagination.fromJson(Map<String, dynamic> json) {
+  static ExternalServicePagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -34,17 +33,17 @@ class ExternalServicePagination
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  ExternalServiceCollection embedded;
+  ExternalServiceCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -71,30 +70,52 @@ class ExternalServicePagination
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<ExternalServicePagination> listFromJson(List<dynamic> json) {
-    return <ExternalServicePagination>[
-      if (json is List)
-        for (dynamic value in json) ExternalServicePagination.fromJson(value),
-    ];
+  static List<ExternalServicePagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServicePagination>[];
+    }
+
+    return json.fold(<ExternalServicePagination>[],
+        (List<ExternalServicePagination> previousValue, element) {
+      final ExternalServicePagination? object =
+          ExternalServicePagination.fromJson(element);
+      if (object is ExternalServicePagination) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServicePagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ExternalServicePagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalServicePagination.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServicePagination>{};
+    }
+
+    return json.entries.fold(<String, ExternalServicePagination>{},
+        (Map<String, ExternalServicePagination> previousValue, element) {
+      final ExternalServicePagination? object =
+          ExternalServicePagination.fromJson(element.value);
+      if (object is ExternalServicePagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ExternalServicePagination-objects as value to a dart map
   static Map<String, List<ExternalServicePagination>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ExternalServicePagination>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalServicePagination.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServicePagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServicePagination>>(
+          key, ExternalServicePagination.listFromJson(value));
+    });
   }
 
   @override

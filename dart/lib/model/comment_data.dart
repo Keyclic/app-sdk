@@ -1,20 +1,19 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class CommentData {
   /// Returns a new [CommentData] instance.
   CommentData({
-    @required this.text,
+    required this.text,
     this.type,
   });
 
   /// Returns a new [CommentData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CommentData.fromJson(Map<String, dynamic> json) {
+  static CommentData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,7 +26,7 @@ class CommentData {
 
   String text;
 
-  CommentDataTypeEnum type;
+  CommentDataTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -40,32 +39,51 @@ class CommentData {
   }
 
   @override
-  int get hashCode =>
-      (text == null ? 0 : text.hashCode) + (type == null ? 0 : type.hashCode);
+  int get hashCode => text.hashCode + (type == null ? 0 : type.hashCode);
 
-  static List<CommentData> listFromJson(List<dynamic> json) {
-    return <CommentData>[
-      if (json is List)
-        for (dynamic value in json) CommentData.fromJson(value),
-    ];
+  static List<CommentData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CommentData>[];
+    }
+
+    return json.fold(<CommentData>[],
+        (List<CommentData> previousValue, element) {
+      final CommentData? object = CommentData.fromJson(element);
+      if (object is CommentData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CommentData> mapFromJson(Map<String, dynamic> json) {
-    return <String, CommentData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CommentData.fromJson(entry.value),
-    };
+  static Map<String, CommentData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CommentData>{};
+    }
+
+    return json.entries.fold(<String, CommentData>{},
+        (Map<String, CommentData> previousValue, element) {
+      final CommentData? object = CommentData.fromJson(element.value);
+      if (object is CommentData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of CommentData-objects as value to a dart map
   static Map<String, List<CommentData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<CommentData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CommentData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CommentData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CommentData>>(
+          key, CommentData.listFromJson(value));
+    });
   }
 
   @override
@@ -100,14 +118,16 @@ class CommentDataTypeEnum {
     reminder,
   ];
 
-  static CommentDataTypeEnum fromJson(dynamic value) =>
+  static CommentDataTypeEnum? fromJson(dynamic value) =>
       CommentDataTypeEnumTypeTransformer().decode(value);
 
   static List<CommentDataTypeEnum> listFromJson(List<dynamic> json) {
-    return <CommentDataTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) CommentDataTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return CommentDataTypeEnum.fromJson(value);
+        })
+        .whereType<CommentDataTypeEnum>()
+        .toList();
   }
 }
 
@@ -129,7 +149,7 @@ class CommentDataTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  CommentDataTypeEnum decode(dynamic data, {bool allowNull}) {
+  CommentDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'Comment':
         return CommentDataTypeEnum.comment;
@@ -144,5 +164,5 @@ class CommentDataTypeEnumTypeTransformer {
   }
 
   /// Singleton [CommentDataTypeEnumTypeTransformer] instance.
-  static CommentDataTypeEnumTypeTransformer _instance;
+  static CommentDataTypeEnumTypeTransformer? _instance;
 }

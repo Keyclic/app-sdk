@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,19 +17,21 @@ class Note {
 
   /// Returns a new [Note] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Note.fromJson(Map<String, dynamic> json) {
+  static Note? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -47,17 +48,17 @@ class Note {
     );
   }
 
-  NoteLinks links;
+  NoteLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  List<Map<String, dynamic>> text;
+  List<Map<String, dynamic>>? text;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -84,27 +85,46 @@ class Note {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Note> listFromJson(List<dynamic> json) {
-    return <Note>[
-      if (json is List)
-        for (dynamic value in json) Note.fromJson(value),
-    ];
+  static List<Note> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Note>[];
+    }
+
+    return json.fold(<Note>[], (List<Note> previousValue, element) {
+      final Note? object = Note.fromJson(element);
+      if (object is Note) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Note> mapFromJson(Map<String, dynamic> json) {
-    return <String, Note>{
-      if (json is Map)
-        for (final entry in json.entries) entry.key: Note.fromJson(entry.value),
-    };
+  static Map<String, Note> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Note>{};
+    }
+
+    return json.entries.fold(<String, Note>{},
+        (Map<String, Note> previousValue, element) {
+      final Note? object = Note.fromJson(element.value);
+      if (object is Note) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Note-objects as value to a dart map
-  static Map<String, List<Note>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Note>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Note.listFromJson(entry.value),
-    };
+  static Map<String, List<Note>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Note>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Note>>(key, Note.listFromJson(value));
+    });
   }
 
   @override
@@ -114,11 +134,11 @@ class Note {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (text != null) r'text': text,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

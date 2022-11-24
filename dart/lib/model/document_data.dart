@@ -1,31 +1,30 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class DocumentData {
   /// Returns a new [DocumentData] instance.
   DocumentData({
-    @required this.container,
-    @required this.file,
-    @required this.permission,
+    required this.container,
+    required this.file,
+    required this.permission,
     this.template,
-    @required this.type,
+    required this.type,
   });
 
   /// Returns a new [DocumentData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentData.fromJson(Map<String, dynamic> json) {
+  static DocumentData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentData(
       container: json[r'container'],
-      file: DocumentDataFile.fromJson(json[r'file']),
-      permission: DocumentDataPermission.fromJson(json[r'permission']),
+      file: DocumentDataFile.fromJson(json[r'file'])!,
+      permission: DocumentDataPermission.fromJson(json[r'permission'])!,
       template: json[r'template'],
       type: json[r'type'],
     );
@@ -37,7 +36,7 @@ class DocumentData {
 
   DocumentDataPermission permission;
 
-  String template;
+  String? template;
 
   String type;
 
@@ -58,35 +57,55 @@ class DocumentData {
 
   @override
   int get hashCode =>
-      (container == null ? 0 : container.hashCode) +
-      (file == null ? 0 : file.hashCode) +
-      (permission == null ? 0 : permission.hashCode) +
+      container.hashCode +
+      file.hashCode +
+      permission.hashCode +
       (template == null ? 0 : template.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      type.hashCode;
 
-  static List<DocumentData> listFromJson(List<dynamic> json) {
-    return <DocumentData>[
-      if (json is List)
-        for (dynamic value in json) DocumentData.fromJson(value),
-    ];
+  static List<DocumentData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentData>[];
+    }
+
+    return json.fold(<DocumentData>[],
+        (List<DocumentData> previousValue, element) {
+      final DocumentData? object = DocumentData.fromJson(element);
+      if (object is DocumentData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentData> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentData.fromJson(entry.value),
-    };
+  static Map<String, DocumentData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentData>{};
+    }
+
+    return json.entries.fold(<String, DocumentData>{},
+        (Map<String, DocumentData> previousValue, element) {
+      final DocumentData? object = DocumentData.fromJson(element.value);
+      if (object is DocumentData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of DocumentData-objects as value to a dart map
   static Map<String, List<DocumentData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<DocumentData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentData>>(
+          key, DocumentData.listFromJson(value));
+    });
   }
 
   @override

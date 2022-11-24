@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class Run {
 
   /// Returns a new [Run] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Run.fromJson(Map<String, dynamic> json) {
+  static Run? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,15 +32,15 @@ class Run {
     );
   }
 
-  List<Run> children;
+  List<Run>? children;
 
-  String error;
+  String? error;
 
-  String name;
+  String? name;
 
-  Map<String, dynamic> result;
+  Map<String, dynamic>? result;
 
-  String state;
+  String? state;
 
   @override
   bool operator ==(Object other) {
@@ -66,27 +65,46 @@ class Run {
       (result == null ? 0 : result.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<Run> listFromJson(List<dynamic> json) {
-    return <Run>[
-      if (json is List)
-        for (dynamic value in json) Run.fromJson(value),
-    ];
+  static List<Run> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Run>[];
+    }
+
+    return json.fold(<Run>[], (List<Run> previousValue, element) {
+      final Run? object = Run.fromJson(element);
+      if (object is Run) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Run> mapFromJson(Map<String, dynamic> json) {
-    return <String, Run>{
-      if (json is Map)
-        for (final entry in json.entries) entry.key: Run.fromJson(entry.value),
-    };
+  static Map<String, Run> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Run>{};
+    }
+
+    return json.entries.fold(<String, Run>{},
+        (Map<String, Run> previousValue, element) {
+      final Run? object = Run.fromJson(element.value);
+      if (object is Run) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Run-objects as value to a dart map
-  static Map<String, List<Run>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Run>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Run.listFromJson(entry.value),
-    };
+  static Map<String, List<Run>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Run>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Run>>(key, Run.listFromJson(value));
+    });
   }
 
   @override

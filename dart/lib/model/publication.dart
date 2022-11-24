@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -12,28 +11,30 @@ class Publication {
     this.links,
     this.createdAt,
     this.id,
-    @required this.message,
-    @required this.read,
-    @required this.title,
+    required this.message,
+    required this.read,
+    required this.title,
     this.type,
     this.updatedAt,
   });
 
   /// Returns a new [Publication] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Publication.fromJson(Map<String, dynamic> json) {
+  static Publication? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -51,13 +52,13 @@ class Publication {
     );
   }
 
-  PublicationEmbedded embedded;
+  PublicationEmbedded? embedded;
 
-  PublicationLinks links;
+  PublicationLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
   String message;
 
@@ -65,9 +66,9 @@ class Publication {
 
   String title;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -94,35 +95,55 @@ class Publication {
       (links == null ? 0 : links.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (message == null ? 0 : message.hashCode) +
-      (read == null ? 0 : read.hashCode) +
-      (title == null ? 0 : title.hashCode) +
+      message.hashCode +
+      read.hashCode +
+      title.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Publication> listFromJson(List<dynamic> json) {
-    return <Publication>[
-      if (json is List)
-        for (dynamic value in json) Publication.fromJson(value),
-    ];
+  static List<Publication> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Publication>[];
+    }
+
+    return json.fold(<Publication>[],
+        (List<Publication> previousValue, element) {
+      final Publication? object = Publication.fromJson(element);
+      if (object is Publication) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Publication> mapFromJson(Map<String, dynamic> json) {
-    return <String, Publication>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Publication.fromJson(entry.value),
-    };
+  static Map<String, Publication> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Publication>{};
+    }
+
+    return json.entries.fold(<String, Publication>{},
+        (Map<String, Publication> previousValue, element) {
+      final Publication? object = Publication.fromJson(element.value);
+      if (object is Publication) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Publication-objects as value to a dart map
   static Map<String, List<Publication>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Publication>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Publication.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Publication>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Publication>>(
+          key, Publication.listFromJson(value));
+    });
   }
 
   @override
@@ -133,13 +154,13 @@ class Publication {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       r'message': message,
       r'read': read,
       r'title': title,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

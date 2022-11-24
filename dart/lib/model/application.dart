@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,8 +14,8 @@ class Application {
     this.contactPoints = const [],
     this.createdAt,
     this.id,
-    @required this.name,
-    @required this.token,
+    required this.name,
+    required this.token,
     this.type,
     this.updatedAt,
     this.version,
@@ -24,19 +23,21 @@ class Application {
 
   /// Returns a new [Application] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Application.fromJson(Map<String, dynamic> json) {
+  static Application? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -58,29 +59,29 @@ class Application {
     );
   }
 
-  ApplicationLinks links;
+  ApplicationLinks? links;
 
-  ApplicationAbout about;
+  ApplicationAbout? about;
 
-  ApplicationAgreement agreement;
+  ApplicationAgreement? agreement;
 
-  ApplicationConfiguration configuration;
+  ApplicationConfiguration? configuration;
 
-  List<ApplicationContactPoint> contactPoints;
+  List<ApplicationContactPoint>? contactPoints;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
   String name;
 
   String token;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
-  String version;
+  String? version;
 
   @override
   bool operator ==(Object other) {
@@ -114,35 +115,55 @@ class Application {
       (contactPoints == null ? 0 : contactPoints.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (token == null ? 0 : token.hashCode) +
+      name.hashCode +
+      token.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (version == null ? 0 : version.hashCode);
 
-  static List<Application> listFromJson(List<dynamic> json) {
-    return <Application>[
-      if (json is List)
-        for (dynamic value in json) Application.fromJson(value),
-    ];
+  static List<Application> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Application>[];
+    }
+
+    return json.fold(<Application>[],
+        (List<Application> previousValue, element) {
+      final Application? object = Application.fromJson(element);
+      if (object is Application) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Application> mapFromJson(Map<String, dynamic> json) {
-    return <String, Application>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Application.fromJson(entry.value),
-    };
+  static Map<String, Application> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Application>{};
+    }
+
+    return json.entries.fold(<String, Application>{},
+        (Map<String, Application> previousValue, element) {
+      final Application? object = Application.fromJson(element.value);
+      if (object is Application) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Application-objects as value to a dart map
   static Map<String, List<Application>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Application>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Application.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Application>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Application>>(
+          key, Application.listFromJson(value));
+    });
   }
 
   @override
@@ -156,12 +177,12 @@ class Application {
       if (agreement != null) r'agreement': agreement,
       if (configuration != null) r'configuration': configuration,
       if (contactPoints != null) r'contactPoints': contactPoints,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       r'name': name,
       r'token': token,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
       if (version != null) r'version': version,
     };
   }

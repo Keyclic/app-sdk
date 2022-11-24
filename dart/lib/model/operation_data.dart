@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -10,7 +9,7 @@ class OperationData {
   OperationData({
     this.description,
     this.identificationNumber,
-    @required this.report,
+    required this.report,
     this.member,
     this.name,
     this.organization,
@@ -19,7 +18,7 @@ class OperationData {
 
   /// Returns a new [OperationData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationData.fromJson(Map<String, dynamic> json) {
+  static OperationData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -35,19 +34,19 @@ class OperationData {
     );
   }
 
-  String description;
+  String? description;
 
-  String identificationNumber;
+  String? identificationNumber;
 
   String report;
 
-  String member;
+  String? member;
 
-  String name;
+  String? name;
 
-  String organization;
+  String? organization;
 
-  String scheduledAt;
+  String? scheduledAt;
 
   @override
   bool operator ==(Object other) {
@@ -70,35 +69,55 @@ class OperationData {
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
-      (report == null ? 0 : report.hashCode) +
+      report.hashCode +
       (member == null ? 0 : member.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode);
 
-  static List<OperationData> listFromJson(List<dynamic> json) {
-    return <OperationData>[
-      if (json is List)
-        for (dynamic value in json) OperationData.fromJson(value),
-    ];
+  static List<OperationData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationData>[];
+    }
+
+    return json.fold(<OperationData>[],
+        (List<OperationData> previousValue, element) {
+      final OperationData? object = OperationData.fromJson(element);
+      if (object is OperationData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, OperationData> mapFromJson(Map<String, dynamic> json) {
-    return <String, OperationData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationData.fromJson(entry.value),
-    };
+  static Map<String, OperationData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationData>{};
+    }
+
+    return json.entries.fold(<String, OperationData>{},
+        (Map<String, OperationData> previousValue, element) {
+      final OperationData? object = OperationData.fromJson(element.value);
+      if (object is OperationData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OperationData-objects as value to a dart map
   static Map<String, List<OperationData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OperationData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationData>>(
+          key, OperationData.listFromJson(value));
+    });
   }
 
   @override

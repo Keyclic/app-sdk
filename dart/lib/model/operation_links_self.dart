@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class OperationLinksSelf {
 
   /// Returns a new [OperationLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationLinksSelf.fromJson(Map<String, dynamic> json) {
+  static OperationLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class OperationLinksSelf {
   }
 
   /// The URI of the self associated to the given operation.
-  String href;
+  String? href;
 
-  OperationLinksSelfIriTemplate iriTemplate;
+  OperationLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,30 +46,51 @@ class OperationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OperationLinksSelf> listFromJson(List<dynamic> json) {
-    return <OperationLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) OperationLinksSelf.fromJson(value),
-    ];
+  static List<OperationLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationLinksSelf>[];
+    }
+
+    return json.fold(<OperationLinksSelf>[],
+        (List<OperationLinksSelf> previousValue, element) {
+      final OperationLinksSelf? object = OperationLinksSelf.fromJson(element);
+      if (object is OperationLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OperationLinksSelf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OperationLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationLinksSelf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, OperationLinksSelf>{},
+        (Map<String, OperationLinksSelf> previousValue, element) {
+      final OperationLinksSelf? object =
+          OperationLinksSelf.fromJson(element.value);
+      if (object is OperationLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OperationLinksSelf-objects as value to a dart map
   static Map<String, List<OperationLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OperationLinksSelf>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationLinksSelf.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationLinksSelf>>(
+          key, OperationLinksSelf.listFromJson(value));
+    });
   }
 
   @override

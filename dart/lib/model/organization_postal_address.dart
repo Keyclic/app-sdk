@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class OrganizationPostalAddress {
 
   /// Returns a new [OrganizationPostalAddress] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationPostalAddress.fromJson(Map<String, dynamic> json) {
+  static OrganizationPostalAddress? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class OrganizationPostalAddress {
     );
   }
 
-  String locality;
+  String? locality;
 
-  String postalCode;
+  String? postalCode;
 
-  String streetAddress;
+  String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -52,30 +51,52 @@ class OrganizationPostalAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<OrganizationPostalAddress> listFromJson(List<dynamic> json) {
-    return <OrganizationPostalAddress>[
-      if (json is List)
-        for (dynamic value in json) OrganizationPostalAddress.fromJson(value),
-    ];
+  static List<OrganizationPostalAddress> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationPostalAddress>[];
+    }
+
+    return json.fold(<OrganizationPostalAddress>[],
+        (List<OrganizationPostalAddress> previousValue, element) {
+      final OrganizationPostalAddress? object =
+          OrganizationPostalAddress.fromJson(element);
+      if (object is OrganizationPostalAddress) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationPostalAddress> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationPostalAddress>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationPostalAddress.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationPostalAddress>{};
+    }
+
+    return json.entries.fold(<String, OrganizationPostalAddress>{},
+        (Map<String, OrganizationPostalAddress> previousValue, element) {
+      final OrganizationPostalAddress? object =
+          OrganizationPostalAddress.fromJson(element.value);
+      if (object is OrganizationPostalAddress) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OrganizationPostalAddress-objects as value to a dart map
   static Map<String, List<OrganizationPostalAddress>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OrganizationPostalAddress>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationPostalAddress.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationPostalAddress>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationPostalAddress>>(
+          key, OrganizationPostalAddress.listFromJson(value));
+    });
   }
 
   @override

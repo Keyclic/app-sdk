@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class SignerLinksSelfIriTemplateMapping {
 
   /// Returns a new [SignerLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SignerLinksSelfIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static SignerLinksSelfIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class SignerLinksSelfIriTemplateMapping {
     );
   }
 
-  String signer;
+  String? signer;
 
   @override
   bool operator ==(Object other) {
@@ -40,32 +39,53 @@ class SignerLinksSelfIriTemplateMapping {
   int get hashCode => (signer == null ? 0 : signer.hashCode);
 
   static List<SignerLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <SignerLinksSelfIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          SignerLinksSelfIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <SignerLinksSelfIriTemplateMapping>[];
+    }
+
+    return json.fold(<SignerLinksSelfIriTemplateMapping>[],
+        (List<SignerLinksSelfIriTemplateMapping> previousValue, element) {
+      final SignerLinksSelfIriTemplateMapping? object =
+          SignerLinksSelfIriTemplateMapping.fromJson(element);
+      if (object is SignerLinksSelfIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, SignerLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, SignerLinksSelfIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerLinksSelfIriTemplateMapping.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignerLinksSelfIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, SignerLinksSelfIriTemplateMapping>{},
+        (Map<String, SignerLinksSelfIriTemplateMapping> previousValue,
+            element) {
+      final SignerLinksSelfIriTemplateMapping? object =
+          SignerLinksSelfIriTemplateMapping.fromJson(element.value);
+      if (object is SignerLinksSelfIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of SignerLinksSelfIriTemplateMapping-objects as value to a dart map
   static Map<String, List<SignerLinksSelfIriTemplateMapping>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<SignerLinksSelfIriTemplateMapping>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              SignerLinksSelfIriTemplateMapping.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SignerLinksSelfIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SignerLinksSelfIriTemplateMapping>>(
+          key, SignerLinksSelfIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override

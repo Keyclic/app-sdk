@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PlacePaginationAllOf {
 
   /// Returns a new [PlacePaginationAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlacePaginationAllOf.fromJson(Map<String, dynamic> json) {
+  static PlacePaginationAllOf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PlacePaginationAllOf {
     );
   }
 
-  PlaceCollection embedded;
+  PlaceCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -38,30 +37,52 @@ class PlacePaginationAllOf {
   @override
   int get hashCode => (embedded == null ? 0 : embedded.hashCode);
 
-  static List<PlacePaginationAllOf> listFromJson(List<dynamic> json) {
-    return <PlacePaginationAllOf>[
-      if (json is List)
-        for (dynamic value in json) PlacePaginationAllOf.fromJson(value),
-    ];
+  static List<PlacePaginationAllOf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlacePaginationAllOf>[];
+    }
+
+    return json.fold(<PlacePaginationAllOf>[],
+        (List<PlacePaginationAllOf> previousValue, element) {
+      final PlacePaginationAllOf? object =
+          PlacePaginationAllOf.fromJson(element);
+      if (object is PlacePaginationAllOf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, PlacePaginationAllOf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PlacePaginationAllOf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlacePaginationAllOf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlacePaginationAllOf>{};
+    }
+
+    return json.entries.fold(<String, PlacePaginationAllOf>{},
+        (Map<String, PlacePaginationAllOf> previousValue, element) {
+      final PlacePaginationAllOf? object =
+          PlacePaginationAllOf.fromJson(element.value);
+      if (object is PlacePaginationAllOf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PlacePaginationAllOf-objects as value to a dart map
   static Map<String, List<PlacePaginationAllOf>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PlacePaginationAllOf>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlacePaginationAllOf.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlacePaginationAllOf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlacePaginationAllOf>>(
+          key, PlacePaginationAllOf.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class FeedbackPaginationAllOf {
 
   /// Returns a new [FeedbackPaginationAllOf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackPaginationAllOf.fromJson(Map<String, dynamic> json) {
+  static FeedbackPaginationAllOf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class FeedbackPaginationAllOf {
     );
   }
 
-  FeedbackCollection embedded;
+  FeedbackCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -38,30 +37,52 @@ class FeedbackPaginationAllOf {
   @override
   int get hashCode => (embedded == null ? 0 : embedded.hashCode);
 
-  static List<FeedbackPaginationAllOf> listFromJson(List<dynamic> json) {
-    return <FeedbackPaginationAllOf>[
-      if (json is List)
-        for (dynamic value in json) FeedbackPaginationAllOf.fromJson(value),
-    ];
+  static List<FeedbackPaginationAllOf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackPaginationAllOf>[];
+    }
+
+    return json.fold(<FeedbackPaginationAllOf>[],
+        (List<FeedbackPaginationAllOf> previousValue, element) {
+      final FeedbackPaginationAllOf? object =
+          FeedbackPaginationAllOf.fromJson(element);
+      if (object is FeedbackPaginationAllOf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackPaginationAllOf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, FeedbackPaginationAllOf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackPaginationAllOf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackPaginationAllOf>{};
+    }
+
+    return json.entries.fold(<String, FeedbackPaginationAllOf>{},
+        (Map<String, FeedbackPaginationAllOf> previousValue, element) {
+      final FeedbackPaginationAllOf? object =
+          FeedbackPaginationAllOf.fromJson(element.value);
+      if (object is FeedbackPaginationAllOf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of FeedbackPaginationAllOf-objects as value to a dart map
   static Map<String, List<FeedbackPaginationAllOf>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<FeedbackPaginationAllOf>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackPaginationAllOf.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackPaginationAllOf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackPaginationAllOf>>(
+          key, FeedbackPaginationAllOf.listFromJson(value));
+    });
   }
 
   @override

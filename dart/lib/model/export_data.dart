@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ExportData {
 
   /// Returns a new [ExportData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ExportData.fromJson(Map<String, dynamic> json) {
+  static ExportData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class ExportData {
     );
   }
 
-  ExportDataContentTypeEnum contentType;
+  ExportDataContentTypeEnum? contentType;
 
-  String organization;
+  String? organization;
 
   @override
   bool operator ==(Object other) {
@@ -46,29 +45,48 @@ class ExportData {
       (contentType == null ? 0 : contentType.hashCode) +
       (organization == null ? 0 : organization.hashCode);
 
-  static List<ExportData> listFromJson(List<dynamic> json) {
-    return <ExportData>[
-      if (json is List)
-        for (dynamic value in json) ExportData.fromJson(value),
-    ];
+  static List<ExportData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExportData>[];
+    }
+
+    return json.fold(<ExportData>[], (List<ExportData> previousValue, element) {
+      final ExportData? object = ExportData.fromJson(element);
+      if (object is ExportData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ExportData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ExportData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExportData.fromJson(entry.value),
-    };
+  static Map<String, ExportData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExportData>{};
+    }
+
+    return json.entries.fold(<String, ExportData>{},
+        (Map<String, ExportData> previousValue, element) {
+      final ExportData? object = ExportData.fromJson(element.value);
+      if (object is ExportData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ExportData-objects as value to a dart map
   static Map<String, List<ExportData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ExportData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExportData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExportData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExportData>>(
+          key, ExportData.listFromJson(value));
+    });
   }
 
   @override
@@ -106,14 +124,16 @@ class ExportDataContentTypeEnum {
     vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet,
   ];
 
-  static ExportDataContentTypeEnum fromJson(dynamic value) =>
+  static ExportDataContentTypeEnum? fromJson(dynamic value) =>
       ExportDataContentTypeEnumTypeTransformer().decode(value);
 
   static List<ExportDataContentTypeEnum> listFromJson(List<dynamic> json) {
-    return <ExportDataContentTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) ExportDataContentTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return ExportDataContentTypeEnum.fromJson(value);
+        })
+        .whereType<ExportDataContentTypeEnum>()
+        .toList();
   }
 }
 
@@ -135,7 +155,7 @@ class ExportDataContentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ExportDataContentTypeEnum decode(dynamic data, {bool allowNull}) {
+  ExportDataContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'application/pdf':
         return ExportDataContentTypeEnum.pdf;
@@ -151,5 +171,5 @@ class ExportDataContentTypeEnumTypeTransformer {
   }
 
   /// Singleton [ExportDataContentTypeEnumTypeTransformer] instance.
-  static ExportDataContentTypeEnumTypeTransformer _instance;
+  static ExportDataContentTypeEnumTypeTransformer? _instance;
 }

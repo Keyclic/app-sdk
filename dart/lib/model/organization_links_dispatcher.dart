@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class OrganizationLinksDispatcher {
 
   /// Returns a new [OrganizationLinksDispatcher] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationLinksDispatcher.fromJson(Map<String, dynamic> json) {
+  static OrganizationLinksDispatcher? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class OrganizationLinksDispatcher {
   }
 
   /// The URI of the dispatcher associated to the given organization.
-  String href;
+  String? href;
 
-  OrganizationLinksDispatcherIriTemplate iriTemplate;
+  OrganizationLinksDispatcherIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,30 +47,52 @@ class OrganizationLinksDispatcher {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OrganizationLinksDispatcher> listFromJson(List<dynamic> json) {
-    return <OrganizationLinksDispatcher>[
-      if (json is List)
-        for (dynamic value in json) OrganizationLinksDispatcher.fromJson(value),
-    ];
+  static List<OrganizationLinksDispatcher> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationLinksDispatcher>[];
+    }
+
+    return json.fold(<OrganizationLinksDispatcher>[],
+        (List<OrganizationLinksDispatcher> previousValue, element) {
+      final OrganizationLinksDispatcher? object =
+          OrganizationLinksDispatcher.fromJson(element);
+      if (object is OrganizationLinksDispatcher) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationLinksDispatcher> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationLinksDispatcher>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationLinksDispatcher.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationLinksDispatcher>{};
+    }
+
+    return json.entries.fold(<String, OrganizationLinksDispatcher>{},
+        (Map<String, OrganizationLinksDispatcher> previousValue, element) {
+      final OrganizationLinksDispatcher? object =
+          OrganizationLinksDispatcher.fromJson(element.value);
+      if (object is OrganizationLinksDispatcher) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OrganizationLinksDispatcher-objects as value to a dart map
   static Map<String, List<OrganizationLinksDispatcher>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OrganizationLinksDispatcher>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationLinksDispatcher.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationLinksDispatcher>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationLinksDispatcher>>(
+          key, OrganizationLinksDispatcher.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,26 +12,28 @@ class Category {
     this.createdAt,
     this.id,
     this.identificationNumber,
-    @required this.name,
+    required this.name,
     this.type,
     this.updatedAt,
   });
 
   /// Returns a new [Category] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Category.fromJson(Map<String, dynamic> json) {
+  static Category? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -49,21 +50,21 @@ class Category {
     );
   }
 
-  CategoryEmbedded embedded;
+  CategoryEmbedded? embedded;
 
-  CategoryLinks links;
+  CategoryLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String identificationNumber;
+  String? identificationNumber;
 
   String name;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -90,33 +91,52 @@ class Category {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Category> listFromJson(List<dynamic> json) {
-    return <Category>[
-      if (json is List)
-        for (dynamic value in json) Category.fromJson(value),
-    ];
+  static List<Category> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Category>[];
+    }
+
+    return json.fold(<Category>[], (List<Category> previousValue, element) {
+      final Category? object = Category.fromJson(element);
+      if (object is Category) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Category> mapFromJson(Map<String, dynamic> json) {
-    return <String, Category>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Category.fromJson(entry.value),
-    };
+  static Map<String, Category> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Category>{};
+    }
+
+    return json.entries.fold(<String, Category>{},
+        (Map<String, Category> previousValue, element) {
+      final Category? object = Category.fromJson(element.value);
+      if (object is Category) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Category-objects as value to a dart map
   static Map<String, List<Category>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Category>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Category.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Category>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Category>>(
+          key, Category.listFromJson(value));
+    });
   }
 
   @override
@@ -127,13 +147,13 @@ class Category {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (identificationNumber != null)
         r'identificationNumber': identificationNumber,
       r'name': name,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

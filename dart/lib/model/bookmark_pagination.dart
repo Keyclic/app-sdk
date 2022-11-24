@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class BookmarkPagination implements Pagination, BookmarkPaginationAllOf {
 
   /// Returns a new [BookmarkPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BookmarkPagination.fromJson(Map<String, dynamic> json) {
+  static BookmarkPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class BookmarkPagination implements Pagination, BookmarkPaginationAllOf {
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  BookmarkCollection embedded;
+  BookmarkCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,30 +69,51 @@ class BookmarkPagination implements Pagination, BookmarkPaginationAllOf {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<BookmarkPagination> listFromJson(List<dynamic> json) {
-    return <BookmarkPagination>[
-      if (json is List)
-        for (dynamic value in json) BookmarkPagination.fromJson(value),
-    ];
+  static List<BookmarkPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkPagination>[];
+    }
+
+    return json.fold(<BookmarkPagination>[],
+        (List<BookmarkPagination> previousValue, element) {
+      final BookmarkPagination? object = BookmarkPagination.fromJson(element);
+      if (object is BookmarkPagination) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, BookmarkPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BookmarkPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BookmarkPagination.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkPagination>{};
+    }
+
+    return json.entries.fold(<String, BookmarkPagination>{},
+        (Map<String, BookmarkPagination> previousValue, element) {
+      final BookmarkPagination? object =
+          BookmarkPagination.fromJson(element.value);
+      if (object is BookmarkPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of BookmarkPagination-objects as value to a dart map
   static Map<String, List<BookmarkPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<BookmarkPagination>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BookmarkPagination.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BookmarkPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BookmarkPagination>>(
+          key, BookmarkPagination.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -9,13 +8,13 @@ class AssignmentData {
   /// Returns a new [AssignmentData] instance.
   AssignmentData({
     this.description,
-    @required this.report,
-    @required this.service,
+    required this.report,
+    required this.service,
   });
 
   /// Returns a new [AssignmentData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory AssignmentData.fromJson(Map<String, dynamic> json) {
+  static AssignmentData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,7 +26,7 @@ class AssignmentData {
     );
   }
 
-  String description;
+  String? description;
 
   String report;
 
@@ -49,32 +48,52 @@ class AssignmentData {
   @override
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
-      (report == null ? 0 : report.hashCode) +
-      (service == null ? 0 : service.hashCode);
+      report.hashCode +
+      service.hashCode;
 
-  static List<AssignmentData> listFromJson(List<dynamic> json) {
-    return <AssignmentData>[
-      if (json is List)
-        for (dynamic value in json) AssignmentData.fromJson(value),
-    ];
+  static List<AssignmentData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AssignmentData>[];
+    }
+
+    return json.fold(<AssignmentData>[],
+        (List<AssignmentData> previousValue, element) {
+      final AssignmentData? object = AssignmentData.fromJson(element);
+      if (object is AssignmentData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, AssignmentData> mapFromJson(Map<String, dynamic> json) {
-    return <String, AssignmentData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AssignmentData.fromJson(entry.value),
-    };
+  static Map<String, AssignmentData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AssignmentData>{};
+    }
+
+    return json.entries.fold(<String, AssignmentData>{},
+        (Map<String, AssignmentData> previousValue, element) {
+      final AssignmentData? object = AssignmentData.fromJson(element.value);
+      if (object is AssignmentData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of AssignmentData-objects as value to a dart map
   static Map<String, List<AssignmentData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<AssignmentData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AssignmentData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<AssignmentData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<AssignmentData>>(
+          key, AssignmentData.listFromJson(value));
+    });
   }
 
   @override

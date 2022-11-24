@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class CheckpointLinksOrganizationIriTemplate {
 
   /// Returns a new [CheckpointLinksOrganizationIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CheckpointLinksOrganizationIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static CheckpointLinksOrganizationIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class CheckpointLinksOrganizationIriTemplate {
     );
   }
 
-  CategoryLinksOrganizationIriTemplateMapping mapping;
+  CategoryLinksOrganizationIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,33 +41,53 @@ class CheckpointLinksOrganizationIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<CheckpointLinksOrganizationIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <CheckpointLinksOrganizationIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          CheckpointLinksOrganizationIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <CheckpointLinksOrganizationIriTemplate>[];
+    }
+
+    return json.fold(<CheckpointLinksOrganizationIriTemplate>[],
+        (List<CheckpointLinksOrganizationIriTemplate> previousValue, element) {
+      final CheckpointLinksOrganizationIriTemplate? object =
+          CheckpointLinksOrganizationIriTemplate.fromJson(element);
+      if (object is CheckpointLinksOrganizationIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, CheckpointLinksOrganizationIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, CheckpointLinksOrganizationIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              CheckpointLinksOrganizationIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CheckpointLinksOrganizationIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, CheckpointLinksOrganizationIriTemplate>{},
+        (Map<String, CheckpointLinksOrganizationIriTemplate> previousValue,
+            element) {
+      final CheckpointLinksOrganizationIriTemplate? object =
+          CheckpointLinksOrganizationIriTemplate.fromJson(element.value);
+      if (object is CheckpointLinksOrganizationIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of CheckpointLinksOrganizationIriTemplate-objects as value to a dart map
   static Map<String, List<CheckpointLinksOrganizationIriTemplate>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<CheckpointLinksOrganizationIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              CheckpointLinksOrganizationIriTemplate.listFromJson(entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CheckpointLinksOrganizationIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CheckpointLinksOrganizationIriTemplate>>(
+          key, CheckpointLinksOrganizationIriTemplate.listFromJson(value));
+    });
   }
 
   @override

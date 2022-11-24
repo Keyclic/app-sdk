@@ -1,19 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ServiceMemberData {
   /// Returns a new [ServiceMemberData] instance.
   ServiceMemberData({
-    @required this.member,
+    required this.member,
   });
 
   /// Returns a new [ServiceMemberData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ServiceMemberData.fromJson(Map<String, dynamic> json) {
+  static ServiceMemberData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -36,31 +35,53 @@ class ServiceMemberData {
   }
 
   @override
-  int get hashCode => (member == null ? 0 : member.hashCode);
+  int get hashCode => member.hashCode;
 
-  static List<ServiceMemberData> listFromJson(List<dynamic> json) {
-    return <ServiceMemberData>[
-      if (json is List)
-        for (dynamic value in json) ServiceMemberData.fromJson(value),
-    ];
+  static List<ServiceMemberData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ServiceMemberData>[];
+    }
+
+    return json.fold(<ServiceMemberData>[],
+        (List<ServiceMemberData> previousValue, element) {
+      final ServiceMemberData? object = ServiceMemberData.fromJson(element);
+      if (object is ServiceMemberData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ServiceMemberData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ServiceMemberData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ServiceMemberData.fromJson(entry.value),
-    };
+  static Map<String, ServiceMemberData> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ServiceMemberData>{};
+    }
+
+    return json.entries.fold(<String, ServiceMemberData>{},
+        (Map<String, ServiceMemberData> previousValue, element) {
+      final ServiceMemberData? object =
+          ServiceMemberData.fromJson(element.value);
+      if (object is ServiceMemberData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ServiceMemberData-objects as value to a dart map
   static Map<String, List<ServiceMemberData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ServiceMemberData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ServiceMemberData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ServiceMemberData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ServiceMemberData>>(
+          key, ServiceMemberData.listFromJson(value));
+    });
   }
 
   @override

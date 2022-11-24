@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class FeedbackLinksBusinessActivityIriTemplate {
 
   /// Returns a new [FeedbackLinksBusinessActivityIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackLinksBusinessActivityIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static FeedbackLinksBusinessActivityIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class FeedbackLinksBusinessActivityIriTemplate {
     );
   }
 
-  BusinessActivityLinksImageIriTemplateMapping mapping;
+  BusinessActivityLinksImageIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,33 +41,55 @@ class FeedbackLinksBusinessActivityIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<FeedbackLinksBusinessActivityIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <FeedbackLinksBusinessActivityIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          FeedbackLinksBusinessActivityIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackLinksBusinessActivityIriTemplate>[];
+    }
+
+    return json.fold(<FeedbackLinksBusinessActivityIriTemplate>[],
+        (List<FeedbackLinksBusinessActivityIriTemplate> previousValue,
+            element) {
+      final FeedbackLinksBusinessActivityIriTemplate? object =
+          FeedbackLinksBusinessActivityIriTemplate.fromJson(element);
+      if (object is FeedbackLinksBusinessActivityIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackLinksBusinessActivityIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, FeedbackLinksBusinessActivityIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              FeedbackLinksBusinessActivityIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackLinksBusinessActivityIriTemplate>{};
+    }
+
+    return json.entries.fold(
+        <String, FeedbackLinksBusinessActivityIriTemplate>{},
+        (Map<String, FeedbackLinksBusinessActivityIriTemplate> previousValue,
+            element) {
+      final FeedbackLinksBusinessActivityIriTemplate? object =
+          FeedbackLinksBusinessActivityIriTemplate.fromJson(element.value);
+      if (object is FeedbackLinksBusinessActivityIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of FeedbackLinksBusinessActivityIriTemplate-objects as value to a dart map
   static Map<String, List<FeedbackLinksBusinessActivityIriTemplate>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<FeedbackLinksBusinessActivityIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackLinksBusinessActivityIriTemplate.listFromJson(
-              entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackLinksBusinessActivityIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackLinksBusinessActivityIriTemplate>>(
+          key, FeedbackLinksBusinessActivityIriTemplate.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -16,7 +15,7 @@ class ConfigurationReportType {
 
   /// Returns a new [ConfigurationReportType] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ConfigurationReportType.fromJson(Map<String, dynamic> json) {
+  static ConfigurationReportType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,13 +28,13 @@ class ConfigurationReportType {
     );
   }
 
-  String id;
+  final String? id;
 
-  List<ReportTypePriority> priorities;
+  List<ReportTypePriority>? priorities;
 
-  String type;
+  String? type;
 
-  ReportTypeWorkflow workflow;
+  ReportTypeWorkflow? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -59,30 +58,52 @@ class ConfigurationReportType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationReportType> listFromJson(List<dynamic> json) {
-    return <ConfigurationReportType>[
-      if (json is List)
-        for (dynamic value in json) ConfigurationReportType.fromJson(value),
-    ];
+  static List<ConfigurationReportType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationReportType>[];
+    }
+
+    return json.fold(<ConfigurationReportType>[],
+        (List<ConfigurationReportType> previousValue, element) {
+      final ConfigurationReportType? object =
+          ConfigurationReportType.fromJson(element);
+      if (object is ConfigurationReportType) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ConfigurationReportType> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ConfigurationReportType>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ConfigurationReportType.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationReportType>{};
+    }
+
+    return json.entries.fold(<String, ConfigurationReportType>{},
+        (Map<String, ConfigurationReportType> previousValue, element) {
+      final ConfigurationReportType? object =
+          ConfigurationReportType.fromJson(element.value);
+      if (object is ConfigurationReportType) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ConfigurationReportType-objects as value to a dart map
   static Map<String, List<ConfigurationReportType>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ConfigurationReportType>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ConfigurationReportType.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ConfigurationReportType>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ConfigurationReportType>>(
+          key, ConfigurationReportType.listFromJson(value));
+    });
   }
 
   @override

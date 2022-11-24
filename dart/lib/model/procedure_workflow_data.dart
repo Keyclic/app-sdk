@@ -1,26 +1,25 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ProcedureWorkflowData {
   /// Returns a new [ProcedureWorkflowData] instance.
   ProcedureWorkflowData({
-    @required this.transition,
+    required this.transition,
   });
 
   /// Returns a new [ProcedureWorkflowData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ProcedureWorkflowData.fromJson(Map<String, dynamic> json) {
+  static ProcedureWorkflowData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ProcedureWorkflowData(
       transition:
-          ProcedureWorkflowDataTransitionEnum.fromJson(json[r'transition']),
+          ProcedureWorkflowDataTransitionEnum.fromJson(json[r'transition'])!,
     );
   }
 
@@ -37,32 +36,54 @@ class ProcedureWorkflowData {
   }
 
   @override
-  int get hashCode => (transition == null ? 0 : transition.hashCode);
+  int get hashCode => transition.hashCode;
 
-  static List<ProcedureWorkflowData> listFromJson(List<dynamic> json) {
-    return <ProcedureWorkflowData>[
-      if (json is List)
-        for (dynamic value in json) ProcedureWorkflowData.fromJson(value),
-    ];
+  static List<ProcedureWorkflowData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureWorkflowData>[];
+    }
+
+    return json.fold(<ProcedureWorkflowData>[],
+        (List<ProcedureWorkflowData> previousValue, element) {
+      final ProcedureWorkflowData? object =
+          ProcedureWorkflowData.fromJson(element);
+      if (object is ProcedureWorkflowData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ProcedureWorkflowData> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ProcedureWorkflowData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureWorkflowData.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureWorkflowData>{};
+    }
+
+    return json.entries.fold(<String, ProcedureWorkflowData>{},
+        (Map<String, ProcedureWorkflowData> previousValue, element) {
+      final ProcedureWorkflowData? object =
+          ProcedureWorkflowData.fromJson(element.value);
+      if (object is ProcedureWorkflowData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ProcedureWorkflowData-objects as value to a dart map
   static Map<String, List<ProcedureWorkflowData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ProcedureWorkflowData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureWorkflowData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ProcedureWorkflowData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ProcedureWorkflowData>>(
+          key, ProcedureWorkflowData.listFromJson(value));
+    });
   }
 
   @override
@@ -94,16 +115,17 @@ class ProcedureWorkflowDataTransitionEnum {
     activate,
   ];
 
-  static ProcedureWorkflowDataTransitionEnum fromJson(dynamic value) =>
+  static ProcedureWorkflowDataTransitionEnum? fromJson(dynamic value) =>
       ProcedureWorkflowDataTransitionEnumTypeTransformer().decode(value);
 
   static List<ProcedureWorkflowDataTransitionEnum> listFromJson(
       List<dynamic> json) {
-    return <ProcedureWorkflowDataTransitionEnum>[
-      if (json is List)
-        for (dynamic value in json)
-          ProcedureWorkflowDataTransitionEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return ProcedureWorkflowDataTransitionEnum.fromJson(value);
+        })
+        .whereType<ProcedureWorkflowDataTransitionEnum>()
+        .toList();
   }
 }
 
@@ -125,7 +147,8 @@ class ProcedureWorkflowDataTransitionEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ProcedureWorkflowDataTransitionEnum decode(dynamic data, {bool allowNull}) {
+  ProcedureWorkflowDataTransitionEnum? decode(dynamic data,
+      {bool allowNull = true}) {
     switch (data) {
       case r'activate':
         return ProcedureWorkflowDataTransitionEnum.activate;
@@ -138,5 +161,5 @@ class ProcedureWorkflowDataTransitionEnumTypeTransformer {
   }
 
   /// Singleton [ProcedureWorkflowDataTransitionEnumTypeTransformer] instance.
-  static ProcedureWorkflowDataTransitionEnumTypeTransformer _instance;
+  static ProcedureWorkflowDataTransitionEnumTypeTransformer? _instance;
 }

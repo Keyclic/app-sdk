@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class NoteLinksAuthor {
 
   /// Returns a new [NoteLinksAuthor] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory NoteLinksAuthor.fromJson(Map<String, dynamic> json) {
+  static NoteLinksAuthor? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class NoteLinksAuthor {
   }
 
   /// The URI of the author associated to the given note.
-  String href;
+  String? href;
 
-  NoteLinksAuthorIriTemplate iriTemplate;
+  NoteLinksAuthorIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,29 +46,49 @@ class NoteLinksAuthor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<NoteLinksAuthor> listFromJson(List<dynamic> json) {
-    return <NoteLinksAuthor>[
-      if (json is List)
-        for (dynamic value in json) NoteLinksAuthor.fromJson(value),
-    ];
+  static List<NoteLinksAuthor> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <NoteLinksAuthor>[];
+    }
+
+    return json.fold(<NoteLinksAuthor>[],
+        (List<NoteLinksAuthor> previousValue, element) {
+      final NoteLinksAuthor? object = NoteLinksAuthor.fromJson(element);
+      if (object is NoteLinksAuthor) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, NoteLinksAuthor> mapFromJson(Map<String, dynamic> json) {
-    return <String, NoteLinksAuthor>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: NoteLinksAuthor.fromJson(entry.value),
-    };
+  static Map<String, NoteLinksAuthor> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, NoteLinksAuthor>{};
+    }
+
+    return json.entries.fold(<String, NoteLinksAuthor>{},
+        (Map<String, NoteLinksAuthor> previousValue, element) {
+      final NoteLinksAuthor? object = NoteLinksAuthor.fromJson(element.value);
+      if (object is NoteLinksAuthor) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of NoteLinksAuthor-objects as value to a dart map
   static Map<String, List<NoteLinksAuthor>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<NoteLinksAuthor>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: NoteLinksAuthor.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<NoteLinksAuthor>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<NoteLinksAuthor>>(
+          key, NoteLinksAuthor.listFromJson(value));
+    });
   }
 
   @override

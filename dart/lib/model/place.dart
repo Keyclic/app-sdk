@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class Place {
     this.createdAt,
     this.description,
     this.id,
-    @required this.name,
+    required this.name,
     this.preferences,
     this.type,
     this.updatedAt,
@@ -23,19 +22,21 @@ class Place {
 
   /// Returns a new [Place] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Place.fromJson(Map<String, dynamic> json) {
+  static Place? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,27 +56,27 @@ class Place {
     );
   }
 
-  PlaceEmbedded embedded;
+  PlaceEmbedded? embedded;
 
-  PlaceLinks links;
+  PlaceLinks? links;
 
-  PlacePostalAddress address;
+  PlacePostalAddress? address;
 
-  String branchCode;
+  String? branchCode;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  PlacePreferences preferences;
+  PlacePreferences? preferences;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -107,33 +108,51 @@ class Place {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Place> listFromJson(List<dynamic> json) {
-    return <Place>[
-      if (json is List)
-        for (dynamic value in json) Place.fromJson(value),
-    ];
+  static List<Place> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Place>[];
+    }
+
+    return json.fold(<Place>[], (List<Place> previousValue, element) {
+      final Place? object = Place.fromJson(element);
+      if (object is Place) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Place> mapFromJson(Map<String, dynamic> json) {
-    return <String, Place>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Place.fromJson(entry.value),
-    };
+  static Map<String, Place> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Place>{};
+    }
+
+    return json.entries.fold(<String, Place>{},
+        (Map<String, Place> previousValue, element) {
+      final Place? object = Place.fromJson(element.value);
+      if (object is Place) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Place-objects as value to a dart map
-  static Map<String, List<Place>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Place>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Place.listFromJson(entry.value),
-    };
+  static Map<String, List<Place>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Place>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Place>>(key, Place.listFromJson(value));
+    });
   }
 
   @override
@@ -146,13 +165,13 @@ class Place {
       if (links != null) r'_links': links,
       if (address != null) r'address': address,
       if (branchCode != null) r'branchCode': branchCode,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       r'name': name,
       if (preferences != null) r'preferences': preferences,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -16,7 +15,7 @@ class DocumentPatch {
 
   /// Returns a new [DocumentPatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentPatch.fromJson(Map<String, dynamic> json) {
+  static DocumentPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,13 +30,13 @@ class DocumentPatch {
     );
   }
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  DocumentPatchFile file;
+  DocumentPatchFile? file;
 
-  DocumentPatchPermission permission;
+  DocumentPatchPermission? permission;
 
-  String text;
+  String? text;
 
   @override
   bool operator ==(Object other) {
@@ -60,29 +59,49 @@ class DocumentPatch {
       (permission == null ? 0 : permission.hashCode) +
       (text == null ? 0 : text.hashCode);
 
-  static List<DocumentPatch> listFromJson(List<dynamic> json) {
-    return <DocumentPatch>[
-      if (json is List)
-        for (dynamic value in json) DocumentPatch.fromJson(value),
-    ];
+  static List<DocumentPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentPatch>[];
+    }
+
+    return json.fold(<DocumentPatch>[],
+        (List<DocumentPatch> previousValue, element) {
+      final DocumentPatch? object = DocumentPatch.fromJson(element);
+      if (object is DocumentPatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentPatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentPatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentPatch.fromJson(entry.value),
-    };
+  static Map<String, DocumentPatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentPatch>{};
+    }
+
+    return json.entries.fold(<String, DocumentPatch>{},
+        (Map<String, DocumentPatch> previousValue, element) {
+      final DocumentPatch? object = DocumentPatch.fromJson(element.value);
+      if (object is DocumentPatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of DocumentPatch-objects as value to a dart map
   static Map<String, List<DocumentPatch>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<DocumentPatch>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentPatch.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentPatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentPatch>>(
+          key, DocumentPatch.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -24,7 +23,7 @@ class TransitionState {
 
   /// Returns a new [TransitionState] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory TransitionState.fromJson(Map<String, dynamic> json) {
+  static TransitionState? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -39,35 +38,35 @@ class TransitionState {
       id: json[r'id'],
       key: json[r'key'],
       name: json[r'name'],
-      progression: json[r'progression'],
+      progression: json[r'progression']?.toDouble(),
       reference: json[r'reference'],
       type: json[r'type'],
     );
   }
 
-  bool allowAdd;
+  bool? allowAdd;
 
-  bool allowDispatch;
+  bool? allowDispatch;
 
-  String backgroundColor;
+  String? backgroundColor;
 
-  String color;
+  String? color;
 
-  String description;
+  String? description;
 
-  bool end;
+  bool? end;
 
-  String id;
+  final String? id;
 
-  String key;
+  String? key;
 
-  String name;
+  String? name;
 
-  double progression;
+  double? progression;
 
-  String reference;
+  String? reference;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -106,29 +105,49 @@ class TransitionState {
       (reference == null ? 0 : reference.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<TransitionState> listFromJson(List<dynamic> json) {
-    return <TransitionState>[
-      if (json is List)
-        for (dynamic value in json) TransitionState.fromJson(value),
-    ];
+  static List<TransitionState> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TransitionState>[];
+    }
+
+    return json.fold(<TransitionState>[],
+        (List<TransitionState> previousValue, element) {
+      final TransitionState? object = TransitionState.fromJson(element);
+      if (object is TransitionState) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, TransitionState> mapFromJson(Map<String, dynamic> json) {
-    return <String, TransitionState>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TransitionState.fromJson(entry.value),
-    };
+  static Map<String, TransitionState> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TransitionState>{};
+    }
+
+    return json.entries.fold(<String, TransitionState>{},
+        (Map<String, TransitionState> previousValue, element) {
+      final TransitionState? object = TransitionState.fromJson(element.value);
+      if (object is TransitionState) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of TransitionState-objects as value to a dart map
   static Map<String, List<TransitionState>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<TransitionState>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: TransitionState.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<TransitionState>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<TransitionState>>(
+          key, TransitionState.listFromJson(value));
+    });
   }
 
   @override

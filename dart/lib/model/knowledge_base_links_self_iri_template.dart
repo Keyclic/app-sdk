@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class KnowledgeBaseLinksSelfIriTemplate {
 
   /// Returns a new [KnowledgeBaseLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory KnowledgeBaseLinksSelfIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static KnowledgeBaseLinksSelfIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class KnowledgeBaseLinksSelfIriTemplate {
     );
   }
 
-  ApplicationLinksKnowledgeBaseIriTemplateMapping mapping;
+  ApplicationLinksKnowledgeBaseIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,32 +41,53 @@ class KnowledgeBaseLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<KnowledgeBaseLinksSelfIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <KnowledgeBaseLinksSelfIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          KnowledgeBaseLinksSelfIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <KnowledgeBaseLinksSelfIriTemplate>[];
+    }
+
+    return json.fold(<KnowledgeBaseLinksSelfIriTemplate>[],
+        (List<KnowledgeBaseLinksSelfIriTemplate> previousValue, element) {
+      final KnowledgeBaseLinksSelfIriTemplate? object =
+          KnowledgeBaseLinksSelfIriTemplate.fromJson(element);
+      if (object is KnowledgeBaseLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, KnowledgeBaseLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, KnowledgeBaseLinksSelfIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: KnowledgeBaseLinksSelfIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, KnowledgeBaseLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, KnowledgeBaseLinksSelfIriTemplate>{},
+        (Map<String, KnowledgeBaseLinksSelfIriTemplate> previousValue,
+            element) {
+      final KnowledgeBaseLinksSelfIriTemplate? object =
+          KnowledgeBaseLinksSelfIriTemplate.fromJson(element.value);
+      if (object is KnowledgeBaseLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of KnowledgeBaseLinksSelfIriTemplate-objects as value to a dart map
   static Map<String, List<KnowledgeBaseLinksSelfIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<KnowledgeBaseLinksSelfIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              KnowledgeBaseLinksSelfIriTemplate.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<KnowledgeBaseLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<KnowledgeBaseLinksSelfIriTemplate>>(
+          key, KnowledgeBaseLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override

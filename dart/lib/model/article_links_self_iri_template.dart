@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ArticleLinksSelfIriTemplate {
 
   /// Returns a new [ArticleLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ArticleLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  static ArticleLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ArticleLinksSelfIriTemplate {
     );
   }
 
-  ArticleLinksSelfIriTemplateMapping mapping;
+  ArticleLinksSelfIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -38,30 +37,52 @@ class ArticleLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ArticleLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return <ArticleLinksSelfIriTemplate>[
-      if (json is List)
-        for (dynamic value in json) ArticleLinksSelfIriTemplate.fromJson(value),
-    ];
+  static List<ArticleLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ArticleLinksSelfIriTemplate>[];
+    }
+
+    return json.fold(<ArticleLinksSelfIriTemplate>[],
+        (List<ArticleLinksSelfIriTemplate> previousValue, element) {
+      final ArticleLinksSelfIriTemplate? object =
+          ArticleLinksSelfIriTemplate.fromJson(element);
+      if (object is ArticleLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ArticleLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ArticleLinksSelfIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ArticleLinksSelfIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ArticleLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ArticleLinksSelfIriTemplate>{},
+        (Map<String, ArticleLinksSelfIriTemplate> previousValue, element) {
+      final ArticleLinksSelfIriTemplate? object =
+          ArticleLinksSelfIriTemplate.fromJson(element.value);
+      if (object is ArticleLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ArticleLinksSelfIriTemplate-objects as value to a dart map
   static Map<String, List<ArticleLinksSelfIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ArticleLinksSelfIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ArticleLinksSelfIriTemplate.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ArticleLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ArticleLinksSelfIriTemplate>>(
+          key, ArticleLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override

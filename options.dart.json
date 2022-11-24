@@ -4,6 +4,6 @@
   "pubHomepage": "https://keyclic.com",
   "pubLibrary": "keyclic_sdk_api",
   "pubName": "keyclic_sdk_api",
-  "pubVersion": "2.32.3",
+  "pubVersion": "3.0.0-alpha6",
   "useEnumExtension": true
 }

@@ -26,14 +26,13 @@ class {{{classname}}} {
   {{/allowableValues}}
   ];
 
-  static {{{classname}}} fromJson(dynamic value) =>
+  static {{{classname}}}? fromJson(dynamic value) =>
     {{{classname}}}TypeTransformer().decode(value);
 
   static List<{{{classname}}}> listFromJson(List<dynamic> json) {
-    return <{{{classname}}}>[
-      if (json is List)
-        for (dynamic value in json) {{{classname}}}.fromJson(value),
-    ];
+    return json.map((value) {
+      return {{{classname}}}.fromJson(value);
+    }).whereType<{{{classname}}}>().toList();
   }
 }
 
@@ -54,7 +53,7 @@ class {{{classname}}}TypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  {{{classname}}} decode(dynamic data, {bool allowNull}) {
+  {{{classname}}}? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       {{#allowableValues}}
         {{#enumVars}}
@@ -70,5 +69,5 @@ class {{{classname}}}TypeTransformer {
   }
 
   /// Singleton [{{{classname}}}TypeTransformer] instance.
-  static {{{classname}}}TypeTransformer _instance;
+  static {{{classname}}}TypeTransformer? _instance;
 }

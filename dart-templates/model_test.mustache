@@ -1,13 +1,13 @@
 {{>header}}
 {{#models}}
 {{#model}}
-import 'package:{{{pubName}}}/api.dart';
+// import 'package:{{{pubName}}}/api.dart';
 import 'package:test/test.dart';
 
 // tests for {{{classname}}}
 void main() {
   {{^isEnum}}
-  final instance = {{{classname}}}();
+  // final instance = {{{classname}}}();
   {{/isEnum}}
 
   group('test {{{classname}}}', () {
@@ -15,9 +15,8 @@ void main() {
     {{#description}}
     // {{{description}}}
     {{/description}}
-    // {{{dataType}}} {{{name}}}{{#defaultValue}} (default value: {{{.}}}){{/defaultValue}}
+    // {{#isFreeFormObject}}Map<String, dynamic>{{/isFreeFormObject}}{{^isFreeFormObject}}{{{datatype}}}{{/isFreeFormObject}} {{{name}}}{{#defaultValue}} (default value: {{{.}}}){{/defaultValue}}
     test('to test the property `{{{name}}}`', () async {
-      // TODO
     });
 
     {{/vars}}

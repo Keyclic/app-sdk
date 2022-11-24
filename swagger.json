@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.32.3"
+        "version": "2.34.0"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -31,7 +31,7 @@
                 "summary": "Retrieve one Application resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getApplication",
                 "consumes": [
@@ -104,7 +104,7 @@
                 "summary": "Retrieve one Article resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getArticle",
                 "consumes": [
@@ -194,7 +194,7 @@
                 "summary": "Retrieve all Bookmark resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetBookmarks",
                 "consumes": [
@@ -289,7 +289,7 @@
                 "summary": "Create one Bookmark resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postBookmark",
                 "consumes": [
@@ -368,7 +368,7 @@
                 "summary": "Remove one Bookmark resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteBookmark",
                 "consumes": [
@@ -453,7 +453,7 @@
                 "summary": "Retrieve one Bookmark resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getBookmark",
                 "consumes": [
@@ -543,7 +543,7 @@
                 "summary": "Retrieve all BusinessActivity resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetBusinessActivities",
                 "consumes": [
@@ -646,7 +646,7 @@
                 "summary": "Retrieve one BusinessActivity resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getBusinessActivity",
                 "consumes": [
@@ -736,7 +736,7 @@
                 "summary": "Retrieve one Schema resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getSchemaByBusinessActivity",
                 "consumes": [
@@ -826,7 +826,7 @@
                 "summary": "Retrieve all Category resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetCategories",
                 "consumes": [
@@ -942,7 +942,7 @@
                 "summary": "Create one Category resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postCategory",
                 "consumes": [
@@ -1021,7 +1021,7 @@
                 "summary": "Remove one Category resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteCategory",
                 "consumes": [
@@ -1106,7 +1106,7 @@
                 "summary": "Retrieve one Category resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getCategory",
                 "consumes": [
@@ -1194,7 +1194,7 @@
                 "summary": "Edit one Category resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchCategory",
                 "consumes": [
@@ -1287,7 +1287,7 @@
                 "summary": "Create one Connector resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postConnectorByConnectorAndWorkflow",
                 "consumes": [
@@ -1386,7 +1386,7 @@
                 "summary": "Retrieve one Configuration resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getConfiguration",
                 "consumes": [
@@ -1476,7 +1476,7 @@
                 "summary": "Retrieve all Contribution resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetContributions",
                 "consumes": [
@@ -1571,7 +1571,7 @@
                 "summary": "Create one Contribution resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postContribution",
                 "consumes": [
@@ -1650,7 +1650,7 @@
                 "summary": "Retrieve one Contribution resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getContribution",
                 "consumes": [
@@ -1740,7 +1740,7 @@
                 "summary": "Retrieve one Assignment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getAssignment",
                 "consumes": [
@@ -1830,7 +1830,7 @@
                 "summary": "Create one Assignment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postAssignment",
                 "consumes": [
@@ -1909,7 +1909,7 @@
                 "summary": "Create one Device resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postDevice",
                 "consumes": [
@@ -1988,7 +1988,7 @@
                 "summary": "Retrieve all Feedback resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetFeedbackByDigitalDocument",
                 "consumes": [
@@ -2108,7 +2108,7 @@
                 "summary": "Remove one DigitalDocument resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteDigitalDocument",
                 "consumes": [
@@ -2193,7 +2193,7 @@
                 "summary": "Retrieve one DigitalDocument resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getDigitalDocument",
                 "consumes": [
@@ -2281,7 +2281,7 @@
                 "summary": "Edit one DigitalDocument resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchDigitalDocument",
                 "consumes": [
@@ -2374,7 +2374,7 @@
                 "summary": "Create one DigitalDocument resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postDigitalDocument",
                 "consumes": [
@@ -2453,7 +2453,7 @@
                 "summary": "Retrieve all Rule resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetRulesByDispatcher",
                 "consumes": [
@@ -2570,7 +2570,7 @@
                 "summary": "Retrieve one Dispatcher resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getDispatcher",
                 "consumes": [
@@ -2660,7 +2660,7 @@
                 "summary": "Remove one Document resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteDocument",
                 "consumes": [
@@ -2745,7 +2745,7 @@
                 "summary": "Retrieve one Document resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getDocument",
                 "consumes": [
@@ -2833,7 +2833,7 @@
                 "summary": "Edit one Document resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchDocument",
                 "consumes": [
@@ -2926,7 +2926,7 @@
                 "summary": "Create one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postWorkflowByDocument",
                 "consumes": [
@@ -3011,6 +3011,88 @@
                 ]
             }
         },
+        "\/exports\/{export}": {
+            "get": {
+                "tags": [
+                    "Export"
+                ],
+                "summary": "Retrieve one Export resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "getExport",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "export",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Export"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ]
+            }
+        },
         "\/exports": {
             "post": {
                 "tags": [
@@ -3019,7 +3101,7 @@
                 "summary": "Create one Export resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postExport",
                 "consumes": [
@@ -3221,7 +3303,7 @@
                 "summary": "Remove one ExternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteExternalService",
                 "consumes": [
@@ -3306,7 +3388,7 @@
                 "summary": "Retrieve one ExternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getExternalService",
                 "consumes": [
@@ -3394,7 +3476,7 @@
                 "summary": "Edit one ExternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchExternalService",
                 "consumes": [
@@ -3487,7 +3569,7 @@
                 "summary": "Create one ExternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postExternalService",
                 "consumes": [
@@ -3566,7 +3648,7 @@
                 "summary": "Retrieve all Activity resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetActivitiesByFeed",
                 "consumes": [
@@ -3660,7 +3742,7 @@
                 "summary": "Create one Read resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postReadByFeedAndGroup",
                 "consumes": [
@@ -3751,7 +3833,7 @@
                 "summary": "Retrieve all Feedback resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetFeedback",
                 "consumes": [
@@ -3857,7 +3939,7 @@
                 "summary": "Retrieve all Comment resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetCommentsByFeedback",
                 "consumes": [
@@ -3951,7 +4033,7 @@
                 "summary": "Create one Comment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postCommentByFeedback",
                 "consumes": [
@@ -4044,7 +4126,7 @@
                 "summary": "Remove one Feedback resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteFeedback",
                 "consumes": [
@@ -4129,7 +4211,7 @@
                 "summary": "Retrieve one Feedback resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getFeedback",
                 "consumes": [
@@ -4219,7 +4301,7 @@
                 "summary": "Retrieve one Tracking resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getTrackingByFeedback",
                 "consumes": [
@@ -4309,7 +4391,7 @@
                 "summary": "Create one Image resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postImageByFeedback",
                 "consumes": [
@@ -4402,7 +4484,7 @@
                 "summary": "Create one Issue resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postIssue",
                 "consumes": [
@@ -4481,7 +4563,7 @@
                 "summary": "Create one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postWorkflowByFeedback",
                 "consumes": [
@@ -4574,7 +4656,7 @@
                 "summary": "Retrieve all Member resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetMembersByInternalService",
                 "consumes": [
@@ -4692,7 +4774,7 @@
                 "summary": "Create one Member resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postMemberByInternalService",
                 "consumes": [
@@ -4785,7 +4867,7 @@
                 "summary": "Remove one InternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteInternalService",
                 "consumes": [
@@ -4870,7 +4952,7 @@
                 "summary": "Retrieve one InternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getInternalService",
                 "consumes": [
@@ -4958,7 +5040,7 @@
                 "summary": "Edit one InternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchInternalService",
                 "consumes": [
@@ -5051,7 +5133,7 @@
                 "summary": "Remove one Member resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteMemberByInternalServiceAndMember",
                 "consumes": [
@@ -5146,7 +5228,7 @@
                 "summary": "Create one InternalService resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postInternalService",
                 "consumes": [
@@ -5225,7 +5307,7 @@
                 "summary": "Remove one Invitation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteInvitation",
                 "consumes": [
@@ -5310,7 +5392,7 @@
                 "summary": "Retrieve one Invitation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getInvitation",
                 "consumes": [
@@ -5400,7 +5482,7 @@
                 "summary": "Create one Invitation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postInvitation",
                 "consumes": [
@@ -5479,7 +5561,7 @@
                 "summary": "Retrieve all Article resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetArticlesByKnowledgeBase",
                 "consumes": [
@@ -5590,7 +5672,7 @@
                 "summary": "Retrieve all Section resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetSectionsByKnowledgeBase",
                 "consumes": [
@@ -5695,7 +5777,7 @@
                 "summary": "Retrieve one KnowledgeBase resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getKnowledgeBase",
                 "consumes": [
@@ -5785,7 +5867,7 @@
                 "summary": "Remove one Marker resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteMarker",
                 "consumes": [
@@ -5870,7 +5952,7 @@
                 "summary": "Retrieve one Marker resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getMarker",
                 "consumes": [
@@ -5960,7 +6042,7 @@
                 "summary": "Create one Marker resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postMarker",
                 "consumes": [
@@ -6039,7 +6121,7 @@
                 "summary": "Remove one Member resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteMember",
                 "consumes": [
@@ -6124,7 +6206,7 @@
                 "summary": "Retrieve one Member resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getMember",
                 "consumes": [
@@ -6212,7 +6294,7 @@
                 "summary": "Edit one Member resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchMember",
                 "consumes": [
@@ -6305,7 +6387,7 @@
                 "summary": "Create one Member resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postMember",
                 "consumes": [
@@ -6384,7 +6466,7 @@
                 "summary": "Remove one Note resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteNote",
                 "consumes": [
@@ -6469,7 +6551,7 @@
                 "summary": "Retrieve one Note resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getNote",
                 "consumes": [
@@ -6557,7 +6639,7 @@
                 "summary": "Edit one Note resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchNote",
                 "consumes": [
@@ -6650,7 +6732,7 @@
                 "summary": "Create one Note resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postNote",
                 "consumes": [
@@ -6729,7 +6811,7 @@
                 "summary": "Remove one Occupant resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteOccupant",
                 "consumes": [
@@ -6814,7 +6896,7 @@
                 "summary": "Retrieve one Occupant resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getOccupant",
                 "consumes": [
@@ -6904,7 +6986,7 @@
                 "summary": "Create one Occupant resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postOccupant",
                 "consumes": [
@@ -6983,7 +7065,7 @@
                 "summary": "Retrieve all Assignment resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetAssignmentsByOperation",
                 "consumes": [
@@ -7088,7 +7170,7 @@
                 "summary": "Retrieve all Comment resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetCommentsByOperation",
                 "consumes": [
@@ -7182,7 +7264,7 @@
                 "summary": "Create one Comment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postCommentByOperation",
                 "consumes": [
@@ -7275,7 +7357,7 @@
                 "summary": "Remove one Operation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteOperation",
                 "consumes": [
@@ -7360,7 +7442,7 @@
                 "summary": "Retrieve one Operation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getOperation",
                 "consumes": [
@@ -7448,7 +7530,7 @@
                 "summary": "Edit one Operation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchOperation",
                 "consumes": [
@@ -7541,7 +7623,7 @@
                 "summary": "Remove one Image resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteImageByOperationAndImage",
                 "consumes": [
@@ -7636,7 +7718,7 @@
                 "summary": "Retrieve one Tracking resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getTrackingByOperation",
                 "consumes": [
@@ -7726,7 +7808,7 @@
                 "summary": "Create one Operation resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postOperation",
                 "consumes": [
@@ -7805,7 +7887,7 @@
                 "summary": "Create one Assign resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postAssignByOperation",
                 "consumes": [
@@ -7898,7 +7980,7 @@
                 "summary": "Create one Image resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postImageByOperation",
                 "consumes": [
@@ -7991,7 +8073,7 @@
                 "summary": "Create one Sign resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postSignByOperation",
                 "consumes": [
@@ -8084,7 +8166,7 @@
                 "summary": "Create one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postWorkflowByOperation",
                 "consumes": [
@@ -8177,7 +8259,7 @@
                 "summary": "Retrieve all Organization resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetOrganizations",
                 "consumes": [
@@ -8292,7 +8374,7 @@
                 "summary": "Retrieve all Category resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetCategoriesByOrganization",
                 "consumes": [
@@ -8421,7 +8503,7 @@
                 "summary": "Retrieve all Document resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetDocumentsByOrganization",
                 "consumes": [
@@ -8538,7 +8620,7 @@
                 "summary": "Retrieve all ExternalService resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetExternalServicesByOrganization",
                 "consumes": [
@@ -8646,7 +8728,7 @@
                 "summary": "Retrieve all InternalService resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetInternalServicesByOrganization",
                 "consumes": [
@@ -8754,7 +8836,7 @@
                 "summary": "Retrieve all Member resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetMembersByOrganization",
                 "consumes": [
@@ -8874,7 +8956,7 @@
                 "summary": "Retrieve all Occupant resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetOccupantsByOrganization",
                 "consumes": [
@@ -9000,7 +9082,7 @@
                 "summary": "Retrieve all Operation resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetOperationsByOrganization",
                 "consumes": [
@@ -9216,7 +9298,7 @@
                 "summary": "Retrieve all Place resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetPlacesByOrganization",
                 "consumes": [
@@ -9357,7 +9439,7 @@
                 "summary": "Retrieve all Publication resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetPublicationsByOrganization",
                 "consumes": [
@@ -9468,7 +9550,7 @@
                 "summary": "Retrieve all Report resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetReportsByOrganization",
                 "consumes": [
@@ -9684,7 +9766,7 @@
                 "summary": "Retrieve all Review resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetReviewsByOrganization",
                 "consumes": [
@@ -9810,7 +9892,7 @@
                 "summary": "Retrieve all ReviewRequest resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetReviewRequestsByOrganization",
                 "consumes": [
@@ -9918,7 +10000,7 @@
                 "summary": "Retrieve all Service resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetServicesByOrganization",
                 "consumes": [
@@ -10026,7 +10108,7 @@
                 "summary": "Retrieve all Template resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetTemplatesByOrganization",
                 "consumes": [
@@ -10131,7 +10213,7 @@
                 "summary": "Retrieve one Organization resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getOrganization",
                 "consumes": [
@@ -10219,7 +10301,7 @@
                 "summary": "Edit one Organization resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchOrganization",
                 "consumes": [
@@ -10312,7 +10394,7 @@
                 "summary": "Retrieve one Configuration resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getConfigurationByOrganization",
                 "consumes": [
@@ -10402,7 +10484,7 @@
                 "summary": "Retrieve one Analytic resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getAnalyticByOrganization",
                 "consumes": [
@@ -10579,7 +10661,7 @@
                 "summary": "Retrieve one Form resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getFormByOrganization",
                 "consumes": [
@@ -10669,7 +10751,7 @@
                 "summary": "Retrieve all Image resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cpostImage",
                 "consumes": [
@@ -10754,7 +10836,7 @@
                 "summary": "Retrieve all Document resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetDocumentsByPerson",
                 "consumes": [
@@ -10874,7 +10956,7 @@
                 "summary": "Retrieve all Membership resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetMembershipsByPerson",
                 "consumes": [
@@ -10994,7 +11076,7 @@
                 "summary": "Retrieve all Operation resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetOperationsByPerson",
                 "consumes": [
@@ -11213,7 +11295,7 @@
                 "summary": "Retrieve all ReviewRequest resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetReviewRequestsByPerson",
                 "consumes": [
@@ -11321,7 +11403,7 @@
                 "summary": "Retrieve one Person resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getPerson",
                 "consumes": [
@@ -11409,7 +11491,7 @@
                 "summary": "Remove one Person resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deletePerson",
                 "consumes": [
@@ -11494,7 +11576,7 @@
                 "summary": "Edit one Person resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchPerson",
                 "consumes": [
@@ -11587,7 +11669,7 @@
                 "summary": "Retrieve one Feed resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getFeedByPerson",
                 "consumes": [
@@ -11677,7 +11759,7 @@
                 "summary": "Retrieve all Place resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetPlaces",
                 "consumes": [
@@ -11805,7 +11887,7 @@
                 "summary": "Create one Place resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postPlace",
                 "consumes": [
@@ -11884,7 +11966,7 @@
                 "summary": "Retrieve all Document resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetDocumentsByPlace",
                 "consumes": [
@@ -12002,7 +12084,7 @@
                 "summary": "Create one Document resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postDocumentByPlace",
                 "consumes": [
@@ -12095,7 +12177,7 @@
                 "summary": "Retrieve all Plan resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetPlansByPlace",
                 "consumes": [
@@ -12200,7 +12282,7 @@
                 "summary": "Retrieve one Place resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getPlace",
                 "consumes": [
@@ -12288,7 +12370,7 @@
                 "summary": "Edit one Place resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchPlace",
                 "consumes": [
@@ -12381,7 +12463,7 @@
                 "summary": "Retrieve one Geo resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getGeoByPlace",
                 "consumes": [
@@ -12471,7 +12553,7 @@
                 "summary": "Create one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postWorkflowByPlace",
                 "consumes": [
@@ -12564,7 +12646,7 @@
                 "summary": "Remove one Plan resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deletePlan",
                 "consumes": [
@@ -12649,7 +12731,7 @@
                 "summary": "Retrieve one Plan resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getPlan",
                 "consumes": [
@@ -12737,7 +12819,7 @@
                 "summary": "Edit one Plan resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchPlan",
                 "consumes": [
@@ -12830,7 +12912,7 @@
                 "summary": "Create one Plan resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postPlan",
                 "consumes": [
@@ -12909,7 +12991,7 @@
                 "summary": "Retrieve all Signer resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetSignersByProcedure",
                 "consumes": [
@@ -13014,7 +13096,7 @@
                 "summary": "Retrieve one Procedure resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getProcedure",
                 "consumes": [
@@ -13104,7 +13186,7 @@
                 "summary": "Create one Procedure resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postProcedure",
                 "consumes": [
@@ -13183,7 +13265,7 @@
                 "summary": "Create one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postWorkflowByProcedure",
                 "consumes": [
@@ -13276,7 +13358,7 @@
                 "summary": "Remove one Publication resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deletePublication",
                 "consumes": [
@@ -13361,7 +13443,7 @@
                 "summary": "Retrieve one Publication resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getPublication",
                 "consumes": [
@@ -13451,7 +13533,7 @@
                 "summary": "Create one Publication resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postPublication",
                 "consumes": [
@@ -13530,7 +13612,7 @@
                 "summary": "Retrieve all Assignment resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetAssignmentsByReport",
                 "consumes": [
@@ -13635,7 +13717,7 @@
                 "summary": "Retrieve all Document resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetDocumentsByReport",
                 "consumes": [
@@ -13753,7 +13835,7 @@
                 "summary": "Create one Document resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postDocumentByReport",
                 "consumes": [
@@ -13846,7 +13928,7 @@
                 "summary": "Retrieve all Operation resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetOperationsByReport",
                 "consumes": [
@@ -14065,7 +14147,7 @@
                 "summary": "Retrieve one Report resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getReport",
                 "consumes": [
@@ -14153,7 +14235,7 @@
                 "summary": "Edit one Report resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchReport",
                 "consumes": [
@@ -14246,7 +14328,7 @@
                 "summary": "Retrieve one Tracking resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getTrackingByReport",
                 "consumes": [
@@ -14336,7 +14418,7 @@
                 "summary": "Create one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postWorkflowByReport",
                 "consumes": [
@@ -14429,7 +14511,7 @@
                 "summary": "Retrieve one Review resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getReview",
                 "consumes": [
@@ -14519,7 +14601,7 @@
                 "summary": "Create one Review resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postReview",
                 "consumes": [
@@ -14598,7 +14680,7 @@
                 "summary": "Retrieve one ReviewRequest resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getReviewRequest",
                 "consumes": [
@@ -14688,7 +14770,7 @@
                 "summary": "Retrieve one Role resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getRole",
                 "consumes": [
@@ -14778,7 +14860,7 @@
                 "summary": "Remove one Rule resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteRule",
                 "consumes": [
@@ -14863,7 +14945,7 @@
                 "summary": "Retrieve one Rule resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getRule",
                 "consumes": [
@@ -14951,7 +15033,7 @@
                 "summary": "Edit one Rule resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchRule",
                 "consumes": [
@@ -15044,7 +15126,7 @@
                 "summary": "Create one Rule resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postRule",
                 "consumes": [
@@ -15123,7 +15205,7 @@
                 "summary": "Retrieve one Section resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getSection",
                 "consumes": [
@@ -15149,6 +15231,8 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
                         "in": "path",
                         "name": "section",
                         "required": true,
@@ -15211,7 +15295,7 @@
                 "summary": "Create one Login resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postLogin",
                 "consumes": [
@@ -15288,7 +15372,7 @@
                 "summary": "Create one PasswordReset resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postPasswordReset",
                 "consumes": [
@@ -15347,7 +15431,7 @@
                 "summary": "Create one Register resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postRegister",
                 "consumes": [
@@ -15426,7 +15510,7 @@
                 "summary": "Retrieve one Service resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getService",
                 "consumes": [
@@ -15516,7 +15600,7 @@
                 "summary": "Remove one Signer resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteSigner",
                 "consumes": [
@@ -15601,7 +15685,7 @@
                 "summary": "Retrieve one Signer resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getSigner",
                 "consumes": [
@@ -15691,7 +15775,7 @@
                 "summary": "Create one Signer resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postSigner",
                 "consumes": [
@@ -15770,7 +15854,7 @@
                 "summary": "Create one Sign resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postSignBySigner",
                 "consumes": [
@@ -15863,7 +15947,7 @@
                 "summary": "Retrieve all Note resources.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "cgetNotesByTask",
                 "consumes": [
@@ -15968,7 +16052,7 @@
                 "summary": "Remove one Template resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteTemplate",
                 "consumes": [
@@ -16053,7 +16137,7 @@
                 "summary": "Retrieve one Template resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getTemplate",
                 "consumes": [
@@ -16141,7 +16225,7 @@
                 "summary": "Edit one Template resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "patchTemplate",
                 "consumes": [
@@ -16234,7 +16318,7 @@
                 "summary": "Create one Template resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postTemplate",
                 "consumes": [
@@ -16313,7 +16397,7 @@
                 "summary": "Create one Incoming resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postIncoming",
                 "consumes": [
@@ -16369,7 +16453,7 @@
                 "summary": "Retrieve one Workflow resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getWorkflow",
                 "consumes": [
@@ -16459,7 +16543,7 @@
                 "summary": "Remove one Device resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "deleteDevice",
                 "consumes": [
@@ -16542,7 +16626,7 @@
                 "summary": "Retrieve one Device resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "getDevice",
                 "consumes": [
@@ -16627,7 +16711,7 @@
                 "summary": "Create one PasswordChange resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
-                    "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
                 "operationId": "postPasswordChangeByToken",
                 "consumes": [
@@ -19534,6 +19618,9 @@
                     "additionalProperties": true
                 },
                 "place": {
+                    "type": "string"
+                },
+                "priority": {
                     "type": "string"
                 },
                 "reporter": {
@@ -26838,6 +26925,6 @@
     },
     "externalDocs": {
         "description": "Keyclic API documentation.",
-        "url": "http:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+        "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
     }
 }

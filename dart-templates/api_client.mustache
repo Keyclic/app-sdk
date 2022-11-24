@@ -27,7 +27,11 @@ class ApiClient {
   }
 
   final String basePath;
-  final String debug;
+  final bool debug;
+
+  final _authentications = <String, Authentication>{};
+  final _defaultHeaderMap = <String, String>{};
+  final Logger _logger = Logger('ApiClient');
 
   var _client = Client();
 
@@ -46,10 +50,6 @@ class ApiClient {
     _client = newClient;
   }
 
-  final _authentications = <String, Authentication>{};
-  final _defaultHeaderMap = <String, String>{};
-  final Logger _logger = Logger('ApiClient');
-
   void addDefaultHeader(String key, String value) {
      _defaultHeaderMap[key] = value;
   }
@@ -67,23 +67,24 @@ class ApiClient {
 
   // We don't use a Map<String, String> for queryParams.
   // If collectionFormat is 'multi', a key might appear multiple times.
-  Future<Response> invokeAPI(
+  Future<Response> invokeAPI({
     String path,
     String method,
     List<QueryParam> queryParams,
     Object body,
     Map<String, String> headerParams,
     Map<String, String> formParams,
-    String nullableContentType,
+    String contentType,
     List<String> authNames,
-  ) async {
+  }) async {
     _updateParamsForAuth(authNames, queryParams, headerParams);
 
     headerParams.addAll(_defaultHeaderMap);
 
-    final urlEncodedQueryParams = queryParams
-      .where((param) => param.value != null)
-      .map((param) => '$param');
+    final urlEncodedQueryParams = <String>[
+      for (final param in queryParams)
+        if (param.value != null) '$param',
+    ];
 
     final queryString = urlEncodedQueryParams.isNotEmpty
       ? '?${urlEncodedQueryParams.join('&')}'
@@ -91,19 +92,20 @@ class ApiClient {
 
     final Uri uri = Uri.parse('$basePath$path$queryString');
 
-    if (nullableContentType != null) {
-      headerParams['Content-Type'] = nullableContentType;
+    if (contentType != null) {
+      headerParams['Content-Type'] = contentType;
     }
 
     try {
       // Special case for uploading a single file which isn't a 'multipart/form-data'.
       if (
-        body is MultipartFile && (nullableContentType == null ||
-        !nullableContentType.toLowerCase().startsWith('multipart/form-data'))
+        body is MultipartFile && (contentType == null ||
+        !contentType.toLowerCase().startsWith('multipart/form-data'))
       ) {
         final request = StreamedRequest(method, uri);
-        request.headers.addAll(headerParams);
-        request.contentLength = body.length;
+        request
+          ..headers.addAll(headerParams)
+          ..contentLength = body.length;
         body.finalize().listen(
           request.sink.add,
           onDone: request.sink.close,
@@ -116,15 +118,16 @@ class ApiClient {
 
       if (body is MultipartRequest) {
         final request = MultipartRequest(method, uri);
-        request.fields.addAll(body.fields);
-        request.files.addAll(body.files);
-        request.headers.addAll(body.headers);
-        request.headers.addAll(headerParams);
+        request
+          ..fields.addAll(body.fields)
+          ..files.addAll(body.files)
+          ..headers.addAll(body.headers)
+          ..headers.addAll(headerParams);
         final response = await _client.send(request);
         return Response.fromStream(response);
       }
 
-      final msgBody = nullableContentType == 'application/x-www-form-urlencoded'
+      final msgBody = contentType == 'application/x-www-form-urlencoded'
         ? formParams
         : await serializeAsync(body);
       final nullableHeaderParams = headerParams.isEmpty ? null : headerParams;
@@ -134,20 +137,21 @@ class ApiClient {
       }
 
       switch(method) {
-        case 'POST': return await _client.post(uri, headers: nullableHeaderParams, body: msgBody,);
-        case 'PUT': return await _client.put(uri, headers: nullableHeaderParams, body: msgBody,);
-        case 'DELETE': return await _client.delete(uri, headers: nullableHeaderParams,);
-        case 'PATCH': return await _client.patch(uri, headers: nullableHeaderParams, body: msgBody,);
-        case 'HEAD': return await _client.head(uri, headers: nullableHeaderParams,);
-        case 'GET': return await _client.get(uri, headers: nullableHeaderParams,);
+        case 'POST': return await _client.post(uri, headers: nullableHeaderParams, body: msgBody);
+        case 'PUT': return await _client.put(uri, headers: nullableHeaderParams, body: msgBody);
+        case 'DELETE': return await _client.delete(uri, headers: nullableHeaderParams);
+        case 'PATCH': return await _client.patch(uri, headers: nullableHeaderParams, body: msgBody);
+        case 'HEAD': return await _client.head(uri, headers: nullableHeaderParams);
+        case 'GET': return await _client.get(uri, headers: nullableHeaderParams);
       }
-    } on SocketException catch (e, trace) {
+    // the next 3 exceptions come from dart:io which cannot be used for web clients 
+    }/* on SocketException catch (e, trace) {
       throw ApiException.withInner(HttpStatus.badRequest, 'Socket operation failed: $method $path', e, trace,);
     } on TlsException catch (e, trace) {
       throw ApiException.withInner(HttpStatus.badRequest, 'TLS/SSL communication failed: $method $path', e, trace,);
     } on IOException catch (e, trace) {
       throw ApiException.withInner(HttpStatus.badRequest, 'I/O operation failed: $method $path', e, trace,);
-    } on ClientException catch (e, trace) {
+    }*/ on ClientException catch (e, trace) {
       throw ApiException.withInner(HttpStatus.badRequest, 'HTTP connection failed: $method $path', e, trace,);
     } on Exception catch (e, trace) {
       throw ApiException.withInner(HttpStatus.badRequest, 'Exception occurred: $method $path', e, trace,);

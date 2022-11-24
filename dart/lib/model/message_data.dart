@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -9,12 +8,12 @@ class MessageData {
   /// Returns a new [MessageData] instance.
   MessageData({
     this.text = const [],
-    @required this.task,
+    required this.task,
   });
 
   /// Returns a new [MessageData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MessageData.fromJson(Map<String, dynamic> json) {
+  static MessageData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,7 +26,7 @@ class MessageData {
     );
   }
 
-  List<Map<String, dynamic>> text;
+  List<Map<String, dynamic>>? text;
 
   String task;
 
@@ -44,32 +43,51 @@ class MessageData {
   }
 
   @override
-  int get hashCode =>
-      (text == null ? 0 : text.hashCode) + (task == null ? 0 : task.hashCode);
+  int get hashCode => (text == null ? 0 : text.hashCode) + task.hashCode;
 
-  static List<MessageData> listFromJson(List<dynamic> json) {
-    return <MessageData>[
-      if (json is List)
-        for (dynamic value in json) MessageData.fromJson(value),
-    ];
+  static List<MessageData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MessageData>[];
+    }
+
+    return json.fold(<MessageData>[],
+        (List<MessageData> previousValue, element) {
+      final MessageData? object = MessageData.fromJson(element);
+      if (object is MessageData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, MessageData> mapFromJson(Map<String, dynamic> json) {
-    return <String, MessageData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MessageData.fromJson(entry.value),
-    };
+  static Map<String, MessageData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MessageData>{};
+    }
+
+    return json.entries.fold(<String, MessageData>{},
+        (Map<String, MessageData> previousValue, element) {
+      final MessageData? object = MessageData.fromJson(element.value);
+      if (object is MessageData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of MessageData-objects as value to a dart map
   static Map<String, List<MessageData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<MessageData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MessageData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MessageData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MessageData>>(
+          key, MessageData.listFromJson(value));
+    });
   }
 
   @override

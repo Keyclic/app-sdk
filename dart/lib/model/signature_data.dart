@@ -1,20 +1,19 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class SignatureData {
   /// Returns a new [SignatureData] instance.
   SignatureData({
-    @required this.image,
+    required this.image,
     this.text,
   });
 
   /// Returns a new [SignatureData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SignatureData.fromJson(Map<String, dynamic> json) {
+  static SignatureData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,7 +26,7 @@ class SignatureData {
 
   String image;
 
-  String text;
+  String? text;
 
   @override
   bool operator ==(Object other) {
@@ -40,32 +39,51 @@ class SignatureData {
   }
 
   @override
-  int get hashCode =>
-      (image == null ? 0 : image.hashCode) + (text == null ? 0 : text.hashCode);
+  int get hashCode => image.hashCode + (text == null ? 0 : text.hashCode);
 
-  static List<SignatureData> listFromJson(List<dynamic> json) {
-    return <SignatureData>[
-      if (json is List)
-        for (dynamic value in json) SignatureData.fromJson(value),
-    ];
+  static List<SignatureData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignatureData>[];
+    }
+
+    return json.fold(<SignatureData>[],
+        (List<SignatureData> previousValue, element) {
+      final SignatureData? object = SignatureData.fromJson(element);
+      if (object is SignatureData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SignatureData> mapFromJson(Map<String, dynamic> json) {
-    return <String, SignatureData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignatureData.fromJson(entry.value),
-    };
+  static Map<String, SignatureData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignatureData>{};
+    }
+
+    return json.entries.fold(<String, SignatureData>{},
+        (Map<String, SignatureData> previousValue, element) {
+      final SignatureData? object = SignatureData.fromJson(element.value);
+      if (object is SignatureData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of SignatureData-objects as value to a dart map
   static Map<String, List<SignatureData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<SignatureData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignatureData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SignatureData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SignatureData>>(
+          key, SignatureData.listFromJson(value));
+    });
   }
 
   @override

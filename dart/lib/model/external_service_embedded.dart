@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ExternalServiceEmbedded {
 
   /// Returns a new [ExternalServiceEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ExternalServiceEmbedded.fromJson(Map<String, dynamic> json) {
+  static ExternalServiceEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ExternalServiceEmbedded {
     );
   }
 
-  Organization provider;
+  Organization? provider;
 
   @override
   bool operator ==(Object other) {
@@ -38,30 +37,52 @@ class ExternalServiceEmbedded {
   @override
   int get hashCode => (provider == null ? 0 : provider.hashCode);
 
-  static List<ExternalServiceEmbedded> listFromJson(List<dynamic> json) {
-    return <ExternalServiceEmbedded>[
-      if (json is List)
-        for (dynamic value in json) ExternalServiceEmbedded.fromJson(value),
-    ];
+  static List<ExternalServiceEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServiceEmbedded>[];
+    }
+
+    return json.fold(<ExternalServiceEmbedded>[],
+        (List<ExternalServiceEmbedded> previousValue, element) {
+      final ExternalServiceEmbedded? object =
+          ExternalServiceEmbedded.fromJson(element);
+      if (object is ExternalServiceEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServiceEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ExternalServiceEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalServiceEmbedded.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServiceEmbedded>{};
+    }
+
+    return json.entries.fold(<String, ExternalServiceEmbedded>{},
+        (Map<String, ExternalServiceEmbedded> previousValue, element) {
+      final ExternalServiceEmbedded? object =
+          ExternalServiceEmbedded.fromJson(element.value);
+      if (object is ExternalServiceEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ExternalServiceEmbedded-objects as value to a dart map
   static Map<String, List<ExternalServiceEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ExternalServiceEmbedded>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalServiceEmbedded.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServiceEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServiceEmbedded>>(
+          key, ExternalServiceEmbedded.listFromJson(value));
+    });
   }
 
   @override

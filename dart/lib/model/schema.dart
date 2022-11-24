@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,20 +13,20 @@ class Schema {
 
   /// Returns a new [Schema] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Schema.fromJson(Map<String, dynamic> json) {
+  static Schema? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Schema(
-      properties: json[r'properties'],
+      properties: SchemaProperty.mapFromJson(json[r'properties']),
       required_: List<String>.from(json[r'required'] ?? []),
     );
   }
 
-  Map<String, SchemaProperty> properties;
+  Map<String, SchemaProperty>? properties;
 
-  List<String> required_;
+  List<String>? required_;
 
   @override
   bool operator ==(Object other) {
@@ -47,28 +46,46 @@ class Schema {
       (properties == null ? 0 : properties.hashCode) +
       (required_ == null ? 0 : required_.hashCode);
 
-  static List<Schema> listFromJson(List<dynamic> json) {
-    return <Schema>[
-      if (json is List)
-        for (dynamic value in json) Schema.fromJson(value),
-    ];
+  static List<Schema> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Schema>[];
+    }
+
+    return json.fold(<Schema>[], (List<Schema> previousValue, element) {
+      final Schema? object = Schema.fromJson(element);
+      if (object is Schema) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Schema> mapFromJson(Map<String, dynamic> json) {
-    return <String, Schema>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Schema.fromJson(entry.value),
-    };
+  static Map<String, Schema> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Schema>{};
+    }
+
+    return json.entries.fold(<String, Schema>{},
+        (Map<String, Schema> previousValue, element) {
+      final Schema? object = Schema.fromJson(element.value);
+      if (object is Schema) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Schema-objects as value to a dart map
-  static Map<String, List<Schema>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Schema>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Schema.listFromJson(entry.value),
-    };
+  static Map<String, List<Schema>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Schema>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Schema>>(key, Schema.listFromJson(value));
+    });
   }
 
   @override

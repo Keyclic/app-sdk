@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,8 +13,8 @@ class OperationLinksImagesIriTemplateMapping {
 
   /// Returns a new [OperationLinksImagesIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationLinksImagesIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static OperationLinksImagesIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class OperationLinksImagesIriTemplateMapping {
     );
   }
 
-  String operation;
+  String? operation;
 
-  String image;
+  String? image;
 
   @override
   bool operator ==(Object other) {
@@ -48,33 +47,53 @@ class OperationLinksImagesIriTemplateMapping {
       (image == null ? 0 : image.hashCode);
 
   static List<OperationLinksImagesIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <OperationLinksImagesIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          OperationLinksImagesIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <OperationLinksImagesIriTemplateMapping>[];
+    }
+
+    return json.fold(<OperationLinksImagesIriTemplateMapping>[],
+        (List<OperationLinksImagesIriTemplateMapping> previousValue, element) {
+      final OperationLinksImagesIriTemplateMapping? object =
+          OperationLinksImagesIriTemplateMapping.fromJson(element);
+      if (object is OperationLinksImagesIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OperationLinksImagesIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OperationLinksImagesIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              OperationLinksImagesIriTemplateMapping.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationLinksImagesIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, OperationLinksImagesIriTemplateMapping>{},
+        (Map<String, OperationLinksImagesIriTemplateMapping> previousValue,
+            element) {
+      final OperationLinksImagesIriTemplateMapping? object =
+          OperationLinksImagesIriTemplateMapping.fromJson(element.value);
+      if (object is OperationLinksImagesIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OperationLinksImagesIriTemplateMapping-objects as value to a dart map
   static Map<String, List<OperationLinksImagesIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<OperationLinksImagesIriTemplateMapping>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              OperationLinksImagesIriTemplateMapping.listFromJson(entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationLinksImagesIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationLinksImagesIriTemplateMapping>>(
+          key, OperationLinksImagesIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override

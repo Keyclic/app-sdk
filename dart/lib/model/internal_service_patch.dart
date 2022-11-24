@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class InternalServicePatch {
 
   /// Returns a new [InternalServicePatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServicePatch.fromJson(Map<String, dynamic> json) {
+  static InternalServicePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -32,15 +31,15 @@ class InternalServicePatch {
     );
   }
 
-  ExternalServicePatchAddress address;
+  ExternalServicePatchAddress? address;
 
-  ExternalServicePatchContactPoint contactPoint;
+  ExternalServicePatchContactPoint? contactPoint;
 
-  String description;
+  String? description;
 
-  String manager;
+  String? manager;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -65,30 +64,52 @@ class InternalServicePatch {
       (manager == null ? 0 : manager.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<InternalServicePatch> listFromJson(List<dynamic> json) {
-    return <InternalServicePatch>[
-      if (json is List)
-        for (dynamic value in json) InternalServicePatch.fromJson(value),
-    ];
+  static List<InternalServicePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServicePatch>[];
+    }
+
+    return json.fold(<InternalServicePatch>[],
+        (List<InternalServicePatch> previousValue, element) {
+      final InternalServicePatch? object =
+          InternalServicePatch.fromJson(element);
+      if (object is InternalServicePatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServicePatch> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServicePatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServicePatch.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServicePatch>{};
+    }
+
+    return json.entries.fold(<String, InternalServicePatch>{},
+        (Map<String, InternalServicePatch> previousValue, element) {
+      final InternalServicePatch? object =
+          InternalServicePatch.fromJson(element.value);
+      if (object is InternalServicePatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InternalServicePatch-objects as value to a dart map
   static Map<String, List<InternalServicePatch>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<InternalServicePatch>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServicePatch.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServicePatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServicePatch>>(
+          key, InternalServicePatch.listFromJson(value));
+    });
   }
 
   @override

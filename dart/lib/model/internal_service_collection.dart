@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class InternalServiceCollection {
 
   /// Returns a new [InternalServiceCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServiceCollection.fromJson(Map<String, dynamic> json) {
+  static InternalServiceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class InternalServiceCollection {
     );
   }
 
-  List<InternalService> items;
+  List<InternalService>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,30 +38,52 @@ class InternalServiceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<InternalServiceCollection> listFromJson(List<dynamic> json) {
-    return <InternalServiceCollection>[
-      if (json is List)
-        for (dynamic value in json) InternalServiceCollection.fromJson(value),
-    ];
+  static List<InternalServiceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceCollection>[];
+    }
+
+    return json.fold(<InternalServiceCollection>[],
+        (List<InternalServiceCollection> previousValue, element) {
+      final InternalServiceCollection? object =
+          InternalServiceCollection.fromJson(element);
+      if (object is InternalServiceCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServiceCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServiceCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceCollection>{};
+    }
+
+    return json.entries.fold(<String, InternalServiceCollection>{},
+        (Map<String, InternalServiceCollection> previousValue, element) {
+      final InternalServiceCollection? object =
+          InternalServiceCollection.fromJson(element.value);
+      if (object is InternalServiceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InternalServiceCollection-objects as value to a dart map
   static Map<String, List<InternalServiceCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<InternalServiceCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServiceCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServiceCollection>>(
+          key, InternalServiceCollection.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -11,7 +10,7 @@ class Article {
     this.links,
     this.createdAt,
     this.id,
-    @required this.name,
+    required this.name,
     this.text,
     this.type,
     this.updatedAt,
@@ -19,19 +18,21 @@ class Article {
 
   /// Returns a new [Article] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Article.fromJson(Map<String, dynamic> json) {
+  static Article? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -47,19 +48,19 @@ class Article {
     );
   }
 
-  ArticleLinks links;
+  ArticleLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
   String name;
 
-  String text;
+  String? text;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -83,33 +84,52 @@ class Article {
       (links == null ? 0 : links.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (text == null ? 0 : text.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Article> listFromJson(List<dynamic> json) {
-    return <Article>[
-      if (json is List)
-        for (dynamic value in json) Article.fromJson(value),
-    ];
+  static List<Article> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Article>[];
+    }
+
+    return json.fold(<Article>[], (List<Article> previousValue, element) {
+      final Article? object = Article.fromJson(element);
+      if (object is Article) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Article> mapFromJson(Map<String, dynamic> json) {
-    return <String, Article>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Article.fromJson(entry.value),
-    };
+  static Map<String, Article> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Article>{};
+    }
+
+    return json.entries.fold(<String, Article>{},
+        (Map<String, Article> previousValue, element) {
+      final Article? object = Article.fromJson(element.value);
+      if (object is Article) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Article-objects as value to a dart map
-  static Map<String, List<Article>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Article>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Article.listFromJson(entry.value),
-    };
+  static Map<String, List<Article>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Article>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Article>>(key, Article.listFromJson(value));
+    });
   }
 
   @override
@@ -119,12 +139,12 @@ class Article {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       r'name': name,
       if (text != null) r'text': text,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

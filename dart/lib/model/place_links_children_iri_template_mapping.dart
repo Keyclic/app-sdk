@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class PlaceLinksChildrenIriTemplateMapping {
 
   /// Returns a new [PlaceLinksChildrenIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlaceLinksChildrenIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static PlaceLinksChildrenIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class PlaceLinksChildrenIriTemplateMapping {
     );
   }
 
-  String parent;
+  String? parent;
 
   @override
   bool operator ==(Object other) {
@@ -41,32 +40,53 @@ class PlaceLinksChildrenIriTemplateMapping {
   int get hashCode => (parent == null ? 0 : parent.hashCode);
 
   static List<PlaceLinksChildrenIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <PlaceLinksChildrenIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          PlaceLinksChildrenIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksChildrenIriTemplateMapping>[];
+    }
+
+    return json.fold(<PlaceLinksChildrenIriTemplateMapping>[],
+        (List<PlaceLinksChildrenIriTemplateMapping> previousValue, element) {
+      final PlaceLinksChildrenIriTemplateMapping? object =
+          PlaceLinksChildrenIriTemplateMapping.fromJson(element);
+      if (object is PlaceLinksChildrenIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, PlaceLinksChildrenIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PlaceLinksChildrenIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceLinksChildrenIriTemplateMapping.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksChildrenIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinksChildrenIriTemplateMapping>{},
+        (Map<String, PlaceLinksChildrenIriTemplateMapping> previousValue,
+            element) {
+      final PlaceLinksChildrenIriTemplateMapping? object =
+          PlaceLinksChildrenIriTemplateMapping.fromJson(element.value);
+      if (object is PlaceLinksChildrenIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PlaceLinksChildrenIriTemplateMapping-objects as value to a dart map
   static Map<String, List<PlaceLinksChildrenIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<PlaceLinksChildrenIriTemplateMapping>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              PlaceLinksChildrenIriTemplateMapping.listFromJson(entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinksChildrenIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinksChildrenIriTemplateMapping>>(
+          key, PlaceLinksChildrenIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override

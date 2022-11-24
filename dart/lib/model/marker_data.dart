@@ -1,21 +1,20 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class MarkerData {
   /// Returns a new [MarkerData] instance.
   MarkerData({
-    @required this.feedback,
-    @required this.plan,
-    @required this.point,
+    required this.feedback,
+    required this.plan,
+    required this.point,
   });
 
   /// Returns a new [MarkerData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MarkerData.fromJson(Map<String, dynamic> json) {
+  static MarkerData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class MarkerData {
     return MarkerData(
       feedback: json[r'feedback'],
       plan: json[r'plan'],
-      point: MarkerDataPoint.fromJson(json[r'point']),
+      point: MarkerDataPoint.fromJson(json[r'point'])!,
     );
   }
 
@@ -47,34 +46,50 @@ class MarkerData {
   }
 
   @override
-  int get hashCode =>
-      (feedback == null ? 0 : feedback.hashCode) +
-      (plan == null ? 0 : plan.hashCode) +
-      (point == null ? 0 : point.hashCode);
+  int get hashCode => feedback.hashCode + plan.hashCode + point.hashCode;
 
-  static List<MarkerData> listFromJson(List<dynamic> json) {
-    return <MarkerData>[
-      if (json is List)
-        for (dynamic value in json) MarkerData.fromJson(value),
-    ];
+  static List<MarkerData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MarkerData>[];
+    }
+
+    return json.fold(<MarkerData>[], (List<MarkerData> previousValue, element) {
+      final MarkerData? object = MarkerData.fromJson(element);
+      if (object is MarkerData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, MarkerData> mapFromJson(Map<String, dynamic> json) {
-    return <String, MarkerData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MarkerData.fromJson(entry.value),
-    };
+  static Map<String, MarkerData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MarkerData>{};
+    }
+
+    return json.entries.fold(<String, MarkerData>{},
+        (Map<String, MarkerData> previousValue, element) {
+      final MarkerData? object = MarkerData.fromJson(element.value);
+      if (object is MarkerData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of MarkerData-objects as value to a dart map
   static Map<String, List<MarkerData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<MarkerData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MarkerData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MarkerData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MarkerData>>(
+          key, MarkerData.listFromJson(value));
+    });
   }
 
   @override

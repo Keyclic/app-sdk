@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,23 +14,23 @@ class Duration {
 
   /// Returns a new [Duration] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Duration.fromJson(Map<String, dynamic> json) {
+  static Duration? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Duration(
-      hours: json[r'hours'],
-      minutes: json[r'minutes'],
+      hours: json[r'hours']?.toDouble(),
+      minutes: json[r'minutes']?.toDouble(),
       seconds: json[r'seconds'],
     );
   }
 
-  double hours;
+  double? hours;
 
-  double minutes;
+  double? minutes;
 
-  int seconds;
+  int? seconds;
 
   @override
   bool operator ==(Object other) {
@@ -52,29 +51,48 @@ class Duration {
       (minutes == null ? 0 : minutes.hashCode) +
       (seconds == null ? 0 : seconds.hashCode);
 
-  static List<Duration> listFromJson(List<dynamic> json) {
-    return <Duration>[
-      if (json is List)
-        for (dynamic value in json) Duration.fromJson(value),
-    ];
+  static List<Duration> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Duration>[];
+    }
+
+    return json.fold(<Duration>[], (List<Duration> previousValue, element) {
+      final Duration? object = Duration.fromJson(element);
+      if (object is Duration) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Duration> mapFromJson(Map<String, dynamic> json) {
-    return <String, Duration>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Duration.fromJson(entry.value),
-    };
+  static Map<String, Duration> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Duration>{};
+    }
+
+    return json.entries.fold(<String, Duration>{},
+        (Map<String, Duration> previousValue, element) {
+      final Duration? object = Duration.fromJson(element.value);
+      if (object is Duration) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Duration-objects as value to a dart map
   static Map<String, List<Duration>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Duration>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Duration.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Duration>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Duration>>(
+          key, Duration.listFromJson(value));
+    });
   }
 
   @override

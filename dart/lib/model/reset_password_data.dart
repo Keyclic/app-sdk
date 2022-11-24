@@ -1,19 +1,18 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class ResetPasswordData {
   /// Returns a new [ResetPasswordData] instance.
   ResetPasswordData({
-    @required this.email,
+    required this.email,
   });
 
   /// Returns a new [ResetPasswordData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ResetPasswordData.fromJson(Map<String, dynamic> json) {
+  static ResetPasswordData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -36,31 +35,53 @@ class ResetPasswordData {
   }
 
   @override
-  int get hashCode => (email == null ? 0 : email.hashCode);
+  int get hashCode => email.hashCode;
 
-  static List<ResetPasswordData> listFromJson(List<dynamic> json) {
-    return <ResetPasswordData>[
-      if (json is List)
-        for (dynamic value in json) ResetPasswordData.fromJson(value),
-    ];
+  static List<ResetPasswordData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ResetPasswordData>[];
+    }
+
+    return json.fold(<ResetPasswordData>[],
+        (List<ResetPasswordData> previousValue, element) {
+      final ResetPasswordData? object = ResetPasswordData.fromJson(element);
+      if (object is ResetPasswordData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ResetPasswordData> mapFromJson(Map<String, dynamic> json) {
-    return <String, ResetPasswordData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ResetPasswordData.fromJson(entry.value),
-    };
+  static Map<String, ResetPasswordData> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ResetPasswordData>{};
+    }
+
+    return json.entries.fold(<String, ResetPasswordData>{},
+        (Map<String, ResetPasswordData> previousValue, element) {
+      final ResetPasswordData? object =
+          ResetPasswordData.fromJson(element.value);
+      if (object is ResetPasswordData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ResetPasswordData-objects as value to a dart map
   static Map<String, List<ResetPasswordData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ResetPasswordData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ResetPasswordData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ResetPasswordData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ResetPasswordData>>(
+          key, ResetPasswordData.listFromJson(value));
+    });
   }
 
   @override

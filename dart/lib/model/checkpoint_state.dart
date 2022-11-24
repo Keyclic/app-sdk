@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -24,7 +23,7 @@ class CheckpointState {
 
   /// Returns a new [CheckpointState] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CheckpointState.fromJson(Map<String, dynamic> json) {
+  static CheckpointState? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -39,35 +38,35 @@ class CheckpointState {
       id: json[r'id'],
       key: json[r'key'],
       name: json[r'name'],
-      progression: json[r'progression'],
+      progression: json[r'progression']?.toDouble(),
       reference: json[r'reference'],
       type: json[r'type'],
     );
   }
 
-  bool allowAdd;
+  bool? allowAdd;
 
-  bool allowDispatch;
+  bool? allowDispatch;
 
-  String backgroundColor;
+  String? backgroundColor;
 
-  String color;
+  String? color;
 
-  String description;
+  String? description;
 
-  bool end;
+  bool? end;
 
-  String id;
+  final String? id;
 
-  String key;
+  String? key;
 
-  String name;
+  String? name;
 
-  double progression;
+  double? progression;
 
-  String reference;
+  String? reference;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -106,29 +105,49 @@ class CheckpointState {
       (reference == null ? 0 : reference.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<CheckpointState> listFromJson(List<dynamic> json) {
-    return <CheckpointState>[
-      if (json is List)
-        for (dynamic value in json) CheckpointState.fromJson(value),
-    ];
+  static List<CheckpointState> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CheckpointState>[];
+    }
+
+    return json.fold(<CheckpointState>[],
+        (List<CheckpointState> previousValue, element) {
+      final CheckpointState? object = CheckpointState.fromJson(element);
+      if (object is CheckpointState) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CheckpointState> mapFromJson(Map<String, dynamic> json) {
-    return <String, CheckpointState>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CheckpointState.fromJson(entry.value),
-    };
+  static Map<String, CheckpointState> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CheckpointState>{};
+    }
+
+    return json.entries.fold(<String, CheckpointState>{},
+        (Map<String, CheckpointState> previousValue, element) {
+      final CheckpointState? object = CheckpointState.fromJson(element.value);
+      if (object is CheckpointState) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of CheckpointState-objects as value to a dart map
   static Map<String, List<CheckpointState>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<CheckpointState>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CheckpointState.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CheckpointState>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CheckpointState>>(
+          key, CheckpointState.listFromJson(value));
+    });
   }
 
   @override

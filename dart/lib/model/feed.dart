@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -16,7 +15,7 @@ class Feed {
 
   /// Returns a new [Feed] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Feed.fromJson(Map<String, dynamic> json) {
+  static Feed? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,13 +28,13 @@ class Feed {
     );
   }
 
-  String apiKey;
+  String? apiKey;
 
-  String appId;
+  String? appId;
 
-  String userId;
+  String? userId;
 
-  String userToken;
+  String? userToken;
 
   @override
   bool operator ==(Object other) {
@@ -58,27 +57,46 @@ class Feed {
       (userId == null ? 0 : userId.hashCode) +
       (userToken == null ? 0 : userToken.hashCode);
 
-  static List<Feed> listFromJson(List<dynamic> json) {
-    return <Feed>[
-      if (json is List)
-        for (dynamic value in json) Feed.fromJson(value),
-    ];
+  static List<Feed> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Feed>[];
+    }
+
+    return json.fold(<Feed>[], (List<Feed> previousValue, element) {
+      final Feed? object = Feed.fromJson(element);
+      if (object is Feed) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Feed> mapFromJson(Map<String, dynamic> json) {
-    return <String, Feed>{
-      if (json is Map)
-        for (final entry in json.entries) entry.key: Feed.fromJson(entry.value),
-    };
+  static Map<String, Feed> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Feed>{};
+    }
+
+    return json.entries.fold(<String, Feed>{},
+        (Map<String, Feed> previousValue, element) {
+      final Feed? object = Feed.fromJson(element.value);
+      if (object is Feed) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Feed-objects as value to a dart map
-  static Map<String, List<Feed>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Feed>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Feed.listFromJson(entry.value),
-    };
+  static Map<String, List<Feed>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Feed>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Feed>>(key, Feed.listFromJson(value));
+    });
   }
 
   @override

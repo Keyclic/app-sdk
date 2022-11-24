@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,8 +13,8 @@ class OrganizationLinksBusinessActivity {
 
   /// Returns a new [OrganizationLinksBusinessActivity] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationLinksBusinessActivity.fromJson(
-      Map<String, dynamic> json) {
+  static OrganizationLinksBusinessActivity? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -28,9 +27,9 @@ class OrganizationLinksBusinessActivity {
   }
 
   /// The URI of the businessActivity associated to the given organization.
-  String href;
+  String? href;
 
-  OrganizationLinksBusinessActivityIriTemplate iriTemplate;
+  OrganizationLinksBusinessActivityIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -50,32 +49,53 @@ class OrganizationLinksBusinessActivity {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<OrganizationLinksBusinessActivity> listFromJson(
-      List<dynamic> json) {
-    return <OrganizationLinksBusinessActivity>[
-      if (json is List)
-        for (dynamic value in json)
-          OrganizationLinksBusinessActivity.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationLinksBusinessActivity>[];
+    }
+
+    return json.fold(<OrganizationLinksBusinessActivity>[],
+        (List<OrganizationLinksBusinessActivity> previousValue, element) {
+      final OrganizationLinksBusinessActivity? object =
+          OrganizationLinksBusinessActivity.fromJson(element);
+      if (object is OrganizationLinksBusinessActivity) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationLinksBusinessActivity> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationLinksBusinessActivity>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationLinksBusinessActivity.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationLinksBusinessActivity>{};
+    }
+
+    return json.entries.fold(<String, OrganizationLinksBusinessActivity>{},
+        (Map<String, OrganizationLinksBusinessActivity> previousValue,
+            element) {
+      final OrganizationLinksBusinessActivity? object =
+          OrganizationLinksBusinessActivity.fromJson(element.value);
+      if (object is OrganizationLinksBusinessActivity) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OrganizationLinksBusinessActivity-objects as value to a dart map
   static Map<String, List<OrganizationLinksBusinessActivity>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OrganizationLinksBusinessActivity>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              OrganizationLinksBusinessActivity.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationLinksBusinessActivity>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationLinksBusinessActivity>>(
+          key, OrganizationLinksBusinessActivity.listFromJson(value));
+    });
   }
 
   @override

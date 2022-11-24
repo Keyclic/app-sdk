@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class BinaryCollection {
 
   /// Returns a new [BinaryCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BinaryCollection.fromJson(Map<String, dynamic> json) {
+  static BinaryCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class BinaryCollection {
     );
   }
 
-  List<Binary> items;
+  List<Binary>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,29 +38,49 @@ class BinaryCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BinaryCollection> listFromJson(List<dynamic> json) {
-    return <BinaryCollection>[
-      if (json is List)
-        for (dynamic value in json) BinaryCollection.fromJson(value),
-    ];
+  static List<BinaryCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BinaryCollection>[];
+    }
+
+    return json.fold(<BinaryCollection>[],
+        (List<BinaryCollection> previousValue, element) {
+      final BinaryCollection? object = BinaryCollection.fromJson(element);
+      if (object is BinaryCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, BinaryCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, BinaryCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BinaryCollection.fromJson(entry.value),
-    };
+  static Map<String, BinaryCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BinaryCollection>{};
+    }
+
+    return json.entries.fold(<String, BinaryCollection>{},
+        (Map<String, BinaryCollection> previousValue, element) {
+      final BinaryCollection? object = BinaryCollection.fromJson(element.value);
+      if (object is BinaryCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of BinaryCollection-objects as value to a dart map
   static Map<String, List<BinaryCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<BinaryCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BinaryCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BinaryCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BinaryCollection>>(
+          key, BinaryCollection.listFromJson(value));
+    });
   }
 
   @override

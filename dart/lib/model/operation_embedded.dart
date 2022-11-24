@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class OperationEmbedded {
 
   /// Returns a new [OperationEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationEmbedded.fromJson(Map<String, dynamic> json) {
+  static OperationEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class OperationEmbedded {
     );
   }
 
-  Person createdBy;
+  Person? createdBy;
 
-  Person operator_;
+  Person? operator_;
 
-  OperationEmbeddedWorkflow workflow;
+  OperationEmbeddedWorkflow? workflow;
 
   @override
   bool operator ==(Object other) {
@@ -52,29 +51,51 @@ class OperationEmbedded {
       (operator_ == null ? 0 : operator_.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<OperationEmbedded> listFromJson(List<dynamic> json) {
-    return <OperationEmbedded>[
-      if (json is List)
-        for (dynamic value in json) OperationEmbedded.fromJson(value),
-    ];
+  static List<OperationEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationEmbedded>[];
+    }
+
+    return json.fold(<OperationEmbedded>[],
+        (List<OperationEmbedded> previousValue, element) {
+      final OperationEmbedded? object = OperationEmbedded.fromJson(element);
+      if (object is OperationEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, OperationEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return <String, OperationEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationEmbedded.fromJson(entry.value),
-    };
+  static Map<String, OperationEmbedded> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationEmbedded>{};
+    }
+
+    return json.entries.fold(<String, OperationEmbedded>{},
+        (Map<String, OperationEmbedded> previousValue, element) {
+      final OperationEmbedded? object =
+          OperationEmbedded.fromJson(element.value);
+      if (object is OperationEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OperationEmbedded-objects as value to a dart map
   static Map<String, List<OperationEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OperationEmbedded>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationEmbedded.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationEmbedded>>(
+          key, OperationEmbedded.listFromJson(value));
+    });
   }
 
   @override

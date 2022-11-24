@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class AgreementTermsOfService {
 
   /// Returns a new [AgreementTermsOfService] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory AgreementTermsOfService.fromJson(Map<String, dynamic> json) {
+  static AgreementTermsOfService? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class AgreementTermsOfService {
     );
   }
 
-  String content;
+  String? content;
 
   @override
   bool operator ==(Object other) {
@@ -38,30 +37,52 @@ class AgreementTermsOfService {
   @override
   int get hashCode => (content == null ? 0 : content.hashCode);
 
-  static List<AgreementTermsOfService> listFromJson(List<dynamic> json) {
-    return <AgreementTermsOfService>[
-      if (json is List)
-        for (dynamic value in json) AgreementTermsOfService.fromJson(value),
-    ];
+  static List<AgreementTermsOfService> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AgreementTermsOfService>[];
+    }
+
+    return json.fold(<AgreementTermsOfService>[],
+        (List<AgreementTermsOfService> previousValue, element) {
+      final AgreementTermsOfService? object =
+          AgreementTermsOfService.fromJson(element);
+      if (object is AgreementTermsOfService) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, AgreementTermsOfService> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, AgreementTermsOfService>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AgreementTermsOfService.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AgreementTermsOfService>{};
+    }
+
+    return json.entries.fold(<String, AgreementTermsOfService>{},
+        (Map<String, AgreementTermsOfService> previousValue, element) {
+      final AgreementTermsOfService? object =
+          AgreementTermsOfService.fromJson(element.value);
+      if (object is AgreementTermsOfService) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of AgreementTermsOfService-objects as value to a dart map
   static Map<String, List<AgreementTermsOfService>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<AgreementTermsOfService>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AgreementTermsOfService.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<AgreementTermsOfService>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<AgreementTermsOfService>>(
+          key, AgreementTermsOfService.listFromJson(value));
+    });
   }
 
   @override

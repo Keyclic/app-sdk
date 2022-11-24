@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PlacePreferences {
 
   /// Returns a new [PlacePreferences] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlacePreferences.fromJson(Map<String, dynamic> json) {
+  static PlacePreferences? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class PlacePreferences {
     );
   }
 
-  bool public;
+  bool? public;
 
-  String visibility;
+  String? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -46,29 +45,49 @@ class PlacePreferences {
       (public == null ? 0 : public.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
-  static List<PlacePreferences> listFromJson(List<dynamic> json) {
-    return <PlacePreferences>[
-      if (json is List)
-        for (dynamic value in json) PlacePreferences.fromJson(value),
-    ];
+  static List<PlacePreferences> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlacePreferences>[];
+    }
+
+    return json.fold(<PlacePreferences>[],
+        (List<PlacePreferences> previousValue, element) {
+      final PlacePreferences? object = PlacePreferences.fromJson(element);
+      if (object is PlacePreferences) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlacePreferences> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlacePreferences>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlacePreferences.fromJson(entry.value),
-    };
+  static Map<String, PlacePreferences> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlacePreferences>{};
+    }
+
+    return json.entries.fold(<String, PlacePreferences>{},
+        (Map<String, PlacePreferences> previousValue, element) {
+      final PlacePreferences? object = PlacePreferences.fromJson(element.value);
+      if (object is PlacePreferences) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PlacePreferences-objects as value to a dart map
   static Map<String, List<PlacePreferences>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PlacePreferences>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlacePreferences.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlacePreferences>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlacePreferences>>(
+          key, PlacePreferences.listFromJson(value));
+    });
   }
 
   @override

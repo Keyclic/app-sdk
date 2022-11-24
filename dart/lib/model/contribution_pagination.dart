@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -19,7 +18,7 @@ class ContributionPagination
 
   /// Returns a new [ContributionPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ContributionPagination.fromJson(Map<String, dynamic> json) {
+  static ContributionPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -34,17 +33,17 @@ class ContributionPagination
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  ContributionCollection embedded;
+  ContributionCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -71,30 +70,52 @@ class ContributionPagination
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<ContributionPagination> listFromJson(List<dynamic> json) {
-    return <ContributionPagination>[
-      if (json is List)
-        for (dynamic value in json) ContributionPagination.fromJson(value),
-    ];
+  static List<ContributionPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ContributionPagination>[];
+    }
+
+    return json.fold(<ContributionPagination>[],
+        (List<ContributionPagination> previousValue, element) {
+      final ContributionPagination? object =
+          ContributionPagination.fromJson(element);
+      if (object is ContributionPagination) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ContributionPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ContributionPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ContributionPagination.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ContributionPagination>{};
+    }
+
+    return json.entries.fold(<String, ContributionPagination>{},
+        (Map<String, ContributionPagination> previousValue, element) {
+      final ContributionPagination? object =
+          ContributionPagination.fromJson(element.value);
+      if (object is ContributionPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ContributionPagination-objects as value to a dart map
   static Map<String, List<ContributionPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ContributionPagination>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ContributionPagination.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ContributionPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ContributionPagination>>(
+          key, ContributionPagination.listFromJson(value));
+    });
   }
 
   @override

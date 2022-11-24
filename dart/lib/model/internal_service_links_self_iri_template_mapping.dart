@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class InternalServiceLinksSelfIriTemplateMapping {
 
   /// Returns a new [InternalServiceLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServiceLinksSelfIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  static InternalServiceLinksSelfIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -24,7 +23,7 @@ class InternalServiceLinksSelfIriTemplateMapping {
     );
   }
 
-  String internalService;
+  String? internalService;
 
   @override
   bool operator ==(Object other) {
@@ -41,33 +40,55 @@ class InternalServiceLinksSelfIriTemplateMapping {
   int get hashCode => (internalService == null ? 0 : internalService.hashCode);
 
   static List<InternalServiceLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return <InternalServiceLinksSelfIriTemplateMapping>[
-      if (json is List)
-        for (dynamic value in json)
-          InternalServiceLinksSelfIriTemplateMapping.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceLinksSelfIriTemplateMapping>[];
+    }
+
+    return json.fold(<InternalServiceLinksSelfIriTemplateMapping>[],
+        (List<InternalServiceLinksSelfIriTemplateMapping> previousValue,
+            element) {
+      final InternalServiceLinksSelfIriTemplateMapping? object =
+          InternalServiceLinksSelfIriTemplateMapping.fromJson(element);
+      if (object is InternalServiceLinksSelfIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServiceLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServiceLinksSelfIriTemplateMapping>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              InternalServiceLinksSelfIriTemplateMapping.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceLinksSelfIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(
+        <String, InternalServiceLinksSelfIriTemplateMapping>{},
+        (Map<String, InternalServiceLinksSelfIriTemplateMapping> previousValue,
+            element) {
+      final InternalServiceLinksSelfIriTemplateMapping? object =
+          InternalServiceLinksSelfIriTemplateMapping.fromJson(element.value);
+      if (object is InternalServiceLinksSelfIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InternalServiceLinksSelfIriTemplateMapping-objects as value to a dart map
   static Map<String, List<InternalServiceLinksSelfIriTemplateMapping>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<InternalServiceLinksSelfIriTemplateMapping>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceLinksSelfIriTemplateMapping.listFromJson(
-              entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServiceLinksSelfIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServiceLinksSelfIriTemplateMapping>>(
+          key, InternalServiceLinksSelfIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override

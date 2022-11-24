@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class CheckpointLinks {
 
   /// Returns a new [CheckpointLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CheckpointLinks.fromJson(Map<String, dynamic> json) {
+  static CheckpointLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class CheckpointLinks {
     );
   }
 
-  CheckpointLinksOrganization organization;
+  CheckpointLinksOrganization? organization;
 
   @override
   bool operator ==(Object other) {
@@ -38,29 +37,49 @@ class CheckpointLinks {
   @override
   int get hashCode => (organization == null ? 0 : organization.hashCode);
 
-  static List<CheckpointLinks> listFromJson(List<dynamic> json) {
-    return <CheckpointLinks>[
-      if (json is List)
-        for (dynamic value in json) CheckpointLinks.fromJson(value),
-    ];
+  static List<CheckpointLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CheckpointLinks>[];
+    }
+
+    return json.fold(<CheckpointLinks>[],
+        (List<CheckpointLinks> previousValue, element) {
+      final CheckpointLinks? object = CheckpointLinks.fromJson(element);
+      if (object is CheckpointLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CheckpointLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, CheckpointLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CheckpointLinks.fromJson(entry.value),
-    };
+  static Map<String, CheckpointLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CheckpointLinks>{};
+    }
+
+    return json.entries.fold(<String, CheckpointLinks>{},
+        (Map<String, CheckpointLinks> previousValue, element) {
+      final CheckpointLinks? object = CheckpointLinks.fromJson(element.value);
+      if (object is CheckpointLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of CheckpointLinks-objects as value to a dart map
   static Map<String, List<CheckpointLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<CheckpointLinks>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CheckpointLinks.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CheckpointLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CheckpointLinks>>(
+          key, CheckpointLinks.listFromJson(value));
+    });
   }
 
   @override

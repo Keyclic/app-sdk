@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -9,14 +8,14 @@ class MemberData {
   /// Returns a new [MemberData] instance.
   MemberData({
     this.contactPoint,
-    @required this.organization,
+    required this.organization,
     this.person,
     this.type,
   });
 
   /// Returns a new [MemberData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory MemberData.fromJson(Map<String, dynamic> json) {
+  static MemberData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -30,13 +29,13 @@ class MemberData {
     );
   }
 
-  InternalServiceDataContactPoint contactPoint;
+  InternalServiceDataContactPoint? contactPoint;
 
   String organization;
 
-  String person;
+  String? person;
 
-  MemberDataTypeEnum type;
+  MemberDataTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -55,33 +54,52 @@ class MemberData {
   @override
   int get hashCode =>
       (contactPoint == null ? 0 : contactPoint.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
+      organization.hashCode +
       (person == null ? 0 : person.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<MemberData> listFromJson(List<dynamic> json) {
-    return <MemberData>[
-      if (json is List)
-        for (dynamic value in json) MemberData.fromJson(value),
-    ];
+  static List<MemberData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberData>[];
+    }
+
+    return json.fold(<MemberData>[], (List<MemberData> previousValue, element) {
+      final MemberData? object = MemberData.fromJson(element);
+      if (object is MemberData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, MemberData> mapFromJson(Map<String, dynamic> json) {
-    return <String, MemberData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MemberData.fromJson(entry.value),
-    };
+  static Map<String, MemberData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberData>{};
+    }
+
+    return json.entries.fold(<String, MemberData>{},
+        (Map<String, MemberData> previousValue, element) {
+      final MemberData? object = MemberData.fromJson(element.value);
+      if (object is MemberData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of MemberData-objects as value to a dart map
   static Map<String, List<MemberData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<MemberData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: MemberData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MemberData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MemberData>>(
+          key, MemberData.listFromJson(value));
+    });
   }
 
   @override
@@ -119,14 +137,16 @@ class MemberDataTypeEnum {
     contact,
   ];
 
-  static MemberDataTypeEnum fromJson(dynamic value) =>
+  static MemberDataTypeEnum? fromJson(dynamic value) =>
       MemberDataTypeEnumTypeTransformer().decode(value);
 
   static List<MemberDataTypeEnum> listFromJson(List<dynamic> json) {
-    return <MemberDataTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) MemberDataTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return MemberDataTypeEnum.fromJson(value);
+        })
+        .whereType<MemberDataTypeEnum>()
+        .toList();
   }
 }
 
@@ -148,7 +168,7 @@ class MemberDataTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MemberDataTypeEnum decode(dynamic data, {bool allowNull}) {
+  MemberDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'Collaborator':
         return MemberDataTypeEnum.collaborator;
@@ -163,5 +183,5 @@ class MemberDataTypeEnumTypeTransformer {
   }
 
   /// Singleton [MemberDataTypeEnumTypeTransformer] instance.
-  static MemberDataTypeEnumTypeTransformer _instance;
+  static MemberDataTypeEnumTypeTransformer? _instance;
 }

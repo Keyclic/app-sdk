@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ExternalServiceLinks {
 
   /// Returns a new [ExternalServiceLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ExternalServiceLinks.fromJson(Map<String, dynamic> json) {
+  static ExternalServiceLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class ExternalServiceLinks {
     );
   }
 
-  ExternalServiceLinksProvider provider;
+  ExternalServiceLinksProvider? provider;
 
-  ExternalServiceLinksSelf self;
+  ExternalServiceLinksSelf? self;
 
   @override
   bool operator ==(Object other) {
@@ -46,30 +45,52 @@ class ExternalServiceLinks {
       (provider == null ? 0 : provider.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ExternalServiceLinks> listFromJson(List<dynamic> json) {
-    return <ExternalServiceLinks>[
-      if (json is List)
-        for (dynamic value in json) ExternalServiceLinks.fromJson(value),
-    ];
+  static List<ExternalServiceLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServiceLinks>[];
+    }
+
+    return json.fold(<ExternalServiceLinks>[],
+        (List<ExternalServiceLinks> previousValue, element) {
+      final ExternalServiceLinks? object =
+          ExternalServiceLinks.fromJson(element);
+      if (object is ExternalServiceLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServiceLinks> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ExternalServiceLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalServiceLinks.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServiceLinks>{};
+    }
+
+    return json.entries.fold(<String, ExternalServiceLinks>{},
+        (Map<String, ExternalServiceLinks> previousValue, element) {
+      final ExternalServiceLinks? object =
+          ExternalServiceLinks.fromJson(element.value);
+      if (object is ExternalServiceLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ExternalServiceLinks-objects as value to a dart map
   static Map<String, List<ExternalServiceLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ExternalServiceLinks>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ExternalServiceLinks.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServiceLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServiceLinks>>(
+          key, ExternalServiceLinks.listFromJson(value));
+    });
   }
 
   @override

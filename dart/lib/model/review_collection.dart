@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ReviewCollection {
 
   /// Returns a new [ReviewCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReviewCollection.fromJson(Map<String, dynamic> json) {
+  static ReviewCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ReviewCollection {
     );
   }
 
-  List<Review> items;
+  List<Review>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,29 +38,49 @@ class ReviewCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ReviewCollection> listFromJson(List<dynamic> json) {
-    return <ReviewCollection>[
-      if (json is List)
-        for (dynamic value in json) ReviewCollection.fromJson(value),
-    ];
+  static List<ReviewCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewCollection>[];
+    }
+
+    return json.fold(<ReviewCollection>[],
+        (List<ReviewCollection> previousValue, element) {
+      final ReviewCollection? object = ReviewCollection.fromJson(element);
+      if (object is ReviewCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReviewCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, ReviewCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReviewCollection.fromJson(entry.value),
-    };
+  static Map<String, ReviewCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewCollection>{};
+    }
+
+    return json.entries.fold(<String, ReviewCollection>{},
+        (Map<String, ReviewCollection> previousValue, element) {
+      final ReviewCollection? object = ReviewCollection.fromJson(element.value);
+      if (object is ReviewCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ReviewCollection-objects as value to a dart map
   static Map<String, List<ReviewCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ReviewCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReviewCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewCollection>>(
+          key, ReviewCollection.listFromJson(value));
+    });
   }
 
   @override

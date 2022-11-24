@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class NodePath {
 
   /// Returns a new [NodePath] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory NodePath.fromJson(Map<String, dynamic> json) {
+  static NodePath? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class NodePath {
     );
   }
 
-  String id;
+  String? id;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -43,29 +42,48 @@ class NodePath {
   int get hashCode =>
       (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
 
-  static List<NodePath> listFromJson(List<dynamic> json) {
-    return <NodePath>[
-      if (json is List)
-        for (dynamic value in json) NodePath.fromJson(value),
-    ];
+  static List<NodePath> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <NodePath>[];
+    }
+
+    return json.fold(<NodePath>[], (List<NodePath> previousValue, element) {
+      final NodePath? object = NodePath.fromJson(element);
+      if (object is NodePath) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, NodePath> mapFromJson(Map<String, dynamic> json) {
-    return <String, NodePath>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: NodePath.fromJson(entry.value),
-    };
+  static Map<String, NodePath> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, NodePath>{};
+    }
+
+    return json.entries.fold(<String, NodePath>{},
+        (Map<String, NodePath> previousValue, element) {
+      final NodePath? object = NodePath.fromJson(element.value);
+      if (object is NodePath) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of NodePath-objects as value to a dart map
   static Map<String, List<NodePath>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<NodePath>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: NodePath.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<NodePath>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<NodePath>>(
+          key, NodePath.listFromJson(value));
+    });
   }
 
   @override

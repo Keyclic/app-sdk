@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class DocumentLinksSelf {
 
   /// Returns a new [DocumentLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentLinksSelf.fromJson(Map<String, dynamic> json) {
+  static DocumentLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class DocumentLinksSelf {
   }
 
   /// The URI of the self associated to the given document.
-  String href;
+  String? href;
 
-  DocumentLinksSelfIriTemplate iriTemplate;
+  DocumentLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,29 +46,51 @@ class DocumentLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DocumentLinksSelf> listFromJson(List<dynamic> json) {
-    return <DocumentLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) DocumentLinksSelf.fromJson(value),
-    ];
+  static List<DocumentLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentLinksSelf>[];
+    }
+
+    return json.fold(<DocumentLinksSelf>[],
+        (List<DocumentLinksSelf> previousValue, element) {
+      final DocumentLinksSelf? object = DocumentLinksSelf.fromJson(element);
+      if (object is DocumentLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentLinksSelf.fromJson(entry.value),
-    };
+  static Map<String, DocumentLinksSelf> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, DocumentLinksSelf>{},
+        (Map<String, DocumentLinksSelf> previousValue, element) {
+      final DocumentLinksSelf? object =
+          DocumentLinksSelf.fromJson(element.value);
+      if (object is DocumentLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of DocumentLinksSelf-objects as value to a dart map
   static Map<String, List<DocumentLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<DocumentLinksSelf>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentLinksSelf.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentLinksSelf>>(
+          key, DocumentLinksSelf.listFromJson(value));
+    });
   }
 
   @override

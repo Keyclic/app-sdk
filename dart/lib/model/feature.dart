@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class Feature {
 
   /// Returns a new [Feature] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Feature.fromJson(Map<String, dynamic> json) {
+  static Feature? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class Feature {
     );
   }
 
-  String type;
+  String? type;
 
-  FeatureGeometry geometry;
+  FeatureGeometry? geometry;
 
-  List<String> properties;
+  List<String>? properties;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,47 @@ class Feature {
       (geometry == null ? 0 : geometry.hashCode) +
       (properties == null ? 0 : properties.hashCode);
 
-  static List<Feature> listFromJson(List<dynamic> json) {
-    return <Feature>[
-      if (json is List)
-        for (dynamic value in json) Feature.fromJson(value),
-    ];
+  static List<Feature> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Feature>[];
+    }
+
+    return json.fold(<Feature>[], (List<Feature> previousValue, element) {
+      final Feature? object = Feature.fromJson(element);
+      if (object is Feature) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Feature> mapFromJson(Map<String, dynamic> json) {
-    return <String, Feature>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Feature.fromJson(entry.value),
-    };
+  static Map<String, Feature> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Feature>{};
+    }
+
+    return json.entries.fold(<String, Feature>{},
+        (Map<String, Feature> previousValue, element) {
+      final Feature? object = Feature.fromJson(element.value);
+      if (object is Feature) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Feature-objects as value to a dart map
-  static Map<String, List<Feature>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Feature>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Feature.listFromJson(entry.value),
-    };
+  static Map<String, List<Feature>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Feature>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Feature>>(key, Feature.listFromJson(value));
+    });
   }
 
   @override

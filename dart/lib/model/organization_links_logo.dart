@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class OrganizationLinksLogo {
 
   /// Returns a new [OrganizationLinksLogo] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationLinksLogo.fromJson(Map<String, dynamic> json) {
+  static OrganizationLinksLogo? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class OrganizationLinksLogo {
   }
 
   /// The URI of the logo associated to the given organization.
-  String href;
+  String? href;
 
-  OrganizationLinksLogoIriTemplate iriTemplate;
+  OrganizationLinksLogoIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,30 +47,52 @@ class OrganizationLinksLogo {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OrganizationLinksLogo> listFromJson(List<dynamic> json) {
-    return <OrganizationLinksLogo>[
-      if (json is List)
-        for (dynamic value in json) OrganizationLinksLogo.fromJson(value),
-    ];
+  static List<OrganizationLinksLogo> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationLinksLogo>[];
+    }
+
+    return json.fold(<OrganizationLinksLogo>[],
+        (List<OrganizationLinksLogo> previousValue, element) {
+      final OrganizationLinksLogo? object =
+          OrganizationLinksLogo.fromJson(element);
+      if (object is OrganizationLinksLogo) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationLinksLogo> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationLinksLogo>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationLinksLogo.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationLinksLogo>{};
+    }
+
+    return json.entries.fold(<String, OrganizationLinksLogo>{},
+        (Map<String, OrganizationLinksLogo> previousValue, element) {
+      final OrganizationLinksLogo? object =
+          OrganizationLinksLogo.fromJson(element.value);
+      if (object is OrganizationLinksLogo) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OrganizationLinksLogo-objects as value to a dart map
   static Map<String, List<OrganizationLinksLogo>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OrganizationLinksLogo>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationLinksLogo.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationLinksLogo>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationLinksLogo>>(
+          key, OrganizationLinksLogo.listFromJson(value));
+    });
   }
 
   @override

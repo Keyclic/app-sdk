@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ProcedureLinksSelf {
 
   /// Returns a new [ProcedureLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ProcedureLinksSelf.fromJson(Map<String, dynamic> json) {
+  static ProcedureLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class ProcedureLinksSelf {
   }
 
   /// The URI of the self associated to the given procedure.
-  String href;
+  String? href;
 
-  ProcedureLinksSelfIriTemplate iriTemplate;
+  ProcedureLinksSelfIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,30 +46,51 @@ class ProcedureLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksSelf> listFromJson(List<dynamic> json) {
-    return <ProcedureLinksSelf>[
-      if (json is List)
-        for (dynamic value in json) ProcedureLinksSelf.fromJson(value),
-    ];
+  static List<ProcedureLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureLinksSelf>[];
+    }
+
+    return json.fold(<ProcedureLinksSelf>[],
+        (List<ProcedureLinksSelf> previousValue, element) {
+      final ProcedureLinksSelf? object = ProcedureLinksSelf.fromJson(element);
+      if (object is ProcedureLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ProcedureLinksSelf> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ProcedureLinksSelf>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureLinksSelf.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, ProcedureLinksSelf>{},
+        (Map<String, ProcedureLinksSelf> previousValue, element) {
+      final ProcedureLinksSelf? object =
+          ProcedureLinksSelf.fromJson(element.value);
+      if (object is ProcedureLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ProcedureLinksSelf-objects as value to a dart map
   static Map<String, List<ProcedureLinksSelf>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ProcedureLinksSelf>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ProcedureLinksSelf.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ProcedureLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ProcedureLinksSelf>>(
+          key, ProcedureLinksSelf.listFromJson(value));
+    });
   }
 
   @override

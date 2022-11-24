@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PublicationLinksAuthor {
 
   /// Returns a new [PublicationLinksAuthor] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PublicationLinksAuthor.fromJson(Map<String, dynamic> json) {
+  static PublicationLinksAuthor? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class PublicationLinksAuthor {
   }
 
   /// The URI of the author associated to the given publication.
-  String href;
+  String? href;
 
-  PublicationLinksAuthorIriTemplate iriTemplate;
+  PublicationLinksAuthorIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,30 +47,52 @@ class PublicationLinksAuthor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PublicationLinksAuthor> listFromJson(List<dynamic> json) {
-    return <PublicationLinksAuthor>[
-      if (json is List)
-        for (dynamic value in json) PublicationLinksAuthor.fromJson(value),
-    ];
+  static List<PublicationLinksAuthor> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PublicationLinksAuthor>[];
+    }
+
+    return json.fold(<PublicationLinksAuthor>[],
+        (List<PublicationLinksAuthor> previousValue, element) {
+      final PublicationLinksAuthor? object =
+          PublicationLinksAuthor.fromJson(element);
+      if (object is PublicationLinksAuthor) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, PublicationLinksAuthor> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PublicationLinksAuthor>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationLinksAuthor.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PublicationLinksAuthor>{};
+    }
+
+    return json.entries.fold(<String, PublicationLinksAuthor>{},
+        (Map<String, PublicationLinksAuthor> previousValue, element) {
+      final PublicationLinksAuthor? object =
+          PublicationLinksAuthor.fromJson(element.value);
+      if (object is PublicationLinksAuthor) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PublicationLinksAuthor-objects as value to a dart map
   static Map<String, List<PublicationLinksAuthor>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PublicationLinksAuthor>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationLinksAuthor.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PublicationLinksAuthor>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PublicationLinksAuthor>>(
+          key, PublicationLinksAuthor.listFromJson(value));
+    });
   }
 
   @override

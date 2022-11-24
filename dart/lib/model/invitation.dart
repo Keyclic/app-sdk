@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -19,25 +18,28 @@ class Invitation {
 
   /// Returns a new [Invitation] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Invitation.fromJson(Map<String, dynamic> json) {
+  static Invitation? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime expiredAt =
-        json['expiredAt'] == null ? null : DateTime.parse(json[r'expiredAt']);
+    DateTime? expiredAt = json[r'expiredAt'] is String
+        ? DateTime.parse(json[r'expiredAt'])
+        : null;
     if (expiredAt is DateTime && expiredAt.isUtc == false) {
       expiredAt = DateTime.parse('${json[r'expiredAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -53,19 +55,19 @@ class Invitation {
     );
   }
 
-  InvitationEmbedded embedded;
+  InvitationEmbedded? embedded;
 
-  InvitationLinks links;
+  InvitationLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  DateTime expiredAt;
+  DateTime? expiredAt;
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -94,29 +96,48 @@ class Invitation {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Invitation> listFromJson(List<dynamic> json) {
-    return <Invitation>[
-      if (json is List)
-        for (dynamic value in json) Invitation.fromJson(value),
-    ];
+  static List<Invitation> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Invitation>[];
+    }
+
+    return json.fold(<Invitation>[], (List<Invitation> previousValue, element) {
+      final Invitation? object = Invitation.fromJson(element);
+      if (object is Invitation) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Invitation> mapFromJson(Map<String, dynamic> json) {
-    return <String, Invitation>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Invitation.fromJson(entry.value),
-    };
+  static Map<String, Invitation> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Invitation>{};
+    }
+
+    return json.entries.fold(<String, Invitation>{},
+        (Map<String, Invitation> previousValue, element) {
+      final Invitation? object = Invitation.fromJson(element.value);
+      if (object is Invitation) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Invitation-objects as value to a dart map
   static Map<String, List<Invitation>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Invitation>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Invitation.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Invitation>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Invitation>>(
+          key, Invitation.listFromJson(value));
+    });
   }
 
   @override
@@ -127,11 +148,11 @@ class Invitation {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
-      if (expiredAt != null) r'expiredAt': expiredAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (expiredAt != null) r'expiredAt': expiredAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

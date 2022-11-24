@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PropertyConditionList {
 
   /// Returns a new [PropertyConditionList] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PropertyConditionList.fromJson(Map<String, dynamic> json) {
+  static PropertyConditionList? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PropertyConditionList {
     );
   }
 
-  List<ConditionListCondition> allOf;
+  List<ConditionListCondition>? allOf;
 
   @override
   bool operator ==(Object other) {
@@ -39,30 +38,52 @@ class PropertyConditionList {
   @override
   int get hashCode => (allOf == null ? 0 : allOf.hashCode);
 
-  static List<PropertyConditionList> listFromJson(List<dynamic> json) {
-    return <PropertyConditionList>[
-      if (json is List)
-        for (dynamic value in json) PropertyConditionList.fromJson(value),
-    ];
+  static List<PropertyConditionList> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PropertyConditionList>[];
+    }
+
+    return json.fold(<PropertyConditionList>[],
+        (List<PropertyConditionList> previousValue, element) {
+      final PropertyConditionList? object =
+          PropertyConditionList.fromJson(element);
+      if (object is PropertyConditionList) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, PropertyConditionList> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PropertyConditionList>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PropertyConditionList.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PropertyConditionList>{};
+    }
+
+    return json.entries.fold(<String, PropertyConditionList>{},
+        (Map<String, PropertyConditionList> previousValue, element) {
+      final PropertyConditionList? object =
+          PropertyConditionList.fromJson(element.value);
+      if (object is PropertyConditionList) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PropertyConditionList-objects as value to a dart map
   static Map<String, List<PropertyConditionList>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PropertyConditionList>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PropertyConditionList.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PropertyConditionList>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PropertyConditionList>>(
+          key, PropertyConditionList.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,26 +12,28 @@ class Template {
     this.footer = const [],
     this.header = const [],
     this.id,
-    @required this.name,
-    @required this.type,
+    required this.name,
+    required this.type,
     this.updatedAt,
   });
 
   /// Returns a new [Template] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Template.fromJson(Map<String, dynamic> json) {
+  static Template? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,21 +56,21 @@ class Template {
     );
   }
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  List<Map<String, dynamic>> footer;
+  List<Map<String, dynamic>>? footer;
 
-  List<Map<String, dynamic>> header;
+  List<Map<String, dynamic>>? header;
 
-  String id;
+  final String? id;
 
   String name;
 
   String type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -96,33 +97,52 @@ class Template {
       (footer == null ? 0 : footer.hashCode) +
       (header == null ? 0 : header.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (type == null ? 0 : type.hashCode) +
+      name.hashCode +
+      type.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Template> listFromJson(List<dynamic> json) {
-    return <Template>[
-      if (json is List)
-        for (dynamic value in json) Template.fromJson(value),
-    ];
+  static List<Template> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Template>[];
+    }
+
+    return json.fold(<Template>[], (List<Template> previousValue, element) {
+      final Template? object = Template.fromJson(element);
+      if (object is Template) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Template> mapFromJson(Map<String, dynamic> json) {
-    return <String, Template>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Template.fromJson(entry.value),
-    };
+  static Map<String, Template> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Template>{};
+    }
+
+    return json.entries.fold(<String, Template>{},
+        (Map<String, Template> previousValue, element) {
+      final Template? object = Template.fromJson(element.value);
+      if (object is Template) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Template-objects as value to a dart map
   static Map<String, List<Template>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Template>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Template.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Template>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Template>>(
+          key, Template.listFromJson(value));
+    });
   }
 
   @override
@@ -132,13 +152,13 @@ class Template {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (body != null) r'body': body,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (footer != null) r'footer': footer,
       if (header != null) r'header': header,
       if (id != null) r'id': id,
       r'name': name,
       r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class DocumentFile {
 
   /// Returns a new [DocumentFile] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentFile.fromJson(Map<String, dynamic> json) {
+  static DocumentFile? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class DocumentFile {
     );
   }
 
-  DocumentFileContentTypeEnum contentType;
+  DocumentFileContentTypeEnum? contentType;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -46,29 +45,49 @@ class DocumentFile {
       (contentType == null ? 0 : contentType.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<DocumentFile> listFromJson(List<dynamic> json) {
-    return <DocumentFile>[
-      if (json is List)
-        for (dynamic value in json) DocumentFile.fromJson(value),
-    ];
+  static List<DocumentFile> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentFile>[];
+    }
+
+    return json.fold(<DocumentFile>[],
+        (List<DocumentFile> previousValue, element) {
+      final DocumentFile? object = DocumentFile.fromJson(element);
+      if (object is DocumentFile) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentFile> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentFile>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentFile.fromJson(entry.value),
-    };
+  static Map<String, DocumentFile> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentFile>{};
+    }
+
+    return json.entries.fold(<String, DocumentFile>{},
+        (Map<String, DocumentFile> previousValue, element) {
+      final DocumentFile? object = DocumentFile.fromJson(element.value);
+      if (object is DocumentFile) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of DocumentFile-objects as value to a dart map
   static Map<String, List<DocumentFile>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<DocumentFile>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentFile.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentFile>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentFile>>(
+          key, DocumentFile.listFromJson(value));
+    });
   }
 
   @override
@@ -134,14 +153,16 @@ class DocumentFileContentTypeEnum {
     applicationSlashZip,
   ];
 
-  static DocumentFileContentTypeEnum fromJson(dynamic value) =>
+  static DocumentFileContentTypeEnum? fromJson(dynamic value) =>
       DocumentFileContentTypeEnumTypeTransformer().decode(value);
 
   static List<DocumentFileContentTypeEnum> listFromJson(List<dynamic> json) {
-    return <DocumentFileContentTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) DocumentFileContentTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return DocumentFileContentTypeEnum.fromJson(value);
+        })
+        .whereType<DocumentFileContentTypeEnum>()
+        .toList();
   }
 }
 
@@ -163,7 +184,7 @@ class DocumentFileContentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  DocumentFileContentTypeEnum decode(dynamic data, {bool allowNull}) {
+  DocumentFileContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'text/csv':
         return DocumentFileContentTypeEnum.textSlashCsv;
@@ -202,5 +223,5 @@ class DocumentFileContentTypeEnumTypeTransformer {
   }
 
   /// Singleton [DocumentFileContentTypeEnumTypeTransformer] instance.
-  static DocumentFileContentTypeEnumTypeTransformer _instance;
+  static DocumentFileContentTypeEnumTypeTransformer? _instance;
 }

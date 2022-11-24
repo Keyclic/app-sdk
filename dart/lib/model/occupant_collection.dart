@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class OccupantCollection {
 
   /// Returns a new [OccupantCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OccupantCollection.fromJson(Map<String, dynamic> json) {
+  static OccupantCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class OccupantCollection {
     );
   }
 
-  List<Occupant> items;
+  List<Occupant>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,30 +38,51 @@ class OccupantCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<OccupantCollection> listFromJson(List<dynamic> json) {
-    return <OccupantCollection>[
-      if (json is List)
-        for (dynamic value in json) OccupantCollection.fromJson(value),
-    ];
+  static List<OccupantCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OccupantCollection>[];
+    }
+
+    return json.fold(<OccupantCollection>[],
+        (List<OccupantCollection> previousValue, element) {
+      final OccupantCollection? object = OccupantCollection.fromJson(element);
+      if (object is OccupantCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OccupantCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OccupantCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OccupantCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OccupantCollection>{};
+    }
+
+    return json.entries.fold(<String, OccupantCollection>{},
+        (Map<String, OccupantCollection> previousValue, element) {
+      final OccupantCollection? object =
+          OccupantCollection.fromJson(element.value);
+      if (object is OccupantCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OccupantCollection-objects as value to a dart map
   static Map<String, List<OccupantCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OccupantCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OccupantCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OccupantCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OccupantCollection>>(
+          key, OccupantCollection.listFromJson(value));
+    });
   }
 
   @override

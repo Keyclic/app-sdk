@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | [default to null]
 **metadata** | [**Object**](Object.md) |  | [optional] [default to null]
 **place** | **String** |  | [default to null]
+**priority** | **String** |  | [optional] [default to null]
 **reporter** | **String** |  | [optional] [default to null]
 **visibility** | **String** |  | [default to null]
 

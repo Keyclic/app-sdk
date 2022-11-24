@@ -27,7 +27,7 @@ import 'package:keyclic_sdk_api/api.dart';
 
 var api_instance = SectionApi();
 var xKeyclicApp = xKeyclicApp_example; // String | 
-var section = section_example; // String | 
+var section = ; // String | The identifier of the resource.
 var acceptLanguage = acceptLanguage_example; // String | 
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
@@ -46,7 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **section** | **String**|  | 
+ **section** | [**String**](.md)| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

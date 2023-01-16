@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.34.0"
+        "version": "2.35.1-dev.fc902b67b5a3"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -18933,6 +18933,9 @@
                     ]
                 },
                 "organization": {
+                    "type": "string"
+                },
+                "groupBy": {
                     "type": "string"
                 }
             }

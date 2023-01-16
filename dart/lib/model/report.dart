@@ -4,6 +4,7 @@ class Report {
   Report({
     this.embedded,
     this.links,
+    this.archived,
     this.createdAt,
     this.description,
     this.dueBy,
@@ -51,6 +52,7 @@ class Report {
     return Report(
       embedded: ReportEmbedded.fromJson(json['_embedded']),
       links: ReportLinks.fromJson(json['_links']),
+      archived: json['archived'],
       createdAt: createdAt,
       description: json['description'],
       dueBy: dueBy,
@@ -69,6 +71,8 @@ class Report {
   ReportEmbedded embedded;
 
   ReportLinks links;
+
+  bool archived;
 
   DateTime createdAt;
 
@@ -105,6 +109,7 @@ class Report {
         runtimeType == other.runtimeType &&
         embedded == other.embedded &&
         links == other.links &&
+        archived == other.archived &&
         createdAt == other.createdAt &&
         description == other.description &&
         dueBy == other.dueBy &&
@@ -132,6 +137,7 @@ class Report {
 
     hashCode ^= embedded?.hashCode ?? 0;
     hashCode ^= links?.hashCode ?? 0;
+    hashCode ^= archived?.hashCode ?? 0;
     hashCode ^= createdAt?.hashCode ?? 0;
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= dueBy?.hashCode ?? 0;
@@ -163,6 +169,7 @@ class Report {
     return {
       if (embedded != null) '_embedded': embedded.toJson(),
       if (links != null) '_links': links.toJson(),
+      if (archived != null) 'archived': archived,
       if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
       if (description != null) 'description': description,
       if (dueBy != null) 'dueBy': dueBy.toUtc().toIso8601String(),
@@ -182,6 +189,6 @@ class Report {
 
   @override
   String toString() {
-    return 'Report[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, phase=$phase, priority=$priority, reference=$reference, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt, ]';
+    return 'Report[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, phase=$phase, priority=$priority, reference=$reference, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt, ]';
   }
 }

@@ -219,6 +219,7 @@ class PersonApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
     List<String> order__,
+    String archived,
     String assignedTo,
     List<String> assignedTos__,
     String batch,
@@ -281,6 +282,8 @@ class PersonApi {
       if (order__ != null)
         ..._convertParametersForCollectionFormat("order[]", order__,
             collectionFormat: "multi"),
+      if (archived != null)
+        ..._convertParametersForCollectionFormat("archived", archived),
       if (assignedTo != null)
         ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
       if (assignedTos__ != null)

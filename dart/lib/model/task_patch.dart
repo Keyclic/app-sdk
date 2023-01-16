@@ -2,6 +2,7 @@ part of keyclic_sdk_api.api;
 
 class TaskPatch {
   TaskPatch({
+    this.archivedAt,
     this.category,
     this.description,
     this.dueBy,
@@ -31,6 +32,7 @@ class TaskPatch {
     }
 
     return TaskPatch(
+      archivedAt: json['archivedAt'],
       category: json['category'],
       description: json['description'],
       dueBy: dueBy,
@@ -41,6 +43,8 @@ class TaskPatch {
       tags: json['tags'] is List ? List<String>.from(json['tags']) : null,
     );
   }
+
+  String archivedAt;
 
   String category;
 
@@ -67,6 +71,7 @@ class TaskPatch {
 
     return other is TaskPatch &&
         runtimeType == other.runtimeType &&
+        archivedAt == other.archivedAt &&
         category == other.category &&
         description == other.description &&
         dueBy == other.dueBy &&
@@ -88,6 +93,7 @@ class TaskPatch {
           .reduce((int value, int cursor) => value ^ cursor);
     }
 
+    hashCode ^= archivedAt?.hashCode ?? 0;
     hashCode ^= category?.hashCode ?? 0;
     hashCode ^= description?.hashCode ?? 0;
     hashCode ^= dueBy?.hashCode ?? 0;
@@ -113,6 +119,7 @@ class TaskPatch {
 
   Map<String, dynamic> toJson() {
     return {
+      if (archivedAt != null) 'archivedAt': archivedAt,
       if (category != null) 'category': category,
       if (description != null) 'description': description,
       if (dueBy != null) 'dueBy': dueBy.toUtc().toIso8601String(),
@@ -128,6 +135,6 @@ class TaskPatch {
 
   @override
   String toString() {
-    return 'TaskPatch[category=$category, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags, ]';
+    return 'TaskPatch[archivedAt=$archivedAt, category=$category, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags, ]';
   }
 }

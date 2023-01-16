@@ -15,6 +15,7 @@ class ExportApi {
     DateTime xDateTime,
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
+    String archived,
     String assignedTo,
     List<String> assignedTos__,
     String batch,
@@ -71,6 +72,8 @@ class ExportApi {
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[
+      if (archived != null)
+        ..._convertParametersForCollectionFormat("archived", archived),
       if (assignedTo != null)
         ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
       if (assignedTos__ != null)

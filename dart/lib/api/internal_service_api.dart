@@ -19,6 +19,8 @@ class InternalServiceApi {
     List<String> order__,
     DateTime after,
     DateTime before,
+    String organization,
+    List<String> organizations__,
     String permission,
     String query,
     String role,
@@ -51,6 +53,12 @@ class InternalServiceApi {
         ..._convertParametersForCollectionFormat("after", after),
       if (before != null)
         ..._convertParametersForCollectionFormat("before", before),
+      if (organization != null)
+        ..._convertParametersForCollectionFormat("organization", organization),
+      if (organizations__ != null)
+        ..._convertParametersForCollectionFormat(
+            "organizations[]", organizations__,
+            collectionFormat: "multi"),
       if (permission != null)
         ..._convertParametersForCollectionFormat("permission", permission),
       if (query != null)

@@ -10,6 +10,7 @@ class ExportData {
   ExportData({
     this.contentType,
     this.organization,
+    this.groupBy,
   });
 
   factory ExportData.fromJson(Map<String, dynamic> json) {
@@ -20,6 +21,7 @@ class ExportData {
     return ExportData(
       contentType: json['contentType'],
       organization: json['organization'],
+      groupBy: json['groupBy'],
     );
   }
 
@@ -27,6 +29,8 @@ class ExportData {
   String contentType;
 
   String organization;
+
+  String groupBy;
 
   @override
   bool operator ==(dynamic other) {
@@ -38,7 +42,8 @@ class ExportData {
     return other is ExportData &&
         runtimeType == other.runtimeType &&
         contentType == other.contentType &&
-        organization == other.organization;
+        organization == other.organization &&
+        groupBy == other.groupBy;
   }
 
   /// By default hashCode return reference
@@ -48,6 +53,7 @@ class ExportData {
 
     hashCode ^= contentType?.hashCode ?? 0;
     hashCode ^= organization?.hashCode ?? 0;
+    hashCode ^= groupBy?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -68,11 +74,12 @@ class ExportData {
     return {
       if (contentType != null) 'contentType': contentType,
       if (organization != null) 'organization': organization,
+      if (groupBy != null) 'groupBy': groupBy,
     };
   }
 
   @override
   String toString() {
-    return 'ExportData[contentType=$contentType, organization=$organization, ]';
+    return 'ExportData[contentType=$contentType, organization=$organization, groupBy=$groupBy, ]';
   }
 }

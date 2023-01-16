@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **embedded** | [**ReportEmbedded**](ReportEmbedded.md) |  | [optional] [default to null]
 **links** | [**ReportLinks**](ReportLinks.md) |  | [optional] [default to null]
+**archived** | **bool** |  | [optional] [default to null]
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 **description** | **String** |  | [optional] [default to null]
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] [default to null]

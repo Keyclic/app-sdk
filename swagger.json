@@ -3048,6 +3048,9 @@
                         "$ref": "#\/parameters\/ExportData"
                     },
                     {
+                        "$ref": "#\/parameters\/archived"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -9029,6 +9032,9 @@
                         "$ref": "#\/parameters\/order__"
                     },
                     {
+                        "$ref": "#\/parameters\/archived"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -9495,6 +9501,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/archived"
                     },
                     {
                         "$ref": "#\/parameters\/assigned_to"
@@ -11021,6 +11030,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/archived"
                     },
                     {
                         "$ref": "#\/parameters\/assigned_to"
@@ -13783,6 +13795,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/archived"
                     },
                     {
                         "$ref": "#\/parameters\/assigned_to"
@@ -23616,6 +23631,9 @@
                         }
                     }
                 },
+                "archived": {
+                    "type": "boolean"
+                },
                 "createdAt": {
                     "format": "date-time",
                     "readOnly": true,
@@ -25148,6 +25166,10 @@
         "TaskPatch": {
             "type": "object",
             "properties": {
+                "archivedAt": {
+                    "type": "string",
+                    "format": "string"
+                },
                 "category": {
                     "type": "string",
                     "format": "string"
@@ -26028,6 +26050,12 @@
                 "$ref": "#\/definitions\/ExportData"
             },
             "required": true
+        },
+        "archived": {
+            "in": "query",
+            "name": "archived",
+            "pattern": ".*",
+            "type": "string"
         },
         "assigned_to": {
             "in": "query",

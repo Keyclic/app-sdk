@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetMembershipsByPerson**
-> MemberPagination cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, permission, query, role, roles[], type, page, limit)
+> MemberPagination cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], permission, query, role, roles[], type, page, limit)
 
 Retrieve all Membership resources.
 
@@ -114,6 +114,8 @@ var xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 var order[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
 var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var organization = organization_example; // String | 
+var organizations[] = []; // List<String> | 
 var permission = permission_example; // String | 
 var query = query_example; // String | 
 var role = role_example; // String | 
@@ -123,7 +125,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, permission, query, role, roles[], type, page, limit);
+    var result = api_instance.cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], permission, query, role, roles[], type, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling PersonApi->cgetMembershipsByPerson: $e\n");
@@ -143,6 +145,8 @@ Name | Type | Description  | Notes
  **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
+ **organization** | **String**|  | [optional] 
+ **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **permission** | **String**|  | [optional] 
  **query** | **String**|  | [optional] 
  **role** | **String**|  | [optional] 

@@ -9,6 +9,7 @@ class OrganizationPreferences {
     this.public,
     this.reference,
     this.reviewEnabled,
+    this.reverseGeocoding,
   });
 
   factory OrganizationPreferences.fromJson(Map<String, dynamic> json) {
@@ -25,6 +26,7 @@ class OrganizationPreferences {
       public: json['public'],
       reference: PreferencesReference.fromJson(json['reference']),
       reviewEnabled: json['reviewEnabled'],
+      reverseGeocoding: json['reverseGeocoding'],
     );
   }
 
@@ -42,6 +44,8 @@ class OrganizationPreferences {
 
   bool reviewEnabled;
 
+  bool reverseGeocoding;
+
   @override
   bool operator ==(dynamic other) {
     // Same reference
@@ -57,7 +61,8 @@ class OrganizationPreferences {
         offline == other.offline &&
         public == other.public &&
         reference == other.reference &&
-        reviewEnabled == other.reviewEnabled;
+        reviewEnabled == other.reviewEnabled &&
+        reverseGeocoding == other.reverseGeocoding;
   }
 
   /// By default hashCode return reference
@@ -72,6 +77,7 @@ class OrganizationPreferences {
     hashCode ^= public?.hashCode ?? 0;
     hashCode ^= reference?.hashCode ?? 0;
     hashCode ^= reviewEnabled?.hashCode ?? 0;
+    hashCode ^= reverseGeocoding?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -102,11 +108,12 @@ class OrganizationPreferences {
       if (public != null) 'public': public,
       if (reference != null) 'reference': reference.toJson(),
       if (reviewEnabled != null) 'reviewEnabled': reviewEnabled,
+      if (reverseGeocoding != null) 'reverseGeocoding': reverseGeocoding,
     };
   }
 
   @override
   String toString() {
-    return 'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, form=$form, offline=$offline, public=$public, reference=$reference, reviewEnabled=$reviewEnabled, ]';
+    return 'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, form=$form, offline=$offline, public=$public, reference=$reference, reviewEnabled=$reviewEnabled, reverseGeocoding=$reverseGeocoding, ]';
   }
 }

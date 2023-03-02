@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.37.0"
+        "version": "2.37.1"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -3008,6 +3008,88 @@
                     {
                         "bearer": []
                     }
+                ]
+            }
+        },
+        "\/exports\/{export}": {
+            "get": {
+                "tags": [
+                    "Export"
+                ],
+                "summary": "Retrieve one Export resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "getExport",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "export",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Export"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
                 ]
             }
         },
@@ -11606,6 +11688,96 @@
                 ]
             }
         },
+        "\/people\/{person}\/feed": {
+            "get": {
+                "tags": [
+                    "Person"
+                ],
+                "summary": "Retrieve one Feed resource.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "getFeedByPerson",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "person",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Feed"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/places": {
             "get": {
                 "tags": [
@@ -17340,6 +17512,22 @@
                     "type": "string"
                 },
                 "contentType": {
+                    "enum": [
+                        "text\/csv",
+                        "application\/msword",
+                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        "image\/gif",
+                        "image\/jpeg",
+                        "image\/jpg",
+                        "application\/json",
+                        "application\/octet-stream",
+                        "application\/pdf",
+                        "image\/png",
+                        "text\/plain",
+                        "application\/vnd.ms-excel",
+                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "application\/zip"
+                    ],
                     "format": "string",
                     "type": "string"
                 },
@@ -18688,9 +18876,11 @@
                         "text\/csv",
                         "application\/msword",
                         "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        "image\/gif",
                         "image\/jpeg",
                         "image\/jpg",
                         "application\/json",
+                        "application\/octet-stream",
                         "application\/pdf",
                         "image\/png",
                         "text\/plain",
@@ -19260,7 +19450,10 @@
                             "items": {
                                 "type": "array",
                                 "items": {
-                                    "type": "number"
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    }
                                 }
                             }
                         }
@@ -19272,6 +19465,27 @@
                     "items": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "Feed": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "appId": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "userId": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "userToken": {
+                    "type": "string",
+                    "format": "string"
                 }
             }
         },
@@ -22102,10 +22316,10 @@
                 "reference": {
                     "$ref": "#\/definitions\/PreferencesReference"
                 },
-                "reviewEnabled": {
+                "reverseGeocoding": {
                     "type": "boolean"
                 },
-                "reverseGeocoding": {
+                "reviewEnabled": {
                     "type": "boolean"
                 }
             }
@@ -23176,7 +23390,10 @@
                     "readOnly": true,
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "mode"
+            ]
         },
         "ProcedureData": {
             "type": "object",

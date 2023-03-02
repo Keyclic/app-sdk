@@ -1,25 +1,33 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ActivityAggregatedPagination {
+  /// Returns a new [ActivityAggregatedPagination] instance.
   ActivityAggregatedPagination({
     this.duration,
     this.next,
     this.unseen,
     this.unread,
-    this.results,
+    this.results = const [],
   });
 
+  /// Returns a new [ActivityAggregatedPagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ActivityAggregatedPagination.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ActivityAggregatedPagination(
-      duration: json['duration'],
-      next: json['next'],
-      unseen: json['unseen'],
-      unread: json['unread'],
-      results: ActivityGroup.listFromJson(json['results']),
+      duration: json[r'duration'],
+      next: json[r'next'],
+      unseen: json[r'unseen'],
+      unread: json[r'unread'],
+      results: ActivityGroup.listFromJson(json[r'results']),
     );
   }
 
@@ -34,69 +42,66 @@ class ActivityAggregatedPagination {
   List<ActivityGroup> results;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ActivityAggregatedPagination &&
-        runtimeType == other.runtimeType &&
-        duration == other.duration &&
-        next == other.next &&
-        unseen == other.unseen &&
-        unread == other.unread &&
+        other.duration == duration &&
+        other.next == next &&
+        other.unseen == unseen &&
+        other.unread == unread &&
         DeepCollectionEquality.unordered().equals(results, other.results);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (results is List && results.isNotEmpty) {
-      hashCode ^= results
-          .map((ActivityGroup element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= duration?.hashCode ?? 0;
-    hashCode ^= next?.hashCode ?? 0;
-    hashCode ^= unseen?.hashCode ?? 0;
-    hashCode ^= unread?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (duration == null ? 0 : duration.hashCode) +
+      (next == null ? 0 : next.hashCode) +
+      (unseen == null ? 0 : unseen.hashCode) +
+      (unread == null ? 0 : unread.hashCode) +
+      (results == null ? 0 : results.hashCode);
 
   static List<ActivityAggregatedPagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => ActivityAggregatedPagination.fromJson(value))
-            ?.toList() ??
-        <ActivityAggregatedPagination>[];
+    return <ActivityAggregatedPagination>[
+      if (json is List)
+        for (dynamic value in json)
+          ActivityAggregatedPagination.fromJson(value),
+    ];
   }
 
   static Map<String, ActivityAggregatedPagination> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ActivityAggregatedPagination>(
-            (String key, dynamic value) {
-          return MapEntry(key, ActivityAggregatedPagination.fromJson(value));
-        }) ??
-        <String, ActivityAggregatedPagination>{};
+    return <String, ActivityAggregatedPagination>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ActivityAggregatedPagination.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (duration != null) 'duration': duration,
-      if (next != null) 'next': next,
-      if (unseen != null) 'unseen': unseen,
-      if (unread != null) 'unread': unread,
-      if (results != null) 'results': results,
+  // maps a json object with a list of ActivityAggregatedPagination-objects as value to a dart map
+  static Map<String, List<ActivityAggregatedPagination>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ActivityAggregatedPagination>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ActivityAggregatedPagination.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ActivityAggregatedPagination[duration=$duration, next=$next, unseen=$unseen, unread=$unread, results=$results, ]';
+  String toString() =>
+      'ActivityAggregatedPagination[duration=$duration, next=$next, unseen=$unseen, unread=$unread, results=$results]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (duration != null) r'duration': duration,
+      if (next != null) r'next': next,
+      if (unseen != null) r'unseen': unseen,
+      if (unread != null) r'unread': unread,
+      if (results != null) r'results': results,
+    };
   }
 }

@@ -1,18 +1,26 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class FeedbackLinks {
+  /// Returns a new [FeedbackLinks] instance.
   FeedbackLinks({
     this.businessActivity,
     this.category,
     this.image,
-    this.images,
-    this.plans,
+    this.images = const [],
+    this.plans = const [],
     this.report,
     this.reporter,
     this.self,
     this.tracking,
   });
 
+  /// Returns a new [FeedbackLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory FeedbackLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
@@ -20,15 +28,15 @@ class FeedbackLinks {
 
     return FeedbackLinks(
       businessActivity:
-          FeedbackLinksBusinessActivity.fromJson(json['businessActivity']),
-      category: FeedbackLinksCategory.fromJson(json['category']),
-      image: FeedbackLinksImage.fromJson(json['image']),
-      images: FeedbackLinksImages.listFromJson(json['images']),
-      plans: FeedbackLinksPlans.listFromJson(json['plans']),
-      report: FeedbackLinksReport.fromJson(json['report']),
-      reporter: FeedbackLinksReporter.fromJson(json['reporter']),
-      self: FeedbackLinksSelf.fromJson(json['self']),
-      tracking: FeedbackLinksTracking.fromJson(json['tracking']),
+          FeedbackLinksBusinessActivity.fromJson(json[r'businessActivity']),
+      category: FeedbackLinksCategory.fromJson(json[r'category']),
+      image: FeedbackLinksImage.fromJson(json[r'image']),
+      images: FeedbackLinksImages.listFromJson(json[r'images']),
+      plans: FeedbackLinksPlans.listFromJson(json[r'plans']),
+      report: FeedbackLinksReport.fromJson(json[r'report']),
+      reporter: FeedbackLinksReporter.fromJson(json[r'reporter']),
+      self: FeedbackLinksSelf.fromJson(json[r'self']),
+      tracking: FeedbackLinksTracking.fromJson(json[r'tracking']),
     );
   }
 
@@ -51,83 +59,76 @@ class FeedbackLinks {
   FeedbackLinksTracking tracking;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackLinks &&
-        runtimeType == other.runtimeType &&
-        businessActivity == other.businessActivity &&
-        category == other.category &&
-        image == other.image &&
+        other.businessActivity == businessActivity &&
+        other.category == category &&
+        other.image == image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
         DeepCollectionEquality.unordered().equals(plans, other.plans) &&
-        report == other.report &&
-        reporter == other.reporter &&
-        self == other.self &&
-        tracking == other.tracking;
+        other.report == report &&
+        other.reporter == reporter &&
+        other.self == self &&
+        other.tracking == tracking;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (images is List && images.isNotEmpty) {
-      hashCode ^= images
-          .map((FeedbackLinksImages element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (plans is List && plans.isNotEmpty) {
-      hashCode ^= plans
-          .map((FeedbackLinksPlans element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= businessActivity?.hashCode ?? 0;
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= image?.hashCode ?? 0;
-    hashCode ^= report?.hashCode ?? 0;
-    hashCode ^= reporter?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-    hashCode ^= tracking?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (businessActivity == null ? 0 : businessActivity.hashCode) +
+      (category == null ? 0 : category.hashCode) +
+      (image == null ? 0 : image.hashCode) +
+      (images == null ? 0 : images.hashCode) +
+      (plans == null ? 0 : plans.hashCode) +
+      (report == null ? 0 : report.hashCode) +
+      (reporter == null ? 0 : reporter.hashCode) +
+      (self == null ? 0 : self.hashCode) +
+      (tracking == null ? 0 : tracking.hashCode);
 
   static List<FeedbackLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackLinks.fromJson(value))
-            ?.toList() ??
-        <FeedbackLinks>[];
+    return <FeedbackLinks>[
+      if (json is List)
+        for (dynamic value in json) FeedbackLinks.fromJson(value),
+    ];
   }
 
   static Map<String, FeedbackLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, FeedbackLinks>((String key, dynamic value) {
-          return MapEntry(key, FeedbackLinks.fromJson(value));
-        }) ??
-        <String, FeedbackLinks>{};
+    return <String, FeedbackLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (businessActivity != null)
-        'businessActivity': businessActivity.toJson(),
-      if (category != null) 'category': category.toJson(),
-      if (image != null) 'image': image.toJson(),
-      if (images != null) 'images': images,
-      if (plans != null) 'plans': plans,
-      if (report != null) 'report': report.toJson(),
-      if (reporter != null) 'reporter': reporter.toJson(),
-      if (self != null) 'self': self.toJson(),
-      if (tracking != null) 'tracking': tracking.toJson(),
+  // maps a json object with a list of FeedbackLinks-objects as value to a dart map
+  static Map<String, List<FeedbackLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<FeedbackLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeedbackLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'FeedbackLinks[businessActivity=$businessActivity, category=$category, image=$image, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking, ]';
+  String toString() =>
+      'FeedbackLinks[businessActivity=$businessActivity, category=$category, image=$image, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (businessActivity != null) r'businessActivity': businessActivity,
+      if (category != null) r'category': category,
+      if (image != null) r'image': image,
+      if (images != null) r'images': images,
+      if (plans != null) r'plans': plans,
+      if (report != null) r'report': report,
+      if (reporter != null) r'reporter': reporter,
+      if (self != null) r'self': self,
+      if (tracking != null) r'tracking': tracking,
+    };
   }
 }

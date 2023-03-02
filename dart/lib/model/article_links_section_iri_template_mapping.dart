@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ArticleLinksSectionIriTemplateMapping {
+  /// Returns a new [ArticleLinksSectionIriTemplateMapping] instance.
   ArticleLinksSectionIriTemplateMapping({
     this.section,
   });
 
+  /// Returns a new [ArticleLinksSectionIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ArticleLinksSectionIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,63 @@ class ArticleLinksSectionIriTemplateMapping {
     }
 
     return ArticleLinksSectionIriTemplateMapping(
-      section: json['section'],
+      section: json[r'section'],
     );
   }
 
   String section;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ArticleLinksSectionIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        section == other.section;
+        other.section == section;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= section?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (section == null ? 0 : section.hashCode);
 
   static List<ArticleLinksSectionIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ArticleLinksSectionIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <ArticleLinksSectionIriTemplateMapping>[];
+    return <ArticleLinksSectionIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          ArticleLinksSectionIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, ArticleLinksSectionIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ArticleLinksSectionIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ArticleLinksSectionIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, ArticleLinksSectionIriTemplateMapping>{};
+    return <String, ArticleLinksSectionIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              ArticleLinksSectionIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (section != null) 'section': section,
+  // maps a json object with a list of ArticleLinksSectionIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<ArticleLinksSectionIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<ArticleLinksSectionIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              ArticleLinksSectionIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ArticleLinksSectionIriTemplateMapping[section=$section, ]';
+  String toString() =>
+      'ArticleLinksSectionIriTemplateMapping[section=$section]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (section != null) r'section': section,
+    };
   }
 }

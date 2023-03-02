@@ -8,11 +8,11 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
-**data** | [**CheckpointState**](CheckpointState.md) |  | [optional] [default to null]
-**state** | **List&lt;String&gt;** |  | [optional] [default to []]
-**links** | [**CheckpointLinks**](CheckpointLinks.md) |  | [optional] [default to null]
-**embedded** | [**CheckpointEmbedded**](CheckpointEmbedded.md) |  | [optional] [default to null]
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**data** | [**CheckpointState**](CheckpointState.md) |  | [optional] 
+**state** | **List<String>** |  | [optional] [default to const []]
+**links** | [**CheckpointLinks**](CheckpointLinks.md) |  | [optional] 
+**embedded** | [**CheckpointEmbedded**](CheckpointEmbedded.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

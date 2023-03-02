@@ -1,52 +1,60 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Application {
+  /// Returns a new [Application] instance.
   Application({
     this.links,
     this.about,
     this.agreement,
     this.configuration,
-    this.contactPoints,
+    this.contactPoints = const [],
     this.createdAt,
     this.id,
-    this.name,
-    this.token,
+    @required this.name,
+    @required this.token,
     this.type,
     this.updatedAt,
     this.version,
   });
 
+  /// Returns a new [Application] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Application.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Application(
-      links: ApplicationLinks.fromJson(json['_links']),
-      about: ApplicationAbout.fromJson(json['about']),
-      agreement: ApplicationAgreement.fromJson(json['agreement']),
-      configuration: ApplicationConfiguration.fromJson(json['configuration']),
+      links: ApplicationLinks.fromJson(json[r'_links']),
+      about: ApplicationAbout.fromJson(json[r'about']),
+      agreement: ApplicationAgreement.fromJson(json[r'agreement']),
+      configuration: ApplicationConfiguration.fromJson(json[r'configuration']),
       contactPoints:
-          ApplicationContactPoint.listFromJson(json['contactPoints']),
+          ApplicationContactPoint.listFromJson(json[r'contactPoints']),
       createdAt: createdAt,
-      id: json['id'],
-      name: json['name'],
-      token: json['token'],
-      type: json['type'],
+      id: json[r'id'],
+      name: json[r'name'],
+      token: json[r'token'],
+      type: json[r'type'],
       updatedAt: updatedAt,
-      version: json['version'],
+      version: json[r'version'],
     );
   }
 
@@ -75,88 +83,86 @@ class Application {
   String version;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Application &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        about == other.about &&
-        agreement == other.agreement &&
-        configuration == other.configuration &&
+        other.links == links &&
+        other.about == about &&
+        other.agreement == agreement &&
+        other.configuration == configuration &&
         DeepCollectionEquality.unordered()
             .equals(contactPoints, other.contactPoints) &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        name == other.name &&
-        token == other.token &&
-        type == other.type &&
-        updatedAt == other.updatedAt &&
-        version == other.version;
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.name == name &&
+        other.token == token &&
+        other.type == type &&
+        other.updatedAt == updatedAt &&
+        other.version == version;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (contactPoints is List && contactPoints.isNotEmpty) {
-      hashCode ^= contactPoints
-          .map((ApplicationContactPoint element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= about?.hashCode ?? 0;
-    hashCode ^= agreement?.hashCode ?? 0;
-    hashCode ^= configuration?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= token?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-    hashCode ^= version?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (about == null ? 0 : about.hashCode) +
+      (agreement == null ? 0 : agreement.hashCode) +
+      (configuration == null ? 0 : configuration.hashCode) +
+      (contactPoints == null ? 0 : contactPoints.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (token == null ? 0 : token.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (version == null ? 0 : version.hashCode);
 
   static List<Application> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => Application.fromJson(value))
-            ?.toList() ??
-        <Application>[];
+    return <Application>[
+      if (json is List)
+        for (dynamic value in json) Application.fromJson(value),
+    ];
   }
 
   static Map<String, Application> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Application>((String key, dynamic value) {
-          return MapEntry(key, Application.fromJson(value));
-        }) ??
-        <String, Application>{};
+    return <String, Application>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Application.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (about != null) 'about': about.toJson(),
-      if (agreement != null) 'agreement': agreement.toJson(),
-      if (configuration != null) 'configuration': configuration.toJson(),
-      if (contactPoints != null) 'contactPoints': contactPoints,
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (token != null) 'token': token,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
-      if (version != null) 'version': version,
+  // maps a json object with a list of Application-objects as value to a dart map
+  static Map<String, List<Application>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<Application>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Application.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Application[links=$links, about=$about, agreement=$agreement, configuration=$configuration, contactPoints=$contactPoints, createdAt=$createdAt, id=$id, name=$name, token=$token, type=$type, updatedAt=$updatedAt, version=$version, ]';
+  String toString() =>
+      'Application[links=$links, about=$about, agreement=$agreement, configuration=$configuration, contactPoints=$contactPoints, createdAt=$createdAt, id=$id, name=$name, token=$token, type=$type, updatedAt=$updatedAt, version=$version]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (about != null) r'about': about,
+      if (agreement != null) r'agreement': agreement,
+      if (configuration != null) r'configuration': configuration,
+      if (contactPoints != null) r'contactPoints': contactPoints,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      r'name': name,
+      r'token': token,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (version != null) r'version': version,
+    };
   }
 }

@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ReportLinksSelfIriTemplate {
+  /// Returns a new [ReportLinksSelfIriTemplate] instance.
   ReportLinksSelfIriTemplate({
     this.mapping,
   });
 
+  /// Returns a new [ReportLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ReportLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
@@ -12,58 +20,57 @@ class ReportLinksSelfIriTemplate {
 
     return ReportLinksSelfIriTemplate(
       mapping:
-          AssignmentLinksReportIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
   AssignmentLinksReportIriTemplateMapping mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ReportLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is ReportLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReportLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReportLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ReportLinksSelfIriTemplate>[];
+    return <ReportLinksSelfIriTemplate>[
+      if (json is List)
+        for (dynamic value in json) ReportLinksSelfIriTemplate.fromJson(value),
+    ];
   }
 
   static Map<String, ReportLinksSelfIriTemplate> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ReportLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, ReportLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, ReportLinksSelfIriTemplate>{};
+    return <String, ReportLinksSelfIriTemplate>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReportLinksSelfIriTemplate.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
+  // maps a json object with a list of ReportLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<ReportLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ReportLinksSelfIriTemplate>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ReportLinksSelfIriTemplate.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ReportLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ReportLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

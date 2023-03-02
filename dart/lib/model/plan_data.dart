@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PlanData {
+  /// Returns a new [PlanData] instance.
   PlanData({
-    this.file,
+    @required this.file,
     this.name,
-    this.place,
+    @required this.place,
   });
 
+  /// Returns a new [PlanData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PlanData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PlanData(
-      file: json['file'],
-      name: json['name'],
-      place: json['place'],
+      file: json[r'file'],
+      name: json[r'name'],
+      place: json[r'place'],
     );
   }
 
@@ -26,53 +34,57 @@ class PlanData {
   String place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlanData &&
-        runtimeType == other.runtimeType &&
-        file == other.file &&
-        name == other.name &&
-        place == other.place;
+        other.file == file &&
+        other.name == name &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= file?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (file == null ? 0 : file.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (place == null ? 0 : place.hashCode);
 
   static List<PlanData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlanData.fromJson(value))?.toList() ??
-        <PlanData>[];
+    return <PlanData>[
+      if (json is List)
+        for (dynamic value in json) PlanData.fromJson(value),
+    ];
   }
 
   static Map<String, PlanData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlanData>((String key, dynamic value) {
-          return MapEntry(key, PlanData.fromJson(value));
-        }) ??
-        <String, PlanData>{};
+    return <String, PlanData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlanData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (file != null) 'file': file,
-      if (name != null) 'name': name,
-      if (place != null) 'place': place,
+  // maps a json object with a list of PlanData-objects as value to a dart map
+  static Map<String, List<PlanData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PlanData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlanData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PlanData[file=$file, name=$name, place=$place, ]';
+  String toString() => 'PlanData[file=$file, name=$name, place=$place]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'file': file,
+      if (name != null) r'name': name,
+      r'place': place,
+    };
   }
 }

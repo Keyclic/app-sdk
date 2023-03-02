@@ -1,33 +1,41 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class TemplateData {
+  /// Returns a new [TemplateData] instance.
   TemplateData({
-    this.body,
-    this.footer,
-    this.header,
-    this.name,
-    this.organization,
-    this.type,
+    this.body = const [],
+    this.footer = const [],
+    this.header = const [],
+    @required this.name,
+    @required this.organization,
+    @required this.type,
   });
 
+  /// Returns a new [TemplateData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory TemplateData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return TemplateData(
-      body: json['body'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['body'])
+      body: json[r'body'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'body'])
           : [],
-      footer: json['footer'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['footer'])
+      footer: json[r'footer'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'footer'])
           : [],
-      header: json['header'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['header'])
+      header: json[r'header'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'header'])
           : [],
-      name: json['name'],
-      organization: json['organization'],
-      type: json['type'],
+      name: json[r'name'],
+      organization: json[r'organization'],
+      type: json[r'type'],
     );
   }
 
@@ -44,77 +52,67 @@ class TemplateData {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TemplateData &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(body, other.body) &&
         DeepCollectionEquality.unordered().equals(footer, other.footer) &&
         DeepCollectionEquality.unordered().equals(header, other.header) &&
-        name == other.name &&
-        organization == other.organization &&
-        type == other.type;
+        other.name == name &&
+        other.organization == organization &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (body is List && body.isNotEmpty) {
-      hashCode ^= body
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (footer is List && footer.isNotEmpty) {
-      hashCode ^= footer
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (header is List && header.isNotEmpty) {
-      hashCode ^= header
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (body == null ? 0 : body.hashCode) +
+      (footer == null ? 0 : footer.hashCode) +
+      (header == null ? 0 : header.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<TemplateData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => TemplateData.fromJson(value))
-            ?.toList() ??
-        <TemplateData>[];
+    return <TemplateData>[
+      if (json is List)
+        for (dynamic value in json) TemplateData.fromJson(value),
+    ];
   }
 
   static Map<String, TemplateData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, TemplateData>((String key, dynamic value) {
-          return MapEntry(key, TemplateData.fromJson(value));
-        }) ??
-        <String, TemplateData>{};
+    return <String, TemplateData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TemplateData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (body != null) 'body': body,
-      if (footer != null) 'footer': footer,
-      if (header != null) 'header': header,
-      if (name != null) 'name': name,
-      if (organization != null) 'organization': organization,
-      if (type != null) 'type': type,
+  // maps a json object with a list of TemplateData-objects as value to a dart map
+  static Map<String, List<TemplateData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<TemplateData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TemplateData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'TemplateData[body=$body, footer=$footer, header=$header, name=$name, organization=$organization, type=$type, ]';
+  String toString() =>
+      'TemplateData[body=$body, footer=$footer, header=$header, name=$name, organization=$organization, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (body != null) r'body': body,
+      if (footer != null) r'footer': footer,
+      if (header != null) r'header': header,
+      r'name': name,
+      r'organization': organization,
+      r'type': type,
+    };
   }
 }

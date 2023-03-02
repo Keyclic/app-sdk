@@ -1,85 +1,157 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
 
-class FeatureGeometryTypeEnum {
-  static const String polygon_ = "Polygon";
-  static const String point_ = "Point";
-}
+part of keyclic_sdk_api;
 
 class FeatureGeometry {
+  /// Returns a new [FeatureGeometry] instance.
   FeatureGeometry({
     this.type,
-    this.coordinates,
+    this.coordinates = const [],
   });
 
+  /// Returns a new [FeatureGeometry] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory FeatureGeometry.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return FeatureGeometry(
-      type: json['type'],
-      coordinates: (json['coordinates']),
+      type: FeatureGeometryTypeEnum.fromJson(json[r'type']),
+      coordinates:
+          List.from(json[r'coordinates'] ?? []).map<List<List<num>>>((ring) {
+        return List.from(ring).map<List<num>>((point) {
+          return List<num>.from(point, growable: false);
+        }).toList(growable: false);
+      }).toList(growable: false),
     );
   }
 
-  /// use FeatureGeometryTypeEnum
-  String type;
+  FeatureGeometryTypeEnum type;
 
-  List<dynamic> coordinates;
+  List<List<List<num>>> coordinates;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeatureGeometry &&
-        runtimeType == other.runtimeType &&
-        type == other.type &&
+        other.type == type &&
         DeepCollectionEquality.unordered()
             .equals(coordinates, other.coordinates);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (coordinates is List && coordinates.isNotEmpty) {
-      hashCode ^= coordinates
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= type?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (type == null ? 0 : type.hashCode) +
+      (coordinates == null ? 0 : coordinates.hashCode);
 
   static List<FeatureGeometry> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeatureGeometry.fromJson(value))
-            ?.toList() ??
-        <FeatureGeometry>[];
+    return <FeatureGeometry>[
+      if (json is List)
+        for (dynamic value in json) FeatureGeometry.fromJson(value),
+    ];
   }
 
   static Map<String, FeatureGeometry> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, FeatureGeometry>((String key, dynamic value) {
-          return MapEntry(key, FeatureGeometry.fromJson(value));
-        }) ??
-        <String, FeatureGeometry>{};
+    return <String, FeatureGeometry>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeatureGeometry.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (type != null) 'type': type,
-      if (coordinates != null) 'coordinates': coordinates,
+  // maps a json object with a list of FeatureGeometry-objects as value to a dart map
+  static Map<String, List<FeatureGeometry>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<FeatureGeometry>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: FeatureGeometry.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'FeatureGeometry[type=$type, coordinates=$coordinates, ]';
+  String toString() => 'FeatureGeometry[type=$type, coordinates=$coordinates]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (type != null) r'type': type,
+      if (coordinates != null) r'coordinates': coordinates,
+    };
   }
+}
+
+class FeatureGeometryTypeEnum {
+  /// Instantiate a new enum with the provided [value].
+  const FeatureGeometryTypeEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const polygon = FeatureGeometryTypeEnum._(r'Polygon');
+  static const point = FeatureGeometryTypeEnum._(r'Point');
+
+  /// List of all possible values in this [enum][FeatureGeometryTypeEnum].
+  static const values = <FeatureGeometryTypeEnum>[
+    polygon,
+    point,
+  ];
+
+  static FeatureGeometryTypeEnum fromJson(dynamic value) =>
+      FeatureGeometryTypeEnumTypeTransformer().decode(value);
+
+  static List<FeatureGeometryTypeEnum> listFromJson(List<dynamic> json) {
+    return <FeatureGeometryTypeEnum>[
+      if (json is List)
+        for (dynamic value in json) FeatureGeometryTypeEnum.fromJson(value),
+    ];
+  }
+}
+
+/// Transformation class that can [encode] an instance of [FeatureGeometryTypeEnum] to String,
+/// and [decode] dynamic data back to [FeatureGeometryTypeEnum].
+class FeatureGeometryTypeEnumTypeTransformer {
+  const FeatureGeometryTypeEnumTypeTransformer._();
+
+  factory FeatureGeometryTypeEnumTypeTransformer() =>
+      _instance ??= FeatureGeometryTypeEnumTypeTransformer._();
+
+  String encode(FeatureGeometryTypeEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a FeatureGeometryTypeEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  FeatureGeometryTypeEnum decode(dynamic data, {bool allowNull}) {
+    switch (data) {
+      case r'Polygon':
+        return FeatureGeometryTypeEnum.polygon;
+      case r'Point':
+        return FeatureGeometryTypeEnum.point;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [FeatureGeometryTypeEnumTypeTransformer] instance.
+  static FeatureGeometryTypeEnumTypeTransformer _instance;
 }

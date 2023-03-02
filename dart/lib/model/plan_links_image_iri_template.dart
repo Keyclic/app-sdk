@@ -1,68 +1,75 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class PlanLinksImageIriTemplate {
+  /// Returns a new [PlanLinksImageIriTemplate] instance.
   PlanLinksImageIriTemplate({
     this.mapping,
   });
 
+  /// Returns a new [PlanLinksImageIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory PlanLinksImageIriTemplate.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return PlanLinksImageIriTemplate(
-      mapping: MarkerLinksPlanIriTemplateMapping.fromJson(json['mapping']),
+      mapping: MarkerLinksPlanIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
   MarkerLinksPlanIriTemplateMapping mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PlanLinksImageIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is PlanLinksImageIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<PlanLinksImageIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlanLinksImageIriTemplate.fromJson(value))
-            ?.toList() ??
-        <PlanLinksImageIriTemplate>[];
+    return <PlanLinksImageIriTemplate>[
+      if (json is List)
+        for (dynamic value in json) PlanLinksImageIriTemplate.fromJson(value),
+    ];
   }
 
   static Map<String, PlanLinksImageIriTemplate> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, PlanLinksImageIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, PlanLinksImageIriTemplate.fromJson(value));
-        }) ??
-        <String, PlanLinksImageIriTemplate>{};
+    return <String, PlanLinksImageIriTemplate>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlanLinksImageIriTemplate.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
+  // maps a json object with a list of PlanLinksImageIriTemplate-objects as value to a dart map
+  static Map<String, List<PlanLinksImageIriTemplate>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<PlanLinksImageIriTemplate>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: PlanLinksImageIriTemplate.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'PlanLinksImageIriTemplate[mapping=$mapping, ]';
+  String toString() => 'PlanLinksImageIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

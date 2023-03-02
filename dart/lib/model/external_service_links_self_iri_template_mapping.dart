@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ExternalServiceLinksSelfIriTemplateMapping {
+  /// Returns a new [ExternalServiceLinksSelfIriTemplateMapping] instance.
   ExternalServiceLinksSelfIriTemplateMapping({
     this.externalService,
   });
 
+  /// Returns a new [ExternalServiceLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ExternalServiceLinksSelfIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,63 @@ class ExternalServiceLinksSelfIriTemplateMapping {
     }
 
     return ExternalServiceLinksSelfIriTemplateMapping(
-      externalService: json['externalService'],
+      externalService: json[r'externalService'],
     );
   }
 
   String externalService;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServiceLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        externalService == other.externalService;
+        other.externalService == externalService;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= externalService?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (externalService == null ? 0 : externalService.hashCode);
 
   static List<ExternalServiceLinksSelfIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ExternalServiceLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <ExternalServiceLinksSelfIriTemplateMapping>[];
+    return <ExternalServiceLinksSelfIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          ExternalServiceLinksSelfIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, ExternalServiceLinksSelfIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ExternalServiceLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ExternalServiceLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, ExternalServiceLinksSelfIriTemplateMapping>{};
+    return <String, ExternalServiceLinksSelfIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              ExternalServiceLinksSelfIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (externalService != null) 'externalService': externalService,
+  // maps a json object with a list of ExternalServiceLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<ExternalServiceLinksSelfIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<ExternalServiceLinksSelfIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServiceLinksSelfIriTemplateMapping.listFromJson(
+              entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ExternalServiceLinksSelfIriTemplateMapping[externalService=$externalService, ]';
+  String toString() =>
+      'ExternalServiceLinksSelfIriTemplateMapping[externalService=$externalService]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (externalService != null) r'externalService': externalService,
+    };
   }
 }

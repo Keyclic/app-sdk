@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class DocumentDataFile {
+  /// Returns a new [DocumentDataFile] instance.
   DocumentDataFile({
     this.content,
     this.contentType,
     this.name,
   });
 
+  /// Returns a new [DocumentDataFile] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory DocumentDataFile.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return DocumentDataFile(
-      content: json['content'],
-      contentType: json['contentType'],
-      name: json['name'],
+      content: json[r'content'],
+      contentType: json[r'contentType'],
+      name: json[r'name'],
     );
   }
 
@@ -26,55 +34,58 @@ class DocumentDataFile {
   String name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentDataFile &&
-        runtimeType == other.runtimeType &&
-        content == other.content &&
-        contentType == other.contentType &&
-        name == other.name;
+        other.content == content &&
+        other.contentType == contentType &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= content?.hashCode ?? 0;
-    hashCode ^= contentType?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (content == null ? 0 : content.hashCode) +
+      (contentType == null ? 0 : contentType.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<DocumentDataFile> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentDataFile.fromJson(value))
-            ?.toList() ??
-        <DocumentDataFile>[];
+    return <DocumentDataFile>[
+      if (json is List)
+        for (dynamic value in json) DocumentDataFile.fromJson(value),
+    ];
   }
 
   static Map<String, DocumentDataFile> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, DocumentDataFile>((String key, dynamic value) {
-          return MapEntry(key, DocumentDataFile.fromJson(value));
-        }) ??
-        <String, DocumentDataFile>{};
+    return <String, DocumentDataFile>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentDataFile.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-      if (contentType != null) 'contentType': contentType,
-      if (name != null) 'name': name,
+  // maps a json object with a list of DocumentDataFile-objects as value to a dart map
+  static Map<String, List<DocumentDataFile>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<DocumentDataFile>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: DocumentDataFile.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'DocumentDataFile[content=$content, contentType=$contentType, name=$name, ]';
+  String toString() =>
+      'DocumentDataFile[content=$content, contentType=$contentType, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+      if (contentType != null) r'contentType': contentType,
+      if (name != null) r'name': name,
+    };
   }
 }

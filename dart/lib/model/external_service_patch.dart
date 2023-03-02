@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class ExternalServicePatch {
+  /// Returns a new [ExternalServicePatch] instance.
   ExternalServicePatch({
     this.address,
     this.contactPoint,
@@ -8,17 +14,19 @@ class ExternalServicePatch {
     this.name,
   });
 
+  /// Returns a new [ExternalServicePatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory ExternalServicePatch.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServicePatch(
-      address: ExternalServicePatchAddress.fromJson(json['address']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
       contactPoint:
-          ExternalServicePatchContactPoint.fromJson(json['contactPoint']),
-      description: json['description'],
-      name: json['name'],
+          ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
+      description: json[r'description'],
+      name: json[r'name'],
     );
   }
 
@@ -31,59 +39,62 @@ class ExternalServicePatch {
   String name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServicePatch &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        contactPoint == other.contactPoint &&
-        description == other.description &&
-        name == other.name;
+        other.address == address &&
+        other.contactPoint == contactPoint &&
+        other.description == description &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= contactPoint?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<ExternalServicePatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ExternalServicePatch.fromJson(value))
-            ?.toList() ??
-        <ExternalServicePatch>[];
+    return <ExternalServicePatch>[
+      if (json is List)
+        for (dynamic value in json) ExternalServicePatch.fromJson(value),
+    ];
   }
 
   static Map<String, ExternalServicePatch> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, ExternalServicePatch>((String key, dynamic value) {
-          return MapEntry(key, ExternalServicePatch.fromJson(value));
-        }) ??
-        <String, ExternalServicePatch>{};
+    return <String, ExternalServicePatch>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServicePatch.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (description != null) 'description': description,
-      if (name != null) 'name': name,
+  // maps a json object with a list of ExternalServicePatch-objects as value to a dart map
+  static Map<String, List<ExternalServicePatch>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<ExternalServicePatch>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: ExternalServicePatch.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'ExternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, name=$name, ]';
+  String toString() =>
+      'ExternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (description != null) r'description': description,
+      if (name != null) r'name': name,
+    };
   }
 }

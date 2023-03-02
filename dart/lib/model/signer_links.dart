@@ -1,19 +1,27 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class SignerLinks {
+  /// Returns a new [SignerLinks] instance.
   SignerLinks({
     this.procedure,
     this.self,
   });
 
+  /// Returns a new [SignerLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory SignerLinks.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return SignerLinks(
-      procedure: SignerLinksProcedure.fromJson(json['procedure']),
-      self: SignerLinksSelf.fromJson(json['self']),
+      procedure: SignerLinksProcedure.fromJson(json[r'procedure']),
+      self: SignerLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -22,52 +30,54 @@ class SignerLinks {
   SignerLinksSelf self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is SignerLinks &&
-        runtimeType == other.runtimeType &&
-        procedure == other.procedure &&
-        self == other.self;
+        other.procedure == procedure &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= procedure?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (procedure == null ? 0 : procedure.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
   static List<SignerLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SignerLinks.fromJson(value))
-            ?.toList() ??
-        <SignerLinks>[];
+    return <SignerLinks>[
+      if (json is List)
+        for (dynamic value in json) SignerLinks.fromJson(value),
+    ];
   }
 
   static Map<String, SignerLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, SignerLinks>((String key, dynamic value) {
-          return MapEntry(key, SignerLinks.fromJson(value));
-        }) ??
-        <String, SignerLinks>{};
+    return <String, SignerLinks>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: SignerLinks.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (procedure != null) 'procedure': procedure.toJson(),
-      if (self != null) 'self': self.toJson(),
+  // maps a json object with a list of SignerLinks-objects as value to a dart map
+  static Map<String, List<SignerLinks>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<SignerLinks>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: SignerLinks.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'SignerLinks[procedure=$procedure, self=$self, ]';
+  String toString() => 'SignerLinks[procedure=$procedure, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (procedure != null) r'procedure': procedure,
+      if (self != null) r'self': self,
+    };
   }
 }

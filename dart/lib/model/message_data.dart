@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class MessageData {
+  /// Returns a new [MessageData] instance.
   MessageData({
-    this.text,
-    this.task,
+    this.text = const [],
+    @required this.task,
   });
 
+  /// Returns a new [MessageData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory MessageData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return MessageData(
-      text: json['text'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['text'])
+      text: json[r'text'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'text'])
           : [],
-      task: json['task'],
+      task: json[r'task'],
     );
   }
 
@@ -24,57 +32,53 @@ class MessageData {
   String task;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MessageData &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(text, other.text) &&
-        task == other.task;
+        other.task == task;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (text is List && text.isNotEmpty) {
-      hashCode ^= text
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= task?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (text == null ? 0 : text.hashCode) + (task == null ? 0 : task.hashCode);
 
   static List<MessageData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MessageData.fromJson(value))
-            ?.toList() ??
-        <MessageData>[];
+    return <MessageData>[
+      if (json is List)
+        for (dynamic value in json) MessageData.fromJson(value),
+    ];
   }
 
   static Map<String, MessageData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MessageData>((String key, dynamic value) {
-          return MapEntry(key, MessageData.fromJson(value));
-        }) ??
-        <String, MessageData>{};
+    return <String, MessageData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MessageData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (text != null) 'text': text,
-      if (task != null) 'task': task,
+  // maps a json object with a list of MessageData-objects as value to a dart map
+  static Map<String, List<MessageData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<MessageData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: MessageData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'MessageData[text=$text, task=$task, ]';
+  String toString() => 'MessageData[text=$text, task=$task]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (text != null) r'text': text,
+      r'task': task,
+    };
   }
 }

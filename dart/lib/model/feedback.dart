@@ -1,13 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
 
-class FeedbackVisibilityEnum {
-  static const String pRIVATE_ = "VISIBILITY_PRIVATE";
-  static const String pUBLIC_ = "VISIBILITY_PUBLIC";
-  static const String rESTRICTED_ = "VISIBILITY_RESTRICTED";
-  static const String sHARED_ = "VISIBILITY_SHARED";
-}
+part of keyclic_sdk_api;
 
 class Feedback {
+  /// Returns a new [Feedback] instance.
   Feedback({
     this.embedded,
     this.links,
@@ -17,42 +16,46 @@ class Feedback {
     this.id,
     this.metadata,
     this.public,
-    this.state,
+    this.state = const [],
     this.type,
     this.updatedAt,
     this.visibility,
   });
 
+  /// Returns a new [Feedback] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Feedback.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Feedback(
-      embedded: FeedbackEmbedded.fromJson(json['_embedded']),
-      links: FeedbackLinks.fromJson(json['_links']),
+      embedded: FeedbackEmbedded.fromJson(json[r'_embedded']),
+      links: FeedbackLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      description: json['description'],
-      geoCoordinates: FeedbackGeoCoordinates.fromJson(json['geoCoordinates']),
-      id: json['id'],
-      metadata: json['metadata'],
-      public: json['public'],
-      state: json['state'] is List ? List<String>.from(json['state']) : null,
-      type: json['type'],
+      description: json[r'description'],
+      geoCoordinates: FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
+      id: json[r'id'],
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, dynamic>.from(json[r'metadata']),
+      public: json[r'public'],
+      state: List<String>.from(json[r'state'] ?? []),
+      type: json[r'type'],
       updatedAt: updatedAt,
-      visibility: json['visibility'],
+      visibility: FeedbackVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
 
@@ -78,89 +81,164 @@ class Feedback {
 
   DateTime updatedAt;
 
-  /// use FeedbackVisibilityEnum
-  String visibility;
+  FeedbackVisibilityEnum visibility;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Feedback &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        geoCoordinates == other.geoCoordinates &&
-        id == other.id &&
-        metadata == other.metadata &&
-        public == other.public &&
+        other.embedded == embedded &&
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.geoCoordinates == geoCoordinates &&
+        other.id == id &&
+        other.metadata == metadata &&
+        other.public == public &&
         DeepCollectionEquality.unordered().equals(state, other.state) &&
-        type == other.type &&
-        updatedAt == other.updatedAt &&
-        visibility == other.visibility;
+        other.type == type &&
+        other.updatedAt == updatedAt &&
+        other.visibility == visibility;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (state is List && state.isNotEmpty) {
-      hashCode ^= state
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= geoCoordinates?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= metadata?.hashCode ?? 0;
-    hashCode ^= public?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-    hashCode ^= visibility?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (metadata == null ? 0 : metadata.hashCode) +
+      (public == null ? 0 : public.hashCode) +
+      (state == null ? 0 : state.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (visibility == null ? 0 : visibility.hashCode);
 
   static List<Feedback> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Feedback.fromJson(value))?.toList() ??
-        <Feedback>[];
+    return <Feedback>[
+      if (json is List)
+        for (dynamic value in json) Feedback.fromJson(value),
+    ];
   }
 
   static Map<String, Feedback> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Feedback>((String key, dynamic value) {
-          return MapEntry(key, Feedback.fromJson(value));
-        }) ??
-        <String, Feedback>{};
+    return <String, Feedback>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Feedback.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (geoCoordinates != null) 'geoCoordinates': geoCoordinates.toJson(),
-      if (id != null) 'id': id,
-      if (metadata != null) 'metadata': metadata,
-      if (public != null) 'public': public,
-      if (state != null) 'state': state,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
-      if (visibility != null) 'visibility': visibility,
+  // maps a json object with a list of Feedback-objects as value to a dart map
+  static Map<String, List<Feedback>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<Feedback>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Feedback.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, public=$public, state=$state, type=$type, updatedAt=$updatedAt, visibility=$visibility, ]';
+  String toString() =>
+      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, public=$public, state=$state, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (geoCoordinates != null) r'geoCoordinates': geoCoordinates,
+      if (id != null) r'id': id,
+      if (metadata != null) r'metadata': metadata,
+      if (public != null) r'public': public,
+      r'state': state,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (visibility != null) r'visibility': visibility,
+    };
   }
+}
+
+class FeedbackVisibilityEnum {
+  /// Instantiate a new enum with the provided [value].
+  const FeedbackVisibilityEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const PRIVATE = FeedbackVisibilityEnum._(r'VISIBILITY_PRIVATE');
+  static const PUBLIC = FeedbackVisibilityEnum._(r'VISIBILITY_PUBLIC');
+  static const RESTRICTED = FeedbackVisibilityEnum._(r'VISIBILITY_RESTRICTED');
+  static const SHARED = FeedbackVisibilityEnum._(r'VISIBILITY_SHARED');
+
+  /// List of all possible values in this [enum][FeedbackVisibilityEnum].
+  static const values = <FeedbackVisibilityEnum>[
+    PRIVATE,
+    PUBLIC,
+    RESTRICTED,
+    SHARED,
+  ];
+
+  static FeedbackVisibilityEnum fromJson(dynamic value) =>
+      FeedbackVisibilityEnumTypeTransformer().decode(value);
+
+  static List<FeedbackVisibilityEnum> listFromJson(List<dynamic> json) {
+    return <FeedbackVisibilityEnum>[
+      if (json is List)
+        for (dynamic value in json) FeedbackVisibilityEnum.fromJson(value),
+    ];
+  }
+}
+
+/// Transformation class that can [encode] an instance of [FeedbackVisibilityEnum] to String,
+/// and [decode] dynamic data back to [FeedbackVisibilityEnum].
+class FeedbackVisibilityEnumTypeTransformer {
+  const FeedbackVisibilityEnumTypeTransformer._();
+
+  factory FeedbackVisibilityEnumTypeTransformer() =>
+      _instance ??= FeedbackVisibilityEnumTypeTransformer._();
+
+  String encode(FeedbackVisibilityEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a FeedbackVisibilityEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  FeedbackVisibilityEnum decode(dynamic data, {bool allowNull}) {
+    switch (data) {
+      case r'VISIBILITY_PRIVATE':
+        return FeedbackVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC':
+        return FeedbackVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_RESTRICTED':
+        return FeedbackVisibilityEnum.RESTRICTED;
+      case r'VISIBILITY_SHARED':
+        return FeedbackVisibilityEnum.SHARED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [FeedbackVisibilityEnumTypeTransformer] instance.
+  static FeedbackVisibilityEnumTypeTransformer _instance;
 }

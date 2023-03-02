@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class Organization {
+  /// Returns a new [Organization] instance.
   Organization({
     this.links,
     this.address,
@@ -9,40 +15,42 @@ class Organization {
     this.description,
     this.enabled,
     this.id,
-    this.name,
+    @required this.name,
     this.preferences,
     this.type,
     this.updatedAt,
   });
 
+  /// Returns a new [Organization] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory Organization.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Organization(
-      links: OrganizationLinks.fromJson(json['_links']),
-      address: OrganizationPostalAddress.fromJson(json['address']),
-      alternateName: json['alternateName'],
+      links: OrganizationLinks.fromJson(json[r'_links']),
+      address: OrganizationPostalAddress.fromJson(json[r'address']),
+      alternateName: json[r'alternateName'],
       createdAt: createdAt,
-      description: json['description'],
-      enabled: json['enabled'],
-      id: json['id'],
-      name: json['name'],
-      preferences: OrganizationPreferences.fromJson(json['preferences']),
-      type: json['type'],
+      description: json[r'description'],
+      enabled: json[r'enabled'],
+      id: json[r'id'],
+      name: json[r'name'],
+      preferences: OrganizationPreferences.fromJson(json[r'preferences']),
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
@@ -70,79 +78,82 @@ class Organization {
   DateTime updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Organization &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        address == other.address &&
-        alternateName == other.alternateName &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        enabled == other.enabled &&
-        id == other.id &&
-        name == other.name &&
-        preferences == other.preferences &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.links == links &&
+        other.address == address &&
+        other.alternateName == alternateName &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.enabled == enabled &&
+        other.id == id &&
+        other.name == name &&
+        other.preferences == preferences &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= alternateName?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= enabled?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= preferences?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (address == null ? 0 : address.hashCode) +
+      (alternateName == null ? 0 : alternateName.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (enabled == null ? 0 : enabled.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (preferences == null ? 0 : preferences.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<Organization> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => Organization.fromJson(value))
-            ?.toList() ??
-        <Organization>[];
+    return <Organization>[
+      if (json is List)
+        for (dynamic value in json) Organization.fromJson(value),
+    ];
   }
 
   static Map<String, Organization> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Organization>((String key, dynamic value) {
-          return MapEntry(key, Organization.fromJson(value));
-        }) ??
-        <String, Organization>{};
+    return <String, Organization>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Organization.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (address != null) 'address': address.toJson(),
-      if (alternateName != null) 'alternateName': alternateName,
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (enabled != null) 'enabled': enabled,
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (preferences != null) 'preferences': preferences.toJson(),
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+  // maps a json object with a list of Organization-objects as value to a dart map
+  static Map<String, List<Organization>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<Organization>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: Organization.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'Organization[links=$links, address=$address, alternateName=$alternateName, createdAt=$createdAt, description=$description, enabled=$enabled, id=$id, name=$name, preferences=$preferences, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'Organization[links=$links, address=$address, alternateName=$alternateName, createdAt=$createdAt, description=$description, enabled=$enabled, id=$id, name=$name, preferences=$preferences, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (address != null) r'address': address,
+      if (alternateName != null) r'alternateName': alternateName,
+      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (enabled != null) r'enabled': enabled,
+      if (id != null) r'id': id,
+      r'name': name,
+      if (preferences != null) r'preferences': preferences,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+    };
   }
 }

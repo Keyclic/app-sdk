@@ -1,21 +1,29 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class WorkflowData {
+  /// Returns a new [WorkflowData] instance.
   WorkflowData({
     this.text,
     this.datetime,
-    this.transition,
+    @required this.transition,
   });
 
+  /// Returns a new [WorkflowData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory WorkflowData.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return WorkflowData(
-      text: json['text'],
-      datetime: json['datetime'],
-      transition: json['transition'],
+      text: json[r'text'],
+      datetime: json[r'datetime'],
+      transition: json[r'transition'],
     );
   }
 
@@ -26,55 +34,58 @@ class WorkflowData {
   String transition;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is WorkflowData &&
-        runtimeType == other.runtimeType &&
-        text == other.text &&
-        datetime == other.datetime &&
-        transition == other.transition;
+        other.text == text &&
+        other.datetime == datetime &&
+        other.transition == transition;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= text?.hashCode ?? 0;
-    hashCode ^= datetime?.hashCode ?? 0;
-    hashCode ^= transition?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (text == null ? 0 : text.hashCode) +
+      (datetime == null ? 0 : datetime.hashCode) +
+      (transition == null ? 0 : transition.hashCode);
 
   static List<WorkflowData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => WorkflowData.fromJson(value))
-            ?.toList() ??
-        <WorkflowData>[];
+    return <WorkflowData>[
+      if (json is List)
+        for (dynamic value in json) WorkflowData.fromJson(value),
+    ];
   }
 
   static Map<String, WorkflowData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, WorkflowData>((String key, dynamic value) {
-          return MapEntry(key, WorkflowData.fromJson(value));
-        }) ??
-        <String, WorkflowData>{};
+    return <String, WorkflowData>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: WorkflowData.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (text != null) 'text': text,
-      if (datetime != null) 'datetime': datetime,
-      if (transition != null) 'transition': transition,
+  // maps a json object with a list of WorkflowData-objects as value to a dart map
+  static Map<String, List<WorkflowData>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<WorkflowData>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: WorkflowData.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'WorkflowData[text=$text, datetime=$datetime, transition=$transition, ]';
+  String toString() =>
+      'WorkflowData[text=$text, datetime=$datetime, transition=$transition]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (text != null) r'text': text,
+      if (datetime != null) r'datetime': datetime,
+      r'transition': transition,
+    };
   }
 }

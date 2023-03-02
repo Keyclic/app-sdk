@@ -1,10 +1,18 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class AssignmentLinksMemberIriTemplateMapping {
+  /// Returns a new [AssignmentLinksMemberIriTemplateMapping] instance.
   AssignmentLinksMemberIriTemplateMapping({
     this.member,
   });
 
+  /// Returns a new [AssignmentLinksMemberIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory AssignmentLinksMemberIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
@@ -12,61 +20,63 @@ class AssignmentLinksMemberIriTemplateMapping {
     }
 
     return AssignmentLinksMemberIriTemplateMapping(
-      member: json['member'],
+      member: json[r'member'],
     );
   }
 
   String member;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is AssignmentLinksMemberIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        member == other.member;
+        other.member == member;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= member?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (member == null ? 0 : member.hashCode);
 
   static List<AssignmentLinksMemberIriTemplateMapping> listFromJson(
       List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                AssignmentLinksMemberIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <AssignmentLinksMemberIriTemplateMapping>[];
+    return <AssignmentLinksMemberIriTemplateMapping>[
+      if (json is List)
+        for (dynamic value in json)
+          AssignmentLinksMemberIriTemplateMapping.fromJson(value),
+    ];
   }
 
   static Map<String, AssignmentLinksMemberIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, AssignmentLinksMemberIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, AssignmentLinksMemberIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, AssignmentLinksMemberIriTemplateMapping>{};
+    return <String, AssignmentLinksMemberIriTemplateMapping>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              AssignmentLinksMemberIriTemplateMapping.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member,
+  // maps a json object with a list of AssignmentLinksMemberIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<AssignmentLinksMemberIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic> json) {
+    return <String, List<AssignmentLinksMemberIriTemplateMapping>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key:
+              AssignmentLinksMemberIriTemplateMapping.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'AssignmentLinksMemberIriTemplateMapping[member=$member, ]';
+  String toString() =>
+      'AssignmentLinksMemberIriTemplateMapping[member=$member]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+    };
   }
 }

@@ -1,71 +1,76 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.9
+
+part of keyclic_sdk_api;
 
 class TemplateCollection {
+  /// Returns a new [TemplateCollection] instance.
   TemplateCollection({
-    this.items,
+    this.items = const [],
   });
 
+  /// Returns a new [TemplateCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
   factory TemplateCollection.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
     return TemplateCollection(
-      items: Template.listFromJson(json['items']),
+      items: Template.listFromJson(json[r'items']),
     );
   }
 
   List<Template> items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TemplateCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Template element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-
-    return hashCode;
-  }
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
   static List<TemplateCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => TemplateCollection.fromJson(value))
-            ?.toList() ??
-        <TemplateCollection>[];
+    return <TemplateCollection>[
+      if (json is List)
+        for (dynamic value in json) TemplateCollection.fromJson(value),
+    ];
   }
 
   static Map<String, TemplateCollection> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, TemplateCollection>((String key, dynamic value) {
-          return MapEntry(key, TemplateCollection.fromJson(value));
-        }) ??
-        <String, TemplateCollection>{};
+    return <String, TemplateCollection>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TemplateCollection.fromJson(entry.value),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
+  // maps a json object with a list of TemplateCollection-objects as value to a dart map
+  static Map<String, List<TemplateCollection>> mapListFromJson(
+      Map<String, dynamic> json) {
+    return <String, List<TemplateCollection>>{
+      if (json is Map)
+        for (final entry in json.entries)
+          entry.key: TemplateCollection.listFromJson(entry.value),
     };
   }
 
   @override
-  String toString() {
-    return 'TemplateCollection[items=$items, ]';
+  String toString() => 'TemplateCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

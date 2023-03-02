@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ReportLinksChildrenIriTemplate {
 
   /// Returns a new [ReportLinksChildrenIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReportLinksChildrenIriTemplate.fromJson(Map<String, dynamic> json) {
+  static ReportLinksChildrenIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ReportLinksChildrenIriTemplate {
     );
   }
 
-  ReportLinksChildrenIriTemplateMapping mapping;
+  ReportLinksChildrenIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -38,31 +37,53 @@ class ReportLinksChildrenIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReportLinksChildrenIriTemplate> listFromJson(List<dynamic> json) {
-    return <ReportLinksChildrenIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          ReportLinksChildrenIriTemplate.fromJson(value),
-    ];
+  static List<ReportLinksChildrenIriTemplate> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksChildrenIriTemplate>[];
+    }
+
+    return json.fold(<ReportLinksChildrenIriTemplate>[],
+        (List<ReportLinksChildrenIriTemplate> previousValue, element) {
+      final ReportLinksChildrenIriTemplate? object =
+          ReportLinksChildrenIriTemplate.fromJson(element);
+      if (object is ReportLinksChildrenIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ReportLinksChildrenIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ReportLinksChildrenIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportLinksChildrenIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksChildrenIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ReportLinksChildrenIriTemplate>{},
+        (Map<String, ReportLinksChildrenIriTemplate> previousValue, element) {
+      final ReportLinksChildrenIriTemplate? object =
+          ReportLinksChildrenIriTemplate.fromJson(element.value);
+      if (object is ReportLinksChildrenIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ReportLinksChildrenIriTemplate-objects as value to a dart map
   static Map<String, List<ReportLinksChildrenIriTemplate>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ReportLinksChildrenIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportLinksChildrenIriTemplate.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportLinksChildrenIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportLinksChildrenIriTemplate>>(
+          key, ReportLinksChildrenIriTemplate.listFromJson(value));
+    });
   }
 
   @override

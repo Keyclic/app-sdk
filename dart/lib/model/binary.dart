@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class Binary {
 
   /// Returns a new [Binary] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Binary.fromJson(Map<String, dynamic> json) {
+  static Binary? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class Binary {
     );
   }
 
-  String content;
+  String? content;
 
-  BinaryContentTypeEnum contentType;
+  BinaryContentTypeEnum? contentType;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -52,28 +51,46 @@ class Binary {
       (contentType == null ? 0 : contentType.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<Binary> listFromJson(List<dynamic> json) {
-    return <Binary>[
-      if (json is List)
-        for (dynamic value in json) Binary.fromJson(value),
-    ];
+  static List<Binary> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Binary>[];
+    }
+
+    return json.fold(<Binary>[], (List<Binary> previousValue, element) {
+      final Binary? object = Binary.fromJson(element);
+      if (object is Binary) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Binary> mapFromJson(Map<String, dynamic> json) {
-    return <String, Binary>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Binary.fromJson(entry.value),
-    };
+  static Map<String, Binary> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Binary>{};
+    }
+
+    return json.entries.fold(<String, Binary>{},
+        (Map<String, Binary> previousValue, element) {
+      final Binary? object = Binary.fromJson(element.value);
+      if (object is Binary) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Binary-objects as value to a dart map
-  static Map<String, List<Binary>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Binary>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Binary.listFromJson(entry.value),
-    };
+  static Map<String, List<Binary>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Binary>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Binary>>(key, Binary.listFromJson(value));
+    });
   }
 
   @override
@@ -144,14 +161,16 @@ class BinaryContentTypeEnum {
     applicationSlashZip,
   ];
 
-  static BinaryContentTypeEnum fromJson(dynamic value) =>
+  static BinaryContentTypeEnum? fromJson(dynamic value) =>
       BinaryContentTypeEnumTypeTransformer().decode(value);
 
   static List<BinaryContentTypeEnum> listFromJson(List<dynamic> json) {
-    return <BinaryContentTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) BinaryContentTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return BinaryContentTypeEnum.fromJson(value);
+        })
+        .whereType<BinaryContentTypeEnum>()
+        .toList();
   }
 }
 
@@ -173,7 +192,7 @@ class BinaryContentTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  BinaryContentTypeEnum decode(dynamic data, {bool allowNull}) {
+  BinaryContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'text/csv':
         return BinaryContentTypeEnum.textSlashCsv;
@@ -214,5 +233,5 @@ class BinaryContentTypeEnumTypeTransformer {
   }
 
   /// Singleton [BinaryContentTypeEnumTypeTransformer] instance.
-  static BinaryContentTypeEnumTypeTransformer _instance;
+  static BinaryContentTypeEnumTypeTransformer? _instance;
 }

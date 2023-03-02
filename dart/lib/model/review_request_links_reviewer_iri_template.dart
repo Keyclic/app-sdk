@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class ReviewRequestLinksReviewerIriTemplate {
 
   /// Returns a new [ReviewRequestLinksReviewerIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReviewRequestLinksReviewerIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static ReviewRequestLinksReviewerIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class ReviewRequestLinksReviewerIriTemplate {
     );
   }
 
-  ContributionLinksContributorIriTemplateMapping mapping;
+  ContributionLinksContributorIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,33 +41,53 @@ class ReviewRequestLinksReviewerIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReviewRequestLinksReviewerIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <ReviewRequestLinksReviewerIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          ReviewRequestLinksReviewerIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewRequestLinksReviewerIriTemplate>[];
+    }
+
+    return json.fold(<ReviewRequestLinksReviewerIriTemplate>[],
+        (List<ReviewRequestLinksReviewerIriTemplate> previousValue, element) {
+      final ReviewRequestLinksReviewerIriTemplate? object =
+          ReviewRequestLinksReviewerIriTemplate.fromJson(element);
+      if (object is ReviewRequestLinksReviewerIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ReviewRequestLinksReviewerIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ReviewRequestLinksReviewerIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              ReviewRequestLinksReviewerIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewRequestLinksReviewerIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ReviewRequestLinksReviewerIriTemplate>{},
+        (Map<String, ReviewRequestLinksReviewerIriTemplate> previousValue,
+            element) {
+      final ReviewRequestLinksReviewerIriTemplate? object =
+          ReviewRequestLinksReviewerIriTemplate.fromJson(element.value);
+      if (object is ReviewRequestLinksReviewerIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ReviewRequestLinksReviewerIriTemplate-objects as value to a dart map
   static Map<String, List<ReviewRequestLinksReviewerIriTemplate>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<ReviewRequestLinksReviewerIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              ReviewRequestLinksReviewerIriTemplate.listFromJson(entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewRequestLinksReviewerIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewRequestLinksReviewerIriTemplate>>(
+          key, ReviewRequestLinksReviewerIriTemplate.listFromJson(value));
+    });
   }
 
   @override

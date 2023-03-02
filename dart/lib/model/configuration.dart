@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -23,19 +22,21 @@ class Configuration {
 
   /// Returns a new [Configuration] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Configuration.fromJson(Map<String, dynamic> json) {
+  static Configuration? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -56,27 +57,27 @@ class Configuration {
     );
   }
 
-  ConfigurationLinks links;
+  ConfigurationLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
-  ConfigurationMemberType memberType;
+  ConfigurationMemberType? memberType;
 
-  String name;
+  String? name;
 
-  ConfigurationOperationType operationType;
+  ConfigurationOperationType? operationType;
 
-  ConfigurationPlaceType placeType;
+  ConfigurationPlaceType? placeType;
 
-  ConfigurationReportType reportType;
+  ConfigurationReportType? reportType;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -113,29 +114,49 @@ class Configuration {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Configuration> listFromJson(List<dynamic> json) {
-    return <Configuration>[
-      if (json is List)
-        for (dynamic value in json) Configuration.fromJson(value),
-    ];
+  static List<Configuration> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Configuration>[];
+    }
+
+    return json.fold(<Configuration>[],
+        (List<Configuration> previousValue, element) {
+      final Configuration? object = Configuration.fromJson(element);
+      if (object is Configuration) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Configuration> mapFromJson(Map<String, dynamic> json) {
-    return <String, Configuration>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Configuration.fromJson(entry.value),
-    };
+  static Map<String, Configuration> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Configuration>{};
+    }
+
+    return json.entries.fold(<String, Configuration>{},
+        (Map<String, Configuration> previousValue, element) {
+      final Configuration? object = Configuration.fromJson(element.value);
+      if (object is Configuration) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Configuration-objects as value to a dart map
   static Map<String, List<Configuration>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Configuration>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Configuration.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Configuration>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Configuration>>(
+          key, Configuration.listFromJson(value));
+    });
   }
 
   @override
@@ -145,7 +166,7 @@ class Configuration {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       if (memberType != null) r'memberType': memberType,
@@ -154,7 +175,7 @@ class Configuration {
       if (placeType != null) r'placeType': placeType,
       if (reportType != null) r'reportType': reportType,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

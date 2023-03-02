@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class InternalServicePostalAddress {
 
   /// Returns a new [InternalServicePostalAddress] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServicePostalAddress.fromJson(Map<String, dynamic> json) {
+  static InternalServicePostalAddress? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,11 +26,11 @@ class InternalServicePostalAddress {
     );
   }
 
-  String locality;
+  String? locality;
 
-  String postalCode;
+  String? postalCode;
 
-  String streetAddress;
+  String? streetAddress;
 
   @override
   bool operator ==(Object other) {
@@ -52,31 +51,52 @@ class InternalServicePostalAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<InternalServicePostalAddress> listFromJson(List<dynamic> json) {
-    return <InternalServicePostalAddress>[
-      if (json is List)
-        for (dynamic value in json)
-          InternalServicePostalAddress.fromJson(value),
-    ];
+  static List<InternalServicePostalAddress> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServicePostalAddress>[];
+    }
+
+    return json.fold(<InternalServicePostalAddress>[],
+        (List<InternalServicePostalAddress> previousValue, element) {
+      final InternalServicePostalAddress? object =
+          InternalServicePostalAddress.fromJson(element);
+      if (object is InternalServicePostalAddress) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServicePostalAddress> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServicePostalAddress>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServicePostalAddress.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServicePostalAddress>{};
+    }
+
+    return json.entries.fold(<String, InternalServicePostalAddress>{},
+        (Map<String, InternalServicePostalAddress> previousValue, element) {
+      final InternalServicePostalAddress? object =
+          InternalServicePostalAddress.fromJson(element.value);
+      if (object is InternalServicePostalAddress) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InternalServicePostalAddress-objects as value to a dart map
   static Map<String, List<InternalServicePostalAddress>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<InternalServicePostalAddress>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServicePostalAddress.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServicePostalAddress>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServicePostalAddress>>(
+          key, InternalServicePostalAddress.listFromJson(value));
+    });
   }
 
   @override

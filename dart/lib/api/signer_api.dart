@@ -1,483 +1,417 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
 class SignerApi {
-  SignerApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  const SignerApi(this._apiClient);
 
-  final ApiClient apiClient;
-
-  /// Remove one Signer resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] signer (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> deleteSignerWithHttpInfo(
-    String xKeyclicApp,
-    String signer, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (signer == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: signer');
-    }
-
-    final path = r'/signers/{signer}'
-        .replaceAll('{' + 'signer' + '}', signer.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'DELETE',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
-    );
-  }
+  final ApiClient _apiClient;
 
   /// Remove one Signer resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [signer] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] signer (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<void> deleteSigner(
-    String xKeyclicApp,
-    String signer, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future]
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Remove one Signer resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<void>> deleteSigner({
+    required String xKeyclicApp,
+    required String signer,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await deleteSignerWithHttpInfo(
-      xKeyclicApp,
-      signer,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path =
+        r'/signers/{signer}'.replaceAll('{' r'signer' '}', signer.toString());
+    final options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-  }
 
-  /// Retrieve one Signer resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] signer (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> getSignerWithHttpInfo(
-    String xKeyclicApp,
-    String signer, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (signer == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: signer');
-    }
-
-    final path = r'/signers/{signer}'
-        .replaceAll('{' + 'signer' + '}', signer.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
   }
 
   /// Retrieve one Signer resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [signer] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] signer (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Signer> getSigner(
-    String xKeyclicApp,
-    String signer, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Signer] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Signer resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Signer>> getSigner({
+    required String xKeyclicApp,
+    required String signer,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await getSignerWithHttpInfo(
-      xKeyclicApp,
-      signer,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path =
+        r'/signers/{signer}'.replaceAll('{' r'signer' '}', signer.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Signer>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Signer',
-    ) as Signer;
-  }
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-  /// Create one Sign resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] signer (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [SignatureData] signatureData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> postSignBySignerWithHttpInfo(
-    String xKeyclicApp,
-    String signer,
-    SignatureData signatureData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (signer == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: signer');
-    }
-    if (signatureData == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: signatureData');
+    Signer responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Signer>(response.data!, 'Signer');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path = r'/signers/{signer}/sign'
-        .replaceAll('{' + 'signer' + '}', signer.toString());
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
-
-    final formParams = <String, String>{};
-
-    final contentTypes = <String>[
-      'application/json;charset=UTF-8',
-    ];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: signatureData,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<Signer>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Create one Sign resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [signer] - The identifier of the resource.
+  /// * [signatureData]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [String] signer (required):
-  ///   The identifier of the resource.
-  ///
-  /// * [SignatureData] signatureData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Signer> postSignBySigner(
-    String xKeyclicApp,
-    String signer,
-    SignatureData signatureData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Signer] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Create one Sign resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Signer>> postSignBySigner({
+    required String xKeyclicApp,
+    required String signer,
+    required SignatureData signatureData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await postSignBySignerWithHttpInfo(
-      xKeyclicApp,
-      signer,
-      signatureData,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/signers/{signer}/sign'
+        .replaceAll('{' r'signer' '}', signer.toString());
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Signer>.value(null);
-    }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Signer',
-    ) as Signer;
-  }
+    dynamic bodyData;
 
-  /// Create one Signer resource.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [SignerData] signerData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Response> postSignerWithHttpInfo(
-    String xKeyclicApp,
-    SignerData signerData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // Verify required params are set.
-    if (xKeyclicApp == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: xKeyclicApp');
-    }
-    if (signerData == null) {
-      throw ApiException(
-          HttpStatus.badRequest, 'Missing required param: signerData');
+    try {
+      bodyData = signatureData.toJson();
+      // bodyData = jsonEncode(signatureData);
+      // bodyData = jsonDecode(jsonEncode(signatureData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    final path = r'/signers';
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
 
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{
-      if (acceptLanguage != null)
-        r'accept-language': parameterToString(acceptLanguage),
-      if (xDateTime != null) r'x-date-time': parameterToString(xDateTime),
-      r'x-keyclic-app': parameterToString(xKeyclicApp),
-      if (xKeyclicAppPlatform != null)
-        r'x-keyclic-app-platform': parameterToString(xKeyclicAppPlatform),
-      if (xKeyclicAppVersion != null)
-        r'x-keyclic-app-version': parameterToString(xKeyclicAppVersion),
-    };
+    Signer responseData;
 
-    final formParams = <String, String>{};
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Signer>(response.data!, 'Signer');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
 
-    final contentTypes = <String>[
-      'application/json;charset=UTF-8',
-    ];
-    final authNames = <String>[
-      'bearer',
-    ];
-
-    return apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: signerData,
-      headerParams: headerParams,
-      formParams: formParams,
-      contentType: contentTypes.isNotEmpty ? contentTypes[0] : null,
-      authNames: authNames,
+    return Response<Signer>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
     );
   }
 
   /// Create one Signer resource.
   ///
+  ///
   /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [signerData]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// * [String] xKeyclicApp (required):
-  ///
-  /// * [SignerData] signerData (required):
-  ///
-  /// * [String] acceptLanguage:
-  ///
-  /// * [DateTime] xDateTime:
-  ///
-  /// * [String] xKeyclicAppPlatform:
-  ///
-  /// * [String] xKeyclicAppVersion:
-  Future<Signer> postSigner(
-    String xKeyclicApp,
-    SignerData signerData, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Returns a [Future] containing a [Response] with a [Signer] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Create one Signer resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Signer>> postSigner({
+    required String xKeyclicApp,
+    required SignerData signerData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    final response = await postSignerWithHttpInfo(
-      xKeyclicApp,
-      signerData,
-      acceptLanguage: acceptLanguage,
-      xDateTime: xDateTime,
-      xKeyclicAppPlatform: xKeyclicAppPlatform,
-      xKeyclicAppVersion: xKeyclicAppVersion,
+    final String path = r'/signers';
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body == null || response.statusCode == HttpStatus.noContent) {
-      return Future<Signer>.value(null);
+
+    dynamic bodyData;
+
+    try {
+      bodyData = signerData.toJson();
+      // bodyData = jsonEncode(signerData);
+      // bodyData = jsonDecode(jsonEncode(signerData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return await apiClient.deserializeAsync(
-      await _decodeBodyBytes(response),
-      'Signer',
-    ) as Signer;
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Signer responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Signer>(response.data!, 'Signer');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<Signer>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 }

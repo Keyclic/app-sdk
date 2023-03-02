@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ServiceCollection {
 
   /// Returns a new [ServiceCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ServiceCollection.fromJson(Map<String, dynamic> json) {
+  static ServiceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ServiceCollection {
     );
   }
 
-  List<Service> items;
+  List<Service>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,29 +38,51 @@ class ServiceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ServiceCollection> listFromJson(List<dynamic> json) {
-    return <ServiceCollection>[
-      if (json is List)
-        for (dynamic value in json) ServiceCollection.fromJson(value),
-    ];
+  static List<ServiceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ServiceCollection>[];
+    }
+
+    return json.fold(<ServiceCollection>[],
+        (List<ServiceCollection> previousValue, element) {
+      final ServiceCollection? object = ServiceCollection.fromJson(element);
+      if (object is ServiceCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ServiceCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, ServiceCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ServiceCollection.fromJson(entry.value),
-    };
+  static Map<String, ServiceCollection> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ServiceCollection>{};
+    }
+
+    return json.entries.fold(<String, ServiceCollection>{},
+        (Map<String, ServiceCollection> previousValue, element) {
+      final ServiceCollection? object =
+          ServiceCollection.fromJson(element.value);
+      if (object is ServiceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ServiceCollection-objects as value to a dart map
   static Map<String, List<ServiceCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ServiceCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ServiceCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ServiceCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ServiceCollection>>(
+          key, ServiceCollection.listFromJson(value));
+    });
   }
 
   @override

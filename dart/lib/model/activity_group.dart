@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -22,19 +21,21 @@ class ActivityGroup {
 
   /// Returns a new [ActivityGroup] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ActivityGroup.fromJson(Map<String, dynamic> json) {
+  static ActivityGroup? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['created_at'] == null ? null : DateTime.parse(json[r'created_at']);
+    DateTime? createdAt = json[r'created_at'] is String
+        ? DateTime.parse(json[r'created_at'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'created_at']}Z');
     }
 
-    DateTime updatedAt =
-        json['updated_at'] == null ? null : DateTime.parse(json[r'updated_at']);
+    DateTime? updatedAt = json[r'updated_at'] is String
+        ? DateTime.parse(json[r'updated_at'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updated_at']}Z');
     }
@@ -53,25 +54,25 @@ class ActivityGroup {
     );
   }
 
-  List<Activity> activities;
+  List<Activity>? activities;
 
-  int activityCount;
+  int? activityCount;
 
-  int actorCount;
+  int? actorCount;
 
-  DateTime createdAt;
+  DateTime? createdAt;
 
-  String group;
+  String? group;
 
-  String id;
+  String? id;
 
-  DateTime updatedAt;
+  DateTime? updatedAt;
 
-  String verb;
+  String? verb;
 
-  bool isRead;
+  bool? isRead;
 
-  bool isSeen;
+  bool? isSeen;
 
   @override
   bool operator ==(Object other) {
@@ -107,29 +108,49 @@ class ActivityGroup {
       (isRead == null ? 0 : isRead.hashCode) +
       (isSeen == null ? 0 : isSeen.hashCode);
 
-  static List<ActivityGroup> listFromJson(List<dynamic> json) {
-    return <ActivityGroup>[
-      if (json is List)
-        for (dynamic value in json) ActivityGroup.fromJson(value),
-    ];
+  static List<ActivityGroup> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ActivityGroup>[];
+    }
+
+    return json.fold(<ActivityGroup>[],
+        (List<ActivityGroup> previousValue, element) {
+      final ActivityGroup? object = ActivityGroup.fromJson(element);
+      if (object is ActivityGroup) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ActivityGroup> mapFromJson(Map<String, dynamic> json) {
-    return <String, ActivityGroup>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityGroup.fromJson(entry.value),
-    };
+  static Map<String, ActivityGroup> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ActivityGroup>{};
+    }
+
+    return json.entries.fold(<String, ActivityGroup>{},
+        (Map<String, ActivityGroup> previousValue, element) {
+      final ActivityGroup? object = ActivityGroup.fromJson(element.value);
+      if (object is ActivityGroup) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ActivityGroup-objects as value to a dart map
   static Map<String, List<ActivityGroup>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ActivityGroup>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityGroup.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ActivityGroup>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ActivityGroup>>(
+          key, ActivityGroup.listFromJson(value));
+    });
   }
 
   @override
@@ -141,10 +162,12 @@ class ActivityGroup {
       if (activities != null) r'activities': activities,
       if (activityCount != null) r'activity_count': activityCount,
       if (actorCount != null) r'actor_count': actorCount,
-      if (createdAt != null) r'created_at': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null)
+        r'created_at': createdAt!.toUtc().toIso8601String(),
       if (group != null) r'group': group,
       if (id != null) r'id': id,
-      if (updatedAt != null) r'updated_at': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null)
+        r'updated_at': updatedAt!.toUtc().toIso8601String(),
       if (verb != null) r'verb': verb,
       if (isRead != null) r'is_read': isRead,
       if (isSeen != null) r'is_seen': isSeen,

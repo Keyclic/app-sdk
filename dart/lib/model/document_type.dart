@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class DocumentType {
 
   /// Returns a new [DocumentType] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory DocumentType.fromJson(Map<String, dynamic> json) {
+  static DocumentType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class DocumentType {
     );
   }
 
-  String id;
+  String? id;
 
-  String type;
+  String? type;
 
-  String name;
+  String? name;
 
-  String description;
+  String? description;
 
-  bool signed;
+  bool? signed;
 
   @override
   bool operator ==(Object other) {
@@ -64,29 +63,49 @@ class DocumentType {
       (description == null ? 0 : description.hashCode) +
       (signed == null ? 0 : signed.hashCode);
 
-  static List<DocumentType> listFromJson(List<dynamic> json) {
-    return <DocumentType>[
-      if (json is List)
-        for (dynamic value in json) DocumentType.fromJson(value),
-    ];
+  static List<DocumentType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentType>[];
+    }
+
+    return json.fold(<DocumentType>[],
+        (List<DocumentType> previousValue, element) {
+      final DocumentType? object = DocumentType.fromJson(element);
+      if (object is DocumentType) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentType> mapFromJson(Map<String, dynamic> json) {
-    return <String, DocumentType>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentType.fromJson(entry.value),
-    };
+  static Map<String, DocumentType> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentType>{};
+    }
+
+    return json.entries.fold(<String, DocumentType>{},
+        (Map<String, DocumentType> previousValue, element) {
+      final DocumentType? object = DocumentType.fromJson(element.value);
+      if (object is DocumentType) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of DocumentType-objects as value to a dart map
   static Map<String, List<DocumentType>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<DocumentType>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: DocumentType.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentType>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentType>>(
+          key, DocumentType.listFromJson(value));
+    });
   }
 
   @override

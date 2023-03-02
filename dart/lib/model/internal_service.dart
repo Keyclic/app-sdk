@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -15,7 +14,7 @@ class InternalService {
     this.createdAt,
     this.description,
     this.id,
-    @required this.name,
+    required this.name,
     this.onCall,
     this.type,
     this.updatedAt,
@@ -23,19 +22,21 @@ class InternalService {
 
   /// Returns a new [InternalService] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalService.fromJson(Map<String, dynamic> json) {
+  static InternalService? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -55,27 +56,27 @@ class InternalService {
     );
   }
 
-  InternalServiceEmbedded embedded;
+  InternalServiceEmbedded? embedded;
 
-  InternalServiceLinks links;
+  InternalServiceLinks? links;
 
-  InternalServicePostalAddress address;
+  InternalServicePostalAddress? address;
 
-  InternalServiceContactPoint contactPoint;
+  InternalServiceContactPoint? contactPoint;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  InternalServiceContactPoint onCall;
+  InternalServiceContactPoint? onCall;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -107,34 +108,54 @@ class InternalService {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<InternalService> listFromJson(List<dynamic> json) {
-    return <InternalService>[
-      if (json is List)
-        for (dynamic value in json) InternalService.fromJson(value),
-    ];
+  static List<InternalService> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalService>[];
+    }
+
+    return json.fold(<InternalService>[],
+        (List<InternalService> previousValue, element) {
+      final InternalService? object = InternalService.fromJson(element);
+      if (object is InternalService) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, InternalService> mapFromJson(Map<String, dynamic> json) {
-    return <String, InternalService>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalService.fromJson(entry.value),
-    };
+  static Map<String, InternalService> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalService>{};
+    }
+
+    return json.entries.fold(<String, InternalService>{},
+        (Map<String, InternalService> previousValue, element) {
+      final InternalService? object = InternalService.fromJson(element.value);
+      if (object is InternalService) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InternalService-objects as value to a dart map
   static Map<String, List<InternalService>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<InternalService>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalService.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalService>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalService>>(
+          key, InternalService.listFromJson(value));
+    });
   }
 
   @override
@@ -147,13 +168,13 @@ class InternalService {
       if (links != null) r'_links': links,
       if (address != null) r'address': address,
       if (contactPoint != null) r'contactPoint': contactPoint,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (id != null) r'id': id,
       r'name': name,
       if (onCall != null) r'onCall': onCall,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

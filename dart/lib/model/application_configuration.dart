@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class ApplicationConfiguration {
 
   /// Returns a new [ApplicationConfiguration] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ApplicationConfiguration.fromJson(Map<String, dynamic> json) {
+  static ApplicationConfiguration? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class ApplicationConfiguration {
     );
   }
 
-  bool public;
+  bool? public;
 
   @override
   bool operator ==(Object other) {
@@ -38,30 +37,52 @@ class ApplicationConfiguration {
   @override
   int get hashCode => (public == null ? 0 : public.hashCode);
 
-  static List<ApplicationConfiguration> listFromJson(List<dynamic> json) {
-    return <ApplicationConfiguration>[
-      if (json is List)
-        for (dynamic value in json) ApplicationConfiguration.fromJson(value),
-    ];
+  static List<ApplicationConfiguration> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ApplicationConfiguration>[];
+    }
+
+    return json.fold(<ApplicationConfiguration>[],
+        (List<ApplicationConfiguration> previousValue, element) {
+      final ApplicationConfiguration? object =
+          ApplicationConfiguration.fromJson(element);
+      if (object is ApplicationConfiguration) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ApplicationConfiguration> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ApplicationConfiguration>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ApplicationConfiguration.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ApplicationConfiguration>{};
+    }
+
+    return json.entries.fold(<String, ApplicationConfiguration>{},
+        (Map<String, ApplicationConfiguration> previousValue, element) {
+      final ApplicationConfiguration? object =
+          ApplicationConfiguration.fromJson(element.value);
+      if (object is ApplicationConfiguration) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ApplicationConfiguration-objects as value to a dart map
   static Map<String, List<ApplicationConfiguration>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ApplicationConfiguration>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ApplicationConfiguration.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ApplicationConfiguration>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ApplicationConfiguration>>(
+          key, ApplicationConfiguration.listFromJson(value));
+    });
   }
 
   @override

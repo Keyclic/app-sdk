@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class Dispatcher {
 
   /// Returns a new [Dispatcher] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Dispatcher.fromJson(Map<String, dynamic> json) {
+  static Dispatcher? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class Dispatcher {
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -43,29 +42,48 @@ class Dispatcher {
   int get hashCode =>
       (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
 
-  static List<Dispatcher> listFromJson(List<dynamic> json) {
-    return <Dispatcher>[
-      if (json is List)
-        for (dynamic value in json) Dispatcher.fromJson(value),
-    ];
+  static List<Dispatcher> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Dispatcher>[];
+    }
+
+    return json.fold(<Dispatcher>[], (List<Dispatcher> previousValue, element) {
+      final Dispatcher? object = Dispatcher.fromJson(element);
+      if (object is Dispatcher) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Dispatcher> mapFromJson(Map<String, dynamic> json) {
-    return <String, Dispatcher>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Dispatcher.fromJson(entry.value),
-    };
+  static Map<String, Dispatcher> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Dispatcher>{};
+    }
+
+    return json.entries.fold(<String, Dispatcher>{},
+        (Map<String, Dispatcher> previousValue, element) {
+      final Dispatcher? object = Dispatcher.fromJson(element.value);
+      if (object is Dispatcher) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Dispatcher-objects as value to a dart map
   static Map<String, List<Dispatcher>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Dispatcher>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Dispatcher.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Dispatcher>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Dispatcher>>(
+          key, Dispatcher.listFromJson(value));
+    });
   }
 
   @override

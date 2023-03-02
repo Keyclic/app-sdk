@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class BusinessActivityLinksThumbnail {
 
   /// Returns a new [BusinessActivityLinksThumbnail] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BusinessActivityLinksThumbnail.fromJson(Map<String, dynamic> json) {
+  static BusinessActivityLinksThumbnail? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class BusinessActivityLinksThumbnail {
   }
 
   /// The URI of the thumbnail associated to the given businessactivity.
-  String href;
+  String? href;
 
-  BusinessActivityLinksThumbnailIriTemplate iriTemplate;
+  BusinessActivityLinksThumbnailIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,31 +47,53 @@ class BusinessActivityLinksThumbnail {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<BusinessActivityLinksThumbnail> listFromJson(List<dynamic> json) {
-    return <BusinessActivityLinksThumbnail>[
-      if (json is List)
-        for (dynamic value in json)
-          BusinessActivityLinksThumbnail.fromJson(value),
-    ];
+  static List<BusinessActivityLinksThumbnail> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityLinksThumbnail>[];
+    }
+
+    return json.fold(<BusinessActivityLinksThumbnail>[],
+        (List<BusinessActivityLinksThumbnail> previousValue, element) {
+      final BusinessActivityLinksThumbnail? object =
+          BusinessActivityLinksThumbnail.fromJson(element);
+      if (object is BusinessActivityLinksThumbnail) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, BusinessActivityLinksThumbnail> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BusinessActivityLinksThumbnail>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivityLinksThumbnail.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityLinksThumbnail>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivityLinksThumbnail>{},
+        (Map<String, BusinessActivityLinksThumbnail> previousValue, element) {
+      final BusinessActivityLinksThumbnail? object =
+          BusinessActivityLinksThumbnail.fromJson(element.value);
+      if (object is BusinessActivityLinksThumbnail) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of BusinessActivityLinksThumbnail-objects as value to a dart map
   static Map<String, List<BusinessActivityLinksThumbnail>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<BusinessActivityLinksThumbnail>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivityLinksThumbnail.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivityLinksThumbnail>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivityLinksThumbnail>>(
+          key, BusinessActivityLinksThumbnail.listFromJson(value));
+    });
   }
 
   @override

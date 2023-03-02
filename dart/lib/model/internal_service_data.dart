@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -12,13 +11,13 @@ class InternalServiceData {
     this.contactPoint,
     this.description,
     this.manager,
-    @required this.name,
-    @required this.organization,
+    required this.name,
+    required this.organization,
   });
 
   /// Returns a new [InternalServiceData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory InternalServiceData.fromJson(Map<String, dynamic> json) {
+  static InternalServiceData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -34,13 +33,13 @@ class InternalServiceData {
     );
   }
 
-  InternalServiceDataAddress address;
+  InternalServiceDataAddress? address;
 
-  InternalServiceDataContactPoint contactPoint;
+  InternalServiceDataContactPoint? contactPoint;
 
-  String description;
+  String? description;
 
-  String manager;
+  String? manager;
 
   String name;
 
@@ -68,33 +67,54 @@ class InternalServiceData {
       (contactPoint == null ? 0 : contactPoint.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (manager == null ? 0 : manager.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (organization == null ? 0 : organization.hashCode);
+      name.hashCode +
+      organization.hashCode;
 
-  static List<InternalServiceData> listFromJson(List<dynamic> json) {
-    return <InternalServiceData>[
-      if (json is List)
-        for (dynamic value in json) InternalServiceData.fromJson(value),
-    ];
+  static List<InternalServiceData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceData>[];
+    }
+
+    return json.fold(<InternalServiceData>[],
+        (List<InternalServiceData> previousValue, element) {
+      final InternalServiceData? object = InternalServiceData.fromJson(element);
+      if (object is InternalServiceData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServiceData> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, InternalServiceData>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceData.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceData>{};
+    }
+
+    return json.entries.fold(<String, InternalServiceData>{},
+        (Map<String, InternalServiceData> previousValue, element) {
+      final InternalServiceData? object =
+          InternalServiceData.fromJson(element.value);
+      if (object is InternalServiceData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of InternalServiceData-objects as value to a dart map
   static Map<String, List<InternalServiceData>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<InternalServiceData>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: InternalServiceData.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServiceData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServiceData>>(
+          key, InternalServiceData.listFromJson(value));
+    });
   }
 
   @override

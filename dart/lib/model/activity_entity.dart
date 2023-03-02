@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class ActivityEntity {
 
   /// Returns a new [ActivityEntity] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ActivityEntity.fromJson(Map<String, dynamic> json) {
+  static ActivityEntity? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class ActivityEntity {
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -43,29 +42,49 @@ class ActivityEntity {
   int get hashCode =>
       (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
 
-  static List<ActivityEntity> listFromJson(List<dynamic> json) {
-    return <ActivityEntity>[
-      if (json is List)
-        for (dynamic value in json) ActivityEntity.fromJson(value),
-    ];
+  static List<ActivityEntity> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ActivityEntity>[];
+    }
+
+    return json.fold(<ActivityEntity>[],
+        (List<ActivityEntity> previousValue, element) {
+      final ActivityEntity? object = ActivityEntity.fromJson(element);
+      if (object is ActivityEntity) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ActivityEntity> mapFromJson(Map<String, dynamic> json) {
-    return <String, ActivityEntity>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityEntity.fromJson(entry.value),
-    };
+  static Map<String, ActivityEntity> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ActivityEntity>{};
+    }
+
+    return json.entries.fold(<String, ActivityEntity>{},
+        (Map<String, ActivityEntity> previousValue, element) {
+      final ActivityEntity? object = ActivityEntity.fromJson(element.value);
+      if (object is ActivityEntity) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ActivityEntity-objects as value to a dart map
   static Map<String, List<ActivityEntity>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ActivityEntity>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ActivityEntity.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ActivityEntity>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ActivityEntity>>(
+          key, ActivityEntity.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class OrganizationCollection {
 
   /// Returns a new [OrganizationCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OrganizationCollection.fromJson(Map<String, dynamic> json) {
+  static OrganizationCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class OrganizationCollection {
     );
   }
 
-  List<Organization> items;
+  List<Organization>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,30 +38,52 @@ class OrganizationCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<OrganizationCollection> listFromJson(List<dynamic> json) {
-    return <OrganizationCollection>[
-      if (json is List)
-        for (dynamic value in json) OrganizationCollection.fromJson(value),
-    ];
+  static List<OrganizationCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationCollection>[];
+    }
+
+    return json.fold(<OrganizationCollection>[],
+        (List<OrganizationCollection> previousValue, element) {
+      final OrganizationCollection? object =
+          OrganizationCollection.fromJson(element);
+      if (object is OrganizationCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OrganizationCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationCollection.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationCollection>{};
+    }
+
+    return json.entries.fold(<String, OrganizationCollection>{},
+        (Map<String, OrganizationCollection> previousValue, element) {
+      final OrganizationCollection? object =
+          OrganizationCollection.fromJson(element.value);
+      if (object is OrganizationCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OrganizationCollection-objects as value to a dart map
   static Map<String, List<OrganizationCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OrganizationCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OrganizationCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationCollection>>(
+          key, OrganizationCollection.listFromJson(value));
+    });
   }
 
   @override

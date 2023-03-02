@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -26,32 +25,34 @@ class Operation {
 
   /// Returns a new [Operation] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Operation.fromJson(Map<String, dynamic> json) {
+  static Operation? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime dueBy =
-        json['dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
+    DateTime? dueBy =
+        json[r'dueBy'] is String ? DateTime.parse(json[r'dueBy']) : null;
     if (dueBy is DateTime && dueBy.isUtc == false) {
       dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
-    DateTime scheduledAt = json['scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
+    DateTime? scheduledAt = json[r'scheduledAt'] is String
+        ? DateTime.parse(json[r'scheduledAt'])
+        : null;
     if (scheduledAt is DateTime && scheduledAt.isUtc == false) {
       scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -74,33 +75,33 @@ class Operation {
     );
   }
 
-  OperationEmbedded embedded;
+  OperationEmbedded? embedded;
 
-  OperationLinks links;
+  OperationLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  DateTime dueBy;
+  DateTime? dueBy;
 
-  String id;
+  final String? id;
 
-  String identificationNumber;
+  String? identificationNumber;
 
-  String name;
+  String? name;
 
-  OperationPriority priority;
+  OperationPriority? priority;
 
-  DateTime scheduledAt;
+  DateTime? scheduledAt;
 
-  OperationSignature signature;
+  OperationSignature? signature;
 
-  List<String> tags;
+  List<String>? tags;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -143,29 +144,48 @@ class Operation {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Operation> listFromJson(List<dynamic> json) {
-    return <Operation>[
-      if (json is List)
-        for (dynamic value in json) Operation.fromJson(value),
-    ];
+  static List<Operation> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Operation>[];
+    }
+
+    return json.fold(<Operation>[], (List<Operation> previousValue, element) {
+      final Operation? object = Operation.fromJson(element);
+      if (object is Operation) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Operation> mapFromJson(Map<String, dynamic> json) {
-    return <String, Operation>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Operation.fromJson(entry.value),
-    };
+  static Map<String, Operation> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Operation>{};
+    }
+
+    return json.entries.fold(<String, Operation>{},
+        (Map<String, Operation> previousValue, element) {
+      final Operation? object = Operation.fromJson(element.value);
+      if (object is Operation) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Operation-objects as value to a dart map
   static Map<String, List<Operation>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Operation>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Operation.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Operation>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Operation>>(
+          key, Operation.listFromJson(value));
+    });
   }
 
   @override
@@ -176,20 +196,20 @@ class Operation {
     return <String, dynamic>{
       if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
-      if (dueBy != null) r'dueBy': dueBy.toUtc().toIso8601String(),
+      if (dueBy != null) r'dueBy': dueBy!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (identificationNumber != null)
         r'identificationNumber': identificationNumber,
       if (name != null) r'name': name,
       if (priority != null) r'priority': priority,
       if (scheduledAt != null)
-        r'scheduledAt': scheduledAt.toUtc().toIso8601String(),
+        r'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
       if (signature != null) r'signature': signature,
       if (tags != null) r'tags': tags,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

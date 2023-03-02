@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -16,7 +15,7 @@ class Tracking {
 
   /// Returns a new [Tracking] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Tracking.fromJson(Map<String, dynamic> json) {
+  static Tracking? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -29,13 +28,13 @@ class Tracking {
     );
   }
 
-  List<Checkpoint> checkpoints;
+  List<Checkpoint>? checkpoints;
 
-  TrackingProgression progression;
+  TrackingProgression? progression;
 
-  String state;
+  String? state;
 
-  int time;
+  int? time;
 
   @override
   bool operator ==(Object other) {
@@ -59,29 +58,48 @@ class Tracking {
       (state == null ? 0 : state.hashCode) +
       (time == null ? 0 : time.hashCode);
 
-  static List<Tracking> listFromJson(List<dynamic> json) {
-    return <Tracking>[
-      if (json is List)
-        for (dynamic value in json) Tracking.fromJson(value),
-    ];
+  static List<Tracking> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Tracking>[];
+    }
+
+    return json.fold(<Tracking>[], (List<Tracking> previousValue, element) {
+      final Tracking? object = Tracking.fromJson(element);
+      if (object is Tracking) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Tracking> mapFromJson(Map<String, dynamic> json) {
-    return <String, Tracking>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Tracking.fromJson(entry.value),
-    };
+  static Map<String, Tracking> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Tracking>{};
+    }
+
+    return json.entries.fold(<String, Tracking>{},
+        (Map<String, Tracking> previousValue, element) {
+      final Tracking? object = Tracking.fromJson(element.value);
+      if (object is Tracking) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Tracking-objects as value to a dart map
   static Map<String, List<Tracking>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<Tracking>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Tracking.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Tracking>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Tracking>>(
+          key, Tracking.listFromJson(value));
+    });
   }
 
   @override

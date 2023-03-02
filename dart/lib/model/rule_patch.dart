@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class RulePatch {
 
   /// Returns a new [RulePatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory RulePatch.fromJson(Map<String, dynamic> json) {
+  static RulePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class RulePatch {
     );
   }
 
-  String category;
+  String? category;
 
-  String service;
+  String? service;
 
   @override
   bool operator ==(Object other) {
@@ -46,29 +45,48 @@ class RulePatch {
       (category == null ? 0 : category.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<RulePatch> listFromJson(List<dynamic> json) {
-    return <RulePatch>[
-      if (json is List)
-        for (dynamic value in json) RulePatch.fromJson(value),
-    ];
+  static List<RulePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RulePatch>[];
+    }
+
+    return json.fold(<RulePatch>[], (List<RulePatch> previousValue, element) {
+      final RulePatch? object = RulePatch.fromJson(element);
+      if (object is RulePatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, RulePatch> mapFromJson(Map<String, dynamic> json) {
-    return <String, RulePatch>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RulePatch.fromJson(entry.value),
-    };
+  static Map<String, RulePatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RulePatch>{};
+    }
+
+    return json.entries.fold(<String, RulePatch>{},
+        (Map<String, RulePatch> previousValue, element) {
+      final RulePatch? object = RulePatch.fromJson(element.value);
+      if (object is RulePatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of RulePatch-objects as value to a dart map
   static Map<String, List<RulePatch>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<RulePatch>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: RulePatch.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<RulePatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<RulePatch>>(
+          key, RulePatch.listFromJson(value));
+    });
   }
 
   @override

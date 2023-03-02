@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,19 +16,21 @@ class Device {
 
   /// Returns a new [Device] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory Device.fromJson(Map<String, dynamic> json) {
+  static Device? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -43,15 +44,15 @@ class Device {
     );
   }
 
-  DeviceLinks links;
+  DeviceLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -76,28 +77,46 @@ class Device {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Device> listFromJson(List<dynamic> json) {
-    return <Device>[
-      if (json is List)
-        for (dynamic value in json) Device.fromJson(value),
-    ];
+  static List<Device> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Device>[];
+    }
+
+    return json.fold(<Device>[], (List<Device> previousValue, element) {
+      final Device? object = Device.fromJson(element);
+      if (object is Device) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Device> mapFromJson(Map<String, dynamic> json) {
-    return <String, Device>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Device.fromJson(entry.value),
-    };
+  static Map<String, Device> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Device>{};
+    }
+
+    return json.entries.fold(<String, Device>{},
+        (Map<String, Device> previousValue, element) {
+      final Device? object = Device.fromJson(element.value);
+      if (object is Device) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of Device-objects as value to a dart map
-  static Map<String, List<Device>> mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<Device>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: Device.listFromJson(entry.value),
-    };
+  static Map<String, List<Device>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Device>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Device>>(key, Device.listFromJson(value));
+    });
   }
 
   @override
@@ -107,10 +126,10 @@ class Device {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

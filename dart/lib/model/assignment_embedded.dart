@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class AssignmentEmbedded {
 
   /// Returns a new [AssignmentEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory AssignmentEmbedded.fromJson(Map<String, dynamic> json) {
+  static AssignmentEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class AssignmentEmbedded {
     );
   }
 
-  Person createdBy;
+  Person? createdBy;
 
-  InternalService service;
+  InternalService? service;
 
   @override
   bool operator ==(Object other) {
@@ -46,30 +45,51 @@ class AssignmentEmbedded {
       (createdBy == null ? 0 : createdBy.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<AssignmentEmbedded> listFromJson(List<dynamic> json) {
-    return <AssignmentEmbedded>[
-      if (json is List)
-        for (dynamic value in json) AssignmentEmbedded.fromJson(value),
-    ];
+  static List<AssignmentEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AssignmentEmbedded>[];
+    }
+
+    return json.fold(<AssignmentEmbedded>[],
+        (List<AssignmentEmbedded> previousValue, element) {
+      final AssignmentEmbedded? object = AssignmentEmbedded.fromJson(element);
+      if (object is AssignmentEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, AssignmentEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, AssignmentEmbedded>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AssignmentEmbedded.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AssignmentEmbedded>{};
+    }
+
+    return json.entries.fold(<String, AssignmentEmbedded>{},
+        (Map<String, AssignmentEmbedded> previousValue, element) {
+      final AssignmentEmbedded? object =
+          AssignmentEmbedded.fromJson(element.value);
+      if (object is AssignmentEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of AssignmentEmbedded-objects as value to a dart map
   static Map<String, List<AssignmentEmbedded>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<AssignmentEmbedded>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: AssignmentEmbedded.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<AssignmentEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<AssignmentEmbedded>>(
+          key, AssignmentEmbedded.listFromJson(value));
+    });
   }
 
   @override

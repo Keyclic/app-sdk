@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PlaceLinksGeo {
 
   /// Returns a new [PlaceLinksGeo] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlaceLinksGeo.fromJson(Map<String, dynamic> json) {
+  static PlaceLinksGeo? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -26,9 +25,9 @@ class PlaceLinksGeo {
   }
 
   /// The URI of the geo associated to the given place.
-  String href;
+  String? href;
 
-  PlaceLinksGeoIriTemplate iriTemplate;
+  PlaceLinksGeoIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -47,29 +46,49 @@ class PlaceLinksGeo {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PlaceLinksGeo> listFromJson(List<dynamic> json) {
-    return <PlaceLinksGeo>[
-      if (json is List)
-        for (dynamic value in json) PlaceLinksGeo.fromJson(value),
-    ];
+  static List<PlaceLinksGeo> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksGeo>[];
+    }
+
+    return json.fold(<PlaceLinksGeo>[],
+        (List<PlaceLinksGeo> previousValue, element) {
+      final PlaceLinksGeo? object = PlaceLinksGeo.fromJson(element);
+      if (object is PlaceLinksGeo) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlaceLinksGeo> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlaceLinksGeo>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceLinksGeo.fromJson(entry.value),
-    };
+  static Map<String, PlaceLinksGeo> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksGeo>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinksGeo>{},
+        (Map<String, PlaceLinksGeo> previousValue, element) {
+      final PlaceLinksGeo? object = PlaceLinksGeo.fromJson(element.value);
+      if (object is PlaceLinksGeo) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PlaceLinksGeo-objects as value to a dart map
   static Map<String, List<PlaceLinksGeo>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PlaceLinksGeo>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceLinksGeo.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinksGeo>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinksGeo>>(
+          key, PlaceLinksGeo.listFromJson(value));
+    });
   }
 
   @override

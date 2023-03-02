@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class PlaceCollection {
 
   /// Returns a new [PlaceCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PlaceCollection.fromJson(Map<String, dynamic> json) {
+  static PlaceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class PlaceCollection {
     );
   }
 
-  List<Place> items;
+  List<Place>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,29 +38,49 @@ class PlaceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<PlaceCollection> listFromJson(List<dynamic> json) {
-    return <PlaceCollection>[
-      if (json is List)
-        for (dynamic value in json) PlaceCollection.fromJson(value),
-    ];
+  static List<PlaceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceCollection>[];
+    }
+
+    return json.fold(<PlaceCollection>[],
+        (List<PlaceCollection> previousValue, element) {
+      final PlaceCollection? object = PlaceCollection.fromJson(element);
+      if (object is PlaceCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlaceCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, PlaceCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceCollection.fromJson(entry.value),
-    };
+  static Map<String, PlaceCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceCollection>{};
+    }
+
+    return json.entries.fold(<String, PlaceCollection>{},
+        (Map<String, PlaceCollection> previousValue, element) {
+      final PlaceCollection? object = PlaceCollection.fromJson(element.value);
+      if (object is PlaceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PlaceCollection-objects as value to a dart map
   static Map<String, List<PlaceCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PlaceCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PlaceCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceCollection>>(
+          key, PlaceCollection.listFromJson(value));
+    });
   }
 
   @override

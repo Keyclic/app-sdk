@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -24,7 +23,7 @@ class SchemaProperty {
 
   /// Returns a new [SchemaProperty] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SchemaProperty.fromJson(Map<String, dynamic> json) {
+  static SchemaProperty? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -45,29 +44,29 @@ class SchemaProperty {
     );
   }
 
-  PropertyConditionList conditions;
+  PropertyConditionList? conditions;
 
-  String default_;
+  String? default_;
 
-  String description;
+  String? description;
 
-  List<String> enum_;
+  List<String>? enum_;
 
-  String format;
+  String? format;
 
-  String id;
+  final String? id;
 
-  PropertyItems items;
+  PropertyItems? items;
 
-  int maxItems;
+  int? maxItems;
 
-  int minItems;
+  int? minItems;
 
-  int propertyOrder;
+  int? propertyOrder;
 
-  String title;
+  String? title;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -106,29 +105,49 @@ class SchemaProperty {
       (title == null ? 0 : title.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<SchemaProperty> listFromJson(List<dynamic> json) {
-    return <SchemaProperty>[
-      if (json is List)
-        for (dynamic value in json) SchemaProperty.fromJson(value),
-    ];
+  static List<SchemaProperty> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SchemaProperty>[];
+    }
+
+    return json.fold(<SchemaProperty>[],
+        (List<SchemaProperty> previousValue, element) {
+      final SchemaProperty? object = SchemaProperty.fromJson(element);
+      if (object is SchemaProperty) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SchemaProperty> mapFromJson(Map<String, dynamic> json) {
-    return <String, SchemaProperty>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SchemaProperty.fromJson(entry.value),
-    };
+  static Map<String, SchemaProperty> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SchemaProperty>{};
+    }
+
+    return json.entries.fold(<String, SchemaProperty>{},
+        (Map<String, SchemaProperty> previousValue, element) {
+      final SchemaProperty? object = SchemaProperty.fromJson(element.value);
+      if (object is SchemaProperty) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of SchemaProperty-objects as value to a dart map
   static Map<String, List<SchemaProperty>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<SchemaProperty>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SchemaProperty.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SchemaProperty>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SchemaProperty>>(
+          key, SchemaProperty.listFromJson(value));
+    });
   }
 
   @override

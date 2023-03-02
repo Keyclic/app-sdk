@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -18,7 +17,7 @@ class SignerPagination implements Pagination, SignerPaginationAllOf {
 
   /// Returns a new [SignerPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SignerPagination.fromJson(Map<String, dynamic> json) {
+  static SignerPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -33,17 +32,17 @@ class SignerPagination implements Pagination, SignerPaginationAllOf {
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  SignerCollection embedded;
+  SignerCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -70,29 +69,49 @@ class SignerPagination implements Pagination, SignerPaginationAllOf {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<SignerPagination> listFromJson(List<dynamic> json) {
-    return <SignerPagination>[
-      if (json is List)
-        for (dynamic value in json) SignerPagination.fromJson(value),
-    ];
+  static List<SignerPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignerPagination>[];
+    }
+
+    return json.fold(<SignerPagination>[],
+        (List<SignerPagination> previousValue, element) {
+      final SignerPagination? object = SignerPagination.fromJson(element);
+      if (object is SignerPagination) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SignerPagination> mapFromJson(Map<String, dynamic> json) {
-    return <String, SignerPagination>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerPagination.fromJson(entry.value),
-    };
+  static Map<String, SignerPagination> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignerPagination>{};
+    }
+
+    return json.entries.fold(<String, SignerPagination>{},
+        (Map<String, SignerPagination> previousValue, element) {
+      final SignerPagination? object = SignerPagination.fromJson(element.value);
+      if (object is SignerPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of SignerPagination-objects as value to a dart map
   static Map<String, List<SignerPagination>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<SignerPagination>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerPagination.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SignerPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SignerPagination>>(
+          key, SignerPagination.listFromJson(value));
+    });
   }
 
   @override

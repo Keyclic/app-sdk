@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -17,7 +16,7 @@ class ReportTypePriority {
 
   /// Returns a new [ReportTypePriority] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ReportTypePriority.fromJson(Map<String, dynamic> json) {
+  static ReportTypePriority? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -31,15 +30,15 @@ class ReportTypePriority {
     );
   }
 
-  String color;
+  String? color;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  int position;
+  int? position;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -64,30 +63,51 @@ class ReportTypePriority {
       (position == null ? 0 : position.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ReportTypePriority> listFromJson(List<dynamic> json) {
-    return <ReportTypePriority>[
-      if (json is List)
-        for (dynamic value in json) ReportTypePriority.fromJson(value),
-    ];
+  static List<ReportTypePriority> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReportTypePriority>[];
+    }
+
+    return json.fold(<ReportTypePriority>[],
+        (List<ReportTypePriority> previousValue, element) {
+      final ReportTypePriority? object = ReportTypePriority.fromJson(element);
+      if (object is ReportTypePriority) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ReportTypePriority> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ReportTypePriority>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportTypePriority.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportTypePriority>{};
+    }
+
+    return json.entries.fold(<String, ReportTypePriority>{},
+        (Map<String, ReportTypePriority> previousValue, element) {
+      final ReportTypePriority? object =
+          ReportTypePriority.fromJson(element.value);
+      if (object is ReportTypePriority) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ReportTypePriority-objects as value to a dart map
   static Map<String, List<ReportTypePriority>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ReportTypePriority>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ReportTypePriority.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportTypePriority>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportTypePriority>>(
+          key, ReportTypePriority.listFromJson(value));
+    });
   }
 
   @override

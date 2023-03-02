@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,20 +13,20 @@ class BusinessActivitySchema {
 
   /// Returns a new [BusinessActivitySchema] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory BusinessActivitySchema.fromJson(Map<String, dynamic> json) {
+  static BusinessActivitySchema? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BusinessActivitySchema(
-      properties: json[r'properties'],
+      properties: SchemaProperty.mapFromJson(json[r'properties']),
       required_: List<String>.from(json[r'required'] ?? []),
     );
   }
 
-  Map<String, SchemaProperty> properties;
+  Map<String, SchemaProperty>? properties;
 
-  List<String> required_;
+  List<String>? required_;
 
   @override
   bool operator ==(Object other) {
@@ -47,30 +46,52 @@ class BusinessActivitySchema {
       (properties == null ? 0 : properties.hashCode) +
       (required_ == null ? 0 : required_.hashCode);
 
-  static List<BusinessActivitySchema> listFromJson(List<dynamic> json) {
-    return <BusinessActivitySchema>[
-      if (json is List)
-        for (dynamic value in json) BusinessActivitySchema.fromJson(value),
-    ];
+  static List<BusinessActivitySchema> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivitySchema>[];
+    }
+
+    return json.fold(<BusinessActivitySchema>[],
+        (List<BusinessActivitySchema> previousValue, element) {
+      final BusinessActivitySchema? object =
+          BusinessActivitySchema.fromJson(element);
+      if (object is BusinessActivitySchema) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, BusinessActivitySchema> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, BusinessActivitySchema>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivitySchema.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivitySchema>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivitySchema>{},
+        (Map<String, BusinessActivitySchema> previousValue, element) {
+      final BusinessActivitySchema? object =
+          BusinessActivitySchema.fromJson(element.value);
+      if (object is BusinessActivitySchema) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of BusinessActivitySchema-objects as value to a dart map
   static Map<String, List<BusinessActivitySchema>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<BusinessActivitySchema>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: BusinessActivitySchema.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivitySchema>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivitySchema>>(
+          key, BusinessActivitySchema.listFromJson(value));
+    });
   }
 
   @override

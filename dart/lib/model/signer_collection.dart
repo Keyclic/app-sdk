@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,7 +12,7 @@ class SignerCollection {
 
   /// Returns a new [SignerCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory SignerCollection.fromJson(Map<String, dynamic> json) {
+  static SignerCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -23,7 +22,7 @@ class SignerCollection {
     );
   }
 
-  List<Signer> items;
+  List<Signer>? items;
 
   @override
   bool operator ==(Object other) {
@@ -39,29 +38,49 @@ class SignerCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<SignerCollection> listFromJson(List<dynamic> json) {
-    return <SignerCollection>[
-      if (json is List)
-        for (dynamic value in json) SignerCollection.fromJson(value),
-    ];
+  static List<SignerCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignerCollection>[];
+    }
+
+    return json.fold(<SignerCollection>[],
+        (List<SignerCollection> previousValue, element) {
+      final SignerCollection? object = SignerCollection.fromJson(element);
+      if (object is SignerCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SignerCollection> mapFromJson(Map<String, dynamic> json) {
-    return <String, SignerCollection>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerCollection.fromJson(entry.value),
-    };
+  static Map<String, SignerCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignerCollection>{};
+    }
+
+    return json.entries.fold(<String, SignerCollection>{},
+        (Map<String, SignerCollection> previousValue, element) {
+      final SignerCollection? object = SignerCollection.fromJson(element.value);
+      if (object is SignerCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of SignerCollection-objects as value to a dart map
   static Map<String, List<SignerCollection>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<SignerCollection>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: SignerCollection.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SignerCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SignerCollection>>(
+          key, SignerCollection.listFromJson(value));
+    });
   }
 
   @override

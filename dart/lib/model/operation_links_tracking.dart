@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class OperationLinksTracking {
 
   /// Returns a new [OperationLinksTracking] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationLinksTracking.fromJson(Map<String, dynamic> json) {
+  static OperationLinksTracking? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class OperationLinksTracking {
   }
 
   /// The URI of the tracking associated to the given operation.
-  String href;
+  String? href;
 
-  OperationLinksTrackingIriTemplate iriTemplate;
+  OperationLinksTrackingIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,30 +47,52 @@ class OperationLinksTracking {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OperationLinksTracking> listFromJson(List<dynamic> json) {
-    return <OperationLinksTracking>[
-      if (json is List)
-        for (dynamic value in json) OperationLinksTracking.fromJson(value),
-    ];
+  static List<OperationLinksTracking> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationLinksTracking>[];
+    }
+
+    return json.fold(<OperationLinksTracking>[],
+        (List<OperationLinksTracking> previousValue, element) {
+      final OperationLinksTracking? object =
+          OperationLinksTracking.fromJson(element);
+      if (object is OperationLinksTracking) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OperationLinksTracking> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OperationLinksTracking>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationLinksTracking.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationLinksTracking>{};
+    }
+
+    return json.entries.fold(<String, OperationLinksTracking>{},
+        (Map<String, OperationLinksTracking> previousValue, element) {
+      final OperationLinksTracking? object =
+          OperationLinksTracking.fromJson(element.value);
+      if (object is OperationLinksTracking) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OperationLinksTracking-objects as value to a dart map
   static Map<String, List<OperationLinksTracking>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OperationLinksTracking>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationLinksTracking.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationLinksTracking>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationLinksTracking>>(
+          key, OperationLinksTracking.listFromJson(value));
+    });
   }
 
   @override

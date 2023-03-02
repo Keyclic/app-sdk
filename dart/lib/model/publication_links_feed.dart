@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class PublicationLinksFeed {
 
   /// Returns a new [PublicationLinksFeed] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory PublicationLinksFeed.fromJson(Map<String, dynamic> json) {
+  static PublicationLinksFeed? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -27,9 +26,9 @@ class PublicationLinksFeed {
   }
 
   /// The URI of the feed associated to the given publication.
-  String href;
+  String? href;
 
-  PublicationLinksFeedIriTemplate iriTemplate;
+  PublicationLinksFeedIriTemplate? iriTemplate;
 
   @override
   bool operator ==(Object other) {
@@ -48,30 +47,52 @@ class PublicationLinksFeed {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PublicationLinksFeed> listFromJson(List<dynamic> json) {
-    return <PublicationLinksFeed>[
-      if (json is List)
-        for (dynamic value in json) PublicationLinksFeed.fromJson(value),
-    ];
+  static List<PublicationLinksFeed> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PublicationLinksFeed>[];
+    }
+
+    return json.fold(<PublicationLinksFeed>[],
+        (List<PublicationLinksFeed> previousValue, element) {
+      final PublicationLinksFeed? object =
+          PublicationLinksFeed.fromJson(element);
+      if (object is PublicationLinksFeed) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, PublicationLinksFeed> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, PublicationLinksFeed>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationLinksFeed.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PublicationLinksFeed>{};
+    }
+
+    return json.entries.fold(<String, PublicationLinksFeed>{},
+        (Map<String, PublicationLinksFeed> previousValue, element) {
+      final PublicationLinksFeed? object =
+          PublicationLinksFeed.fromJson(element.value);
+      if (object is PublicationLinksFeed) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of PublicationLinksFeed-objects as value to a dart map
   static Map<String, List<PublicationLinksFeed>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<PublicationLinksFeed>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: PublicationLinksFeed.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PublicationLinksFeed>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PublicationLinksFeed>>(
+          key, PublicationLinksFeed.listFromJson(value));
+    });
   }
 
   @override

@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class LegacySignatureDataSigner {
 
   /// Returns a new [LegacySignatureDataSigner] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory LegacySignatureDataSigner.fromJson(Map<String, dynamic> json) {
+  static LegacySignatureDataSigner? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,9 +24,9 @@ class LegacySignatureDataSigner {
     );
   }
 
-  String familyName;
+  String? familyName;
 
-  String givenName;
+  String? givenName;
 
   @override
   bool operator ==(Object other) {
@@ -46,30 +45,52 @@ class LegacySignatureDataSigner {
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode);
 
-  static List<LegacySignatureDataSigner> listFromJson(List<dynamic> json) {
-    return <LegacySignatureDataSigner>[
-      if (json is List)
-        for (dynamic value in json) LegacySignatureDataSigner.fromJson(value),
-    ];
+  static List<LegacySignatureDataSigner> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <LegacySignatureDataSigner>[];
+    }
+
+    return json.fold(<LegacySignatureDataSigner>[],
+        (List<LegacySignatureDataSigner> previousValue, element) {
+      final LegacySignatureDataSigner? object =
+          LegacySignatureDataSigner.fromJson(element);
+      if (object is LegacySignatureDataSigner) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, LegacySignatureDataSigner> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, LegacySignatureDataSigner>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: LegacySignatureDataSigner.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, LegacySignatureDataSigner>{};
+    }
+
+    return json.entries.fold(<String, LegacySignatureDataSigner>{},
+        (Map<String, LegacySignatureDataSigner> previousValue, element) {
+      final LegacySignatureDataSigner? object =
+          LegacySignatureDataSigner.fromJson(element.value);
+      if (object is LegacySignatureDataSigner) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of LegacySignatureDataSigner-objects as value to a dart map
   static Map<String, List<LegacySignatureDataSigner>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<LegacySignatureDataSigner>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: LegacySignatureDataSigner.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<LegacySignatureDataSigner>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<LegacySignatureDataSigner>>(
+          key, LegacySignatureDataSigner.listFromJson(value));
+    });
   }
 
   @override

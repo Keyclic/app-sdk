@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -13,8 +12,8 @@ class CategoryLinksOrganizationIriTemplate {
 
   /// Returns a new [CategoryLinksOrganizationIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory CategoryLinksOrganizationIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  static CategoryLinksOrganizationIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -25,7 +24,7 @@ class CategoryLinksOrganizationIriTemplate {
     );
   }
 
-  CategoryLinksOrganizationIriTemplateMapping mapping;
+  CategoryLinksOrganizationIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {
@@ -42,32 +41,53 @@ class CategoryLinksOrganizationIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<CategoryLinksOrganizationIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return <CategoryLinksOrganizationIriTemplate>[
-      if (json is List)
-        for (dynamic value in json)
-          CategoryLinksOrganizationIriTemplate.fromJson(value),
-    ];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryLinksOrganizationIriTemplate>[];
+    }
+
+    return json.fold(<CategoryLinksOrganizationIriTemplate>[],
+        (List<CategoryLinksOrganizationIriTemplate> previousValue, element) {
+      final CategoryLinksOrganizationIriTemplate? object =
+          CategoryLinksOrganizationIriTemplate.fromJson(element);
+      if (object is CategoryLinksOrganizationIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, CategoryLinksOrganizationIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, CategoryLinksOrganizationIriTemplate>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: CategoryLinksOrganizationIriTemplate.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryLinksOrganizationIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, CategoryLinksOrganizationIriTemplate>{},
+        (Map<String, CategoryLinksOrganizationIriTemplate> previousValue,
+            element) {
+      final CategoryLinksOrganizationIriTemplate? object =
+          CategoryLinksOrganizationIriTemplate.fromJson(element.value);
+      if (object is CategoryLinksOrganizationIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of CategoryLinksOrganizationIriTemplate-objects as value to a dart map
   static Map<String, List<CategoryLinksOrganizationIriTemplate>>
-      mapListFromJson(Map<String, dynamic> json) {
-    return <String, List<CategoryLinksOrganizationIriTemplate>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key:
-              CategoryLinksOrganizationIriTemplate.listFromJson(entry.value),
-    };
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CategoryLinksOrganizationIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CategoryLinksOrganizationIriTemplate>>(
+          key, CategoryLinksOrganizationIriTemplate.listFromJson(value));
+    });
   }
 
   @override

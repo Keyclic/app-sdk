@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -20,7 +19,7 @@ class ServiceContactPoint {
 
   /// Returns a new [ServiceContactPoint] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory ServiceContactPoint.fromJson(Map<String, dynamic> json) {
+  static ServiceContactPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -37,21 +36,21 @@ class ServiceContactPoint {
     );
   }
 
-  String description;
+  String? description;
 
-  String email;
+  String? email;
 
-  String familyName;
+  String? familyName;
 
-  String faxNumber;
+  String? faxNumber;
 
-  String givenName;
+  String? givenName;
 
-  bool isOpen;
+  bool? isOpen;
 
-  String name;
+  String? name;
 
-  String telephone;
+  String? telephone;
 
   @override
   bool operator ==(Object other) {
@@ -82,30 +81,51 @@ class ServiceContactPoint {
       (name == null ? 0 : name.hashCode) +
       (telephone == null ? 0 : telephone.hashCode);
 
-  static List<ServiceContactPoint> listFromJson(List<dynamic> json) {
-    return <ServiceContactPoint>[
-      if (json is List)
-        for (dynamic value in json) ServiceContactPoint.fromJson(value),
-    ];
+  static List<ServiceContactPoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ServiceContactPoint>[];
+    }
+
+    return json.fold(<ServiceContactPoint>[],
+        (List<ServiceContactPoint> previousValue, element) {
+      final ServiceContactPoint? object = ServiceContactPoint.fromJson(element);
+      if (object is ServiceContactPoint) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ServiceContactPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, ServiceContactPoint>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ServiceContactPoint.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ServiceContactPoint>{};
+    }
+
+    return json.entries.fold(<String, ServiceContactPoint>{},
+        (Map<String, ServiceContactPoint> previousValue, element) {
+      final ServiceContactPoint? object =
+          ServiceContactPoint.fromJson(element.value);
+      if (object is ServiceContactPoint) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of ServiceContactPoint-objects as value to a dart map
   static Map<String, List<ServiceContactPoint>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<ServiceContactPoint>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: ServiceContactPoint.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ServiceContactPoint>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ServiceContactPoint>>(
+          key, ServiceContactPoint.listFromJson(value));
+    });
   }
 
   @override

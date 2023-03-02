@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -14,7 +13,7 @@ class FeatureGeometry {
 
   /// Returns a new [FeatureGeometry] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeatureGeometry.fromJson(Map<String, dynamic> json) {
+  static FeatureGeometry? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -30,9 +29,9 @@ class FeatureGeometry {
     );
   }
 
-  FeatureGeometryTypeEnum type;
+  FeatureGeometryTypeEnum? type;
 
-  List<List<List<num>>> coordinates;
+  List<List<List<num>>>? coordinates;
 
   @override
   bool operator ==(Object other) {
@@ -52,29 +51,49 @@ class FeatureGeometry {
       (type == null ? 0 : type.hashCode) +
       (coordinates == null ? 0 : coordinates.hashCode);
 
-  static List<FeatureGeometry> listFromJson(List<dynamic> json) {
-    return <FeatureGeometry>[
-      if (json is List)
-        for (dynamic value in json) FeatureGeometry.fromJson(value),
-    ];
+  static List<FeatureGeometry> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeatureGeometry>[];
+    }
+
+    return json.fold(<FeatureGeometry>[],
+        (List<FeatureGeometry> previousValue, element) {
+      final FeatureGeometry? object = FeatureGeometry.fromJson(element);
+      if (object is FeatureGeometry) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, FeatureGeometry> mapFromJson(Map<String, dynamic> json) {
-    return <String, FeatureGeometry>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeatureGeometry.fromJson(entry.value),
-    };
+  static Map<String, FeatureGeometry> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeatureGeometry>{};
+    }
+
+    return json.entries.fold(<String, FeatureGeometry>{},
+        (Map<String, FeatureGeometry> previousValue, element) {
+      final FeatureGeometry? object = FeatureGeometry.fromJson(element.value);
+      if (object is FeatureGeometry) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of FeatureGeometry-objects as value to a dart map
   static Map<String, List<FeatureGeometry>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<FeatureGeometry>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeatureGeometry.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeatureGeometry>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeatureGeometry>>(
+          key, FeatureGeometry.listFromJson(value));
+    });
   }
 
   @override
@@ -109,14 +128,16 @@ class FeatureGeometryTypeEnum {
     point,
   ];
 
-  static FeatureGeometryTypeEnum fromJson(dynamic value) =>
+  static FeatureGeometryTypeEnum? fromJson(dynamic value) =>
       FeatureGeometryTypeEnumTypeTransformer().decode(value);
 
   static List<FeatureGeometryTypeEnum> listFromJson(List<dynamic> json) {
-    return <FeatureGeometryTypeEnum>[
-      if (json is List)
-        for (dynamic value in json) FeatureGeometryTypeEnum.fromJson(value),
-    ];
+    return json
+        .map((value) {
+          return FeatureGeometryTypeEnum.fromJson(value);
+        })
+        .whereType<FeatureGeometryTypeEnum>()
+        .toList();
   }
 }
 
@@ -138,7 +159,7 @@ class FeatureGeometryTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  FeatureGeometryTypeEnum decode(dynamic data, {bool allowNull}) {
+  FeatureGeometryTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
       case r'Polygon':
         return FeatureGeometryTypeEnum.polygon;
@@ -153,5 +174,5 @@ class FeatureGeometryTypeEnumTypeTransformer {
   }
 
   /// Singleton [FeatureGeometryTypeEnumTypeTransformer] instance.
-  static FeatureGeometryTypeEnumTypeTransformer _instance;
+  static FeatureGeometryTypeEnumTypeTransformer? _instance;
 }

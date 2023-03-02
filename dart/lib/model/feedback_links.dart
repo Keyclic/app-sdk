@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -21,7 +20,7 @@ class FeedbackLinks {
 
   /// Returns a new [FeedbackLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory FeedbackLinks.fromJson(Map<String, dynamic> json) {
+  static FeedbackLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
@@ -40,23 +39,23 @@ class FeedbackLinks {
     );
   }
 
-  FeedbackLinksBusinessActivity businessActivity;
+  FeedbackLinksBusinessActivity? businessActivity;
 
-  FeedbackLinksCategory category;
+  FeedbackLinksCategory? category;
 
-  FeedbackLinksImage image;
+  FeedbackLinksImage? image;
 
-  List<FeedbackLinksImages> images;
+  List<FeedbackLinksImages>? images;
 
-  List<FeedbackLinksPlans> plans;
+  List<FeedbackLinksPlans>? plans;
 
-  FeedbackLinksReport report;
+  FeedbackLinksReport? report;
 
-  FeedbackLinksReporter reporter;
+  FeedbackLinksReporter? reporter;
 
-  FeedbackLinksSelf self;
+  FeedbackLinksSelf? self;
 
-  FeedbackLinksTracking tracking;
+  FeedbackLinksTracking? tracking;
 
   @override
   bool operator ==(Object other) {
@@ -89,29 +88,49 @@ class FeedbackLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<FeedbackLinks> listFromJson(List<dynamic> json) {
-    return <FeedbackLinks>[
-      if (json is List)
-        for (dynamic value in json) FeedbackLinks.fromJson(value),
-    ];
+  static List<FeedbackLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackLinks>[];
+    }
+
+    return json.fold(<FeedbackLinks>[],
+        (List<FeedbackLinks> previousValue, element) {
+      final FeedbackLinks? object = FeedbackLinks.fromJson(element);
+      if (object is FeedbackLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, FeedbackLinks> mapFromJson(Map<String, dynamic> json) {
-    return <String, FeedbackLinks>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackLinks.fromJson(entry.value),
-    };
+  static Map<String, FeedbackLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackLinks>{};
+    }
+
+    return json.entries.fold(<String, FeedbackLinks>{},
+        (Map<String, FeedbackLinks> previousValue, element) {
+      final FeedbackLinks? object = FeedbackLinks.fromJson(element.value);
+      if (object is FeedbackLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of FeedbackLinks-objects as value to a dart map
   static Map<String, List<FeedbackLinks>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<FeedbackLinks>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: FeedbackLinks.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackLinks>>(
+          key, FeedbackLinks.listFromJson(value));
+    });
   }
 
   @override

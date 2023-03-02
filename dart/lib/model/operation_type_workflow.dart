@@ -1,7 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.9
 
 part of keyclic_sdk_api;
 
@@ -22,19 +21,21 @@ class OperationTypeWorkflow {
 
   /// Returns a new [OperationTypeWorkflow] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  factory OperationTypeWorkflow.fromJson(Map<String, dynamic> json) {
+  static OperationTypeWorkflow? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
@@ -53,25 +54,25 @@ class OperationTypeWorkflow {
     );
   }
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  WorkflowState end;
+  WorkflowState? end;
 
-  String id;
+  final String? id;
 
-  String name;
+  String? name;
 
-  WorkflowState start;
+  WorkflowState? start;
 
-  List<WorkflowState> states;
+  List<WorkflowState>? states;
 
-  List<WorkflowTransition> transitions;
+  List<WorkflowTransition>? transitions;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -107,30 +108,52 @@ class OperationTypeWorkflow {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<OperationTypeWorkflow> listFromJson(List<dynamic> json) {
-    return <OperationTypeWorkflow>[
-      if (json is List)
-        for (dynamic value in json) OperationTypeWorkflow.fromJson(value),
-    ];
+  static List<OperationTypeWorkflow> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationTypeWorkflow>[];
+    }
+
+    return json.fold(<OperationTypeWorkflow>[],
+        (List<OperationTypeWorkflow> previousValue, element) {
+      final OperationTypeWorkflow? object =
+          OperationTypeWorkflow.fromJson(element);
+      if (object is OperationTypeWorkflow) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, OperationTypeWorkflow> mapFromJson(
-      Map<String, dynamic> json) {
-    return <String, OperationTypeWorkflow>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationTypeWorkflow.fromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationTypeWorkflow>{};
+    }
+
+    return json.entries.fold(<String, OperationTypeWorkflow>{},
+        (Map<String, OperationTypeWorkflow> previousValue, element) {
+      final OperationTypeWorkflow? object =
+          OperationTypeWorkflow.fromJson(element.value);
+      if (object is OperationTypeWorkflow) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
   // maps a json object with a list of OperationTypeWorkflow-objects as value to a dart map
   static Map<String, List<OperationTypeWorkflow>> mapListFromJson(
-      Map<String, dynamic> json) {
-    return <String, List<OperationTypeWorkflow>>{
-      if (json is Map)
-        for (final entry in json.entries)
-          entry.key: OperationTypeWorkflow.listFromJson(entry.value),
-    };
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationTypeWorkflow>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationTypeWorkflow>>(
+          key, OperationTypeWorkflow.listFromJson(value));
+    });
   }
 
   @override
@@ -139,7 +162,7 @@ class OperationTypeWorkflow {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      if (createdAt != null) r'createdAt': createdAt.toUtc().toIso8601String(),
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       if (end != null) r'end': end,
       if (id != null) r'id': id,
@@ -148,7 +171,7 @@ class OperationTypeWorkflow {
       if (states != null) r'states': states,
       if (transitions != null) r'transitions': transitions,
       if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
 }

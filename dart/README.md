@@ -414,6 +414,7 @@ Class | Method | HTTP request | Description
  - [ExternalServicePostalAddress](docs//ExternalServicePostalAddress.md)
  - [Feature](docs//Feature.md)
  - [FeatureGeometry](docs//FeatureGeometry.md)
+ - [Feed](docs//Feed.md)
  - [Feedback](docs//Feedback.md)
  - [FeedbackCollection](docs//FeedbackCollection.md)
  - [FeedbackData](docs//FeedbackData.md)

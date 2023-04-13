@@ -19594,6 +19594,27 @@
                 }
             }
         },
+        "Feed": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "appId": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "userId": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "userToken": {
+                    "type": "string",
+                    "format": "string"
+                }
+            }
+        },
         "Feedback": {
             "type": "object",
             "properties": {

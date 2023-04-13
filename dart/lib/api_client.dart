@@ -451,6 +451,8 @@ class ApiClient {
           return Feature.fromJson(value);
         case 'FeatureGeometry':
           return FeatureGeometry.fromJson(value);
+        case 'Feed':
+          return Feed.fromJson(value);
         case 'Feedback':
           return Feedback.fromJson(value);
         case 'FeedbackCollection':

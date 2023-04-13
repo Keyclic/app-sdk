@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlaces**
-> PlacePagination cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit)
+> PlacePagination cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, branchCode, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit)
 
 Retrieve all Place resources.
 
@@ -113,6 +113,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final branchCode = branchCode_example; // String | 
 final businessActivity = businessActivity_example; // String | 
 final businessActivitiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -132,7 +133,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit);
+    final result = api_instance.cgetPlaces(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, branchCode, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling PlaceApi->cgetPlaces: $e\n');
@@ -149,6 +150,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **branchCode** | **String**|  | [optional] 
  **businessActivity** | **String**|  | [optional] 
  **businessActivitiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 

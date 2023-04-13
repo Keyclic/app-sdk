@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assignments** | [**OperationLinksAssignments**](OperationLinksAssignments.md) |  | [optional] 
 **feedback** | [**OperationLinksFeedback**](OperationLinksFeedback.md) |  | [optional] 
-**image** | [**OperationLinksImage**](OperationLinksImage.md) |  | [optional] 
 **images** | [**List<OperationLinksImages>**](OperationLinksImages.md) |  | [optional] [default to const []]
 **operator_** | [**OperationLinksOperator**](OperationLinksOperator.md) |  | [optional] 
 **organization** | [**OperationLinksOrganization**](OperationLinksOrganization.md) |  | [optional] 

@@ -16,6 +16,8 @@ class Permission {
 
   String toJson() => value;
 
+  static const dISPATCHERColonREAD = Permission._(r'DISPATCHER:READ');
+  static const dISPATCHERColonWRITE = Permission._(r'DISPATCHER:WRITE');
   static const fILTERColonALL = Permission._(r'FILTER:ALL');
   static const oRGANIZATIONColonAGENT = Permission._(r'ORGANIZATION:AGENT');
   static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
@@ -42,6 +44,8 @@ class Permission {
 
   /// List of all possible values in this [enum][Permission].
   static const values = <Permission>[
+    dISPATCHERColonREAD,
+    dISPATCHERColonWRITE,
     fILTERColonALL,
     oRGANIZATIONColonAGENT,
     oRGANIZATIONColonMEMBER,
@@ -98,6 +102,10 @@ class PermissionTypeTransformer {
   /// and users are still using an old app with the old code.
   Permission? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
+      case r'DISPATCHER:READ':
+        return Permission.dISPATCHERColonREAD;
+      case r'DISPATCHER:WRITE':
+        return Permission.dISPATCHERColonWRITE;
       case r'FILTER:ALL':
         return Permission.fILTERColonALL;
       case r'ORGANIZATION:AGENT':

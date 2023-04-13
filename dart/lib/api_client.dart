@@ -738,16 +738,12 @@ class ApiClient {
           return FeedbackLinksCategory.fromJson(value);
         case 'FeedbackLinksCategoryIriTemplate':
           return FeedbackLinksCategoryIriTemplate.fromJson(value);
-        case 'FeedbackLinksImage':
-          return FeedbackLinksImage.fromJson(value);
-        case 'FeedbackLinksImageIriTemplate':
-          return FeedbackLinksImageIriTemplate.fromJson(value);
-        case 'FeedbackLinksImageIriTemplateMapping':
-          return FeedbackLinksImageIriTemplateMapping.fromJson(value);
         case 'FeedbackLinksImages':
           return FeedbackLinksImages.fromJson(value);
         case 'FeedbackLinksImagesIriTemplate':
           return FeedbackLinksImagesIriTemplate.fromJson(value);
+        case 'FeedbackLinksImagesIriTemplateMapping':
+          return FeedbackLinksImagesIriTemplateMapping.fromJson(value);
         case 'FeedbackLinksPlans':
           return FeedbackLinksPlans.fromJson(value);
         case 'FeedbackLinksPlansIriTemplate':
@@ -782,8 +778,6 @@ class ApiClient {
           return GeoShape.fromJson(value);
         case 'GeoShapeCentroid':
           return GeoShapeCentroid.fromJson(value);
-        case 'ImageData':
-          return ImageData.fromJson(value);
         case 'InternalService':
           return InternalService.fromJson(value);
         case 'InternalServiceCollection':
@@ -988,12 +982,6 @@ class ApiClient {
           return OperationLinksFeedback.fromJson(value);
         case 'OperationLinksFeedbackIriTemplate':
           return OperationLinksFeedbackIriTemplate.fromJson(value);
-        case 'OperationLinksImage':
-          return OperationLinksImage.fromJson(value);
-        case 'OperationLinksImageIriTemplate':
-          return OperationLinksImageIriTemplate.fromJson(value);
-        case 'OperationLinksImageIriTemplateMapping':
-          return OperationLinksImageIriTemplateMapping.fromJson(value);
         case 'OperationLinksImages':
           return OperationLinksImages.fromJson(value);
         case 'OperationLinksImagesIriTemplate':
@@ -1382,16 +1370,26 @@ class ApiClient {
           return RuleCollection.fromJson(value);
         case 'RuleData':
           return RuleData.fromJson(value);
-        case 'RuleEmbedded':
-          return RuleEmbedded.fromJson(value);
         case 'RuleLinks':
           return RuleLinks.fromJson(value);
+        case 'RuleLinksCategory':
+          return RuleLinksCategory.fromJson(value);
+        case 'RuleLinksCategoryIriTemplate':
+          return RuleLinksCategoryIriTemplate.fromJson(value);
+        case 'RuleLinksPlace':
+          return RuleLinksPlace.fromJson(value);
+        case 'RuleLinksPlaceIriTemplate':
+          return RuleLinksPlaceIriTemplate.fromJson(value);
         case 'RuleLinksSelf':
           return RuleLinksSelf.fromJson(value);
         case 'RuleLinksSelfIriTemplate':
           return RuleLinksSelfIriTemplate.fromJson(value);
         case 'RuleLinksSelfIriTemplateMapping':
           return RuleLinksSelfIriTemplateMapping.fromJson(value);
+        case 'RuleLinksService':
+          return RuleLinksService.fromJson(value);
+        case 'RuleLinksServiceIriTemplate':
+          return RuleLinksServiceIriTemplate.fromJson(value);
         case 'RulePagination':
           return RulePagination.fromJson(value);
         case 'RulePaginationAllOf':

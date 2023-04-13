@@ -8,8 +8,8 @@ class FileData {
   /// Returns a new [FileData] instance.
   FileData({
     required this.content,
-    required this.contentType,
-    required this.name,
+    this.contentType,
+    this.name,
   });
 
   /// Returns a new [FileData] instance and imports its values from
@@ -28,9 +28,9 @@ class FileData {
 
   String content;
 
-  String contentType;
+  String? contentType;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -46,7 +46,10 @@ class FileData {
   }
 
   @override
-  int get hashCode => content.hashCode + contentType.hashCode + name.hashCode;
+  int get hashCode =>
+      content.hashCode +
+      (contentType == null ? 0 : contentType.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<FileData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -99,8 +102,8 @@ class FileData {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       r'content': content,
-      r'contentType': contentType,
-      r'name': name,
+      if (contentType != null) r'contentType': contentType,
+      if (name != null) r'name': name,
     };
   }
 }

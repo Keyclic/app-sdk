@@ -5,16 +5,16 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for FeedbackLinksImage
+// tests for RuleLinksCategory
 void main() {
-  // final instance = FeedbackLinksImage();
+  // final instance = RuleLinksCategory();
 
-  group('test FeedbackLinksImage', () {
-    // The URI of the image associated to the given feedback.
+  group('test RuleLinksCategory', () {
+    // The URI of the category associated to the given rule.
     // String href
     test('to test the property `href`', () async {});
 
-    // FeedbackLinksImageIriTemplate iriTemplate
+    // RuleLinksCategoryIriTemplate iriTemplate
     test('to test the property `iriTemplate`', () async {});
   });
 }

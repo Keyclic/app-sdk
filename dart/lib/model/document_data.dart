@@ -11,7 +11,7 @@ class DocumentData {
     required this.file,
     required this.permission,
     this.template,
-    required this.type,
+    this.type,
   });
 
   /// Returns a new [DocumentData] instance and imports its values from
@@ -38,7 +38,7 @@ class DocumentData {
 
   String? template;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -61,7 +61,7 @@ class DocumentData {
       file.hashCode +
       permission.hashCode +
       (template == null ? 0 : template.hashCode) +
-      type.hashCode;
+      (type == null ? 0 : type.hashCode);
 
   static List<DocumentData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -118,7 +118,7 @@ class DocumentData {
       r'file': file,
       r'permission': permission,
       if (template != null) r'template': template,
-      r'type': type,
+      if (type != null) r'type': type,
     };
   }
 }

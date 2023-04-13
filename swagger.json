@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.37.1"
+        "version": "2.40.0"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -4386,17 +4386,17 @@
                 ]
             }
         },
-        "\/feedbacks\/{feedback}\/images": {
+        "\/feedbacks\/{feedback}\/attachments": {
             "post": {
                 "tags": [
                     "Feedback"
                 ],
-                "summary": "Create one Image resource.",
+                "summary": "Create one Attachment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "postImageByFeedback",
+                "operationId": "postAttachmentByFeedback",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -4420,7 +4420,7 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "$ref": "#\/parameters\/ImageData"
+                        "$ref": "#\/parameters\/FileData"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -7358,6 +7358,126 @@
                 ]
             }
         },
+        "\/operations\/{operation}\/documents": {
+            "get": {
+                "tags": [
+                    "Operation"
+                ],
+                "summary": "Retrieve all Document resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetDocumentsByOperation",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/organization"
+                    },
+                    {
+                        "$ref": "#\/parameters\/organizations__"
+                    },
+                    {
+                        "in": "query",
+                        "name": "state",
+                        "pattern": ".*",
+                        "type": "string"
+                    },
+                    {
+                        "$ref": "#\/parameters\/states__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "operation",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/DocumentPagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/operations\/{operation}": {
             "delete": {
                 "tags": [
@@ -7624,17 +7744,17 @@
                 ]
             }
         },
-        "\/operations\/{operation}\/images\/{image}": {
+        "\/operations\/{operation}\/attachments\/{attachment}": {
             "delete": {
                 "tags": [
                     "Operation"
                 ],
-                "summary": "Remove one Image resource.",
+                "summary": "Remove one Attachment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "deleteImageByOperationAndImage",
+                "operationId": "deleteAttachmentByOperationAndAttachment",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -7669,7 +7789,7 @@
                         "description": "The identifier of the resource.",
                         "format": "uuid",
                         "in": "path",
-                        "name": "image",
+                        "name": "attachment",
                         "required": true,
                         "type": "string"
                     }
@@ -7981,17 +8101,17 @@
                 ]
             }
         },
-        "\/operations\/{operation}\/images": {
+        "\/operations\/{operation}\/attachments": {
             "post": {
                 "tags": [
                     "Operation"
                 ],
-                "summary": "Create one Image resource.",
+                "summary": "Create one Attachment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "postImageByOperation",
+                "operationId": "postAttachmentByOperation",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -8015,7 +8135,7 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "$ref": "#\/parameters\/ImageData"
+                        "$ref": "#\/parameters\/FileData"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -9340,6 +9460,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/branch_code"
                     },
                     {
                         "$ref": "#\/parameters\/business_activity"
@@ -11813,6 +11936,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/branch_code"
                     },
                     {
                         "$ref": "#\/parameters\/business_activity"
@@ -18864,8 +18990,7 @@
             "required": [
                 "container",
                 "file",
-                "permission",
-                "type"
+                "permission"
             ]
         },
         "DocumentFile": {
@@ -19063,6 +19188,9 @@
             "type": "object",
             "properties": {
                 "id": {
+                    "type": "string"
+                },
+                "code": {
                     "type": "string"
                 },
                 "type": {
@@ -19529,9 +19657,6 @@
                         "category": {
                             "$ref": "#\/definitions\/FeedbackLinksCategory"
                         },
-                        "image": {
-                            "$ref": "#\/definitions\/FeedbackLinksImage"
-                        },
                         "images": {
                             "type": "array",
                             "items": {
@@ -19758,35 +19883,6 @@
                 }
             }
         },
-        "FeedbackLinksImage": {
-            "type": "object",
-            "properties": {
-                "href": {
-                    "description": "The URI of the image associated to the given feedback.",
-                    "type": "string",
-                    "format": "string"
-                },
-                "iriTemplate": {
-                    "$ref": "#\/definitions\/FeedbackLinksImageIriTemplate"
-                }
-            }
-        },
-        "FeedbackLinksImageIriTemplate": {
-            "type": "object",
-            "properties": {
-                "mapping": {
-                    "type": "object",
-                    "properties": {
-                        "feedback": {
-                            "type": "string"
-                        },
-                        "image": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
         "FeedbackLinksImages": {
             "type": "object",
             "properties": {
@@ -19993,9 +20089,7 @@
                 }
             },
             "required": [
-                "content",
-                "contentType",
-                "name"
+                "content"
             ]
         },
         "GeoShape": {
@@ -20026,17 +20120,6 @@
                     "$ref": "#\/definitions\/Polygon"
                 }
             }
-        },
-        "ImageData": {
-            "type": "object",
-            "properties": {
-                "image": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "image"
-            ]
         },
         "InternalService": {
             "type": "object",
@@ -21459,6 +21542,18 @@
                         "createdBy": {
                             "$ref": "#\/definitions\/Person"
                         },
+                        "documentTypes": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#\/definitions\/DocumentType"
+                            }
+                        },
+                        "documents": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#\/definitions\/Document"
+                            }
+                        },
                         "operator": {
                             "$ref": "#\/definitions\/Person"
                         },
@@ -21492,9 +21587,6 @@
                         },
                         "feedback": {
                             "$ref": "#\/definitions\/OperationLinksFeedback"
-                        },
-                        "image": {
-                            "$ref": "#\/definitions\/OperationLinksImage"
                         },
                         "images": {
                             "type": "array",
@@ -21662,35 +21754,6 @@
                     "type": "object",
                     "properties": {
                         "feedback": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "OperationLinksImage": {
-            "type": "object",
-            "properties": {
-                "href": {
-                    "description": "The URI of the image associated to the given operation.",
-                    "type": "string",
-                    "format": "string"
-                },
-                "iriTemplate": {
-                    "$ref": "#\/definitions\/OperationLinksImageIriTemplate"
-                }
-            }
-        },
-        "OperationLinksImageIriTemplate": {
-            "type": "object",
-            "properties": {
-                "mapping": {
-                    "type": "object",
-                    "properties": {
-                        "image": {
-                            "type": "string"
-                        },
-                        "operation": {
                             "type": "string"
                         }
                     }
@@ -22388,6 +22451,8 @@
         "Permission": {
             "type": "string",
             "enum": [
+                "DISPATCHER:READ",
+                "DISPATCHER:WRITE",
                 "FILTER:ALL",
                 "ORGANIZATION:AGENT",
                 "ORGANIZATION:MEMBER",
@@ -24713,29 +24778,35 @@
         "Rule": {
             "type": "object",
             "properties": {
-                "_embedded": {
-                    "type": "object",
-                    "properties": {
-                        "category": {
-                            "$ref": "#\/definitions\/Category"
-                        },
-                        "service": {
-                            "$ref": "#\/definitions\/InternalService"
-                        }
-                    }
-                },
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "category": {
+                            "$ref": "#\/definitions\/RuleLinksCategory"
+                        },
+                        "place": {
+                            "$ref": "#\/definitions\/RuleLinksPlace"
+                        },
                         "self": {
                             "$ref": "#\/definitions\/RuleLinksSelf"
+                        },
+                        "service": {
+                            "$ref": "#\/definitions\/RuleLinksService"
                         }
                     }
+                },
+                "description": {
+                    "format": "string",
+                    "type": "string"
                 },
                 "id": {
                     "format": "uuid",
                     "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
                     "readOnly": true,
+                    "type": "string"
+                },
+                "name": {
+                    "format": "string",
                     "type": "string"
                 },
                 "type": {
@@ -24765,15 +24836,72 @@
                 "dispatcher": {
                     "type": "string"
                 },
+                "place": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "number"
+                },
                 "service": {
                     "type": "string"
                 }
             },
             "required": [
-                "category",
                 "dispatcher",
                 "service"
             ]
+        },
+        "RuleLinksCategory": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the category associated to the given rule.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/RuleLinksCategoryIriTemplate"
+                }
+            }
+        },
+        "RuleLinksCategoryIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "category": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "RuleLinksPlace": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the place associated to the given rule.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/RuleLinksPlaceIriTemplate"
+                }
+            }
+        },
+        "RuleLinksPlaceIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "place": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "RuleLinksSelf": {
             "type": "object",
@@ -24795,6 +24923,32 @@
                     "type": "object",
                     "properties": {
                         "rule": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "RuleLinksService": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the service associated to the given rule.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/RuleLinksServiceIriTemplate"
+                }
+            }
+        },
+        "RuleLinksServiceIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "service": {
                             "type": "string"
                         }
                     }
@@ -26537,11 +26691,11 @@
             },
             "required": true
         },
-        "ImageData": {
-            "name": "ImageData",
+        "FileData": {
+            "name": "FileData",
             "in": "body",
             "schema": {
-                "$ref": "#\/definitions\/ImageData"
+                "$ref": "#\/definitions\/FileData"
             },
             "required": true
         },
@@ -26751,6 +26905,12 @@
             "pattern": ".*",
             "type": "array"
         },
+        "branch_code": {
+            "in": "query",
+            "name": "branch_code",
+            "pattern": ".*",
+            "type": "string"
+        },
         "geo_elevation": {
             "in": "query",
             "name": "geo_elevation",
@@ -26815,14 +26975,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/OrganizationPatch"
-            },
-            "required": true
-        },
-        "FileData": {
-            "name": "FileData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/FileData"
             },
             "required": true
         },

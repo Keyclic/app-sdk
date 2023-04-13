@@ -112,8 +112,8 @@ Class | Method | HTTP request | Description
 *FeedbackApi* | [**deleteFeedback**](doc//FeedbackApi.md#deletefeedback) | **DELETE** /feedbacks/{feedback} | Remove one Feedback resource.
 *FeedbackApi* | [**getFeedback**](doc//FeedbackApi.md#getfeedback) | **GET** /feedbacks/{feedback} | Retrieve one Feedback resource.
 *FeedbackApi* | [**getTrackingByFeedback**](doc//FeedbackApi.md#gettrackingbyfeedback) | **GET** /feedbacks/{feedback}/tracking | Retrieve one Tracking resource.
+*FeedbackApi* | [**postAttachmentByFeedback**](doc//FeedbackApi.md#postattachmentbyfeedback) | **POST** /feedbacks/{feedback}/attachments | Create one Attachment resource.
 *FeedbackApi* | [**postCommentByFeedback**](doc//FeedbackApi.md#postcommentbyfeedback) | **POST** /feedbacks/{feedback}/comments | Create one Comment resource.
-*FeedbackApi* | [**postImageByFeedback**](doc//FeedbackApi.md#postimagebyfeedback) | **POST** /feedbacks/{feedback}/images | Create one Image resource.
 *FeedbackApi* | [**postIssue**](doc//FeedbackApi.md#postissue) | **POST** /feedbacks/issues | Create one Issue resource.
 *FeedbackApi* | [**postWorkflowByFeedback**](doc//FeedbackApi.md#postworkflowbyfeedback) | **POST** /feedbacks/{feedback}/workflow | Create one Workflow resource.
 *InternalServiceApi* | [**cgetMembersByInternalService**](doc//InternalServiceApi.md#cgetmembersbyinternalservice) | **GET** /internal-services/{internalService}/members | Retrieve all Member resources.
@@ -145,14 +145,15 @@ Class | Method | HTTP request | Description
 *OccupantApi* | [**postOccupant**](doc//OccupantApi.md#postoccupant) | **POST** /occupants | Create one Occupant resource.
 *OperationApi* | [**cgetAssignmentsByOperation**](doc//OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 *OperationApi* | [**cgetCommentsByOperation**](doc//OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
-*OperationApi* | [**deleteImageByOperationAndImage**](doc//OperationApi.md#deleteimagebyoperationandimage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
+*OperationApi* | [**cgetDocumentsByOperation**](doc//OperationApi.md#cgetdocumentsbyoperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
+*OperationApi* | [**deleteAttachmentByOperationAndAttachment**](doc//OperationApi.md#deleteattachmentbyoperationandattachment) | **DELETE** /operations/{operation}/attachments/{attachment} | Remove one Attachment resource.
 *OperationApi* | [**deleteOperation**](doc//OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 *OperationApi* | [**getOperation**](doc//OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
 *OperationApi* | [**getTrackingByOperation**](doc//OperationApi.md#gettrackingbyoperation) | **GET** /operations/{operation}/tracking | Retrieve one Tracking resource.
 *OperationApi* | [**patchOperation**](doc//OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 *OperationApi* | [**postAssignByOperation**](doc//OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
+*OperationApi* | [**postAttachmentByOperation**](doc//OperationApi.md#postattachmentbyoperation) | **POST** /operations/{operation}/attachments | Create one Attachment resource.
 *OperationApi* | [**postCommentByOperation**](doc//OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
-*OperationApi* | [**postImageByOperation**](doc//OperationApi.md#postimagebyoperation) | **POST** /operations/{operation}/images | Create one Image resource.
 *OperationApi* | [**postOperation**](doc//OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
 *OperationApi* | [**postSignByOperation**](doc//OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
 *OperationApi* | [**postWorkflowByOperation**](doc//OperationApi.md#postworkflowbyoperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
@@ -440,11 +441,9 @@ Class | Method | HTTP request | Description
  - [FeedbackLinksBusinessActivityIriTemplate](doc//FeedbackLinksBusinessActivityIriTemplate.md)
  - [FeedbackLinksCategory](doc//FeedbackLinksCategory.md)
  - [FeedbackLinksCategoryIriTemplate](doc//FeedbackLinksCategoryIriTemplate.md)
- - [FeedbackLinksImage](doc//FeedbackLinksImage.md)
- - [FeedbackLinksImageIriTemplate](doc//FeedbackLinksImageIriTemplate.md)
- - [FeedbackLinksImageIriTemplateMapping](doc//FeedbackLinksImageIriTemplateMapping.md)
  - [FeedbackLinksImages](doc//FeedbackLinksImages.md)
  - [FeedbackLinksImagesIriTemplate](doc//FeedbackLinksImagesIriTemplate.md)
+ - [FeedbackLinksImagesIriTemplateMapping](doc//FeedbackLinksImagesIriTemplateMapping.md)
  - [FeedbackLinksPlans](doc//FeedbackLinksPlans.md)
  - [FeedbackLinksPlansIriTemplate](doc//FeedbackLinksPlansIriTemplate.md)
  - [FeedbackLinksPlansIriTemplateMapping](doc//FeedbackLinksPlansIriTemplateMapping.md)
@@ -462,7 +461,6 @@ Class | Method | HTTP request | Description
  - [FileData](doc//FileData.md)
  - [GeoShape](doc//GeoShape.md)
  - [GeoShapeCentroid](doc//GeoShapeCentroid.md)
- - [ImageData](doc//ImageData.md)
  - [InternalService](doc//InternalService.md)
  - [InternalServiceCollection](doc//InternalServiceCollection.md)
  - [InternalServiceContactPoint](doc//InternalServiceContactPoint.md)
@@ -565,9 +563,6 @@ Class | Method | HTTP request | Description
  - [OperationLinksAssignmentsIriTemplateMapping](doc//OperationLinksAssignmentsIriTemplateMapping.md)
  - [OperationLinksFeedback](doc//OperationLinksFeedback.md)
  - [OperationLinksFeedbackIriTemplate](doc//OperationLinksFeedbackIriTemplate.md)
- - [OperationLinksImage](doc//OperationLinksImage.md)
- - [OperationLinksImageIriTemplate](doc//OperationLinksImageIriTemplate.md)
- - [OperationLinksImageIriTemplateMapping](doc//OperationLinksImageIriTemplateMapping.md)
  - [OperationLinksImages](doc//OperationLinksImages.md)
  - [OperationLinksImagesIriTemplate](doc//OperationLinksImagesIriTemplate.md)
  - [OperationLinksImagesIriTemplateMapping](doc//OperationLinksImagesIriTemplateMapping.md)
@@ -761,11 +756,16 @@ Class | Method | HTTP request | Description
  - [Rule](doc//Rule.md)
  - [RuleCollection](doc//RuleCollection.md)
  - [RuleData](doc//RuleData.md)
- - [RuleEmbedded](doc//RuleEmbedded.md)
  - [RuleLinks](doc//RuleLinks.md)
+ - [RuleLinksCategory](doc//RuleLinksCategory.md)
+ - [RuleLinksCategoryIriTemplate](doc//RuleLinksCategoryIriTemplate.md)
+ - [RuleLinksPlace](doc//RuleLinksPlace.md)
+ - [RuleLinksPlaceIriTemplate](doc//RuleLinksPlaceIriTemplate.md)
  - [RuleLinksSelf](doc//RuleLinksSelf.md)
  - [RuleLinksSelfIriTemplate](doc//RuleLinksSelfIriTemplate.md)
  - [RuleLinksSelfIriTemplateMapping](doc//RuleLinksSelfIriTemplateMapping.md)
+ - [RuleLinksService](doc//RuleLinksService.md)
+ - [RuleLinksServiceIriTemplate](doc//RuleLinksServiceIriTemplate.md)
  - [RulePagination](doc//RulePagination.md)
  - [RulePaginationAllOf](doc//RulePaginationAllOf.md)
  - [RulePatch](doc//RulePatch.md)

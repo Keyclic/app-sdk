@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **file** | [**DocumentDataFile**](DocumentDataFile.md) |  | 
 **permission** | [**DocumentDataPermission**](DocumentDataPermission.md) |  | 
 **template** | **String** |  | [optional] 
-**type** | **String** |  | 
+**type** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,9 +7,10 @@ part of keyclic_sdk_api;
 class Rule {
   /// Returns a new [Rule] instance.
   Rule({
-    this.embedded,
     this.links,
+    this.description,
     this.id,
+    this.name,
     this.type,
   });
 
@@ -21,18 +22,21 @@ class Rule {
     }
 
     return Rule(
-      embedded: RuleEmbedded.fromJson(json[r'_embedded']),
       links: RuleLinks.fromJson(json[r'_links']),
+      description: json[r'description'],
       id: json[r'id'],
+      name: json[r'name'],
       type: json[r'type'],
     );
   }
 
-  RuleEmbedded? embedded;
-
   RuleLinks? links;
 
+  String? description;
+
   final String? id;
+
+  String? name;
 
   String? type;
 
@@ -44,17 +48,19 @@ class Rule {
     }
 
     return other is Rule &&
-        other.embedded == embedded &&
         other.links == links &&
+        other.description == description &&
         other.id == id &&
+        other.name == name &&
         other.type == type;
   }
 
   @override
   int get hashCode =>
-      (embedded == null ? 0 : embedded.hashCode) +
       (links == null ? 0 : links.hashCode) +
+      (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
 
   static List<Rule> listFromJson(List<dynamic>? json) {
@@ -101,13 +107,14 @@ class Rule {
 
   @override
   String toString() =>
-      'Rule[embedded=$embedded, links=$links, id=$id, type=$type]';
+      'Rule[links=$links, description=$description, id=$id, name=$name, type=$type]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      if (embedded != null) r'_embedded': embedded,
       if (links != null) r'_links': links,
+      if (description != null) r'description': description,
       if (id != null) r'id': id,
+      if (name != null) r'name': name,
       if (type != null) r'type': type,
     };
   }

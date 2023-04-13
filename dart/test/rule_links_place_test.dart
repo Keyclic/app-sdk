@@ -5,16 +5,16 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for OperationLinksImage
+// tests for RuleLinksPlace
 void main() {
-  // final instance = OperationLinksImage();
+  // final instance = RuleLinksPlace();
 
-  group('test OperationLinksImage', () {
-    // The URI of the image associated to the given operation.
+  group('test RuleLinksPlace', () {
+    // The URI of the place associated to the given rule.
     // String href
     test('to test the property `href`', () async {});
 
-    // OperationLinksImageIriTemplate iriTemplate
+    // RuleLinksPlaceIriTemplate iriTemplate
     test('to test the property `iriTemplate`', () async {});
   });
 }

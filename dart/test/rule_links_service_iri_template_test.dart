@@ -5,12 +5,12 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for OperationLinksImageIriTemplate
+// tests for RuleLinksServiceIriTemplate
 void main() {
-  // final instance = OperationLinksImageIriTemplate();
+  // final instance = RuleLinksServiceIriTemplate();
 
-  group('test OperationLinksImageIriTemplate', () {
-    // OperationLinksImageIriTemplateMapping mapping
+  group('test RuleLinksServiceIriTemplate', () {
+    // AssignmentLinksServiceIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });
 }

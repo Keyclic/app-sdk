@@ -16,6 +16,12 @@ void main() {
     // String dispatcher
     test('to test the property `dispatcher`', () async {});
 
+    // String place
+    test('to test the property `place`', () async {});
+
+    // num position
+    test('to test the property `position`', () async {});
+
     // String service
     test('to test the property `service`', () async {});
   });

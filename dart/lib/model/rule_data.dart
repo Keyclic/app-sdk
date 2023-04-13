@@ -7,8 +7,10 @@ part of keyclic_sdk_api;
 class RuleData {
   /// Returns a new [RuleData] instance.
   RuleData({
-    required this.category,
+    this.category,
     required this.dispatcher,
+    this.place,
+    this.position,
     required this.service,
   });
 
@@ -22,13 +24,19 @@ class RuleData {
     return RuleData(
       category: json[r'category'],
       dispatcher: json[r'dispatcher'],
+      place: json[r'place'],
+      position: json[r'position'] == null ? null : json[r'position'].toDouble(),
       service: json[r'service'],
     );
   }
 
-  String category;
+  String? category;
 
   String dispatcher;
+
+  String? place;
+
+  num? position;
 
   String service;
 
@@ -42,12 +50,18 @@ class RuleData {
     return other is RuleData &&
         other.category == category &&
         other.dispatcher == dispatcher &&
+        other.place == place &&
+        other.position == position &&
         other.service == service;
   }
 
   @override
   int get hashCode =>
-      category.hashCode + dispatcher.hashCode + service.hashCode;
+      (category == null ? 0 : category.hashCode) +
+      dispatcher.hashCode +
+      (place == null ? 0 : place.hashCode) +
+      (position == null ? 0 : position.hashCode) +
+      service.hashCode;
 
   static List<RuleData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -95,12 +109,14 @@ class RuleData {
 
   @override
   String toString() =>
-      'RuleData[category=$category, dispatcher=$dispatcher, service=$service]';
+      'RuleData[category=$category, dispatcher=$dispatcher, place=$place, position=$position, service=$service]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      r'category': category,
+      if (category != null) r'category': category,
       r'dispatcher': dispatcher,
+      if (place != null) r'place': place,
+      if (position != null) r'position': position,
       r'service': service,
     };
   }

@@ -14,8 +14,8 @@ Method | HTTP request | Description
 [**deleteFeedback**](FeedbackApi.md#deleteFeedback) | **DELETE** /feedbacks/{feedback} | Remove one Feedback resource.
 [**getFeedback**](FeedbackApi.md#getFeedback) | **GET** /feedbacks/{feedback} | Retrieve one Feedback resource.
 [**getTrackingByFeedback**](FeedbackApi.md#getTrackingByFeedback) | **GET** /feedbacks/{feedback}/tracking | Retrieve one Tracking resource.
+[**postAttachmentByFeedback**](FeedbackApi.md#postAttachmentByFeedback) | **POST** /feedbacks/{feedback}/attachments | Create one Attachment resource.
 [**postCommentByFeedback**](FeedbackApi.md#postCommentByFeedback) | **POST** /feedbacks/{feedback}/comments | Create one Comment resource.
-[**postImageByFeedback**](FeedbackApi.md#postImageByFeedback) | **POST** /feedbacks/{feedback}/images | Create one Image resource.
 [**postIssue**](FeedbackApi.md#postIssue) | **POST** /feedbacks/issues | Create one Issue resource.
 [**postWorkflowByFeedback**](FeedbackApi.md#postWorkflowByFeedback) | **POST** /feedbacks/{feedback}/workflow | Create one Workflow resource.
 
@@ -316,6 +316,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **postAttachmentByFeedback**
+> Feedback postAttachmentByFeedback(xKeyclicApp, fileData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+
+Create one Attachment resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = FeedbackApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var fileData = FileData(); // FileData | 
+var feedback = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+
+try { 
+    var result = api_instance.postAttachmentByFeedback(xKeyclicApp, fileData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    print(result);
+} catch (e) {
+    print("Exception when calling FeedbackApi->postAttachmentByFeedback: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **fileData** | [**FileData**](FileData.md)|  | 
+ **feedback** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Feedback**](Feedback.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **postCommentByFeedback**
 > Feedback postCommentByFeedback(xKeyclicApp, commentData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
@@ -352,63 +409,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
  **commentData** | [**CommentData**](CommentData.md)|  | 
- **feedback** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Feedback**](Feedback.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **postImageByFeedback**
-> Feedback postImageByFeedback(xKeyclicApp, imageData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
-
-Create one Image resource.
-
-### Example 
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
-
-var api_instance = FeedbackApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var imageData = ImageData(); // ImageData | 
-var feedback = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-
-try { 
-    var result = api_instance.postImageByFeedback(xKeyclicApp, imageData, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
-    print(result);
-} catch (e) {
-    print("Exception when calling FeedbackApi->postImageByFeedback: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **imageData** | [**ImageData**](ImageData.md)|  | 
  **feedback** | [**String**](.md)| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
  **xDateTime** | **DateTime**|  | [optional] 

@@ -960,6 +960,7 @@ class OrganizationApi {
     String xKeyclicAppPlatform,
     String xKeyclicAppVersion,
     List<String> order__,
+    String branchCode,
     String businessActivity,
     List<String> businessActivities__,
     DateTime after,
@@ -997,6 +998,8 @@ class OrganizationApi {
       if (order__ != null)
         ..._convertParametersForCollectionFormat("order[]", order__,
             collectionFormat: "multi"),
+      if (branchCode != null)
+        ..._convertParametersForCollectionFormat("branch_code", branchCode),
       if (businessActivity != null)
         ..._convertParametersForCollectionFormat(
             "business_activity", businessActivity),

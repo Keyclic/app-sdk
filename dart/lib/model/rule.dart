@@ -2,9 +2,10 @@ part of keyclic_sdk_api.api;
 
 class Rule {
   Rule({
-    this.embedded,
     this.links,
+    this.description,
     this.id,
+    this.name,
     this.type,
   });
 
@@ -14,18 +15,21 @@ class Rule {
     }
 
     return Rule(
-      embedded: RuleEmbedded.fromJson(json['_embedded']),
       links: RuleLinks.fromJson(json['_links']),
+      description: json['description'],
       id: json['id'],
+      name: json['name'],
       type: json['type'],
     );
   }
 
-  RuleEmbedded embedded;
-
   RuleLinks links;
 
+  String description;
+
   String id;
+
+  String name;
 
   String type;
 
@@ -38,9 +42,10 @@ class Rule {
 
     return other is Rule &&
         runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
         links == other.links &&
+        description == other.description &&
         id == other.id &&
+        name == other.name &&
         type == other.type;
   }
 
@@ -49,9 +54,10 @@ class Rule {
   int get hashCode {
     int hashCode = 0;
 
-    hashCode ^= embedded?.hashCode ?? 0;
     hashCode ^= links?.hashCode ?? 0;
+    hashCode ^= description?.hashCode ?? 0;
     hashCode ^= id?.hashCode ?? 0;
+    hashCode ^= name?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
 
     return hashCode;
@@ -71,15 +77,16 @@ class Rule {
 
   Map<String, dynamic> toJson() {
     return {
-      if (embedded != null) '_embedded': embedded.toJson(),
       if (links != null) '_links': links.toJson(),
+      if (description != null) 'description': description,
       if (id != null) 'id': id,
+      if (name != null) 'name': name,
       if (type != null) 'type': type,
     };
   }
 
   @override
   String toString() {
-    return 'Rule[embedded=$embedded, links=$links, id=$id, type=$type, ]';
+    return 'Rule[links=$links, description=$description, id=$id, name=$name, type=$type, ]';
   }
 }

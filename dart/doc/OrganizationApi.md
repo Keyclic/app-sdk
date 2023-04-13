@@ -692,7 +692,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetPlacesByOrganization**
-> PlacePagination cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organizations[], parent, parents[], query, page, limit)
+> PlacePagination cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], branchCode, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organizations[], parent, parents[], query, page, limit)
 
 Retrieve all Place resources.
 
@@ -712,6 +712,7 @@ var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 var order[] = []; // List<String> | 
+var branchCode = branchCode_example; // String | 
 var businessActivity = businessActivity_example; // String | 
 var businessActivities[] = []; // List<String> | 
 var after = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -730,7 +731,7 @@ var page = 56; // int | Page of the overview.
 var limit = 56; // int | Page of the overview.
 
 try { 
-    var result = api_instance.cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organizations[], parent, parents[], query, page, limit);
+    var result = api_instance.cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], branchCode, businessActivity, businessActivities[], after, before, geoElevation, geoHash[], geoPoint, geoCoordinates, leaf, level, organizations[], parent, parents[], query, page, limit);
     print(result);
 } catch (e) {
     print("Exception when calling OrganizationApi->cgetPlacesByOrganization: $e\n");
@@ -748,6 +749,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **branchCode** | **String**|  | [optional] 
  **businessActivity** | **String**|  | [optional] 
  **businessActivities[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
  **after** | **DateTime**|  | [optional] 

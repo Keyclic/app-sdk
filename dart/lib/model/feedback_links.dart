@@ -4,7 +4,6 @@ class FeedbackLinks {
   FeedbackLinks({
     this.businessActivity,
     this.category,
-    this.image,
     this.images,
     this.plans,
     this.report,
@@ -22,7 +21,6 @@ class FeedbackLinks {
       businessActivity:
           FeedbackLinksBusinessActivity.fromJson(json['businessActivity']),
       category: FeedbackLinksCategory.fromJson(json['category']),
-      image: FeedbackLinksImage.fromJson(json['image']),
       images: FeedbackLinksImages.listFromJson(json['images']),
       plans: FeedbackLinksPlans.listFromJson(json['plans']),
       report: FeedbackLinksReport.fromJson(json['report']),
@@ -35,8 +33,6 @@ class FeedbackLinks {
   FeedbackLinksBusinessActivity businessActivity;
 
   FeedbackLinksCategory category;
-
-  FeedbackLinksImage image;
 
   List<FeedbackLinksImages> images;
 
@@ -61,7 +57,6 @@ class FeedbackLinks {
         runtimeType == other.runtimeType &&
         businessActivity == other.businessActivity &&
         category == other.category &&
-        image == other.image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
         DeepCollectionEquality.unordered().equals(plans, other.plans) &&
         report == other.report &&
@@ -88,7 +83,6 @@ class FeedbackLinks {
 
     hashCode ^= businessActivity?.hashCode ?? 0;
     hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= image?.hashCode ?? 0;
     hashCode ^= report?.hashCode ?? 0;
     hashCode ^= reporter?.hashCode ?? 0;
     hashCode ^= self?.hashCode ?? 0;
@@ -116,7 +110,6 @@ class FeedbackLinks {
       if (businessActivity != null)
         'businessActivity': businessActivity.toJson(),
       if (category != null) 'category': category.toJson(),
-      if (image != null) 'image': image.toJson(),
       if (images != null) 'images': images,
       if (plans != null) 'plans': plans,
       if (report != null) 'report': report.toJson(),
@@ -128,6 +121,6 @@ class FeedbackLinks {
 
   @override
   String toString() {
-    return 'FeedbackLinks[businessActivity=$businessActivity, category=$category, image=$image, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking, ]';
+    return 'FeedbackLinks[businessActivity=$businessActivity, category=$category, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking, ]';
   }
 }

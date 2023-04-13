@@ -11,14 +11,15 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cgetAssignmentsByOperation**](OperationApi.md#cgetAssignmentsByOperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 [**cgetCommentsByOperation**](OperationApi.md#cgetCommentsByOperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
-[**deleteImageByOperationAndImage**](OperationApi.md#deleteImageByOperationAndImage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
+[**cgetDocumentsByOperation**](OperationApi.md#cgetDocumentsByOperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
+[**deleteAttachmentByOperationAndAttachment**](OperationApi.md#deleteAttachmentByOperationAndAttachment) | **DELETE** /operations/{operation}/attachments/{attachment} | Remove one Attachment resource.
 [**deleteOperation**](OperationApi.md#deleteOperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 [**getOperation**](OperationApi.md#getOperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
 [**getTrackingByOperation**](OperationApi.md#getTrackingByOperation) | **GET** /operations/{operation}/tracking | Retrieve one Tracking resource.
 [**patchOperation**](OperationApi.md#patchOperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 [**postAssignByOperation**](OperationApi.md#postAssignByOperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
+[**postAttachmentByOperation**](OperationApi.md#postAttachmentByOperation) | **POST** /operations/{operation}/attachments | Create one Attachment resource.
 [**postCommentByOperation**](OperationApi.md#postCommentByOperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
-[**postImageByOperation**](OperationApi.md#postImageByOperation) | **POST** /operations/{operation}/images | Create one Image resource.
 [**postOperation**](OperationApi.md#postOperation) | **POST** /operations | Create one Operation resource.
 [**postSignByOperation**](OperationApi.md#postSignByOperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
 [**postWorkflowByOperation**](OperationApi.md#postWorkflowByOperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
@@ -148,10 +149,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **deleteImageByOperationAndImage**
-> deleteImageByOperationAndImage(xKeyclicApp, operation, image, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+# **cgetDocumentsByOperation**
+> DocumentPagination cgetDocumentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit)
 
-Remove one Image resource.
+Retrieve all Document resources.
 
 ### Example 
 ```dart
@@ -164,16 +165,25 @@ import 'package:keyclic_sdk_api/api.dart';
 var api_instance = OperationApi();
 var xKeyclicApp = xKeyclicApp_example; // String | 
 var operation = ; // String | The identifier of the resource.
-var image = ; // String | The identifier of the resource.
 var acceptLanguage = acceptLanguage_example; // String | 
 var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var order[] = []; // List<String> | 
+var after = 2013-10-20T19:20:30+01:00; // DateTime | 
+var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var organization = organization_example; // String | 
+var organizations[] = []; // List<String> | 
+var state = state_example; // String | 
+var states[] = []; // List<String> | 
+var page = 56; // int | Page of the overview.
+var limit = 56; // int | Page of the overview.
 
 try { 
-    api_instance.deleteImageByOperationAndImage(xKeyclicApp, operation, image, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    var result = api_instance.cgetDocumentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, order[], after, before, organization, organizations[], state, states[], page, limit);
+    print(result);
 } catch (e) {
-    print("Exception when calling OperationApi->deleteImageByOperationAndImage: $e\n");
+    print("Exception when calling OperationApi->cgetDocumentsByOperation: $e\n");
 }
 ```
 
@@ -183,7 +193,71 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
  **operation** | [**String**](.md)| The identifier of the resource. | 
- **image** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **organization** | **String**|  | [optional] 
+ **organizations[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **state** | **String**|  | [optional] 
+ **states[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+ **page** | **int**| Page of the overview. | [optional] [default to 1]
+ **limit** | **int**| Page of the overview. | [optional] [default to 10]
+
+### Return type
+
+[**DocumentPagination**](DocumentPagination.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteAttachmentByOperationAndAttachment**
+> deleteAttachmentByOperationAndAttachment(xKeyclicApp, operation, attachment, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+
+Remove one Attachment resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = OperationApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var operation = ; // String | The identifier of the resource.
+var attachment = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+
+try { 
+    api_instance.deleteAttachmentByOperationAndAttachment(xKeyclicApp, operation, attachment, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+} catch (e) {
+    print("Exception when calling OperationApi->deleteAttachmentByOperationAndAttachment: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **operation** | [**String**](.md)| The identifier of the resource. | 
+ **attachment** | [**String**](.md)| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
@@ -482,6 +556,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **postAttachmentByOperation**
+> Operation postAttachmentByOperation(xKeyclicApp, fileData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+
+Create one Attachment resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
+
+var api_instance = OperationApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var fileData = FileData(); // FileData | 
+var operation = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+
+try { 
+    var result = api_instance.postAttachmentByOperation(xKeyclicApp, fileData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    print(result);
+} catch (e) {
+    print("Exception when calling OperationApi->postAttachmentByOperation: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **fileData** | [**FileData**](FileData.md)|  | 
+ **operation** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Operation**](Operation.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **postCommentByOperation**
 > Operation postCommentByOperation(xKeyclicApp, commentData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
@@ -518,63 +649,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
  **commentData** | [**CommentData**](CommentData.md)|  | 
- **operation** | [**String**](.md)| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Operation**](Operation.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **postImageByOperation**
-> Operation postImageByOperation(xKeyclicApp, imageData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
-
-Create one Image resource.
-
-### Example 
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//keyclic_sdk_api.api.Configuration.apiKey{'Authorization'} = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//keyclic_sdk_api.api.Configuration.apiKeyPrefix{'Authorization'} = "Bearer";
-
-var api_instance = OperationApi();
-var xKeyclicApp = xKeyclicApp_example; // String | 
-var imageData = ImageData(); // ImageData | 
-var operation = ; // String | The identifier of the resource.
-var acceptLanguage = acceptLanguage_example; // String | 
-var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-
-try { 
-    var result = api_instance.postImageByOperation(xKeyclicApp, imageData, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
-    print(result);
-} catch (e) {
-    print("Exception when calling OperationApi->postImageByOperation: $e\n");
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
- **imageData** | [**ImageData**](ImageData.md)|  | 
  **operation** | [**String**](.md)| The identifier of the resource. | 
  **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
  **xDateTime** | **DateTime**|  | [optional] 

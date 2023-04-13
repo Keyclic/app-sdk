@@ -8,7 +8,10 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**category** | [**RuleLinksCategory**](RuleLinksCategory.md) |  | [optional] [default to null]
+**place** | [**RuleLinksPlace**](RuleLinksPlace.md) |  | [optional] [default to null]
 **self** | [**RuleLinksSelf**](RuleLinksSelf.md) |  | [optional] [default to null]
+**service** | [**RuleLinksService**](RuleLinksService.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

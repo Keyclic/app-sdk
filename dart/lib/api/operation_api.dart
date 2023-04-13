@@ -170,13 +170,115 @@ class OperationApi {
         as ActivityPagination;
   }
 
-  /// Remove one Image resource.
+  /// Retrieve all Document resources.
   ///
   ///
-  Future<void> deleteImageByOperationAndImage(
+  Future<DocumentPagination> cgetDocumentsByOperation(
+    String xKeyclicApp,
+    String operation, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+    List<String> order__,
+    DateTime after,
+    DateTime before,
+    String organization,
+    List<String> organizations__,
+    String state,
+    List<String> states__,
+    int page,
+    int limit,
+  }) async {
+    // verify required params are set
+
+    if (xKeyclicApp == null) {
+      throw ApiException(0, "Missing required param: xKeyclicApp");
+    }
+
+    if (operation == null) {
+      throw ApiException(0, "Missing required param: operation");
+    }
+
+    // create path and map variables
+    final String path = "/operations/{operation}/documents"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "operation" + "}", operation.toString());
+
+    // query params
+    final List<QueryParam> queryParams = <QueryParam>[
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
+      if (after != null)
+        ..._convertParametersForCollectionFormat("after", after),
+      if (before != null)
+        ..._convertParametersForCollectionFormat("before", before),
+      if (organization != null)
+        ..._convertParametersForCollectionFormat("organization", organization),
+      if (organizations__ != null)
+        ..._convertParametersForCollectionFormat(
+            "organizations[]", organizations__,
+            collectionFormat: "multi"),
+      if (state != null)
+        ..._convertParametersForCollectionFormat("state", state),
+      if (states__ != null)
+        ..._convertParametersForCollectionFormat("states[]", states__,
+            collectionFormat: "multi"),
+      if (page != null) ..._convertParametersForCollectionFormat("page", page),
+      if (limit != null)
+        ..._convertParametersForCollectionFormat("limit", limit),
+    ];
+
+    // header params
+    final Map<String, String> headerParams = <String, String>{
+      if (acceptLanguage is String)
+        "accept-language": acceptLanguage.toString(),
+      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
+      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
+      if (xKeyclicAppPlatform is String)
+        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
+      if (xKeyclicAppVersion is String)
+        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    };
+
+    final List<String> contentTypes = <String>[
+      "application/json;charset=UTF-8",
+      "application/json",
+    ];
+
+    final List<String> authNames = <String>[
+      "bearer",
+    ];
+
+    final Response response = await apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      contentType: contentTypes[0],
+      authNames: authNames,
+    );
+
+    if (response.statusCode >= 400) {
+      throw ApiException(response.statusCode, response.body);
+    }
+
+    if (response.body == null) {
+      return null;
+    }
+
+    return apiClient.deserialize(response.body, 'DocumentPagination')
+        as DocumentPagination;
+  }
+
+  /// Remove one Attachment resource.
+  ///
+  ///
+  Future<void> deleteAttachmentByOperationAndAttachment(
     String xKeyclicApp,
     String operation,
-    String image, {
+    String attachment, {
     String acceptLanguage,
     DateTime xDateTime,
     String xKeyclicAppPlatform,
@@ -192,15 +294,15 @@ class OperationApi {
       throw ApiException(0, "Missing required param: operation");
     }
 
-    if (image == null) {
-      throw ApiException(0, "Missing required param: image");
+    if (attachment == null) {
+      throw ApiException(0, "Missing required param: attachment");
     }
 
     // create path and map variables
-    final String path = "/operations/{operation}/images/{image}"
+    final String path = "/operations/{operation}/attachments/{attachment}"
         .replaceAll("{format}", "json")
         .replaceAll("{" + "operation" + "}", operation.toString())
-        .replaceAll("{" + "image" + "}", image.toString());
+        .replaceAll("{" + "attachment" + "}", attachment.toString());
 
     // query params
     final List<QueryParam> queryParams = <QueryParam>[];
@@ -608,6 +710,82 @@ class OperationApi {
     return apiClient.deserialize(response.body, 'Operation') as Operation;
   }
 
+  /// Create one Attachment resource.
+  ///
+  ///
+  Future<Operation> postAttachmentByOperation(
+    String xKeyclicApp,
+    FileData fileData,
+    String operation, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // verify required params are set
+
+    if (xKeyclicApp == null) {
+      throw ApiException(0, "Missing required param: xKeyclicApp");
+    }
+
+    if (fileData == null) {
+      throw ApiException(0, "Missing required param: fileData");
+    }
+
+    if (operation == null) {
+      throw ApiException(0, "Missing required param: operation");
+    }
+
+    // create path and map variables
+    final String path = "/operations/{operation}/attachments"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "operation" + "}", operation.toString());
+
+    // query params
+    final List<QueryParam> queryParams = <QueryParam>[];
+
+    // header params
+    final Map<String, String> headerParams = <String, String>{
+      if (acceptLanguage is String)
+        "accept-language": acceptLanguage.toString(),
+      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
+      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
+      if (xKeyclicAppPlatform is String)
+        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
+      if (xKeyclicAppVersion is String)
+        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    };
+
+    final List<String> contentTypes = <String>[
+      "application/json;charset=UTF-8",
+      "application/json",
+    ];
+
+    final List<String> authNames = <String>[
+      "bearer",
+    ];
+
+    final Response response = await apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      body: fileData,
+      headerParams: headerParams,
+      contentType: contentTypes[0],
+      authNames: authNames,
+    );
+
+    if (response.statusCode >= 400) {
+      throw ApiException(response.statusCode, response.body);
+    }
+
+    if (response.body == null) {
+      return null;
+    }
+
+    return apiClient.deserialize(response.body, 'Operation') as Operation;
+  }
+
   /// Create one Comment resource.
   ///
   ///
@@ -668,82 +846,6 @@ class OperationApi {
       method: 'POST',
       queryParams: queryParams,
       body: commentData,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
-    );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
-    }
-
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Operation') as Operation;
-  }
-
-  /// Create one Image resource.
-  ///
-  ///
-  Future<Operation> postImageByOperation(
-    String xKeyclicApp,
-    ImageData imageData,
-    String operation, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (imageData == null) {
-      throw ApiException(0, "Missing required param: imageData");
-    }
-
-    if (operation == null) {
-      throw ApiException(0, "Missing required param: operation");
-    }
-
-    // create path and map variables
-    final String path = "/operations/{operation}/images"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "operation" + "}", operation.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: imageData,
       headerParams: headerParams,
       contentType: contentTypes[0],
       authNames: authNames,

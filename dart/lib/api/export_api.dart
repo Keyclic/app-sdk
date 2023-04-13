@@ -5,6 +5,85 @@ class ExportApi {
 
   final ApiClient apiClient;
 
+  /// Retrieve one Export resource.
+  ///
+  ///
+  Future<ModelExport> getExport(
+    String xKeyclicApp,
+    String export_, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+    DateTime after,
+    DateTime before,
+    List<String> order__,
+  }) async {
+    // verify required params are set
+
+    if (xKeyclicApp == null) {
+      throw ApiException(0, "Missing required param: xKeyclicApp");
+    }
+
+    if (export_ == null) {
+      throw ApiException(0, "Missing required param: export_");
+    }
+
+    // create path and map variables
+    final String path = "/exports/{export}"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "export" + "}", export_.toString());
+
+    // query params
+    final List<QueryParam> queryParams = <QueryParam>[
+      if (after != null)
+        ..._convertParametersForCollectionFormat("after", after),
+      if (before != null)
+        ..._convertParametersForCollectionFormat("before", before),
+      if (order__ != null)
+        ..._convertParametersForCollectionFormat("order[]", order__,
+            collectionFormat: "multi"),
+    ];
+
+    // header params
+    final Map<String, String> headerParams = <String, String>{
+      if (acceptLanguage is String)
+        "accept-language": acceptLanguage.toString(),
+      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
+      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
+      if (xKeyclicAppPlatform is String)
+        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
+      if (xKeyclicAppVersion is String)
+        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    };
+
+    final List<String> contentTypes = <String>[
+      "application/json;charset=UTF-8",
+      "application/json",
+    ];
+
+    final List<String> authNames = <String>[];
+
+    final Response response = await apiClient.invokeAPI(
+      path: path,
+      method: 'GET',
+      queryParams: queryParams,
+      headerParams: headerParams,
+      contentType: contentTypes[0],
+      authNames: authNames,
+    );
+
+    if (response.statusCode >= 400) {
+      throw ApiException(response.statusCode, response.body);
+    }
+
+    if (response.body == null) {
+      return null;
+    }
+
+    return apiClient.deserialize(response.body, 'ModelExport') as ModelExport;
+  }
+
   /// Create one Export resource.
   ///
   ///

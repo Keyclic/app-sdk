@@ -9,6 +9,8 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **createdBy** | [**Person**](Person.md) |  | [optional] [default to null]
+**documentTypes** | [**List&lt;DocumentType&gt;**](DocumentType.md) |  | [optional] [default to []]
+**documents** | [**List&lt;Document&gt;**](Document.md) |  | [optional] [default to []]
 **operator_** | [**Person**](Person.md) |  | [optional] [default to null]
 **workflow** | [**OperationEmbeddedWorkflow**](OperationEmbeddedWorkflow.md) |  | [optional] [default to null]
 

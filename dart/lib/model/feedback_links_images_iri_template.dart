@@ -11,11 +11,11 @@ class FeedbackLinksImagesIriTemplate {
     }
 
     return FeedbackLinksImagesIriTemplate(
-      mapping: FeedbackLinksImageIriTemplateMapping.fromJson(json['mapping']),
+      mapping: FeedbackLinksImagesIriTemplateMapping.fromJson(json['mapping']),
     );
   }
 
-  FeedbackLinksImageIriTemplateMapping mapping;
+  FeedbackLinksImagesIriTemplateMapping mapping;
 
   @override
   bool operator ==(dynamic other) {

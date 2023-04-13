@@ -3,6 +3,14 @@ part of keyclic_sdk_api.api;
 class Permission {
   Permission.fromJson(dynamic data) {
     switch (data) {
+      case "DISPATCHER:READ":
+        value = data;
+        break;
+
+      case "DISPATCHER:WRITE":
+        value = data;
+        break;
+
       case "FILTER:ALL":
         value = data;
         break;
@@ -96,6 +104,10 @@ class Permission {
 
   /// The underlying value of this enum member.
   String value;
+
+  static Permission dISPATCHERREAD_ = Permission._internal("DISPATCHER:READ");
+
+  static Permission dISPATCHERWRITE_ = Permission._internal("DISPATCHER:WRITE");
 
   static Permission fILTERALL_ = Permission._internal("FILTER:ALL");
 

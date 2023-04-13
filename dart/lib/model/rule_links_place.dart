@@ -1,26 +1,26 @@
 part of keyclic_sdk_api.api;
 
-class FeedbackLinksImage {
-  FeedbackLinksImage({
+class RuleLinksPlace {
+  RuleLinksPlace({
     this.href,
     this.iriTemplate,
   });
 
-  factory FeedbackLinksImage.fromJson(Map<String, dynamic> json) {
+  factory RuleLinksPlace.fromJson(Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
-    return FeedbackLinksImage(
+    return RuleLinksPlace(
       href: json['href'],
-      iriTemplate: FeedbackLinksImageIriTemplate.fromJson(json['iriTemplate']),
+      iriTemplate: RuleLinksPlaceIriTemplate.fromJson(json['iriTemplate']),
     );
   }
 
-  /* The URI of the image associated to the given feedback. */
+  /* The URI of the place associated to the given rule. */
   String href;
 
-  FeedbackLinksImageIriTemplate iriTemplate;
+  RuleLinksPlaceIriTemplate iriTemplate;
 
   @override
   bool operator ==(dynamic other) {
@@ -29,7 +29,7 @@ class FeedbackLinksImage {
       return true;
     }
 
-    return other is FeedbackLinksImage &&
+    return other is RuleLinksPlace &&
         runtimeType == other.runtimeType &&
         href == other.href &&
         iriTemplate == other.iriTemplate;
@@ -46,19 +46,18 @@ class FeedbackLinksImage {
     return hashCode;
   }
 
-  static List<FeedbackLinksImage> listFromJson(List<dynamic> json) {
+  static List<RuleLinksPlace> listFromJson(List<dynamic> json) {
     return json
-            ?.map((dynamic value) => FeedbackLinksImage.fromJson(value))
+            ?.map((dynamic value) => RuleLinksPlace.fromJson(value))
             ?.toList() ??
-        <FeedbackLinksImage>[];
+        <RuleLinksPlace>[];
   }
 
-  static Map<String, FeedbackLinksImage> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, FeedbackLinksImage>((String key, dynamic value) {
-          return MapEntry(key, FeedbackLinksImage.fromJson(value));
+  static Map<String, RuleLinksPlace> mapFromJson(Map<String, dynamic> json) {
+    return json?.map<String, RuleLinksPlace>((String key, dynamic value) {
+          return MapEntry(key, RuleLinksPlace.fromJson(value));
         }) ??
-        <String, FeedbackLinksImage>{};
+        <String, RuleLinksPlace>{};
   }
 
   Map<String, dynamic> toJson() {
@@ -70,6 +69,6 @@ class FeedbackLinksImage {
 
   @override
   String toString() {
-    return 'FeedbackLinksImage[href=$href, iriTemplate=$iriTemplate, ]';
+    return 'RuleLinksPlace[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

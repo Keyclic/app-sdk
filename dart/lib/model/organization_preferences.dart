@@ -8,8 +8,8 @@ class OrganizationPreferences {
     this.offline,
     this.public,
     this.reference,
-    this.reviewEnabled,
     this.reverseGeocoding,
+    this.reviewEnabled,
   });
 
   factory OrganizationPreferences.fromJson(Map<String, dynamic> json) {
@@ -25,8 +25,8 @@ class OrganizationPreferences {
       offline: json['offline'],
       public: json['public'],
       reference: PreferencesReference.fromJson(json['reference']),
-      reviewEnabled: json['reviewEnabled'],
       reverseGeocoding: json['reverseGeocoding'],
+      reviewEnabled: json['reviewEnabled'],
     );
   }
 
@@ -42,9 +42,9 @@ class OrganizationPreferences {
 
   PreferencesReference reference;
 
-  bool reviewEnabled;
-
   bool reverseGeocoding;
+
+  bool reviewEnabled;
 
   @override
   bool operator ==(dynamic other) {
@@ -61,8 +61,8 @@ class OrganizationPreferences {
         offline == other.offline &&
         public == other.public &&
         reference == other.reference &&
-        reviewEnabled == other.reviewEnabled &&
-        reverseGeocoding == other.reverseGeocoding;
+        reverseGeocoding == other.reverseGeocoding &&
+        reviewEnabled == other.reviewEnabled;
   }
 
   /// By default hashCode return reference
@@ -76,8 +76,8 @@ class OrganizationPreferences {
     hashCode ^= offline?.hashCode ?? 0;
     hashCode ^= public?.hashCode ?? 0;
     hashCode ^= reference?.hashCode ?? 0;
-    hashCode ^= reviewEnabled?.hashCode ?? 0;
     hashCode ^= reverseGeocoding?.hashCode ?? 0;
+    hashCode ^= reviewEnabled?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -107,13 +107,13 @@ class OrganizationPreferences {
       if (offline != null) 'offline': offline,
       if (public != null) 'public': public,
       if (reference != null) 'reference': reference.toJson(),
-      if (reviewEnabled != null) 'reviewEnabled': reviewEnabled,
       if (reverseGeocoding != null) 'reverseGeocoding': reverseGeocoding,
+      if (reviewEnabled != null) 'reviewEnabled': reviewEnabled,
     };
   }
 
   @override
   String toString() {
-    return 'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, form=$form, offline=$offline, public=$public, reference=$reference, reviewEnabled=$reviewEnabled, reverseGeocoding=$reverseGeocoding, ]';
+    return 'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled, ]';
   }
 }

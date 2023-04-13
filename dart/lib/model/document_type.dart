@@ -3,6 +3,7 @@ part of keyclic_sdk_api.api;
 class DocumentType {
   DocumentType({
     this.id,
+    this.code,
     this.type,
     this.name,
     this.description,
@@ -16,6 +17,7 @@ class DocumentType {
 
     return DocumentType(
       id: json['id'],
+      code: json['code'],
       type: json['type'],
       name: json['name'],
       description: json['description'],
@@ -24,6 +26,8 @@ class DocumentType {
   }
 
   String id;
+
+  String code;
 
   String type;
 
@@ -43,6 +47,7 @@ class DocumentType {
     return other is DocumentType &&
         runtimeType == other.runtimeType &&
         id == other.id &&
+        code == other.code &&
         type == other.type &&
         name == other.name &&
         description == other.description &&
@@ -55,6 +60,7 @@ class DocumentType {
     int hashCode = 0;
 
     hashCode ^= id?.hashCode ?? 0;
+    hashCode ^= code?.hashCode ?? 0;
     hashCode ^= type?.hashCode ?? 0;
     hashCode ^= name?.hashCode ?? 0;
     hashCode ^= description?.hashCode ?? 0;
@@ -80,6 +86,7 @@ class DocumentType {
   Map<String, dynamic> toJson() {
     return {
       if (id != null) 'id': id,
+      if (code != null) 'code': code,
       if (type != null) 'type': type,
       if (name != null) 'name': name,
       if (description != null) 'description': description,
@@ -89,6 +96,6 @@ class DocumentType {
 
   @override
   String toString() {
-    return 'DocumentType[id=$id, type=$type, name=$name, description=$description, signed=$signed, ]';
+    return 'DocumentType[id=$id, code=$code, type=$type, name=$name, description=$description, signed=$signed, ]';
   }
 }

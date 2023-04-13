@@ -392,6 +392,82 @@ class FeedbackApi {
     return apiClient.deserialize(response.body, 'Tracking') as Tracking;
   }
 
+  /// Create one Attachment resource.
+  ///
+  ///
+  Future<Feedback> postAttachmentByFeedback(
+    String xKeyclicApp,
+    FileData fileData,
+    String feedback, {
+    String acceptLanguage,
+    DateTime xDateTime,
+    String xKeyclicAppPlatform,
+    String xKeyclicAppVersion,
+  }) async {
+    // verify required params are set
+
+    if (xKeyclicApp == null) {
+      throw ApiException(0, "Missing required param: xKeyclicApp");
+    }
+
+    if (fileData == null) {
+      throw ApiException(0, "Missing required param: fileData");
+    }
+
+    if (feedback == null) {
+      throw ApiException(0, "Missing required param: feedback");
+    }
+
+    // create path and map variables
+    final String path = "/feedbacks/{feedback}/attachments"
+        .replaceAll("{format}", "json")
+        .replaceAll("{" + "feedback" + "}", feedback.toString());
+
+    // query params
+    final List<QueryParam> queryParams = <QueryParam>[];
+
+    // header params
+    final Map<String, String> headerParams = <String, String>{
+      if (acceptLanguage is String)
+        "accept-language": acceptLanguage.toString(),
+      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
+      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
+      if (xKeyclicAppPlatform is String)
+        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
+      if (xKeyclicAppVersion is String)
+        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
+    };
+
+    final List<String> contentTypes = <String>[
+      "application/json;charset=UTF-8",
+      "application/json",
+    ];
+
+    final List<String> authNames = <String>[
+      "bearer",
+    ];
+
+    final Response response = await apiClient.invokeAPI(
+      path: path,
+      method: 'POST',
+      queryParams: queryParams,
+      body: fileData,
+      headerParams: headerParams,
+      contentType: contentTypes[0],
+      authNames: authNames,
+    );
+
+    if (response.statusCode >= 400) {
+      throw ApiException(response.statusCode, response.body);
+    }
+
+    if (response.body == null) {
+      return null;
+    }
+
+    return apiClient.deserialize(response.body, 'Feedback') as Feedback;
+  }
+
   /// Create one Comment resource.
   ///
   ///
@@ -452,82 +528,6 @@ class FeedbackApi {
       method: 'POST',
       queryParams: queryParams,
       body: commentData,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
-    );
-
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
-    }
-
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Feedback') as Feedback;
-  }
-
-  /// Create one Image resource.
-  ///
-  ///
-  Future<Feedback> postImageByFeedback(
-    String xKeyclicApp,
-    ImageData imageData,
-    String feedback, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-  }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (imageData == null) {
-      throw ApiException(0, "Missing required param: imageData");
-    }
-
-    if (feedback == null) {
-      throw ApiException(0, "Missing required param: feedback");
-    }
-
-    // create path and map variables
-    final String path = "/feedbacks/{feedback}/images"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "feedback" + "}", feedback.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'POST',
-      queryParams: queryParams,
-      body: imageData,
       headerParams: headerParams,
       contentType: contentTypes[0],
       authNames: authNames,

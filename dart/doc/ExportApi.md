@@ -9,8 +9,66 @@ All URIs are relative to *https://api.keyclic.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getExport**](ExportApi.md#getExport) | **GET** /exports/{export} | Retrieve one Export resource.
 [**postExport**](ExportApi.md#postExport) | **POST** /exports | Create one Export resource.
 
+
+# **getExport**
+> ModelExport getExport(xKeyclicApp, export_, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[])
+
+Retrieve one Export resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+
+var api_instance = ExportApi();
+var xKeyclicApp = xKeyclicApp_example; // String | 
+var export_ = ; // String | The identifier of the resource.
+var acceptLanguage = acceptLanguage_example; // String | 
+var xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+var xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+var xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+var after = 2013-10-20T19:20:30+01:00; // DateTime | 
+var before = 2013-10-20T19:20:30+01:00; // DateTime | 
+var order[] = []; // List<String> | 
+
+try { 
+    var result = api_instance.getExport(xKeyclicApp, export_, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, order[]);
+    print(result);
+} catch (e) {
+    print("Exception when calling ExportApi->getExport: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to com.keyclic.app]
+ **export_** | [**String**](.md)| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to fr-FR]
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **order[]** | [**List&lt;String&gt;**](String.md)|  | [optional] 
+
+### Return type
+
+[**ModelExport**](ModelExport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postExport**
 > ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, assignedTo, assignedTos[], batch, batches[], category, categories[], createdBy, createdBies[], after, before, deep, delegatedTo, delegatedTos[], hasDocuments, isNull, leaf, level, managedBy, managedBies[], member, members[], operationStateAll, operationState, operationStates[], order[], organization, organizations[], phase, phases[], place, places[], priority, priorities[], query, rating[], scheduledAtAfter, scheduledAtBefore, state, states[], visibility[])

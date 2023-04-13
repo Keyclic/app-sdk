@@ -4,7 +4,6 @@ class OperationLinks {
   OperationLinks({
     this.assignments,
     this.feedback,
-    this.image,
     this.images,
     this.operator_,
     this.organization,
@@ -21,7 +20,6 @@ class OperationLinks {
     return OperationLinks(
       assignments: OperationLinksAssignments.fromJson(json['assignments']),
       feedback: OperationLinksFeedback.fromJson(json['feedback']),
-      image: OperationLinksImage.fromJson(json['image']),
       images: OperationLinksImages.listFromJson(json['images']),
       operator_: OperationLinksOperator.fromJson(json['operator']),
       organization: OperationLinksOrganization.fromJson(json['organization']),
@@ -34,8 +32,6 @@ class OperationLinks {
   OperationLinksAssignments assignments;
 
   OperationLinksFeedback feedback;
-
-  OperationLinksImage image;
 
   List<OperationLinksImages> images;
 
@@ -60,7 +56,6 @@ class OperationLinks {
         runtimeType == other.runtimeType &&
         assignments == other.assignments &&
         feedback == other.feedback &&
-        image == other.image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
         operator_ == other.operator_ &&
         organization == other.organization &&
@@ -82,7 +77,6 @@ class OperationLinks {
 
     hashCode ^= assignments?.hashCode ?? 0;
     hashCode ^= feedback?.hashCode ?? 0;
-    hashCode ^= image?.hashCode ?? 0;
     hashCode ^= operator_?.hashCode ?? 0;
     hashCode ^= organization?.hashCode ?? 0;
     hashCode ^= report?.hashCode ?? 0;
@@ -110,7 +104,6 @@ class OperationLinks {
     return {
       if (assignments != null) 'assignments': assignments.toJson(),
       if (feedback != null) 'feedback': feedback.toJson(),
-      if (image != null) 'image': image.toJson(),
       if (images != null) 'images': images,
       if (operator_ != null) 'operator': operator_.toJson(),
       if (organization != null) 'organization': organization.toJson(),
@@ -122,6 +115,6 @@ class OperationLinks {
 
   @override
   String toString() {
-    return 'OperationLinks[assignments=$assignments, feedback=$feedback, image=$image, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking, ]';
+    return 'OperationLinks[assignments=$assignments, feedback=$feedback, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking, ]';
   }
 }

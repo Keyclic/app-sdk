@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **businessActivity** | [**FeedbackLinksBusinessActivity**](FeedbackLinksBusinessActivity.md) |  | [optional] [default to null]
 **category** | [**FeedbackLinksCategory**](FeedbackLinksCategory.md) |  | [optional] [default to null]
-**image** | [**FeedbackLinksImage**](FeedbackLinksImage.md) |  | [optional] [default to null]
 **images** | [**List&lt;FeedbackLinksImages&gt;**](FeedbackLinksImages.md) |  | [optional] [default to []]
 **plans** | [**List&lt;FeedbackLinksPlans&gt;**](FeedbackLinksPlans.md) |  | [optional] [default to []]
 **report** | [**FeedbackLinksReport**](FeedbackLinksReport.md) |  | [optional] [default to null]

@@ -1,18 +1,18 @@
 part of keyclic_sdk_api.api;
 
-class FeedbackLinksImageIriTemplateMapping {
-  FeedbackLinksImageIriTemplateMapping({
+class FeedbackLinksImagesIriTemplateMapping {
+  FeedbackLinksImagesIriTemplateMapping({
     this.feedback,
     this.image,
   });
 
-  factory FeedbackLinksImageIriTemplateMapping.fromJson(
+  factory FeedbackLinksImagesIriTemplateMapping.fromJson(
       Map<String, dynamic> json) {
     if (json == null) {
       return null;
     }
 
-    return FeedbackLinksImageIriTemplateMapping(
+    return FeedbackLinksImagesIriTemplateMapping(
       feedback: json['feedback'],
       image: json['image'],
     );
@@ -29,7 +29,7 @@ class FeedbackLinksImageIriTemplateMapping {
       return true;
     }
 
-    return other is FeedbackLinksImageIriTemplateMapping &&
+    return other is FeedbackLinksImagesIriTemplateMapping &&
         runtimeType == other.runtimeType &&
         feedback == other.feedback &&
         image == other.image;
@@ -46,23 +46,23 @@ class FeedbackLinksImageIriTemplateMapping {
     return hashCode;
   }
 
-  static List<FeedbackLinksImageIriTemplateMapping> listFromJson(
+  static List<FeedbackLinksImagesIriTemplateMapping> listFromJson(
       List<dynamic> json) {
     return json
             ?.map((dynamic value) =>
-                FeedbackLinksImageIriTemplateMapping.fromJson(value))
+                FeedbackLinksImagesIriTemplateMapping.fromJson(value))
             ?.toList() ??
-        <FeedbackLinksImageIriTemplateMapping>[];
+        <FeedbackLinksImagesIriTemplateMapping>[];
   }
 
-  static Map<String, FeedbackLinksImageIriTemplateMapping> mapFromJson(
+  static Map<String, FeedbackLinksImagesIriTemplateMapping> mapFromJson(
       Map<String, dynamic> json) {
-    return json?.map<String, FeedbackLinksImageIriTemplateMapping>(
+    return json?.map<String, FeedbackLinksImagesIriTemplateMapping>(
             (String key, dynamic value) {
           return MapEntry(
-              key, FeedbackLinksImageIriTemplateMapping.fromJson(value));
+              key, FeedbackLinksImagesIriTemplateMapping.fromJson(value));
         }) ??
-        <String, FeedbackLinksImageIriTemplateMapping>{};
+        <String, FeedbackLinksImagesIriTemplateMapping>{};
   }
 
   Map<String, dynamic> toJson() {
@@ -74,6 +74,6 @@ class FeedbackLinksImageIriTemplateMapping {
 
   @override
   String toString() {
-    return 'FeedbackLinksImageIriTemplateMapping[feedback=$feedback, image=$image, ]';
+    return 'FeedbackLinksImagesIriTemplateMapping[feedback=$feedback, image=$image, ]';
   }
 }

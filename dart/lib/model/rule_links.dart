@@ -2,7 +2,10 @@ part of keyclic_sdk_api.api;
 
 class RuleLinks {
   RuleLinks({
+    this.category,
+    this.place,
     this.self,
+    this.service,
   });
 
   factory RuleLinks.fromJson(Map<String, dynamic> json) {
@@ -11,11 +14,20 @@ class RuleLinks {
     }
 
     return RuleLinks(
+      category: RuleLinksCategory.fromJson(json['category']),
+      place: RuleLinksPlace.fromJson(json['place']),
       self: RuleLinksSelf.fromJson(json['self']),
+      service: RuleLinksService.fromJson(json['service']),
     );
   }
 
+  RuleLinksCategory category;
+
+  RuleLinksPlace place;
+
   RuleLinksSelf self;
+
+  RuleLinksService service;
 
   @override
   bool operator ==(dynamic other) {
@@ -26,7 +38,10 @@ class RuleLinks {
 
     return other is RuleLinks &&
         runtimeType == other.runtimeType &&
-        self == other.self;
+        category == other.category &&
+        place == other.place &&
+        self == other.self &&
+        service == other.service;
   }
 
   /// By default hashCode return reference
@@ -34,7 +49,10 @@ class RuleLinks {
   int get hashCode {
     int hashCode = 0;
 
+    hashCode ^= category?.hashCode ?? 0;
+    hashCode ^= place?.hashCode ?? 0;
     hashCode ^= self?.hashCode ?? 0;
+    hashCode ^= service?.hashCode ?? 0;
 
     return hashCode;
   }
@@ -53,12 +71,15 @@ class RuleLinks {
 
   Map<String, dynamic> toJson() {
     return {
+      if (category != null) 'category': category.toJson(),
+      if (place != null) 'place': place.toJson(),
       if (self != null) 'self': self.toJson(),
+      if (service != null) 'service': service.toJson(),
     };
   }
 
   @override
   String toString() {
-    return 'RuleLinks[self=$self, ]';
+    return 'RuleLinks[category=$category, place=$place, self=$self, service=$service, ]';
   }
 }

@@ -52,10 +52,10 @@ cp ../LICENSE .
 
 rm .travis.yml
 
-/usr/bin/dart pub get
-/usr/bin/dart --version
-/usr/bin/dart format --fix lib
-/usr/bin/dart format --fix test
+dart pub get
+dart --version
+dart format --fix lib
+dart format --fix test
 
 # When the script exits call cleanup function
 trap cleanup EXIT

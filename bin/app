@@ -46,8 +46,7 @@ pana() {
 }
 
 generate() {
-  check pub
-  check dartfmt
+  check dart
 
   ./bin/generate "$@"
 }

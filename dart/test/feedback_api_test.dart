@@ -35,15 +35,15 @@ void main() {
     //Future<Tracking> getTrackingByFeedback(String xKeyclicApp, String feedback, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getTrackingByFeedback', () async {});
 
+    // Create one Attachment resource.
+    //
+    //Future<Feedback> postAttachmentByFeedback(String xKeyclicApp, String feedback, FileData fileData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    test('test postAttachmentByFeedback', () async {});
+
     // Create one Comment resource.
     //
     //Future<Feedback> postCommentByFeedback(String xKeyclicApp, String feedback, CommentData commentData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test postCommentByFeedback', () async {});
-
-    // Create one Image resource.
-    //
-    //Future<Feedback> postImageByFeedback(String xKeyclicApp, String feedback, ImageData imageData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test postImageByFeedback', () async {});
 
     // Create one Issue resource.
     //

@@ -52,7 +52,7 @@ void main() {
 
     // Retrieve all Place resources.
     //
-    //Future<PlacePagination> cgetPlacesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoElevation, List<String> geoHashLeftSquareBracketRightSquareBracket, String geoPoint, String geoCoordinates, String leaf, String level, List<String> organizationsLeftSquareBracketRightSquareBracket, String parent, List<String> parentsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
+    //Future<PlacePagination> cgetPlacesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String branchCode, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoElevation, List<String> geoHashLeftSquareBracketRightSquareBracket, String geoPoint, String geoCoordinates, String leaf, String level, List<String> organizationsLeftSquareBracketRightSquareBracket, String parent, List<String> parentsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
     test('test cgetPlacesByOrganization', () async {});
 
     // Retrieve all Publication resources.

@@ -217,11 +217,9 @@ doc/FeedbackLinksBusinessActivity.md
 doc/FeedbackLinksBusinessActivityIriTemplate.md
 doc/FeedbackLinksCategory.md
 doc/FeedbackLinksCategoryIriTemplate.md
-doc/FeedbackLinksImage.md
-doc/FeedbackLinksImageIriTemplate.md
-doc/FeedbackLinksImageIriTemplateMapping.md
 doc/FeedbackLinksImages.md
 doc/FeedbackLinksImagesIriTemplate.md
+doc/FeedbackLinksImagesIriTemplateMapping.md
 doc/FeedbackLinksPlans.md
 doc/FeedbackLinksPlansIriTemplate.md
 doc/FeedbackLinksPlansIriTemplateMapping.md
@@ -239,7 +237,6 @@ doc/FeedbackWorkflowTransitionData.md
 doc/FileData.md
 doc/GeoShape.md
 doc/GeoShapeCentroid.md
-doc/ImageData.md
 doc/InternalService.md
 doc/InternalServiceApi.md
 doc/InternalServiceCollection.md
@@ -350,9 +347,6 @@ doc/OperationLinksAssignmentsIriTemplate.md
 doc/OperationLinksAssignmentsIriTemplateMapping.md
 doc/OperationLinksFeedback.md
 doc/OperationLinksFeedbackIriTemplate.md
-doc/OperationLinksImage.md
-doc/OperationLinksImageIriTemplate.md
-doc/OperationLinksImageIriTemplateMapping.md
 doc/OperationLinksImages.md
 doc/OperationLinksImagesIriTemplate.md
 doc/OperationLinksImagesIriTemplateMapping.md
@@ -879,11 +873,9 @@ lib/model/feedback_links_business_activity.dart
 lib/model/feedback_links_business_activity_iri_template.dart
 lib/model/feedback_links_category.dart
 lib/model/feedback_links_category_iri_template.dart
-lib/model/feedback_links_image.dart
-lib/model/feedback_links_image_iri_template.dart
-lib/model/feedback_links_image_iri_template_mapping.dart
 lib/model/feedback_links_images.dart
 lib/model/feedback_links_images_iri_template.dart
+lib/model/feedback_links_images_iri_template_mapping.dart
 lib/model/feedback_links_plans.dart
 lib/model/feedback_links_plans_iri_template.dart
 lib/model/feedback_links_plans_iri_template_mapping.dart
@@ -901,7 +893,6 @@ lib/model/feedback_workflow_transition_data.dart
 lib/model/file_data.dart
 lib/model/geo_shape.dart
 lib/model/geo_shape_centroid.dart
-lib/model/image_data.dart
 lib/model/internal_service.dart
 lib/model/internal_service_collection.dart
 lib/model/internal_service_contact_point.dart
@@ -1004,9 +995,6 @@ lib/model/operation_links_assignments_iri_template.dart
 lib/model/operation_links_assignments_iri_template_mapping.dart
 lib/model/operation_links_feedback.dart
 lib/model/operation_links_feedback_iri_template.dart
-lib/model/operation_links_image.dart
-lib/model/operation_links_image_iri_template.dart
-lib/model/operation_links_image_iri_template_mapping.dart
 lib/model/operation_links_images.dart
 lib/model/operation_links_images_iri_template.dart
 lib/model/operation_links_images_iri_template_mapping.dart
@@ -1476,9 +1464,7 @@ test/feedback_links_business_activity_iri_template_test.dart
 test/feedback_links_business_activity_test.dart
 test/feedback_links_category_iri_template_test.dart
 test/feedback_links_category_test.dart
-test/feedback_links_image_iri_template_mapping_test.dart
-test/feedback_links_image_iri_template_test.dart
-test/feedback_links_image_test.dart
+test/feedback_links_images_iri_template_mapping_test.dart
 test/feedback_links_images_iri_template_test.dart
 test/feedback_links_images_test.dart
 test/feedback_links_plans_iri_template_mapping_test.dart
@@ -1500,7 +1486,6 @@ test/feedback_workflow_transition_data_test.dart
 test/file_data_test.dart
 test/geo_shape_centroid_test.dart
 test/geo_shape_test.dart
-test/image_data_test.dart
 test/internal_service_api_test.dart
 test/internal_service_collection_test.dart
 test/internal_service_contact_point_test.dart
@@ -1609,9 +1594,6 @@ test/operation_links_assignments_iri_template_test.dart
 test/operation_links_assignments_test.dart
 test/operation_links_feedback_iri_template_test.dart
 test/operation_links_feedback_test.dart
-test/operation_links_image_iri_template_mapping_test.dart
-test/operation_links_image_iri_template_test.dart
-test/operation_links_image_test.dart
 test/operation_links_images_iri_template_mapping_test.dart
 test/operation_links_images_iri_template_test.dart
 test/operation_links_images_test.dart

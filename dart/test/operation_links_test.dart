@@ -16,9 +16,6 @@ void main() {
     // OperationLinksFeedback feedback
     test('to test the property `feedback`', () async {});
 
-    // OperationLinksImage image
-    test('to test the property `image`', () async {});
-
     // List<OperationLinksImages> images (default value: const [])
     test('to test the property `images`', () async {});
 

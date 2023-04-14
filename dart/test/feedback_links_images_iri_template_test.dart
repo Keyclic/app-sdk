@@ -10,7 +10,7 @@ void main() {
   // final instance = FeedbackLinksImagesIriTemplate();
 
   group('test FeedbackLinksImagesIriTemplate', () {
-    // FeedbackLinksImageIriTemplateMapping mapping
+    // FeedbackLinksImagesIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });
 }

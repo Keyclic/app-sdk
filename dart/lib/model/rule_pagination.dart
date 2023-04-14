@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class RulePagination extends Pagination {
+part of keyclic_sdk_api;
+
+class RulePagination implements Pagination, RulePaginationAllOf {
+  /// Returns a new [RulePagination] instance.
   RulePagination({
     this.limit,
     this.page,
@@ -10,92 +15,117 @@ class RulePagination extends Pagination {
     this.embedded,
   });
 
-  factory RulePagination.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [RulePagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static RulePagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return RulePagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: RuleCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: RuleCollection.fromJson(json[r'_embedded']),
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  RuleCollection embedded;
+  RuleCollection? embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is RulePagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
+  static List<RulePagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RulePagination>[];
+    }
 
-    return hashCode;
+    return json.fold(<RulePagination>[],
+        (List<RulePagination> previousValue, element) {
+      final RulePagination? object = RulePagination.fromJson(element);
+      if (object is RulePagination) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<RulePagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => RulePagination.fromJson(value))
-            ?.toList() ??
-        <RulePagination>[];
+  static Map<String, RulePagination> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RulePagination>{};
+    }
+
+    return json.entries.fold(<String, RulePagination>{},
+        (Map<String, RulePagination> previousValue, element) {
+      final RulePagination? object = RulePagination.fromJson(element.value);
+      if (object is RulePagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, RulePagination> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, RulePagination>((String key, dynamic value) {
-          return MapEntry(key, RulePagination.fromJson(value));
-        }) ??
-        <String, RulePagination>{};
+  // maps a json object with a list of RulePagination-objects as value to a dart map
+  static Map<String, List<RulePagination>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<RulePagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<RulePagination>>(
+          key, RulePagination.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'RulePagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
     };
-  }
-
-  @override
-  String toString() {
-    return 'RulePagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
   }
 }

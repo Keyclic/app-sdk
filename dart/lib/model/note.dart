@@ -1,118 +1,144 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Note {
+  /// Returns a new [Note] instance.
   Note({
     this.links,
     this.createdAt,
     this.id,
-    this.text,
+    this.text = const [],
     this.type,
     this.updatedAt,
   });
 
-  factory Note.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Note] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Note? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Note(
-      links: NoteLinks.fromJson(json['_links']),
+      links: NoteLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      text: json['text'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['text'])
+      id: json[r'id'],
+      text: json[r'text'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'text'])
           : [],
-      type: json['type'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  NoteLinks links;
+  NoteLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  List<Map<String, dynamic>> text;
+  List<Map<String, dynamic>>? text;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Note &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
         DeepCollectionEquality.unordered().equals(text, other.text) &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (text == null ? 0 : text.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    if (text is List && text.isNotEmpty) {
-      hashCode ^= text
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<Note> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Note>[];
     }
 
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+    return json.fold(<Note>[], (List<Note> previousValue, element) {
+      final Note? object = Note.fromJson(element);
+      if (object is Note) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<Note> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Note.fromJson(value))?.toList() ??
-        <Note>[];
+  static Map<String, Note> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Note>{};
+    }
+
+    return json.entries.fold(<String, Note>{},
+        (Map<String, Note> previousValue, element) {
+      final Note? object = Note.fromJson(element.value);
+      if (object is Note) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Note> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Note>((String key, dynamic value) {
-          return MapEntry(key, Note.fromJson(value));
-        }) ??
-        <String, Note>{};
-  }
+  // maps a json object with a list of Note-objects as value to a dart map
+  static Map<String, List<Note>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Note>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (text != null) 'text': text,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<Note>>(key, Note.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'Note[links=$links, createdAt=$createdAt, id=$id, text=$text, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'Note[links=$links, createdAt=$createdAt, id=$id, text=$text, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (text != null) r'text': text,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+    };
   }
 }

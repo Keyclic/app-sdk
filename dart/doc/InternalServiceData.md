@@ -8,12 +8,12 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | [**InternalServiceDataAddress**](InternalServiceDataAddress.md) |  | [optional] [default to null]
-**contactPoint** | [**InternalServiceDataContactPoint**](InternalServiceDataContactPoint.md) |  | [optional] [default to null]
-**description** | **String** |  | [optional] [default to null]
-**manager** | **String** |  | [optional] [default to null]
-**name** | **String** |  | [default to null]
-**organization** | **String** |  | [default to null]
+**address** | [**InternalServiceDataAddress**](InternalServiceDataAddress.md) |  | [optional] 
+**contactPoint** | [**InternalServiceDataContactPoint**](InternalServiceDataContactPoint.md) |  | [optional] 
+**description** | **String** |  | [optional] 
+**manager** | **String** |  | [optional] 
+**name** | **String** |  | 
+**organization** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

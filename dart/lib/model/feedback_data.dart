@@ -1,137 +1,240 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class FeedbackDataVisibilityEnum {
-  static const String pRIVATE_ = "VISIBILITY_PRIVATE";
-  static const String pUBLIC_ = "VISIBILITY_PUBLIC";
-  static const String rESTRICTED_ = "VISIBILITY_RESTRICTED";
-  static const String sHARED_ = "VISIBILITY_SHARED";
-}
+part of keyclic_sdk_api;
 
 class FeedbackData {
+  /// Returns a new [FeedbackData] instance.
   FeedbackData({
     this.batch,
     this.businessActivity,
     this.category,
     this.description,
-    this.geo,
+    required this.geo,
     this.metadata,
-    this.place,
+    required this.place,
     this.priority,
     this.reporter,
-    this.visibility,
+    required this.visibility,
   });
 
-  factory FeedbackData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [FeedbackData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FeedbackData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackData(
-      batch: json['batch'],
-      businessActivity: json['businessActivity'],
-      category: json['category'],
-      description: json['description'],
-      geo: FeedbackDataGeo.fromJson(json['geo']),
-      metadata: json['metadata'],
-      place: json['place'],
-      priority: json['priority'],
-      reporter: json['reporter'],
-      visibility: json['visibility'],
+      batch: json[r'batch'],
+      businessActivity: json[r'businessActivity'],
+      category: json[r'category'],
+      description: json[r'description'],
+      geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, dynamic>.from(json[r'metadata']),
+      place: json[r'place'],
+      priority: json[r'priority'],
+      reporter: json[r'reporter'],
+      visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility'])!,
     );
   }
 
-  String batch;
+  String? batch;
 
-  String businessActivity;
+  String? businessActivity;
 
-  String category;
+  String? category;
 
-  String description;
+  String? description;
 
   FeedbackDataGeo geo;
 
-  Map<String, dynamic> metadata;
+  Map<String, dynamic>? metadata;
 
   String place;
 
-  String priority;
+  String? priority;
 
-  String reporter;
+  String? reporter;
 
-  /// use FeedbackDataVisibilityEnum
-  String visibility;
+  FeedbackDataVisibilityEnum visibility;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackData &&
-        runtimeType == other.runtimeType &&
-        batch == other.batch &&
-        businessActivity == other.businessActivity &&
-        category == other.category &&
-        description == other.description &&
-        geo == other.geo &&
-        metadata == other.metadata &&
-        place == other.place &&
-        priority == other.priority &&
-        reporter == other.reporter &&
-        visibility == other.visibility;
+        other.batch == batch &&
+        other.businessActivity == businessActivity &&
+        other.category == category &&
+        other.description == description &&
+        other.geo == geo &&
+        other.metadata == metadata &&
+        other.place == place &&
+        other.priority == priority &&
+        other.reporter == reporter &&
+        other.visibility == visibility;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (batch == null ? 0 : batch.hashCode) +
+      (businessActivity == null ? 0 : businessActivity.hashCode) +
+      (category == null ? 0 : category.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      geo.hashCode +
+      (metadata == null ? 0 : metadata.hashCode) +
+      place.hashCode +
+      (priority == null ? 0 : priority.hashCode) +
+      (reporter == null ? 0 : reporter.hashCode) +
+      visibility.hashCode;
 
-    hashCode ^= batch?.hashCode ?? 0;
-    hashCode ^= businessActivity?.hashCode ?? 0;
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= geo?.hashCode ?? 0;
-    hashCode ^= metadata?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-    hashCode ^= priority?.hashCode ?? 0;
-    hashCode ^= reporter?.hashCode ?? 0;
-    hashCode ^= visibility?.hashCode ?? 0;
+  static List<FeedbackData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackData>[];
+    }
 
-    return hashCode;
+    return json.fold(<FeedbackData>[],
+        (List<FeedbackData> previousValue, element) {
+      final FeedbackData? object = FeedbackData.fromJson(element);
+      if (object is FeedbackData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<FeedbackData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackData.fromJson(value))
-            ?.toList() ??
-        <FeedbackData>[];
+  static Map<String, FeedbackData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackData>{};
+    }
+
+    return json.entries.fold(<String, FeedbackData>{},
+        (Map<String, FeedbackData> previousValue, element) {
+      final FeedbackData? object = FeedbackData.fromJson(element.value);
+      if (object is FeedbackData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, FeedbackData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, FeedbackData>((String key, dynamic value) {
-          return MapEntry(key, FeedbackData.fromJson(value));
-        }) ??
-        <String, FeedbackData>{};
+  // maps a json object with a list of FeedbackData-objects as value to a dart map
+  static Map<String, List<FeedbackData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackData>>(
+          key, FeedbackData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (batch != null) 'batch': batch,
-      if (businessActivity != null) 'businessActivity': businessActivity,
-      if (category != null) 'category': category,
-      if (description != null) 'description': description,
-      if (geo != null) 'geo': geo.toJson(),
-      if (metadata != null) 'metadata': metadata,
-      if (place != null) 'place': place,
-      if (priority != null) 'priority': priority,
-      if (reporter != null) 'reporter': reporter,
-      if (visibility != null) 'visibility': visibility,
+    return <String, dynamic>{
+      if (batch != null) r'batch': batch,
+      if (businessActivity != null) r'businessActivity': businessActivity,
+      if (category != null) r'category': category,
+      if (description != null) r'description': description,
+      r'geo': geo,
+      if (metadata != null) r'metadata': metadata,
+      r'place': place,
+      if (priority != null) r'priority': priority,
+      if (reporter != null) r'reporter': reporter,
+      r'visibility': visibility,
     };
   }
+}
+
+class FeedbackDataVisibilityEnum {
+  /// Instantiate a new enum with the provided [value].
+  const FeedbackDataVisibilityEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
 
   @override
-  String toString() {
-    return 'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility, ]';
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const PRIVATE = FeedbackDataVisibilityEnum._(r'VISIBILITY_PRIVATE');
+  static const PUBLIC = FeedbackDataVisibilityEnum._(r'VISIBILITY_PUBLIC');
+  static const RESTRICTED =
+      FeedbackDataVisibilityEnum._(r'VISIBILITY_RESTRICTED');
+  static const SHARED = FeedbackDataVisibilityEnum._(r'VISIBILITY_SHARED');
+
+  /// List of all possible values in this [enum][FeedbackDataVisibilityEnum].
+  static const values = <FeedbackDataVisibilityEnum>[
+    PRIVATE,
+    PUBLIC,
+    RESTRICTED,
+    SHARED,
+  ];
+
+  static FeedbackDataVisibilityEnum? fromJson(dynamic value) =>
+      FeedbackDataVisibilityEnumTypeTransformer().decode(value);
+
+  static List<FeedbackDataVisibilityEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return FeedbackDataVisibilityEnum.fromJson(value);
+        })
+        .whereType<FeedbackDataVisibilityEnum>()
+        .toList();
   }
+}
+
+/// Transformation class that can [encode] an instance of [FeedbackDataVisibilityEnum] to String,
+/// and [decode] dynamic data back to [FeedbackDataVisibilityEnum].
+class FeedbackDataVisibilityEnumTypeTransformer {
+  const FeedbackDataVisibilityEnumTypeTransformer._();
+
+  factory FeedbackDataVisibilityEnumTypeTransformer() =>
+      _instance ??= FeedbackDataVisibilityEnumTypeTransformer._();
+
+  String encode(FeedbackDataVisibilityEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a FeedbackDataVisibilityEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  FeedbackDataVisibilityEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'VISIBILITY_PRIVATE':
+        return FeedbackDataVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC':
+        return FeedbackDataVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_RESTRICTED':
+        return FeedbackDataVisibilityEnum.RESTRICTED;
+      case r'VISIBILITY_SHARED':
+        return FeedbackDataVisibilityEnum.SHARED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [FeedbackDataVisibilityEnumTypeTransformer] instance.
+  static FeedbackDataVisibilityEnumTypeTransformer? _instance;
 }

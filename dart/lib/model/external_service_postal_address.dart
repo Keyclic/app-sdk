@@ -1,83 +1,113 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ExternalServicePostalAddress {
+  /// Returns a new [ExternalServicePostalAddress] instance.
   ExternalServicePostalAddress({
     this.locality,
     this.postalCode,
     this.streetAddress,
   });
 
-  factory ExternalServicePostalAddress.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExternalServicePostalAddress] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExternalServicePostalAddress? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServicePostalAddress(
-      locality: json['locality'],
-      postalCode: json['postalCode'],
-      streetAddress: json['streetAddress'],
+      locality: json[r'locality'],
+      postalCode: json[r'postalCode'],
+      streetAddress: json[r'streetAddress'],
     );
   }
 
-  String locality;
+  String? locality;
 
-  String postalCode;
+  String? postalCode;
 
-  String streetAddress;
+  String? streetAddress;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServicePostalAddress &&
-        runtimeType == other.runtimeType &&
-        locality == other.locality &&
-        postalCode == other.postalCode &&
-        streetAddress == other.streetAddress;
+        other.locality == locality &&
+        other.postalCode == postalCode &&
+        other.streetAddress == streetAddress;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (locality == null ? 0 : locality.hashCode) +
+      (postalCode == null ? 0 : postalCode.hashCode) +
+      (streetAddress == null ? 0 : streetAddress.hashCode);
 
-    hashCode ^= locality?.hashCode ?? 0;
-    hashCode ^= postalCode?.hashCode ?? 0;
-    hashCode ^= streetAddress?.hashCode ?? 0;
+  static List<ExternalServicePostalAddress> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServicePostalAddress>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ExternalServicePostalAddress>[],
+        (List<ExternalServicePostalAddress> previousValue, element) {
+      final ExternalServicePostalAddress? object =
+          ExternalServicePostalAddress.fromJson(element);
+      if (object is ExternalServicePostalAddress) {
+        previousValue.add(object);
+      }
 
-  static List<ExternalServicePostalAddress> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => ExternalServicePostalAddress.fromJson(value))
-            ?.toList() ??
-        <ExternalServicePostalAddress>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServicePostalAddress> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ExternalServicePostalAddress>(
-            (String key, dynamic value) {
-          return MapEntry(key, ExternalServicePostalAddress.fromJson(value));
-        }) ??
-        <String, ExternalServicePostalAddress>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServicePostalAddress>{};
+    }
+
+    return json.entries.fold(<String, ExternalServicePostalAddress>{},
+        (Map<String, ExternalServicePostalAddress> previousValue, element) {
+      final ExternalServicePostalAddress? object =
+          ExternalServicePostalAddress.fromJson(element.value);
+      if (object is ExternalServicePostalAddress) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (locality != null) 'locality': locality,
-      if (postalCode != null) 'postalCode': postalCode,
-      if (streetAddress != null) 'streetAddress': streetAddress,
-    };
+  // maps a json object with a list of ExternalServicePostalAddress-objects as value to a dart map
+  static Map<String, List<ExternalServicePostalAddress>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServicePostalAddress>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServicePostalAddress>>(
+          key, ExternalServicePostalAddress.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ExternalServicePostalAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress, ]';
+  String toString() =>
+      'ExternalServicePostalAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (locality != null) r'locality': locality,
+      if (postalCode != null) r'postalCode': postalCode,
+      if (streetAddress != null) r'streetAddress': streetAddress,
+    };
   }
 }

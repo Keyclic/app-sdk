@@ -1,85 +1,182 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class ExportDataContentTypeEnum {
-  static const String pdf_ = "application/pdf";
-  static const String vndOpenxmlformatsOfficedocumentSpreadsheetmlSheet_ =
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-}
+part of keyclic_sdk_api;
 
 class ExportData {
+  /// Returns a new [ExportData] instance.
   ExportData({
     this.contentType,
     this.organization,
     this.groupBy,
   });
 
-  factory ExportData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExportData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExportData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExportData(
-      contentType: json['contentType'],
-      organization: json['organization'],
-      groupBy: json['groupBy'],
+      contentType: ExportDataContentTypeEnum.fromJson(json[r'contentType']),
+      organization: json[r'organization'],
+      groupBy: json[r'groupBy'],
     );
   }
 
-  /// use ExportDataContentTypeEnum
-  String contentType;
+  ExportDataContentTypeEnum? contentType;
 
-  String organization;
+  String? organization;
 
-  String groupBy;
+  String? groupBy;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExportData &&
-        runtimeType == other.runtimeType &&
-        contentType == other.contentType &&
-        organization == other.organization &&
-        groupBy == other.groupBy;
+        other.contentType == contentType &&
+        other.organization == organization &&
+        other.groupBy == groupBy;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (contentType == null ? 0 : contentType.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (groupBy == null ? 0 : groupBy.hashCode);
 
-    hashCode ^= contentType?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= groupBy?.hashCode ?? 0;
+  static List<ExportData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExportData>[];
+    }
 
-    return hashCode;
+    return json.fold(<ExportData>[], (List<ExportData> previousValue, element) {
+      final ExportData? object = ExportData.fromJson(element);
+      if (object is ExportData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ExportData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => ExportData.fromJson(value))?.toList() ??
-        <ExportData>[];
+  static Map<String, ExportData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExportData>{};
+    }
+
+    return json.entries.fold(<String, ExportData>{},
+        (Map<String, ExportData> previousValue, element) {
+      final ExportData? object = ExportData.fromJson(element.value);
+      if (object is ExportData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ExportData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ExportData>((String key, dynamic value) {
-          return MapEntry(key, ExportData.fromJson(value));
-        }) ??
-        <String, ExportData>{};
+  // maps a json object with a list of ExportData-objects as value to a dart map
+  static Map<String, List<ExportData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExportData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExportData>>(
+          key, ExportData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'ExportData[contentType=$contentType, organization=$organization, groupBy=$groupBy]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (contentType != null) 'contentType': contentType,
-      if (organization != null) 'organization': organization,
-      if (groupBy != null) 'groupBy': groupBy,
+    return <String, dynamic>{
+      if (contentType != null) r'contentType': contentType,
+      if (organization != null) r'organization': organization,
+      if (groupBy != null) r'groupBy': groupBy,
     };
   }
+}
+
+class ExportDataContentTypeEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ExportDataContentTypeEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
 
   @override
-  String toString() {
-    return 'ExportData[contentType=$contentType, organization=$organization, groupBy=$groupBy, ]';
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const pdf = ExportDataContentTypeEnum._(r'application/pdf');
+  static const vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet =
+      ExportDataContentTypeEnum._(
+          r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+  /// List of all possible values in this [enum][ExportDataContentTypeEnum].
+  static const values = <ExportDataContentTypeEnum>[
+    pdf,
+    vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet,
+  ];
+
+  static ExportDataContentTypeEnum? fromJson(dynamic value) =>
+      ExportDataContentTypeEnumTypeTransformer().decode(value);
+
+  static List<ExportDataContentTypeEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return ExportDataContentTypeEnum.fromJson(value);
+        })
+        .whereType<ExportDataContentTypeEnum>()
+        .toList();
   }
+}
+
+/// Transformation class that can [encode] an instance of [ExportDataContentTypeEnum] to String,
+/// and [decode] dynamic data back to [ExportDataContentTypeEnum].
+class ExportDataContentTypeEnumTypeTransformer {
+  const ExportDataContentTypeEnumTypeTransformer._();
+
+  factory ExportDataContentTypeEnumTypeTransformer() =>
+      _instance ??= ExportDataContentTypeEnumTypeTransformer._();
+
+  String encode(ExportDataContentTypeEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ExportDataContentTypeEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ExportDataContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'application/pdf':
+        return ExportDataContentTypeEnum.pdf;
+      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+        return ExportDataContentTypeEnum
+            .vndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ExportDataContentTypeEnumTypeTransformer] instance.
+  static ExportDataContentTypeEnumTypeTransformer? _instance;
 }

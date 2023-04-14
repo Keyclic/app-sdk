@@ -1,67 +1,95 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class CheckpointEmbedded {
+  /// Returns a new [CheckpointEmbedded] instance.
   CheckpointEmbedded({
     this.createdBy,
   });
 
-  factory CheckpointEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [CheckpointEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static CheckpointEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return CheckpointEmbedded(
-      createdBy: Person.fromJson(json['createdBy']),
+      createdBy: Person.fromJson(json[r'createdBy']),
     );
   }
 
-  Person createdBy;
+  Person? createdBy;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is CheckpointEmbedded &&
-        runtimeType == other.runtimeType &&
-        createdBy == other.createdBy;
+    return other is CheckpointEmbedded && other.createdBy == createdBy;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (createdBy == null ? 0 : createdBy.hashCode);
 
-    hashCode ^= createdBy?.hashCode ?? 0;
+  static List<CheckpointEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CheckpointEmbedded>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<CheckpointEmbedded>[],
+        (List<CheckpointEmbedded> previousValue, element) {
+      final CheckpointEmbedded? object = CheckpointEmbedded.fromJson(element);
+      if (object is CheckpointEmbedded) {
+        previousValue.add(object);
+      }
 
-  static List<CheckpointEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => CheckpointEmbedded.fromJson(value))
-            ?.toList() ??
-        <CheckpointEmbedded>[];
+      return previousValue;
+    });
   }
 
   static Map<String, CheckpointEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, CheckpointEmbedded>((String key, dynamic value) {
-          return MapEntry(key, CheckpointEmbedded.fromJson(value));
-        }) ??
-        <String, CheckpointEmbedded>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CheckpointEmbedded>{};
+    }
+
+    return json.entries.fold(<String, CheckpointEmbedded>{},
+        (Map<String, CheckpointEmbedded> previousValue, element) {
+      final CheckpointEmbedded? object =
+          CheckpointEmbedded.fromJson(element.value);
+      if (object is CheckpointEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (createdBy != null) 'createdBy': createdBy.toJson(),
-    };
+  // maps a json object with a list of CheckpointEmbedded-objects as value to a dart map
+  static Map<String, List<CheckpointEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CheckpointEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CheckpointEmbedded>>(
+          key, CheckpointEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'CheckpointEmbedded[createdBy=$createdBy, ]';
+  String toString() => 'CheckpointEmbedded[createdBy=$createdBy]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (createdBy != null) r'createdBy': createdBy,
+    };
   }
 }

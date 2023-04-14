@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class State {
+  /// Returns a new [State] instance.
   State({
     this.id,
     this.type,
@@ -10,90 +15,114 @@ class State {
     this.progression,
   });
 
-  factory State.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [State] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static State? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return State(
-      id: json['id'],
-      type: json['type'],
-      name: json['name'],
-      description: json['description'],
-      color: json['color'],
-      progression: json['progression']?.toDouble(),
+      id: json[r'id'],
+      type: json[r'type'],
+      name: json[r'name'],
+      description: json[r'description'],
+      color: json[r'color'],
+      progression: json[r'progression']?.toDouble(),
     );
   }
 
-  String id;
+  String? id;
 
-  String type;
+  String? type;
 
-  String name;
+  String? name;
 
-  String description;
+  String? description;
 
-  String color;
+  String? color;
 
-  double progression;
+  double? progression;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is State &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
-        type == other.type &&
-        name == other.name &&
-        description == other.description &&
-        color == other.color &&
-        progression == other.progression;
+        other.id == id &&
+        other.type == type &&
+        other.name == name &&
+        other.description == description &&
+        other.color == color &&
+        other.progression == progression;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (color == null ? 0 : color.hashCode) +
+      (progression == null ? 0 : progression.hashCode);
 
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= color?.hashCode ?? 0;
-    hashCode ^= progression?.hashCode ?? 0;
+  static List<State> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <State>[];
+    }
 
-    return hashCode;
+    return json.fold(<State>[], (List<State> previousValue, element) {
+      final State? object = State.fromJson(element);
+      if (object is State) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<State> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => State.fromJson(value))?.toList() ??
-        <State>[];
+  static Map<String, State> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, State>{};
+    }
+
+    return json.entries.fold(<String, State>{},
+        (Map<String, State> previousValue, element) {
+      final State? object = State.fromJson(element.value);
+      if (object is State) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, State> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, State>((String key, dynamic value) {
-          return MapEntry(key, State.fromJson(value));
-        }) ??
-        <String, State>{};
+  // maps a json object with a list of State-objects as value to a dart map
+  static Map<String, List<State>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<State>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<State>>(key, State.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'State[id=$id, type=$type, name=$name, description=$description, color=$color, progression=$progression]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (name != null) 'name': name,
-      if (description != null) 'description': description,
-      if (color != null) 'color': color,
-      if (progression != null) 'progression': progression,
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (name != null) r'name': name,
+      if (description != null) r'description': description,
+      if (color != null) r'color': color,
+      if (progression != null) r'progression': progression,
     };
-  }
-
-  @override
-  String toString() {
-    return 'State[id=$id, type=$type, name=$name, description=$description, color=$color, progression=$progression, ]';
   }
 }

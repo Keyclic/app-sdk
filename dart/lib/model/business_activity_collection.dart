@@ -1,72 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BusinessActivityCollection {
+  /// Returns a new [BusinessActivityCollection] instance.
   BusinessActivityCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory BusinessActivityCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BusinessActivityCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BusinessActivityCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BusinessActivityCollection(
-      items: BusinessActivity.listFromJson(json['items']),
+      items: BusinessActivity.listFromJson(json[r'items']),
     );
   }
 
-  List<BusinessActivity> items;
+  List<BusinessActivity>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BusinessActivityCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((BusinessActivity element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<BusinessActivityCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityCollection>[];
     }
 
-    return hashCode;
-  }
+    return json.fold(<BusinessActivityCollection>[],
+        (List<BusinessActivityCollection> previousValue, element) {
+      final BusinessActivityCollection? object =
+          BusinessActivityCollection.fromJson(element);
+      if (object is BusinessActivityCollection) {
+        previousValue.add(object);
+      }
 
-  static List<BusinessActivityCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BusinessActivityCollection.fromJson(value))
-            ?.toList() ??
-        <BusinessActivityCollection>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BusinessActivityCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, BusinessActivityCollection>(
-            (String key, dynamic value) {
-          return MapEntry(key, BusinessActivityCollection.fromJson(value));
-        }) ??
-        <String, BusinessActivityCollection>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityCollection>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivityCollection>{},
+        (Map<String, BusinessActivityCollection> previousValue, element) {
+      final BusinessActivityCollection? object =
+          BusinessActivityCollection.fromJson(element.value);
+      if (object is BusinessActivityCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+  // maps a json object with a list of BusinessActivityCollection-objects as value to a dart map
+  static Map<String, List<BusinessActivityCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivityCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivityCollection>>(
+          key, BusinessActivityCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BusinessActivityCollection[items=$items, ]';
+  String toString() => 'BusinessActivityCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

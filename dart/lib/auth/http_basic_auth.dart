@@ -1,20 +1,39 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class HttpBasicAuth implements Authentication {
-  String _basicToken;
+part of keyclic_sdk_api;
+
+class BasicAuthInfo {
+  const BasicAuthInfo(this.username, this.password);
+
+  final String username;
+  final String password;
+}
+
+class BasicAuthInterceptor extends AuthInterceptor {
+  final Map<String, BasicAuthInfo> authInfo = {};
 
   @override
-  void applyToParams(
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (_basicToken != null) {
-      headerParams["Authorization"] = "Basic $_basicToken";
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final metadataAuthInfo = getAuthInfo(
+        options,
+        (secure) =>
+            (secure['type'] == 'http' && secure['scheme'] == 'basic') ||
+            secure['type'] == 'basic');
+
+    for (final info in metadataAuthInfo) {
+      final String authName = info['name']!;
+
+      final basicAuthInfo = authInfo[authName];
+      if (basicAuthInfo != null) {
+        final basicAuth =
+            'Basic ${base64Encode(utf8.encode('${basicAuthInfo.username}:${basicAuthInfo.password}'))}';
+        options.headers['Authorization'] = basicAuth;
+        break;
+      }
     }
-  }
 
-  /// value must be '${username ?? ""}:${password ?? ""}'
-  @override
-  void setAccessToken(String value) =>
-      _basicToken = base64.encode(utf8.encode(value));
+    super.onRequest(options, handler);
+  }
 }

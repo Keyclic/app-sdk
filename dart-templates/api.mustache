@@ -1,91 +1,200 @@
-part of {{pubName}}.api;
-
+{{>header}}
+{{>part_of}}
 {{#operations}}
-class {{classname}} {
-  {{classname}}([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  final ApiClient apiClient;
+class {{classname}} {
+  const {{classname}}(this._apiClient);
+
+  final ApiClient _apiClient;
 
   {{#operation}}
-  /// {{summary}}
-  ///
+  /// {{#summary}}{{.}}{{/summary}}{{^summary}}{{nickname}}{{/summary}}
   /// {{notes}}
-  Future<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}> {{nickname}}(
-    {{#allParams}}{{#required}}{{{dataType}}} {{paramName}},{{/required}}{{/allParams}}
-    {{#hasOptionalParams}}{
-      {{#allParams}}{{^required}}{{{dataType}}} {{paramName}},{{/required}}{{/allParams}}
-    }{{/hasOptionalParams}}
-  ) async {
-    // verify required params are set
-    {{#allParams}}{{#required}}
-    if ({{paramName}} == null) {
-     throw ApiException(0, "Missing required param: {{paramName}}");
-    }
-    {{/required}}{{/allParams}}
-
-    // create path and map variables
-    final String path = "{{{path}}}".replaceAll("{format}","json"){{#pathParams}}.replaceAll("{" + "{{baseName}}" + "}", {{{paramName}}}.toString()){{/pathParams}};
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-    {{#queryParams}}
-      {{^required}}
-      if ({{paramName}} != null)
-      {{/required}}
-        ..._convertParametersForCollectionFormat("{{baseName}}", {{paramName}}{{#collectionFormat}}, collectionFormat: "{{collectionFormat}}"{{/collectionFormat}}),
-      {{/queryParams}}
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      {{#headerParams}}
-        {{#isDateTime}}
-          if({{paramName}} is {{{dataType}}}) "{{baseName}}": {{paramName}}.toIso8601String(),
-        {{/isDateTime}}
-        {{^isDateTime}}
-          if({{paramName}} is {{{dataType}}}) "{{baseName}}": {{paramName}}.toString(),
-        {{/isDateTime}}
-      {{/headerParams}}
-    };
-
-    final List<String> contentTypes = <String>[
-      {{#consumes}}"{{{mediaType}}}",{{/consumes}}
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      {{#authMethods}}"{{name}}", {{/authMethods}}
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: '{{httpMethod}}',
-      queryParams: queryParams,
-      {{#bodyParam}}body: {{paramName}},{{/bodyParam}}
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+  ///
+  /// Parameters:
+  {{#allParams}}
+  /// * [{{paramName}}] {{#description}}- {{{.}}}{{/description}}
+  {{/allParams}}
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]{{#returnType}} containing a [Response] with a [{{{returnType}}}] as data{{/returnType}}
+  /// Throws [DioError] if API call or serialization fails
+  {{#externalDocs}}
+  /// {{description}}
+  /// Also see [{{summary}} Documentation]({{url}})
+  {{/externalDocs}}
+  {{#isDeprecated}}
+  @Deprecated('This operation has been deprecated')
+  {{/isDeprecated}}
+  Future<Response<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}>> {{nickname}}({ {{#allParams}}{{#isPathParam}}
+    required {{{dataType}}} {{paramName}},{{/isPathParam}}{{#isQueryParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isQueryParam}}{{#isHeaderParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isHeaderParam}}{{#isBodyParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isBodyParam}}{{#isFormParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isFormParam}}{{/allParams}}
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'{{{path}}}'{{#pathParams}}.replaceAll('{' r'{{{baseName}}}' '}', {{{paramName}}}.toString()){{/pathParams}};
+    final options = Options(
+      method: r'{{#lambda.uppercase}}{{httpMethod}}{{/lambda.uppercase}}',
+      {{#isResponseFile}}
+      responseType: ResponseType.bytes,
+      {{/isResponseFile}}
+      headers: <String, dynamic>{
+        {{#httpUserAgent}}
+        r'User-Agent': r'{{{.}}}',
+        {{/httpUserAgent}}
+        // to string ??
+        {{#headerParams}}
+        {{^required}}{{^nullable}}if ({{{paramName}}} != null) {{/nullable}}{{/required}}r'{{baseName}}': {{paramName}},
+        {{/headerParams}}
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[{{^hasAuthMethods}}],{{/hasAuthMethods}}{{#hasAuthMethods}}
+          {{#authMethods}}{
+            'type': '{{type}}',
+            {{#scheme}}'scheme': '{{scheme}}',{{/scheme}}
+            'name': '{{name}}',{{#isApiKey}}
+            'keyName': '{{keyParamName}}',
+            'where': '{{#isKeyInQuery}}query{{/isKeyInQuery}}{{#isKeyInHeader}}header{{/isKeyInHeader}}',{{/isApiKey}}
+          },{{/authMethods}}
+        ],{{/hasAuthMethods}}
+        ...?extra,
+      },
+      {{#hasConsumes}}contentType: '{{#prioritizedContentTypes}}{{#-first}}{{{mediaType}}}{{/-first}}{{/prioritizedContentTypes}}',{{/hasConsumes}}
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    {{#hasQueryParams}}
+    final queryParameters = <String, dynamic>{
+      {{#queryParams}}
+      {{^required}}{{^isNullable}}if ({{{paramName}}} != null) {{/isNullable}}{{/required}}r'{{baseName}}':
+        {{#isContainer}}encodeCollectionQueryParameter{{/isContainer}}{{^isContainer}}encodeQueryParameter{{/isContainer}}(
+        {{{paramName}}}{{#isContainer}},
+        format: ListFormat.{{{collectionFormat}}}{{/isContainer}}
+        ),
+      {{/queryParams}}
+    };
+    {{/hasQueryParams}}
+
+    {{#hasBodyOrFormParams}}
+    dynamic bodyData;
+
+    try {
+      {{#hasFormParams}}
+        {{#isMultipart}}
+            bodyData = FormData.fromMap(<String, dynamic>{
+          {{#formParams}}
+            {{^required}}{{^isNullable}}if ({{{paramName}}} != null) {{/isNullable}}{{/required}}r'{{{baseName}}}': {{#isFile}}{{{paramName}}}{{/isFile}}{{^isFile}}encodeFormParameter({{{paramName}}}){{/isFile}},
+          {{/formParams}}
+            });
+        {{/isMultipart}}
+        {{^isMultipart}}
+            bodyData = <String, dynamic>{
+          {{#formParams}}
+            {{^required}}
+              {{^isNullable}}if ({{{paramName}}} != null) {{/isNullable}}
+            {{/required}}
+              r'{{{baseName}}}': {{#isContainer}}encodeCollectionQueryParameter{{/isContainer}}{{^isContainer}}encodeQueryParameter{{/isContainer}}(
+            {{{paramName}}},
+            {{#isContainer}}
+              format: ListFormat.{{{collectionFormat}}}
+            {{/isContainer}}
+              ),
+          {{/formParams}}
+            };
+        {{/isMultipart}}
+      {{/hasFormParams}}
+      {{#bodyParam}}
+        {{#isPrimitiveType}}
+            bodyData = {{paramName}}{{#isFile}}.finalize(){{/isFile}};
+        {{/isPrimitiveType}}
+        {{^isPrimitiveType}}
+            bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}{{paramName}}.toJson();
+            // bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}jsonEncode({{paramName}});
+            // bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}jsonDecode(jsonEncode({{paramName}}));
+        {{/isPrimitiveType}}
+      {{/bodyParam}}
+    } catch(error, stackTrace) {
+      throw DioError(
+         requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+          {{#hasQueryParams}}
+          queryParameters: queryParameters,
+          {{/hasQueryParams}}
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+    {{/hasBodyOrFormParams}}
+
+    {{#returnType}}final response = await{{/returnType}}{{^returnType}}return{{/returnType}} _apiClient.dio.request<Object>(
+      path,
+      {{#hasBodyOrFormParams}}
+      data: bodyData,
+      {{/hasBodyOrFormParams}}
+      options: options,
+      {{#hasQueryParams}}
+      queryParameters: queryParameters,
+      {{/hasQueryParams}}
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    {{#returnType}}
+    {{{returnType}}} responseData;
+
+    try {
+      {{#isResponseFile}}
+        responseData = response.data as {{{returnType}}};
+      {{/isResponseFile}}
+      {{^isResponseFile}}
+        {{#returnSimpleType}}
+          {{#returnTypeIsPrimitive}}
+            responseData = response.data as {{{returnType}}};
+          {{/returnTypeIsPrimitive}}
+          {{^returnTypeIsPrimitive}}
+            responseData = await _apiClient.deserializeAsync<{{{returnType}}}>(response.data!, '{{{returnType}}}');
+          {{/returnTypeIsPrimitive}}
+        {{/returnSimpleType}}
+        {{^returnSimpleType}}
+            responseData = await _apiClient.deserializeAsync<{{{returnType}}}>(response.data!, '{{{returnType}}}');
+        {{/returnSimpleType}}
+      {{/isResponseFile}}
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return {{#returnType}}null{{/returnType}};
-    }
-
-    {{#isListContainer}}
-      return {{#returnType}}List<{{{returnBaseType}}}>.from(apiClient.deserialize(response.body, '{{{returnType}}}')){{/returnType}};
-    {{/isListContainer}}
-    {{^isListContainer}}
-      {{#isMapContainer}}
-        return {{#returnType}}{{{returnType}}}.from(apiClient.deserialize(response.body, '{{{returnType}}}')) {{/returnType}};
-      {{/isMapContainer}}
-      {{^isMapContainer}}
-        return {{#returnType}}apiClient.deserialize(response.body, '{{{returnType}}}') as {{{returnType}}} {{/returnType}};
-      {{/isMapContainer}}
-    {{/isListContainer}}
+    return Response<{{{returnType}}}>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+    {{/returnType}}
   }
   {{/operation}}
 }

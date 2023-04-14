@@ -1,71 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class FeedbackCollection {
+  /// Returns a new [FeedbackCollection] instance.
   FeedbackCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory FeedbackCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [FeedbackCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FeedbackCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackCollection(
-      items: Feedback.listFromJson(json['items']),
+      items: Feedback.listFromJson(json[r'items']),
     );
   }
 
-  List<Feedback> items;
+  List<Feedback>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Feedback element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<FeedbackCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackCollection>[];
     }
 
-    return hashCode;
-  }
+    return json.fold(<FeedbackCollection>[],
+        (List<FeedbackCollection> previousValue, element) {
+      final FeedbackCollection? object = FeedbackCollection.fromJson(element);
+      if (object is FeedbackCollection) {
+        previousValue.add(object);
+      }
 
-  static List<FeedbackCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackCollection.fromJson(value))
-            ?.toList() ??
-        <FeedbackCollection>[];
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, FeedbackCollection>((String key, dynamic value) {
-          return MapEntry(key, FeedbackCollection.fromJson(value));
-        }) ??
-        <String, FeedbackCollection>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackCollection>{};
+    }
+
+    return json.entries.fold(<String, FeedbackCollection>{},
+        (Map<String, FeedbackCollection> previousValue, element) {
+      final FeedbackCollection? object =
+          FeedbackCollection.fromJson(element.value);
+      if (object is FeedbackCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+  // maps a json object with a list of FeedbackCollection-objects as value to a dart map
+  static Map<String, List<FeedbackCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackCollection>>(
+          key, FeedbackCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'FeedbackCollection[items=$items, ]';
+  String toString() => 'FeedbackCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

@@ -1,74 +1,103 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DeviceLinksSelf {
+  /// Returns a new [DeviceLinksSelf] instance.
   DeviceLinksSelf({
     this.href,
     this.iriTemplate,
   });
 
-  factory DeviceLinksSelf.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [DeviceLinksSelf] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DeviceLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DeviceLinksSelf(
-      href: json['href'],
-      iriTemplate: DeviceLinksSelfIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: DeviceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the self associated to the given device. */
-  String href;
+  /// The URI of the self associated to the given device.
+  String? href;
 
-  DeviceLinksSelfIriTemplate iriTemplate;
+  DeviceLinksSelfIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DeviceLinksSelf &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<DeviceLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DeviceLinksSelf>[];
+    }
 
-    return hashCode;
+    return json.fold(<DeviceLinksSelf>[],
+        (List<DeviceLinksSelf> previousValue, element) {
+      final DeviceLinksSelf? object = DeviceLinksSelf.fromJson(element);
+      if (object is DeviceLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<DeviceLinksSelf> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DeviceLinksSelf.fromJson(value))
-            ?.toList() ??
-        <DeviceLinksSelf>[];
+  static Map<String, DeviceLinksSelf> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DeviceLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, DeviceLinksSelf>{},
+        (Map<String, DeviceLinksSelf> previousValue, element) {
+      final DeviceLinksSelf? object = DeviceLinksSelf.fromJson(element.value);
+      if (object is DeviceLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DeviceLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, DeviceLinksSelf>((String key, dynamic value) {
-          return MapEntry(key, DeviceLinksSelf.fromJson(value));
-        }) ??
-        <String, DeviceLinksSelf>{};
+  // maps a json object with a list of DeviceLinksSelf-objects as value to a dart map
+  static Map<String, List<DeviceLinksSelf>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DeviceLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DeviceLinksSelf>>(
+          key, DeviceLinksSelf.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'DeviceLinksSelf[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'DeviceLinksSelf[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

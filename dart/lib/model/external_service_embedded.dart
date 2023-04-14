@@ -1,68 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ExternalServiceEmbedded {
+  /// Returns a new [ExternalServiceEmbedded] instance.
   ExternalServiceEmbedded({
     this.provider,
   });
 
-  factory ExternalServiceEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExternalServiceEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExternalServiceEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServiceEmbedded(
-      provider: Organization.fromJson(json['provider']),
+      provider: Organization.fromJson(json[r'provider']),
     );
   }
 
-  Organization provider;
+  Organization? provider;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ExternalServiceEmbedded &&
-        runtimeType == other.runtimeType &&
-        provider == other.provider;
+    return other is ExternalServiceEmbedded && other.provider == provider;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (provider == null ? 0 : provider.hashCode);
 
-    hashCode ^= provider?.hashCode ?? 0;
+  static List<ExternalServiceEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServiceEmbedded>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ExternalServiceEmbedded>[],
+        (List<ExternalServiceEmbedded> previousValue, element) {
+      final ExternalServiceEmbedded? object =
+          ExternalServiceEmbedded.fromJson(element);
+      if (object is ExternalServiceEmbedded) {
+        previousValue.add(object);
+      }
 
-  static List<ExternalServiceEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ExternalServiceEmbedded.fromJson(value))
-            ?.toList() ??
-        <ExternalServiceEmbedded>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServiceEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, ExternalServiceEmbedded>((String key, dynamic value) {
-          return MapEntry(key, ExternalServiceEmbedded.fromJson(value));
-        }) ??
-        <String, ExternalServiceEmbedded>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServiceEmbedded>{};
+    }
+
+    return json.entries.fold(<String, ExternalServiceEmbedded>{},
+        (Map<String, ExternalServiceEmbedded> previousValue, element) {
+      final ExternalServiceEmbedded? object =
+          ExternalServiceEmbedded.fromJson(element.value);
+      if (object is ExternalServiceEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (provider != null) 'provider': provider.toJson(),
-    };
+  // maps a json object with a list of ExternalServiceEmbedded-objects as value to a dart map
+  static Map<String, List<ExternalServiceEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServiceEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServiceEmbedded>>(
+          key, ExternalServiceEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ExternalServiceEmbedded[provider=$provider, ]';
+  String toString() => 'ExternalServiceEmbedded[provider=$provider]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (provider != null) r'provider': provider,
+    };
   }
 }

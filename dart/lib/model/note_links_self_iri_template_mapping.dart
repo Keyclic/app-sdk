@@ -1,70 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class NoteLinksSelfIriTemplateMapping {
+  /// Returns a new [NoteLinksSelfIriTemplateMapping] instance.
   NoteLinksSelfIriTemplateMapping({
     this.note,
   });
 
-  factory NoteLinksSelfIriTemplateMapping.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [NoteLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static NoteLinksSelfIriTemplateMapping? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return NoteLinksSelfIriTemplateMapping(
-      note: json['note'],
+      note: json[r'note'],
     );
   }
 
-  String note;
+  String? note;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is NoteLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        note == other.note;
+    return other is NoteLinksSelfIriTemplateMapping && other.note == note;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= note?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (note == null ? 0 : note.hashCode);
 
   static List<NoteLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                NoteLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <NoteLinksSelfIriTemplateMapping>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <NoteLinksSelfIriTemplateMapping>[];
+    }
+
+    return json.fold(<NoteLinksSelfIriTemplateMapping>[],
+        (List<NoteLinksSelfIriTemplateMapping> previousValue, element) {
+      final NoteLinksSelfIriTemplateMapping? object =
+          NoteLinksSelfIriTemplateMapping.fromJson(element);
+      if (object is NoteLinksSelfIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, NoteLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, NoteLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(key, NoteLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, NoteLinksSelfIriTemplateMapping>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, NoteLinksSelfIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, NoteLinksSelfIriTemplateMapping>{},
+        (Map<String, NoteLinksSelfIriTemplateMapping> previousValue, element) {
+      final NoteLinksSelfIriTemplateMapping? object =
+          NoteLinksSelfIriTemplateMapping.fromJson(element.value);
+      if (object is NoteLinksSelfIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (note != null) 'note': note,
-    };
+  // maps a json object with a list of NoteLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<NoteLinksSelfIriTemplateMapping>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<NoteLinksSelfIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<NoteLinksSelfIriTemplateMapping>>(
+          key, NoteLinksSelfIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'NoteLinksSelfIriTemplateMapping[note=$note, ]';
+  String toString() => 'NoteLinksSelfIriTemplateMapping[note=$note]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (note != null) r'note': note,
+    };
   }
 }

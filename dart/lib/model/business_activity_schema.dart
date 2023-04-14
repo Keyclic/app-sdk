@@ -1,89 +1,107 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BusinessActivitySchema {
+  /// Returns a new [BusinessActivitySchema] instance.
   BusinessActivitySchema({
-    this.properties,
-    this.required,
+    this.properties = const {},
+    this.required_ = const [],
   });
 
-  factory BusinessActivitySchema.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BusinessActivitySchema] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BusinessActivitySchema? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BusinessActivitySchema(
-      properties: SchemaProperty.mapFromJson(json['properties']),
-      required:
-          json['required'] is List ? List<String>.from(json['required']) : null,
+      properties: SchemaProperty.mapFromJson(json[r'properties']),
+      required_: List<String>.from(json[r'required'] ?? []),
     );
   }
 
-  Map<String, SchemaProperty> properties;
+  Map<String, SchemaProperty>? properties;
 
-  List<String> required;
+  List<String>? required_;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BusinessActivitySchema &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered()
             .equals(properties, other.properties) &&
-        DeepCollectionEquality.unordered().equals(required, other.required);
+        DeepCollectionEquality.unordered().equals(required_, other.required_);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (properties == null ? 0 : properties.hashCode) +
+      (required_ == null ? 0 : required_.hashCode);
 
-    if (required is List && required.isNotEmpty) {
-      hashCode ^= required
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<BusinessActivitySchema> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivitySchema>[];
     }
 
-    if (properties is Map && properties.isNotEmpty) {
-      hashCode ^= properties.keys
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-      hashCode ^= properties.values
-          .map((dynamic element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
+    return json.fold(<BusinessActivitySchema>[],
+        (List<BusinessActivitySchema> previousValue, element) {
+      final BusinessActivitySchema? object =
+          BusinessActivitySchema.fromJson(element);
+      if (object is BusinessActivitySchema) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
-  }
-
-  static List<BusinessActivitySchema> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BusinessActivitySchema.fromJson(value))
-            ?.toList() ??
-        <BusinessActivitySchema>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BusinessActivitySchema> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, BusinessActivitySchema>((String key, dynamic value) {
-          return MapEntry(key, BusinessActivitySchema.fromJson(value));
-        }) ??
-        <String, BusinessActivitySchema>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivitySchema>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivitySchema>{},
+        (Map<String, BusinessActivitySchema> previousValue, element) {
+      final BusinessActivitySchema? object =
+          BusinessActivitySchema.fromJson(element.value);
+      if (object is BusinessActivitySchema) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (properties != null) 'properties': properties,
-      if (required != null) 'required': required,
-    };
+  // maps a json object with a list of BusinessActivitySchema-objects as value to a dart map
+  static Map<String, List<BusinessActivitySchema>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivitySchema>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivitySchema>>(
+          key, BusinessActivitySchema.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BusinessActivitySchema[properties=$properties, required=$required, ]';
+  String toString() =>
+      'BusinessActivitySchema[properties=$properties, required_=$required_]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (properties != null) r'properties': properties,
+      if (required_ != null) r'required': required_,
+    };
   }
 }

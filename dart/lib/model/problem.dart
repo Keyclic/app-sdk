@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Problem {
+  /// Returns a new [Problem] instance.
   Problem({
     this.type,
     this.title,
@@ -8,78 +13,103 @@ class Problem {
     this.embedded,
   });
 
-  factory Problem.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Problem] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Problem? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Problem(
-      type: json['type'],
-      title: json['title'],
-      detail: json['detail'],
-      embedded: ProblemEmbedded.fromJson(json['_embedded']),
+      type: json[r'type'],
+      title: json[r'title'],
+      detail: json[r'detail'],
+      embedded: ProblemEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  String type;
+  String? type;
 
-  String title;
+  String? title;
 
-  String detail;
+  String? detail;
 
-  ProblemEmbedded embedded;
+  ProblemEmbedded? embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Problem &&
-        runtimeType == other.runtimeType &&
-        type == other.type &&
-        title == other.title &&
-        detail == other.detail &&
-        embedded == other.embedded;
+        other.type == type &&
+        other.title == title &&
+        other.detail == detail &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (type == null ? 0 : type.hashCode) +
+      (title == null ? 0 : title.hashCode) +
+      (detail == null ? 0 : detail.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= title?.hashCode ?? 0;
-    hashCode ^= detail?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
+  static List<Problem> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Problem>[];
+    }
 
-    return hashCode;
+    return json.fold(<Problem>[], (List<Problem> previousValue, element) {
+      final Problem? object = Problem.fromJson(element);
+      if (object is Problem) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Problem> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Problem.fromJson(value))?.toList() ??
-        <Problem>[];
+  static Map<String, Problem> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Problem>{};
+    }
+
+    return json.entries.fold(<String, Problem>{},
+        (Map<String, Problem> previousValue, element) {
+      final Problem? object = Problem.fromJson(element.value);
+      if (object is Problem) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Problem> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Problem>((String key, dynamic value) {
-          return MapEntry(key, Problem.fromJson(value));
-        }) ??
-        <String, Problem>{};
+  // maps a json object with a list of Problem-objects as value to a dart map
+  static Map<String, List<Problem>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Problem>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Problem>>(key, Problem.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Problem[type=$type, title=$title, detail=$detail, embedded=$embedded]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (type != null) 'type': type,
-      if (title != null) 'title': title,
-      if (detail != null) 'detail': detail,
-      if (embedded != null) '_embedded': embedded.toJson(),
+    return <String, dynamic>{
+      if (type != null) r'type': type,
+      if (title != null) r'title': title,
+      if (detail != null) r'detail': detail,
+      if (embedded != null) r'_embedded': embedded,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Problem[type=$type, title=$title, detail=$detail, embedded=$embedded, ]';
   }
 }

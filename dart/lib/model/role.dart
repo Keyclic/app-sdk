@@ -1,126 +1,150 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Role {
+  /// Returns a new [Role] instance.
   Role({
     this.createdAt,
     this.description,
     this.id,
-    this.name,
-    this.permissions,
+    required this.name,
+    this.permissions = const [],
     this.type,
     this.updatedAt,
   });
 
-  factory Role.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Role] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Role? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Role(
       createdAt: createdAt,
-      description: json['description'],
-      id: json['id'],
-      name: json['name'],
-      permissions: json['permissions'] is List
-          ? List<String>.from(json['permissions'])
-          : null,
-      type: json['type'],
+      description: json[r'description'],
+      id: json[r'id'],
+      name: json[r'name'],
+      permissions: List<String>.from(json[r'permissions'] ?? []),
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  List<String> permissions;
+  List<String>? permissions;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Role &&
-        runtimeType == other.runtimeType &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.id == id &&
+        other.name == name &&
         DeepCollectionEquality.unordered()
             .equals(permissions, other.permissions) &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      name.hashCode +
+      (permissions == null ? 0 : permissions.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    if (permissions is List && permissions.isNotEmpty) {
-      hashCode ^= permissions
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<Role> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Role>[];
     }
 
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+    return json.fold(<Role>[], (List<Role> previousValue, element) {
+      final Role? object = Role.fromJson(element);
+      if (object is Role) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<Role> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Role.fromJson(value))?.toList() ??
-        <Role>[];
+  static Map<String, Role> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Role>{};
+    }
+
+    return json.entries.fold(<String, Role>{},
+        (Map<String, Role> previousValue, element) {
+      final Role? object = Role.fromJson(element.value);
+      if (object is Role) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Role> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Role>((String key, dynamic value) {
-          return MapEntry(key, Role.fromJson(value));
-        }) ??
-        <String, Role>{};
-  }
+  // maps a json object with a list of Role-objects as value to a dart map
+  static Map<String, List<Role>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Role>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (permissions != null) 'permissions': permissions,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<Role>>(key, Role.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'Role[createdAt=$createdAt, description=$description, id=$id, name=$name, permissions=$permissions, type=$type, updatedAt=$updatedAt, ]';
+  String toString() =>
+      'Role[createdAt=$createdAt, description=$description, id=$id, name=$name, permissions=$permissions, type=$type, updatedAt=$updatedAt]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (id != null) r'id': id,
+      r'name': name,
+      if (permissions != null) r'permissions': permissions,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+    };
   }
 }

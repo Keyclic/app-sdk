@@ -1,71 +1,98 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Dispatcher {
+  /// Returns a new [Dispatcher] instance.
   Dispatcher({
     this.id,
     this.type,
   });
 
-  factory Dispatcher.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Dispatcher] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Dispatcher? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Dispatcher(
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is Dispatcher &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
-        type == other.type;
+    return other is Dispatcher && other.id == id && other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
 
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+  static List<Dispatcher> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Dispatcher>[];
+    }
 
-    return hashCode;
+    return json.fold(<Dispatcher>[], (List<Dispatcher> previousValue, element) {
+      final Dispatcher? object = Dispatcher.fromJson(element);
+      if (object is Dispatcher) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Dispatcher> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Dispatcher.fromJson(value))?.toList() ??
-        <Dispatcher>[];
+  static Map<String, Dispatcher> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Dispatcher>{};
+    }
+
+    return json.entries.fold(<String, Dispatcher>{},
+        (Map<String, Dispatcher> previousValue, element) {
+      final Dispatcher? object = Dispatcher.fromJson(element.value);
+      if (object is Dispatcher) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Dispatcher> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Dispatcher>((String key, dynamic value) {
-          return MapEntry(key, Dispatcher.fromJson(value));
-        }) ??
-        <String, Dispatcher>{};
+  // maps a json object with a list of Dispatcher-objects as value to a dart map
+  static Map<String, List<Dispatcher>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Dispatcher>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Dispatcher>>(
+          key, Dispatcher.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'Dispatcher[id=$id, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Dispatcher[id=$id, type=$type, ]';
   }
 }

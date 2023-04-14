@@ -1,95 +1,121 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ConfigurationReportType {
+  /// Returns a new [ConfigurationReportType] instance.
   ConfigurationReportType({
     this.id,
-    this.priorities,
+    this.priorities = const [],
     this.type,
     this.workflow,
   });
 
-  factory ConfigurationReportType.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ConfigurationReportType] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ConfigurationReportType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ConfigurationReportType(
-      id: json['id'],
-      priorities: ReportTypePriority.listFromJson(json['priorities']),
-      type: json['type'],
-      workflow: ReportTypeWorkflow.fromJson(json['workflow']),
+      id: json[r'id'],
+      priorities: ReportTypePriority.listFromJson(json[r'priorities']),
+      type: json[r'type'],
+      workflow: ReportTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
-  String id;
+  final String? id;
 
-  List<ReportTypePriority> priorities;
+  List<ReportTypePriority>? priorities;
 
-  String type;
+  String? type;
 
-  ReportTypeWorkflow workflow;
+  ReportTypeWorkflow? workflow;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ConfigurationReportType &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
+        other.id == id &&
         DeepCollectionEquality.unordered()
             .equals(priorities, other.priorities) &&
-        type == other.type &&
-        workflow == other.workflow;
+        other.type == type &&
+        other.workflow == workflow;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) +
+      (priorities == null ? 0 : priorities.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
-    if (priorities is List && priorities.isNotEmpty) {
-      hashCode ^= priorities
-          .map((ReportTypePriority element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<ConfigurationReportType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationReportType>[];
     }
 
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
+    return json.fold(<ConfigurationReportType>[],
+        (List<ConfigurationReportType> previousValue, element) {
+      final ConfigurationReportType? object =
+          ConfigurationReportType.fromJson(element);
+      if (object is ConfigurationReportType) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
-  }
-
-  static List<ConfigurationReportType> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ConfigurationReportType.fromJson(value))
-            ?.toList() ??
-        <ConfigurationReportType>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ConfigurationReportType> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, ConfigurationReportType>((String key, dynamic value) {
-          return MapEntry(key, ConfigurationReportType.fromJson(value));
-        }) ??
-        <String, ConfigurationReportType>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationReportType>{};
+    }
+
+    return json.entries.fold(<String, ConfigurationReportType>{},
+        (Map<String, ConfigurationReportType> previousValue, element) {
+      final ConfigurationReportType? object =
+          ConfigurationReportType.fromJson(element.value);
+      if (object is ConfigurationReportType) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (priorities != null) 'priorities': priorities,
-      if (type != null) 'type': type,
-      if (workflow != null) 'workflow': workflow.toJson(),
-    };
+  // maps a json object with a list of ConfigurationReportType-objects as value to a dart map
+  static Map<String, List<ConfigurationReportType>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ConfigurationReportType>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ConfigurationReportType>>(
+          key, ConfigurationReportType.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow, ]';
+  String toString() =>
+      'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (priorities != null) r'priorities': priorities,
+      if (type != null) r'type': type,
+      if (workflow != null) r'workflow': workflow,
+    };
   }
 }

@@ -1,70 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class FeedbackLinksSelfIriTemplate {
+  /// Returns a new [FeedbackLinksSelfIriTemplate] instance.
   FeedbackLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory FeedbackLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [FeedbackLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FeedbackLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackLinksSelfIriTemplate(
-      mapping:
-          ContributionLinksFeedbackIriTemplateMapping.fromJson(json['mapping']),
+      mapping: ContributionLinksFeedbackIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
-  ContributionLinksFeedbackIriTemplateMapping mapping;
+  ContributionLinksFeedbackIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is FeedbackLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is FeedbackLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<FeedbackLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<FeedbackLinksSelfIriTemplate>[],
+        (List<FeedbackLinksSelfIriTemplate> previousValue, element) {
+      final FeedbackLinksSelfIriTemplate? object =
+          FeedbackLinksSelfIriTemplate.fromJson(element);
+      if (object is FeedbackLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<FeedbackLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => FeedbackLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <FeedbackLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, FeedbackLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, FeedbackLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, FeedbackLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, FeedbackLinksSelfIriTemplate>{},
+        (Map<String, FeedbackLinksSelfIriTemplate> previousValue, element) {
+      final FeedbackLinksSelfIriTemplate? object =
+          FeedbackLinksSelfIriTemplate.fromJson(element.value);
+      if (object is FeedbackLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of FeedbackLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<FeedbackLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackLinksSelfIriTemplate>>(
+          key, FeedbackLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'FeedbackLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'FeedbackLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

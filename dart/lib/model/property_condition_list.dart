@@ -1,72 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PropertyConditionList {
+  /// Returns a new [PropertyConditionList] instance.
   PropertyConditionList({
-    this.allOf,
+    this.allOf = const [],
   });
 
-  factory PropertyConditionList.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PropertyConditionList] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PropertyConditionList? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PropertyConditionList(
-      allOf: ConditionListCondition.listFromJson(json['allOf']),
+      allOf: ConditionListCondition.listFromJson(json[r'allOf']),
     );
   }
 
-  List<ConditionListCondition> allOf;
+  List<ConditionListCondition>? allOf;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PropertyConditionList &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(allOf, other.allOf);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (allOf == null ? 0 : allOf.hashCode);
 
-    if (allOf is List && allOf.isNotEmpty) {
-      hashCode ^= allOf
-          .map((ConditionListCondition element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<PropertyConditionList> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PropertyConditionList>[];
     }
 
-    return hashCode;
-  }
+    return json.fold(<PropertyConditionList>[],
+        (List<PropertyConditionList> previousValue, element) {
+      final PropertyConditionList? object =
+          PropertyConditionList.fromJson(element);
+      if (object is PropertyConditionList) {
+        previousValue.add(object);
+      }
 
-  static List<PropertyConditionList> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PropertyConditionList.fromJson(value))
-            ?.toList() ??
-        <PropertyConditionList>[];
+      return previousValue;
+    });
   }
 
   static Map<String, PropertyConditionList> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, PropertyConditionList>((String key, dynamic value) {
-          return MapEntry(key, PropertyConditionList.fromJson(value));
-        }) ??
-        <String, PropertyConditionList>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PropertyConditionList>{};
+    }
+
+    return json.entries.fold(<String, PropertyConditionList>{},
+        (Map<String, PropertyConditionList> previousValue, element) {
+      final PropertyConditionList? object =
+          PropertyConditionList.fromJson(element.value);
+      if (object is PropertyConditionList) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (allOf != null) 'allOf': allOf,
-    };
+  // maps a json object with a list of PropertyConditionList-objects as value to a dart map
+  static Map<String, List<PropertyConditionList>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PropertyConditionList>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PropertyConditionList>>(
+          key, PropertyConditionList.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PropertyConditionList[allOf=$allOf, ]';
+  String toString() => 'PropertyConditionList[allOf=$allOf]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (allOf != null) r'allOf': allOf,
+    };
   }
 }

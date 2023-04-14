@@ -1,18 +1,20 @@
-part of {{pubName}}.api;
-
-class OAuth implements Authentication {
-  String _oauthToken;
+{{>header}}
+{{>part_of}}
+class OAuthInterceptor extends AuthInterceptor {
+  final Map<String, String> tokens = {};
 
   @override
-  void applyToParams(
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (_oauthToken != null) {
-      headerParams["Authorization"] = "Bearer $_oauthToken";
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final authInfo = getAuthInfo(options, (secure) => secure['type'] == 'oauth' && secure['type'] == 'oauth2');
+
+    for (final info in authInfo) {
+      final token = tokens[info['name']];
+      if (token != null) {
+        options.headers['Authorization'] = 'Bearer ${token}';
+        break;
+      }
     }
-  }
 
-  @override
-  void setAccessToken(String value) => _oauthToken = value;
+    super.onRequest(options, handler);
+  }
 }

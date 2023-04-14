@@ -1,64 +1,92 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlanPatch {
+  /// Returns a new [PlanPatch] instance.
   PlanPatch({
     this.name,
   });
 
-  factory PlanPatch.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlanPatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlanPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlanPatch(
-      name: json['name'],
+      name: json[r'name'],
     );
   }
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PlanPatch &&
-        runtimeType == other.runtimeType &&
-        name == other.name;
+    return other is PlanPatch && other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (name == null ? 0 : name.hashCode);
 
-    hashCode ^= name?.hashCode ?? 0;
+  static List<PlanPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanPatch>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlanPatch>[], (List<PlanPatch> previousValue, element) {
+      final PlanPatch? object = PlanPatch.fromJson(element);
+      if (object is PlanPatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlanPatch> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlanPatch.fromJson(value))?.toList() ??
-        <PlanPatch>[];
+  static Map<String, PlanPatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanPatch>{};
+    }
+
+    return json.entries.fold(<String, PlanPatch>{},
+        (Map<String, PlanPatch> previousValue, element) {
+      final PlanPatch? object = PlanPatch.fromJson(element.value);
+      if (object is PlanPatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlanPatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlanPatch>((String key, dynamic value) {
-          return MapEntry(key, PlanPatch.fromJson(value));
-        }) ??
-        <String, PlanPatch>{};
+  // maps a json object with a list of PlanPatch-objects as value to a dart map
+  static Map<String, List<PlanPatch>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlanPatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlanPatch>>(
+          key, PlanPatch.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PlanPatch[name=$name]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (name != null) 'name': name,
+    return <String, dynamic>{
+      if (name != null) r'name': name,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlanPatch[name=$name, ]';
   }
 }

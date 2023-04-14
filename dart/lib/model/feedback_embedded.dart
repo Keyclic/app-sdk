@@ -1,106 +1,125 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class FeedbackEmbedded {
+  /// Returns a new [FeedbackEmbedded] instance.
   FeedbackEmbedded({
     this.category,
-    this.markers,
+    this.markers = const [],
     this.reporter,
-    this.stateTransitions,
+    this.stateTransitions = const [],
     this.tracking,
   });
 
-  factory FeedbackEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [FeedbackEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FeedbackEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackEmbedded(
-      category: Category.fromJson(json['category']),
-      markers: Marker.listFromJson(json['markers']),
-      reporter: Person.fromJson(json['reporter']),
-      stateTransitions: json['stateTransitions'] is List
-          ? List<String>.from(json['stateTransitions'])
-          : null,
-      tracking: json['tracking'],
+      category: Category.fromJson(json[r'category']),
+      markers: Marker.listFromJson(json[r'markers']),
+      reporter: Person.fromJson(json[r'reporter']),
+      stateTransitions: List<String>.from(json[r'stateTransitions'] ?? []),
+      tracking: json[r'tracking'],
     );
   }
 
-  Category category;
+  Category? category;
 
-  List<Marker> markers;
+  List<Marker>? markers;
 
-  Person reporter;
+  Person? reporter;
 
-  List<String> stateTransitions;
+  List<String>? stateTransitions;
 
-  String tracking;
+  String? tracking;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackEmbedded &&
-        runtimeType == other.runtimeType &&
-        category == other.category &&
+        other.category == category &&
         DeepCollectionEquality.unordered().equals(markers, other.markers) &&
-        reporter == other.reporter &&
+        other.reporter == reporter &&
         DeepCollectionEquality.unordered()
             .equals(stateTransitions, other.stateTransitions) &&
-        tracking == other.tracking;
+        other.tracking == tracking;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (category == null ? 0 : category.hashCode) +
+      (markers == null ? 0 : markers.hashCode) +
+      (reporter == null ? 0 : reporter.hashCode) +
+      (stateTransitions == null ? 0 : stateTransitions.hashCode) +
+      (tracking == null ? 0 : tracking.hashCode);
 
-    if (markers is List && markers.isNotEmpty) {
-      hashCode ^= markers
-          .map((Marker element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (stateTransitions is List && stateTransitions.isNotEmpty) {
-      hashCode ^= stateTransitions
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<FeedbackEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackEmbedded>[];
     }
 
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= reporter?.hashCode ?? 0;
-    hashCode ^= tracking?.hashCode ?? 0;
+    return json.fold(<FeedbackEmbedded>[],
+        (List<FeedbackEmbedded> previousValue, element) {
+      final FeedbackEmbedded? object = FeedbackEmbedded.fromJson(element);
+      if (object is FeedbackEmbedded) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<FeedbackEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackEmbedded.fromJson(value))
-            ?.toList() ??
-        <FeedbackEmbedded>[];
+  static Map<String, FeedbackEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackEmbedded>{};
+    }
+
+    return json.entries.fold(<String, FeedbackEmbedded>{},
+        (Map<String, FeedbackEmbedded> previousValue, element) {
+      final FeedbackEmbedded? object = FeedbackEmbedded.fromJson(element.value);
+      if (object is FeedbackEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, FeedbackEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, FeedbackEmbedded>((String key, dynamic value) {
-          return MapEntry(key, FeedbackEmbedded.fromJson(value));
-        }) ??
-        <String, FeedbackEmbedded>{};
+  // maps a json object with a list of FeedbackEmbedded-objects as value to a dart map
+  static Map<String, List<FeedbackEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackEmbedded>>(
+          key, FeedbackEmbedded.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'FeedbackEmbedded[category=$category, markers=$markers, reporter=$reporter, stateTransitions=$stateTransitions, tracking=$tracking]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (category != null) 'category': category.toJson(),
-      if (markers != null) 'markers': markers,
-      if (reporter != null) 'reporter': reporter.toJson(),
-      if (stateTransitions != null) 'stateTransitions': stateTransitions,
-      if (tracking != null) 'tracking': tracking,
+    return <String, dynamic>{
+      if (category != null) r'category': category,
+      if (markers != null) r'markers': markers,
+      if (reporter != null) r'reporter': reporter,
+      if (stateTransitions != null) r'stateTransitions': stateTransitions,
+      if (tracking != null) r'tracking': tracking,
     };
-  }
-
-  @override
-  String toString() {
-    return 'FeedbackEmbedded[category=$category, markers=$markers, reporter=$reporter, stateTransitions=$stateTransitions, tracking=$tracking, ]';
   }
 }

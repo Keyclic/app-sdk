@@ -1,73 +1,102 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ArticleLinks {
+  /// Returns a new [ArticleLinks] instance.
   ArticleLinks({
     this.section,
     this.self,
   });
 
-  factory ArticleLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ArticleLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ArticleLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ArticleLinks(
-      section: ArticleLinksSection.fromJson(json['section']),
-      self: ArticleLinksSelf.fromJson(json['self']),
+      section: ArticleLinksSection.fromJson(json[r'section']),
+      self: ArticleLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  ArticleLinksSection section;
+  ArticleLinksSection? section;
 
-  ArticleLinksSelf self;
+  ArticleLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ArticleLinks &&
-        runtimeType == other.runtimeType &&
-        section == other.section &&
-        self == other.self;
+        other.section == section &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (section == null ? 0 : section.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= section?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<ArticleLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ArticleLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<ArticleLinks>[],
+        (List<ArticleLinks> previousValue, element) {
+      final ArticleLinks? object = ArticleLinks.fromJson(element);
+      if (object is ArticleLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ArticleLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ArticleLinks.fromJson(value))
-            ?.toList() ??
-        <ArticleLinks>[];
+  static Map<String, ArticleLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ArticleLinks>{};
+    }
+
+    return json.entries.fold(<String, ArticleLinks>{},
+        (Map<String, ArticleLinks> previousValue, element) {
+      final ArticleLinks? object = ArticleLinks.fromJson(element.value);
+      if (object is ArticleLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ArticleLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ArticleLinks>((String key, dynamic value) {
-          return MapEntry(key, ArticleLinks.fromJson(value));
-        }) ??
-        <String, ArticleLinks>{};
+  // maps a json object with a list of ArticleLinks-objects as value to a dart map
+  static Map<String, List<ArticleLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ArticleLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ArticleLinks>>(
+          key, ArticleLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'ArticleLinks[section=$section, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (section != null) 'section': section.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (section != null) r'section': section,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ArticleLinks[section=$section, self=$self, ]';
   }
 }

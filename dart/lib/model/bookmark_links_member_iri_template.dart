@@ -1,70 +1,98 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BookmarkLinksMemberIriTemplate {
+  /// Returns a new [BookmarkLinksMemberIriTemplate] instance.
   BookmarkLinksMemberIriTemplate({
     this.mapping,
   });
 
-  factory BookmarkLinksMemberIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BookmarkLinksMemberIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BookmarkLinksMemberIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkLinksMemberIriTemplate(
       mapping:
-          AssignmentLinksMemberIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksMemberIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  AssignmentLinksMemberIriTemplateMapping mapping;
+  AssignmentLinksMemberIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is BookmarkLinksMemberIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is BookmarkLinksMemberIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<BookmarkLinksMemberIriTemplate> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkLinksMemberIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<BookmarkLinksMemberIriTemplate>[],
+        (List<BookmarkLinksMemberIriTemplate> previousValue, element) {
+      final BookmarkLinksMemberIriTemplate? object =
+          BookmarkLinksMemberIriTemplate.fromJson(element);
+      if (object is BookmarkLinksMemberIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<BookmarkLinksMemberIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                BookmarkLinksMemberIriTemplate.fromJson(value))
-            ?.toList() ??
-        <BookmarkLinksMemberIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BookmarkLinksMemberIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, BookmarkLinksMemberIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, BookmarkLinksMemberIriTemplate.fromJson(value));
-        }) ??
-        <String, BookmarkLinksMemberIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkLinksMemberIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, BookmarkLinksMemberIriTemplate>{},
+        (Map<String, BookmarkLinksMemberIriTemplate> previousValue, element) {
+      final BookmarkLinksMemberIriTemplate? object =
+          BookmarkLinksMemberIriTemplate.fromJson(element.value);
+      if (object is BookmarkLinksMemberIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of BookmarkLinksMemberIriTemplate-objects as value to a dart map
+  static Map<String, List<BookmarkLinksMemberIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BookmarkLinksMemberIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BookmarkLinksMemberIriTemplate>>(
+          key, BookmarkLinksMemberIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BookmarkLinksMemberIriTemplate[mapping=$mapping, ]';
+  String toString() => 'BookmarkLinksMemberIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

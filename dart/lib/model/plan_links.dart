@@ -1,78 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlanLinks {
+  /// Returns a new [PlanLinks] instance.
   PlanLinks({
     this.image,
     this.place,
     this.self,
   });
 
-  factory PlanLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlanLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlanLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlanLinks(
-      image: PlanLinksImage.fromJson(json['image']),
-      place: PlanLinksPlace.fromJson(json['place']),
-      self: PlanLinksSelf.fromJson(json['self']),
+      image: PlanLinksImage.fromJson(json[r'image']),
+      place: PlanLinksPlace.fromJson(json[r'place']),
+      self: PlanLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  PlanLinksImage image;
+  PlanLinksImage? image;
 
-  PlanLinksPlace place;
+  PlanLinksPlace? place;
 
-  PlanLinksSelf self;
+  PlanLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlanLinks &&
-        runtimeType == other.runtimeType &&
-        image == other.image &&
-        place == other.place &&
-        self == other.self;
+        other.image == image &&
+        other.place == place &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (image == null ? 0 : image.hashCode) +
+      (place == null ? 0 : place.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= image?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<PlanLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlanLinks>[], (List<PlanLinks> previousValue, element) {
+      final PlanLinks? object = PlanLinks.fromJson(element);
+      if (object is PlanLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlanLinks> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlanLinks.fromJson(value))?.toList() ??
-        <PlanLinks>[];
+  static Map<String, PlanLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanLinks>{};
+    }
+
+    return json.entries.fold(<String, PlanLinks>{},
+        (Map<String, PlanLinks> previousValue, element) {
+      final PlanLinks? object = PlanLinks.fromJson(element.value);
+      if (object is PlanLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlanLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlanLinks>((String key, dynamic value) {
-          return MapEntry(key, PlanLinks.fromJson(value));
-        }) ??
-        <String, PlanLinks>{};
+  // maps a json object with a list of PlanLinks-objects as value to a dart map
+  static Map<String, List<PlanLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlanLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlanLinks>>(
+          key, PlanLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PlanLinks[image=$image, place=$place, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (image != null) 'image': image.toJson(),
-      if (place != null) 'place': place.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (image != null) r'image': image,
+      if (place != null) r'place': place,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlanLinks[image=$image, place=$place, self=$self, ]';
   }
 }

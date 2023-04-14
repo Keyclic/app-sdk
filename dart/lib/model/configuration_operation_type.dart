@@ -1,82 +1,113 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ConfigurationOperationType {
+  /// Returns a new [ConfigurationOperationType] instance.
   ConfigurationOperationType({
     this.id,
     this.type,
     this.workflow,
   });
 
-  factory ConfigurationOperationType.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ConfigurationOperationType] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ConfigurationOperationType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ConfigurationOperationType(
-      id: json['id'],
-      type: json['type'],
-      workflow: OperationTypeWorkflow.fromJson(json['workflow']),
+      id: json[r'id'],
+      type: json[r'type'],
+      workflow: OperationTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  OperationTypeWorkflow workflow;
+  OperationTypeWorkflow? workflow;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ConfigurationOperationType &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
-        type == other.type &&
-        workflow == other.workflow;
+        other.id == id &&
+        other.type == type &&
+        other.workflow == workflow;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
+  static List<ConfigurationOperationType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationOperationType>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ConfigurationOperationType>[],
+        (List<ConfigurationOperationType> previousValue, element) {
+      final ConfigurationOperationType? object =
+          ConfigurationOperationType.fromJson(element);
+      if (object is ConfigurationOperationType) {
+        previousValue.add(object);
+      }
 
-  static List<ConfigurationOperationType> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ConfigurationOperationType.fromJson(value))
-            ?.toList() ??
-        <ConfigurationOperationType>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ConfigurationOperationType> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ConfigurationOperationType>(
-            (String key, dynamic value) {
-          return MapEntry(key, ConfigurationOperationType.fromJson(value));
-        }) ??
-        <String, ConfigurationOperationType>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationOperationType>{};
+    }
+
+    return json.entries.fold(<String, ConfigurationOperationType>{},
+        (Map<String, ConfigurationOperationType> previousValue, element) {
+      final ConfigurationOperationType? object =
+          ConfigurationOperationType.fromJson(element.value);
+      if (object is ConfigurationOperationType) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (workflow != null) 'workflow': workflow.toJson(),
-    };
+  // maps a json object with a list of ConfigurationOperationType-objects as value to a dart map
+  static Map<String, List<ConfigurationOperationType>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ConfigurationOperationType>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ConfigurationOperationType>>(
+          key, ConfigurationOperationType.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ConfigurationOperationType[id=$id, type=$type, workflow=$workflow, ]';
+  String toString() =>
+      'ConfigurationOperationType[id=$id, type=$type, workflow=$workflow]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (workflow != null) r'workflow': workflow,
+    };
   }
 }

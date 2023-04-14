@@ -1,68 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceLinksSelfIriTemplate {
+  /// Returns a new [PlaceLinksSelfIriTemplate] instance.
   PlaceLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory PlaceLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlaceLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceLinksSelfIriTemplate(
-      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json['mapping']),
+      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  BookmarkLinksPlaceIriTemplateMapping mapping;
+  BookmarkLinksPlaceIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PlaceLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is PlaceLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<PlaceLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<PlaceLinksSelfIriTemplate>[],
+        (List<PlaceLinksSelfIriTemplate> previousValue, element) {
+      final PlaceLinksSelfIriTemplate? object =
+          PlaceLinksSelfIriTemplate.fromJson(element);
+      if (object is PlaceLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<PlaceLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlaceLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <PlaceLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, PlaceLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, PlaceLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, PlaceLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, PlaceLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinksSelfIriTemplate>{},
+        (Map<String, PlaceLinksSelfIriTemplate> previousValue, element) {
+      final PlaceLinksSelfIriTemplate? object =
+          PlaceLinksSelfIriTemplate.fromJson(element.value);
+      if (object is PlaceLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of PlaceLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<PlaceLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinksSelfIriTemplate>>(
+          key, PlaceLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PlaceLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'PlaceLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

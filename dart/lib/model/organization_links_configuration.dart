@@ -1,78 +1,109 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OrganizationLinksConfiguration {
+  /// Returns a new [OrganizationLinksConfiguration] instance.
   OrganizationLinksConfiguration({
     this.href,
     this.iriTemplate,
   });
 
-  factory OrganizationLinksConfiguration.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OrganizationLinksConfiguration] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OrganizationLinksConfiguration? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OrganizationLinksConfiguration(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate: OrganizationLinksConfigurationIriTemplate.fromJson(
-          json['iriTemplate']),
+          json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the configuration associated to the given organization. */
-  String href;
+  /// The URI of the configuration associated to the given organization.
+  String? href;
 
-  OrganizationLinksConfigurationIriTemplate iriTemplate;
+  OrganizationLinksConfigurationIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OrganizationLinksConfiguration &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<OrganizationLinksConfiguration> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationLinksConfiguration>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<OrganizationLinksConfiguration>[],
+        (List<OrganizationLinksConfiguration> previousValue, element) {
+      final OrganizationLinksConfiguration? object =
+          OrganizationLinksConfiguration.fromJson(element);
+      if (object is OrganizationLinksConfiguration) {
+        previousValue.add(object);
+      }
 
-  static List<OrganizationLinksConfiguration> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                OrganizationLinksConfiguration.fromJson(value))
-            ?.toList() ??
-        <OrganizationLinksConfiguration>[];
+      return previousValue;
+    });
   }
 
   static Map<String, OrganizationLinksConfiguration> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, OrganizationLinksConfiguration>(
-            (String key, dynamic value) {
-          return MapEntry(key, OrganizationLinksConfiguration.fromJson(value));
-        }) ??
-        <String, OrganizationLinksConfiguration>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationLinksConfiguration>{};
+    }
+
+    return json.entries.fold(<String, OrganizationLinksConfiguration>{},
+        (Map<String, OrganizationLinksConfiguration> previousValue, element) {
+      final OrganizationLinksConfiguration? object =
+          OrganizationLinksConfiguration.fromJson(element.value);
+      if (object is OrganizationLinksConfiguration) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of OrganizationLinksConfiguration-objects as value to a dart map
+  static Map<String, List<OrganizationLinksConfiguration>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationLinksConfiguration>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationLinksConfiguration>>(
+          key, OrganizationLinksConfiguration.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'OrganizationLinksConfiguration[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'OrganizationLinksConfiguration[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

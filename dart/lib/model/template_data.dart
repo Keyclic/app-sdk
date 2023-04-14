@@ -1,41 +1,48 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class TemplateData {
+  /// Returns a new [TemplateData] instance.
   TemplateData({
-    this.body,
-    this.footer,
-    this.header,
-    this.name,
-    this.organization,
-    this.type,
+    this.body = const [],
+    this.footer = const [],
+    this.header = const [],
+    required this.name,
+    required this.organization,
+    required this.type,
   });
 
-  factory TemplateData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [TemplateData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static TemplateData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return TemplateData(
-      body: json['body'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['body'])
+      body: json[r'body'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'body'])
           : [],
-      footer: json['footer'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['footer'])
+      footer: json[r'footer'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'footer'])
           : [],
-      header: json['header'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['header'])
+      header: json[r'header'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'header'])
           : [],
-      name: json['name'],
-      organization: json['organization'],
-      type: json['type'],
+      name: json[r'name'],
+      organization: json[r'organization'],
+      type: json[r'type'],
     );
   }
 
-  List<Map<String, dynamic>> body;
+  List<Map<String, dynamic>>? body;
 
-  List<Map<String, dynamic>> footer;
+  List<Map<String, dynamic>>? footer;
 
-  List<Map<String, dynamic>> header;
+  List<Map<String, dynamic>>? header;
 
   String name;
 
@@ -44,77 +51,87 @@ class TemplateData {
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is TemplateData &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(body, other.body) &&
         DeepCollectionEquality.unordered().equals(footer, other.footer) &&
         DeepCollectionEquality.unordered().equals(header, other.header) &&
-        name == other.name &&
-        organization == other.organization &&
-        type == other.type;
+        other.name == name &&
+        other.organization == organization &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (body == null ? 0 : body.hashCode) +
+      (footer == null ? 0 : footer.hashCode) +
+      (header == null ? 0 : header.hashCode) +
+      name.hashCode +
+      organization.hashCode +
+      type.hashCode;
 
-    if (body is List && body.isNotEmpty) {
-      hashCode ^= body
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (footer is List && footer.isNotEmpty) {
-      hashCode ^= footer
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (header is List && header.isNotEmpty) {
-      hashCode ^= header
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<TemplateData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <TemplateData>[];
     }
 
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+    return json.fold(<TemplateData>[],
+        (List<TemplateData> previousValue, element) {
+      final TemplateData? object = TemplateData.fromJson(element);
+      if (object is TemplateData) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<TemplateData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => TemplateData.fromJson(value))
-            ?.toList() ??
-        <TemplateData>[];
+  static Map<String, TemplateData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, TemplateData>{};
+    }
+
+    return json.entries.fold(<String, TemplateData>{},
+        (Map<String, TemplateData> previousValue, element) {
+      final TemplateData? object = TemplateData.fromJson(element.value);
+      if (object is TemplateData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, TemplateData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, TemplateData>((String key, dynamic value) {
-          return MapEntry(key, TemplateData.fromJson(value));
-        }) ??
-        <String, TemplateData>{};
+  // maps a json object with a list of TemplateData-objects as value to a dart map
+  static Map<String, List<TemplateData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<TemplateData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<TemplateData>>(
+          key, TemplateData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'TemplateData[body=$body, footer=$footer, header=$header, name=$name, organization=$organization, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (body != null) 'body': body,
-      if (footer != null) 'footer': footer,
-      if (header != null) 'header': header,
-      if (name != null) 'name': name,
-      if (organization != null) 'organization': organization,
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      if (body != null) r'body': body,
+      if (footer != null) r'footer': footer,
+      if (header != null) r'header': header,
+      r'name': name,
+      r'organization': organization,
+      r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'TemplateData[body=$body, footer=$footer, header=$header, name=$name, organization=$organization, type=$type, ]';
   }
 }

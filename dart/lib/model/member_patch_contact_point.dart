@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class MemberPatchContactPoint {
+  /// Returns a new [MemberPatchContactPoint] instance.
   MemberPatchContactPoint({
     this.description,
     this.email,
@@ -11,100 +16,126 @@ class MemberPatchContactPoint {
     this.name,
   });
 
-  factory MemberPatchContactPoint.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [MemberPatchContactPoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static MemberPatchContactPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return MemberPatchContactPoint(
-      description: json['description'],
-      email: json['email'],
-      familyName: json['familyName'],
-      faxNumber: json['faxNumber'],
-      givenName: json['givenName'],
-      telephone: json['telephone'],
-      name: json['name'],
+      description: json[r'description'],
+      email: json[r'email'],
+      familyName: json[r'familyName'],
+      faxNumber: json[r'faxNumber'],
+      givenName: json[r'givenName'],
+      telephone: json[r'telephone'],
+      name: json[r'name'],
     );
   }
 
-  String description;
+  String? description;
 
-  String email;
+  String? email;
 
-  String familyName;
+  String? familyName;
 
-  String faxNumber;
+  String? faxNumber;
 
-  String givenName;
+  String? givenName;
 
-  String telephone;
+  String? telephone;
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MemberPatchContactPoint &&
-        runtimeType == other.runtimeType &&
-        description == other.description &&
-        email == other.email &&
-        familyName == other.familyName &&
-        faxNumber == other.faxNumber &&
-        givenName == other.givenName &&
-        telephone == other.telephone &&
-        name == other.name;
+        other.description == description &&
+        other.email == email &&
+        other.familyName == familyName &&
+        other.faxNumber == faxNumber &&
+        other.givenName == givenName &&
+        other.telephone == telephone &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (description == null ? 0 : description.hashCode) +
+      (email == null ? 0 : email.hashCode) +
+      (familyName == null ? 0 : familyName.hashCode) +
+      (faxNumber == null ? 0 : faxNumber.hashCode) +
+      (givenName == null ? 0 : givenName.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= familyName?.hashCode ?? 0;
-    hashCode ^= faxNumber?.hashCode ?? 0;
-    hashCode ^= givenName?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<MemberPatchContactPoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberPatchContactPoint>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<MemberPatchContactPoint>[],
+        (List<MemberPatchContactPoint> previousValue, element) {
+      final MemberPatchContactPoint? object =
+          MemberPatchContactPoint.fromJson(element);
+      if (object is MemberPatchContactPoint) {
+        previousValue.add(object);
+      }
 
-  static List<MemberPatchContactPoint> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MemberPatchContactPoint.fromJson(value))
-            ?.toList() ??
-        <MemberPatchContactPoint>[];
+      return previousValue;
+    });
   }
 
   static Map<String, MemberPatchContactPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, MemberPatchContactPoint>((String key, dynamic value) {
-          return MapEntry(key, MemberPatchContactPoint.fromJson(value));
-        }) ??
-        <String, MemberPatchContactPoint>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberPatchContactPoint>{};
+    }
+
+    return json.entries.fold(<String, MemberPatchContactPoint>{},
+        (Map<String, MemberPatchContactPoint> previousValue, element) {
+      final MemberPatchContactPoint? object =
+          MemberPatchContactPoint.fromJson(element.value);
+      if (object is MemberPatchContactPoint) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (description != null) 'description': description,
-      if (email != null) 'email': email,
-      if (familyName != null) 'familyName': familyName,
-      if (faxNumber != null) 'faxNumber': faxNumber,
-      if (givenName != null) 'givenName': givenName,
-      if (telephone != null) 'telephone': telephone,
-      if (name != null) 'name': name,
-    };
+  // maps a json object with a list of MemberPatchContactPoint-objects as value to a dart map
+  static Map<String, List<MemberPatchContactPoint>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MemberPatchContactPoint>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MemberPatchContactPoint>>(
+          key, MemberPatchContactPoint.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'MemberPatchContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, telephone=$telephone, name=$name, ]';
+  String toString() =>
+      'MemberPatchContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, telephone=$telephone, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (description != null) r'description': description,
+      if (email != null) r'email': email,
+      if (familyName != null) r'familyName': familyName,
+      if (faxNumber != null) r'faxNumber': faxNumber,
+      if (givenName != null) r'givenName': givenName,
+      if (telephone != null) r'telephone': telephone,
+      if (name != null) r'name': name,
+    };
   }
 }

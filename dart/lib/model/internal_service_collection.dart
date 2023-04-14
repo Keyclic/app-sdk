@@ -1,72 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InternalServiceCollection {
+  /// Returns a new [InternalServiceCollection] instance.
   InternalServiceCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory InternalServiceCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InternalServiceCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InternalServiceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InternalServiceCollection(
-      items: InternalService.listFromJson(json['items']),
+      items: InternalService.listFromJson(json[r'items']),
     );
   }
 
-  List<InternalService> items;
+  List<InternalService>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is InternalServiceCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((InternalService element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<InternalServiceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceCollection>[];
     }
 
-    return hashCode;
-  }
+    return json.fold(<InternalServiceCollection>[],
+        (List<InternalServiceCollection> previousValue, element) {
+      final InternalServiceCollection? object =
+          InternalServiceCollection.fromJson(element);
+      if (object is InternalServiceCollection) {
+        previousValue.add(object);
+      }
 
-  static List<InternalServiceCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => InternalServiceCollection.fromJson(value))
-            ?.toList() ??
-        <InternalServiceCollection>[];
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServiceCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, InternalServiceCollection>(
-            (String key, dynamic value) {
-          return MapEntry(key, InternalServiceCollection.fromJson(value));
-        }) ??
-        <String, InternalServiceCollection>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceCollection>{};
+    }
+
+    return json.entries.fold(<String, InternalServiceCollection>{},
+        (Map<String, InternalServiceCollection> previousValue, element) {
+      final InternalServiceCollection? object =
+          InternalServiceCollection.fromJson(element.value);
+      if (object is InternalServiceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+  // maps a json object with a list of InternalServiceCollection-objects as value to a dart map
+  static Map<String, List<InternalServiceCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServiceCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServiceCollection>>(
+          key, InternalServiceCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'InternalServiceCollection[items=$items, ]';
+  String toString() => 'InternalServiceCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

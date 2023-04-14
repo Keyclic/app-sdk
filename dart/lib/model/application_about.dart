@@ -1,73 +1,101 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ApplicationAbout {
+  /// Returns a new [ApplicationAbout] instance.
   ApplicationAbout({
     this.name,
     this.text,
   });
 
-  factory ApplicationAbout.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ApplicationAbout] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ApplicationAbout? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ApplicationAbout(
-      name: json['name'],
-      text: json['text'],
+      name: json[r'name'],
+      text: json[r'text'],
     );
   }
 
-  String name;
+  String? name;
 
-  String text;
+  String? text;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ApplicationAbout &&
-        runtimeType == other.runtimeType &&
-        name == other.name &&
-        text == other.text;
+        other.name == name &&
+        other.text == text;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (name == null ? 0 : name.hashCode) + (text == null ? 0 : text.hashCode);
 
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= text?.hashCode ?? 0;
+  static List<ApplicationAbout> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ApplicationAbout>[];
+    }
 
-    return hashCode;
+    return json.fold(<ApplicationAbout>[],
+        (List<ApplicationAbout> previousValue, element) {
+      final ApplicationAbout? object = ApplicationAbout.fromJson(element);
+      if (object is ApplicationAbout) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ApplicationAbout> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ApplicationAbout.fromJson(value))
-            ?.toList() ??
-        <ApplicationAbout>[];
+  static Map<String, ApplicationAbout> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ApplicationAbout>{};
+    }
+
+    return json.entries.fold(<String, ApplicationAbout>{},
+        (Map<String, ApplicationAbout> previousValue, element) {
+      final ApplicationAbout? object = ApplicationAbout.fromJson(element.value);
+      if (object is ApplicationAbout) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ApplicationAbout> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ApplicationAbout>((String key, dynamic value) {
-          return MapEntry(key, ApplicationAbout.fromJson(value));
-        }) ??
-        <String, ApplicationAbout>{};
+  // maps a json object with a list of ApplicationAbout-objects as value to a dart map
+  static Map<String, List<ApplicationAbout>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ApplicationAbout>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ApplicationAbout>>(
+          key, ApplicationAbout.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'ApplicationAbout[name=$name, text=$text]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (name != null) 'name': name,
-      if (text != null) 'text': text,
+    return <String, dynamic>{
+      if (name != null) r'name': name,
+      if (text != null) r'text': text,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ApplicationAbout[name=$name, text=$text, ]';
   }
 }

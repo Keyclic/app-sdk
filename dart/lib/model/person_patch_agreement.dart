@@ -1,81 +1,113 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PersonPatchAgreement {
+  /// Returns a new [PersonPatchAgreement] instance.
   PersonPatchAgreement({
     this.privacyPolicy,
     this.termsOfService,
     this.olderThan,
   });
 
-  factory PersonPatchAgreement.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PersonPatchAgreement] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PersonPatchAgreement? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PersonPatchAgreement(
-      privacyPolicy: json['privacyPolicy'],
-      termsOfService: json['termsOfService'],
-      olderThan: json['olderThan'],
+      privacyPolicy: json[r'privacyPolicy'],
+      termsOfService: json[r'termsOfService'],
+      olderThan: json[r'olderThan'],
     );
   }
 
-  bool privacyPolicy;
+  bool? privacyPolicy;
 
-  bool termsOfService;
+  bool? termsOfService;
 
-  bool olderThan;
+  bool? olderThan;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PersonPatchAgreement &&
-        runtimeType == other.runtimeType &&
-        privacyPolicy == other.privacyPolicy &&
-        termsOfService == other.termsOfService &&
-        olderThan == other.olderThan;
+        other.privacyPolicy == privacyPolicy &&
+        other.termsOfService == termsOfService &&
+        other.olderThan == olderThan;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
+      (termsOfService == null ? 0 : termsOfService.hashCode) +
+      (olderThan == null ? 0 : olderThan.hashCode);
 
-    hashCode ^= privacyPolicy?.hashCode ?? 0;
-    hashCode ^= termsOfService?.hashCode ?? 0;
-    hashCode ^= olderThan?.hashCode ?? 0;
+  static List<PersonPatchAgreement> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PersonPatchAgreement>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<PersonPatchAgreement>[],
+        (List<PersonPatchAgreement> previousValue, element) {
+      final PersonPatchAgreement? object =
+          PersonPatchAgreement.fromJson(element);
+      if (object is PersonPatchAgreement) {
+        previousValue.add(object);
+      }
 
-  static List<PersonPatchAgreement> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PersonPatchAgreement.fromJson(value))
-            ?.toList() ??
-        <PersonPatchAgreement>[];
+      return previousValue;
+    });
   }
 
   static Map<String, PersonPatchAgreement> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, PersonPatchAgreement>((String key, dynamic value) {
-          return MapEntry(key, PersonPatchAgreement.fromJson(value));
-        }) ??
-        <String, PersonPatchAgreement>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PersonPatchAgreement>{};
+    }
+
+    return json.entries.fold(<String, PersonPatchAgreement>{},
+        (Map<String, PersonPatchAgreement> previousValue, element) {
+      final PersonPatchAgreement? object =
+          PersonPatchAgreement.fromJson(element.value);
+      if (object is PersonPatchAgreement) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (privacyPolicy != null) 'privacyPolicy': privacyPolicy,
-      if (termsOfService != null) 'termsOfService': termsOfService,
-      if (olderThan != null) 'olderThan': olderThan,
-    };
+  // maps a json object with a list of PersonPatchAgreement-objects as value to a dart map
+  static Map<String, List<PersonPatchAgreement>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PersonPatchAgreement>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PersonPatchAgreement>>(
+          key, PersonPatchAgreement.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PersonPatchAgreement[privacyPolicy=$privacyPolicy, termsOfService=$termsOfService, olderThan=$olderThan, ]';
+  String toString() =>
+      'PersonPatchAgreement[privacyPolicy=$privacyPolicy, termsOfService=$termsOfService, olderThan=$olderThan]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (privacyPolicy != null) r'privacyPolicy': privacyPolicy,
+      if (termsOfService != null) r'termsOfService': termsOfService,
+      if (olderThan != null) r'olderThan': olderThan,
+    };
   }
 }

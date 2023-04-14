@@ -1,78 +1,237 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Binary {
+  /// Returns a new [Binary] instance.
   Binary({
     this.content,
     this.contentType,
     this.name,
   });
 
-  factory Binary.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Binary] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Binary? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Binary(
-      content: json['content'],
-      contentType: json['contentType'],
-      name: json['name'],
+      content: json[r'content'],
+      contentType: BinaryContentTypeEnum.fromJson(json[r'contentType']),
+      name: json[r'name'],
     );
   }
 
-  String content;
+  String? content;
 
-  String contentType;
+  BinaryContentTypeEnum? contentType;
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Binary &&
-        runtimeType == other.runtimeType &&
-        content == other.content &&
-        contentType == other.contentType &&
-        name == other.name;
+        other.content == content &&
+        other.contentType == contentType &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (content == null ? 0 : content.hashCode) +
+      (contentType == null ? 0 : contentType.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
-    hashCode ^= content?.hashCode ?? 0;
-    hashCode ^= contentType?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<Binary> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Binary>[];
+    }
 
-    return hashCode;
+    return json.fold(<Binary>[], (List<Binary> previousValue, element) {
+      final Binary? object = Binary.fromJson(element);
+      if (object is Binary) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Binary> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Binary.fromJson(value))?.toList() ??
-        <Binary>[];
+  static Map<String, Binary> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Binary>{};
+    }
+
+    return json.entries.fold(<String, Binary>{},
+        (Map<String, Binary> previousValue, element) {
+      final Binary? object = Binary.fromJson(element.value);
+      if (object is Binary) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Binary> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Binary>((String key, dynamic value) {
-          return MapEntry(key, Binary.fromJson(value));
-        }) ??
-        <String, Binary>{};
+  // maps a json object with a list of Binary-objects as value to a dart map
+  static Map<String, List<Binary>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Binary>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Binary>>(key, Binary.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Binary[content=$content, contentType=$contentType, name=$name]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-      if (contentType != null) 'contentType': contentType,
-      if (name != null) 'name': name,
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+      if (contentType != null) r'contentType': contentType,
+      if (name != null) r'name': name,
     };
   }
+}
+
+class BinaryContentTypeEnum {
+  /// Instantiate a new enum with the provided [value].
+  const BinaryContentTypeEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
 
   @override
-  String toString() {
-    return 'Binary[content=$content, contentType=$contentType, name=$name, ]';
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const textSlashCsv = BinaryContentTypeEnum._(r'text/csv');
+  static const applicationSlashMsword =
+      BinaryContentTypeEnum._(r'application/msword');
+  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument =
+      BinaryContentTypeEnum._(
+          r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+  static const imageSlashGif = BinaryContentTypeEnum._(r'image/gif');
+  static const imageSlashJpeg = BinaryContentTypeEnum._(r'image/jpeg');
+  static const imageSlashJpg = BinaryContentTypeEnum._(r'image/jpg');
+  static const applicationSlashJson =
+      BinaryContentTypeEnum._(r'application/json');
+  static const applicationSlashOctetStream =
+      BinaryContentTypeEnum._(r'application/octet-stream');
+  static const applicationSlashPdf =
+      BinaryContentTypeEnum._(r'application/pdf');
+  static const imageSlashPng = BinaryContentTypeEnum._(r'image/png');
+  static const textSlashPlain = BinaryContentTypeEnum._(r'text/plain');
+  static const applicationSlashVndPeriodMsExcel =
+      BinaryContentTypeEnum._(r'application/vnd.ms-excel');
+  static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet =
+      BinaryContentTypeEnum._(
+          r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  static const applicationSlashZip =
+      BinaryContentTypeEnum._(r'application/zip');
+
+  /// List of all possible values in this [enum][BinaryContentTypeEnum].
+  static const values = <BinaryContentTypeEnum>[
+    textSlashCsv,
+    applicationSlashMsword,
+    applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument,
+    imageSlashGif,
+    imageSlashJpeg,
+    imageSlashJpg,
+    applicationSlashJson,
+    applicationSlashOctetStream,
+    applicationSlashPdf,
+    imageSlashPng,
+    textSlashPlain,
+    applicationSlashVndPeriodMsExcel,
+    applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet,
+    applicationSlashZip,
+  ];
+
+  static BinaryContentTypeEnum? fromJson(dynamic value) =>
+      BinaryContentTypeEnumTypeTransformer().decode(value);
+
+  static List<BinaryContentTypeEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return BinaryContentTypeEnum.fromJson(value);
+        })
+        .whereType<BinaryContentTypeEnum>()
+        .toList();
   }
+}
+
+/// Transformation class that can [encode] an instance of [BinaryContentTypeEnum] to String,
+/// and [decode] dynamic data back to [BinaryContentTypeEnum].
+class BinaryContentTypeEnumTypeTransformer {
+  const BinaryContentTypeEnumTypeTransformer._();
+
+  factory BinaryContentTypeEnumTypeTransformer() =>
+      _instance ??= BinaryContentTypeEnumTypeTransformer._();
+
+  String encode(BinaryContentTypeEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a BinaryContentTypeEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  BinaryContentTypeEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'text/csv':
+        return BinaryContentTypeEnum.textSlashCsv;
+      case r'application/msword':
+        return BinaryContentTypeEnum.applicationSlashMsword;
+      case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
+        return BinaryContentTypeEnum
+            .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
+      case r'image/gif':
+        return BinaryContentTypeEnum.imageSlashGif;
+      case r'image/jpeg':
+        return BinaryContentTypeEnum.imageSlashJpeg;
+      case r'image/jpg':
+        return BinaryContentTypeEnum.imageSlashJpg;
+      case r'application/json':
+        return BinaryContentTypeEnum.applicationSlashJson;
+      case r'application/octet-stream':
+        return BinaryContentTypeEnum.applicationSlashOctetStream;
+      case r'application/pdf':
+        return BinaryContentTypeEnum.applicationSlashPdf;
+      case r'image/png':
+        return BinaryContentTypeEnum.imageSlashPng;
+      case r'text/plain':
+        return BinaryContentTypeEnum.textSlashPlain;
+      case r'application/vnd.ms-excel':
+        return BinaryContentTypeEnum.applicationSlashVndPeriodMsExcel;
+      case r'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
+        return BinaryContentTypeEnum
+            .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodSpreadsheetmlPeriodSheet;
+      case r'application/zip':
+        return BinaryContentTypeEnum.applicationSlashZip;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [BinaryContentTypeEnumTypeTransformer] instance.
+  static BinaryContentTypeEnumTypeTransformer? _instance;
 }

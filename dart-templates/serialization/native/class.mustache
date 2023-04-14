@@ -1,0 +1,277 @@
+class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-last}}, {{/-last}} {{/interfaces}}{
+{{>dart_constructor}}
+
+  /// Returns a new [{{{classname}}}] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static {{{classname}}}? fromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return null;
+    }
+
+    {{#vars}}
+    {{#isDateTime}}
+        {{{datatype}}}? {{{name}}} = json[r'{{{baseName}}}'] is String ? DateTime.parse(json[r'{{{baseName}}}']) : null;
+        if ({{{name}}} is DateTime && {{{name}}}.isUtc == false) {
+          {{=<< >>=}}
+            <<name>> = DateTime.parse('${json[r'<<baseName>>']}Z');
+          <<={{ }}=>>
+        }
+
+      {{/isDateTime}}
+    {{/vars}}
+
+  return {{{classname}}}(
+  {{#vars}}
+  {{#isDateTime}}
+        {{{name}}}: {{{name}}},
+  {{/isDateTime}}
+  {{#isDate}}
+        {{{name}}}: json[r'{{{baseName}}}'] == null
+          ? null
+          : DateTime.parse(json[r'{{{baseName}}}']),
+  {{/isDate}}
+  {{^isDateTime}}
+  {{^isDate}}
+    {{#complexType}}
+      {{#isArray}}
+        {{#items.isArray}}
+        {{{name}}}:
+            {{#items.complexType}}
+                {{items.complexType}}.listFromJson(json[r'{{{baseName}}}']),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                List.from(json[r'{{{baseName}}}'] ?? []).map((e) => List<{{items.items.dataType}}>.from(e ?? [])).toList(growable: false),
+            {{/items.complexType}}
+        {{/items.isArray}}
+        {{^items.isArray}}
+        {{{name}}}: {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
+        {{/items.isArray}}
+      {{/isArray}}
+      {{^isArray}}
+        {{#isMap}}
+          {{#items.isArray}}
+        {{{name}}}: 
+            {{#items.complexType}}
+                {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                Map<String, List>.from(json[r'{{{baseName}}}'] ?? {}),
+            {{/items.complexType}}
+          {{/items.isArray}}
+          {{^items.isArray}}
+            {{{name}}}:
+              {{#items.isMap}}
+            {{#items.complexType}}
+                {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                Map<String, Map>.from(json[r'{{{baseName}}}'] ?? {}),
+            {{/items.complexType}}
+          {{/items.isMap}}
+          {{^items.isMap}}
+            {{#items.isModel}}
+              {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
+            {{/items.isModel}}
+            {{^items.isModel}}
+              json[r'{{{baseName}}}'],
+            {{/items.isModel}}
+          {{/items.isMap}}
+          {{/items.isArray}}
+        {{/isMap}}
+        {{^isMap}}
+            {{#isBinary}}
+        {{{name}}}: null, // No support for decoding binary content from JSON
+            {{/isBinary}}
+            {{^isBinary}}
+        {{{name}}}: {{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+            {{/isBinary}}
+        {{/isMap}}
+      {{/isArray}}
+    {{/complexType}}
+    {{^complexType}}
+      {{#isArray}}
+        {{#isEnum}}
+        {{{name}}}: {{{items.datatypeWithEnum}}}.listFromJson(json[r'{{{baseName}}}']),
+        {{/isEnum}}
+        {{^isEnum}}
+        {{{name}}}: {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{{items.datatype}}}>.from(json[r'{{{baseName}}}'] ?? []),
+        {{/isEnum}}
+      {{/isArray}}
+      {{^isArray}}
+        {{#isMap}}
+        {{{name}}}: json[r'{{{baseName}}}'] == null ?
+          null :
+          Map<String, {{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
+        {{/isMap}}
+        {{^isMap}}
+          {{#isNumber}}
+        {{{name}}}: json[r'{{{baseName}}}'] == null ?
+          null :
+          json[r'{{{baseName}}}'].toDouble(),
+          {{/isNumber}}
+          {{^isNumber}}
+            {{#isEnum}}
+              {{{name}}}: {{{enumName}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+            {{/isEnum}}
+            {{^isEnum}}
+              {{#isFreeFormObject}}
+                {{{name}}}: json[r'{{{baseName}}}'] == null ?
+                null :
+                Map<String, dynamic>.from(json[r'{{{baseName}}}']),
+              {{/isFreeFormObject}}
+              {{^isFreeFormObject}}
+                {{#isFloat}}
+                  {{{name}}}: json[r'{{{baseName}}}']{{^required}}?{{/required}}.toDouble(),
+                {{/isFloat}}
+                {{^isFloat}}
+                  {{{name}}}: json[r'{{{baseName}}}'],
+                {{/isFloat}}
+              {{/isFreeFormObject}}
+            {{/isEnum}}
+          {{/isNumber}}
+        {{/isMap}}
+      {{/isArray}}
+    {{/complexType}}
+  {{/isDate}}
+  {{/isDateTime}}
+  {{/vars}}
+    );
+  }
+
+  {{#vars}}
+  {{#description}}
+  /// {{{description}}}
+  {{/description}}
+  {{^isEnum}}
+    {{#minimum}}
+  // minimum: {{{minimum}}}
+    {{/minimum}}
+    {{#maximum}}
+  // maximum: {{{maximum}}}
+    {{/maximum}}
+  {{/isEnum}}
+  {{#isFreeFormObject}}
+    {{#isReadOnly}}final {{/isReadOnly}}Map<String, dynamic>{{^required}}?{{/required}} {{{name}}};
+  {{/isFreeFormObject}}
+  {{^isFreeFormObject}}
+    {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+  {{/isFreeFormObject}}
+
+  {{/vars}}
+  @override
+  bool operator ==(Object other) {
+    // Same reference
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is {{{classname}}} {{#vars}}
+        {{#isContainer}}
+          && DeepCollectionEquality.unordered().equals({{name}}, other.{{name}})
+        {{/isContainer}}
+        {{^isContainer}}
+          && other.{{{name}}} == {{{name}}}
+        {{/isContainer}}
+  {{/vars}};
+  }
+  
+
+  @override
+  int get hashCode =>
+  {{#vars}}
+    {{^required}}({{{name}}} == null ? 0 :{{/required}} {{{name}}}.hashCode{{^required}}){{/required}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
+  {{/vars}}
+
+  static List<{{{classname}}}> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <{{{classname}}}>[];
+    }
+
+    return json.fold(<{{{classname}}}>[], (List<{{{classname}}}> previousValue, element) {
+      final {{{classname}}}? object = {{{classname}}}.fromJson(element);
+      if (object is {{{classname}}}) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
+  }
+
+  static Map<String, {{{classname}}}> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, {{{classname}}}>{};
+    }
+
+    return json.entries.fold(<String, {{{classname}}}>{}, (Map<String, {{{classname}}}> previousValue, element) {
+      final {{{classname}}}? object = {{{classname}}}.fromJson(element.value);
+      if (object is {{{classname}}}) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
+  }
+
+  // maps a json object with a list of {{{classname}}}-objects as value to a dart map
+  static Map<String, List<{{{classname}}}>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<{{{classname}}}>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<{{{classname}}}>>(key, {{{classname}}}.listFromJson(value));
+    });
+  }
+
+  @override
+  String toString() => '{{{classname}}}[{{#vars}}{{{name}}}=${{{name}}}{{^-last}}, {{/-last}}{{/vars}}]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+  {{#vars}}
+    {{^required}}
+    if ({{{name}}} != null)
+    {{/required}}
+    {{#isDateTime}}
+      {{#pattern}}
+      r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
+        ? {{{name}}}.millisecondsSinceEpoch
+        : {{{name}}}.toUtc().toIso8601String(),
+      {{/pattern}}
+      {{^pattern}}
+      r'{{{baseName}}}': {{{name}}}{{^required}}!{{/required}}.toUtc().toIso8601String(),
+      {{/pattern}}
+    {{/isDateTime}}
+    {{#isDate}}
+      {{#pattern}}
+      r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
+        ? {{{name}}}.millisecondsSinceEpoch
+        : _dateFormatter.format({{{name}}}.toUtc()),
+      {{/pattern}}
+      {{^pattern}}
+      r'{{{baseName}}}': _dateFormatter.format({{{name}}}.toUtc()),
+      {{/pattern}}
+    {{/isDate}}
+    {{^isDateTime}}
+      {{^isDate}}
+      r'{{{baseName}}}': {{{name}}},
+      {{/isDate}}
+    {{/isDateTime}}
+  {{/vars}}
+    };
+  }
+}
+{{#vars}}
+    {{#isEnum}}
+        {{^isContainer}}
+
+{{>serialization/native/enum_inline}}
+        {{/isContainer}}
+        {{#isContainer}}
+            {{#mostInnerItems}}
+
+{{>serialization/native/enum_inline}}
+            {{/mostInnerItems}}
+        {{/isContainer}}
+    {{/isEnum}}
+{{/vars}}

@@ -1,77 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceLinksOrganization {
+  /// Returns a new [PlaceLinksOrganization] instance.
   PlaceLinksOrganization({
     this.href,
     this.iriTemplate,
   });
 
-  factory PlaceLinksOrganization.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlaceLinksOrganization] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceLinksOrganization? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceLinksOrganization(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          PlaceLinksOrganizationIriTemplate.fromJson(json['iriTemplate']),
+          PlaceLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the organization associated to the given place. */
-  String href;
+  /// The URI of the organization associated to the given place.
+  String? href;
 
-  PlaceLinksOrganizationIriTemplate iriTemplate;
+  PlaceLinksOrganizationIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceLinksOrganization &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<PlaceLinksOrganization> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksOrganization>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<PlaceLinksOrganization>[],
+        (List<PlaceLinksOrganization> previousValue, element) {
+      final PlaceLinksOrganization? object =
+          PlaceLinksOrganization.fromJson(element);
+      if (object is PlaceLinksOrganization) {
+        previousValue.add(object);
+      }
 
-  static List<PlaceLinksOrganization> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlaceLinksOrganization.fromJson(value))
-            ?.toList() ??
-        <PlaceLinksOrganization>[];
+      return previousValue;
+    });
   }
 
   static Map<String, PlaceLinksOrganization> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, PlaceLinksOrganization>((String key, dynamic value) {
-          return MapEntry(key, PlaceLinksOrganization.fromJson(value));
-        }) ??
-        <String, PlaceLinksOrganization>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksOrganization>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinksOrganization>{},
+        (Map<String, PlaceLinksOrganization> previousValue, element) {
+      final PlaceLinksOrganization? object =
+          PlaceLinksOrganization.fromJson(element.value);
+      if (object is PlaceLinksOrganization) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of PlaceLinksOrganization-objects as value to a dart map
+  static Map<String, List<PlaceLinksOrganization>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinksOrganization>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinksOrganization>>(
+          key, PlaceLinksOrganization.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PlaceLinksOrganization[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'PlaceLinksOrganization[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

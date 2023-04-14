@@ -1,67 +1,95 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class AgreementOlderThan {
+  /// Returns a new [AgreementOlderThan] instance.
   AgreementOlderThan({
     this.content,
   });
 
-  factory AgreementOlderThan.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [AgreementOlderThan] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static AgreementOlderThan? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return AgreementOlderThan(
-      content: json['content'],
+      content: json[r'content'],
     );
   }
 
-  String content;
+  String? content;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is AgreementOlderThan &&
-        runtimeType == other.runtimeType &&
-        content == other.content;
+    return other is AgreementOlderThan && other.content == content;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (content == null ? 0 : content.hashCode);
 
-    hashCode ^= content?.hashCode ?? 0;
+  static List<AgreementOlderThan> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AgreementOlderThan>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<AgreementOlderThan>[],
+        (List<AgreementOlderThan> previousValue, element) {
+      final AgreementOlderThan? object = AgreementOlderThan.fromJson(element);
+      if (object is AgreementOlderThan) {
+        previousValue.add(object);
+      }
 
-  static List<AgreementOlderThan> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => AgreementOlderThan.fromJson(value))
-            ?.toList() ??
-        <AgreementOlderThan>[];
+      return previousValue;
+    });
   }
 
   static Map<String, AgreementOlderThan> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, AgreementOlderThan>((String key, dynamic value) {
-          return MapEntry(key, AgreementOlderThan.fromJson(value));
-        }) ??
-        <String, AgreementOlderThan>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AgreementOlderThan>{};
+    }
+
+    return json.entries.fold(<String, AgreementOlderThan>{},
+        (Map<String, AgreementOlderThan> previousValue, element) {
+      final AgreementOlderThan? object =
+          AgreementOlderThan.fromJson(element.value);
+      if (object is AgreementOlderThan) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-    };
+  // maps a json object with a list of AgreementOlderThan-objects as value to a dart map
+  static Map<String, List<AgreementOlderThan>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<AgreementOlderThan>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<AgreementOlderThan>>(
+          key, AgreementOlderThan.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'AgreementOlderThan[content=$content, ]';
+  String toString() => 'AgreementOlderThan[content=$content]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+    };
   }
 }

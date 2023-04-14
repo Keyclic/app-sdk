@@ -1,73 +1,102 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InvitationLinks {
+  /// Returns a new [InvitationLinks] instance.
   InvitationLinks({
     this.member,
     this.self,
   });
 
-  factory InvitationLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InvitationLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InvitationLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InvitationLinks(
-      member: InvitationLinksMember.fromJson(json['member']),
-      self: InvitationLinksSelf.fromJson(json['self']),
+      member: InvitationLinksMember.fromJson(json[r'member']),
+      self: InvitationLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  InvitationLinksMember member;
+  InvitationLinksMember? member;
 
-  InvitationLinksSelf self;
+  InvitationLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is InvitationLinks &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        self == other.self;
+        other.member == member &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<InvitationLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InvitationLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<InvitationLinks>[],
+        (List<InvitationLinks> previousValue, element) {
+      final InvitationLinks? object = InvitationLinks.fromJson(element);
+      if (object is InvitationLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<InvitationLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => InvitationLinks.fromJson(value))
-            ?.toList() ??
-        <InvitationLinks>[];
+  static Map<String, InvitationLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InvitationLinks>{};
+    }
+
+    return json.entries.fold(<String, InvitationLinks>{},
+        (Map<String, InvitationLinks> previousValue, element) {
+      final InvitationLinks? object = InvitationLinks.fromJson(element.value);
+      if (object is InvitationLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, InvitationLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, InvitationLinks>((String key, dynamic value) {
-          return MapEntry(key, InvitationLinks.fromJson(value));
-        }) ??
-        <String, InvitationLinks>{};
+  // maps a json object with a list of InvitationLinks-objects as value to a dart map
+  static Map<String, List<InvitationLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InvitationLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InvitationLinks>>(
+          key, InvitationLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'InvitationLinks[member=$member, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'InvitationLinks[member=$member, self=$self, ]';
   }
 }

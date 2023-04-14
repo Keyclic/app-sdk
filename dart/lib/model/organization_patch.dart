@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OrganizationPatch {
+  /// Returns a new [OrganizationPatch] instance.
   OrganizationPatch({
     this.address,
     this.alternateName,
@@ -10,92 +15,119 @@ class OrganizationPatch {
     this.preferences,
   });
 
-  factory OrganizationPatch.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OrganizationPatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OrganizationPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OrganizationPatch(
-      address: ExternalServicePatchAddress.fromJson(json['address']),
-      alternateName: json['alternateName'],
-      description: json['description'],
-      logo: json['logo'],
-      name: json['name'],
-      preferences: OrganizationPatchPreferences.fromJson(json['preferences']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+      alternateName: json[r'alternateName'],
+      description: json[r'description'],
+      logo: json[r'logo'],
+      name: json[r'name'],
+      preferences: OrganizationPatchPreferences.fromJson(json[r'preferences']),
     );
   }
 
-  ExternalServicePatchAddress address;
+  ExternalServicePatchAddress? address;
 
-  String alternateName;
+  String? alternateName;
 
-  String description;
+  String? description;
 
-  String logo;
+  String? logo;
 
-  String name;
+  String? name;
 
-  OrganizationPatchPreferences preferences;
+  OrganizationPatchPreferences? preferences;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OrganizationPatch &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        alternateName == other.alternateName &&
-        description == other.description &&
-        logo == other.logo &&
-        name == other.name &&
-        preferences == other.preferences;
+        other.address == address &&
+        other.alternateName == alternateName &&
+        other.description == description &&
+        other.logo == logo &&
+        other.name == name &&
+        other.preferences == preferences;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (alternateName == null ? 0 : alternateName.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (logo == null ? 0 : logo.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (preferences == null ? 0 : preferences.hashCode);
 
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= alternateName?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= logo?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= preferences?.hashCode ?? 0;
+  static List<OrganizationPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OrganizationPatch>[];
+    }
 
-    return hashCode;
+    return json.fold(<OrganizationPatch>[],
+        (List<OrganizationPatch> previousValue, element) {
+      final OrganizationPatch? object = OrganizationPatch.fromJson(element);
+      if (object is OrganizationPatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<OrganizationPatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OrganizationPatch.fromJson(value))
-            ?.toList() ??
-        <OrganizationPatch>[];
+  static Map<String, OrganizationPatch> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OrganizationPatch>{};
+    }
+
+    return json.entries.fold(<String, OrganizationPatch>{},
+        (Map<String, OrganizationPatch> previousValue, element) {
+      final OrganizationPatch? object =
+          OrganizationPatch.fromJson(element.value);
+      if (object is OrganizationPatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, OrganizationPatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OrganizationPatch>((String key, dynamic value) {
-          return MapEntry(key, OrganizationPatch.fromJson(value));
-        }) ??
-        <String, OrganizationPatch>{};
+  // maps a json object with a list of OrganizationPatch-objects as value to a dart map
+  static Map<String, List<OrganizationPatch>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OrganizationPatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OrganizationPatch>>(
+          key, OrganizationPatch.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'OrganizationPatch[address=$address, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (alternateName != null) 'alternateName': alternateName,
-      if (description != null) 'description': description,
-      if (logo != null) 'logo': logo,
-      if (name != null) 'name': name,
-      if (preferences != null) 'preferences': preferences.toJson(),
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (alternateName != null) r'alternateName': alternateName,
+      if (description != null) r'description': description,
+      if (logo != null) r'logo': logo,
+      if (name != null) r'name': name,
+      if (preferences != null) r'preferences': preferences,
     };
-  }
-
-  @override
-  String toString() {
-    return 'OrganizationPatch[address=$address, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences, ]';
   }
 }

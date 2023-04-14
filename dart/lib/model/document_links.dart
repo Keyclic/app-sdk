@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DocumentLinks {
+  /// Returns a new [DocumentLinks] instance.
   DocumentLinks({
     this.createdBy,
     this.file,
@@ -8,80 +13,105 @@ class DocumentLinks {
     this.self,
   });
 
-  factory DocumentLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [DocumentLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DocumentLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentLinks(
-      createdBy: DocumentLinksCreatedBy.fromJson(json['createdBy']),
-      file: DocumentLinksFile.fromJson(json['file']),
-      procedure: DocumentLinksProcedure.fromJson(json['procedure']),
-      self: DocumentLinksSelf.fromJson(json['self']),
+      createdBy: DocumentLinksCreatedBy.fromJson(json[r'createdBy']),
+      file: DocumentLinksFile.fromJson(json[r'file']),
+      procedure: DocumentLinksProcedure.fromJson(json[r'procedure']),
+      self: DocumentLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  DocumentLinksCreatedBy createdBy;
+  DocumentLinksCreatedBy? createdBy;
 
-  DocumentLinksFile file;
+  DocumentLinksFile? file;
 
-  DocumentLinksProcedure procedure;
+  DocumentLinksProcedure? procedure;
 
-  DocumentLinksSelf self;
+  DocumentLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentLinks &&
-        runtimeType == other.runtimeType &&
-        createdBy == other.createdBy &&
-        file == other.file &&
-        procedure == other.procedure &&
-        self == other.self;
+        other.createdBy == createdBy &&
+        other.file == file &&
+        other.procedure == procedure &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (createdBy == null ? 0 : createdBy.hashCode) +
+      (file == null ? 0 : file.hashCode) +
+      (procedure == null ? 0 : procedure.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= createdBy?.hashCode ?? 0;
-    hashCode ^= file?.hashCode ?? 0;
-    hashCode ^= procedure?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<DocumentLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<DocumentLinks>[],
+        (List<DocumentLinks> previousValue, element) {
+      final DocumentLinks? object = DocumentLinks.fromJson(element);
+      if (object is DocumentLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<DocumentLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentLinks.fromJson(value))
-            ?.toList() ??
-        <DocumentLinks>[];
+  static Map<String, DocumentLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentLinks>{};
+    }
+
+    return json.entries.fold(<String, DocumentLinks>{},
+        (Map<String, DocumentLinks> previousValue, element) {
+      final DocumentLinks? object = DocumentLinks.fromJson(element.value);
+      if (object is DocumentLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, DocumentLinks>((String key, dynamic value) {
-          return MapEntry(key, DocumentLinks.fromJson(value));
-        }) ??
-        <String, DocumentLinks>{};
+  // maps a json object with a list of DocumentLinks-objects as value to a dart map
+  static Map<String, List<DocumentLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentLinks>>(
+          key, DocumentLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'DocumentLinks[createdBy=$createdBy, file=$file, procedure=$procedure, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (createdBy != null) 'createdBy': createdBy.toJson(),
-      if (file != null) 'file': file.toJson(),
-      if (procedure != null) 'procedure': procedure.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (createdBy != null) r'createdBy': createdBy,
+      if (file != null) r'file': file,
+      if (procedure != null) r'procedure': procedure,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'DocumentLinks[createdBy=$createdBy, file=$file, procedure=$procedure, self=$self, ]';
   }
 }

@@ -1,27 +1,35 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class ApiKeyAuth implements Authentication {
-  ApiKeyAuth(this.location, this.paramName);
+part of keyclic_sdk_api;
 
-  final String location;
-  final String paramName;
-
-  String _apiKey;
+class ApiKeyAuthInterceptor extends AuthInterceptor {
+  final Map<String, String> apiKeys = {};
 
   @override
-  void applyToParams(
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    if (location == 'query' && _apiKey != null) {
-      queryParams.add(QueryParam(paramName, _apiKey));
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final authInfo =
+        getAuthInfo(options, (secure) => secure['type'] == 'apiKey');
+
+    for (final info in authInfo) {
+      final String authName = info['name']!;
+      final apiKey = apiKeys[authName];
+
+      if (apiKey == null) {
+        continue;
+      }
+
+      final String authKeyName = info['keyName']!;
+      final String authWhere = info['where']!;
+
+      if (authWhere == 'query') {
+        options.queryParameters[authKeyName] = apiKey;
+      } else {
+        options.headers[authKeyName] = apiKey;
+      }
     }
 
-    if (location == 'header' && _apiKey != null) {
-      headerParams[paramName] = _apiKey;
-    }
+    super.onRequest(options, handler);
   }
-
-  @override
-  void setAccessToken(String value) => _apiKey = value;
 }

@@ -1,77 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ProcedureLinksDocument {
+  /// Returns a new [ProcedureLinksDocument] instance.
   ProcedureLinksDocument({
     this.href,
     this.iriTemplate,
   });
 
-  factory ProcedureLinksDocument.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ProcedureLinksDocument] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ProcedureLinksDocument? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ProcedureLinksDocument(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          ProcedureLinksDocumentIriTemplate.fromJson(json['iriTemplate']),
+          ProcedureLinksDocumentIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the document associated to the given procedure. */
-  String href;
+  /// The URI of the document associated to the given procedure.
+  String? href;
 
-  ProcedureLinksDocumentIriTemplate iriTemplate;
+  ProcedureLinksDocumentIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ProcedureLinksDocument &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<ProcedureLinksDocument> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureLinksDocument>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ProcedureLinksDocument>[],
+        (List<ProcedureLinksDocument> previousValue, element) {
+      final ProcedureLinksDocument? object =
+          ProcedureLinksDocument.fromJson(element);
+      if (object is ProcedureLinksDocument) {
+        previousValue.add(object);
+      }
 
-  static List<ProcedureLinksDocument> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ProcedureLinksDocument.fromJson(value))
-            ?.toList() ??
-        <ProcedureLinksDocument>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ProcedureLinksDocument> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, ProcedureLinksDocument>((String key, dynamic value) {
-          return MapEntry(key, ProcedureLinksDocument.fromJson(value));
-        }) ??
-        <String, ProcedureLinksDocument>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureLinksDocument>{};
+    }
+
+    return json.entries.fold(<String, ProcedureLinksDocument>{},
+        (Map<String, ProcedureLinksDocument> previousValue, element) {
+      final ProcedureLinksDocument? object =
+          ProcedureLinksDocument.fromJson(element.value);
+      if (object is ProcedureLinksDocument) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of ProcedureLinksDocument-objects as value to a dart map
+  static Map<String, List<ProcedureLinksDocument>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ProcedureLinksDocument>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ProcedureLinksDocument>>(
+          key, ProcedureLinksDocument.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ProcedureLinksDocument[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'ProcedureLinksDocument[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

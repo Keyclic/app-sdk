@@ -1,7 +1,10 @@
 {
   "browserClient": false,
+  "clientName": "ApiClient",
   "pubDescription": "The keyclic_sdk_api package is an implementation of the Keyclic API.",
+  "pubHomepage": "https://keyclic.com",
+  "pubLibrary": "keyclic_sdk_api",
   "pubName": "keyclic_sdk_api",
-  "pubVersion": "2.37.0",
+  "pubVersion": "3.0.0-alpha8",
   "useEnumExtension": true
 }

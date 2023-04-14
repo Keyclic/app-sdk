@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceLinks {
+  /// Returns a new [PlaceLinks] instance.
   PlaceLinks({
     this.children,
     this.geo,
@@ -9,84 +14,110 @@ class PlaceLinks {
     this.self,
   });
 
-  factory PlaceLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlaceLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceLinks(
-      children: PlaceLinksChildren.fromJson(json['children']),
-      geo: PlaceLinksGeo.fromJson(json['geo']),
-      organization: PlaceLinksOrganization.fromJson(json['organization']),
-      plans: PlaceLinksPlans.fromJson(json['plans']),
-      self: PlaceLinksSelf.fromJson(json['self']),
+      children: PlaceLinksChildren.fromJson(json[r'children']),
+      geo: PlaceLinksGeo.fromJson(json[r'geo']),
+      organization: PlaceLinksOrganization.fromJson(json[r'organization']),
+      plans: PlaceLinksPlans.fromJson(json[r'plans']),
+      self: PlaceLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  PlaceLinksChildren children;
+  PlaceLinksChildren? children;
 
-  PlaceLinksGeo geo;
+  PlaceLinksGeo? geo;
 
-  PlaceLinksOrganization organization;
+  PlaceLinksOrganization? organization;
 
-  PlaceLinksPlans plans;
+  PlaceLinksPlans? plans;
 
-  PlaceLinksSelf self;
+  PlaceLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceLinks &&
-        runtimeType == other.runtimeType &&
-        children == other.children &&
-        geo == other.geo &&
-        organization == other.organization &&
-        plans == other.plans &&
-        self == other.self;
+        other.children == children &&
+        other.geo == geo &&
+        other.organization == organization &&
+        other.plans == plans &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (children == null ? 0 : children.hashCode) +
+      (geo == null ? 0 : geo.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (plans == null ? 0 : plans.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= children?.hashCode ?? 0;
-    hashCode ^= geo?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= plans?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<PlaceLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlaceLinks>[], (List<PlaceLinks> previousValue, element) {
+      final PlaceLinks? object = PlaceLinks.fromJson(element);
+      if (object is PlaceLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlaceLinks> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlaceLinks.fromJson(value))?.toList() ??
-        <PlaceLinks>[];
+  static Map<String, PlaceLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinks>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinks>{},
+        (Map<String, PlaceLinks> previousValue, element) {
+      final PlaceLinks? object = PlaceLinks.fromJson(element.value);
+      if (object is PlaceLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlaceLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlaceLinks>((String key, dynamic value) {
-          return MapEntry(key, PlaceLinks.fromJson(value));
-        }) ??
-        <String, PlaceLinks>{};
+  // maps a json object with a list of PlaceLinks-objects as value to a dart map
+  static Map<String, List<PlaceLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinks>>(
+          key, PlaceLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'PlaceLinks[children=$children, geo=$geo, organization=$organization, plans=$plans, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (children != null) 'children': children.toJson(),
-      if (geo != null) 'geo': geo.toJson(),
-      if (organization != null) 'organization': organization.toJson(),
-      if (plans != null) 'plans': plans.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (children != null) r'children': children,
+      if (geo != null) r'geo': geo,
+      if (organization != null) r'organization': organization,
+      if (plans != null) r'plans': plans,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlaceLinks[children=$children, geo=$geo, organization=$organization, plans=$plans, self=$self, ]';
   }
 }

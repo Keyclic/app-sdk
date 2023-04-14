@@ -1,74 +1,105 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class AssignmentEmbedded {
+  /// Returns a new [AssignmentEmbedded] instance.
   AssignmentEmbedded({
     this.createdBy,
     this.service,
   });
 
-  factory AssignmentEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [AssignmentEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static AssignmentEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return AssignmentEmbedded(
-      createdBy: Person.fromJson(json['createdBy']),
-      service: InternalService.fromJson(json['service']),
+      createdBy: Person.fromJson(json[r'createdBy']),
+      service: InternalService.fromJson(json[r'service']),
     );
   }
 
-  Person createdBy;
+  Person? createdBy;
 
-  InternalService service;
+  InternalService? service;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is AssignmentEmbedded &&
-        runtimeType == other.runtimeType &&
-        createdBy == other.createdBy &&
-        service == other.service;
+        other.createdBy == createdBy &&
+        other.service == service;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (createdBy == null ? 0 : createdBy.hashCode) +
+      (service == null ? 0 : service.hashCode);
 
-    hashCode ^= createdBy?.hashCode ?? 0;
-    hashCode ^= service?.hashCode ?? 0;
+  static List<AssignmentEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AssignmentEmbedded>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<AssignmentEmbedded>[],
+        (List<AssignmentEmbedded> previousValue, element) {
+      final AssignmentEmbedded? object = AssignmentEmbedded.fromJson(element);
+      if (object is AssignmentEmbedded) {
+        previousValue.add(object);
+      }
 
-  static List<AssignmentEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => AssignmentEmbedded.fromJson(value))
-            ?.toList() ??
-        <AssignmentEmbedded>[];
+      return previousValue;
+    });
   }
 
   static Map<String, AssignmentEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, AssignmentEmbedded>((String key, dynamic value) {
-          return MapEntry(key, AssignmentEmbedded.fromJson(value));
-        }) ??
-        <String, AssignmentEmbedded>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AssignmentEmbedded>{};
+    }
+
+    return json.entries.fold(<String, AssignmentEmbedded>{},
+        (Map<String, AssignmentEmbedded> previousValue, element) {
+      final AssignmentEmbedded? object =
+          AssignmentEmbedded.fromJson(element.value);
+      if (object is AssignmentEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (createdBy != null) 'createdBy': createdBy.toJson(),
-      if (service != null) 'service': service.toJson(),
-    };
+  // maps a json object with a list of AssignmentEmbedded-objects as value to a dart map
+  static Map<String, List<AssignmentEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<AssignmentEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<AssignmentEmbedded>>(
+          key, AssignmentEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'AssignmentEmbedded[createdBy=$createdBy, service=$service, ]';
+  String toString() =>
+      'AssignmentEmbedded[createdBy=$createdBy, service=$service]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (createdBy != null) r'createdBy': createdBy,
+      if (service != null) r'service': service,
+    };
   }
 }

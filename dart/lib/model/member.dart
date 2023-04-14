@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Member {
+  /// Returns a new [Member] instance.
   Member({
     this.embedded,
     this.links,
@@ -11,108 +16,134 @@ class Member {
     this.updatedAt,
   });
 
-  factory Member.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Member] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Member? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Member(
-      embedded: MemberEmbedded.fromJson(json['_embedded']),
-      links: MemberLinks.fromJson(json['_links']),
-      contactPoint: MemberContactPoint.fromJson(json['contactPoint']),
+      embedded: MemberEmbedded.fromJson(json[r'_embedded']),
+      links: MemberLinks.fromJson(json[r'_links']),
+      contactPoint: MemberContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  MemberEmbedded embedded;
+  MemberEmbedded? embedded;
 
-  MemberLinks links;
+  MemberLinks? links;
 
-  MemberContactPoint contactPoint;
+  MemberContactPoint? contactPoint;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Member &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        contactPoint == other.contactPoint &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.contactPoint == contactPoint &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= contactPoint?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<Member> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Member>[];
+    }
 
-    return hashCode;
+    return json.fold(<Member>[], (List<Member> previousValue, element) {
+      final Member? object = Member.fromJson(element);
+      if (object is Member) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Member> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Member.fromJson(value))?.toList() ??
-        <Member>[];
+  static Map<String, Member> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Member>{};
+    }
+
+    return json.entries.fold(<String, Member>{},
+        (Map<String, Member> previousValue, element) {
+      final Member? object = Member.fromJson(element.value);
+      if (object is Member) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Member> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Member>((String key, dynamic value) {
-          return MapEntry(key, Member.fromJson(value));
-        }) ??
-        <String, Member>{};
+  // maps a json object with a list of Member-objects as value to a dart map
+  static Map<String, List<Member>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Member>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Member>>(key, Member.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Member[embedded=$embedded, links=$links, contactPoint=$contactPoint, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'Member[embedded=$embedded, links=$links, contactPoint=$contactPoint, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt, ]';
   }
 }

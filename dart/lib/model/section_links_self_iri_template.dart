@@ -1,69 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class SectionLinksSelfIriTemplate {
+  /// Returns a new [SectionLinksSelfIriTemplate] instance.
   SectionLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory SectionLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [SectionLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SectionLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return SectionLinksSelfIriTemplate(
-      mapping: ArticleLinksSectionIriTemplateMapping.fromJson(json['mapping']),
+      mapping: ArticleLinksSectionIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ArticleLinksSectionIriTemplateMapping mapping;
+  ArticleLinksSectionIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is SectionLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is SectionLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<SectionLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SectionLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<SectionLinksSelfIriTemplate>[],
+        (List<SectionLinksSelfIriTemplate> previousValue, element) {
+      final SectionLinksSelfIriTemplate? object =
+          SectionLinksSelfIriTemplate.fromJson(element);
+      if (object is SectionLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<SectionLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => SectionLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <SectionLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, SectionLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, SectionLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, SectionLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, SectionLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SectionLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, SectionLinksSelfIriTemplate>{},
+        (Map<String, SectionLinksSelfIriTemplate> previousValue, element) {
+      final SectionLinksSelfIriTemplate? object =
+          SectionLinksSelfIriTemplate.fromJson(element.value);
+      if (object is SectionLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of SectionLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<SectionLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SectionLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SectionLinksSelfIriTemplate>>(
+          key, SectionLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'SectionLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'SectionLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

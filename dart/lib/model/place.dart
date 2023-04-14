@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Place {
+  /// Returns a new [Place] instance.
   Place({
     this.embedded,
     this.links,
@@ -9,138 +14,164 @@ class Place {
     this.createdAt,
     this.description,
     this.id,
-    this.name,
+    required this.name,
     this.preferences,
     this.type,
     this.updatedAt,
   });
 
-  factory Place.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Place] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Place? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Place(
-      embedded: PlaceEmbedded.fromJson(json['_embedded']),
-      links: PlaceLinks.fromJson(json['_links']),
-      address: PlacePostalAddress.fromJson(json['address']),
-      branchCode: json['branchCode'],
+      embedded: PlaceEmbedded.fromJson(json[r'_embedded']),
+      links: PlaceLinks.fromJson(json[r'_links']),
+      address: PlacePostalAddress.fromJson(json[r'address']),
+      branchCode: json[r'branchCode'],
       createdAt: createdAt,
-      description: json['description'],
-      id: json['id'],
-      name: json['name'],
-      preferences: PlacePreferences.fromJson(json['preferences']),
-      type: json['type'],
+      description: json[r'description'],
+      id: json[r'id'],
+      name: json[r'name'],
+      preferences: PlacePreferences.fromJson(json[r'preferences']),
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  PlaceEmbedded embedded;
+  PlaceEmbedded? embedded;
 
-  PlaceLinks links;
+  PlaceLinks? links;
 
-  PlacePostalAddress address;
+  PlacePostalAddress? address;
 
-  String branchCode;
+  String? branchCode;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  PlacePreferences preferences;
+  PlacePreferences? preferences;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Place &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        address == other.address &&
-        branchCode == other.branchCode &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
-        preferences == other.preferences &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.address == address &&
+        other.branchCode == branchCode &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.id == id &&
+        other.name == name &&
+        other.preferences == preferences &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (address == null ? 0 : address.hashCode) +
+      (branchCode == null ? 0 : branchCode.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      name.hashCode +
+      (preferences == null ? 0 : preferences.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= branchCode?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= preferences?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<Place> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Place>[];
+    }
 
-    return hashCode;
+    return json.fold(<Place>[], (List<Place> previousValue, element) {
+      final Place? object = Place.fromJson(element);
+      if (object is Place) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Place> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Place.fromJson(value))?.toList() ??
-        <Place>[];
+  static Map<String, Place> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Place>{};
+    }
+
+    return json.entries.fold(<String, Place>{},
+        (Map<String, Place> previousValue, element) {
+      final Place? object = Place.fromJson(element.value);
+      if (object is Place) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Place> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Place>((String key, dynamic value) {
-          return MapEntry(key, Place.fromJson(value));
-        }) ??
-        <String, Place>{};
+  // maps a json object with a list of Place-objects as value to a dart map
+  static Map<String, List<Place>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Place>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Place>>(key, Place.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Place[embedded=$embedded, links=$links, address=$address, branchCode=$branchCode, createdAt=$createdAt, description=$description, id=$id, name=$name, preferences=$preferences, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (address != null) 'address': address.toJson(),
-      if (branchCode != null) 'branchCode': branchCode,
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (preferences != null) 'preferences': preferences.toJson(),
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (address != null) r'address': address,
+      if (branchCode != null) r'branchCode': branchCode,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (id != null) r'id': id,
+      r'name': name,
+      if (preferences != null) r'preferences': preferences,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'Place[embedded=$embedded, links=$links, address=$address, branchCode=$branchCode, createdAt=$createdAt, description=$description, id=$id, name=$name, preferences=$preferences, type=$type, updatedAt=$updatedAt, ]';
   }
 }

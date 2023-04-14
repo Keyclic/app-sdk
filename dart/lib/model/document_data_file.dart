@@ -1,80 +1,110 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DocumentDataFile {
+  /// Returns a new [DocumentDataFile] instance.
   DocumentDataFile({
     this.content,
     this.contentType,
     this.name,
   });
 
-  factory DocumentDataFile.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [DocumentDataFile] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DocumentDataFile? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentDataFile(
-      content: json['content'],
-      contentType: json['contentType'],
-      name: json['name'],
+      content: json[r'content'],
+      contentType: json[r'contentType'],
+      name: json[r'name'],
     );
   }
 
-  String content;
+  String? content;
 
-  String contentType;
+  String? contentType;
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentDataFile &&
-        runtimeType == other.runtimeType &&
-        content == other.content &&
-        contentType == other.contentType &&
-        name == other.name;
+        other.content == content &&
+        other.contentType == contentType &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (content == null ? 0 : content.hashCode) +
+      (contentType == null ? 0 : contentType.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
-    hashCode ^= content?.hashCode ?? 0;
-    hashCode ^= contentType?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<DocumentDataFile> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentDataFile>[];
+    }
 
-    return hashCode;
+    return json.fold(<DocumentDataFile>[],
+        (List<DocumentDataFile> previousValue, element) {
+      final DocumentDataFile? object = DocumentDataFile.fromJson(element);
+      if (object is DocumentDataFile) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<DocumentDataFile> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentDataFile.fromJson(value))
-            ?.toList() ??
-        <DocumentDataFile>[];
+  static Map<String, DocumentDataFile> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentDataFile>{};
+    }
+
+    return json.entries.fold(<String, DocumentDataFile>{},
+        (Map<String, DocumentDataFile> previousValue, element) {
+      final DocumentDataFile? object = DocumentDataFile.fromJson(element.value);
+      if (object is DocumentDataFile) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentDataFile> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, DocumentDataFile>((String key, dynamic value) {
-          return MapEntry(key, DocumentDataFile.fromJson(value));
-        }) ??
-        <String, DocumentDataFile>{};
+  // maps a json object with a list of DocumentDataFile-objects as value to a dart map
+  static Map<String, List<DocumentDataFile>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentDataFile>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentDataFile>>(
+          key, DocumentDataFile.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'DocumentDataFile[content=$content, contentType=$contentType, name=$name]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-      if (contentType != null) 'contentType': contentType,
-      if (name != null) 'name': name,
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+      if (contentType != null) r'contentType': contentType,
+      if (name != null) r'name': name,
     };
-  }
-
-  @override
-  String toString() {
-    return 'DocumentDataFile[content=$content, contentType=$contentType, name=$name, ]';
   }
 }

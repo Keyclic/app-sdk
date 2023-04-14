@@ -1,68 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DocumentPatchPermission {
+  /// Returns a new [DocumentPatchPermission] instance.
   DocumentPatchPermission({
     this.targetGroup,
   });
 
-  factory DocumentPatchPermission.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [DocumentPatchPermission] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DocumentPatchPermission? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentPatchPermission(
-      targetGroup: json['targetGroup'],
+      targetGroup: json[r'targetGroup'],
     );
   }
 
-  String targetGroup;
+  String? targetGroup;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is DocumentPatchPermission &&
-        runtimeType == other.runtimeType &&
-        targetGroup == other.targetGroup;
+    return other is DocumentPatchPermission && other.targetGroup == targetGroup;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (targetGroup == null ? 0 : targetGroup.hashCode);
 
-    hashCode ^= targetGroup?.hashCode ?? 0;
+  static List<DocumentPatchPermission> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentPatchPermission>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<DocumentPatchPermission>[],
+        (List<DocumentPatchPermission> previousValue, element) {
+      final DocumentPatchPermission? object =
+          DocumentPatchPermission.fromJson(element);
+      if (object is DocumentPatchPermission) {
+        previousValue.add(object);
+      }
 
-  static List<DocumentPatchPermission> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentPatchPermission.fromJson(value))
-            ?.toList() ??
-        <DocumentPatchPermission>[];
+      return previousValue;
+    });
   }
 
   static Map<String, DocumentPatchPermission> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, DocumentPatchPermission>((String key, dynamic value) {
-          return MapEntry(key, DocumentPatchPermission.fromJson(value));
-        }) ??
-        <String, DocumentPatchPermission>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentPatchPermission>{};
+    }
+
+    return json.entries.fold(<String, DocumentPatchPermission>{},
+        (Map<String, DocumentPatchPermission> previousValue, element) {
+      final DocumentPatchPermission? object =
+          DocumentPatchPermission.fromJson(element.value);
+      if (object is DocumentPatchPermission) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (targetGroup != null) 'targetGroup': targetGroup,
-    };
+  // maps a json object with a list of DocumentPatchPermission-objects as value to a dart map
+  static Map<String, List<DocumentPatchPermission>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentPatchPermission>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentPatchPermission>>(
+          key, DocumentPatchPermission.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'DocumentPatchPermission[targetGroup=$targetGroup, ]';
+  String toString() => 'DocumentPatchPermission[targetGroup=$targetGroup]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (targetGroup != null) r'targetGroup': targetGroup,
+    };
   }
 }

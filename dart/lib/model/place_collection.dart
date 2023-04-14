@@ -1,70 +1,94 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceCollection {
+  /// Returns a new [PlaceCollection] instance.
   PlaceCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory PlaceCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlaceCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceCollection(
-      items: Place.listFromJson(json['items']),
+      items: Place.listFromJson(json[r'items']),
     );
   }
 
-  List<Place> items;
+  List<Place>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Place element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<PlaceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceCollection>[];
     }
 
-    return hashCode;
+    return json.fold(<PlaceCollection>[],
+        (List<PlaceCollection> previousValue, element) {
+      final PlaceCollection? object = PlaceCollection.fromJson(element);
+      if (object is PlaceCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlaceCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlaceCollection.fromJson(value))
-            ?.toList() ??
-        <PlaceCollection>[];
+  static Map<String, PlaceCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceCollection>{};
+    }
+
+    return json.entries.fold(<String, PlaceCollection>{},
+        (Map<String, PlaceCollection> previousValue, element) {
+      final PlaceCollection? object = PlaceCollection.fromJson(element.value);
+      if (object is PlaceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlaceCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlaceCollection>((String key, dynamic value) {
-          return MapEntry(key, PlaceCollection.fromJson(value));
-        }) ??
-        <String, PlaceCollection>{};
-  }
+  // maps a json object with a list of PlaceCollection-objects as value to a dart map
+  static Map<String, List<PlaceCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceCollection>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceCollection>>(
+          key, PlaceCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PlaceCollection[items=$items, ]';
+  String toString() => 'PlaceCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

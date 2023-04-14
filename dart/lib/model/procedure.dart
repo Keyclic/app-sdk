@@ -1,125 +1,158 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Procedure {
+  /// Returns a new [Procedure] instance.
   Procedure({
     this.embedded,
     this.links,
     this.createdAt,
     this.id,
-    this.mode,
+    required this.mode,
     this.state,
     this.type,
     this.updatedAt,
   });
 
-  factory Procedure.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Procedure] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Procedure? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Procedure(
-      embedded: ProcedureEmbedded.fromJson(json['_embedded']),
-      links: ProcedureLinks.fromJson(json['_links']),
+      embedded: ProcedureEmbedded.fromJson(json[r'_embedded']),
+      links: ProcedureLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      mode: json['mode'],
-      state: json['state'],
-      type: json['type'],
+      id: json[r'id'],
+      mode: json[r'mode'],
+      state: json[r'state'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  ProcedureEmbedded embedded;
+  ProcedureEmbedded? embedded;
 
-  ProcedureLinks links;
+  ProcedureLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
   String mode;
 
-  String state;
+  String? state;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Procedure &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        mode == other.mode &&
-        state == other.state &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.mode == mode &&
+        other.state == state &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      mode.hashCode +
+      (state == null ? 0 : state.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= mode?.hashCode ?? 0;
-    hashCode ^= state?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<Procedure> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Procedure>[];
+    }
 
-    return hashCode;
+    return json.fold(<Procedure>[], (List<Procedure> previousValue, element) {
+      final Procedure? object = Procedure.fromJson(element);
+      if (object is Procedure) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Procedure> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Procedure.fromJson(value))?.toList() ??
-        <Procedure>[];
+  static Map<String, Procedure> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Procedure>{};
+    }
+
+    return json.entries.fold(<String, Procedure>{},
+        (Map<String, Procedure> previousValue, element) {
+      final Procedure? object = Procedure.fromJson(element.value);
+      if (object is Procedure) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Procedure> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Procedure>((String key, dynamic value) {
-          return MapEntry(key, Procedure.fromJson(value));
-        }) ??
-        <String, Procedure>{};
+  // maps a json object with a list of Procedure-objects as value to a dart map
+  static Map<String, List<Procedure>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Procedure>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Procedure>>(
+          key, Procedure.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Procedure[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, mode=$mode, state=$state, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (mode != null) 'mode': mode,
-      if (state != null) 'state': state,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      r'mode': mode,
+      if (state != null) r'state': state,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'Procedure[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, mode=$mode, state=$state, type=$type, updatedAt=$updatedAt, ]';
   }
 }

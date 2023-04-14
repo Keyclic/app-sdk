@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InternalServiceDataContactPoint {
+  /// Returns a new [InternalServiceDataContactPoint] instance.
   InternalServiceDataContactPoint({
     this.description,
     this.email,
@@ -11,102 +16,127 @@ class InternalServiceDataContactPoint {
     this.telephone,
   });
 
-  factory InternalServiceDataContactPoint.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InternalServiceDataContactPoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InternalServiceDataContactPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InternalServiceDataContactPoint(
-      description: json['description'],
-      email: json['email'],
-      familyName: json['familyName'],
-      faxNumber: json['faxNumber'],
-      givenName: json['givenName'],
-      name: json['name'],
-      telephone: json['telephone'],
+      description: json[r'description'],
+      email: json[r'email'],
+      familyName: json[r'familyName'],
+      faxNumber: json[r'faxNumber'],
+      givenName: json[r'givenName'],
+      name: json[r'name'],
+      telephone: json[r'telephone'],
     );
   }
 
-  String description;
+  String? description;
 
-  String email;
+  String? email;
 
-  String familyName;
+  String? familyName;
 
-  String faxNumber;
+  String? faxNumber;
 
-  String givenName;
+  String? givenName;
 
-  String name;
+  String? name;
 
-  String telephone;
+  String? telephone;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is InternalServiceDataContactPoint &&
-        runtimeType == other.runtimeType &&
-        description == other.description &&
-        email == other.email &&
-        familyName == other.familyName &&
-        faxNumber == other.faxNumber &&
-        givenName == other.givenName &&
-        name == other.name &&
-        telephone == other.telephone;
+        other.description == description &&
+        other.email == email &&
+        other.familyName == familyName &&
+        other.faxNumber == faxNumber &&
+        other.givenName == givenName &&
+        other.name == name &&
+        other.telephone == telephone;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= familyName?.hashCode ?? 0;
-    hashCode ^= faxNumber?.hashCode ?? 0;
-    hashCode ^= givenName?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (description == null ? 0 : description.hashCode) +
+      (email == null ? 0 : email.hashCode) +
+      (familyName == null ? 0 : familyName.hashCode) +
+      (faxNumber == null ? 0 : faxNumber.hashCode) +
+      (givenName == null ? 0 : givenName.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode);
 
   static List<InternalServiceDataContactPoint> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                InternalServiceDataContactPoint.fromJson(value))
-            ?.toList() ??
-        <InternalServiceDataContactPoint>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceDataContactPoint>[];
+    }
+
+    return json.fold(<InternalServiceDataContactPoint>[],
+        (List<InternalServiceDataContactPoint> previousValue, element) {
+      final InternalServiceDataContactPoint? object =
+          InternalServiceDataContactPoint.fromJson(element);
+      if (object is InternalServiceDataContactPoint) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServiceDataContactPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, InternalServiceDataContactPoint>(
-            (String key, dynamic value) {
-          return MapEntry(key, InternalServiceDataContactPoint.fromJson(value));
-        }) ??
-        <String, InternalServiceDataContactPoint>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceDataContactPoint>{};
+    }
+
+    return json.entries.fold(<String, InternalServiceDataContactPoint>{},
+        (Map<String, InternalServiceDataContactPoint> previousValue, element) {
+      final InternalServiceDataContactPoint? object =
+          InternalServiceDataContactPoint.fromJson(element.value);
+      if (object is InternalServiceDataContactPoint) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (description != null) 'description': description,
-      if (email != null) 'email': email,
-      if (familyName != null) 'familyName': familyName,
-      if (faxNumber != null) 'faxNumber': faxNumber,
-      if (givenName != null) 'givenName': givenName,
-      if (name != null) 'name': name,
-      if (telephone != null) 'telephone': telephone,
-    };
+  // maps a json object with a list of InternalServiceDataContactPoint-objects as value to a dart map
+  static Map<String, List<InternalServiceDataContactPoint>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServiceDataContactPoint>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServiceDataContactPoint>>(
+          key, InternalServiceDataContactPoint.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'InternalServiceDataContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, name=$name, telephone=$telephone, ]';
+  String toString() =>
+      'InternalServiceDataContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, name=$name, telephone=$telephone]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (description != null) r'description': description,
+      if (email != null) r'email': email,
+      if (familyName != null) r'familyName': familyName,
+      if (faxNumber != null) r'faxNumber': faxNumber,
+      if (givenName != null) r'givenName': givenName,
+      if (name != null) r'name': name,
+      if (telephone != null) r'telephone': telephone,
+    };
   }
 }

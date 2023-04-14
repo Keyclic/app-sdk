@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BusinessActivityLinks {
+  /// Returns a new [BusinessActivityLinks] instance.
   BusinessActivityLinks({
     this.image,
     this.schema,
@@ -8,82 +13,108 @@ class BusinessActivityLinks {
     this.thumbnail,
   });
 
-  factory BusinessActivityLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BusinessActivityLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BusinessActivityLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BusinessActivityLinks(
-      image: BusinessActivityLinksImage.fromJson(json['image']),
-      schema: BusinessActivityLinksSchema.fromJson(json['schema']),
-      self: BusinessActivityLinksSelf.fromJson(json['self']),
-      thumbnail: BusinessActivityLinksThumbnail.fromJson(json['thumbnail']),
+      image: BusinessActivityLinksImage.fromJson(json[r'image']),
+      schema: BusinessActivityLinksSchema.fromJson(json[r'schema']),
+      self: BusinessActivityLinksSelf.fromJson(json[r'self']),
+      thumbnail: BusinessActivityLinksThumbnail.fromJson(json[r'thumbnail']),
     );
   }
 
-  BusinessActivityLinksImage image;
+  BusinessActivityLinksImage? image;
 
-  BusinessActivityLinksSchema schema;
+  BusinessActivityLinksSchema? schema;
 
-  BusinessActivityLinksSelf self;
+  BusinessActivityLinksSelf? self;
 
-  BusinessActivityLinksThumbnail thumbnail;
+  BusinessActivityLinksThumbnail? thumbnail;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BusinessActivityLinks &&
-        runtimeType == other.runtimeType &&
-        image == other.image &&
-        schema == other.schema &&
-        self == other.self &&
-        thumbnail == other.thumbnail;
+        other.image == image &&
+        other.schema == schema &&
+        other.self == self &&
+        other.thumbnail == thumbnail;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (image == null ? 0 : image.hashCode) +
+      (schema == null ? 0 : schema.hashCode) +
+      (self == null ? 0 : self.hashCode) +
+      (thumbnail == null ? 0 : thumbnail.hashCode);
 
-    hashCode ^= image?.hashCode ?? 0;
-    hashCode ^= schema?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
-    hashCode ^= thumbnail?.hashCode ?? 0;
+  static List<BusinessActivityLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityLinks>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<BusinessActivityLinks>[],
+        (List<BusinessActivityLinks> previousValue, element) {
+      final BusinessActivityLinks? object =
+          BusinessActivityLinks.fromJson(element);
+      if (object is BusinessActivityLinks) {
+        previousValue.add(object);
+      }
 
-  static List<BusinessActivityLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BusinessActivityLinks.fromJson(value))
-            ?.toList() ??
-        <BusinessActivityLinks>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BusinessActivityLinks> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, BusinessActivityLinks>((String key, dynamic value) {
-          return MapEntry(key, BusinessActivityLinks.fromJson(value));
-        }) ??
-        <String, BusinessActivityLinks>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityLinks>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivityLinks>{},
+        (Map<String, BusinessActivityLinks> previousValue, element) {
+      final BusinessActivityLinks? object =
+          BusinessActivityLinks.fromJson(element.value);
+      if (object is BusinessActivityLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (image != null) 'image': image.toJson(),
-      if (schema != null) 'schema': schema.toJson(),
-      if (self != null) 'self': self.toJson(),
-      if (thumbnail != null) 'thumbnail': thumbnail.toJson(),
-    };
+  // maps a json object with a list of BusinessActivityLinks-objects as value to a dart map
+  static Map<String, List<BusinessActivityLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivityLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivityLinks>>(
+          key, BusinessActivityLinks.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BusinessActivityLinks[image=$image, schema=$schema, self=$self, thumbnail=$thumbnail, ]';
+  String toString() =>
+      'BusinessActivityLinks[image=$image, schema=$schema, self=$self, thumbnail=$thumbnail]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (image != null) r'image': image,
+      if (schema != null) r'schema': schema,
+      if (self != null) r'self': self,
+      if (thumbnail != null) r'thumbnail': thumbnail,
+    };
   }
 }

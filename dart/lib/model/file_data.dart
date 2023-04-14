@@ -1,21 +1,28 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class FileData {
+  /// Returns a new [FileData] instance.
   FileData({
-    this.content,
-    this.contentType,
-    this.name,
+    required this.content,
+    required this.contentType,
+    required this.name,
   });
 
-  factory FileData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [FileData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FileData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FileData(
-      content: json['content'],
-      contentType: json['contentType'],
-      name: json['name'],
+      content: json[r'content'],
+      contentType: json[r'contentType'],
+      name: json[r'name'],
     );
   }
 
@@ -26,53 +33,74 @@ class FileData {
   String name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FileData &&
-        runtimeType == other.runtimeType &&
-        content == other.content &&
-        contentType == other.contentType &&
-        name == other.name;
+        other.content == content &&
+        other.contentType == contentType &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => content.hashCode + contentType.hashCode + name.hashCode;
 
-    hashCode ^= content?.hashCode ?? 0;
-    hashCode ^= contentType?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<FileData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FileData>[];
+    }
 
-    return hashCode;
+    return json.fold(<FileData>[], (List<FileData> previousValue, element) {
+      final FileData? object = FileData.fromJson(element);
+      if (object is FileData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<FileData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => FileData.fromJson(value))?.toList() ??
-        <FileData>[];
+  static Map<String, FileData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FileData>{};
+    }
+
+    return json.entries.fold(<String, FileData>{},
+        (Map<String, FileData> previousValue, element) {
+      final FileData? object = FileData.fromJson(element.value);
+      if (object is FileData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, FileData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, FileData>((String key, dynamic value) {
-          return MapEntry(key, FileData.fromJson(value));
-        }) ??
-        <String, FileData>{};
+  // maps a json object with a list of FileData-objects as value to a dart map
+  static Map<String, List<FileData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FileData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FileData>>(
+          key, FileData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'FileData[content=$content, contentType=$contentType, name=$name]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-      if (contentType != null) 'contentType': contentType,
-      if (name != null) 'name': name,
+    return <String, dynamic>{
+      r'content': content,
+      r'contentType': contentType,
+      r'name': name,
     };
-  }
-
-  @override
-  String toString() {
-    return 'FileData[content=$content, contentType=$contentType, name=$name, ]';
   }
 }

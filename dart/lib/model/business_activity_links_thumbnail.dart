@@ -1,78 +1,109 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BusinessActivityLinksThumbnail {
+  /// Returns a new [BusinessActivityLinksThumbnail] instance.
   BusinessActivityLinksThumbnail({
     this.href,
     this.iriTemplate,
   });
 
-  factory BusinessActivityLinksThumbnail.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BusinessActivityLinksThumbnail] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BusinessActivityLinksThumbnail? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BusinessActivityLinksThumbnail(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate: BusinessActivityLinksThumbnailIriTemplate.fromJson(
-          json['iriTemplate']),
+          json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the thumbnail associated to the given businessactivity. */
-  String href;
+  /// The URI of the thumbnail associated to the given businessactivity.
+  String? href;
 
-  BusinessActivityLinksThumbnailIriTemplate iriTemplate;
+  BusinessActivityLinksThumbnailIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BusinessActivityLinksThumbnail &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<BusinessActivityLinksThumbnail> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivityLinksThumbnail>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<BusinessActivityLinksThumbnail>[],
+        (List<BusinessActivityLinksThumbnail> previousValue, element) {
+      final BusinessActivityLinksThumbnail? object =
+          BusinessActivityLinksThumbnail.fromJson(element);
+      if (object is BusinessActivityLinksThumbnail) {
+        previousValue.add(object);
+      }
 
-  static List<BusinessActivityLinksThumbnail> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                BusinessActivityLinksThumbnail.fromJson(value))
-            ?.toList() ??
-        <BusinessActivityLinksThumbnail>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BusinessActivityLinksThumbnail> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, BusinessActivityLinksThumbnail>(
-            (String key, dynamic value) {
-          return MapEntry(key, BusinessActivityLinksThumbnail.fromJson(value));
-        }) ??
-        <String, BusinessActivityLinksThumbnail>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivityLinksThumbnail>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivityLinksThumbnail>{},
+        (Map<String, BusinessActivityLinksThumbnail> previousValue, element) {
+      final BusinessActivityLinksThumbnail? object =
+          BusinessActivityLinksThumbnail.fromJson(element.value);
+      if (object is BusinessActivityLinksThumbnail) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of BusinessActivityLinksThumbnail-objects as value to a dart map
+  static Map<String, List<BusinessActivityLinksThumbnail>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivityLinksThumbnail>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivityLinksThumbnail>>(
+          key, BusinessActivityLinksThumbnail.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BusinessActivityLinksThumbnail[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'BusinessActivityLinksThumbnail[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

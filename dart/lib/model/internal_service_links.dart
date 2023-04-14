@@ -1,75 +1,107 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InternalServiceLinks {
+  /// Returns a new [InternalServiceLinks] instance.
   InternalServiceLinks({
     this.organization,
     this.self,
   });
 
-  factory InternalServiceLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InternalServiceLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InternalServiceLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InternalServiceLinks(
       organization:
-          InternalServiceLinksOrganization.fromJson(json['organization']),
-      self: InternalServiceLinksSelf.fromJson(json['self']),
+          InternalServiceLinksOrganization.fromJson(json[r'organization']),
+      self: InternalServiceLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  InternalServiceLinksOrganization organization;
+  InternalServiceLinksOrganization? organization;
 
-  InternalServiceLinksSelf self;
+  InternalServiceLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is InternalServiceLinks &&
-        runtimeType == other.runtimeType &&
-        organization == other.organization &&
-        self == other.self;
+        other.organization == organization &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (organization == null ? 0 : organization.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<InternalServiceLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServiceLinks>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<InternalServiceLinks>[],
+        (List<InternalServiceLinks> previousValue, element) {
+      final InternalServiceLinks? object =
+          InternalServiceLinks.fromJson(element);
+      if (object is InternalServiceLinks) {
+        previousValue.add(object);
+      }
 
-  static List<InternalServiceLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => InternalServiceLinks.fromJson(value))
-            ?.toList() ??
-        <InternalServiceLinks>[];
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServiceLinks> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, InternalServiceLinks>((String key, dynamic value) {
-          return MapEntry(key, InternalServiceLinks.fromJson(value));
-        }) ??
-        <String, InternalServiceLinks>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServiceLinks>{};
+    }
+
+    return json.entries.fold(<String, InternalServiceLinks>{},
+        (Map<String, InternalServiceLinks> previousValue, element) {
+      final InternalServiceLinks? object =
+          InternalServiceLinks.fromJson(element.value);
+      if (object is InternalServiceLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (organization != null) 'organization': organization.toJson(),
-      if (self != null) 'self': self.toJson(),
-    };
+  // maps a json object with a list of InternalServiceLinks-objects as value to a dart map
+  static Map<String, List<InternalServiceLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServiceLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServiceLinks>>(
+          key, InternalServiceLinks.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'InternalServiceLinks[organization=$organization, self=$self, ]';
+  String toString() =>
+      'InternalServiceLinks[organization=$organization, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (organization != null) r'organization': organization,
+      if (self != null) r'self': self,
+    };
   }
 }

@@ -1,74 +1,103 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceLinksGeo {
+  /// Returns a new [PlaceLinksGeo] instance.
   PlaceLinksGeo({
     this.href,
     this.iriTemplate,
   });
 
-  factory PlaceLinksGeo.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlaceLinksGeo] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceLinksGeo? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceLinksGeo(
-      href: json['href'],
-      iriTemplate: PlaceLinksGeoIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: PlaceLinksGeoIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the geo associated to the given place. */
-  String href;
+  /// The URI of the geo associated to the given place.
+  String? href;
 
-  PlaceLinksGeoIriTemplate iriTemplate;
+  PlaceLinksGeoIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceLinksGeo &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<PlaceLinksGeo> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksGeo>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlaceLinksGeo>[],
+        (List<PlaceLinksGeo> previousValue, element) {
+      final PlaceLinksGeo? object = PlaceLinksGeo.fromJson(element);
+      if (object is PlaceLinksGeo) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlaceLinksGeo> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlaceLinksGeo.fromJson(value))
-            ?.toList() ??
-        <PlaceLinksGeo>[];
+  static Map<String, PlaceLinksGeo> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksGeo>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinksGeo>{},
+        (Map<String, PlaceLinksGeo> previousValue, element) {
+      final PlaceLinksGeo? object = PlaceLinksGeo.fromJson(element.value);
+      if (object is PlaceLinksGeo) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlaceLinksGeo> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlaceLinksGeo>((String key, dynamic value) {
-          return MapEntry(key, PlaceLinksGeo.fromJson(value));
-        }) ??
-        <String, PlaceLinksGeo>{};
+  // maps a json object with a list of PlaceLinksGeo-objects as value to a dart map
+  static Map<String, List<PlaceLinksGeo>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinksGeo>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinksGeo>>(
+          key, PlaceLinksGeo.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PlaceLinksGeo[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlaceLinksGeo[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

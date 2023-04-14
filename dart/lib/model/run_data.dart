@@ -1,104 +1,121 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class RunData {
+  /// Returns a new [RunData] instance.
   RunData({
-    this.event,
-    this.inputs,
-    this.outputs,
+    this.event = const [],
+    this.inputs = const [],
+    this.outputs = const [],
     this.verbose,
   });
 
-  factory RunData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [RunData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static RunData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return RunData(
-      event: json['event'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['event'])
+      event: json[r'event'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'event'])
           : [],
-      inputs: json['inputs'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['inputs'])
+      inputs: json[r'inputs'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'inputs'])
           : [],
-      outputs: json['outputs'] is Iterable
-          ? List<Map<String, dynamic>>.from(json['outputs'])
+      outputs: json[r'outputs'] is Iterable
+          ? List<Map<String, dynamic>>.from(json[r'outputs'])
           : [],
-      verbose: json['verbose'],
+      verbose: json[r'verbose'],
     );
   }
 
-  List<Map<String, dynamic>> event;
+  List<Map<String, dynamic>>? event;
 
-  List<Map<String, dynamic>> inputs;
+  List<Map<String, dynamic>>? inputs;
 
-  List<Map<String, dynamic>> outputs;
+  List<Map<String, dynamic>>? outputs;
 
-  bool verbose;
+  bool? verbose;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is RunData &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(event, other.event) &&
         DeepCollectionEquality.unordered().equals(inputs, other.inputs) &&
         DeepCollectionEquality.unordered().equals(outputs, other.outputs) &&
-        verbose == other.verbose;
+        other.verbose == verbose;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (event == null ? 0 : event.hashCode) +
+      (inputs == null ? 0 : inputs.hashCode) +
+      (outputs == null ? 0 : outputs.hashCode) +
+      (verbose == null ? 0 : verbose.hashCode);
 
-    if (event is List && event.isNotEmpty) {
-      hashCode ^= event
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (inputs is List && inputs.isNotEmpty) {
-      hashCode ^= inputs
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (outputs is List && outputs.isNotEmpty) {
-      hashCode ^= outputs
-          .map((Map<String, dynamic> element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<RunData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RunData>[];
     }
 
-    hashCode ^= verbose?.hashCode ?? 0;
+    return json.fold(<RunData>[], (List<RunData> previousValue, element) {
+      final RunData? object = RunData.fromJson(element);
+      if (object is RunData) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<RunData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => RunData.fromJson(value))?.toList() ??
-        <RunData>[];
+  static Map<String, RunData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RunData>{};
+    }
+
+    return json.entries.fold(<String, RunData>{},
+        (Map<String, RunData> previousValue, element) {
+      final RunData? object = RunData.fromJson(element.value);
+      if (object is RunData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, RunData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, RunData>((String key, dynamic value) {
-          return MapEntry(key, RunData.fromJson(value));
-        }) ??
-        <String, RunData>{};
+  // maps a json object with a list of RunData-objects as value to a dart map
+  static Map<String, List<RunData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<RunData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<RunData>>(key, RunData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'RunData[event=$event, inputs=$inputs, outputs=$outputs, verbose=$verbose]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (event != null) 'event': event,
-      if (inputs != null) 'inputs': inputs,
-      if (outputs != null) 'outputs': outputs,
-      if (verbose != null) 'verbose': verbose,
+    return <String, dynamic>{
+      if (event != null) r'event': event,
+      if (inputs != null) r'inputs': inputs,
+      if (outputs != null) r'outputs': outputs,
+      if (verbose != null) r'verbose': verbose,
     };
-  }
-
-  @override
-  String toString() {
-    return 'RunData[event=$event, inputs=$inputs, outputs=$outputs, verbose=$verbose, ]';
   }
 }

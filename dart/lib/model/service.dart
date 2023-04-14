@@ -1,132 +1,164 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Service {
+  /// Returns a new [Service] instance.
   Service({
     this.address,
     this.contactPoint,
     this.createdAt,
     this.description,
     this.id,
-    this.name,
+    required this.name,
     this.onCall,
     this.type,
     this.updatedAt,
   });
 
-  factory Service.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Service] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Service? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Service(
-      address: ServicePostalAddress.fromJson(json['address']),
-      contactPoint: ServiceContactPoint.fromJson(json['contactPoint']),
+      address: ServicePostalAddress.fromJson(json[r'address']),
+      contactPoint: ServiceContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
-      description: json['description'],
-      id: json['id'],
-      name: json['name'],
-      onCall: ServiceContactPoint.fromJson(json['onCall']),
-      type: json['type'],
+      description: json[r'description'],
+      id: json[r'id'],
+      name: json[r'name'],
+      onCall: ServiceContactPoint.fromJson(json[r'onCall']),
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  ServicePostalAddress address;
+  ServicePostalAddress? address;
 
-  ServiceContactPoint contactPoint;
+  ServiceContactPoint? contactPoint;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String description;
+  String? description;
 
-  String id;
+  final String? id;
 
   String name;
 
-  ServiceContactPoint onCall;
+  ServiceContactPoint? onCall;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Service &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        contactPoint == other.contactPoint &&
-        createdAt == other.createdAt &&
-        description == other.description &&
-        id == other.id &&
-        name == other.name &&
-        onCall == other.onCall &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.address == address &&
+        other.contactPoint == contactPoint &&
+        other.createdAt == createdAt &&
+        other.description == description &&
+        other.id == id &&
+        other.name == name &&
+        other.onCall == onCall &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      name.hashCode +
+      (onCall == null ? 0 : onCall.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= contactPoint?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= onCall?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<Service> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Service>[];
+    }
 
-    return hashCode;
+    return json.fold(<Service>[], (List<Service> previousValue, element) {
+      final Service? object = Service.fromJson(element);
+      if (object is Service) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Service> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Service.fromJson(value))?.toList() ??
-        <Service>[];
+  static Map<String, Service> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Service>{};
+    }
+
+    return json.entries.fold(<String, Service>{},
+        (Map<String, Service> previousValue, element) {
+      final Service? object = Service.fromJson(element.value);
+      if (object is Service) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Service> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Service>((String key, dynamic value) {
-          return MapEntry(key, Service.fromJson(value));
-        }) ??
-        <String, Service>{};
+  // maps a json object with a list of Service-objects as value to a dart map
+  static Map<String, List<Service>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Service>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Service>>(key, Service.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Service[address=$address, contactPoint=$contactPoint, createdAt=$createdAt, description=$description, id=$id, name=$name, onCall=$onCall, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (description != null) 'description': description,
-      if (id != null) 'id': id,
-      if (name != null) 'name': name,
-      if (onCall != null) 'onCall': onCall.toJson(),
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (description != null) r'description': description,
+      if (id != null) r'id': id,
+      r'name': name,
+      if (onCall != null) r'onCall': onCall,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'Service[address=$address, contactPoint=$contactPoint, createdAt=$createdAt, description=$description, id=$id, name=$name, onCall=$onCall, type=$type, updatedAt=$updatedAt, ]';
   }
 }

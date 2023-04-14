@@ -1,70 +1,94 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewCollection {
+  /// Returns a new [ReviewCollection] instance.
   ReviewCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory ReviewCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewCollection(
-      items: Review.listFromJson(json['items']),
+      items: Review.listFromJson(json[r'items']),
     );
   }
 
-  List<Review> items;
+  List<Review>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Review element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<ReviewCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewCollection>[];
     }
 
-    return hashCode;
+    return json.fold(<ReviewCollection>[],
+        (List<ReviewCollection> previousValue, element) {
+      final ReviewCollection? object = ReviewCollection.fromJson(element);
+      if (object is ReviewCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ReviewCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewCollection.fromJson(value))
-            ?.toList() ??
-        <ReviewCollection>[];
+  static Map<String, ReviewCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewCollection>{};
+    }
+
+    return json.entries.fold(<String, ReviewCollection>{},
+        (Map<String, ReviewCollection> previousValue, element) {
+      final ReviewCollection? object = ReviewCollection.fromJson(element.value);
+      if (object is ReviewCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReviewCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewCollection>((String key, dynamic value) {
-          return MapEntry(key, ReviewCollection.fromJson(value));
-        }) ??
-        <String, ReviewCollection>{};
-  }
+  // maps a json object with a list of ReviewCollection-objects as value to a dart map
+  static Map<String, List<ReviewCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewCollection>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewCollection>>(
+          key, ReviewCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReviewCollection[items=$items, ]';
+  String toString() => 'ReviewCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

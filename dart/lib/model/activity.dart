@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Activity {
+  /// Returns a new [Activity] instance.
   Activity({
     this.actor,
     this.message,
@@ -12,107 +17,134 @@ class Activity {
     this.verb,
   });
 
-  factory Activity.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Activity] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Activity? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime time = json['time'] == null ? null : DateTime.parse(json['time']);
+    DateTime? time =
+        json[r'time'] is String ? DateTime.parse(json[r'time']) : null;
     if (time is DateTime && time.isUtc == false) {
-      time = DateTime.parse('${time.toIso8601String()}Z');
+      time = DateTime.parse('${json[r'time']}Z');
     }
 
     return Activity(
-      actor: json['actor'],
-      message: json['message'],
-      object: json['object'],
-      origin: json['origin'],
-      subject: ActivityEntity.fromJson(json['subject']),
+      actor: json[r'actor'],
+      message: json[r'message'],
+      object: json[r'object'],
+      origin: json[r'origin'],
+      subject: ActivityEntity.fromJson(json[r'subject']),
       time: time,
-      title: json['title'],
-      verb: json['verb'],
+      title: json[r'title'],
+      verb: json[r'verb'],
     );
   }
 
-  String actor;
+  String? actor;
 
-  String message;
+  String? message;
 
-  String object;
+  String? object;
 
-  String origin;
+  String? origin;
 
-  ActivityEntity subject;
+  ActivityEntity? subject;
 
-  DateTime time;
+  DateTime? time;
 
-  String title;
+  String? title;
 
-  String verb;
+  String? verb;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Activity &&
-        runtimeType == other.runtimeType &&
-        actor == other.actor &&
-        message == other.message &&
-        object == other.object &&
-        origin == other.origin &&
-        subject == other.subject &&
-        time == other.time &&
-        title == other.title &&
-        verb == other.verb;
+        other.actor == actor &&
+        other.message == message &&
+        other.object == object &&
+        other.origin == origin &&
+        other.subject == subject &&
+        other.time == time &&
+        other.title == title &&
+        other.verb == verb;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (actor == null ? 0 : actor.hashCode) +
+      (message == null ? 0 : message.hashCode) +
+      (object == null ? 0 : object.hashCode) +
+      (origin == null ? 0 : origin.hashCode) +
+      (subject == null ? 0 : subject.hashCode) +
+      (time == null ? 0 : time.hashCode) +
+      (title == null ? 0 : title.hashCode) +
+      (verb == null ? 0 : verb.hashCode);
 
-    hashCode ^= actor?.hashCode ?? 0;
-    hashCode ^= message?.hashCode ?? 0;
-    hashCode ^= object?.hashCode ?? 0;
-    hashCode ^= origin?.hashCode ?? 0;
-    hashCode ^= subject?.hashCode ?? 0;
-    hashCode ^= time?.hashCode ?? 0;
-    hashCode ^= title?.hashCode ?? 0;
-    hashCode ^= verb?.hashCode ?? 0;
+  static List<Activity> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Activity>[];
+    }
 
-    return hashCode;
+    return json.fold(<Activity>[], (List<Activity> previousValue, element) {
+      final Activity? object = Activity.fromJson(element);
+      if (object is Activity) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Activity> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Activity.fromJson(value))?.toList() ??
-        <Activity>[];
+  static Map<String, Activity> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Activity>{};
+    }
+
+    return json.entries.fold(<String, Activity>{},
+        (Map<String, Activity> previousValue, element) {
+      final Activity? object = Activity.fromJson(element.value);
+      if (object is Activity) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Activity> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Activity>((String key, dynamic value) {
-          return MapEntry(key, Activity.fromJson(value));
-        }) ??
-        <String, Activity>{};
+  // maps a json object with a list of Activity-objects as value to a dart map
+  static Map<String, List<Activity>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Activity>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Activity>>(
+          key, Activity.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Activity[actor=$actor, message=$message, object=$object, origin=$origin, subject=$subject, time=$time, title=$title, verb=$verb]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (actor != null) 'actor': actor,
-      if (message != null) 'message': message,
-      if (object != null) 'object': object,
-      if (origin != null) 'origin': origin,
-      if (subject != null) 'subject': subject.toJson(),
-      if (time != null) 'time': time.toUtc().toIso8601String(),
-      if (title != null) 'title': title,
-      if (verb != null) 'verb': verb,
+    return <String, dynamic>{
+      if (actor != null) r'actor': actor,
+      if (message != null) r'message': message,
+      if (object != null) r'object': object,
+      if (origin != null) r'origin': origin,
+      if (subject != null) r'subject': subject,
+      if (time != null) r'time': time!.toUtc().toIso8601String(),
+      if (title != null) r'title': title,
+      if (verb != null) r'verb': verb,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Activity[actor=$actor, message=$message, object=$object, origin=$origin, subject=$subject, time=$time, title=$title, verb=$verb, ]';
   }
 }

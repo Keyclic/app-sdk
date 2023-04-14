@@ -1,111 +1,332 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class QueryParam {
-  QueryParam(this.name, this.value);
-
-  String name;
-  String value;
-}
+part of keyclic_sdk_api;
 
 class ApiClient {
   ApiClient({
-    this.basePath = "https://api.keyclic.com",
-    this.debug = false,
-  });
-
-  final Map<String, Authentication> _authentications = {
-    // Setup authentications (key: authentication name, value: authentication).
-    'bearer': OAuth(),
-  };
-  final Logger _logger = Logger('ApiClient');
-  final RegExp _regList = RegExp(r'^List<(.*)>$');
-  final RegExp _regMap = RegExp(r'^Map<String,(.*)>$');
-
-  final String basePath;
-  final bool debug;
-  final Client client = Client();
-
-  Map<String, String> _defaultHeaderMap = <String, String>{};
-
-  void addDefaultHeader(String key, String value) {
-    _defaultHeaderMap[key] = value;
+    Dio? dio,
+    String? basePathOverride,
+    List<Interceptor>? interceptors,
+  }) : this.dio = dio ??
+            Dio(BaseOptions(
+              baseUrl: basePathOverride ?? basePath,
+              connectTimeout: 10000,
+              receiveTimeout: 30000,
+            )) {
+    this.dio.interceptors.addAll(interceptors ??
+        [
+          OAuthInterceptor(),
+          BasicAuthInterceptor(),
+          BearerAuthInterceptor(),
+          ApiKeyAuthInterceptor(),
+        ]);
   }
 
-  dynamic deserialize(String jsonVal, String targetType) {
-    // Remove all spaces.  Necessary for reg expressions as well.
-    targetType = targetType.replaceAll(' ', '');
+  static const String basePath = r'https://api.keyclic.com';
 
-    if (targetType == 'String') {
-      return jsonVal;
+  final Dio dio;
+  // final Logger _logger = Logger('ApiClient');
+
+  void setOAuthToken(String name, String token) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is OAuthInterceptor) {
+        interceptor.tokens[name] = token;
+        break;
+      }
     }
-
-    var decodedJson = json.decode(jsonVal);
-
-    return _deserialize(decodedJson, targetType);
   }
 
-  // We don't use a Map<String, String> for queryParams.
-  // If collectionFormat is 'multi' a key might appear multiple times.
-  Future<Response> invokeAPI({
-    String path,
-    String method,
-    Iterable<QueryParam> queryParams,
-    Object body,
-    Map<String, String> headerParams,
-    String contentType,
-    List<String> authNames,
+  void setBearerAuth(String name, String token) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is BearerAuthInterceptor) {
+        interceptor.tokens[name] = token;
+        break;
+      }
+    }
+  }
+
+  void setBasicAuth(String name, String username, String password) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is BasicAuthInterceptor) {
+        interceptor.authInfo[name] = BasicAuthInfo(username, password);
+        break;
+      }
+    }
+  }
+
+  void setApiKey(String name, String apiKey) {
+    // ApiKeyAuth('query', '');
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is ApiKeyAuthInterceptor) {
+        interceptor.apiKeys[name] = apiKey;
+        break;
+      }
+    }
+  }
+
+  /// Get ApplicationApi instance
+  ApplicationApi getApplicationApi() {
+    return ApplicationApi(this);
+  }
+
+  /// Get ArticleApi instance
+  ArticleApi getArticleApi() {
+    return ArticleApi(this);
+  }
+
+  /// Get AssignmentApi instance
+  AssignmentApi getAssignmentApi() {
+    return AssignmentApi(this);
+  }
+
+  /// Get BookmarkApi instance
+  BookmarkApi getBookmarkApi() {
+    return BookmarkApi(this);
+  }
+
+  /// Get BusinessActivityApi instance
+  BusinessActivityApi getBusinessActivityApi() {
+    return BusinessActivityApi(this);
+  }
+
+  /// Get CategoryApi instance
+  CategoryApi getCategoryApi() {
+    return CategoryApi(this);
+  }
+
+  /// Get ConfigurationApi instance
+  ConfigurationApi getConfigurationApi() {
+    return ConfigurationApi(this);
+  }
+
+  /// Get ConnectorApi instance
+  ConnectorApi getConnectorApi() {
+    return ConnectorApi(this);
+  }
+
+  /// Get ContributionApi instance
+  ContributionApi getContributionApi() {
+    return ContributionApi(this);
+  }
+
+  /// Get DeviceApi instance
+  DeviceApi getDeviceApi() {
+    return DeviceApi(this);
+  }
+
+  /// Get DigitalDocumentApi instance
+  DigitalDocumentApi getDigitalDocumentApi() {
+    return DigitalDocumentApi(this);
+  }
+
+  /// Get DispatcherApi instance
+  DispatcherApi getDispatcherApi() {
+    return DispatcherApi(this);
+  }
+
+  /// Get DocumentApi instance
+  DocumentApi getDocumentApi() {
+    return DocumentApi(this);
+  }
+
+  /// Get ExportApi instance
+  ExportApi getExportApi() {
+    return ExportApi(this);
+  }
+
+  /// Get ExternalServiceApi instance
+  ExternalServiceApi getExternalServiceApi() {
+    return ExternalServiceApi(this);
+  }
+
+  /// Get FeedApi instance
+  FeedApi getFeedApi() {
+    return FeedApi(this);
+  }
+
+  /// Get FeedbackApi instance
+  FeedbackApi getFeedbackApi() {
+    return FeedbackApi(this);
+  }
+
+  /// Get InternalServiceApi instance
+  InternalServiceApi getInternalServiceApi() {
+    return InternalServiceApi(this);
+  }
+
+  /// Get InvitationApi instance
+  InvitationApi getInvitationApi() {
+    return InvitationApi(this);
+  }
+
+  /// Get KnowledgeBaseApi instance
+  KnowledgeBaseApi getKnowledgeBaseApi() {
+    return KnowledgeBaseApi(this);
+  }
+
+  /// Get MarkerApi instance
+  MarkerApi getMarkerApi() {
+    return MarkerApi(this);
+  }
+
+  /// Get MemberApi instance
+  MemberApi getMemberApi() {
+    return MemberApi(this);
+  }
+
+  /// Get NoteApi instance
+  NoteApi getNoteApi() {
+    return NoteApi(this);
+  }
+
+  /// Get OccupantApi instance
+  OccupantApi getOccupantApi() {
+    return OccupantApi(this);
+  }
+
+  /// Get OperationApi instance
+  OperationApi getOperationApi() {
+    return OperationApi(this);
+  }
+
+  /// Get OrganizationApi instance
+  OrganizationApi getOrganizationApi() {
+    return OrganizationApi(this);
+  }
+
+  /// Get PdfApi instance
+  PdfApi getPdfApi() {
+    return PdfApi(this);
+  }
+
+  /// Get PersonApi instance
+  PersonApi getPersonApi() {
+    return PersonApi(this);
+  }
+
+  /// Get PlaceApi instance
+  PlaceApi getPlaceApi() {
+    return PlaceApi(this);
+  }
+
+  /// Get PlanApi instance
+  PlanApi getPlanApi() {
+    return PlanApi(this);
+  }
+
+  /// Get ProcedureApi instance
+  ProcedureApi getProcedureApi() {
+    return ProcedureApi(this);
+  }
+
+  /// Get PublicationApi instance
+  PublicationApi getPublicationApi() {
+    return PublicationApi(this);
+  }
+
+  /// Get ReportApi instance
+  ReportApi getReportApi() {
+    return ReportApi(this);
+  }
+
+  /// Get ReviewApi instance
+  ReviewApi getReviewApi() {
+    return ReviewApi(this);
+  }
+
+  /// Get ReviewRequestApi instance
+  ReviewRequestApi getReviewRequestApi() {
+    return ReviewRequestApi(this);
+  }
+
+  /// Get RoleApi instance
+  RoleApi getRoleApi() {
+    return RoleApi(this);
+  }
+
+  /// Get RuleApi instance
+  RuleApi getRuleApi() {
+    return RuleApi(this);
+  }
+
+  /// Get SectionApi instance
+  SectionApi getSectionApi() {
+    return SectionApi(this);
+  }
+
+  /// Get SecurityApi instance
+  SecurityApi getSecurityApi() {
+    return SecurityApi(this);
+  }
+
+  /// Get ServiceApi instance
+  ServiceApi getServiceApi() {
+    return ServiceApi(this);
+  }
+
+  /// Get SignerApi instance
+  SignerApi getSignerApi() {
+    return SignerApi(this);
+  }
+
+  /// Get TemplateApi instance
+  TemplateApi getTemplateApi() {
+    return TemplateApi(this);
+  }
+
+  /// Get WebhookApi instance
+  WebhookApi getWebhookApi() {
+    return WebhookApi(this);
+  }
+
+  /// Get WorkflowApi instance
+  WorkflowApi getWorkflowApi() {
+    return WorkflowApi(this);
+  }
+
+  Future<Response<Object>> invokeAPI({
+    required String path,
+    Object? body,
+    Options? options,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    _updateParamsForAuth(authNames, queryParams, headerParams);
-
-    final List<String> queryParamList = queryParams
-        .where((QueryParam queryParam) => queryParam.value != null)
-        .map<String>(
-            (QueryParam queryParam) => '${queryParam.name}=${queryParam.value}')
-        .toList();
-
-    String queryString =
-        queryParamList.isNotEmpty ? '?${queryParamList.join('&')}' : '';
-
-    final String url = '$basePath$path$queryString';
-
-    headerParams.addAll(_defaultHeaderMap);
-    headerParams['Content-Type'] = contentType;
-
-    final String msgBody = serialize(body);
-
-    if (debug) {
-      _logger.info('$method $url');
-    }
-
-    switch (method) {
-      case "POST":
-        return client.post(url, headers: headerParams, body: msgBody);
-      case "PUT":
-        return client.put(url, headers: headerParams, body: msgBody);
-      case "DELETE":
-        return client.delete(url, headers: headerParams);
-      case "PATCH":
-        return client.patch(url, headers: headerParams, body: msgBody);
-      default:
-        return client.get(url, headers: headerParams);
-    }
+    return dio.request<Object>(
+      path,
+      data: body,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
   }
 
-  String serialize(Object obj) {
-    if (obj == null) {
-      return '';
-    }
+  Future<T> deserializeAsync<T>(dynamic json, String targetType,
+          {bool growable = false}) async =>
+      // ignore: deprecated_member_use_from_same_package
+      deserialize(json, targetType, growable: growable) as T;
 
-    return json.encode(obj);
+  @Deprecated(
+      'Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(dynamic json, String targetType,
+      {bool growable = false}) {
+    // Remove all spaces. Necessary for regular expressions as well.
+    targetType =
+        targetType.replaceAll(' ', ''); // ignore: parameter_assignments
+
+    // If the expected target type is String, nothing to do...
+    return targetType == 'String'
+        ? jsonEncode(json)
+        : _deserialize(json, targetType, growable: growable == true);
   }
 
-  void setAccessToken(String accessToken) {
-    _authentications.forEach((key, auth) {
-      auth.setAccessToken(accessToken);
-    });
-  }
-
-  dynamic _deserialize(dynamic value, String targetType) {
+  static dynamic _deserialize(dynamic value, String targetType,
+      {bool growable = false}) {
     try {
       switch (targetType) {
         case 'String':
@@ -113,7 +334,11 @@ class ApiClient {
         case 'int':
           return value is int ? value : int.parse('$value');
         case 'bool':
-          return value is bool ? value : '$value'.toLowerCase() == 'true';
+          if (value is bool) {
+            return value;
+          }
+          final valueString = '$value'.toLowerCase();
+          return valueString == 'true' || valueString == '1';
         case 'double':
           return value is double ? value : double.parse('$value');
         case 'Activity':
@@ -175,6 +400,10 @@ class ApiClient {
           return ArticleLinksSelfIriTemplate.fromJson(value);
         case 'ArticleLinksSelfIriTemplateMapping':
           return ArticleLinksSelfIriTemplateMapping.fromJson(value);
+        case 'ArticlePagination':
+          return ArticlePagination.fromJson(value);
+        case 'ArticlePaginationAllOf':
+          return ArticlePaginationAllOf.fromJson(value);
         case 'AssignData':
           return AssignData.fromJson(value);
         case 'Assignment':
@@ -211,10 +440,18 @@ class ApiClient {
           return AssignmentLinksServiceIriTemplate.fromJson(value);
         case 'AssignmentLinksServiceIriTemplateMapping':
           return AssignmentLinksServiceIriTemplateMapping.fromJson(value);
+        case 'AssignmentPagination':
+          return AssignmentPagination.fromJson(value);
+        case 'AssignmentPaginationAllOf':
+          return AssignmentPaginationAllOf.fromJson(value);
         case 'Binary':
           return Binary.fromJson(value);
         case 'BinaryCollection':
           return BinaryCollection.fromJson(value);
+        case 'BinaryPagination':
+          return BinaryPagination.fromJson(value);
+        case 'BinaryPaginationAllOf':
+          return BinaryPaginationAllOf.fromJson(value);
         case 'Bookmark':
           return Bookmark.fromJson(value);
         case 'BookmarkCollection':
@@ -241,6 +478,10 @@ class ApiClient {
           return BookmarkLinksSelfIriTemplate.fromJson(value);
         case 'BookmarkLinksSelfIriTemplateMapping':
           return BookmarkLinksSelfIriTemplateMapping.fromJson(value);
+        case 'BookmarkPagination':
+          return BookmarkPagination.fromJson(value);
+        case 'BookmarkPaginationAllOf':
+          return BookmarkPaginationAllOf.fromJson(value);
         case 'BusinessActivity':
           return BusinessActivity.fromJson(value);
         case 'BusinessActivityCollection':
@@ -265,6 +506,10 @@ class ApiClient {
           return BusinessActivityLinksThumbnail.fromJson(value);
         case 'BusinessActivityLinksThumbnailIriTemplate':
           return BusinessActivityLinksThumbnailIriTemplate.fromJson(value);
+        case 'BusinessActivityPagination':
+          return BusinessActivityPagination.fromJson(value);
+        case 'BusinessActivityPaginationAllOf':
+          return BusinessActivityPaginationAllOf.fromJson(value);
         case 'BusinessActivitySchema':
           return BusinessActivitySchema.fromJson(value);
         case 'Category':
@@ -289,6 +534,10 @@ class ApiClient {
           return CategoryLinksSelfIriTemplate.fromJson(value);
         case 'CategoryLinksSelfIriTemplateMapping':
           return CategoryLinksSelfIriTemplateMapping.fromJson(value);
+        case 'CategoryPagination':
+          return CategoryPagination.fromJson(value);
+        case 'CategoryPaginationAllOf':
+          return CategoryPaginationAllOf.fromJson(value);
         case 'CategoryPatch':
           return CategoryPatch.fromJson(value);
         case 'Chart':
@@ -347,6 +596,10 @@ class ApiClient {
           return ContributionLinksFeedbackIriTemplate.fromJson(value);
         case 'ContributionLinksFeedbackIriTemplateMapping':
           return ContributionLinksFeedbackIriTemplateMapping.fromJson(value);
+        case 'ContributionPagination':
+          return ContributionPagination.fromJson(value);
+        case 'ContributionPaginationAllOf':
+          return ContributionPaginationAllOf.fromJson(value);
         case 'Device':
           return Device.fromJson(value);
         case 'DeviceData':
@@ -401,6 +654,10 @@ class ApiClient {
           return DocumentLinksSelf.fromJson(value);
         case 'DocumentLinksSelfIriTemplate':
           return DocumentLinksSelfIriTemplate.fromJson(value);
+        case 'DocumentPagination':
+          return DocumentPagination.fromJson(value);
+        case 'DocumentPaginationAllOf':
+          return DocumentPaginationAllOf.fromJson(value);
         case 'DocumentPatch':
           return DocumentPatch.fromJson(value);
         case 'DocumentPatchFile':
@@ -439,6 +696,10 @@ class ApiClient {
           return ExternalServiceLinksSelfIriTemplate.fromJson(value);
         case 'ExternalServiceLinksSelfIriTemplateMapping':
           return ExternalServiceLinksSelfIriTemplateMapping.fromJson(value);
+        case 'ExternalServicePagination':
+          return ExternalServicePagination.fromJson(value);
+        case 'ExternalServicePaginationAllOf':
+          return ExternalServicePaginationAllOf.fromJson(value);
         case 'ExternalServicePatch':
           return ExternalServicePatch.fromJson(value);
         case 'ExternalServicePatchAddress':
@@ -451,6 +712,8 @@ class ApiClient {
           return Feature.fromJson(value);
         case 'FeatureGeometry':
           return FeatureGeometry.fromJson(value);
+        case 'Feed':
+          return Feed.fromJson(value);
         case 'Feedback':
           return Feedback.fromJson(value);
         case 'FeedbackCollection':
@@ -507,6 +770,10 @@ class ApiClient {
           return FeedbackLinksTracking.fromJson(value);
         case 'FeedbackLinksTrackingIriTemplate':
           return FeedbackLinksTrackingIriTemplate.fromJson(value);
+        case 'FeedbackPagination':
+          return FeedbackPagination.fromJson(value);
+        case 'FeedbackPaginationAllOf':
+          return FeedbackPaginationAllOf.fromJson(value);
         case 'FeedbackWorkflowTransitionData':
           return FeedbackWorkflowTransitionData.fromJson(value);
         case 'FileData':
@@ -543,6 +810,10 @@ class ApiClient {
           return InternalServiceLinksSelfIriTemplate.fromJson(value);
         case 'InternalServiceLinksSelfIriTemplateMapping':
           return InternalServiceLinksSelfIriTemplateMapping.fromJson(value);
+        case 'InternalServicePagination':
+          return InternalServicePagination.fromJson(value);
+        case 'InternalServicePaginationAllOf':
+          return InternalServicePaginationAllOf.fromJson(value);
         case 'InternalServicePatch':
           return InternalServicePatch.fromJson(value);
         case 'InternalServicePostalAddress':
@@ -625,6 +896,10 @@ class ApiClient {
           return MemberLinksSelf.fromJson(value);
         case 'MemberLinksSelfIriTemplate':
           return MemberLinksSelfIriTemplate.fromJson(value);
+        case 'MemberPagination':
+          return MemberPagination.fromJson(value);
+        case 'MemberPaginationAllOf':
+          return MemberPaginationAllOf.fromJson(value);
         case 'MemberPatch':
           return MemberPatch.fromJson(value);
         case 'MemberPatchContactPoint':
@@ -659,6 +934,10 @@ class ApiClient {
           return NoteLinksSelfIriTemplate.fromJson(value);
         case 'NoteLinksSelfIriTemplateMapping':
           return NoteLinksSelfIriTemplateMapping.fromJson(value);
+        case 'NotePagination':
+          return NotePagination.fromJson(value);
+        case 'NotePaginationAllOf':
+          return NotePaginationAllOf.fromJson(value);
         case 'NotePatch':
           return NotePatch.fromJson(value);
         case 'Occupant':
@@ -683,6 +962,10 @@ class ApiClient {
           return OccupantLinksSelfIriTemplate.fromJson(value);
         case 'OccupantLinksSelfIriTemplateMapping':
           return OccupantLinksSelfIriTemplateMapping.fromJson(value);
+        case 'OccupantPagination':
+          return OccupantPagination.fromJson(value);
+        case 'OccupantPaginationAllOf':
+          return OccupantPaginationAllOf.fromJson(value);
         case 'Operation':
           return Operation.fromJson(value);
         case 'OperationCollection':
@@ -737,6 +1020,10 @@ class ApiClient {
           return OperationLinksTracking.fromJson(value);
         case 'OperationLinksTrackingIriTemplate':
           return OperationLinksTrackingIriTemplate.fromJson(value);
+        case 'OperationPagination':
+          return OperationPagination.fromJson(value);
+        case 'OperationPaginationAllOf':
+          return OperationPaginationAllOf.fromJson(value);
         case 'OperationPriority':
           return OperationPriority.fromJson(value);
         case 'OperationSignature':
@@ -775,6 +1062,10 @@ class ApiClient {
           return OrganizationLinksSelf.fromJson(value);
         case 'OrganizationLinksSelfIriTemplate':
           return OrganizationLinksSelfIriTemplate.fromJson(value);
+        case 'OrganizationPagination':
+          return OrganizationPagination.fromJson(value);
+        case 'OrganizationPaginationAllOf':
+          return OrganizationPaginationAllOf.fromJson(value);
         case 'OrganizationPatch':
           return OrganizationPatch.fromJson(value);
         case 'OrganizationPatchPreferences':
@@ -794,7 +1085,8 @@ class ApiClient {
         case 'PasswordChangeData':
           return PasswordChangeData.fromJson(value);
         case 'Permission':
-          return Permission.fromJson(value);
+          return PermissionTypeTransformer().decode(value);
+
         case 'Person':
           return Person.fromJson(value);
         case 'PersonAgreement':
@@ -827,8 +1119,8 @@ class ApiClient {
           return PlaceData.fromJson(value);
         case 'PlaceEmbedded':
           return PlaceEmbedded.fromJson(value);
-        case 'PlaceEmbeddedTargetGroups':
-          return PlaceEmbeddedTargetGroups.fromJson(value);
+        case 'PlaceEmbeddedTargetGroupsInner':
+          return PlaceEmbeddedTargetGroupsInner.fromJson(value);
         case 'PlaceLinks':
           return PlaceLinks.fromJson(value);
         case 'PlaceLinksChildren':
@@ -853,6 +1145,10 @@ class ApiClient {
           return PlaceLinksSelf.fromJson(value);
         case 'PlaceLinksSelfIriTemplate':
           return PlaceLinksSelfIriTemplate.fromJson(value);
+        case 'PlacePagination':
+          return PlacePagination.fromJson(value);
+        case 'PlacePaginationAllOf':
+          return PlacePaginationAllOf.fromJson(value);
         case 'PlacePatch':
           return PlacePatch.fromJson(value);
         case 'PlacePostalAddress':
@@ -881,6 +1177,10 @@ class ApiClient {
           return PlanLinksSelf.fromJson(value);
         case 'PlanLinksSelfIriTemplate':
           return PlanLinksSelfIriTemplate.fromJson(value);
+        case 'PlanPagination':
+          return PlanPagination.fromJson(value);
+        case 'PlanPaginationAllOf':
+          return PlanPaginationAllOf.fromJson(value);
         case 'PlanPatch':
           return PlanPatch.fromJson(value);
         case 'Point':
@@ -949,6 +1249,10 @@ class ApiClient {
           return PublicationLinksSelfIriTemplate.fromJson(value);
         case 'PublicationLinksSelfIriTemplateMapping':
           return PublicationLinksSelfIriTemplateMapping.fromJson(value);
+        case 'PublicationPagination':
+          return PublicationPagination.fromJson(value);
+        case 'PublicationPaginationAllOf':
+          return PublicationPaginationAllOf.fromJson(value);
         case 'RegisterData':
           return RegisterData.fromJson(value);
         case 'RegisterDataAgreement':
@@ -995,6 +1299,10 @@ class ApiClient {
           return ReportLinksTracking.fromJson(value);
         case 'ReportLinksTrackingIriTemplate':
           return ReportLinksTrackingIriTemplate.fromJson(value);
+        case 'ReportPagination':
+          return ReportPagination.fromJson(value);
+        case 'ReportPaginationAllOf':
+          return ReportPaginationAllOf.fromJson(value);
         case 'ReportPriority':
           return ReportPriority.fromJson(value);
         case 'ReportTypePriority':
@@ -1025,6 +1333,10 @@ class ApiClient {
           return ReviewLinksSelfIriTemplate.fromJson(value);
         case 'ReviewLinksSelfIriTemplateMapping':
           return ReviewLinksSelfIriTemplateMapping.fromJson(value);
+        case 'ReviewPagination':
+          return ReviewPagination.fromJson(value);
+        case 'ReviewPaginationAllOf':
+          return ReviewPaginationAllOf.fromJson(value);
         case 'ReviewRequest':
           return ReviewRequest.fromJson(value);
         case 'ReviewRequestCollection':
@@ -1058,6 +1370,10 @@ class ApiClient {
           return ReviewRequestLinksSelfIriTemplate.fromJson(value);
         case 'ReviewRequestLinksSelfIriTemplateMapping':
           return ReviewRequestLinksSelfIriTemplateMapping.fromJson(value);
+        case 'ReviewRequestPagination':
+          return ReviewRequestPagination.fromJson(value);
+        case 'ReviewRequestPaginationAllOf':
+          return ReviewRequestPaginationAllOf.fromJson(value);
         case 'Role':
           return Role.fromJson(value);
         case 'Rule':
@@ -1076,6 +1392,10 @@ class ApiClient {
           return RuleLinksSelfIriTemplate.fromJson(value);
         case 'RuleLinksSelfIriTemplateMapping':
           return RuleLinksSelfIriTemplateMapping.fromJson(value);
+        case 'RulePagination':
+          return RulePagination.fromJson(value);
+        case 'RulePaginationAllOf':
+          return RulePaginationAllOf.fromJson(value);
         case 'RulePatch':
           return RulePatch.fromJson(value);
         case 'Run':
@@ -1096,6 +1416,10 @@ class ApiClient {
           return SectionLinksSelf.fromJson(value);
         case 'SectionLinksSelfIriTemplate':
           return SectionLinksSelfIriTemplate.fromJson(value);
+        case 'SectionPagination':
+          return SectionPagination.fromJson(value);
+        case 'SectionPaginationAllOf':
+          return SectionPaginationAllOf.fromJson(value);
         case 'Service':
           return Service.fromJson(value);
         case 'ServiceCollection':
@@ -1104,6 +1428,10 @@ class ApiClient {
           return ServiceContactPoint.fromJson(value);
         case 'ServiceMemberData':
           return ServiceMemberData.fromJson(value);
+        case 'ServicePagination':
+          return ServicePagination.fromJson(value);
+        case 'ServicePaginationAllOf':
+          return ServicePaginationAllOf.fromJson(value);
         case 'ServicePostalAddress':
           return ServicePostalAddress.fromJson(value);
         case 'SignatureData':
@@ -1128,6 +1456,10 @@ class ApiClient {
           return SignerLinksSelfIriTemplate.fromJson(value);
         case 'SignerLinksSelfIriTemplateMapping':
           return SignerLinksSelfIriTemplateMapping.fromJson(value);
+        case 'SignerPagination':
+          return SignerPagination.fromJson(value);
+        case 'SignerPaginationAllOf':
+          return SignerPaginationAllOf.fromJson(value);
         case 'SignerSignature':
           return SignerSignature.fromJson(value);
         case 'State':
@@ -1144,6 +1476,10 @@ class ApiClient {
           return TemplateCollection.fromJson(value);
         case 'TemplateData':
           return TemplateData.fromJson(value);
+        case 'TemplatePagination':
+          return TemplatePagination.fromJson(value);
+        case 'TemplatePaginationAllOf':
+          return TemplatePaginationAllOf.fromJson(value);
         case 'TemplatePatch':
           return TemplatePatch.fromJson(value);
         case 'Tracking':
@@ -1170,102 +1506,44 @@ class ApiClient {
           return WorkflowState.fromJson(value);
         case 'WorkflowTransition':
           return WorkflowTransition.fromJson(value);
-        case 'ArticlePagination':
-          return ArticlePagination.fromJson(value);
-        case 'AssignmentPagination':
-          return AssignmentPagination.fromJson(value);
-        case 'BinaryPagination':
-          return BinaryPagination.fromJson(value);
-        case 'BookmarkPagination':
-          return BookmarkPagination.fromJson(value);
-        case 'BusinessActivityPagination':
-          return BusinessActivityPagination.fromJson(value);
-        case 'CategoryPagination':
-          return CategoryPagination.fromJson(value);
-        case 'ContributionPagination':
-          return ContributionPagination.fromJson(value);
-        case 'DocumentPagination':
-          return DocumentPagination.fromJson(value);
-        case 'ExternalServicePagination':
-          return ExternalServicePagination.fromJson(value);
-        case 'FeedbackPagination':
-          return FeedbackPagination.fromJson(value);
-        case 'InternalServicePagination':
-          return InternalServicePagination.fromJson(value);
-        case 'MemberPagination':
-          return MemberPagination.fromJson(value);
-        case 'NotePagination':
-          return NotePagination.fromJson(value);
-        case 'OccupantPagination':
-          return OccupantPagination.fromJson(value);
-        case 'OperationPagination':
-          return OperationPagination.fromJson(value);
-        case 'OrganizationPagination':
-          return OrganizationPagination.fromJson(value);
-        case 'PlacePagination':
-          return PlacePagination.fromJson(value);
-        case 'PlanPagination':
-          return PlanPagination.fromJson(value);
-        case 'PublicationPagination':
-          return PublicationPagination.fromJson(value);
-        case 'ReportPagination':
-          return ReportPagination.fromJson(value);
-        case 'ReviewPagination':
-          return ReviewPagination.fromJson(value);
-        case 'ReviewRequestPagination':
-          return ReviewRequestPagination.fromJson(value);
-        case 'RulePagination':
-          return RulePagination.fromJson(value);
-        case 'SectionPagination':
-          return SectionPagination.fromJson(value);
-        case 'ServicePagination':
-          return ServicePagination.fromJson(value);
-        case 'SignerPagination':
-          return SignerPagination.fromJson(value);
-        case 'TemplatePagination':
-          return TemplatePagination.fromJson(value);
         default:
-          {
-            Match match;
-            if (value is List &&
-                (match = _regList.firstMatch(targetType)) != null) {
-              return value
-                  .map((dynamic v) => _deserialize(v, match[1]))
-                  .toList();
-            }
-
-            if (value is Map &&
-                (match = _regMap.firstMatch(targetType)) != null) {
-              return Map.fromIterables(value.keys,
-                  value.values.map((v) => _deserialize(v, match[1])));
-            }
+          Match? match;
+          if (value is List &&
+              (match = _regList.firstMatch(targetType)) != null) {
+            targetType = match![1]!; // ignore: parameter_assignments
+            return value
+                .map((v) => _deserialize(v, targetType, growable: growable))
+                .toList(growable: growable);
           }
+          if (value is Set &&
+              (match = _regSet.firstMatch(targetType)) != null) {
+            targetType = match![1]!; // ignore: parameter_assignments
+            return value
+                .map((v) => _deserialize(v, targetType, growable: growable))
+                .toSet();
+          }
+          if (value is Map &&
+              (match = _regMap.firstMatch(targetType)) != null) {
+            targetType = match![1]!; // ignore: parameter_assignments
+            return Map.fromIterables(
+              value.keys,
+              value.values
+                  .map((v) => _deserialize(v, targetType, growable: growable)),
+            );
+          }
+          break;
       }
-    } catch (exception, stack) {
+    } on Exception catch (error, trace) {
       throw ApiException.withInner(
-          500,
-          'Exception during deserialization with type: $targetType.',
-          exception,
-          stack);
+        HttpStatus.internalServerError,
+        'Exception during deserialization.',
+        error,
+        trace,
+      );
     }
-
     throw ApiException(
-        500, 'Could not find a suitable class for deserialization');
-  }
-
-  /// Update query and header parameters based on authentication settings.
-  /// @param authNames The authentications to apply
-  void _updateParamsForAuth(
-    List<String> authNames,
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    authNames.forEach((authName) {
-      Authentication auth = _authentications[authName];
-      if (auth == null) {
-        throw ArgumentError("Authentication undefined: $authName");
-      }
-      auth.applyToParams(queryParams, headerParams);
-    });
+      HttpStatus.internalServerError,
+      'Could not find a suitable class for deserialization',
+    );
   }
 }

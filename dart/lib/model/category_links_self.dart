@@ -1,74 +1,106 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class CategoryLinksSelf {
+  /// Returns a new [CategoryLinksSelf] instance.
   CategoryLinksSelf({
     this.href,
     this.iriTemplate,
   });
 
-  factory CategoryLinksSelf.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [CategoryLinksSelf] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static CategoryLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return CategoryLinksSelf(
-      href: json['href'],
-      iriTemplate: CategoryLinksSelfIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: CategoryLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the self associated to the given category. */
-  String href;
+  /// The URI of the self associated to the given category.
+  String? href;
 
-  CategoryLinksSelfIriTemplate iriTemplate;
+  CategoryLinksSelfIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is CategoryLinksSelf &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<CategoryLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryLinksSelf>[];
+    }
 
-    return hashCode;
+    return json.fold(<CategoryLinksSelf>[],
+        (List<CategoryLinksSelf> previousValue, element) {
+      final CategoryLinksSelf? object = CategoryLinksSelf.fromJson(element);
+      if (object is CategoryLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<CategoryLinksSelf> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => CategoryLinksSelf.fromJson(value))
-            ?.toList() ??
-        <CategoryLinksSelf>[];
+  static Map<String, CategoryLinksSelf> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, CategoryLinksSelf>{},
+        (Map<String, CategoryLinksSelf> previousValue, element) {
+      final CategoryLinksSelf? object =
+          CategoryLinksSelf.fromJson(element.value);
+      if (object is CategoryLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CategoryLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, CategoryLinksSelf>((String key, dynamic value) {
-          return MapEntry(key, CategoryLinksSelf.fromJson(value));
-        }) ??
-        <String, CategoryLinksSelf>{};
+  // maps a json object with a list of CategoryLinksSelf-objects as value to a dart map
+  static Map<String, List<CategoryLinksSelf>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CategoryLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CategoryLinksSelf>>(
+          key, CategoryLinksSelf.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'CategoryLinksSelf[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'CategoryLinksSelf[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

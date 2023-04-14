@@ -1,73 +1,99 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ActivityEntity {
+  /// Returns a new [ActivityEntity] instance.
   ActivityEntity({
     this.id,
     this.type,
   });
 
-  factory ActivityEntity.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ActivityEntity] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ActivityEntity? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ActivityEntity(
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ActivityEntity &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
-        type == other.type;
+    return other is ActivityEntity && other.id == id && other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
 
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+  static List<ActivityEntity> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ActivityEntity>[];
+    }
 
-    return hashCode;
+    return json.fold(<ActivityEntity>[],
+        (List<ActivityEntity> previousValue, element) {
+      final ActivityEntity? object = ActivityEntity.fromJson(element);
+      if (object is ActivityEntity) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ActivityEntity> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ActivityEntity.fromJson(value))
-            ?.toList() ??
-        <ActivityEntity>[];
+  static Map<String, ActivityEntity> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ActivityEntity>{};
+    }
+
+    return json.entries.fold(<String, ActivityEntity>{},
+        (Map<String, ActivityEntity> previousValue, element) {
+      final ActivityEntity? object = ActivityEntity.fromJson(element.value);
+      if (object is ActivityEntity) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ActivityEntity> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ActivityEntity>((String key, dynamic value) {
-          return MapEntry(key, ActivityEntity.fromJson(value));
-        }) ??
-        <String, ActivityEntity>{};
+  // maps a json object with a list of ActivityEntity-objects as value to a dart map
+  static Map<String, List<ActivityEntity>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ActivityEntity>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ActivityEntity>>(
+          key, ActivityEntity.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'ActivityEntity[id=$id, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ActivityEntity[id=$id, type=$type, ]';
   }
 }

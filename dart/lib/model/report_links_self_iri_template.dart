@@ -1,69 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReportLinksSelfIriTemplate {
+  /// Returns a new [ReportLinksSelfIriTemplate] instance.
   ReportLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory ReportLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReportLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReportLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReportLinksSelfIriTemplate(
       mapping:
-          AssignmentLinksReportIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  AssignmentLinksReportIriTemplateMapping mapping;
+  AssignmentLinksReportIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ReportLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is ReportLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<ReportLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ReportLinksSelfIriTemplate>[],
+        (List<ReportLinksSelfIriTemplate> previousValue, element) {
+      final ReportLinksSelfIriTemplate? object =
+          ReportLinksSelfIriTemplate.fromJson(element);
+      if (object is ReportLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<ReportLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReportLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ReportLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ReportLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReportLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, ReportLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, ReportLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ReportLinksSelfIriTemplate>{},
+        (Map<String, ReportLinksSelfIriTemplate> previousValue, element) {
+      final ReportLinksSelfIriTemplate? object =
+          ReportLinksSelfIriTemplate.fromJson(element.value);
+      if (object is ReportLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of ReportLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<ReportLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportLinksSelfIriTemplate>>(
+          key, ReportLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReportLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ReportLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

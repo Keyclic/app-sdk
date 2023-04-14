@@ -1,78 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class NoteLinks {
+  /// Returns a new [NoteLinks] instance.
   NoteLinks({
     this.about,
     this.author,
     this.self,
   });
 
-  factory NoteLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [NoteLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static NoteLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return NoteLinks(
-      about: NoteLinksAbout.fromJson(json['about']),
-      author: NoteLinksAuthor.fromJson(json['author']),
-      self: NoteLinksSelf.fromJson(json['self']),
+      about: NoteLinksAbout.fromJson(json[r'about']),
+      author: NoteLinksAuthor.fromJson(json[r'author']),
+      self: NoteLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  NoteLinksAbout about;
+  NoteLinksAbout? about;
 
-  NoteLinksAuthor author;
+  NoteLinksAuthor? author;
 
-  NoteLinksSelf self;
+  NoteLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is NoteLinks &&
-        runtimeType == other.runtimeType &&
-        about == other.about &&
-        author == other.author &&
-        self == other.self;
+        other.about == about &&
+        other.author == author &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (about == null ? 0 : about.hashCode) +
+      (author == null ? 0 : author.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= about?.hashCode ?? 0;
-    hashCode ^= author?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<NoteLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <NoteLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<NoteLinks>[], (List<NoteLinks> previousValue, element) {
+      final NoteLinks? object = NoteLinks.fromJson(element);
+      if (object is NoteLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<NoteLinks> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => NoteLinks.fromJson(value))?.toList() ??
-        <NoteLinks>[];
+  static Map<String, NoteLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, NoteLinks>{};
+    }
+
+    return json.entries.fold(<String, NoteLinks>{},
+        (Map<String, NoteLinks> previousValue, element) {
+      final NoteLinks? object = NoteLinks.fromJson(element.value);
+      if (object is NoteLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, NoteLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, NoteLinks>((String key, dynamic value) {
-          return MapEntry(key, NoteLinks.fromJson(value));
-        }) ??
-        <String, NoteLinks>{};
+  // maps a json object with a list of NoteLinks-objects as value to a dart map
+  static Map<String, List<NoteLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<NoteLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<NoteLinks>>(
+          key, NoteLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'NoteLinks[about=$about, author=$author, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (about != null) 'about': about.toJson(),
-      if (author != null) 'author': author.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (about != null) r'about': about,
+      if (author != null) r'author': author,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'NoteLinks[about=$about, author=$author, self=$self, ]';
   }
 }

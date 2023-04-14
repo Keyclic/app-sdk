@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Signer {
+  /// Returns a new [Signer] instance.
   Signer({
     this.embedded,
     this.links,
@@ -10,90 +15,114 @@ class Signer {
     this.type,
   });
 
-  factory Signer.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Signer] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Signer? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Signer(
-      embedded: InvitationEmbedded.fromJson(json['_embedded']),
-      links: SignerLinks.fromJson(json['_links']),
-      id: json['id'],
-      signature: SignerSignature.fromJson(json['signature']),
-      state: json['state'],
-      type: json['type'],
+      embedded: InvitationEmbedded.fromJson(json[r'_embedded']),
+      links: SignerLinks.fromJson(json[r'_links']),
+      id: json[r'id'],
+      signature: SignerSignature.fromJson(json[r'signature']),
+      state: json[r'state'],
+      type: json[r'type'],
     );
   }
 
-  InvitationEmbedded embedded;
+  InvitationEmbedded? embedded;
 
-  SignerLinks links;
+  SignerLinks? links;
 
-  String id;
+  final String? id;
 
-  SignerSignature signature;
+  SignerSignature? signature;
 
-  String state;
+  String? state;
 
-  String type;
+  String? type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Signer &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        id == other.id &&
-        signature == other.signature &&
-        state == other.state &&
-        type == other.type;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.id == id &&
+        other.signature == signature &&
+        other.state == state &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (signature == null ? 0 : signature.hashCode) +
+      (state == null ? 0 : state.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= signature?.hashCode ?? 0;
-    hashCode ^= state?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+  static List<Signer> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Signer>[];
+    }
 
-    return hashCode;
+    return json.fold(<Signer>[], (List<Signer> previousValue, element) {
+      final Signer? object = Signer.fromJson(element);
+      if (object is Signer) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Signer> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Signer.fromJson(value))?.toList() ??
-        <Signer>[];
+  static Map<String, Signer> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Signer>{};
+    }
+
+    return json.entries.fold(<String, Signer>{},
+        (Map<String, Signer> previousValue, element) {
+      final Signer? object = Signer.fromJson(element.value);
+      if (object is Signer) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Signer> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Signer>((String key, dynamic value) {
-          return MapEntry(key, Signer.fromJson(value));
-        }) ??
-        <String, Signer>{};
+  // maps a json object with a list of Signer-objects as value to a dart map
+  static Map<String, List<Signer>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Signer>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Signer>>(key, Signer.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Signer[embedded=$embedded, links=$links, id=$id, signature=$signature, state=$state, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (id != null) 'id': id,
-      if (signature != null) 'signature': signature.toJson(),
-      if (state != null) 'state': state,
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (id != null) r'id': id,
+      if (signature != null) r'signature': signature,
+      if (state != null) r'state': state,
+      if (type != null) r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Signer[embedded=$embedded, links=$links, id=$id, signature=$signature, state=$state, type=$type, ]';
   }
 }

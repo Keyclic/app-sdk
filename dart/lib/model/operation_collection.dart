@@ -1,71 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OperationCollection {
+  /// Returns a new [OperationCollection] instance.
   OperationCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory OperationCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OperationCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OperationCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OperationCollection(
-      items: Operation.listFromJson(json['items']),
+      items: Operation.listFromJson(json[r'items']),
     );
   }
 
-  List<Operation> items;
+  List<Operation>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OperationCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Operation element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<OperationCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationCollection>[];
     }
 
-    return hashCode;
-  }
+    return json.fold(<OperationCollection>[],
+        (List<OperationCollection> previousValue, element) {
+      final OperationCollection? object = OperationCollection.fromJson(element);
+      if (object is OperationCollection) {
+        previousValue.add(object);
+      }
 
-  static List<OperationCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OperationCollection.fromJson(value))
-            ?.toList() ??
-        <OperationCollection>[];
+      return previousValue;
+    });
   }
 
   static Map<String, OperationCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, OperationCollection>((String key, dynamic value) {
-          return MapEntry(key, OperationCollection.fromJson(value));
-        }) ??
-        <String, OperationCollection>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationCollection>{};
+    }
+
+    return json.entries.fold(<String, OperationCollection>{},
+        (Map<String, OperationCollection> previousValue, element) {
+      final OperationCollection? object =
+          OperationCollection.fromJson(element.value);
+      if (object is OperationCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+  // maps a json object with a list of OperationCollection-objects as value to a dart map
+  static Map<String, List<OperationCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationCollection>>(
+          key, OperationCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'OperationCollection[items=$items, ]';
+  String toString() => 'OperationCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

@@ -1,75 +1,107 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReportLinksCategory {
+  /// Returns a new [ReportLinksCategory] instance.
   ReportLinksCategory({
     this.href,
     this.iriTemplate,
   });
 
-  factory ReportLinksCategory.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReportLinksCategory] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReportLinksCategory? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReportLinksCategory(
-      href: json['href'],
-      iriTemplate: ReportLinksCategoryIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate:
+          ReportLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the category associated to the given report. */
-  String href;
+  /// The URI of the category associated to the given report.
+  String? href;
 
-  ReportLinksCategoryIriTemplate iriTemplate;
+  ReportLinksCategoryIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReportLinksCategory &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<ReportLinksCategory> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksCategory>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ReportLinksCategory>[],
+        (List<ReportLinksCategory> previousValue, element) {
+      final ReportLinksCategory? object = ReportLinksCategory.fromJson(element);
+      if (object is ReportLinksCategory) {
+        previousValue.add(object);
+      }
 
-  static List<ReportLinksCategory> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReportLinksCategory.fromJson(value))
-            ?.toList() ??
-        <ReportLinksCategory>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ReportLinksCategory> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReportLinksCategory>((String key, dynamic value) {
-          return MapEntry(key, ReportLinksCategory.fromJson(value));
-        }) ??
-        <String, ReportLinksCategory>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksCategory>{};
+    }
+
+    return json.entries.fold(<String, ReportLinksCategory>{},
+        (Map<String, ReportLinksCategory> previousValue, element) {
+      final ReportLinksCategory? object =
+          ReportLinksCategory.fromJson(element.value);
+      if (object is ReportLinksCategory) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of ReportLinksCategory-objects as value to a dart map
+  static Map<String, List<ReportLinksCategory>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportLinksCategory>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportLinksCategory>>(
+          key, ReportLinksCategory.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReportLinksCategory[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'ReportLinksCategory[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

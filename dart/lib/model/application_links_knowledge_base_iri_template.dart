@@ -1,73 +1,104 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ApplicationLinksKnowledgeBaseIriTemplate {
+  /// Returns a new [ApplicationLinksKnowledgeBaseIriTemplate] instance.
   ApplicationLinksKnowledgeBaseIriTemplate({
     this.mapping,
   });
 
-  factory ApplicationLinksKnowledgeBaseIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [ApplicationLinksKnowledgeBaseIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ApplicationLinksKnowledgeBaseIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ApplicationLinksKnowledgeBaseIriTemplate(
       mapping: ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-          json['mapping']),
+          json[r'mapping']),
     );
   }
 
-  ApplicationLinksKnowledgeBaseIriTemplateMapping mapping;
+  ApplicationLinksKnowledgeBaseIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ApplicationLinksKnowledgeBaseIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+        other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ApplicationLinksKnowledgeBaseIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ApplicationLinksKnowledgeBaseIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ApplicationLinksKnowledgeBaseIriTemplate>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ApplicationLinksKnowledgeBaseIriTemplate>[];
+    }
+
+    return json.fold(<ApplicationLinksKnowledgeBaseIriTemplate>[],
+        (List<ApplicationLinksKnowledgeBaseIriTemplate> previousValue,
+            element) {
+      final ApplicationLinksKnowledgeBaseIriTemplate? object =
+          ApplicationLinksKnowledgeBaseIriTemplate.fromJson(element);
+      if (object is ApplicationLinksKnowledgeBaseIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ApplicationLinksKnowledgeBaseIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ApplicationLinksKnowledgeBaseIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ApplicationLinksKnowledgeBaseIriTemplate.fromJson(value));
-        }) ??
-        <String, ApplicationLinksKnowledgeBaseIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ApplicationLinksKnowledgeBaseIriTemplate>{};
+    }
+
+    return json.entries.fold(
+        <String, ApplicationLinksKnowledgeBaseIriTemplate>{},
+        (Map<String, ApplicationLinksKnowledgeBaseIriTemplate> previousValue,
+            element) {
+      final ApplicationLinksKnowledgeBaseIriTemplate? object =
+          ApplicationLinksKnowledgeBaseIriTemplate.fromJson(element.value);
+      if (object is ApplicationLinksKnowledgeBaseIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of ApplicationLinksKnowledgeBaseIriTemplate-objects as value to a dart map
+  static Map<String, List<ApplicationLinksKnowledgeBaseIriTemplate>>
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ApplicationLinksKnowledgeBaseIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ApplicationLinksKnowledgeBaseIriTemplate>>(
+          key, ApplicationLinksKnowledgeBaseIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ApplicationLinksKnowledgeBaseIriTemplate[mapping=$mapping, ]';
+  String toString() =>
+      'ApplicationLinksKnowledgeBaseIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

@@ -1,73 +1,102 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BookmarkEmbedded {
+  /// Returns a new [BookmarkEmbedded] instance.
   BookmarkEmbedded({
     this.member,
     this.place,
   });
 
-  factory BookmarkEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BookmarkEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BookmarkEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkEmbedded(
-      member: Member.fromJson(json['member']),
-      place: Place.fromJson(json['place']),
+      member: Member.fromJson(json[r'member']),
+      place: Place.fromJson(json[r'place']),
     );
   }
 
-  Member member;
+  Member? member;
 
-  Place place;
+  Place? place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BookmarkEmbedded &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        place == other.place;
+        other.member == member &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (place == null ? 0 : place.hashCode);
 
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
+  static List<BookmarkEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkEmbedded>[];
+    }
 
-    return hashCode;
+    return json.fold(<BookmarkEmbedded>[],
+        (List<BookmarkEmbedded> previousValue, element) {
+      final BookmarkEmbedded? object = BookmarkEmbedded.fromJson(element);
+      if (object is BookmarkEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<BookmarkEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BookmarkEmbedded.fromJson(value))
-            ?.toList() ??
-        <BookmarkEmbedded>[];
+  static Map<String, BookmarkEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkEmbedded>{};
+    }
+
+    return json.entries.fold(<String, BookmarkEmbedded>{},
+        (Map<String, BookmarkEmbedded> previousValue, element) {
+      final BookmarkEmbedded? object = BookmarkEmbedded.fromJson(element.value);
+      if (object is BookmarkEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, BookmarkEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, BookmarkEmbedded>((String key, dynamic value) {
-          return MapEntry(key, BookmarkEmbedded.fromJson(value));
-        }) ??
-        <String, BookmarkEmbedded>{};
+  // maps a json object with a list of BookmarkEmbedded-objects as value to a dart map
+  static Map<String, List<BookmarkEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BookmarkEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BookmarkEmbedded>>(
+          key, BookmarkEmbedded.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'BookmarkEmbedded[member=$member, place=$place]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member.toJson(),
-      if (place != null) 'place': place.toJson(),
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+      if (place != null) r'place': place,
     };
-  }
-
-  @override
-  String toString() {
-    return 'BookmarkEmbedded[member=$member, place=$place, ]';
   }
 }

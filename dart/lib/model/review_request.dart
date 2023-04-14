@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewRequest {
+  /// Returns a new [ReviewRequest] instance.
   ReviewRequest({
     this.embedded,
     this.links,
@@ -10,104 +15,131 @@ class ReviewRequest {
     this.updatedAt,
   });
 
-  factory ReviewRequest.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewRequest] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewRequest? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return ReviewRequest(
-      embedded: ReviewRequestEmbedded.fromJson(json['_embedded']),
-      links: ReviewRequestLinks.fromJson(json['_links']),
+      embedded: ReviewRequestEmbedded.fromJson(json[r'_embedded']),
+      links: ReviewRequestLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  ReviewRequestEmbedded embedded;
+  ReviewRequestEmbedded? embedded;
 
-  ReviewRequestLinks links;
+  ReviewRequestLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewRequest &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<ReviewRequest> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewRequest>[];
+    }
 
-    return hashCode;
+    return json.fold(<ReviewRequest>[],
+        (List<ReviewRequest> previousValue, element) {
+      final ReviewRequest? object = ReviewRequest.fromJson(element);
+      if (object is ReviewRequest) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ReviewRequest> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewRequest.fromJson(value))
-            ?.toList() ??
-        <ReviewRequest>[];
+  static Map<String, ReviewRequest> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewRequest>{};
+    }
+
+    return json.entries.fold(<String, ReviewRequest>{},
+        (Map<String, ReviewRequest> previousValue, element) {
+      final ReviewRequest? object = ReviewRequest.fromJson(element.value);
+      if (object is ReviewRequest) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReviewRequest> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewRequest>((String key, dynamic value) {
-          return MapEntry(key, ReviewRequest.fromJson(value));
-        }) ??
-        <String, ReviewRequest>{};
+  // maps a json object with a list of ReviewRequest-objects as value to a dart map
+  static Map<String, List<ReviewRequest>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewRequest>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewRequest>>(
+          key, ReviewRequest.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'ReviewRequest[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'ReviewRequest[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt, ]';
   }
 }

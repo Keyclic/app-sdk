@@ -1,11 +1,16 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class SchemaProperty {
+  /// Returns a new [SchemaProperty] instance.
   SchemaProperty({
     this.conditions,
     this.default_,
     this.description,
-    this.enum_,
+    this.enum_ = const [],
     this.format,
     this.id,
     this.items,
@@ -16,133 +21,153 @@ class SchemaProperty {
     this.type,
   });
 
-  factory SchemaProperty.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [SchemaProperty] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SchemaProperty? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return SchemaProperty(
-      conditions: PropertyConditionList.fromJson(json['conditions']),
-      default_: json['default'],
-      description: json['description'],
-      enum_: json['enum'] is List ? List<String>.from(json['enum']) : null,
-      format: json['format'],
-      id: json['id'],
-      items: PropertyItems.fromJson(json['items']),
-      maxItems: json['maxItems'],
-      minItems: json['minItems'],
-      propertyOrder: json['propertyOrder'],
-      title: json['title'],
-      type: json['type'],
+      conditions: PropertyConditionList.fromJson(json[r'conditions']),
+      default_: json[r'default'],
+      description: json[r'description'],
+      enum_: List<String>.from(json[r'enum'] ?? []),
+      format: json[r'format'],
+      id: json[r'id'],
+      items: PropertyItems.fromJson(json[r'items']),
+      maxItems: json[r'maxItems'],
+      minItems: json[r'minItems'],
+      propertyOrder: json[r'propertyOrder'],
+      title: json[r'title'],
+      type: json[r'type'],
     );
   }
 
-  PropertyConditionList conditions;
+  PropertyConditionList? conditions;
 
-  String default_;
+  String? default_;
 
-  String description;
+  String? description;
 
-  List<String> enum_;
+  List<String>? enum_;
 
-  String format;
+  String? format;
 
-  String id;
+  final String? id;
 
-  PropertyItems items;
+  PropertyItems? items;
 
-  int maxItems;
+  int? maxItems;
 
-  int minItems;
+  int? minItems;
 
-  int propertyOrder;
+  int? propertyOrder;
 
-  String title;
+  String? title;
 
-  String type;
+  String? type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is SchemaProperty &&
-        runtimeType == other.runtimeType &&
-        conditions == other.conditions &&
-        default_ == other.default_ &&
-        description == other.description &&
+        other.conditions == conditions &&
+        other.default_ == default_ &&
+        other.description == description &&
         DeepCollectionEquality.unordered().equals(enum_, other.enum_) &&
-        format == other.format &&
-        id == other.id &&
-        items == other.items &&
-        maxItems == other.maxItems &&
-        minItems == other.minItems &&
-        propertyOrder == other.propertyOrder &&
-        title == other.title &&
-        type == other.type;
+        other.format == format &&
+        other.id == id &&
+        other.items == items &&
+        other.maxItems == maxItems &&
+        other.minItems == minItems &&
+        other.propertyOrder == propertyOrder &&
+        other.title == title &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (conditions == null ? 0 : conditions.hashCode) +
+      (default_ == null ? 0 : default_.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (enum_ == null ? 0 : enum_.hashCode) +
+      (format == null ? 0 : format.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (items == null ? 0 : items.hashCode) +
+      (maxItems == null ? 0 : maxItems.hashCode) +
+      (minItems == null ? 0 : minItems.hashCode) +
+      (propertyOrder == null ? 0 : propertyOrder.hashCode) +
+      (title == null ? 0 : title.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
-    if (enum_ is List && enum_.isNotEmpty) {
-      hashCode ^= enum_
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<SchemaProperty> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SchemaProperty>[];
     }
 
-    hashCode ^= conditions?.hashCode ?? 0;
-    hashCode ^= default_?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= format?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= items?.hashCode ?? 0;
-    hashCode ^= maxItems?.hashCode ?? 0;
-    hashCode ^= minItems?.hashCode ?? 0;
-    hashCode ^= propertyOrder?.hashCode ?? 0;
-    hashCode ^= title?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+    return json.fold(<SchemaProperty>[],
+        (List<SchemaProperty> previousValue, element) {
+      final SchemaProperty? object = SchemaProperty.fromJson(element);
+      if (object is SchemaProperty) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<SchemaProperty> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SchemaProperty.fromJson(value))
-            ?.toList() ??
-        <SchemaProperty>[];
+  static Map<String, SchemaProperty> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SchemaProperty>{};
+    }
+
+    return json.entries.fold(<String, SchemaProperty>{},
+        (Map<String, SchemaProperty> previousValue, element) {
+      final SchemaProperty? object = SchemaProperty.fromJson(element.value);
+      if (object is SchemaProperty) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SchemaProperty> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, SchemaProperty>((String key, dynamic value) {
-          return MapEntry(key, SchemaProperty.fromJson(value));
-        }) ??
-        <String, SchemaProperty>{};
-  }
+  // maps a json object with a list of SchemaProperty-objects as value to a dart map
+  static Map<String, List<SchemaProperty>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SchemaProperty>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (conditions != null) 'conditions': conditions.toJson(),
-      if (default_ != null) 'default': default_,
-      if (description != null) 'description': description,
-      if (enum_ != null) 'enum': enum_,
-      if (format != null) 'format': format,
-      if (id != null) 'id': id,
-      if (items != null) 'items': items.toJson(),
-      if (maxItems != null) 'maxItems': maxItems,
-      if (minItems != null) 'minItems': minItems,
-      if (propertyOrder != null) 'propertyOrder': propertyOrder,
-      if (title != null) 'title': title,
-      if (type != null) 'type': type,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<SchemaProperty>>(
+          key, SchemaProperty.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'SchemaProperty[conditions=$conditions, default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, items=$items, maxItems=$maxItems, minItems=$minItems, propertyOrder=$propertyOrder, title=$title, type=$type, ]';
+  String toString() =>
+      'SchemaProperty[conditions=$conditions, default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, items=$items, maxItems=$maxItems, minItems=$minItems, propertyOrder=$propertyOrder, title=$title, type=$type]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (conditions != null) r'conditions': conditions,
+      if (default_ != null) r'default': default_,
+      if (description != null) r'description': description,
+      if (enum_ != null) r'enum': enum_,
+      if (format != null) r'format': format,
+      if (id != null) r'id': id,
+      if (items != null) r'items': items,
+      if (maxItems != null) r'maxItems': maxItems,
+      if (minItems != null) r'minItems': minItems,
+      if (propertyOrder != null) r'propertyOrder': propertyOrder,
+      if (title != null) r'title': title,
+      if (type != null) r'type': type,
+    };
   }
 }

@@ -1,75 +1,104 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PreferencesNotification {
+  /// Returns a new [PreferencesNotification] instance.
   PreferencesNotification({
     this.mail,
     this.push,
   });
 
-  factory PreferencesNotification.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PreferencesNotification] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PreferencesNotification? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PreferencesNotification(
-      mail: json['mail'],
-      push: json['push'],
+      mail: json[r'mail'],
+      push: json[r'push'],
     );
   }
 
-  bool mail;
+  bool? mail;
 
-  bool push;
+  bool? push;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PreferencesNotification &&
-        runtimeType == other.runtimeType &&
-        mail == other.mail &&
-        push == other.push;
+        other.mail == mail &&
+        other.push == push;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
 
-    hashCode ^= mail?.hashCode ?? 0;
-    hashCode ^= push?.hashCode ?? 0;
+  static List<PreferencesNotification> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PreferencesNotification>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<PreferencesNotification>[],
+        (List<PreferencesNotification> previousValue, element) {
+      final PreferencesNotification? object =
+          PreferencesNotification.fromJson(element);
+      if (object is PreferencesNotification) {
+        previousValue.add(object);
+      }
 
-  static List<PreferencesNotification> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PreferencesNotification.fromJson(value))
-            ?.toList() ??
-        <PreferencesNotification>[];
+      return previousValue;
+    });
   }
 
   static Map<String, PreferencesNotification> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, PreferencesNotification>((String key, dynamic value) {
-          return MapEntry(key, PreferencesNotification.fromJson(value));
-        }) ??
-        <String, PreferencesNotification>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PreferencesNotification>{};
+    }
+
+    return json.entries.fold(<String, PreferencesNotification>{},
+        (Map<String, PreferencesNotification> previousValue, element) {
+      final PreferencesNotification? object =
+          PreferencesNotification.fromJson(element.value);
+      if (object is PreferencesNotification) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mail != null) 'mail': mail,
-      if (push != null) 'push': push,
-    };
+  // maps a json object with a list of PreferencesNotification-objects as value to a dart map
+  static Map<String, List<PreferencesNotification>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PreferencesNotification>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PreferencesNotification>>(
+          key, PreferencesNotification.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PreferencesNotification[mail=$mail, push=$push, ]';
+  String toString() => 'PreferencesNotification[mail=$mail, push=$push]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mail != null) r'mail': mail,
+      if (push != null) r'push': push,
+    };
   }
 }

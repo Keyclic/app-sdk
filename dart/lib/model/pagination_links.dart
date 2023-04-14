@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PaginationLinks {
+  /// Returns a new [PaginationLinks] instance.
   PaginationLinks({
     this.first,
     this.last,
@@ -8,80 +13,105 @@ class PaginationLinks {
     this.self,
   });
 
-  factory PaginationLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PaginationLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PaginationLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PaginationLinks(
-      first: PaginationLink.fromJson(json['first']),
-      last: PaginationLink.fromJson(json['last']),
-      next: PaginationLink.fromJson(json['next']),
-      self: PaginationLink.fromJson(json['self']),
+      first: PaginationLink.fromJson(json[r'first']),
+      last: PaginationLink.fromJson(json[r'last']),
+      next: PaginationLink.fromJson(json[r'next']),
+      self: PaginationLink.fromJson(json[r'self']),
     );
   }
 
-  PaginationLink first;
+  PaginationLink? first;
 
-  PaginationLink last;
+  PaginationLink? last;
 
-  PaginationLink next;
+  PaginationLink? next;
 
-  PaginationLink self;
+  PaginationLink? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PaginationLinks &&
-        runtimeType == other.runtimeType &&
-        first == other.first &&
-        last == other.last &&
-        next == other.next &&
-        self == other.self;
+        other.first == first &&
+        other.last == last &&
+        other.next == next &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (first == null ? 0 : first.hashCode) +
+      (last == null ? 0 : last.hashCode) +
+      (next == null ? 0 : next.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= first?.hashCode ?? 0;
-    hashCode ^= last?.hashCode ?? 0;
-    hashCode ^= next?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<PaginationLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PaginationLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<PaginationLinks>[],
+        (List<PaginationLinks> previousValue, element) {
+      final PaginationLinks? object = PaginationLinks.fromJson(element);
+      if (object is PaginationLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PaginationLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PaginationLinks.fromJson(value))
-            ?.toList() ??
-        <PaginationLinks>[];
+  static Map<String, PaginationLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PaginationLinks>{};
+    }
+
+    return json.entries.fold(<String, PaginationLinks>{},
+        (Map<String, PaginationLinks> previousValue, element) {
+      final PaginationLinks? object = PaginationLinks.fromJson(element.value);
+      if (object is PaginationLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PaginationLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PaginationLinks>((String key, dynamic value) {
-          return MapEntry(key, PaginationLinks.fromJson(value));
-        }) ??
-        <String, PaginationLinks>{};
+  // maps a json object with a list of PaginationLinks-objects as value to a dart map
+  static Map<String, List<PaginationLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PaginationLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PaginationLinks>>(
+          key, PaginationLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'PaginationLinks[first=$first, last=$last, next=$next, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (first != null) 'first': first.toJson(),
-      if (last != null) 'last': last.toJson(),
-      if (next != null) 'next': next.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (first != null) r'first': first,
+      if (last != null) r'last': last,
+      if (next != null) r'next': next,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PaginationLinks[first=$first, last=$last, next=$next, self=$self, ]';
   }
 }

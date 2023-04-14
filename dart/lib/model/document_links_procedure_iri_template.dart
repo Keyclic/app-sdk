@@ -1,73 +1,101 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DocumentLinksProcedureIriTemplate {
+  /// Returns a new [DocumentLinksProcedureIriTemplate] instance.
   DocumentLinksProcedureIriTemplate({
     this.mapping,
   });
 
-  factory DocumentLinksProcedureIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [DocumentLinksProcedureIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DocumentLinksProcedureIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentLinksProcedureIriTemplate(
       mapping:
-          DocumentLinksProcedureIriTemplateMapping.fromJson(json['mapping']),
+          DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  DocumentLinksProcedureIriTemplateMapping mapping;
+  DocumentLinksProcedureIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentLinksProcedureIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+        other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<DocumentLinksProcedureIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                DocumentLinksProcedureIriTemplate.fromJson(value))
-            ?.toList() ??
-        <DocumentLinksProcedureIriTemplate>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentLinksProcedureIriTemplate>[];
+    }
+
+    return json.fold(<DocumentLinksProcedureIriTemplate>[],
+        (List<DocumentLinksProcedureIriTemplate> previousValue, element) {
+      final DocumentLinksProcedureIriTemplate? object =
+          DocumentLinksProcedureIriTemplate.fromJson(element);
+      if (object is DocumentLinksProcedureIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, DocumentLinksProcedureIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, DocumentLinksProcedureIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, DocumentLinksProcedureIriTemplate.fromJson(value));
-        }) ??
-        <String, DocumentLinksProcedureIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentLinksProcedureIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, DocumentLinksProcedureIriTemplate>{},
+        (Map<String, DocumentLinksProcedureIriTemplate> previousValue,
+            element) {
+      final DocumentLinksProcedureIriTemplate? object =
+          DocumentLinksProcedureIriTemplate.fromJson(element.value);
+      if (object is DocumentLinksProcedureIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of DocumentLinksProcedureIriTemplate-objects as value to a dart map
+  static Map<String, List<DocumentLinksProcedureIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentLinksProcedureIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentLinksProcedureIriTemplate>>(
+          key, DocumentLinksProcedureIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'DocumentLinksProcedureIriTemplate[mapping=$mapping, ]';
+  String toString() => 'DocumentLinksProcedureIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

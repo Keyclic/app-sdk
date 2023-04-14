@@ -1,78 +1,106 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlanData {
+  /// Returns a new [PlanData] instance.
   PlanData({
-    this.file,
+    required this.file,
     this.name,
-    this.place,
+    required this.place,
   });
 
-  factory PlanData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlanData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlanData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlanData(
-      file: json['file'],
-      name: json['name'],
-      place: json['place'],
+      file: json[r'file'],
+      name: json[r'name'],
+      place: json[r'place'],
     );
   }
 
   String file;
 
-  String name;
+  String? name;
 
   String place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlanData &&
-        runtimeType == other.runtimeType &&
-        file == other.file &&
-        name == other.name &&
-        place == other.place;
+        other.file == file &&
+        other.name == name &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      file.hashCode + (name == null ? 0 : name.hashCode) + place.hashCode;
 
-    hashCode ^= file?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
+  static List<PlanData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanData>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlanData>[], (List<PlanData> previousValue, element) {
+      final PlanData? object = PlanData.fromJson(element);
+      if (object is PlanData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlanData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlanData.fromJson(value))?.toList() ??
-        <PlanData>[];
+  static Map<String, PlanData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanData>{};
+    }
+
+    return json.entries.fold(<String, PlanData>{},
+        (Map<String, PlanData> previousValue, element) {
+      final PlanData? object = PlanData.fromJson(element.value);
+      if (object is PlanData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlanData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlanData>((String key, dynamic value) {
-          return MapEntry(key, PlanData.fromJson(value));
-        }) ??
-        <String, PlanData>{};
+  // maps a json object with a list of PlanData-objects as value to a dart map
+  static Map<String, List<PlanData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlanData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlanData>>(
+          key, PlanData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PlanData[file=$file, name=$name, place=$place]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (file != null) 'file': file,
-      if (name != null) 'name': name,
-      if (place != null) 'place': place,
+    return <String, dynamic>{
+      r'file': file,
+      if (name != null) r'name': name,
+      r'place': place,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlanData[file=$file, name=$name, place=$place, ]';
   }
 }

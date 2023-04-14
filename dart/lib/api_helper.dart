@@ -1,55 +1,45 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
+part of keyclic_sdk_api;
 
-// port from Java version
-Iterable<QueryParam> _convertParametersForCollectionFormat(
-  String name,
-  dynamic value, {
-  String collectionFormat = 'csv',
-}) {
-  // preconditions
-  if (name == null || name.isEmpty || value == null) {
-    throw ApiException(0, "Missing required params");
-  }
-
-  if (value is! List) {
-    return <QueryParam>[
-      QueryParam(name, _parameterToString(value)),
-    ];
-  }
-
-  final List<dynamic> values = List<dynamic>.from(value);
-
-  if (collectionFormat == 'multi') {
-    return values
-        .map((dynamic value) => QueryParam(name, _parameterToString(value)));
-  }
-
-  // get the delimiter (default: csv delimiter)
-  final String delimiter = _delimiters[collectionFormat] ?? ',';
-
-  final String joinedParameters =
-      values.map((dynamic value) => _parameterToString(value)).join(delimiter);
-
-  return <QueryParam>[
-    QueryParam(name, joinedParameters),
-  ];
+// extracted from dart:io package which cannot be used for web clients
+class HttpStatus {
+  static const int internalServerError = 500;
 }
 
-/// Format the given parameter object into string.
-String _parameterToString(dynamic value) {
+/// Format the given form parameter object into something that Dio can handle.
+String encodeFormParameter(dynamic parameter) {
+  return parameterToString(parameter);
+}
+
+ListParam<String> encodeCollectionQueryParameter(Iterable parameters,
+    {ListFormat format = ListFormat.multi}) {
+  return ListParam<String>([
+    for (final parameter in parameters) parameterToString(parameter),
+  ], format);
+}
+
+// ListParam<T> encodeCollectionQueryParameter<T>(Iterable<T> parameters, {ListFormat format = ListFormat.multi}) {
+//   return ListParam<T>([for (final parameter in parameters) parameter,], format);
+// }
+
+String encodeQueryParameter(dynamic parameter) {
+  return parameterToString(parameter);
+}
+
+/// Format the given parameter object into a [String].
+String parameterToString(dynamic value) {
+  if (value == null) {
+    return '';
+  }
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
-
   if (value is Permission) {
-    return Permission.encode(value).toString();
+    return PermissionTypeTransformer().encode(value).toString();
   }
-
-  if (value is String) {
-    return Uri.encodeQueryComponent(value);
-  }
-
   return value.toString();
+  // return jsonEncode(value);
 }

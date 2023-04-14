@@ -1,70 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class SectionCollection {
+  /// Returns a new [SectionCollection] instance.
   SectionCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory SectionCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [SectionCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SectionCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return SectionCollection(
-      items: Section.listFromJson(json['items']),
+      items: Section.listFromJson(json[r'items']),
     );
   }
 
-  List<Section> items;
+  List<Section>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is SectionCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Section element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<SectionCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SectionCollection>[];
     }
 
-    return hashCode;
+    return json.fold(<SectionCollection>[],
+        (List<SectionCollection> previousValue, element) {
+      final SectionCollection? object = SectionCollection.fromJson(element);
+      if (object is SectionCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<SectionCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SectionCollection.fromJson(value))
-            ?.toList() ??
-        <SectionCollection>[];
+  static Map<String, SectionCollection> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SectionCollection>{};
+    }
+
+    return json.entries.fold(<String, SectionCollection>{},
+        (Map<String, SectionCollection> previousValue, element) {
+      final SectionCollection? object =
+          SectionCollection.fromJson(element.value);
+      if (object is SectionCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SectionCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, SectionCollection>((String key, dynamic value) {
-          return MapEntry(key, SectionCollection.fromJson(value));
-        }) ??
-        <String, SectionCollection>{};
-  }
+  // maps a json object with a list of SectionCollection-objects as value to a dart map
+  static Map<String, List<SectionCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SectionCollection>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<SectionCollection>>(
+          key, SectionCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'SectionCollection[items=$items, ]';
+  String toString() => 'SectionCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

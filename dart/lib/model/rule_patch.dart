@@ -1,71 +1,101 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class RulePatch {
+  /// Returns a new [RulePatch] instance.
   RulePatch({
     this.category,
     this.service,
   });
 
-  factory RulePatch.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [RulePatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static RulePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return RulePatch(
-      category: json['category'],
-      service: json['service'],
+      category: json[r'category'],
+      service: json[r'service'],
     );
   }
 
-  String category;
+  String? category;
 
-  String service;
+  String? service;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is RulePatch &&
-        runtimeType == other.runtimeType &&
-        category == other.category &&
-        service == other.service;
+        other.category == category &&
+        other.service == service;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (category == null ? 0 : category.hashCode) +
+      (service == null ? 0 : service.hashCode);
 
-    hashCode ^= category?.hashCode ?? 0;
-    hashCode ^= service?.hashCode ?? 0;
+  static List<RulePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <RulePatch>[];
+    }
 
-    return hashCode;
+    return json.fold(<RulePatch>[], (List<RulePatch> previousValue, element) {
+      final RulePatch? object = RulePatch.fromJson(element);
+      if (object is RulePatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<RulePatch> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => RulePatch.fromJson(value))?.toList() ??
-        <RulePatch>[];
+  static Map<String, RulePatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, RulePatch>{};
+    }
+
+    return json.entries.fold(<String, RulePatch>{},
+        (Map<String, RulePatch> previousValue, element) {
+      final RulePatch? object = RulePatch.fromJson(element.value);
+      if (object is RulePatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, RulePatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, RulePatch>((String key, dynamic value) {
-          return MapEntry(key, RulePatch.fromJson(value));
-        }) ??
-        <String, RulePatch>{};
+  // maps a json object with a list of RulePatch-objects as value to a dart map
+  static Map<String, List<RulePatch>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<RulePatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<RulePatch>>(
+          key, RulePatch.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'RulePatch[category=$category, service=$service]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (category != null) 'category': category,
-      if (service != null) 'service': service,
+    return <String, dynamic>{
+      if (category != null) r'category': category,
+      if (service != null) r'service': service,
     };
-  }
-
-  @override
-  String toString() {
-    return 'RulePatch[category=$category, service=$service, ]';
   }
 }

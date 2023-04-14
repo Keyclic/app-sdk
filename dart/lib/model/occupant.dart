@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Occupant {
+  /// Returns a new [Occupant] instance.
   Occupant({
     this.embedded,
     this.links,
@@ -10,102 +15,130 @@ class Occupant {
     this.updatedAt,
   });
 
-  factory Occupant.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Occupant] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Occupant? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Occupant(
-      embedded: BookmarkEmbedded.fromJson(json['_embedded']),
-      links: OccupantLinks.fromJson(json['_links']),
+      embedded: BookmarkEmbedded.fromJson(json[r'_embedded']),
+      links: OccupantLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      type: json['type'],
+      id: json[r'id'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  BookmarkEmbedded embedded;
+  BookmarkEmbedded? embedded;
 
-  OccupantLinks links;
+  OccupantLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Occupant &&
-        runtimeType == other.runtimeType &&
-        embedded == other.embedded &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.embedded == embedded &&
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (embedded == null ? 0 : embedded.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= embedded?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<Occupant> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Occupant>[];
+    }
 
-    return hashCode;
+    return json.fold(<Occupant>[], (List<Occupant> previousValue, element) {
+      final Occupant? object = Occupant.fromJson(element);
+      if (object is Occupant) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Occupant> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Occupant.fromJson(value))?.toList() ??
-        <Occupant>[];
+  static Map<String, Occupant> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Occupant>{};
+    }
+
+    return json.entries.fold(<String, Occupant>{},
+        (Map<String, Occupant> previousValue, element) {
+      final Occupant? object = Occupant.fromJson(element.value);
+      if (object is Occupant) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Occupant> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Occupant>((String key, dynamic value) {
-          return MapEntry(key, Occupant.fromJson(value));
-        }) ??
-        <String, Occupant>{};
+  // maps a json object with a list of Occupant-objects as value to a dart map
+  static Map<String, List<Occupant>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Occupant>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Occupant>>(
+          key, Occupant.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Occupant[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (embedded != null) '_embedded': embedded.toJson(),
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (embedded != null) r'_embedded': embedded,
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'Occupant[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt, ]';
   }
 }

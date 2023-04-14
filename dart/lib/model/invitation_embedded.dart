@@ -1,67 +1,95 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InvitationEmbedded {
+  /// Returns a new [InvitationEmbedded] instance.
   InvitationEmbedded({
     this.member,
   });
 
-  factory InvitationEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InvitationEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InvitationEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InvitationEmbedded(
-      member: Member.fromJson(json['member']),
+      member: Member.fromJson(json[r'member']),
     );
   }
 
-  Member member;
+  Member? member;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is InvitationEmbedded &&
-        runtimeType == other.runtimeType &&
-        member == other.member;
+    return other is InvitationEmbedded && other.member == member;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (member == null ? 0 : member.hashCode);
 
-    hashCode ^= member?.hashCode ?? 0;
+  static List<InvitationEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InvitationEmbedded>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<InvitationEmbedded>[],
+        (List<InvitationEmbedded> previousValue, element) {
+      final InvitationEmbedded? object = InvitationEmbedded.fromJson(element);
+      if (object is InvitationEmbedded) {
+        previousValue.add(object);
+      }
 
-  static List<InvitationEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => InvitationEmbedded.fromJson(value))
-            ?.toList() ??
-        <InvitationEmbedded>[];
+      return previousValue;
+    });
   }
 
   static Map<String, InvitationEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, InvitationEmbedded>((String key, dynamic value) {
-          return MapEntry(key, InvitationEmbedded.fromJson(value));
-        }) ??
-        <String, InvitationEmbedded>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InvitationEmbedded>{};
+    }
+
+    return json.entries.fold(<String, InvitationEmbedded>{},
+        (Map<String, InvitationEmbedded> previousValue, element) {
+      final InvitationEmbedded? object =
+          InvitationEmbedded.fromJson(element.value);
+      if (object is InvitationEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member.toJson(),
-    };
+  // maps a json object with a list of InvitationEmbedded-objects as value to a dart map
+  static Map<String, List<InvitationEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InvitationEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InvitationEmbedded>>(
+          key, InvitationEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'InvitationEmbedded[member=$member, ]';
+  String toString() => 'InvitationEmbedded[member=$member]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+    };
   }
 }

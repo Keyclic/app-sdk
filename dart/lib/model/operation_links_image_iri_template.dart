@@ -1,69 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OperationLinksImageIriTemplate {
+  /// Returns a new [OperationLinksImageIriTemplate] instance.
   OperationLinksImageIriTemplate({
     this.mapping,
   });
 
-  factory OperationLinksImageIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OperationLinksImageIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OperationLinksImageIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OperationLinksImageIriTemplate(
-      mapping: OperationLinksImageIriTemplateMapping.fromJson(json['mapping']),
+      mapping: OperationLinksImageIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  OperationLinksImageIriTemplateMapping mapping;
+  OperationLinksImageIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is OperationLinksImageIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is OperationLinksImageIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<OperationLinksImageIriTemplate> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <OperationLinksImageIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<OperationLinksImageIriTemplate>[],
+        (List<OperationLinksImageIriTemplate> previousValue, element) {
+      final OperationLinksImageIriTemplate? object =
+          OperationLinksImageIriTemplate.fromJson(element);
+      if (object is OperationLinksImageIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<OperationLinksImageIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                OperationLinksImageIriTemplate.fromJson(value))
-            ?.toList() ??
-        <OperationLinksImageIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, OperationLinksImageIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, OperationLinksImageIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, OperationLinksImageIriTemplate.fromJson(value));
-        }) ??
-        <String, OperationLinksImageIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationLinksImageIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, OperationLinksImageIriTemplate>{},
+        (Map<String, OperationLinksImageIriTemplate> previousValue, element) {
+      final OperationLinksImageIriTemplate? object =
+          OperationLinksImageIriTemplate.fromJson(element.value);
+      if (object is OperationLinksImageIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of OperationLinksImageIriTemplate-objects as value to a dart map
+  static Map<String, List<OperationLinksImageIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationLinksImageIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationLinksImageIriTemplate>>(
+          key, OperationLinksImageIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'OperationLinksImageIriTemplate[mapping=$mapping, ]';
+  String toString() => 'OperationLinksImageIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

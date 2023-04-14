@@ -1,77 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class MemberLinksOrganization {
+  /// Returns a new [MemberLinksOrganization] instance.
   MemberLinksOrganization({
     this.href,
     this.iriTemplate,
   });
 
-  factory MemberLinksOrganization.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [MemberLinksOrganization] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static MemberLinksOrganization? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return MemberLinksOrganization(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          MemberLinksOrganizationIriTemplate.fromJson(json['iriTemplate']),
+          MemberLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the organization associated to the given member. */
-  String href;
+  /// The URI of the organization associated to the given member.
+  String? href;
 
-  MemberLinksOrganizationIriTemplate iriTemplate;
+  MemberLinksOrganizationIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MemberLinksOrganization &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<MemberLinksOrganization> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberLinksOrganization>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<MemberLinksOrganization>[],
+        (List<MemberLinksOrganization> previousValue, element) {
+      final MemberLinksOrganization? object =
+          MemberLinksOrganization.fromJson(element);
+      if (object is MemberLinksOrganization) {
+        previousValue.add(object);
+      }
 
-  static List<MemberLinksOrganization> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MemberLinksOrganization.fromJson(value))
-            ?.toList() ??
-        <MemberLinksOrganization>[];
+      return previousValue;
+    });
   }
 
   static Map<String, MemberLinksOrganization> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, MemberLinksOrganization>((String key, dynamic value) {
-          return MapEntry(key, MemberLinksOrganization.fromJson(value));
-        }) ??
-        <String, MemberLinksOrganization>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberLinksOrganization>{};
+    }
+
+    return json.entries.fold(<String, MemberLinksOrganization>{},
+        (Map<String, MemberLinksOrganization> previousValue, element) {
+      final MemberLinksOrganization? object =
+          MemberLinksOrganization.fromJson(element.value);
+      if (object is MemberLinksOrganization) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of MemberLinksOrganization-objects as value to a dart map
+  static Map<String, List<MemberLinksOrganization>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MemberLinksOrganization>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MemberLinksOrganization>>(
+          key, MemberLinksOrganization.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'MemberLinksOrganization[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'MemberLinksOrganization[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

@@ -1,69 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ArticleLinksSectionIriTemplate {
+  /// Returns a new [ArticleLinksSectionIriTemplate] instance.
   ArticleLinksSectionIriTemplate({
     this.mapping,
   });
 
-  factory ArticleLinksSectionIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ArticleLinksSectionIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ArticleLinksSectionIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ArticleLinksSectionIriTemplate(
-      mapping: ArticleLinksSectionIriTemplateMapping.fromJson(json['mapping']),
+      mapping: ArticleLinksSectionIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ArticleLinksSectionIriTemplateMapping mapping;
+  ArticleLinksSectionIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ArticleLinksSectionIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is ArticleLinksSectionIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<ArticleLinksSectionIriTemplate> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ArticleLinksSectionIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ArticleLinksSectionIriTemplate>[],
+        (List<ArticleLinksSectionIriTemplate> previousValue, element) {
+      final ArticleLinksSectionIriTemplate? object =
+          ArticleLinksSectionIriTemplate.fromJson(element);
+      if (object is ArticleLinksSectionIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<ArticleLinksSectionIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ArticleLinksSectionIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ArticleLinksSectionIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ArticleLinksSectionIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ArticleLinksSectionIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, ArticleLinksSectionIriTemplate.fromJson(value));
-        }) ??
-        <String, ArticleLinksSectionIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ArticleLinksSectionIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ArticleLinksSectionIriTemplate>{},
+        (Map<String, ArticleLinksSectionIriTemplate> previousValue, element) {
+      final ArticleLinksSectionIriTemplate? object =
+          ArticleLinksSectionIriTemplate.fromJson(element.value);
+      if (object is ArticleLinksSectionIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of ArticleLinksSectionIriTemplate-objects as value to a dart map
+  static Map<String, List<ArticleLinksSectionIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ArticleLinksSectionIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ArticleLinksSectionIriTemplate>>(
+          key, ArticleLinksSectionIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ArticleLinksSectionIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ArticleLinksSectionIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

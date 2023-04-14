@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Person {
+  /// Returns a new [Person] instance.
   Person({
     this.links,
     this.agreement,
@@ -11,7 +16,7 @@ class Person {
     this.givenName,
     this.id,
     this.jobTitle,
-    this.optIn,
+    required this.optIn,
     this.preferences,
     this.telephone,
     this.type,
@@ -19,156 +24,182 @@ class Person {
     this.username,
   });
 
-  factory Person.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Person] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Person? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return Person(
-      links: PersonLinks.fromJson(json['_links']),
-      agreement: PersonAgreement.fromJson(json['agreement']),
+      links: PersonLinks.fromJson(json[r'_links']),
+      agreement: PersonAgreement.fromJson(json[r'agreement']),
       createdAt: createdAt,
-      email: json['email'],
-      enabled: json['enabled'],
-      familyName: json['familyName'],
-      givenName: json['givenName'],
-      id: json['id'],
-      jobTitle: json['jobTitle'],
-      optIn: json['optIn'],
-      preferences: PersonPreferences.fromJson(json['preferences']),
-      telephone: json['telephone'],
-      type: json['type'],
+      email: json[r'email'],
+      enabled: json[r'enabled'],
+      familyName: json[r'familyName'],
+      givenName: json[r'givenName'],
+      id: json[r'id'],
+      jobTitle: json[r'jobTitle'],
+      optIn: json[r'optIn'],
+      preferences: PersonPreferences.fromJson(json[r'preferences']),
+      telephone: json[r'telephone'],
+      type: json[r'type'],
       updatedAt: updatedAt,
-      username: json['username'],
+      username: json[r'username'],
     );
   }
 
-  PersonLinks links;
+  PersonLinks? links;
 
-  PersonAgreement agreement;
+  PersonAgreement? agreement;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String email;
+  String? email;
 
-  bool enabled;
+  bool? enabled;
 
-  String familyName;
+  String? familyName;
 
-  String givenName;
+  String? givenName;
 
-  String id;
+  final String? id;
 
-  String jobTitle;
+  String? jobTitle;
 
   bool optIn;
 
-  PersonPreferences preferences;
+  PersonPreferences? preferences;
 
-  String telephone;
+  String? telephone;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
-  String username;
+  String? username;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Person &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        agreement == other.agreement &&
-        createdAt == other.createdAt &&
-        email == other.email &&
-        enabled == other.enabled &&
-        familyName == other.familyName &&
-        givenName == other.givenName &&
-        id == other.id &&
-        jobTitle == other.jobTitle &&
-        optIn == other.optIn &&
-        preferences == other.preferences &&
-        telephone == other.telephone &&
-        type == other.type &&
-        updatedAt == other.updatedAt &&
-        username == other.username;
+        other.links == links &&
+        other.agreement == agreement &&
+        other.createdAt == createdAt &&
+        other.email == email &&
+        other.enabled == enabled &&
+        other.familyName == familyName &&
+        other.givenName == givenName &&
+        other.id == id &&
+        other.jobTitle == jobTitle &&
+        other.optIn == optIn &&
+        other.preferences == preferences &&
+        other.telephone == telephone &&
+        other.type == type &&
+        other.updatedAt == updatedAt &&
+        other.username == username;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (agreement == null ? 0 : agreement.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (email == null ? 0 : email.hashCode) +
+      (enabled == null ? 0 : enabled.hashCode) +
+      (familyName == null ? 0 : familyName.hashCode) +
+      (givenName == null ? 0 : givenName.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (jobTitle == null ? 0 : jobTitle.hashCode) +
+      optIn.hashCode +
+      (preferences == null ? 0 : preferences.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (username == null ? 0 : username.hashCode);
 
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= agreement?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= enabled?.hashCode ?? 0;
-    hashCode ^= familyName?.hashCode ?? 0;
-    hashCode ^= givenName?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= jobTitle?.hashCode ?? 0;
-    hashCode ^= optIn?.hashCode ?? 0;
-    hashCode ^= preferences?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
-    hashCode ^= username?.hashCode ?? 0;
+  static List<Person> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Person>[];
+    }
 
-    return hashCode;
+    return json.fold(<Person>[], (List<Person> previousValue, element) {
+      final Person? object = Person.fromJson(element);
+      if (object is Person) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Person> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Person.fromJson(value))?.toList() ??
-        <Person>[];
+  static Map<String, Person> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Person>{};
+    }
+
+    return json.entries.fold(<String, Person>{},
+        (Map<String, Person> previousValue, element) {
+      final Person? object = Person.fromJson(element.value);
+      if (object is Person) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Person> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Person>((String key, dynamic value) {
-          return MapEntry(key, Person.fromJson(value));
-        }) ??
-        <String, Person>{};
+  // maps a json object with a list of Person-objects as value to a dart map
+  static Map<String, List<Person>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Person>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Person>>(key, Person.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Person[links=$links, agreement=$agreement, createdAt=$createdAt, email=$email, enabled=$enabled, familyName=$familyName, givenName=$givenName, id=$id, jobTitle=$jobTitle, optIn=$optIn, preferences=$preferences, telephone=$telephone, type=$type, updatedAt=$updatedAt, username=$username]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (agreement != null) 'agreement': agreement.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (email != null) 'email': email,
-      if (enabled != null) 'enabled': enabled,
-      if (familyName != null) 'familyName': familyName,
-      if (givenName != null) 'givenName': givenName,
-      if (id != null) 'id': id,
-      if (jobTitle != null) 'jobTitle': jobTitle,
-      if (optIn != null) 'optIn': optIn,
-      if (preferences != null) 'preferences': preferences.toJson(),
-      if (telephone != null) 'telephone': telephone,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
-      if (username != null) 'username': username,
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (agreement != null) r'agreement': agreement,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (email != null) r'email': email,
+      if (enabled != null) r'enabled': enabled,
+      if (familyName != null) r'familyName': familyName,
+      if (givenName != null) r'givenName': givenName,
+      if (id != null) r'id': id,
+      if (jobTitle != null) r'jobTitle': jobTitle,
+      r'optIn': optIn,
+      if (preferences != null) r'preferences': preferences,
+      if (telephone != null) r'telephone': telephone,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if (username != null) r'username': username,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Person[links=$links, agreement=$agreement, createdAt=$createdAt, email=$email, enabled=$enabled, familyName=$familyName, givenName=$givenName, id=$id, jobTitle=$jobTitle, optIn=$optIn, preferences=$preferences, telephone=$telephone, type=$type, updatedAt=$updatedAt, username=$username, ]';
   }
 }

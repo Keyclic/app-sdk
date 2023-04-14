@@ -1,80 +1,110 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OccupantLinks {
+  /// Returns a new [OccupantLinks] instance.
   OccupantLinks({
     this.member,
     this.place,
     this.self,
   });
 
-  factory OccupantLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OccupantLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OccupantLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OccupantLinks(
-      member: OccupantLinksMember.fromJson(json['member']),
-      place: OccupantLinksPlace.fromJson(json['place']),
-      self: OccupantLinksSelf.fromJson(json['self']),
+      member: OccupantLinksMember.fromJson(json[r'member']),
+      place: OccupantLinksPlace.fromJson(json[r'place']),
+      self: OccupantLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  OccupantLinksMember member;
+  OccupantLinksMember? member;
 
-  OccupantLinksPlace place;
+  OccupantLinksPlace? place;
 
-  OccupantLinksSelf self;
+  OccupantLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OccupantLinks &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        place == other.place &&
-        self == other.self;
+        other.member == member &&
+        other.place == place &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (place == null ? 0 : place.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<OccupantLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OccupantLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<OccupantLinks>[],
+        (List<OccupantLinks> previousValue, element) {
+      final OccupantLinks? object = OccupantLinks.fromJson(element);
+      if (object is OccupantLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<OccupantLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OccupantLinks.fromJson(value))
-            ?.toList() ??
-        <OccupantLinks>[];
+  static Map<String, OccupantLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OccupantLinks>{};
+    }
+
+    return json.entries.fold(<String, OccupantLinks>{},
+        (Map<String, OccupantLinks> previousValue, element) {
+      final OccupantLinks? object = OccupantLinks.fromJson(element.value);
+      if (object is OccupantLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, OccupantLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OccupantLinks>((String key, dynamic value) {
-          return MapEntry(key, OccupantLinks.fromJson(value));
-        }) ??
-        <String, OccupantLinks>{};
+  // maps a json object with a list of OccupantLinks-objects as value to a dart map
+  static Map<String, List<OccupantLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OccupantLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OccupantLinks>>(
+          key, OccupantLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'OccupantLinks[member=$member, place=$place, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member.toJson(),
-      if (place != null) 'place': place.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+      if (place != null) r'place': place,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'OccupantLinks[member=$member, place=$place, self=$self, ]';
   }
 }

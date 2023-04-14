@@ -1,85 +1,116 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceData {
+  /// Returns a new [PlaceData] instance.
   PlaceData({
-    this.name,
+    required this.name,
     this.branchCode,
     this.polygon,
-    this.organization,
+    required this.organization,
   });
 
-  factory PlaceData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlaceData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceData(
-      name: json['name'],
-      branchCode: json['branchCode'],
-      polygon: json['polygon'],
-      organization: json['organization'],
+      name: json[r'name'],
+      branchCode: json[r'branchCode'],
+      polygon: json[r'polygon'],
+      organization: json[r'organization'],
     );
   }
 
   String name;
 
-  String branchCode;
+  String? branchCode;
 
-  String polygon;
+  String? polygon;
 
   String organization;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceData &&
-        runtimeType == other.runtimeType &&
-        name == other.name &&
-        branchCode == other.branchCode &&
-        polygon == other.polygon &&
-        organization == other.organization;
+        other.name == name &&
+        other.branchCode == branchCode &&
+        other.polygon == polygon &&
+        other.organization == organization;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      name.hashCode +
+      (branchCode == null ? 0 : branchCode.hashCode) +
+      (polygon == null ? 0 : polygon.hashCode) +
+      organization.hashCode;
 
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= branchCode?.hashCode ?? 0;
-    hashCode ^= polygon?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
+  static List<PlaceData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceData>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlaceData>[], (List<PlaceData> previousValue, element) {
+      final PlaceData? object = PlaceData.fromJson(element);
+      if (object is PlaceData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlaceData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => PlaceData.fromJson(value))?.toList() ??
-        <PlaceData>[];
+  static Map<String, PlaceData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceData>{};
+    }
+
+    return json.entries.fold(<String, PlaceData>{},
+        (Map<String, PlaceData> previousValue, element) {
+      final PlaceData? object = PlaceData.fromJson(element.value);
+      if (object is PlaceData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlaceData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlaceData>((String key, dynamic value) {
-          return MapEntry(key, PlaceData.fromJson(value));
-        }) ??
-        <String, PlaceData>{};
+  // maps a json object with a list of PlaceData-objects as value to a dart map
+  static Map<String, List<PlaceData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceData>>(
+          key, PlaceData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'PlaceData[name=$name, branchCode=$branchCode, polygon=$polygon, organization=$organization]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (name != null) 'name': name,
-      if (branchCode != null) 'branchCode': branchCode,
-      if (polygon != null) 'polygon': polygon,
-      if (organization != null) 'organization': organization,
+    return <String, dynamic>{
+      r'name': name,
+      if (branchCode != null) r'branchCode': branchCode,
+      if (polygon != null) r'polygon': polygon,
+      r'organization': organization,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlaceData[name=$name, branchCode=$branchCode, polygon=$polygon, organization=$organization, ]';
   }
 }

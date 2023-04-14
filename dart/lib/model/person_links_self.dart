@@ -1,74 +1,103 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PersonLinksSelf {
+  /// Returns a new [PersonLinksSelf] instance.
   PersonLinksSelf({
     this.href,
     this.iriTemplate,
   });
 
-  factory PersonLinksSelf.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PersonLinksSelf] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PersonLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PersonLinksSelf(
-      href: json['href'],
-      iriTemplate: PersonLinksSelfIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: PersonLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the self associated to the given person. */
-  String href;
+  /// The URI of the self associated to the given person.
+  String? href;
 
-  PersonLinksSelfIriTemplate iriTemplate;
+  PersonLinksSelfIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PersonLinksSelf &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<PersonLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PersonLinksSelf>[];
+    }
 
-    return hashCode;
+    return json.fold(<PersonLinksSelf>[],
+        (List<PersonLinksSelf> previousValue, element) {
+      final PersonLinksSelf? object = PersonLinksSelf.fromJson(element);
+      if (object is PersonLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PersonLinksSelf> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PersonLinksSelf.fromJson(value))
-            ?.toList() ??
-        <PersonLinksSelf>[];
+  static Map<String, PersonLinksSelf> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PersonLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, PersonLinksSelf>{},
+        (Map<String, PersonLinksSelf> previousValue, element) {
+      final PersonLinksSelf? object = PersonLinksSelf.fromJson(element.value);
+      if (object is PersonLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PersonLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PersonLinksSelf>((String key, dynamic value) {
-          return MapEntry(key, PersonLinksSelf.fromJson(value));
-        }) ??
-        <String, PersonLinksSelf>{};
+  // maps a json object with a list of PersonLinksSelf-objects as value to a dart map
+  static Map<String, List<PersonLinksSelf>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PersonLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PersonLinksSelf>>(
+          key, PersonLinksSelf.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PersonLinksSelf[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PersonLinksSelf[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

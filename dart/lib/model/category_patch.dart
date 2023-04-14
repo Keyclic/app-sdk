@@ -1,74 +1,104 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class CategoryPatch {
+  /// Returns a new [CategoryPatch] instance.
   CategoryPatch({
     this.identificationNumber,
     this.name,
   });
 
-  factory CategoryPatch.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [CategoryPatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static CategoryPatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return CategoryPatch(
-      identificationNumber: json['identificationNumber'],
-      name: json['name'],
+      identificationNumber: json[r'identificationNumber'],
+      name: json[r'name'],
     );
   }
 
-  String identificationNumber;
+  String? identificationNumber;
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is CategoryPatch &&
-        runtimeType == other.runtimeType &&
-        identificationNumber == other.identificationNumber &&
-        name == other.name;
+        other.identificationNumber == identificationNumber &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (identificationNumber == null ? 0 : identificationNumber.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
-    hashCode ^= identificationNumber?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<CategoryPatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryPatch>[];
+    }
 
-    return hashCode;
+    return json.fold(<CategoryPatch>[],
+        (List<CategoryPatch> previousValue, element) {
+      final CategoryPatch? object = CategoryPatch.fromJson(element);
+      if (object is CategoryPatch) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<CategoryPatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => CategoryPatch.fromJson(value))
-            ?.toList() ??
-        <CategoryPatch>[];
+  static Map<String, CategoryPatch> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryPatch>{};
+    }
+
+    return json.entries.fold(<String, CategoryPatch>{},
+        (Map<String, CategoryPatch> previousValue, element) {
+      final CategoryPatch? object = CategoryPatch.fromJson(element.value);
+      if (object is CategoryPatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CategoryPatch> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, CategoryPatch>((String key, dynamic value) {
-          return MapEntry(key, CategoryPatch.fromJson(value));
-        }) ??
-        <String, CategoryPatch>{};
+  // maps a json object with a list of CategoryPatch-objects as value to a dart map
+  static Map<String, List<CategoryPatch>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CategoryPatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CategoryPatch>>(
+          key, CategoryPatch.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'CategoryPatch[identificationNumber=$identificationNumber, name=$name]';
 
   Map<String, dynamic> toJson() {
-    return {
+    return <String, dynamic>{
       if (identificationNumber != null)
-        'identificationNumber': identificationNumber,
-      if (name != null) 'name': name,
+        r'identificationNumber': identificationNumber,
+      if (name != null) r'name': name,
     };
-  }
-
-  @override
-  String toString() {
-    return 'CategoryPatch[identificationNumber=$identificationNumber, name=$name, ]';
   }
 }

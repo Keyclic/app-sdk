@@ -1,66 +1,93 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ContributionData {
+  /// Returns a new [ContributionData] instance.
   ContributionData({
-    this.feedback,
+    required this.feedback,
   });
 
-  factory ContributionData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ContributionData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ContributionData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ContributionData(
-      feedback: json['feedback'],
+      feedback: json[r'feedback'],
     );
   }
 
   String feedback;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ContributionData &&
-        runtimeType == other.runtimeType &&
-        feedback == other.feedback;
+    return other is ContributionData && other.feedback == feedback;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => feedback.hashCode;
 
-    hashCode ^= feedback?.hashCode ?? 0;
+  static List<ContributionData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ContributionData>[];
+    }
 
-    return hashCode;
+    return json.fold(<ContributionData>[],
+        (List<ContributionData> previousValue, element) {
+      final ContributionData? object = ContributionData.fromJson(element);
+      if (object is ContributionData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ContributionData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ContributionData.fromJson(value))
-            ?.toList() ??
-        <ContributionData>[];
+  static Map<String, ContributionData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ContributionData>{};
+    }
+
+    return json.entries.fold(<String, ContributionData>{},
+        (Map<String, ContributionData> previousValue, element) {
+      final ContributionData? object = ContributionData.fromJson(element.value);
+      if (object is ContributionData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ContributionData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ContributionData>((String key, dynamic value) {
-          return MapEntry(key, ContributionData.fromJson(value));
-        }) ??
-        <String, ContributionData>{};
+  // maps a json object with a list of ContributionData-objects as value to a dart map
+  static Map<String, List<ContributionData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ContributionData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ContributionData>>(
+          key, ContributionData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'ContributionData[feedback=$feedback]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (feedback != null) 'feedback': feedback,
+    return <String, dynamic>{
+      r'feedback': feedback,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ContributionData[feedback=$feedback, ]';
   }
 }

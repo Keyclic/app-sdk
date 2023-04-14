@@ -8,14 +8,14 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fields** | **List&lt;String&gt;** |  | [optional] [default to []]
-**description** | **String** |  | [optional] [default to null]
-**from** | [**WorkflowState**](WorkflowState.md) |  | [optional] [default to null]
-**id** | **String** |  | [optional] [default to null]
-**name** | **String** |  | [optional] [default to null]
-**required** | **List&lt;String&gt;** |  | [optional] [default to []]
-**to** | [**WorkflowState**](WorkflowState.md) |  | [optional] [default to null]
-**type** | **String** |  | [optional] [default to null]
+**fields** | **List<String>** |  | [optional] [default to const []]
+**description** | **String** |  | [optional] 
+**from** | [**WorkflowState**](WorkflowState.md) |  | [optional] 
+**id** | **String** |  | [optional] [readonly] 
+**name** | **String** |  | [optional] 
+**required_** | **List<String>** |  | [optional] [default to const []]
+**to** | [**WorkflowState**](WorkflowState.md) |  | [optional] 
+**type** | **String** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

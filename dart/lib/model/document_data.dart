@@ -1,25 +1,32 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DocumentData {
+  /// Returns a new [DocumentData] instance.
   DocumentData({
-    this.container,
-    this.file,
-    this.permission,
+    required this.container,
+    required this.file,
+    required this.permission,
     this.template,
-    this.type,
+    required this.type,
   });
 
-  factory DocumentData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [DocumentData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DocumentData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentData(
-      container: json['container'],
-      file: DocumentDataFile.fromJson(json['file']),
-      permission: DocumentDataPermission.fromJson(json['permission']),
-      template: json['template'],
-      type: json['type'],
+      container: json[r'container'],
+      file: DocumentDataFile.fromJson(json[r'file'])!,
+      permission: DocumentDataPermission.fromJson(json[r'permission'])!,
+      template: json[r'template'],
+      type: json[r'type'],
     );
   }
 
@@ -29,66 +36,89 @@ class DocumentData {
 
   DocumentDataPermission permission;
 
-  String template;
+  String? template;
 
   String type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is DocumentData &&
-        runtimeType == other.runtimeType &&
-        container == other.container &&
-        file == other.file &&
-        permission == other.permission &&
-        template == other.template &&
-        type == other.type;
+        other.container == container &&
+        other.file == file &&
+        other.permission == permission &&
+        other.template == template &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      container.hashCode +
+      file.hashCode +
+      permission.hashCode +
+      (template == null ? 0 : template.hashCode) +
+      type.hashCode;
 
-    hashCode ^= container?.hashCode ?? 0;
-    hashCode ^= file?.hashCode ?? 0;
-    hashCode ^= permission?.hashCode ?? 0;
-    hashCode ^= template?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+  static List<DocumentData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentData>[];
+    }
 
-    return hashCode;
+    return json.fold(<DocumentData>[],
+        (List<DocumentData> previousValue, element) {
+      final DocumentData? object = DocumentData.fromJson(element);
+      if (object is DocumentData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<DocumentData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => DocumentData.fromJson(value))
-            ?.toList() ??
-        <DocumentData>[];
+  static Map<String, DocumentData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentData>{};
+    }
+
+    return json.entries.fold(<String, DocumentData>{},
+        (Map<String, DocumentData> previousValue, element) {
+      final DocumentData? object = DocumentData.fromJson(element.value);
+      if (object is DocumentData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, DocumentData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, DocumentData>((String key, dynamic value) {
-          return MapEntry(key, DocumentData.fromJson(value));
-        }) ??
-        <String, DocumentData>{};
+  // maps a json object with a list of DocumentData-objects as value to a dart map
+  static Map<String, List<DocumentData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentData>>(
+          key, DocumentData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'DocumentData[container=$container, file=$file, permission=$permission, template=$template, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (container != null) 'container': container,
-      if (file != null) 'file': file.toJson(),
-      if (permission != null) 'permission': permission.toJson(),
-      if (template != null) 'template': template,
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      r'container': container,
+      r'file': file,
+      r'permission': permission,
+      if (template != null) r'template': template,
+      r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'DocumentData[container=$container, file=$file, permission=$permission, template=$template, type=$type, ]';
   }
 }

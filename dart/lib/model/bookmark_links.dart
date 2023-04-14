@@ -1,80 +1,110 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BookmarkLinks {
+  /// Returns a new [BookmarkLinks] instance.
   BookmarkLinks({
     this.member,
     this.place,
     this.self,
   });
 
-  factory BookmarkLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BookmarkLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BookmarkLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkLinks(
-      member: BookmarkLinksMember.fromJson(json['member']),
-      place: BookmarkLinksPlace.fromJson(json['place']),
-      self: BookmarkLinksSelf.fromJson(json['self']),
+      member: BookmarkLinksMember.fromJson(json[r'member']),
+      place: BookmarkLinksPlace.fromJson(json[r'place']),
+      self: BookmarkLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  BookmarkLinksMember member;
+  BookmarkLinksMember? member;
 
-  BookmarkLinksPlace place;
+  BookmarkLinksPlace? place;
 
-  BookmarkLinksSelf self;
+  BookmarkLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BookmarkLinks &&
-        runtimeType == other.runtimeType &&
-        member == other.member &&
-        place == other.place &&
-        self == other.self;
+        other.member == member &&
+        other.place == place &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
+      (place == null ? 0 : place.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= member?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<BookmarkLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<BookmarkLinks>[],
+        (List<BookmarkLinks> previousValue, element) {
+      final BookmarkLinks? object = BookmarkLinks.fromJson(element);
+      if (object is BookmarkLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<BookmarkLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BookmarkLinks.fromJson(value))
-            ?.toList() ??
-        <BookmarkLinks>[];
+  static Map<String, BookmarkLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkLinks>{};
+    }
+
+    return json.entries.fold(<String, BookmarkLinks>{},
+        (Map<String, BookmarkLinks> previousValue, element) {
+      final BookmarkLinks? object = BookmarkLinks.fromJson(element.value);
+      if (object is BookmarkLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, BookmarkLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, BookmarkLinks>((String key, dynamic value) {
-          return MapEntry(key, BookmarkLinks.fromJson(value));
-        }) ??
-        <String, BookmarkLinks>{};
+  // maps a json object with a list of BookmarkLinks-objects as value to a dart map
+  static Map<String, List<BookmarkLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BookmarkLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BookmarkLinks>>(
+          key, BookmarkLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'BookmarkLinks[member=$member, place=$place, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member.toJson(),
-      if (place != null) 'place': place.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (member != null) r'member': member,
+      if (place != null) r'place': place,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'BookmarkLinks[member=$member, place=$place, self=$self, ]';
   }
 }

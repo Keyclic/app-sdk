@@ -1,74 +1,106 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OccupantLinksSelf {
+  /// Returns a new [OccupantLinksSelf] instance.
   OccupantLinksSelf({
     this.href,
     this.iriTemplate,
   });
 
-  factory OccupantLinksSelf.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OccupantLinksSelf] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OccupantLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OccupantLinksSelf(
-      href: json['href'],
-      iriTemplate: OccupantLinksSelfIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: OccupantLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the self associated to the given occupant. */
-  String href;
+  /// The URI of the self associated to the given occupant.
+  String? href;
 
-  OccupantLinksSelfIriTemplate iriTemplate;
+  OccupantLinksSelfIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OccupantLinksSelf &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<OccupantLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OccupantLinksSelf>[];
+    }
 
-    return hashCode;
+    return json.fold(<OccupantLinksSelf>[],
+        (List<OccupantLinksSelf> previousValue, element) {
+      final OccupantLinksSelf? object = OccupantLinksSelf.fromJson(element);
+      if (object is OccupantLinksSelf) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<OccupantLinksSelf> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OccupantLinksSelf.fromJson(value))
-            ?.toList() ??
-        <OccupantLinksSelf>[];
+  static Map<String, OccupantLinksSelf> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OccupantLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, OccupantLinksSelf>{},
+        (Map<String, OccupantLinksSelf> previousValue, element) {
+      final OccupantLinksSelf? object =
+          OccupantLinksSelf.fromJson(element.value);
+      if (object is OccupantLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, OccupantLinksSelf> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, OccupantLinksSelf>((String key, dynamic value) {
-          return MapEntry(key, OccupantLinksSelf.fromJson(value));
-        }) ??
-        <String, OccupantLinksSelf>{};
+  // maps a json object with a list of OccupantLinksSelf-objects as value to a dart map
+  static Map<String, List<OccupantLinksSelf>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OccupantLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OccupantLinksSelf>>(
+          key, OccupantLinksSelf.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'OccupantLinksSelf[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'OccupantLinksSelf[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

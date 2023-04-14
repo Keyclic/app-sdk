@@ -1,70 +1,94 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlanCollection {
+  /// Returns a new [PlanCollection] instance.
   PlanCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory PlanCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlanCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlanCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlanCollection(
-      items: Plan.listFromJson(json['items']),
+      items: Plan.listFromJson(json[r'items']),
     );
   }
 
-  List<Plan> items;
+  List<Plan>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlanCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Plan element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<PlanCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanCollection>[];
     }
 
-    return hashCode;
+    return json.fold(<PlanCollection>[],
+        (List<PlanCollection> previousValue, element) {
+      final PlanCollection? object = PlanCollection.fromJson(element);
+      if (object is PlanCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlanCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlanCollection.fromJson(value))
-            ?.toList() ??
-        <PlanCollection>[];
+  static Map<String, PlanCollection> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanCollection>{};
+    }
+
+    return json.entries.fold(<String, PlanCollection>{},
+        (Map<String, PlanCollection> previousValue, element) {
+      final PlanCollection? object = PlanCollection.fromJson(element.value);
+      if (object is PlanCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlanCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlanCollection>((String key, dynamic value) {
-          return MapEntry(key, PlanCollection.fromJson(value));
-        }) ??
-        <String, PlanCollection>{};
-  }
+  // maps a json object with a list of PlanCollection-objects as value to a dart map
+  static Map<String, List<PlanCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlanCollection>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<PlanCollection>>(
+          key, PlanCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PlanCollection[items=$items, ]';
+  String toString() => 'PlanCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

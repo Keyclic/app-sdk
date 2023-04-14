@@ -1,75 +1,106 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BookmarkLinksPlace {
+  /// Returns a new [BookmarkLinksPlace] instance.
   BookmarkLinksPlace({
     this.href,
     this.iriTemplate,
   });
 
-  factory BookmarkLinksPlace.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BookmarkLinksPlace] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BookmarkLinksPlace? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkLinksPlace(
-      href: json['href'],
-      iriTemplate: BookmarkLinksPlaceIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: BookmarkLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the place associated to the given bookmark. */
-  String href;
+  /// The URI of the place associated to the given bookmark.
+  String? href;
 
-  BookmarkLinksPlaceIriTemplate iriTemplate;
+  BookmarkLinksPlaceIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BookmarkLinksPlace &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<BookmarkLinksPlace> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkLinksPlace>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<BookmarkLinksPlace>[],
+        (List<BookmarkLinksPlace> previousValue, element) {
+      final BookmarkLinksPlace? object = BookmarkLinksPlace.fromJson(element);
+      if (object is BookmarkLinksPlace) {
+        previousValue.add(object);
+      }
 
-  static List<BookmarkLinksPlace> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BookmarkLinksPlace.fromJson(value))
-            ?.toList() ??
-        <BookmarkLinksPlace>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BookmarkLinksPlace> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, BookmarkLinksPlace>((String key, dynamic value) {
-          return MapEntry(key, BookmarkLinksPlace.fromJson(value));
-        }) ??
-        <String, BookmarkLinksPlace>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkLinksPlace>{};
+    }
+
+    return json.entries.fold(<String, BookmarkLinksPlace>{},
+        (Map<String, BookmarkLinksPlace> previousValue, element) {
+      final BookmarkLinksPlace? object =
+          BookmarkLinksPlace.fromJson(element.value);
+      if (object is BookmarkLinksPlace) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of BookmarkLinksPlace-objects as value to a dart map
+  static Map<String, List<BookmarkLinksPlace>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BookmarkLinksPlace>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BookmarkLinksPlace>>(
+          key, BookmarkLinksPlace.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BookmarkLinksPlace[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'BookmarkLinksPlace[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

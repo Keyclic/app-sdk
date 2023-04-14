@@ -1,72 +1,100 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlaceLinksChildrenIriTemplateMapping {
+  /// Returns a new [PlaceLinksChildrenIriTemplateMapping] instance.
   PlaceLinksChildrenIriTemplateMapping({
     this.parent,
   });
 
-  factory PlaceLinksChildrenIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [PlaceLinksChildrenIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlaceLinksChildrenIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlaceLinksChildrenIriTemplateMapping(
-      parent: json['parent'],
+      parent: json[r'parent'],
     );
   }
 
-  String parent;
+  String? parent;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlaceLinksChildrenIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        parent == other.parent;
+        other.parent == parent;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= parent?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (parent == null ? 0 : parent.hashCode);
 
   static List<PlaceLinksChildrenIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                PlaceLinksChildrenIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <PlaceLinksChildrenIriTemplateMapping>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <PlaceLinksChildrenIriTemplateMapping>[];
+    }
+
+    return json.fold(<PlaceLinksChildrenIriTemplateMapping>[],
+        (List<PlaceLinksChildrenIriTemplateMapping> previousValue, element) {
+      final PlaceLinksChildrenIriTemplateMapping? object =
+          PlaceLinksChildrenIriTemplateMapping.fromJson(element);
+      if (object is PlaceLinksChildrenIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, PlaceLinksChildrenIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, PlaceLinksChildrenIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, PlaceLinksChildrenIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, PlaceLinksChildrenIriTemplateMapping>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlaceLinksChildrenIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, PlaceLinksChildrenIriTemplateMapping>{},
+        (Map<String, PlaceLinksChildrenIriTemplateMapping> previousValue,
+            element) {
+      final PlaceLinksChildrenIriTemplateMapping? object =
+          PlaceLinksChildrenIriTemplateMapping.fromJson(element.value);
+      if (object is PlaceLinksChildrenIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (parent != null) 'parent': parent,
-    };
+  // maps a json object with a list of PlaceLinksChildrenIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<PlaceLinksChildrenIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlaceLinksChildrenIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlaceLinksChildrenIriTemplateMapping>>(
+          key, PlaceLinksChildrenIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PlaceLinksChildrenIriTemplateMapping[parent=$parent, ]';
+  String toString() => 'PlaceLinksChildrenIriTemplateMapping[parent=$parent]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (parent != null) r'parent': parent,
+    };
   }
 }

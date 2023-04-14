@@ -1,73 +1,99 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PersonLinks {
+  /// Returns a new [PersonLinks] instance.
   PersonLinks({
     this.image,
     this.self,
   });
 
-  factory PersonLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PersonLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PersonLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PersonLinks(
-      image: PersonLinksImage.fromJson(json['image']),
-      self: PersonLinksSelf.fromJson(json['self']),
+      image: PersonLinksImage.fromJson(json[r'image']),
+      self: PersonLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  PersonLinksImage image;
+  PersonLinksImage? image;
 
-  PersonLinksSelf self;
+  PersonLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is PersonLinks &&
-        runtimeType == other.runtimeType &&
-        image == other.image &&
-        self == other.self;
+    return other is PersonLinks && other.image == image && other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (image == null ? 0 : image.hashCode) + (self == null ? 0 : self.hashCode);
 
-    hashCode ^= image?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<PersonLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PersonLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<PersonLinks>[],
+        (List<PersonLinks> previousValue, element) {
+      final PersonLinks? object = PersonLinks.fromJson(element);
+      if (object is PersonLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PersonLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PersonLinks.fromJson(value))
-            ?.toList() ??
-        <PersonLinks>[];
+  static Map<String, PersonLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PersonLinks>{};
+    }
+
+    return json.entries.fold(<String, PersonLinks>{},
+        (Map<String, PersonLinks> previousValue, element) {
+      final PersonLinks? object = PersonLinks.fromJson(element.value);
+      if (object is PersonLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PersonLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PersonLinks>((String key, dynamic value) {
-          return MapEntry(key, PersonLinks.fromJson(value));
-        }) ??
-        <String, PersonLinks>{};
+  // maps a json object with a list of PersonLinks-objects as value to a dart map
+  static Map<String, List<PersonLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PersonLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PersonLinks>>(
+          key, PersonLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PersonLinks[image=$image, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (image != null) 'image': image.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (image != null) r'image': image,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PersonLinks[image=$image, self=$self, ]';
   }
 }

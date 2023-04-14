@@ -1,23 +1,30 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ExternalServiceData {
+  /// Returns a new [ExternalServiceData] instance.
   ExternalServiceData({
-    this.organization,
-    this.name,
+    required this.organization,
+    required this.name,
     this.description,
-    this.provider,
+    required this.provider,
   });
 
-  factory ExternalServiceData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExternalServiceData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExternalServiceData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServiceData(
-      organization: json['organization'],
-      name: json['name'],
-      description: json['description'],
-      provider: json['provider'],
+      organization: json[r'organization'],
+      name: json[r'name'],
+      description: json[r'description'],
+      provider: json[r'provider'],
     );
   }
 
@@ -25,64 +32,88 @@ class ExternalServiceData {
 
   String name;
 
-  String description;
+  String? description;
 
   String provider;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServiceData &&
-        runtimeType == other.runtimeType &&
-        organization == other.organization &&
-        name == other.name &&
-        description == other.description &&
-        provider == other.provider;
+        other.organization == organization &&
+        other.name == name &&
+        other.description == description &&
+        other.provider == provider;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      organization.hashCode +
+      name.hashCode +
+      (description == null ? 0 : description.hashCode) +
+      provider.hashCode;
 
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= provider?.hashCode ?? 0;
+  static List<ExternalServiceData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServiceData>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ExternalServiceData>[],
+        (List<ExternalServiceData> previousValue, element) {
+      final ExternalServiceData? object = ExternalServiceData.fromJson(element);
+      if (object is ExternalServiceData) {
+        previousValue.add(object);
+      }
 
-  static List<ExternalServiceData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ExternalServiceData.fromJson(value))
-            ?.toList() ??
-        <ExternalServiceData>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServiceData> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ExternalServiceData>((String key, dynamic value) {
-          return MapEntry(key, ExternalServiceData.fromJson(value));
-        }) ??
-        <String, ExternalServiceData>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServiceData>{};
+    }
+
+    return json.entries.fold(<String, ExternalServiceData>{},
+        (Map<String, ExternalServiceData> previousValue, element) {
+      final ExternalServiceData? object =
+          ExternalServiceData.fromJson(element.value);
+      if (object is ExternalServiceData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (organization != null) 'organization': organization,
-      if (name != null) 'name': name,
-      if (description != null) 'description': description,
-      if (provider != null) 'provider': provider,
-    };
+  // maps a json object with a list of ExternalServiceData-objects as value to a dart map
+  static Map<String, List<ExternalServiceData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServiceData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServiceData>>(
+          key, ExternalServiceData.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ExternalServiceData[organization=$organization, name=$name, description=$description, provider=$provider, ]';
+  String toString() =>
+      'ExternalServiceData[organization=$organization, name=$name, description=$description, provider=$provider]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      r'organization': organization,
+      r'name': name,
+      if (description != null) r'description': description,
+      r'provider': provider,
+    };
   }
 }

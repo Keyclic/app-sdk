@@ -1,77 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class FeedbackLinksTracking {
+  /// Returns a new [FeedbackLinksTracking] instance.
   FeedbackLinksTracking({
     this.href,
     this.iriTemplate,
   });
 
-  factory FeedbackLinksTracking.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [FeedbackLinksTracking] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FeedbackLinksTracking? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackLinksTracking(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          FeedbackLinksTrackingIriTemplate.fromJson(json['iriTemplate']),
+          FeedbackLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the tracking associated to the given feedback. */
-  String href;
+  /// The URI of the tracking associated to the given feedback.
+  String? href;
 
-  FeedbackLinksTrackingIriTemplate iriTemplate;
+  FeedbackLinksTrackingIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackLinksTracking &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<FeedbackLinksTracking> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackLinksTracking>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<FeedbackLinksTracking>[],
+        (List<FeedbackLinksTracking> previousValue, element) {
+      final FeedbackLinksTracking? object =
+          FeedbackLinksTracking.fromJson(element);
+      if (object is FeedbackLinksTracking) {
+        previousValue.add(object);
+      }
 
-  static List<FeedbackLinksTracking> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => FeedbackLinksTracking.fromJson(value))
-            ?.toList() ??
-        <FeedbackLinksTracking>[];
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackLinksTracking> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, FeedbackLinksTracking>((String key, dynamic value) {
-          return MapEntry(key, FeedbackLinksTracking.fromJson(value));
-        }) ??
-        <String, FeedbackLinksTracking>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackLinksTracking>{};
+    }
+
+    return json.entries.fold(<String, FeedbackLinksTracking>{},
+        (Map<String, FeedbackLinksTracking> previousValue, element) {
+      final FeedbackLinksTracking? object =
+          FeedbackLinksTracking.fromJson(element.value);
+      if (object is FeedbackLinksTracking) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of FeedbackLinksTracking-objects as value to a dart map
+  static Map<String, List<FeedbackLinksTracking>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackLinksTracking>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackLinksTracking>>(
+          key, FeedbackLinksTracking.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'FeedbackLinksTracking[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'FeedbackLinksTracking[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

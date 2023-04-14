@@ -1,21 +1,28 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class CategoryData {
+  /// Returns a new [CategoryData] instance.
   CategoryData({
-    this.name,
-    this.organization,
+    required this.name,
+    required this.organization,
     this.parent,
   });
 
-  factory CategoryData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [CategoryData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static CategoryData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return CategoryData(
-      name: json['name'],
-      organization: json['organization'],
-      parent: json['parent'],
+      name: json[r'name'],
+      organization: json[r'organization'],
+      parent: json[r'parent'],
     );
   }
 
@@ -23,58 +30,81 @@ class CategoryData {
 
   String organization;
 
-  String parent;
+  String? parent;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is CategoryData &&
-        runtimeType == other.runtimeType &&
-        name == other.name &&
-        organization == other.organization &&
-        parent == other.parent;
+        other.name == name &&
+        other.organization == organization &&
+        other.parent == parent;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      name.hashCode +
+      organization.hashCode +
+      (parent == null ? 0 : parent.hashCode);
 
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= parent?.hashCode ?? 0;
+  static List<CategoryData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryData>[];
+    }
 
-    return hashCode;
+    return json.fold(<CategoryData>[],
+        (List<CategoryData> previousValue, element) {
+      final CategoryData? object = CategoryData.fromJson(element);
+      if (object is CategoryData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<CategoryData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => CategoryData.fromJson(value))
-            ?.toList() ??
-        <CategoryData>[];
+  static Map<String, CategoryData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryData>{};
+    }
+
+    return json.entries.fold(<String, CategoryData>{},
+        (Map<String, CategoryData> previousValue, element) {
+      final CategoryData? object = CategoryData.fromJson(element.value);
+      if (object is CategoryData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CategoryData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, CategoryData>((String key, dynamic value) {
-          return MapEntry(key, CategoryData.fromJson(value));
-        }) ??
-        <String, CategoryData>{};
+  // maps a json object with a list of CategoryData-objects as value to a dart map
+  static Map<String, List<CategoryData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CategoryData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CategoryData>>(
+          key, CategoryData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'CategoryData[name=$name, organization=$organization, parent=$parent]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (name != null) 'name': name,
-      if (organization != null) 'organization': organization,
-      if (parent != null) 'parent': parent,
+    return <String, dynamic>{
+      r'name': name,
+      r'organization': organization,
+      if (parent != null) r'parent': parent,
     };
-  }
-
-  @override
-  String toString() {
-    return 'CategoryData[name=$name, organization=$organization, parent=$parent, ]';
   }
 }

@@ -1,127 +1,159 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class BusinessActivity {
+  /// Returns a new [BusinessActivity] instance.
   BusinessActivity({
     this.links,
     this.alternateName,
     this.createdAt,
     this.id,
     this.metadataSchema,
-    this.name,
+    required this.name,
     this.type,
     this.updatedAt,
   });
 
-  factory BusinessActivity.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BusinessActivity] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BusinessActivity? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime updatedAt =
-        json['updatedAt'] == null ? null : DateTime.parse(json['updatedAt']);
+    DateTime? updatedAt = json[r'updatedAt'] is String
+        ? DateTime.parse(json[r'updatedAt'])
+        : null;
     if (updatedAt is DateTime && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${updatedAt.toIso8601String()}Z');
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 
     return BusinessActivity(
-      links: BusinessActivityLinks.fromJson(json['_links']),
-      alternateName: json['alternateName'],
+      links: BusinessActivityLinks.fromJson(json[r'_links']),
+      alternateName: json[r'alternateName'],
       createdAt: createdAt,
-      id: json['id'],
-      metadataSchema: BusinessActivitySchema.fromJson(json['metadataSchema']),
-      name: json['name'],
-      type: json['type'],
+      id: json[r'id'],
+      metadataSchema: BusinessActivitySchema.fromJson(json[r'metadataSchema']),
+      name: json[r'name'],
+      type: json[r'type'],
       updatedAt: updatedAt,
     );
   }
 
-  BusinessActivityLinks links;
+  BusinessActivityLinks? links;
 
-  String alternateName;
+  String? alternateName;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
-  BusinessActivitySchema metadataSchema;
+  BusinessActivitySchema? metadataSchema;
 
   String name;
 
-  String type;
+  String? type;
 
-  DateTime updatedAt;
+  final DateTime? updatedAt;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BusinessActivity &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        alternateName == other.alternateName &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        metadataSchema == other.metadataSchema &&
-        name == other.name &&
-        type == other.type &&
-        updatedAt == other.updatedAt;
+        other.links == links &&
+        other.alternateName == alternateName &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.metadataSchema == metadataSchema &&
+        other.name == name &&
+        other.type == type &&
+        other.updatedAt == updatedAt;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (alternateName == null ? 0 : alternateName.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (metadataSchema == null ? 0 : metadataSchema.hashCode) +
+      name.hashCode +
+      (type == null ? 0 : type.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= alternateName?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= metadataSchema?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= updatedAt?.hashCode ?? 0;
+  static List<BusinessActivity> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BusinessActivity>[];
+    }
 
-    return hashCode;
+    return json.fold(<BusinessActivity>[],
+        (List<BusinessActivity> previousValue, element) {
+      final BusinessActivity? object = BusinessActivity.fromJson(element);
+      if (object is BusinessActivity) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<BusinessActivity> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BusinessActivity.fromJson(value))
-            ?.toList() ??
-        <BusinessActivity>[];
+  static Map<String, BusinessActivity> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BusinessActivity>{};
+    }
+
+    return json.entries.fold(<String, BusinessActivity>{},
+        (Map<String, BusinessActivity> previousValue, element) {
+      final BusinessActivity? object = BusinessActivity.fromJson(element.value);
+      if (object is BusinessActivity) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, BusinessActivity> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, BusinessActivity>((String key, dynamic value) {
-          return MapEntry(key, BusinessActivity.fromJson(value));
-        }) ??
-        <String, BusinessActivity>{};
+  // maps a json object with a list of BusinessActivity-objects as value to a dart map
+  static Map<String, List<BusinessActivity>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BusinessActivity>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BusinessActivity>>(
+          key, BusinessActivity.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'BusinessActivity[links=$links, alternateName=$alternateName, createdAt=$createdAt, id=$id, metadataSchema=$metadataSchema, name=$name, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (alternateName != null) 'alternateName': alternateName,
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (metadataSchema != null) 'metadataSchema': metadataSchema.toJson(),
-      if (name != null) 'name': name,
-      if (type != null) 'type': type,
-      if (updatedAt != null) 'updatedAt': updatedAt.toUtc().toIso8601String(),
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (alternateName != null) r'alternateName': alternateName,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      if (metadataSchema != null) r'metadataSchema': metadataSchema,
+      r'name': name,
+      if (type != null) r'type': type,
+      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
-  }
-
-  @override
-  String toString() {
-    return 'BusinessActivity[links=$links, alternateName=$alternateName, createdAt=$createdAt, id=$id, metadataSchema=$metadataSchema, name=$name, type=$type, updatedAt=$updatedAt, ]';
   }
 }

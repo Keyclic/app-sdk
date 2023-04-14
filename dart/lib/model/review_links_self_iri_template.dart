@@ -1,68 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewLinksSelfIriTemplate {
+  /// Returns a new [ReviewLinksSelfIriTemplate] instance.
   ReviewLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory ReviewLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewLinksSelfIriTemplate(
-      mapping: ReviewLinksSelfIriTemplateMapping.fromJson(json['mapping']),
+      mapping: ReviewLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ReviewLinksSelfIriTemplateMapping mapping;
+  ReviewLinksSelfIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ReviewLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is ReviewLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<ReviewLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ReviewLinksSelfIriTemplate>[],
+        (List<ReviewLinksSelfIriTemplate> previousValue, element) {
+      final ReviewLinksSelfIriTemplate? object =
+          ReviewLinksSelfIriTemplate.fromJson(element);
+      if (object is ReviewLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<ReviewLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ReviewLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ReviewLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReviewLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, ReviewLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, ReviewLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ReviewLinksSelfIriTemplate>{},
+        (Map<String, ReviewLinksSelfIriTemplate> previousValue, element) {
+      final ReviewLinksSelfIriTemplate? object =
+          ReviewLinksSelfIriTemplate.fromJson(element.value);
+      if (object is ReviewLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of ReviewLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<ReviewLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewLinksSelfIriTemplate>>(
+          key, ReviewLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReviewLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ReviewLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

@@ -1,0 +1,16 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+// import 'package:keyclic_sdk_api/api.dart';
+import 'package:test/test.dart';
+
+// tests for PublicationLinksOrganizationIriTemplate
+void main() {
+  // final instance = PublicationLinksOrganizationIriTemplate();
+
+  group('test PublicationLinksOrganizationIriTemplate', () {
+    // CategoryLinksOrganizationIriTemplateMapping mapping
+    test('to test the property `mapping`', () async {});
+  });
+}

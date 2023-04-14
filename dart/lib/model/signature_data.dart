@@ -1,73 +1,98 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class SignatureData {
+  /// Returns a new [SignatureData] instance.
   SignatureData({
-    this.image,
+    required this.image,
     this.text,
   });
 
-  factory SignatureData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [SignatureData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SignatureData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return SignatureData(
-      image: json['image'],
-      text: json['text'],
+      image: json[r'image'],
+      text: json[r'text'],
     );
   }
 
   String image;
 
-  String text;
+  String? text;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is SignatureData &&
-        runtimeType == other.runtimeType &&
-        image == other.image &&
-        text == other.text;
+    return other is SignatureData && other.image == image && other.text == text;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => image.hashCode + (text == null ? 0 : text.hashCode);
 
-    hashCode ^= image?.hashCode ?? 0;
-    hashCode ^= text?.hashCode ?? 0;
+  static List<SignatureData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignatureData>[];
+    }
 
-    return hashCode;
+    return json.fold(<SignatureData>[],
+        (List<SignatureData> previousValue, element) {
+      final SignatureData? object = SignatureData.fromJson(element);
+      if (object is SignatureData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<SignatureData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SignatureData.fromJson(value))
-            ?.toList() ??
-        <SignatureData>[];
+  static Map<String, SignatureData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignatureData>{};
+    }
+
+    return json.entries.fold(<String, SignatureData>{},
+        (Map<String, SignatureData> previousValue, element) {
+      final SignatureData? object = SignatureData.fromJson(element.value);
+      if (object is SignatureData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, SignatureData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, SignatureData>((String key, dynamic value) {
-          return MapEntry(key, SignatureData.fromJson(value));
-        }) ??
-        <String, SignatureData>{};
+  // maps a json object with a list of SignatureData-objects as value to a dart map
+  static Map<String, List<SignatureData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SignatureData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SignatureData>>(
+          key, SignatureData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'SignatureData[image=$image, text=$text]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (image != null) 'image': image,
-      if (text != null) 'text': text,
+    return <String, dynamic>{
+      r'image': image,
+      if (text != null) r'text': text,
     };
-  }
-
-  @override
-  String toString() {
-    return 'SignatureData[image=$image, text=$text, ]';
   }
 }

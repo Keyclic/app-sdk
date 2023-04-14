@@ -1,74 +1,103 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PersonLinksImage {
+  /// Returns a new [PersonLinksImage] instance.
   PersonLinksImage({
     this.href,
     this.iriTemplate,
   });
 
-  factory PersonLinksImage.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PersonLinksImage] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PersonLinksImage? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PersonLinksImage(
-      href: json['href'],
-      iriTemplate: PersonLinksImageIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: PersonLinksImageIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the image associated to the given person. */
-  String href;
+  /// The URI of the image associated to the given person.
+  String? href;
 
-  PersonLinksImageIriTemplate iriTemplate;
+  PersonLinksImageIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PersonLinksImage &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<PersonLinksImage> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PersonLinksImage>[];
+    }
 
-    return hashCode;
+    return json.fold(<PersonLinksImage>[],
+        (List<PersonLinksImage> previousValue, element) {
+      final PersonLinksImage? object = PersonLinksImage.fromJson(element);
+      if (object is PersonLinksImage) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PersonLinksImage> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PersonLinksImage.fromJson(value))
-            ?.toList() ??
-        <PersonLinksImage>[];
+  static Map<String, PersonLinksImage> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PersonLinksImage>{};
+    }
+
+    return json.entries.fold(<String, PersonLinksImage>{},
+        (Map<String, PersonLinksImage> previousValue, element) {
+      final PersonLinksImage? object = PersonLinksImage.fromJson(element.value);
+      if (object is PersonLinksImage) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PersonLinksImage> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PersonLinksImage>((String key, dynamic value) {
-          return MapEntry(key, PersonLinksImage.fromJson(value));
-        }) ??
-        <String, PersonLinksImage>{};
+  // maps a json object with a list of PersonLinksImage-objects as value to a dart map
+  static Map<String, List<PersonLinksImage>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PersonLinksImage>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PersonLinksImage>>(
+          key, PersonLinksImage.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PersonLinksImage[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PersonLinksImage[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

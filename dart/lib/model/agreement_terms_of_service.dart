@@ -1,68 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class AgreementTermsOfService {
+  /// Returns a new [AgreementTermsOfService] instance.
   AgreementTermsOfService({
     this.content,
   });
 
-  factory AgreementTermsOfService.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [AgreementTermsOfService] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static AgreementTermsOfService? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return AgreementTermsOfService(
-      content: json['content'],
+      content: json[r'content'],
     );
   }
 
-  String content;
+  String? content;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is AgreementTermsOfService &&
-        runtimeType == other.runtimeType &&
-        content == other.content;
+    return other is AgreementTermsOfService && other.content == content;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (content == null ? 0 : content.hashCode);
 
-    hashCode ^= content?.hashCode ?? 0;
+  static List<AgreementTermsOfService> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <AgreementTermsOfService>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<AgreementTermsOfService>[],
+        (List<AgreementTermsOfService> previousValue, element) {
+      final AgreementTermsOfService? object =
+          AgreementTermsOfService.fromJson(element);
+      if (object is AgreementTermsOfService) {
+        previousValue.add(object);
+      }
 
-  static List<AgreementTermsOfService> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => AgreementTermsOfService.fromJson(value))
-            ?.toList() ??
-        <AgreementTermsOfService>[];
+      return previousValue;
+    });
   }
 
   static Map<String, AgreementTermsOfService> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, AgreementTermsOfService>((String key, dynamic value) {
-          return MapEntry(key, AgreementTermsOfService.fromJson(value));
-        }) ??
-        <String, AgreementTermsOfService>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, AgreementTermsOfService>{};
+    }
+
+    return json.entries.fold(<String, AgreementTermsOfService>{},
+        (Map<String, AgreementTermsOfService> previousValue, element) {
+      final AgreementTermsOfService? object =
+          AgreementTermsOfService.fromJson(element.value);
+      if (object is AgreementTermsOfService) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (content != null) 'content': content,
-    };
+  // maps a json object with a list of AgreementTermsOfService-objects as value to a dart map
+  static Map<String, List<AgreementTermsOfService>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<AgreementTermsOfService>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<AgreementTermsOfService>>(
+          key, AgreementTermsOfService.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'AgreementTermsOfService[content=$content, ]';
+  String toString() => 'AgreementTermsOfService[content=$content]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (content != null) r'content': content,
+    };
   }
 }

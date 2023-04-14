@@ -1,72 +1,99 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class MarkerLinksSelfIriTemplateMapping {
+  /// Returns a new [MarkerLinksSelfIriTemplateMapping] instance.
   MarkerLinksSelfIriTemplateMapping({
     this.marker,
   });
 
-  factory MarkerLinksSelfIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [MarkerLinksSelfIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static MarkerLinksSelfIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return MarkerLinksSelfIriTemplateMapping(
-      marker: json['marker'],
+      marker: json[r'marker'],
     );
   }
 
-  String marker;
+  String? marker;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is MarkerLinksSelfIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        marker == other.marker;
+    return other is MarkerLinksSelfIriTemplateMapping && other.marker == marker;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= marker?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (marker == null ? 0 : marker.hashCode);
 
   static List<MarkerLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                MarkerLinksSelfIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <MarkerLinksSelfIriTemplateMapping>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <MarkerLinksSelfIriTemplateMapping>[];
+    }
+
+    return json.fold(<MarkerLinksSelfIriTemplateMapping>[],
+        (List<MarkerLinksSelfIriTemplateMapping> previousValue, element) {
+      final MarkerLinksSelfIriTemplateMapping? object =
+          MarkerLinksSelfIriTemplateMapping.fromJson(element);
+      if (object is MarkerLinksSelfIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, MarkerLinksSelfIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, MarkerLinksSelfIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, MarkerLinksSelfIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, MarkerLinksSelfIriTemplateMapping>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MarkerLinksSelfIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, MarkerLinksSelfIriTemplateMapping>{},
+        (Map<String, MarkerLinksSelfIriTemplateMapping> previousValue,
+            element) {
+      final MarkerLinksSelfIriTemplateMapping? object =
+          MarkerLinksSelfIriTemplateMapping.fromJson(element.value);
+      if (object is MarkerLinksSelfIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (marker != null) 'marker': marker,
-    };
+  // maps a json object with a list of MarkerLinksSelfIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<MarkerLinksSelfIriTemplateMapping>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MarkerLinksSelfIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MarkerLinksSelfIriTemplateMapping>>(
+          key, MarkerLinksSelfIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'MarkerLinksSelfIriTemplateMapping[marker=$marker, ]';
+  String toString() => 'MarkerLinksSelfIriTemplateMapping[marker=$marker]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (marker != null) r'marker': marker,
+    };
   }
 }

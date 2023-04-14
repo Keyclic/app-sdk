@@ -1,70 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ServiceCollection {
+  /// Returns a new [ServiceCollection] instance.
   ServiceCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory ServiceCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ServiceCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ServiceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ServiceCollection(
-      items: Service.listFromJson(json['items']),
+      items: Service.listFromJson(json[r'items']),
     );
   }
 
-  List<Service> items;
+  List<Service>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ServiceCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((Service element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<ServiceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ServiceCollection>[];
     }
 
-    return hashCode;
+    return json.fold(<ServiceCollection>[],
+        (List<ServiceCollection> previousValue, element) {
+      final ServiceCollection? object = ServiceCollection.fromJson(element);
+      if (object is ServiceCollection) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ServiceCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ServiceCollection.fromJson(value))
-            ?.toList() ??
-        <ServiceCollection>[];
+  static Map<String, ServiceCollection> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ServiceCollection>{};
+    }
+
+    return json.entries.fold(<String, ServiceCollection>{},
+        (Map<String, ServiceCollection> previousValue, element) {
+      final ServiceCollection? object =
+          ServiceCollection.fromJson(element.value);
+      if (object is ServiceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ServiceCollection> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ServiceCollection>((String key, dynamic value) {
-          return MapEntry(key, ServiceCollection.fromJson(value));
-        }) ??
-        <String, ServiceCollection>{};
-  }
+  // maps a json object with a list of ServiceCollection-objects as value to a dart map
+  static Map<String, List<ServiceCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ServiceCollection>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<ServiceCollection>>(
+          key, ServiceCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ServiceCollection[items=$items, ]';
+  String toString() => 'ServiceCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

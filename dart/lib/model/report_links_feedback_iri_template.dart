@@ -1,70 +1,98 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReportLinksFeedbackIriTemplate {
+  /// Returns a new [ReportLinksFeedbackIriTemplate] instance.
   ReportLinksFeedbackIriTemplate({
     this.mapping,
   });
 
-  factory ReportLinksFeedbackIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReportLinksFeedbackIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReportLinksFeedbackIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReportLinksFeedbackIriTemplate(
-      mapping:
-          ContributionLinksFeedbackIriTemplateMapping.fromJson(json['mapping']),
+      mapping: ContributionLinksFeedbackIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
-  ContributionLinksFeedbackIriTemplateMapping mapping;
+  ContributionLinksFeedbackIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ReportLinksFeedbackIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is ReportLinksFeedbackIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<ReportLinksFeedbackIriTemplate> listFromJson(
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksFeedbackIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ReportLinksFeedbackIriTemplate>[],
+        (List<ReportLinksFeedbackIriTemplate> previousValue, element) {
+      final ReportLinksFeedbackIriTemplate? object =
+          ReportLinksFeedbackIriTemplate.fromJson(element);
+      if (object is ReportLinksFeedbackIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<ReportLinksFeedbackIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ReportLinksFeedbackIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ReportLinksFeedbackIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ReportLinksFeedbackIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReportLinksFeedbackIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, ReportLinksFeedbackIriTemplate.fromJson(value));
-        }) ??
-        <String, ReportLinksFeedbackIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksFeedbackIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ReportLinksFeedbackIriTemplate>{},
+        (Map<String, ReportLinksFeedbackIriTemplate> previousValue, element) {
+      final ReportLinksFeedbackIriTemplate? object =
+          ReportLinksFeedbackIriTemplate.fromJson(element.value);
+      if (object is ReportLinksFeedbackIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of ReportLinksFeedbackIriTemplate-objects as value to a dart map
+  static Map<String, List<ReportLinksFeedbackIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportLinksFeedbackIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportLinksFeedbackIriTemplate>>(
+          key, ReportLinksFeedbackIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReportLinksFeedbackIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ReportLinksFeedbackIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

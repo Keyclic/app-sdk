@@ -1,80 +1,110 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewLinks {
+  /// Returns a new [ReviewLinks] instance.
   ReviewLinks({
     this.author,
     this.itemReviewed,
     this.self,
   });
 
-  factory ReviewLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewLinks(
-      author: ReviewLinksAuthor.fromJson(json['author']),
-      itemReviewed: ReviewLinksItemReviewed.fromJson(json['itemReviewed']),
-      self: ReviewLinksSelf.fromJson(json['self']),
+      author: ReviewLinksAuthor.fromJson(json[r'author']),
+      itemReviewed: ReviewLinksItemReviewed.fromJson(json[r'itemReviewed']),
+      self: ReviewLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  ReviewLinksAuthor author;
+  ReviewLinksAuthor? author;
 
-  ReviewLinksItemReviewed itemReviewed;
+  ReviewLinksItemReviewed? itemReviewed;
 
-  ReviewLinksSelf self;
+  ReviewLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewLinks &&
-        runtimeType == other.runtimeType &&
-        author == other.author &&
-        itemReviewed == other.itemReviewed &&
-        self == other.self;
+        other.author == author &&
+        other.itemReviewed == itemReviewed &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (author == null ? 0 : author.hashCode) +
+      (itemReviewed == null ? 0 : itemReviewed.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= author?.hashCode ?? 0;
-    hashCode ^= itemReviewed?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<ReviewLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<ReviewLinks>[],
+        (List<ReviewLinks> previousValue, element) {
+      final ReviewLinks? object = ReviewLinks.fromJson(element);
+      if (object is ReviewLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ReviewLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewLinks.fromJson(value))
-            ?.toList() ??
-        <ReviewLinks>[];
+  static Map<String, ReviewLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewLinks>{};
+    }
+
+    return json.entries.fold(<String, ReviewLinks>{},
+        (Map<String, ReviewLinks> previousValue, element) {
+      final ReviewLinks? object = ReviewLinks.fromJson(element.value);
+      if (object is ReviewLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReviewLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewLinks>((String key, dynamic value) {
-          return MapEntry(key, ReviewLinks.fromJson(value));
-        }) ??
-        <String, ReviewLinks>{};
+  // maps a json object with a list of ReviewLinks-objects as value to a dart map
+  static Map<String, List<ReviewLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewLinks>>(
+          key, ReviewLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'ReviewLinks[author=$author, itemReviewed=$itemReviewed, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (author != null) 'author': author.toJson(),
-      if (itemReviewed != null) 'itemReviewed': itemReviewed.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (author != null) r'author': author,
+      if (itemReviewed != null) r'itemReviewed': itemReviewed,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ReviewLinks[author=$author, itemReviewed=$itemReviewed, self=$self, ]';
   }
 }

@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class ContributionPagination extends Pagination {
+part of keyclic_sdk_api;
+
+class ContributionPagination
+    implements Pagination, ContributionPaginationAllOf {
+  /// Returns a new [ContributionPagination] instance.
   ContributionPagination({
     this.limit,
     this.page,
@@ -10,94 +16,120 @@ class ContributionPagination extends Pagination {
     this.embedded,
   });
 
-  factory ContributionPagination.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ContributionPagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ContributionPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ContributionPagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: ContributionCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: ContributionCollection.fromJson(json[r'_embedded']),
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  ContributionCollection embedded;
+  ContributionCollection? embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ContributionPagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
+  static List<ContributionPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ContributionPagination>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ContributionPagination>[],
+        (List<ContributionPagination> previousValue, element) {
+      final ContributionPagination? object =
+          ContributionPagination.fromJson(element);
+      if (object is ContributionPagination) {
+        previousValue.add(object);
+      }
 
-  static List<ContributionPagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ContributionPagination.fromJson(value))
-            ?.toList() ??
-        <ContributionPagination>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ContributionPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, ContributionPagination>((String key, dynamic value) {
-          return MapEntry(key, ContributionPagination.fromJson(value));
-        }) ??
-        <String, ContributionPagination>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ContributionPagination>{};
+    }
+
+    return json.entries.fold(<String, ContributionPagination>{},
+        (Map<String, ContributionPagination> previousValue, element) {
+      final ContributionPagination? object =
+          ContributionPagination.fromJson(element.value);
+      if (object is ContributionPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
-    };
+  // maps a json object with a list of ContributionPagination-objects as value to a dart map
+  static Map<String, List<ContributionPagination>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ContributionPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ContributionPagination>>(
+          key, ContributionPagination.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ContributionPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'ContributionPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

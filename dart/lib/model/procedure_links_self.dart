@@ -1,75 +1,106 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ProcedureLinksSelf {
+  /// Returns a new [ProcedureLinksSelf] instance.
   ProcedureLinksSelf({
     this.href,
     this.iriTemplate,
   });
 
-  factory ProcedureLinksSelf.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ProcedureLinksSelf] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ProcedureLinksSelf? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ProcedureLinksSelf(
-      href: json['href'],
-      iriTemplate: ProcedureLinksSelfIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: ProcedureLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the self associated to the given procedure. */
-  String href;
+  /// The URI of the self associated to the given procedure.
+  String? href;
 
-  ProcedureLinksSelfIriTemplate iriTemplate;
+  ProcedureLinksSelfIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ProcedureLinksSelf &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<ProcedureLinksSelf> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureLinksSelf>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ProcedureLinksSelf>[],
+        (List<ProcedureLinksSelf> previousValue, element) {
+      final ProcedureLinksSelf? object = ProcedureLinksSelf.fromJson(element);
+      if (object is ProcedureLinksSelf) {
+        previousValue.add(object);
+      }
 
-  static List<ProcedureLinksSelf> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ProcedureLinksSelf.fromJson(value))
-            ?.toList() ??
-        <ProcedureLinksSelf>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ProcedureLinksSelf> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ProcedureLinksSelf>((String key, dynamic value) {
-          return MapEntry(key, ProcedureLinksSelf.fromJson(value));
-        }) ??
-        <String, ProcedureLinksSelf>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureLinksSelf>{};
+    }
+
+    return json.entries.fold(<String, ProcedureLinksSelf>{},
+        (Map<String, ProcedureLinksSelf> previousValue, element) {
+      final ProcedureLinksSelf? object =
+          ProcedureLinksSelf.fromJson(element.value);
+      if (object is ProcedureLinksSelf) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of ProcedureLinksSelf-objects as value to a dart map
+  static Map<String, List<ProcedureLinksSelf>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ProcedureLinksSelf>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ProcedureLinksSelf>>(
+          key, ProcedureLinksSelf.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ProcedureLinksSelf[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'ProcedureLinksSelf[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

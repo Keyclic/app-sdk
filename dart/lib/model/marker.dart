@@ -1,98 +1,128 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Marker {
+  /// Returns a new [Marker] instance.
   Marker({
     this.links,
     this.createdAt,
     this.id,
-    this.point,
+    required this.point,
     this.type,
   });
 
-  factory Marker.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Marker] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Marker? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
-    DateTime createdAt =
-        json['createdAt'] == null ? null : DateTime.parse(json['createdAt']);
+    DateTime? createdAt = json[r'createdAt'] is String
+        ? DateTime.parse(json[r'createdAt'])
+        : null;
     if (createdAt is DateTime && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${createdAt.toIso8601String()}Z');
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
     return Marker(
-      links: MarkerLinks.fromJson(json['_links']),
+      links: MarkerLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
-      id: json['id'],
-      point: Point.fromJson(json['point']),
-      type: json['type'],
+      id: json[r'id'],
+      point: Point.fromJson(json[r'point'])!,
+      type: json[r'type'],
     );
   }
 
-  MarkerLinks links;
+  MarkerLinks? links;
 
-  DateTime createdAt;
+  final DateTime? createdAt;
 
-  String id;
+  final String? id;
 
   Point point;
 
-  String type;
+  String? type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Marker &&
-        runtimeType == other.runtimeType &&
-        links == other.links &&
-        createdAt == other.createdAt &&
-        id == other.id &&
-        point == other.point &&
-        type == other.type;
+        other.links == links &&
+        other.createdAt == createdAt &&
+        other.id == id &&
+        other.point == point &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      point.hashCode +
+      (type == null ? 0 : type.hashCode);
 
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= createdAt?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= point?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+  static List<Marker> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Marker>[];
+    }
 
-    return hashCode;
+    return json.fold(<Marker>[], (List<Marker> previousValue, element) {
+      final Marker? object = Marker.fromJson(element);
+      if (object is Marker) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Marker> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Marker.fromJson(value))?.toList() ??
-        <Marker>[];
+  static Map<String, Marker> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Marker>{};
+    }
+
+    return json.entries.fold(<String, Marker>{},
+        (Map<String, Marker> previousValue, element) {
+      final Marker? object = Marker.fromJson(element.value);
+      if (object is Marker) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Marker> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Marker>((String key, dynamic value) {
-          return MapEntry(key, Marker.fromJson(value));
-        }) ??
-        <String, Marker>{};
+  // maps a json object with a list of Marker-objects as value to a dart map
+  static Map<String, List<Marker>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Marker>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Marker>>(key, Marker.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Marker[links=$links, createdAt=$createdAt, id=$id, point=$point, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (links != null) '_links': links.toJson(),
-      if (createdAt != null) 'createdAt': createdAt.toUtc().toIso8601String(),
-      if (id != null) 'id': id,
-      if (point != null) 'point': point.toJson(),
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      if (links != null) r'_links': links,
+      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
+      if (id != null) r'id': id,
+      r'point': point,
+      if (type != null) r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Marker[links=$links, createdAt=$createdAt, id=$id, point=$point, type=$type, ]';
   }
 }

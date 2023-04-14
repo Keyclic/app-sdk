@@ -1,70 +1,94 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ProblemEmbedded {
+  /// Returns a new [ProblemEmbedded] instance.
   ProblemEmbedded({
-    this.errors,
+    this.errors = const [],
   });
 
-  factory ProblemEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ProblemEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ProblemEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ProblemEmbedded(
-      errors: Problem.listFromJson(json['errors']),
+      errors: Problem.listFromJson(json[r'errors']),
     );
   }
 
-  List<Problem> errors;
+  List<Problem>? errors;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ProblemEmbedded &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(errors, other.errors);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (errors == null ? 0 : errors.hashCode);
 
-    if (errors is List && errors.isNotEmpty) {
-      hashCode ^= errors
-          .map((Problem element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<ProblemEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProblemEmbedded>[];
     }
 
-    return hashCode;
+    return json.fold(<ProblemEmbedded>[],
+        (List<ProblemEmbedded> previousValue, element) {
+      final ProblemEmbedded? object = ProblemEmbedded.fromJson(element);
+      if (object is ProblemEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ProblemEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ProblemEmbedded.fromJson(value))
-            ?.toList() ??
-        <ProblemEmbedded>[];
+  static Map<String, ProblemEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProblemEmbedded>{};
+    }
+
+    return json.entries.fold(<String, ProblemEmbedded>{},
+        (Map<String, ProblemEmbedded> previousValue, element) {
+      final ProblemEmbedded? object = ProblemEmbedded.fromJson(element.value);
+      if (object is ProblemEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ProblemEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ProblemEmbedded>((String key, dynamic value) {
-          return MapEntry(key, ProblemEmbedded.fromJson(value));
-        }) ??
-        <String, ProblemEmbedded>{};
-  }
+  // maps a json object with a list of ProblemEmbedded-objects as value to a dart map
+  static Map<String, List<ProblemEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ProblemEmbedded>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (errors != null) 'errors': errors,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<ProblemEmbedded>>(
+          key, ProblemEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ProblemEmbedded[errors=$errors, ]';
+  String toString() => 'ProblemEmbedded[errors=$errors]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (errors != null) r'errors': errors,
+    };
   }
 }

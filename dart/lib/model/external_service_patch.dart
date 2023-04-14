@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ExternalServicePatch {
+  /// Returns a new [ExternalServicePatch] instance.
   ExternalServicePatch({
     this.address,
     this.contactPoint,
@@ -8,82 +13,109 @@ class ExternalServicePatch {
     this.name,
   });
 
-  factory ExternalServicePatch.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExternalServicePatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExternalServicePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServicePatch(
-      address: ExternalServicePatchAddress.fromJson(json['address']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
       contactPoint:
-          ExternalServicePatchContactPoint.fromJson(json['contactPoint']),
-      description: json['description'],
-      name: json['name'],
+          ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
+      description: json[r'description'],
+      name: json[r'name'],
     );
   }
 
-  ExternalServicePatchAddress address;
+  ExternalServicePatchAddress? address;
 
-  ExternalServicePatchContactPoint contactPoint;
+  ExternalServicePatchContactPoint? contactPoint;
 
-  String description;
+  String? description;
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServicePatch &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        contactPoint == other.contactPoint &&
-        description == other.description &&
-        name == other.name;
+        other.address == address &&
+        other.contactPoint == contactPoint &&
+        other.description == description &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= contactPoint?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<ExternalServicePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServicePatch>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ExternalServicePatch>[],
+        (List<ExternalServicePatch> previousValue, element) {
+      final ExternalServicePatch? object =
+          ExternalServicePatch.fromJson(element);
+      if (object is ExternalServicePatch) {
+        previousValue.add(object);
+      }
 
-  static List<ExternalServicePatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ExternalServicePatch.fromJson(value))
-            ?.toList() ??
-        <ExternalServicePatch>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServicePatch> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ExternalServicePatch>((String key, dynamic value) {
-          return MapEntry(key, ExternalServicePatch.fromJson(value));
-        }) ??
-        <String, ExternalServicePatch>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServicePatch>{};
+    }
+
+    return json.entries.fold(<String, ExternalServicePatch>{},
+        (Map<String, ExternalServicePatch> previousValue, element) {
+      final ExternalServicePatch? object =
+          ExternalServicePatch.fromJson(element.value);
+      if (object is ExternalServicePatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (description != null) 'description': description,
-      if (name != null) 'name': name,
-    };
+  // maps a json object with a list of ExternalServicePatch-objects as value to a dart map
+  static Map<String, List<ExternalServicePatch>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServicePatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServicePatch>>(
+          key, ExternalServicePatch.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ExternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, name=$name, ]';
+  String toString() =>
+      'ExternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (description != null) r'description': description,
+      if (name != null) r'name': name,
+    };
   }
 }

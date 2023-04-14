@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ExternalServiceContactPoint {
+  /// Returns a new [ExternalServiceContactPoint] instance.
   ExternalServiceContactPoint({
     this.description,
     this.email,
@@ -12,107 +17,132 @@ class ExternalServiceContactPoint {
     this.telephone,
   });
 
-  factory ExternalServiceContactPoint.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExternalServiceContactPoint] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExternalServiceContactPoint? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServiceContactPoint(
-      description: json['description'],
-      email: json['email'],
-      familyName: json['familyName'],
-      faxNumber: json['faxNumber'],
-      givenName: json['givenName'],
-      isOpen: json['isOpen'],
-      name: json['name'],
-      telephone: json['telephone'],
+      description: json[r'description'],
+      email: json[r'email'],
+      familyName: json[r'familyName'],
+      faxNumber: json[r'faxNumber'],
+      givenName: json[r'givenName'],
+      isOpen: json[r'isOpen'],
+      name: json[r'name'],
+      telephone: json[r'telephone'],
     );
   }
 
-  String description;
+  String? description;
 
-  String email;
+  String? email;
 
-  String familyName;
+  String? familyName;
 
-  String faxNumber;
+  String? faxNumber;
 
-  String givenName;
+  String? givenName;
 
-  bool isOpen;
+  bool? isOpen;
 
-  String name;
+  String? name;
 
-  String telephone;
+  String? telephone;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServiceContactPoint &&
-        runtimeType == other.runtimeType &&
-        description == other.description &&
-        email == other.email &&
-        familyName == other.familyName &&
-        faxNumber == other.faxNumber &&
-        givenName == other.givenName &&
-        isOpen == other.isOpen &&
-        name == other.name &&
-        telephone == other.telephone;
+        other.description == description &&
+        other.email == email &&
+        other.familyName == familyName &&
+        other.faxNumber == faxNumber &&
+        other.givenName == givenName &&
+        other.isOpen == isOpen &&
+        other.name == name &&
+        other.telephone == telephone;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (description == null ? 0 : description.hashCode) +
+      (email == null ? 0 : email.hashCode) +
+      (familyName == null ? 0 : familyName.hashCode) +
+      (faxNumber == null ? 0 : faxNumber.hashCode) +
+      (givenName == null ? 0 : givenName.hashCode) +
+      (isOpen == null ? 0 : isOpen.hashCode) +
+      (name == null ? 0 : name.hashCode) +
+      (telephone == null ? 0 : telephone.hashCode);
 
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= email?.hashCode ?? 0;
-    hashCode ^= familyName?.hashCode ?? 0;
-    hashCode ^= faxNumber?.hashCode ?? 0;
-    hashCode ^= givenName?.hashCode ?? 0;
-    hashCode ^= isOpen?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= telephone?.hashCode ?? 0;
+  static List<ExternalServiceContactPoint> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServiceContactPoint>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ExternalServiceContactPoint>[],
+        (List<ExternalServiceContactPoint> previousValue, element) {
+      final ExternalServiceContactPoint? object =
+          ExternalServiceContactPoint.fromJson(element);
+      if (object is ExternalServiceContactPoint) {
+        previousValue.add(object);
+      }
 
-  static List<ExternalServiceContactPoint> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => ExternalServiceContactPoint.fromJson(value))
-            ?.toList() ??
-        <ExternalServiceContactPoint>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServiceContactPoint> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ExternalServiceContactPoint>(
-            (String key, dynamic value) {
-          return MapEntry(key, ExternalServiceContactPoint.fromJson(value));
-        }) ??
-        <String, ExternalServiceContactPoint>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServiceContactPoint>{};
+    }
+
+    return json.entries.fold(<String, ExternalServiceContactPoint>{},
+        (Map<String, ExternalServiceContactPoint> previousValue, element) {
+      final ExternalServiceContactPoint? object =
+          ExternalServiceContactPoint.fromJson(element.value);
+      if (object is ExternalServiceContactPoint) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (description != null) 'description': description,
-      if (email != null) 'email': email,
-      if (familyName != null) 'familyName': familyName,
-      if (faxNumber != null) 'faxNumber': faxNumber,
-      if (givenName != null) 'givenName': givenName,
-      if (isOpen != null) 'isOpen': isOpen,
-      if (name != null) 'name': name,
-      if (telephone != null) 'telephone': telephone,
-    };
+  // maps a json object with a list of ExternalServiceContactPoint-objects as value to a dart map
+  static Map<String, List<ExternalServiceContactPoint>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServiceContactPoint>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServiceContactPoint>>(
+          key, ExternalServiceContactPoint.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ExternalServiceContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone, ]';
+  String toString() =>
+      'ExternalServiceContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (description != null) r'description': description,
+      if (email != null) r'email': email,
+      if (familyName != null) r'familyName': familyName,
+      if (faxNumber != null) r'faxNumber': faxNumber,
+      if (givenName != null) r'givenName': givenName,
+      if (isOpen != null) r'isOpen': isOpen,
+      if (name != null) r'name': name,
+      if (telephone != null) r'telephone': telephone,
+    };
   }
 }

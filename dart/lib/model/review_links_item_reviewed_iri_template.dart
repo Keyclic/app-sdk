@@ -1,73 +1,101 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewLinksItemReviewedIriTemplate {
+  /// Returns a new [ReviewLinksItemReviewedIriTemplate] instance.
   ReviewLinksItemReviewedIriTemplate({
     this.mapping,
   });
 
-  factory ReviewLinksItemReviewedIriTemplate.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [ReviewLinksItemReviewedIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewLinksItemReviewedIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewLinksItemReviewedIriTemplate(
       mapping:
-          AssignmentLinksReportIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  AssignmentLinksReportIriTemplateMapping mapping;
+  AssignmentLinksReportIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewLinksItemReviewedIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+        other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReviewLinksItemReviewedIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ReviewLinksItemReviewedIriTemplate.fromJson(value))
-            ?.toList() ??
-        <ReviewLinksItemReviewedIriTemplate>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewLinksItemReviewedIriTemplate>[];
+    }
+
+    return json.fold(<ReviewLinksItemReviewedIriTemplate>[],
+        (List<ReviewLinksItemReviewedIriTemplate> previousValue, element) {
+      final ReviewLinksItemReviewedIriTemplate? object =
+          ReviewLinksItemReviewedIriTemplate.fromJson(element);
+      if (object is ReviewLinksItemReviewedIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ReviewLinksItemReviewedIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReviewLinksItemReviewedIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ReviewLinksItemReviewedIriTemplate.fromJson(value));
-        }) ??
-        <String, ReviewLinksItemReviewedIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewLinksItemReviewedIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, ReviewLinksItemReviewedIriTemplate>{},
+        (Map<String, ReviewLinksItemReviewedIriTemplate> previousValue,
+            element) {
+      final ReviewLinksItemReviewedIriTemplate? object =
+          ReviewLinksItemReviewedIriTemplate.fromJson(element.value);
+      if (object is ReviewLinksItemReviewedIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of ReviewLinksItemReviewedIriTemplate-objects as value to a dart map
+  static Map<String, List<ReviewLinksItemReviewedIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewLinksItemReviewedIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewLinksItemReviewedIriTemplate>>(
+          key, ReviewLinksItemReviewedIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReviewLinksItemReviewedIriTemplate[mapping=$mapping, ]';
+  String toString() => 'ReviewLinksItemReviewedIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

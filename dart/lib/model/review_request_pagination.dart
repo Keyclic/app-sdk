@@ -1,6 +1,12 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class ReviewRequestPagination extends Pagination {
+part of keyclic_sdk_api;
+
+class ReviewRequestPagination
+    implements Pagination, ReviewRequestPaginationAllOf {
+  /// Returns a new [ReviewRequestPagination] instance.
   ReviewRequestPagination({
     this.limit,
     this.page,
@@ -10,94 +16,120 @@ class ReviewRequestPagination extends Pagination {
     this.embedded,
   });
 
-  factory ReviewRequestPagination.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewRequestPagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewRequestPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewRequestPagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: ReviewRequestCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: ReviewRequestCollection.fromJson(json[r'_embedded']),
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  ReviewRequestCollection embedded;
+  ReviewRequestCollection? embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewRequestPagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
+  static List<ReviewRequestPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewRequestPagination>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ReviewRequestPagination>[],
+        (List<ReviewRequestPagination> previousValue, element) {
+      final ReviewRequestPagination? object =
+          ReviewRequestPagination.fromJson(element);
+      if (object is ReviewRequestPagination) {
+        previousValue.add(object);
+      }
 
-  static List<ReviewRequestPagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewRequestPagination.fromJson(value))
-            ?.toList() ??
-        <ReviewRequestPagination>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ReviewRequestPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, ReviewRequestPagination>((String key, dynamic value) {
-          return MapEntry(key, ReviewRequestPagination.fromJson(value));
-        }) ??
-        <String, ReviewRequestPagination>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewRequestPagination>{};
+    }
+
+    return json.entries.fold(<String, ReviewRequestPagination>{},
+        (Map<String, ReviewRequestPagination> previousValue, element) {
+      final ReviewRequestPagination? object =
+          ReviewRequestPagination.fromJson(element.value);
+      if (object is ReviewRequestPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
-    };
+  // maps a json object with a list of ReviewRequestPagination-objects as value to a dart map
+  static Map<String, List<ReviewRequestPagination>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewRequestPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewRequestPagination>>(
+          key, ReviewRequestPagination.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReviewRequestPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'ReviewRequestPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

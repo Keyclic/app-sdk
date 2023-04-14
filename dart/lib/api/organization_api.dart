@@ -1,2236 +1,3016 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OrganizationApi {
-  OrganizationApi([ApiClient apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  const OrganizationApi(this._apiClient);
 
-  final ApiClient apiClient;
+  final ApiClient _apiClient;
 
   /// Retrieve all Category resources.
   ///
   ///
-  Future<CategoryPagination> cgetCategoriesByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    String businessActivity,
-    List<String> businessActivities__,
-    DateTime after,
-    DateTime before,
-    String geoPoint,
-    String geoCoordinates,
-    String leaf,
-    String level,
-    List<String> organizations__,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [businessActivity]
+  /// * [businessActivitiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [geoPoint] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [geoCoordinates] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [leaf]
+  /// * [level]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [CategoryPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Category resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<CategoryPagination>> cgetCategoriesByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? businessActivity,
+    List<String>? businessActivitiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? geoPoint,
+    String? geoCoordinates,
+    String? leaf,
+    String? level,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/categories"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (businessActivity != null)
-        ..._convertParametersForCollectionFormat(
-            "business_activity", businessActivity),
-      if (businessActivities__ != null)
-        ..._convertParametersForCollectionFormat(
-            "business_activities[]", businessActivities__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (geoPoint != null)
-        ..._convertParametersForCollectionFormat("geo_point", geoPoint),
-      if (geoCoordinates != null)
-        ..._convertParametersForCollectionFormat(
-            "geo_coordinates", geoCoordinates),
-      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
-      if (level != null)
-        ..._convertParametersForCollectionFormat("level", level),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/categories'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (businessActivity != null)
+        r'business_activity': encodeQueryParameter(businessActivity),
+      if (businessActivitiesLeftSquareBracketRightSquareBracket != null)
+        r'business_activities[]': encodeCollectionQueryParameter(
+            businessActivitiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (geoPoint != null) r'geo_point': encodeQueryParameter(geoPoint),
+      if (geoCoordinates != null)
+        r'geo_coordinates': encodeQueryParameter(geoCoordinates),
+      if (leaf != null) r'leaf': encodeQueryParameter(leaf),
+      if (level != null) r'level': encodeQueryParameter(level),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    CategoryPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<CategoryPagination>(
+          response.data!, 'CategoryPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'CategoryPagination')
-        as CategoryPagination;
+    return Response<CategoryPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Document resources.
   ///
   ///
-  Future<DocumentPagination> cgetDocumentsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    List<String> organizations__,
-    String state,
-    List<String> states__,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [state]
+  /// * [statesLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [DocumentPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Document resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<DocumentPagination>> cgetDocumentsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? state,
+    List<String>? statesLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/documents"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (state != null)
-        ..._convertParametersForCollectionFormat("state", state),
-      if (states__ != null)
-        ..._convertParametersForCollectionFormat("states[]", states__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/documents'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (state != null) r'state': encodeQueryParameter(state),
+      if (statesLeftSquareBracketRightSquareBracket != null)
+        r'states[]': encodeCollectionQueryParameter(
+            statesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    DocumentPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<DocumentPagination>(
+          response.data!, 'DocumentPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'DocumentPagination')
-        as DocumentPagination;
+    return Response<DocumentPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all ExternalService resources.
   ///
   ///
-  Future<ExternalServicePagination> cgetExternalServicesByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ExternalServicePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all ExternalService resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<ExternalServicePagination>>
+      cgetExternalServicesByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/external-services"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/external-services'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ExternalServicePagination responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<ExternalServicePagination>(
+              response.data!, 'ExternalServicePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'ExternalServicePagination')
-        as ExternalServicePagination;
+    return Response<ExternalServicePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all InternalService resources.
   ///
   ///
-  Future<InternalServicePagination> cgetInternalServicesByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [InternalServicePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all InternalService resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<InternalServicePagination>>
+      cgetInternalServicesByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/internal-services"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/internal-services'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    InternalServicePagination responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<InternalServicePagination>(
+              response.data!, 'InternalServicePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'InternalServicePagination')
-        as InternalServicePagination;
+    return Response<InternalServicePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Member resources.
   ///
   ///
-  Future<MemberPagination> cgetMembersByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    List<String> organizations__,
-    String permission,
-    String query,
-    String role,
-    List<String> roles__,
-    String type,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [permission]
+  /// * [query]
+  /// * [role]
+  /// * [rolesLeftSquareBracketRightSquareBracket]
+  /// * [type]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [MemberPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Member resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<MemberPagination>> cgetMembersByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? permission,
+    String? query,
+    String? role,
+    List<String>? rolesLeftSquareBracketRightSquareBracket,
+    String? type,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/members"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (permission != null)
-        ..._convertParametersForCollectionFormat("permission", permission),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (role != null) ..._convertParametersForCollectionFormat("role", role),
-      if (roles__ != null)
-        ..._convertParametersForCollectionFormat("roles[]", roles__,
-            collectionFormat: "multi"),
-      if (type != null) ..._convertParametersForCollectionFormat("type", type),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/members'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (permission != null) r'permission': encodeQueryParameter(permission),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (role != null) r'role': encodeQueryParameter(role),
+      if (rolesLeftSquareBracketRightSquareBracket != null)
+        r'roles[]': encodeCollectionQueryParameter(
+            rolesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (type != null) r'type': encodeQueryParameter(type),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    MemberPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<MemberPagination>(
+          response.data!, 'MemberPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'MemberPagination')
-        as MemberPagination;
+    return Response<MemberPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Occupant resources.
   ///
   ///
-  Future<OccupantPagination> cgetOccupantsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    String member,
-    List<String> members__,
-    String person,
-    List<String> persons__,
-    String place,
-    List<String> places__,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [member]
+  /// * [membersLeftSquareBracketRightSquareBracket]
+  /// * [person]
+  /// * [personsLeftSquareBracketRightSquareBracket]
+  /// * [place]
+  /// * [placesLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [OccupantPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Occupant resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<OccupantPagination>> cgetOccupantsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? member,
+    List<String>? membersLeftSquareBracketRightSquareBracket,
+    String? person,
+    List<String>? personsLeftSquareBracketRightSquareBracket,
+    String? place,
+    List<String>? placesLeftSquareBracketRightSquareBracket,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/occupants"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (member != null)
-        ..._convertParametersForCollectionFormat("member", member),
-      if (members__ != null)
-        ..._convertParametersForCollectionFormat("members[]", members__,
-            collectionFormat: "multi"),
-      if (person != null)
-        ..._convertParametersForCollectionFormat("person", person),
-      if (persons__ != null)
-        ..._convertParametersForCollectionFormat("persons[]", persons__,
-            collectionFormat: "multi"),
-      if (place != null)
-        ..._convertParametersForCollectionFormat("place", place),
-      if (places__ != null)
-        ..._convertParametersForCollectionFormat("places[]", places__,
-            collectionFormat: "multi"),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/occupants'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (member != null) r'member': encodeQueryParameter(member),
+      if (membersLeftSquareBracketRightSquareBracket != null)
+        r'members[]': encodeCollectionQueryParameter(
+            membersLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (person != null) r'person': encodeQueryParameter(person),
+      if (personsLeftSquareBracketRightSquareBracket != null)
+        r'persons[]': encodeCollectionQueryParameter(
+            personsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (place != null) r'place': encodeQueryParameter(place),
+      if (placesLeftSquareBracketRightSquareBracket != null)
+        r'places[]': encodeCollectionQueryParameter(
+            placesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    OccupantPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<OccupantPagination>(
+          response.data!, 'OccupantPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'OccupantPagination')
-        as OccupantPagination;
+    return Response<OccupantPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Operation resources.
   ///
   ///
-  Future<OperationPagination> cgetOperationsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    String archived,
-    String assignedTo,
-    List<String> assignedTos__,
-    String batch,
-    List<String> batches__,
-    String category,
-    List<String> categories__,
-    String createdBy,
-    List<String> createdBies__,
-    DateTime after,
-    DateTime before,
-    String deep,
-    String delegatedTo,
-    List<String> delegatedTos__,
-    String hasDocuments,
-    String isNull,
-    String leaf,
-    String level,
-    String managedBy,
-    List<String> managedBies__,
-    String member,
-    List<String> members__,
-    String operationStateAll,
-    String operationState,
-    List<String> operationStates__,
-    List<String> organizations__,
-    String phase,
-    List<String> phases__,
-    String place,
-    List<String> places__,
-    String priority,
-    List<String> priorities__,
-    String query,
-    List<String> rating__,
-    DateTime scheduledAtAfter,
-    DateTime scheduledAtBefore,
-    String state,
-    List<String> states__,
-    List<String> visibility__,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [archived]
+  /// * [assignedTo]
+  /// * [assignedTosLeftSquareBracketRightSquareBracket]
+  /// * [batch]
+  /// * [batchesLeftSquareBracketRightSquareBracket]
+  /// * [category]
+  /// * [categoriesLeftSquareBracketRightSquareBracket]
+  /// * [createdBy]
+  /// * [createdBiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [deep]
+  /// * [delegatedTo]
+  /// * [delegatedTosLeftSquareBracketRightSquareBracket]
+  /// * [hasDocuments]
+  /// * [isNull]
+  /// * [leaf]
+  /// * [level]
+  /// * [managedBy]
+  /// * [managedBiesLeftSquareBracketRightSquareBracket]
+  /// * [member]
+  /// * [membersLeftSquareBracketRightSquareBracket]
+  /// * [operationStateAll]
+  /// * [operationState]
+  /// * [operationStatesLeftSquareBracketRightSquareBracket]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [phase]
+  /// * [phasesLeftSquareBracketRightSquareBracket]
+  /// * [place]
+  /// * [placesLeftSquareBracketRightSquareBracket]
+  /// * [priority]
+  /// * [prioritiesLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [ratingLeftSquareBracketRightSquareBracket]
+  /// * [scheduledAtAfter]
+  /// * [scheduledAtBefore]
+  /// * [state]
+  /// * [statesLeftSquareBracketRightSquareBracket]
+  /// * [visibilityLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [OperationPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Operation resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<OperationPagination>> cgetOperationsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? archived,
+    String? assignedTo,
+    List<String>? assignedTosLeftSquareBracketRightSquareBracket,
+    String? batch,
+    List<String>? batchesLeftSquareBracketRightSquareBracket,
+    String? category,
+    List<String>? categoriesLeftSquareBracketRightSquareBracket,
+    String? createdBy,
+    List<String>? createdBiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? deep,
+    String? delegatedTo,
+    List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
+    String? hasDocuments,
+    String? isNull,
+    String? leaf,
+    String? level,
+    String? managedBy,
+    List<String>? managedBiesLeftSquareBracketRightSquareBracket,
+    String? member,
+    List<String>? membersLeftSquareBracketRightSquareBracket,
+    String? operationStateAll,
+    String? operationState,
+    List<String>? operationStatesLeftSquareBracketRightSquareBracket,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? phase,
+    List<String>? phasesLeftSquareBracketRightSquareBracket,
+    String? place,
+    List<String>? placesLeftSquareBracketRightSquareBracket,
+    String? priority,
+    List<String>? prioritiesLeftSquareBracketRightSquareBracket,
+    String? query,
+    List<String>? ratingLeftSquareBracketRightSquareBracket,
+    DateTime? scheduledAtAfter,
+    DateTime? scheduledAtBefore,
+    String? state,
+    List<String>? statesLeftSquareBracketRightSquareBracket,
+    List<String>? visibilityLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/operations"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (archived != null)
-        ..._convertParametersForCollectionFormat("archived", archived),
-      if (assignedTo != null)
-        ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
-      if (assignedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "assigned_tos[]", assignedTos__,
-            collectionFormat: "multi"),
-      if (batch != null)
-        ..._convertParametersForCollectionFormat("batch", batch),
-      if (batches__ != null)
-        ..._convertParametersForCollectionFormat("batches[]", batches__,
-            collectionFormat: "multi"),
-      if (category != null)
-        ..._convertParametersForCollectionFormat("category", category),
-      if (categories__ != null)
-        ..._convertParametersForCollectionFormat("categories[]", categories__,
-            collectionFormat: "multi"),
-      if (createdBy != null)
-        ..._convertParametersForCollectionFormat("created_by", createdBy),
-      if (createdBies__ != null)
-        ..._convertParametersForCollectionFormat(
-            "created_bies[]", createdBies__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (deep != null) ..._convertParametersForCollectionFormat("deep", deep),
-      if (delegatedTo != null)
-        ..._convertParametersForCollectionFormat("delegated_to", delegatedTo),
-      if (delegatedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "delegated_tos[]", delegatedTos__,
-            collectionFormat: "multi"),
-      if (hasDocuments != null)
-        ..._convertParametersForCollectionFormat("has_documents", hasDocuments),
-      if (isNull != null)
-        ..._convertParametersForCollectionFormat("is_null", isNull),
-      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
-      if (level != null)
-        ..._convertParametersForCollectionFormat("level", level),
-      if (managedBy != null)
-        ..._convertParametersForCollectionFormat("managed_by", managedBy),
-      if (managedBies__ != null)
-        ..._convertParametersForCollectionFormat(
-            "managed_bies[]", managedBies__,
-            collectionFormat: "multi"),
-      if (member != null)
-        ..._convertParametersForCollectionFormat("member", member),
-      if (members__ != null)
-        ..._convertParametersForCollectionFormat("members[]", members__,
-            collectionFormat: "multi"),
-      if (operationStateAll != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_state_all", operationStateAll),
-      if (operationState != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_state", operationState),
-      if (operationStates__ != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_states[]", operationStates__,
-            collectionFormat: "multi"),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (phase != null)
-        ..._convertParametersForCollectionFormat("phase", phase),
-      if (phases__ != null)
-        ..._convertParametersForCollectionFormat("phases[]", phases__,
-            collectionFormat: "multi"),
-      if (place != null)
-        ..._convertParametersForCollectionFormat("place", place),
-      if (places__ != null)
-        ..._convertParametersForCollectionFormat("places[]", places__,
-            collectionFormat: "multi"),
-      if (priority != null)
-        ..._convertParametersForCollectionFormat("priority", priority),
-      if (priorities__ != null)
-        ..._convertParametersForCollectionFormat("priorities[]", priorities__,
-            collectionFormat: "multi"),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (rating__ != null)
-        ..._convertParametersForCollectionFormat("rating[]", rating__,
-            collectionFormat: "multi"),
-      if (scheduledAtAfter != null)
-        ..._convertParametersForCollectionFormat(
-            "scheduled_at_after", scheduledAtAfter),
-      if (scheduledAtBefore != null)
-        ..._convertParametersForCollectionFormat(
-            "scheduled_at_before", scheduledAtBefore),
-      if (state != null)
-        ..._convertParametersForCollectionFormat("state", state),
-      if (states__ != null)
-        ..._convertParametersForCollectionFormat("states[]", states__,
-            collectionFormat: "multi"),
-      if (visibility__ != null)
-        ..._convertParametersForCollectionFormat("visibility[]", visibility__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/operations'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
+      if (assignedTo != null) r'assigned_to': encodeQueryParameter(assignedTo),
+      if (assignedTosLeftSquareBracketRightSquareBracket != null)
+        r'assigned_tos[]': encodeCollectionQueryParameter(
+            assignedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (batch != null) r'batch': encodeQueryParameter(batch),
+      if (batchesLeftSquareBracketRightSquareBracket != null)
+        r'batches[]': encodeCollectionQueryParameter(
+            batchesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (category != null) r'category': encodeQueryParameter(category),
+      if (categoriesLeftSquareBracketRightSquareBracket != null)
+        r'categories[]': encodeCollectionQueryParameter(
+            categoriesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (createdBy != null) r'created_by': encodeQueryParameter(createdBy),
+      if (createdBiesLeftSquareBracketRightSquareBracket != null)
+        r'created_bies[]': encodeCollectionQueryParameter(
+            createdBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (deep != null) r'deep': encodeQueryParameter(deep),
+      if (delegatedTo != null)
+        r'delegated_to': encodeQueryParameter(delegatedTo),
+      if (delegatedTosLeftSquareBracketRightSquareBracket != null)
+        r'delegated_tos[]': encodeCollectionQueryParameter(
+            delegatedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (hasDocuments != null)
+        r'has_documents': encodeQueryParameter(hasDocuments),
+      if (isNull != null) r'is_null': encodeQueryParameter(isNull),
+      if (leaf != null) r'leaf': encodeQueryParameter(leaf),
+      if (level != null) r'level': encodeQueryParameter(level),
+      if (managedBy != null) r'managed_by': encodeQueryParameter(managedBy),
+      if (managedBiesLeftSquareBracketRightSquareBracket != null)
+        r'managed_bies[]': encodeCollectionQueryParameter(
+            managedBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (member != null) r'member': encodeQueryParameter(member),
+      if (membersLeftSquareBracketRightSquareBracket != null)
+        r'members[]': encodeCollectionQueryParameter(
+            membersLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (operationStateAll != null)
+        r'operation_state_all': encodeQueryParameter(operationStateAll),
+      if (operationState != null)
+        r'operation_state': encodeQueryParameter(operationState),
+      if (operationStatesLeftSquareBracketRightSquareBracket != null)
+        r'operation_states[]': encodeCollectionQueryParameter(
+            operationStatesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (phase != null) r'phase': encodeQueryParameter(phase),
+      if (phasesLeftSquareBracketRightSquareBracket != null)
+        r'phases[]': encodeCollectionQueryParameter(
+            phasesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (place != null) r'place': encodeQueryParameter(place),
+      if (placesLeftSquareBracketRightSquareBracket != null)
+        r'places[]': encodeCollectionQueryParameter(
+            placesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (priority != null) r'priority': encodeQueryParameter(priority),
+      if (prioritiesLeftSquareBracketRightSquareBracket != null)
+        r'priorities[]': encodeCollectionQueryParameter(
+            prioritiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (ratingLeftSquareBracketRightSquareBracket != null)
+        r'rating[]': encodeCollectionQueryParameter(
+            ratingLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (scheduledAtAfter != null)
+        r'scheduled_at_after': encodeQueryParameter(scheduledAtAfter),
+      if (scheduledAtBefore != null)
+        r'scheduled_at_before': encodeQueryParameter(scheduledAtBefore),
+      if (state != null) r'state': encodeQueryParameter(state),
+      if (statesLeftSquareBracketRightSquareBracket != null)
+        r'states[]': encodeCollectionQueryParameter(
+            statesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (visibilityLeftSquareBracketRightSquareBracket != null)
+        r'visibility[]': encodeCollectionQueryParameter(
+            visibilityLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    OperationPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<OperationPagination>(
+          response.data!, 'OperationPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'OperationPagination')
-        as OperationPagination;
+    return Response<OperationPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Organization resources.
   ///
   ///
-  Future<OrganizationPagination> cgetOrganizations(
-    String xKeyclicApp, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    String businessActivity,
-    List<String> businessActivities__,
-    DateTime after,
-    DateTime before,
-    DateTime disabledAt,
-    String geoPoint,
-    String geoCoordinates,
-    String organization,
-    List<String> organizations__,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [businessActivity]
+  /// * [businessActivitiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [disabledAt]
+  /// * [geoPoint] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [geoCoordinates] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [organization]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [OrganizationPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Organization resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<OrganizationPagination>> cgetOrganizations({
+    required String xKeyclicApp,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? businessActivity,
+    List<String>? businessActivitiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    DateTime? disabledAt,
+    String? geoPoint,
+    String? geoCoordinates,
+    String? organization,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    // create path and map variables
-    final String path = "/organizations".replaceAll("{format}", "json");
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (businessActivity != null)
-        ..._convertParametersForCollectionFormat(
-            "business_activity", businessActivity),
-      if (businessActivities__ != null)
-        ..._convertParametersForCollectionFormat(
-            "business_activities[]", businessActivities__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (disabledAt != null)
-        ..._convertParametersForCollectionFormat("disabledAt", disabledAt),
-      if (geoPoint != null)
-        ..._convertParametersForCollectionFormat("geo_point", geoPoint),
-      if (geoCoordinates != null)
-        ..._convertParametersForCollectionFormat(
-            "geo_coordinates", geoCoordinates),
-      if (organization != null)
-        ..._convertParametersForCollectionFormat("organization", organization),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations';
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (businessActivity != null)
+        r'business_activity': encodeQueryParameter(businessActivity),
+      if (businessActivitiesLeftSquareBracketRightSquareBracket != null)
+        r'business_activities[]': encodeCollectionQueryParameter(
+            businessActivitiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (disabledAt != null) r'disabledAt': encodeQueryParameter(disabledAt),
+      if (geoPoint != null) r'geo_point': encodeQueryParameter(geoPoint),
+      if (geoCoordinates != null)
+        r'geo_coordinates': encodeQueryParameter(geoCoordinates),
+      if (organization != null)
+        r'organization': encodeQueryParameter(organization),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    OrganizationPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<OrganizationPagination>(
+          response.data!, 'OrganizationPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'OrganizationPagination')
-        as OrganizationPagination;
+    return Response<OrganizationPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Place resources.
   ///
   ///
-  Future<PlacePagination> cgetPlacesByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    String businessActivity,
-    List<String> businessActivities__,
-    DateTime after,
-    DateTime before,
-    String geoElevation,
-    List<String> geoHash__,
-    String geoPoint,
-    String geoCoordinates,
-    String leaf,
-    String level,
-    List<String> organizations__,
-    String parent,
-    List<String> parents__,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [businessActivity]
+  /// * [businessActivitiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [geoElevation]
+  /// * [geoHashLeftSquareBracketRightSquareBracket]
+  /// * [geoPoint] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [geoCoordinates] - One latitude and one longitude serialized and separated by a plus or a minus sign.
+  /// * [leaf]
+  /// * [level]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [parent]
+  /// * [parentsLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [PlacePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Place resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<PlacePagination>> cgetPlacesByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? businessActivity,
+    List<String>? businessActivitiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? geoElevation,
+    List<String>? geoHashLeftSquareBracketRightSquareBracket,
+    String? geoPoint,
+    String? geoCoordinates,
+    String? leaf,
+    String? level,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? parent,
+    List<String>? parentsLeftSquareBracketRightSquareBracket,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/places"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (businessActivity != null)
-        ..._convertParametersForCollectionFormat(
-            "business_activity", businessActivity),
-      if (businessActivities__ != null)
-        ..._convertParametersForCollectionFormat(
-            "business_activities[]", businessActivities__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (geoElevation != null)
-        ..._convertParametersForCollectionFormat("geo_elevation", geoElevation),
-      if (geoHash__ != null)
-        ..._convertParametersForCollectionFormat("geo_hash[]", geoHash__,
-            collectionFormat: "multi"),
-      if (geoPoint != null)
-        ..._convertParametersForCollectionFormat("geo_point", geoPoint),
-      if (geoCoordinates != null)
-        ..._convertParametersForCollectionFormat(
-            "geo_coordinates", geoCoordinates),
-      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
-      if (level != null)
-        ..._convertParametersForCollectionFormat("level", level),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (parent != null)
-        ..._convertParametersForCollectionFormat("parent", parent),
-      if (parents__ != null)
-        ..._convertParametersForCollectionFormat("parents[]", parents__,
-            collectionFormat: "multi"),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/places'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (businessActivity != null)
+        r'business_activity': encodeQueryParameter(businessActivity),
+      if (businessActivitiesLeftSquareBracketRightSquareBracket != null)
+        r'business_activities[]': encodeCollectionQueryParameter(
+            businessActivitiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (geoElevation != null)
+        r'geo_elevation': encodeQueryParameter(geoElevation),
+      if (geoHashLeftSquareBracketRightSquareBracket != null)
+        r'geo_hash[]': encodeCollectionQueryParameter(
+            geoHashLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (geoPoint != null) r'geo_point': encodeQueryParameter(geoPoint),
+      if (geoCoordinates != null)
+        r'geo_coordinates': encodeQueryParameter(geoCoordinates),
+      if (leaf != null) r'leaf': encodeQueryParameter(leaf),
+      if (level != null) r'level': encodeQueryParameter(level),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (parent != null) r'parent': encodeQueryParameter(parent),
+      if (parentsLeftSquareBracketRightSquareBracket != null)
+        r'parents[]': encodeCollectionQueryParameter(
+            parentsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    PlacePagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<PlacePagination>(
+          response.data!, 'PlacePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'PlacePagination')
-        as PlacePagination;
+    return Response<PlacePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Publication resources.
   ///
   ///
-  Future<PublicationPagination> cgetPublicationsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    String place,
-    List<String> places__,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [place]
+  /// * [placesLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [PublicationPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Publication resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<PublicationPagination>> cgetPublicationsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? place,
+    List<String>? placesLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/publications"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (place != null)
-        ..._convertParametersForCollectionFormat("place", place),
-      if (places__ != null)
-        ..._convertParametersForCollectionFormat("places[]", places__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/publications'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (place != null) r'place': encodeQueryParameter(place),
+      if (placesLeftSquareBracketRightSquareBracket != null)
+        r'places[]': encodeCollectionQueryParameter(
+            placesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    PublicationPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<PublicationPagination>(
+          response.data!, 'PublicationPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'PublicationPagination')
-        as PublicationPagination;
+    return Response<PublicationPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Report resources.
   ///
   ///
-  Future<ReportPagination> cgetReportsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    String archived,
-    String assignedTo,
-    List<String> assignedTos__,
-    String batch,
-    List<String> batches__,
-    String category,
-    List<String> categories__,
-    String createdBy,
-    List<String> createdBies__,
-    DateTime after,
-    DateTime before,
-    String deep,
-    String delegatedTo,
-    List<String> delegatedTos__,
-    String hasDocuments,
-    String isNull,
-    String leaf,
-    String level,
-    String managedBy,
-    List<String> managedBies__,
-    String member,
-    List<String> members__,
-    String operationStateAll,
-    String operationState,
-    List<String> operationStates__,
-    List<String> organizations__,
-    String phase,
-    List<String> phases__,
-    String place,
-    List<String> places__,
-    String priority,
-    List<String> priorities__,
-    String query,
-    List<String> rating__,
-    DateTime scheduledAtAfter,
-    DateTime scheduledAtBefore,
-    String state,
-    List<String> states__,
-    List<String> visibility__,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [archived]
+  /// * [assignedTo]
+  /// * [assignedTosLeftSquareBracketRightSquareBracket]
+  /// * [batch]
+  /// * [batchesLeftSquareBracketRightSquareBracket]
+  /// * [category]
+  /// * [categoriesLeftSquareBracketRightSquareBracket]
+  /// * [createdBy]
+  /// * [createdBiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [deep]
+  /// * [delegatedTo]
+  /// * [delegatedTosLeftSquareBracketRightSquareBracket]
+  /// * [hasDocuments]
+  /// * [isNull]
+  /// * [leaf]
+  /// * [level]
+  /// * [managedBy]
+  /// * [managedBiesLeftSquareBracketRightSquareBracket]
+  /// * [member]
+  /// * [membersLeftSquareBracketRightSquareBracket]
+  /// * [operationStateAll]
+  /// * [operationState]
+  /// * [operationStatesLeftSquareBracketRightSquareBracket]
+  /// * [organizationsLeftSquareBracketRightSquareBracket]
+  /// * [phase]
+  /// * [phasesLeftSquareBracketRightSquareBracket]
+  /// * [place]
+  /// * [placesLeftSquareBracketRightSquareBracket]
+  /// * [priority]
+  /// * [prioritiesLeftSquareBracketRightSquareBracket]
+  /// * [query]
+  /// * [ratingLeftSquareBracketRightSquareBracket]
+  /// * [scheduledAtAfter]
+  /// * [scheduledAtBefore]
+  /// * [state]
+  /// * [statesLeftSquareBracketRightSquareBracket]
+  /// * [visibilityLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ReportPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Report resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<ReportPagination>> cgetReportsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? archived,
+    String? assignedTo,
+    List<String>? assignedTosLeftSquareBracketRightSquareBracket,
+    String? batch,
+    List<String>? batchesLeftSquareBracketRightSquareBracket,
+    String? category,
+    List<String>? categoriesLeftSquareBracketRightSquareBracket,
+    String? createdBy,
+    List<String>? createdBiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? deep,
+    String? delegatedTo,
+    List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
+    String? hasDocuments,
+    String? isNull,
+    String? leaf,
+    String? level,
+    String? managedBy,
+    List<String>? managedBiesLeftSquareBracketRightSquareBracket,
+    String? member,
+    List<String>? membersLeftSquareBracketRightSquareBracket,
+    String? operationStateAll,
+    String? operationState,
+    List<String>? operationStatesLeftSquareBracketRightSquareBracket,
+    List<String>? organizationsLeftSquareBracketRightSquareBracket,
+    String? phase,
+    List<String>? phasesLeftSquareBracketRightSquareBracket,
+    String? place,
+    List<String>? placesLeftSquareBracketRightSquareBracket,
+    String? priority,
+    List<String>? prioritiesLeftSquareBracketRightSquareBracket,
+    String? query,
+    List<String>? ratingLeftSquareBracketRightSquareBracket,
+    DateTime? scheduledAtAfter,
+    DateTime? scheduledAtBefore,
+    String? state,
+    List<String>? statesLeftSquareBracketRightSquareBracket,
+    List<String>? visibilityLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/reports"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (archived != null)
-        ..._convertParametersForCollectionFormat("archived", archived),
-      if (assignedTo != null)
-        ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
-      if (assignedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "assigned_tos[]", assignedTos__,
-            collectionFormat: "multi"),
-      if (batch != null)
-        ..._convertParametersForCollectionFormat("batch", batch),
-      if (batches__ != null)
-        ..._convertParametersForCollectionFormat("batches[]", batches__,
-            collectionFormat: "multi"),
-      if (category != null)
-        ..._convertParametersForCollectionFormat("category", category),
-      if (categories__ != null)
-        ..._convertParametersForCollectionFormat("categories[]", categories__,
-            collectionFormat: "multi"),
-      if (createdBy != null)
-        ..._convertParametersForCollectionFormat("created_by", createdBy),
-      if (createdBies__ != null)
-        ..._convertParametersForCollectionFormat(
-            "created_bies[]", createdBies__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (deep != null) ..._convertParametersForCollectionFormat("deep", deep),
-      if (delegatedTo != null)
-        ..._convertParametersForCollectionFormat("delegated_to", delegatedTo),
-      if (delegatedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "delegated_tos[]", delegatedTos__,
-            collectionFormat: "multi"),
-      if (hasDocuments != null)
-        ..._convertParametersForCollectionFormat("has_documents", hasDocuments),
-      if (isNull != null)
-        ..._convertParametersForCollectionFormat("is_null", isNull),
-      if (leaf != null) ..._convertParametersForCollectionFormat("leaf", leaf),
-      if (level != null)
-        ..._convertParametersForCollectionFormat("level", level),
-      if (managedBy != null)
-        ..._convertParametersForCollectionFormat("managed_by", managedBy),
-      if (managedBies__ != null)
-        ..._convertParametersForCollectionFormat(
-            "managed_bies[]", managedBies__,
-            collectionFormat: "multi"),
-      if (member != null)
-        ..._convertParametersForCollectionFormat("member", member),
-      if (members__ != null)
-        ..._convertParametersForCollectionFormat("members[]", members__,
-            collectionFormat: "multi"),
-      if (operationStateAll != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_state_all", operationStateAll),
-      if (operationState != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_state", operationState),
-      if (operationStates__ != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_states[]", operationStates__,
-            collectionFormat: "multi"),
-      if (organizations__ != null)
-        ..._convertParametersForCollectionFormat(
-            "organizations[]", organizations__,
-            collectionFormat: "multi"),
-      if (phase != null)
-        ..._convertParametersForCollectionFormat("phase", phase),
-      if (phases__ != null)
-        ..._convertParametersForCollectionFormat("phases[]", phases__,
-            collectionFormat: "multi"),
-      if (place != null)
-        ..._convertParametersForCollectionFormat("place", place),
-      if (places__ != null)
-        ..._convertParametersForCollectionFormat("places[]", places__,
-            collectionFormat: "multi"),
-      if (priority != null)
-        ..._convertParametersForCollectionFormat("priority", priority),
-      if (priorities__ != null)
-        ..._convertParametersForCollectionFormat("priorities[]", priorities__,
-            collectionFormat: "multi"),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (rating__ != null)
-        ..._convertParametersForCollectionFormat("rating[]", rating__,
-            collectionFormat: "multi"),
-      if (scheduledAtAfter != null)
-        ..._convertParametersForCollectionFormat(
-            "scheduled_at_after", scheduledAtAfter),
-      if (scheduledAtBefore != null)
-        ..._convertParametersForCollectionFormat(
-            "scheduled_at_before", scheduledAtBefore),
-      if (state != null)
-        ..._convertParametersForCollectionFormat("state", state),
-      if (states__ != null)
-        ..._convertParametersForCollectionFormat("states[]", states__,
-            collectionFormat: "multi"),
-      if (visibility__ != null)
-        ..._convertParametersForCollectionFormat("visibility[]", visibility__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/reports'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
+      if (assignedTo != null) r'assigned_to': encodeQueryParameter(assignedTo),
+      if (assignedTosLeftSquareBracketRightSquareBracket != null)
+        r'assigned_tos[]': encodeCollectionQueryParameter(
+            assignedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (batch != null) r'batch': encodeQueryParameter(batch),
+      if (batchesLeftSquareBracketRightSquareBracket != null)
+        r'batches[]': encodeCollectionQueryParameter(
+            batchesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (category != null) r'category': encodeQueryParameter(category),
+      if (categoriesLeftSquareBracketRightSquareBracket != null)
+        r'categories[]': encodeCollectionQueryParameter(
+            categoriesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (createdBy != null) r'created_by': encodeQueryParameter(createdBy),
+      if (createdBiesLeftSquareBracketRightSquareBracket != null)
+        r'created_bies[]': encodeCollectionQueryParameter(
+            createdBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (deep != null) r'deep': encodeQueryParameter(deep),
+      if (delegatedTo != null)
+        r'delegated_to': encodeQueryParameter(delegatedTo),
+      if (delegatedTosLeftSquareBracketRightSquareBracket != null)
+        r'delegated_tos[]': encodeCollectionQueryParameter(
+            delegatedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (hasDocuments != null)
+        r'has_documents': encodeQueryParameter(hasDocuments),
+      if (isNull != null) r'is_null': encodeQueryParameter(isNull),
+      if (leaf != null) r'leaf': encodeQueryParameter(leaf),
+      if (level != null) r'level': encodeQueryParameter(level),
+      if (managedBy != null) r'managed_by': encodeQueryParameter(managedBy),
+      if (managedBiesLeftSquareBracketRightSquareBracket != null)
+        r'managed_bies[]': encodeCollectionQueryParameter(
+            managedBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (member != null) r'member': encodeQueryParameter(member),
+      if (membersLeftSquareBracketRightSquareBracket != null)
+        r'members[]': encodeCollectionQueryParameter(
+            membersLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (operationStateAll != null)
+        r'operation_state_all': encodeQueryParameter(operationStateAll),
+      if (operationState != null)
+        r'operation_state': encodeQueryParameter(operationState),
+      if (operationStatesLeftSquareBracketRightSquareBracket != null)
+        r'operation_states[]': encodeCollectionQueryParameter(
+            operationStatesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (phase != null) r'phase': encodeQueryParameter(phase),
+      if (phasesLeftSquareBracketRightSquareBracket != null)
+        r'phases[]': encodeCollectionQueryParameter(
+            phasesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (place != null) r'place': encodeQueryParameter(place),
+      if (placesLeftSquareBracketRightSquareBracket != null)
+        r'places[]': encodeCollectionQueryParameter(
+            placesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (priority != null) r'priority': encodeQueryParameter(priority),
+      if (prioritiesLeftSquareBracketRightSquareBracket != null)
+        r'priorities[]': encodeCollectionQueryParameter(
+            prioritiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (ratingLeftSquareBracketRightSquareBracket != null)
+        r'rating[]': encodeCollectionQueryParameter(
+            ratingLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (scheduledAtAfter != null)
+        r'scheduled_at_after': encodeQueryParameter(scheduledAtAfter),
+      if (scheduledAtBefore != null)
+        r'scheduled_at_before': encodeQueryParameter(scheduledAtBefore),
+      if (state != null) r'state': encodeQueryParameter(state),
+      if (statesLeftSquareBracketRightSquareBracket != null)
+        r'states[]': encodeCollectionQueryParameter(
+            statesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (visibilityLeftSquareBracketRightSquareBracket != null)
+        r'visibility[]': encodeCollectionQueryParameter(
+            visibilityLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ReportPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<ReportPagination>(
+          response.data!, 'ReportPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'ReportPagination')
-        as ReportPagination;
+    return Response<ReportPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all ReviewRequest resources.
   ///
   ///
-  Future<ReviewRequestPagination> cgetReviewRequestsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    String hasReview,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [hasReview]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ReviewRequestPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all ReviewRequest resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<ReviewRequestPagination>> cgetReviewRequestsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? hasReview,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/review-requests"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (hasReview != null)
-        ..._convertParametersForCollectionFormat("has_review", hasReview),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/review-requests'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (hasReview != null) r'has_review': encodeQueryParameter(hasReview),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ReviewRequestPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<ReviewRequestPagination>(
+          response.data!, 'ReviewRequestPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'ReviewRequestPagination')
-        as ReviewRequestPagination;
+    return Response<ReviewRequestPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Review resources.
   ///
   ///
-  Future<ReviewPagination> cgetReviewsByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    String category,
-    List<String> categories__,
-    DateTime after,
-    DateTime before,
-    String delegatedTo,
-    List<String> delegatedTos__,
-    List<String> rating__,
-    String task,
-    List<String> tasks__,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [category]
+  /// * [categoriesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [delegatedTo]
+  /// * [delegatedTosLeftSquareBracketRightSquareBracket]
+  /// * [ratingLeftSquareBracketRightSquareBracket]
+  /// * [task]
+  /// * [tasksLeftSquareBracketRightSquareBracket]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ReviewPagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Review resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<ReviewPagination>> cgetReviewsByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? category,
+    List<String>? categoriesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? delegatedTo,
+    List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
+    List<String>? ratingLeftSquareBracketRightSquareBracket,
+    String? task,
+    List<String>? tasksLeftSquareBracketRightSquareBracket,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/reviews"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (category != null)
-        ..._convertParametersForCollectionFormat("category", category),
-      if (categories__ != null)
-        ..._convertParametersForCollectionFormat("categories[]", categories__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (delegatedTo != null)
-        ..._convertParametersForCollectionFormat("delegated_to", delegatedTo),
-      if (delegatedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "delegated_tos[]", delegatedTos__,
-            collectionFormat: "multi"),
-      if (rating__ != null)
-        ..._convertParametersForCollectionFormat("rating[]", rating__,
-            collectionFormat: "multi"),
-      if (task != null) ..._convertParametersForCollectionFormat("task", task),
-      if (tasks__ != null)
-        ..._convertParametersForCollectionFormat("tasks[]", tasks__,
-            collectionFormat: "multi"),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/reviews'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (category != null) r'category': encodeQueryParameter(category),
+      if (categoriesLeftSquareBracketRightSquareBracket != null)
+        r'categories[]': encodeCollectionQueryParameter(
+            categoriesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (delegatedTo != null)
+        r'delegated_to': encodeQueryParameter(delegatedTo),
+      if (delegatedTosLeftSquareBracketRightSquareBracket != null)
+        r'delegated_tos[]': encodeCollectionQueryParameter(
+            delegatedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (ratingLeftSquareBracketRightSquareBracket != null)
+        r'rating[]': encodeCollectionQueryParameter(
+            ratingLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (task != null) r'task': encodeQueryParameter(task),
+      if (tasksLeftSquareBracketRightSquareBracket != null)
+        r'tasks[]': encodeCollectionQueryParameter(
+            tasksLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ReviewPagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<ReviewPagination>(
+          response.data!, 'ReviewPagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'ReviewPagination')
-        as ReviewPagination;
+    return Response<ReviewPagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Service resources.
   ///
   ///
-  Future<ServicePagination> cgetServicesByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    String query,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [query]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ServicePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Service resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<ServicePagination>> cgetServicesByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? query,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/services"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (query != null)
-        ..._convertParametersForCollectionFormat("query", query),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/services'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (query != null) r'query': encodeQueryParameter(query),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ServicePagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<ServicePagination>(
+          response.data!, 'ServicePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'ServicePagination')
-        as ServicePagination;
+    return Response<ServicePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve all Template resources.
   ///
   ///
-  Future<TemplatePagination> cgetTemplatesByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    List<String> order__,
-    DateTime after,
-    DateTime before,
-    int page,
-    int limit,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [page] - Page of the overview.
+  /// * [limit] - Page of the overview.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [TemplatePagination] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve all Template resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<TemplatePagination>> cgetTemplatesByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? orderLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    int? page,
+    int? limit,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/templates"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (order__ != null)
-        ..._convertParametersForCollectionFormat("order[]", order__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (page != null) ..._convertParametersForCollectionFormat("page", page),
-      if (limit != null)
-        ..._convertParametersForCollectionFormat("limit", limit),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/templates'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (page != null) r'page': encodeQueryParameter(page),
+      if (limit != null) r'limit': encodeQueryParameter(limit),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    TemplatePagination responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<TemplatePagination>(
+          response.data!, 'TemplatePagination');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'TemplatePagination')
-        as TemplatePagination;
+    return Response<TemplatePagination>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve one Analytic resource.
   ///
   ///
-  Future<Chart> getAnalyticByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
-    String assignedTo,
-    List<String> assignedTos__,
-    String category,
-    List<String> categories__,
-    String createdBy,
-    List<String> createdBies__,
-    DateTime after,
-    DateTime before,
-    String deep,
-    String delegatedTo,
-    List<String> delegatedTos__,
-    String hasDocuments,
-    String managedBy,
-    List<String> managedBies__,
-    String operationStateAll,
-    String operationState,
-    List<String> operationStates__,
-    String phase,
-    List<String> phases__,
-    String place,
-    List<String> places__,
-    String priority,
-    List<String> priorities__,
-    List<String> rating__,
-    String state,
-    List<String> states__,
-    String options_property_,
-    String options_sort_,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [assignedTo]
+  /// * [assignedTosLeftSquareBracketRightSquareBracket]
+  /// * [category]
+  /// * [categoriesLeftSquareBracketRightSquareBracket]
+  /// * [createdBy]
+  /// * [createdBiesLeftSquareBracketRightSquareBracket]
+  /// * [after]
+  /// * [before]
+  /// * [deep]
+  /// * [delegatedTo]
+  /// * [delegatedTosLeftSquareBracketRightSquareBracket]
+  /// * [hasDocuments]
+  /// * [managedBy]
+  /// * [managedBiesLeftSquareBracketRightSquareBracket]
+  /// * [operationStateAll]
+  /// * [operationState]
+  /// * [operationStatesLeftSquareBracketRightSquareBracket]
+  /// * [phase]
+  /// * [phasesLeftSquareBracketRightSquareBracket]
+  /// * [place]
+  /// * [placesLeftSquareBracketRightSquareBracket]
+  /// * [priority]
+  /// * [prioritiesLeftSquareBracketRightSquareBracket]
+  /// * [ratingLeftSquareBracketRightSquareBracket]
+  /// * [state]
+  /// * [statesLeftSquareBracketRightSquareBracket]
+  /// * [optionsLeftSquareBracketPropertyRightSquareBracket]
+  /// * [optionsLeftSquareBracketSortRightSquareBracket]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [Chart] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Analytic resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Chart>> getAnalyticByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    String? assignedTo,
+    List<String>? assignedTosLeftSquareBracketRightSquareBracket,
+    String? category,
+    List<String>? categoriesLeftSquareBracketRightSquareBracket,
+    String? createdBy,
+    List<String>? createdBiesLeftSquareBracketRightSquareBracket,
+    DateTime? after,
+    DateTime? before,
+    String? deep,
+    String? delegatedTo,
+    List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
+    String? hasDocuments,
+    String? managedBy,
+    List<String>? managedBiesLeftSquareBracketRightSquareBracket,
+    String? operationStateAll,
+    String? operationState,
+    List<String>? operationStatesLeftSquareBracketRightSquareBracket,
+    String? phase,
+    List<String>? phasesLeftSquareBracketRightSquareBracket,
+    String? place,
+    List<String>? placesLeftSquareBracketRightSquareBracket,
+    String? priority,
+    List<String>? prioritiesLeftSquareBracketRightSquareBracket,
+    List<String>? ratingLeftSquareBracketRightSquareBracket,
+    String? state,
+    List<String>? statesLeftSquareBracketRightSquareBracket,
+    String? optionsLeftSquareBracketPropertyRightSquareBracket,
+    String? optionsLeftSquareBracketSortRightSquareBracket,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/analytics"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[
-      if (assignedTo != null)
-        ..._convertParametersForCollectionFormat("assigned_to", assignedTo),
-      if (assignedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "assigned_tos[]", assignedTos__,
-            collectionFormat: "multi"),
-      if (category != null)
-        ..._convertParametersForCollectionFormat("category", category),
-      if (categories__ != null)
-        ..._convertParametersForCollectionFormat("categories[]", categories__,
-            collectionFormat: "multi"),
-      if (createdBy != null)
-        ..._convertParametersForCollectionFormat("created_by", createdBy),
-      if (createdBies__ != null)
-        ..._convertParametersForCollectionFormat(
-            "created_bies[]", createdBies__,
-            collectionFormat: "multi"),
-      if (after != null)
-        ..._convertParametersForCollectionFormat("after", after),
-      if (before != null)
-        ..._convertParametersForCollectionFormat("before", before),
-      if (deep != null) ..._convertParametersForCollectionFormat("deep", deep),
-      if (delegatedTo != null)
-        ..._convertParametersForCollectionFormat("delegated_to", delegatedTo),
-      if (delegatedTos__ != null)
-        ..._convertParametersForCollectionFormat(
-            "delegated_tos[]", delegatedTos__,
-            collectionFormat: "multi"),
-      if (hasDocuments != null)
-        ..._convertParametersForCollectionFormat("has_documents", hasDocuments),
-      if (managedBy != null)
-        ..._convertParametersForCollectionFormat("managed_by", managedBy),
-      if (managedBies__ != null)
-        ..._convertParametersForCollectionFormat(
-            "managed_bies[]", managedBies__,
-            collectionFormat: "multi"),
-      if (operationStateAll != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_state_all", operationStateAll),
-      if (operationState != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_state", operationState),
-      if (operationStates__ != null)
-        ..._convertParametersForCollectionFormat(
-            "operation_states[]", operationStates__,
-            collectionFormat: "multi"),
-      if (phase != null)
-        ..._convertParametersForCollectionFormat("phase", phase),
-      if (phases__ != null)
-        ..._convertParametersForCollectionFormat("phases[]", phases__,
-            collectionFormat: "multi"),
-      if (place != null)
-        ..._convertParametersForCollectionFormat("place", place),
-      if (places__ != null)
-        ..._convertParametersForCollectionFormat("places[]", places__,
-            collectionFormat: "multi"),
-      if (priority != null)
-        ..._convertParametersForCollectionFormat("priority", priority),
-      if (priorities__ != null)
-        ..._convertParametersForCollectionFormat("priorities[]", priorities__,
-            collectionFormat: "multi"),
-      if (rating__ != null)
-        ..._convertParametersForCollectionFormat("rating[]", rating__,
-            collectionFormat: "multi"),
-      if (state != null)
-        ..._convertParametersForCollectionFormat("state", state),
-      if (states__ != null)
-        ..._convertParametersForCollectionFormat("states[]", states__,
-            collectionFormat: "multi"),
-      if (options_property_ != null)
-        ..._convertParametersForCollectionFormat(
-            "options[property]", options_property_),
-      if (options_sort_ != null)
-        ..._convertParametersForCollectionFormat(
-            "options[sort]", options_sort_),
-    ];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/analytics'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final queryParameters = <String, dynamic>{
+      if (assignedTo != null) r'assigned_to': encodeQueryParameter(assignedTo),
+      if (assignedTosLeftSquareBracketRightSquareBracket != null)
+        r'assigned_tos[]': encodeCollectionQueryParameter(
+            assignedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (category != null) r'category': encodeQueryParameter(category),
+      if (categoriesLeftSquareBracketRightSquareBracket != null)
+        r'categories[]': encodeCollectionQueryParameter(
+            categoriesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (createdBy != null) r'created_by': encodeQueryParameter(createdBy),
+      if (createdBiesLeftSquareBracketRightSquareBracket != null)
+        r'created_bies[]': encodeCollectionQueryParameter(
+            createdBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (after != null) r'after': encodeQueryParameter(after),
+      if (before != null) r'before': encodeQueryParameter(before),
+      if (deep != null) r'deep': encodeQueryParameter(deep),
+      if (delegatedTo != null)
+        r'delegated_to': encodeQueryParameter(delegatedTo),
+      if (delegatedTosLeftSquareBracketRightSquareBracket != null)
+        r'delegated_tos[]': encodeCollectionQueryParameter(
+            delegatedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (hasDocuments != null)
+        r'has_documents': encodeQueryParameter(hasDocuments),
+      if (managedBy != null) r'managed_by': encodeQueryParameter(managedBy),
+      if (managedBiesLeftSquareBracketRightSquareBracket != null)
+        r'managed_bies[]': encodeCollectionQueryParameter(
+            managedBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (operationStateAll != null)
+        r'operation_state_all': encodeQueryParameter(operationStateAll),
+      if (operationState != null)
+        r'operation_state': encodeQueryParameter(operationState),
+      if (operationStatesLeftSquareBracketRightSquareBracket != null)
+        r'operation_states[]': encodeCollectionQueryParameter(
+            operationStatesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (phase != null) r'phase': encodeQueryParameter(phase),
+      if (phasesLeftSquareBracketRightSquareBracket != null)
+        r'phases[]': encodeCollectionQueryParameter(
+            phasesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (place != null) r'place': encodeQueryParameter(place),
+      if (placesLeftSquareBracketRightSquareBracket != null)
+        r'places[]': encodeCollectionQueryParameter(
+            placesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (priority != null) r'priority': encodeQueryParameter(priority),
+      if (prioritiesLeftSquareBracketRightSquareBracket != null)
+        r'priorities[]': encodeCollectionQueryParameter(
+            prioritiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (ratingLeftSquareBracketRightSquareBracket != null)
+        r'rating[]': encodeCollectionQueryParameter(
+            ratingLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (state != null) r'state': encodeQueryParameter(state),
+      if (statesLeftSquareBracketRightSquareBracket != null)
+        r'states[]': encodeCollectionQueryParameter(
+            statesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (optionsLeftSquareBracketPropertyRightSquareBracket != null)
+        r'options[property]': encodeQueryParameter(
+            optionsLeftSquareBracketPropertyRightSquareBracket),
+      if (optionsLeftSquareBracketSortRightSquareBracket != null)
+        r'options[sort]': encodeQueryParameter(
+            optionsLeftSquareBracketSortRightSquareBracket),
+    };
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Chart responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Chart>(response.data!, 'Chart');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Chart') as Chart;
+    return Response<Chart>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve one Configuration resource.
   ///
   ///
-  Future<Configuration> getConfigurationByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [Configuration] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Configuration resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Configuration>> getConfigurationByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/configuration"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/configuration'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Configuration responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Configuration>(
+          response.data!, 'Configuration');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Configuration')
-        as Configuration;
+    return Response<Configuration>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve one Form resource.
   ///
   ///
-  Future<Schema> getFormByOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [Schema] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Form resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Schema>> getFormByOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}/form"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}/form'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Schema responseData;
+
+    try {
+      responseData =
+          await _apiClient.deserializeAsync<Schema>(response.data!, 'Schema');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Schema') as Schema;
+    return Response<Schema>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Retrieve one Organization resource.
   ///
   ///
-  Future<Organization> getOrganization(
-    String xKeyclicApp,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [Organization] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Retrieve one Organization resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Organization>> getOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'GET',
-      queryParams: queryParams,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Organization responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Organization>(
+          response.data!, 'Organization');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
-    }
-
-    return apiClient.deserialize(response.body, 'Organization') as Organization;
+    return Response<Organization>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 
   /// Edit one Organization resource.
   ///
   ///
-  Future<Organization> patchOrganization(
-    String xKeyclicApp,
-    OrganizationPatch organizationPatch,
-    String organization, {
-    String acceptLanguage,
-    DateTime xDateTime,
-    String xKeyclicAppPlatform,
-    String xKeyclicAppVersion,
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [organization] - The identifier of the resource.
+  /// * [organizationPatch]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [Organization] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Edit one Organization resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Organization>> patchOrganization({
+    required String xKeyclicApp,
+    required String organization,
+    required OrganizationPatch organizationPatch,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    // verify required params are set
-
-    if (xKeyclicApp == null) {
-      throw ApiException(0, "Missing required param: xKeyclicApp");
-    }
-
-    if (organizationPatch == null) {
-      throw ApiException(0, "Missing required param: organizationPatch");
-    }
-
-    if (organization == null) {
-      throw ApiException(0, "Missing required param: organization");
-    }
-
-    // create path and map variables
-    final String path = "/organizations/{organization}"
-        .replaceAll("{format}", "json")
-        .replaceAll("{" + "organization" + "}", organization.toString());
-
-    // query params
-    final List<QueryParam> queryParams = <QueryParam>[];
-
-    // header params
-    final Map<String, String> headerParams = <String, String>{
-      if (acceptLanguage is String)
-        "accept-language": acceptLanguage.toString(),
-      if (xDateTime is DateTime) "x-date-time": xDateTime.toIso8601String(),
-      if (xKeyclicApp is String) "x-keyclic-app": xKeyclicApp.toString(),
-      if (xKeyclicAppPlatform is String)
-        "x-keyclic-app-platform": xKeyclicAppPlatform.toString(),
-      if (xKeyclicAppVersion is String)
-        "x-keyclic-app-version": xKeyclicAppVersion.toString(),
-    };
-
-    final List<String> contentTypes = <String>[
-      "application/json;charset=UTF-8",
-      "application/json",
-    ];
-
-    final List<String> authNames = <String>[
-      "bearer",
-    ];
-
-    final Response response = await apiClient.invokeAPI(
-      path: path,
-      method: 'PATCH',
-      queryParams: queryParams,
-      body: organizationPatch,
-      headerParams: headerParams,
-      contentType: contentTypes[0],
-      authNames: authNames,
+    final String path = r'/organizations/{organization}'
+        .replaceAll('{' r'organization' '}', organization.toString());
+    final options = Options(
+      method: r'PATCH',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
     );
 
-    if (response.statusCode >= 400) {
-      throw ApiException(response.statusCode, response.body);
+    dynamic bodyData;
+
+    try {
+      bodyData = organizationPatch.toJson();
+      // bodyData = jsonEncode(organizationPatch);
+      // bodyData = jsonDecode(jsonEncode(organizationPatch));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    if (response.body == null) {
-      return null;
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Organization responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Organization>(
+          response.data!, 'Organization');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
     }
 
-    return apiClient.deserialize(response.body, 'Organization') as Organization;
+    return Response<Organization>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
   }
 }

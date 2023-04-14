@@ -1,81 +1,102 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class CategoryEmbedded {
+  /// Returns a new [CategoryEmbedded] instance.
   CategoryEmbedded({
-    this.children,
-    this.path,
+    this.children = const [],
+    this.path = const [],
   });
 
-  factory CategoryEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [CategoryEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static CategoryEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return CategoryEmbedded(
-      children: Category.listFromJson(json['children']),
-      path: NodePath.listFromJson(json['path']),
+      children: Category.listFromJson(json[r'children']),
+      path: NodePath.listFromJson(json[r'path']),
     );
   }
 
-  List<Category> children;
+  List<Category>? children;
 
-  List<NodePath> path;
+  List<NodePath>? path;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is CategoryEmbedded &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(children, other.children) &&
         DeepCollectionEquality.unordered().equals(path, other.path);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (children == null ? 0 : children.hashCode) +
+      (path == null ? 0 : path.hashCode);
 
-    if (children is List && children.isNotEmpty) {
-      hashCode ^= children
-          .map((Category element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
-    }
-    if (path is List && path.isNotEmpty) {
-      hashCode ^= path
-          .map((NodePath element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<CategoryEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryEmbedded>[];
     }
 
-    return hashCode;
+    return json.fold(<CategoryEmbedded>[],
+        (List<CategoryEmbedded> previousValue, element) {
+      final CategoryEmbedded? object = CategoryEmbedded.fromJson(element);
+      if (object is CategoryEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<CategoryEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => CategoryEmbedded.fromJson(value))
-            ?.toList() ??
-        <CategoryEmbedded>[];
+  static Map<String, CategoryEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryEmbedded>{};
+    }
+
+    return json.entries.fold(<String, CategoryEmbedded>{},
+        (Map<String, CategoryEmbedded> previousValue, element) {
+      final CategoryEmbedded? object = CategoryEmbedded.fromJson(element.value);
+      if (object is CategoryEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CategoryEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, CategoryEmbedded>((String key, dynamic value) {
-          return MapEntry(key, CategoryEmbedded.fromJson(value));
-        }) ??
-        <String, CategoryEmbedded>{};
+  // maps a json object with a list of CategoryEmbedded-objects as value to a dart map
+  static Map<String, List<CategoryEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CategoryEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CategoryEmbedded>>(
+          key, CategoryEmbedded.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'CategoryEmbedded[children=$children, path=$path]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (children != null) 'children': children,
-      if (path != null) 'path': path,
+    return <String, dynamic>{
+      if (children != null) r'children': children,
+      if (path != null) r'path': path,
     };
-  }
-
-  @override
-  String toString() {
-    return 'CategoryEmbedded[children=$children, path=$path, ]';
   }
 }

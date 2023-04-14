@@ -1,70 +1,94 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PropertyItems {
+  /// Returns a new [PropertyItems] instance.
   PropertyItems({
-    this.oneOf,
+    this.oneOf = const [],
   });
 
-  factory PropertyItems.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PropertyItems] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PropertyItems? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PropertyItems(
-      oneOf: ItemsChoice.listFromJson(json['oneOf']),
+      oneOf: ItemsChoice.listFromJson(json[r'oneOf']),
     );
   }
 
-  List<ItemsChoice> oneOf;
+  List<ItemsChoice>? oneOf;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PropertyItems &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(oneOf, other.oneOf);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (oneOf == null ? 0 : oneOf.hashCode);
 
-    if (oneOf is List && oneOf.isNotEmpty) {
-      hashCode ^= oneOf
-          .map((ItemsChoice element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<PropertyItems> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PropertyItems>[];
     }
 
-    return hashCode;
+    return json.fold(<PropertyItems>[],
+        (List<PropertyItems> previousValue, element) {
+      final PropertyItems? object = PropertyItems.fromJson(element);
+      if (object is PropertyItems) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PropertyItems> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PropertyItems.fromJson(value))
-            ?.toList() ??
-        <PropertyItems>[];
+  static Map<String, PropertyItems> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PropertyItems>{};
+    }
+
+    return json.entries.fold(<String, PropertyItems>{},
+        (Map<String, PropertyItems> previousValue, element) {
+      final PropertyItems? object = PropertyItems.fromJson(element.value);
+      if (object is PropertyItems) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PropertyItems> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PropertyItems>((String key, dynamic value) {
-          return MapEntry(key, PropertyItems.fromJson(value));
-        }) ??
-        <String, PropertyItems>{};
-  }
+  // maps a json object with a list of PropertyItems-objects as value to a dart map
+  static Map<String, List<PropertyItems>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PropertyItems>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (oneOf != null) 'oneOf': oneOf,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<PropertyItems>>(
+          key, PropertyItems.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PropertyItems[oneOf=$oneOf, ]';
+  String toString() => 'PropertyItems[oneOf=$oneOf]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (oneOf != null) r'oneOf': oneOf,
+    };
   }
 }

@@ -1,66 +1,93 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class WorkflowLinks {
+  /// Returns a new [WorkflowLinks] instance.
   WorkflowLinks({
     this.self,
   });
 
-  factory WorkflowLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [WorkflowLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static WorkflowLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return WorkflowLinks(
-      self: WorkflowLinksSelf.fromJson(json['self']),
+      self: WorkflowLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  WorkflowLinksSelf self;
+  WorkflowLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is WorkflowLinks &&
-        runtimeType == other.runtimeType &&
-        self == other.self;
+    return other is WorkflowLinks && other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (self == null ? 0 : self.hashCode);
 
-    hashCode ^= self?.hashCode ?? 0;
+  static List<WorkflowLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <WorkflowLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<WorkflowLinks>[],
+        (List<WorkflowLinks> previousValue, element) {
+      final WorkflowLinks? object = WorkflowLinks.fromJson(element);
+      if (object is WorkflowLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<WorkflowLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => WorkflowLinks.fromJson(value))
-            ?.toList() ??
-        <WorkflowLinks>[];
+  static Map<String, WorkflowLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, WorkflowLinks>{};
+    }
+
+    return json.entries.fold(<String, WorkflowLinks>{},
+        (Map<String, WorkflowLinks> previousValue, element) {
+      final WorkflowLinks? object = WorkflowLinks.fromJson(element.value);
+      if (object is WorkflowLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, WorkflowLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, WorkflowLinks>((String key, dynamic value) {
-          return MapEntry(key, WorkflowLinks.fromJson(value));
-        }) ??
-        <String, WorkflowLinks>{};
+  // maps a json object with a list of WorkflowLinks-objects as value to a dart map
+  static Map<String, List<WorkflowLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<WorkflowLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<WorkflowLinks>>(
+          key, WorkflowLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'WorkflowLinks[self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'WorkflowLinks[self=$self, ]';
   }
 }

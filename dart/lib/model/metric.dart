@@ -1,71 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Metric {
+  /// Returns a new [Metric] instance.
   Metric({
     this.name,
     this.duration,
   });
 
-  factory Metric.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Metric] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Metric? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Metric(
-      name: json['name'],
-      duration: Duration.fromJson(json['duration']),
+      name: json[r'name'],
+      duration: Duration.fromJson(json[r'duration']),
     );
   }
 
-  String name;
+  String? name;
 
-  Duration duration;
+  Duration? duration;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is Metric &&
-        runtimeType == other.runtimeType &&
-        name == other.name &&
-        duration == other.duration;
+    return other is Metric && other.name == name && other.duration == duration;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (name == null ? 0 : name.hashCode) +
+      (duration == null ? 0 : duration.hashCode);
 
-    hashCode ^= name?.hashCode ?? 0;
-    hashCode ^= duration?.hashCode ?? 0;
+  static List<Metric> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Metric>[];
+    }
 
-    return hashCode;
+    return json.fold(<Metric>[], (List<Metric> previousValue, element) {
+      final Metric? object = Metric.fromJson(element);
+      if (object is Metric) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Metric> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Metric.fromJson(value))?.toList() ??
-        <Metric>[];
+  static Map<String, Metric> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Metric>{};
+    }
+
+    return json.entries.fold(<String, Metric>{},
+        (Map<String, Metric> previousValue, element) {
+      final Metric? object = Metric.fromJson(element.value);
+      if (object is Metric) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Metric> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Metric>((String key, dynamic value) {
-          return MapEntry(key, Metric.fromJson(value));
-        }) ??
-        <String, Metric>{};
+  // maps a json object with a list of Metric-objects as value to a dart map
+  static Map<String, List<Metric>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Metric>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Metric>>(key, Metric.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'Metric[name=$name, duration=$duration]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (name != null) 'name': name,
-      if (duration != null) 'duration': duration.toJson(),
+    return <String, dynamic>{
+      if (name != null) r'name': name,
+      if (duration != null) r'duration': duration,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Metric[name=$name, duration=$duration, ]';
   }
 }

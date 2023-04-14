@@ -1,80 +1,114 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewRequestLinksItemToReviewIriTemplateMapping {
+  /// Returns a new [ReviewRequestLinksItemToReviewIriTemplateMapping] instance.
   ReviewRequestLinksItemToReviewIriTemplateMapping({
     this.feedback,
     this.task,
   });
 
-  factory ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [ReviewRequestLinksItemToReviewIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewRequestLinksItemToReviewIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewRequestLinksItemToReviewIriTemplateMapping(
-      feedback: json['feedback'],
-      task: json['task'],
+      feedback: json[r'feedback'],
+      task: json[r'task'],
     );
   }
 
-  String feedback;
+  String? feedback;
 
-  String task;
+  String? task;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewRequestLinksItemToReviewIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        feedback == other.feedback &&
-        task == other.task;
+        other.feedback == feedback &&
+        other.task == task;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= feedback?.hashCode ?? 0;
-    hashCode ^= task?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (feedback == null ? 0 : feedback.hashCode) +
+      (task == null ? 0 : task.hashCode);
 
   static List<ReviewRequestLinksItemToReviewIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
-                    value))
-            ?.toList() ??
-        <ReviewRequestLinksItemToReviewIriTemplateMapping>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewRequestLinksItemToReviewIriTemplateMapping>[];
+    }
+
+    return json.fold(<ReviewRequestLinksItemToReviewIriTemplateMapping>[],
+        (List<ReviewRequestLinksItemToReviewIriTemplateMapping> previousValue,
+            element) {
+      final ReviewRequestLinksItemToReviewIriTemplateMapping? object =
+          ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(element);
+      if (object is ReviewRequestLinksItemToReviewIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ReviewRequestLinksItemToReviewIriTemplateMapping>
-      mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewRequestLinksItemToReviewIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(key,
-              ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, ReviewRequestLinksItemToReviewIriTemplateMapping>{};
+      mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewRequestLinksItemToReviewIriTemplateMapping>{};
+    }
+
+    return json.entries
+        .fold(<String, ReviewRequestLinksItemToReviewIriTemplateMapping>{},
+            (Map<String, ReviewRequestLinksItemToReviewIriTemplateMapping>
+                    previousValue,
+                element) {
+      final ReviewRequestLinksItemToReviewIriTemplateMapping? object =
+          ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
+              element.value);
+      if (object is ReviewRequestLinksItemToReviewIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (feedback != null) 'feedback': feedback,
-      if (task != null) 'task': task,
-    };
+  // maps a json object with a list of ReviewRequestLinksItemToReviewIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<ReviewRequestLinksItemToReviewIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewRequestLinksItemToReviewIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String,
+              List<ReviewRequestLinksItemToReviewIriTemplateMapping>>(key,
+          ReviewRequestLinksItemToReviewIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReviewRequestLinksItemToReviewIriTemplateMapping[feedback=$feedback, task=$task, ]';
+  String toString() =>
+      'ReviewRequestLinksItemToReviewIriTemplateMapping[feedback=$feedback, task=$task]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (feedback != null) r'feedback': feedback,
+      if (task != null) r'task': task,
+    };
   }
 }

@@ -1,77 +1,108 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class OperationLinksAssignments {
+  /// Returns a new [OperationLinksAssignments] instance.
   OperationLinksAssignments({
     this.href,
     this.iriTemplate,
   });
 
-  factory OperationLinksAssignments.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [OperationLinksAssignments] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static OperationLinksAssignments? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return OperationLinksAssignments(
-      href: json['href'],
+      href: json[r'href'],
       iriTemplate:
-          OperationLinksAssignmentsIriTemplate.fromJson(json['iriTemplate']),
+          OperationLinksAssignmentsIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the assignments associated to the given operation. */
-  String href;
+  /// The URI of the assignments associated to the given operation.
+  String? href;
 
-  OperationLinksAssignmentsIriTemplate iriTemplate;
+  OperationLinksAssignmentsIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is OperationLinksAssignments &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<OperationLinksAssignments> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <OperationLinksAssignments>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<OperationLinksAssignments>[],
+        (List<OperationLinksAssignments> previousValue, element) {
+      final OperationLinksAssignments? object =
+          OperationLinksAssignments.fromJson(element);
+      if (object is OperationLinksAssignments) {
+        previousValue.add(object);
+      }
 
-  static List<OperationLinksAssignments> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => OperationLinksAssignments.fromJson(value))
-            ?.toList() ??
-        <OperationLinksAssignments>[];
+      return previousValue;
+    });
   }
 
   static Map<String, OperationLinksAssignments> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, OperationLinksAssignments>(
-            (String key, dynamic value) {
-          return MapEntry(key, OperationLinksAssignments.fromJson(value));
-        }) ??
-        <String, OperationLinksAssignments>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, OperationLinksAssignments>{};
+    }
+
+    return json.entries.fold(<String, OperationLinksAssignments>{},
+        (Map<String, OperationLinksAssignments> previousValue, element) {
+      final OperationLinksAssignments? object =
+          OperationLinksAssignments.fromJson(element.value);
+      if (object is OperationLinksAssignments) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
-    };
+  // maps a json object with a list of OperationLinksAssignments-objects as value to a dart map
+  static Map<String, List<OperationLinksAssignments>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<OperationLinksAssignments>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<OperationLinksAssignments>>(
+          key, OperationLinksAssignments.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'OperationLinksAssignments[href=$href, iriTemplate=$iriTemplate, ]';
+  String toString() =>
+      'OperationLinksAssignments[href=$href, iriTemplate=$iriTemplate]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+    };
   }
 }

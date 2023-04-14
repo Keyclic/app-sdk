@@ -1,145 +1,166 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ItemsChoice {
+  /// Returns a new [ItemsChoice] instance.
   ItemsChoice({
     this.default_,
     this.description,
-    this.enum_,
+    this.enum_ = const [],
     this.format,
     this.id,
     this.maxItems,
     this.minItems,
-    this.oneOf,
+    this.oneOf = const [],
     this.propertyOrder,
     this.title,
     this.type,
   });
 
-  factory ItemsChoice.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ItemsChoice] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ItemsChoice? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ItemsChoice(
-      default_: json['default'],
-      description: json['description'],
-      enum_: json['enum'] is List ? List<String>.from(json['enum']) : null,
-      format: json['format'],
-      id: json['id'],
-      maxItems: json['maxItems'],
-      minItems: json['minItems'],
-      oneOf: ItemsChoice.listFromJson(json['oneOf']),
-      propertyOrder: json['propertyOrder'],
-      title: json['title'],
-      type: json['type'],
+      default_: json[r'default'],
+      description: json[r'description'],
+      enum_: List<String>.from(json[r'enum'] ?? []),
+      format: json[r'format'],
+      id: json[r'id'],
+      maxItems: json[r'maxItems'],
+      minItems: json[r'minItems'],
+      oneOf: ItemsChoice.listFromJson(json[r'oneOf']),
+      propertyOrder: json[r'propertyOrder'],
+      title: json[r'title'],
+      type: json[r'type'],
     );
   }
 
-  String default_;
+  String? default_;
 
-  String description;
+  String? description;
 
-  List<String> enum_;
+  List<String>? enum_;
 
-  String format;
+  String? format;
 
-  String id;
+  final String? id;
 
-  int maxItems;
+  int? maxItems;
 
-  int minItems;
+  int? minItems;
 
-  List<ItemsChoice> oneOf;
+  List<ItemsChoice>? oneOf;
 
-  int propertyOrder;
+  int? propertyOrder;
 
-  String title;
+  String? title;
 
-  String type;
+  String? type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ItemsChoice &&
-        runtimeType == other.runtimeType &&
-        default_ == other.default_ &&
-        description == other.description &&
+        other.default_ == default_ &&
+        other.description == description &&
         DeepCollectionEquality.unordered().equals(enum_, other.enum_) &&
-        format == other.format &&
-        id == other.id &&
-        maxItems == other.maxItems &&
-        minItems == other.minItems &&
+        other.format == format &&
+        other.id == id &&
+        other.maxItems == maxItems &&
+        other.minItems == minItems &&
         DeepCollectionEquality.unordered().equals(oneOf, other.oneOf) &&
-        propertyOrder == other.propertyOrder &&
-        title == other.title &&
-        type == other.type;
+        other.propertyOrder == propertyOrder &&
+        other.title == title &&
+        other.type == type;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (default_ == null ? 0 : default_.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (enum_ == null ? 0 : enum_.hashCode) +
+      (format == null ? 0 : format.hashCode) +
+      (id == null ? 0 : id.hashCode) +
+      (maxItems == null ? 0 : maxItems.hashCode) +
+      (minItems == null ? 0 : minItems.hashCode) +
+      (oneOf == null ? 0 : oneOf.hashCode) +
+      (propertyOrder == null ? 0 : propertyOrder.hashCode) +
+      (title == null ? 0 : title.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
-    if (enum_ is List && enum_.isNotEmpty) {
-      hashCode ^= enum_
-          .map((String element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<ItemsChoice> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ItemsChoice>[];
     }
-    if (oneOf is List && oneOf.isNotEmpty) {
-      hashCode ^= oneOf
-          .map((ItemsChoice element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+
+    return json.fold(<ItemsChoice>[],
+        (List<ItemsChoice> previousValue, element) {
+      final ItemsChoice? object = ItemsChoice.fromJson(element);
+      if (object is ItemsChoice) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
+  }
+
+  static Map<String, ItemsChoice> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ItemsChoice>{};
     }
 
-    hashCode ^= default_?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= format?.hashCode ?? 0;
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= maxItems?.hashCode ?? 0;
-    hashCode ^= minItems?.hashCode ?? 0;
-    hashCode ^= propertyOrder?.hashCode ?? 0;
-    hashCode ^= title?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
+    return json.entries.fold(<String, ItemsChoice>{},
+        (Map<String, ItemsChoice> previousValue, element) {
+      final ItemsChoice? object = ItemsChoice.fromJson(element.value);
+      if (object is ItemsChoice) {
+        previousValue[element.key] = object;
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<ItemsChoice> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ItemsChoice.fromJson(value))
-            ?.toList() ??
-        <ItemsChoice>[];
+  // maps a json object with a list of ItemsChoice-objects as value to a dart map
+  static Map<String, List<ItemsChoice>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ItemsChoice>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ItemsChoice>>(
+          key, ItemsChoice.listFromJson(value));
+    });
   }
 
-  static Map<String, ItemsChoice> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ItemsChoice>((String key, dynamic value) {
-          return MapEntry(key, ItemsChoice.fromJson(value));
-        }) ??
-        <String, ItemsChoice>{};
-  }
+  @override
+  String toString() =>
+      'ItemsChoice[default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, maxItems=$maxItems, minItems=$minItems, oneOf=$oneOf, propertyOrder=$propertyOrder, title=$title, type=$type]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (default_ != null) 'default': default_,
-      if (description != null) 'description': description,
-      if (enum_ != null) 'enum': enum_,
-      if (format != null) 'format': format,
-      if (id != null) 'id': id,
-      if (maxItems != null) 'maxItems': maxItems,
-      if (minItems != null) 'minItems': minItems,
-      if (oneOf != null) 'oneOf': oneOf,
-      if (propertyOrder != null) 'propertyOrder': propertyOrder,
-      if (title != null) 'title': title,
-      if (type != null) 'type': type,
+    return <String, dynamic>{
+      if (default_ != null) r'default': default_,
+      if (description != null) r'description': description,
+      if (enum_ != null) r'enum': enum_,
+      if (format != null) r'format': format,
+      if (id != null) r'id': id,
+      if (maxItems != null) r'maxItems': maxItems,
+      if (minItems != null) r'minItems': minItems,
+      if (oneOf != null) r'oneOf': oneOf,
+      if (propertyOrder != null) r'propertyOrder': propertyOrder,
+      if (title != null) r'title': title,
+      if (type != null) r'type': type,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ItemsChoice[default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, maxItems=$maxItems, minItems=$minItems, oneOf=$oneOf, propertyOrder=$propertyOrder, title=$title, type=$type, ]';
   }
 }

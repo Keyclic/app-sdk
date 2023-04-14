@@ -1,79 +1,109 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class FeedbackLinksImageIriTemplateMapping {
+  /// Returns a new [FeedbackLinksImageIriTemplateMapping] instance.
   FeedbackLinksImageIriTemplateMapping({
     this.feedback,
     this.image,
   });
 
-  factory FeedbackLinksImageIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [FeedbackLinksImageIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static FeedbackLinksImageIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return FeedbackLinksImageIriTemplateMapping(
-      feedback: json['feedback'],
-      image: json['image'],
+      feedback: json[r'feedback'],
+      image: json[r'image'],
     );
   }
 
-  String feedback;
+  String? feedback;
 
-  String image;
+  String? image;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is FeedbackLinksImageIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        feedback == other.feedback &&
-        image == other.image;
+        other.feedback == feedback &&
+        other.image == image;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= feedback?.hashCode ?? 0;
-    hashCode ^= image?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (feedback == null ? 0 : feedback.hashCode) +
+      (image == null ? 0 : image.hashCode);
 
   static List<FeedbackLinksImageIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                FeedbackLinksImageIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <FeedbackLinksImageIriTemplateMapping>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <FeedbackLinksImageIriTemplateMapping>[];
+    }
+
+    return json.fold(<FeedbackLinksImageIriTemplateMapping>[],
+        (List<FeedbackLinksImageIriTemplateMapping> previousValue, element) {
+      final FeedbackLinksImageIriTemplateMapping? object =
+          FeedbackLinksImageIriTemplateMapping.fromJson(element);
+      if (object is FeedbackLinksImageIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, FeedbackLinksImageIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, FeedbackLinksImageIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, FeedbackLinksImageIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, FeedbackLinksImageIriTemplateMapping>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, FeedbackLinksImageIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, FeedbackLinksImageIriTemplateMapping>{},
+        (Map<String, FeedbackLinksImageIriTemplateMapping> previousValue,
+            element) {
+      final FeedbackLinksImageIriTemplateMapping? object =
+          FeedbackLinksImageIriTemplateMapping.fromJson(element.value);
+      if (object is FeedbackLinksImageIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (feedback != null) 'feedback': feedback,
-      if (image != null) 'image': image,
-    };
+  // maps a json object with a list of FeedbackLinksImageIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<FeedbackLinksImageIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<FeedbackLinksImageIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<FeedbackLinksImageIriTemplateMapping>>(
+          key, FeedbackLinksImageIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'FeedbackLinksImageIriTemplateMapping[feedback=$feedback, image=$image, ]';
+  String toString() =>
+      'FeedbackLinksImageIriTemplateMapping[feedback=$feedback, image=$image]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (feedback != null) r'feedback': feedback,
+      if (image != null) r'image': image,
+    };
   }
 }

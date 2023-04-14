@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewRequestLinks {
+  /// Returns a new [ReviewRequestLinks] instance.
   ReviewRequestLinks({
     this.itemToReview,
     this.organization,
@@ -9,89 +14,115 @@ class ReviewRequestLinks {
     this.self,
   });
 
-  factory ReviewRequestLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewRequestLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewRequestLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewRequestLinks(
       itemToReview:
-          ReviewRequestLinksItemToReview.fromJson(json['itemToReview']),
+          ReviewRequestLinksItemToReview.fromJson(json[r'itemToReview']),
       organization:
-          ReviewRequestLinksOrganization.fromJson(json['organization']),
-      review: ReviewRequestLinksReview.fromJson(json['review']),
-      reviewer: ReviewRequestLinksReviewer.fromJson(json['reviewer']),
-      self: ReviewRequestLinksSelf.fromJson(json['self']),
+          ReviewRequestLinksOrganization.fromJson(json[r'organization']),
+      review: ReviewRequestLinksReview.fromJson(json[r'review']),
+      reviewer: ReviewRequestLinksReviewer.fromJson(json[r'reviewer']),
+      self: ReviewRequestLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  ReviewRequestLinksItemToReview itemToReview;
+  ReviewRequestLinksItemToReview? itemToReview;
 
-  ReviewRequestLinksOrganization organization;
+  ReviewRequestLinksOrganization? organization;
 
-  ReviewRequestLinksReview review;
+  ReviewRequestLinksReview? review;
 
-  ReviewRequestLinksReviewer reviewer;
+  ReviewRequestLinksReviewer? reviewer;
 
-  ReviewRequestLinksSelf self;
+  ReviewRequestLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewRequestLinks &&
-        runtimeType == other.runtimeType &&
-        itemToReview == other.itemToReview &&
-        organization == other.organization &&
-        review == other.review &&
-        reviewer == other.reviewer &&
-        self == other.self;
+        other.itemToReview == itemToReview &&
+        other.organization == organization &&
+        other.review == review &&
+        other.reviewer == reviewer &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (itemToReview == null ? 0 : itemToReview.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (review == null ? 0 : review.hashCode) +
+      (reviewer == null ? 0 : reviewer.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= itemToReview?.hashCode ?? 0;
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= review?.hashCode ?? 0;
-    hashCode ^= reviewer?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<ReviewRequestLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewRequestLinks>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ReviewRequestLinks>[],
+        (List<ReviewRequestLinks> previousValue, element) {
+      final ReviewRequestLinks? object = ReviewRequestLinks.fromJson(element);
+      if (object is ReviewRequestLinks) {
+        previousValue.add(object);
+      }
 
-  static List<ReviewRequestLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewRequestLinks.fromJson(value))
-            ?.toList() ??
-        <ReviewRequestLinks>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ReviewRequestLinks> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReviewRequestLinks>((String key, dynamic value) {
-          return MapEntry(key, ReviewRequestLinks.fromJson(value));
-        }) ??
-        <String, ReviewRequestLinks>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewRequestLinks>{};
+    }
+
+    return json.entries.fold(<String, ReviewRequestLinks>{},
+        (Map<String, ReviewRequestLinks> previousValue, element) {
+      final ReviewRequestLinks? object =
+          ReviewRequestLinks.fromJson(element.value);
+      if (object is ReviewRequestLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (itemToReview != null) 'itemToReview': itemToReview.toJson(),
-      if (organization != null) 'organization': organization.toJson(),
-      if (review != null) 'review': review.toJson(),
-      if (reviewer != null) 'reviewer': reviewer.toJson(),
-      if (self != null) 'self': self.toJson(),
-    };
+  // maps a json object with a list of ReviewRequestLinks-objects as value to a dart map
+  static Map<String, List<ReviewRequestLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewRequestLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewRequestLinks>>(
+          key, ReviewRequestLinks.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReviewRequestLinks[itemToReview=$itemToReview, organization=$organization, review=$review, reviewer=$reviewer, self=$self, ]';
+  String toString() =>
+      'ReviewRequestLinks[itemToReview=$itemToReview, organization=$organization, review=$review, reviewer=$reviewer, self=$self]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (itemToReview != null) r'itemToReview': itemToReview,
+      if (organization != null) r'organization': organization,
+      if (review != null) r'review': review,
+      if (reviewer != null) r'reviewer': reviewer,
+      if (self != null) r'self': self,
+    };
   }
 }

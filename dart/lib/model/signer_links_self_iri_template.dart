@@ -1,68 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class SignerLinksSelfIriTemplate {
+  /// Returns a new [SignerLinksSelfIriTemplate] instance.
   SignerLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory SignerLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [SignerLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SignerLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return SignerLinksSelfIriTemplate(
-      mapping: SignerLinksSelfIriTemplateMapping.fromJson(json['mapping']),
+      mapping: SignerLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  SignerLinksSelfIriTemplateMapping mapping;
+  SignerLinksSelfIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is SignerLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is SignerLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<SignerLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <SignerLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<SignerLinksSelfIriTemplate>[],
+        (List<SignerLinksSelfIriTemplate> previousValue, element) {
+      final SignerLinksSelfIriTemplate? object =
+          SignerLinksSelfIriTemplate.fromJson(element);
+      if (object is SignerLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<SignerLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => SignerLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <SignerLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, SignerLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, SignerLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, SignerLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, SignerLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, SignerLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, SignerLinksSelfIriTemplate>{},
+        (Map<String, SignerLinksSelfIriTemplate> previousValue, element) {
+      final SignerLinksSelfIriTemplate? object =
+          SignerLinksSelfIriTemplate.fromJson(element.value);
+      if (object is SignerLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of SignerLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<SignerLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<SignerLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<SignerLinksSelfIriTemplate>>(
+          key, SignerLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'SignerLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'SignerLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

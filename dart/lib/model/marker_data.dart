@@ -1,21 +1,28 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class MarkerData {
+  /// Returns a new [MarkerData] instance.
   MarkerData({
-    this.feedback,
-    this.plan,
-    this.point,
+    required this.feedback,
+    required this.plan,
+    required this.point,
   });
 
-  factory MarkerData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [MarkerData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static MarkerData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return MarkerData(
-      feedback: json['feedback'],
-      plan: json['plan'],
-      point: MarkerDataPoint.fromJson(json['point']),
+      feedback: json[r'feedback'],
+      plan: json[r'plan'],
+      point: MarkerDataPoint.fromJson(json[r'point'])!,
     );
   }
 
@@ -26,53 +33,74 @@ class MarkerData {
   MarkerDataPoint point;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MarkerData &&
-        runtimeType == other.runtimeType &&
-        feedback == other.feedback &&
-        plan == other.plan &&
-        point == other.point;
+        other.feedback == feedback &&
+        other.plan == plan &&
+        other.point == point;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => feedback.hashCode + plan.hashCode + point.hashCode;
 
-    hashCode ^= feedback?.hashCode ?? 0;
-    hashCode ^= plan?.hashCode ?? 0;
-    hashCode ^= point?.hashCode ?? 0;
+  static List<MarkerData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MarkerData>[];
+    }
 
-    return hashCode;
+    return json.fold(<MarkerData>[], (List<MarkerData> previousValue, element) {
+      final MarkerData? object = MarkerData.fromJson(element);
+      if (object is MarkerData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<MarkerData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => MarkerData.fromJson(value))?.toList() ??
-        <MarkerData>[];
+  static Map<String, MarkerData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MarkerData>{};
+    }
+
+    return json.entries.fold(<String, MarkerData>{},
+        (Map<String, MarkerData> previousValue, element) {
+      final MarkerData? object = MarkerData.fromJson(element.value);
+      if (object is MarkerData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, MarkerData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MarkerData>((String key, dynamic value) {
-          return MapEntry(key, MarkerData.fromJson(value));
-        }) ??
-        <String, MarkerData>{};
+  // maps a json object with a list of MarkerData-objects as value to a dart map
+  static Map<String, List<MarkerData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MarkerData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<MarkerData>>(
+          key, MarkerData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'MarkerData[feedback=$feedback, plan=$plan, point=$point]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (feedback != null) 'feedback': feedback,
-      if (plan != null) 'plan': plan,
-      if (point != null) 'point': point.toJson(),
+    return <String, dynamic>{
+      r'feedback': feedback,
+      r'plan': plan,
+      r'point': point,
     };
-  }
-
-  @override
-  String toString() {
-    return 'MarkerData[feedback=$feedback, plan=$plan, point=$point, ]';
   }
 }

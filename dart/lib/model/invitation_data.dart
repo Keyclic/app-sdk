@@ -1,66 +1,93 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InvitationData {
+  /// Returns a new [InvitationData] instance.
   InvitationData({
-    this.member,
+    required this.member,
   });
 
-  factory InvitationData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InvitationData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InvitationData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InvitationData(
-      member: json['member'],
+      member: json[r'member'],
     );
   }
 
   String member;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is InvitationData &&
-        runtimeType == other.runtimeType &&
-        member == other.member;
+    return other is InvitationData && other.member == member;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => member.hashCode;
 
-    hashCode ^= member?.hashCode ?? 0;
+  static List<InvitationData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InvitationData>[];
+    }
 
-    return hashCode;
+    return json.fold(<InvitationData>[],
+        (List<InvitationData> previousValue, element) {
+      final InvitationData? object = InvitationData.fromJson(element);
+      if (object is InvitationData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<InvitationData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => InvitationData.fromJson(value))
-            ?.toList() ??
-        <InvitationData>[];
+  static Map<String, InvitationData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InvitationData>{};
+    }
+
+    return json.entries.fold(<String, InvitationData>{},
+        (Map<String, InvitationData> previousValue, element) {
+      final InvitationData? object = InvitationData.fromJson(element.value);
+      if (object is InvitationData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, InvitationData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, InvitationData>((String key, dynamic value) {
-          return MapEntry(key, InvitationData.fromJson(value));
-        }) ??
-        <String, InvitationData>{};
+  // maps a json object with a list of InvitationData-objects as value to a dart map
+  static Map<String, List<InvitationData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InvitationData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InvitationData>>(
+          key, InvitationData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'InvitationData[member=$member]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (member != null) 'member': member,
+    return <String, dynamic>{
+      r'member': member,
     };
-  }
-
-  @override
-  String toString() {
-    return 'InvitationData[member=$member, ]';
   }
 }

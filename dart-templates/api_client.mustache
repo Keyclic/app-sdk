@@ -1,127 +1,110 @@
-part of {{pubName}}.api;
+{{>header}}
+{{>part_of}}
 
-class QueryParam {
-  QueryParam(this.name, this.value);
-
-  String name;
-  String value;
-}
-
-class ApiClient {
-  ApiClient({
-    this.basePath = "{{{basePath}}}",
-    this.debug = false,
-  });
-
-  final Map<String, Authentication> _authentications = {
-    // Setup authentications (key: authentication name, value: authentication).
-    {{=<< >>=}}
-    <<!
-    {{#authMethods}}{{#isBasic}}
-    //'{{name}}': = HttpBasicAuth(),
-    {{/isBasic}}{{#isApiKey}}
-    {{#isKeyInHeader}}
-    //'{{name}}': ApiKeyAuth("header", "{{keyParamName}}"),
-    {{/isKeyInHeader}}
-    {{^isKeyInHeader}}
-    //'{{name}}': ApiKeyAuth("query", "{{keyParamName}}"),
-    {{/isKeyInHeader}}
-    {{/isApiKey}}{{#isOAuth}}
-    //'{{name}}': OAuth(),
-    {{/isOAuth}}{{/authMethods}}
-    >>
-    <<={{ }}=>>
-    {{! TODO: change API to use OAuth2 method in security definition }}
-    {{! Override _authentications['bearer'] }}
-    {{#authMethods}}'{{name}}': OAuth(),{{/authMethods}}
-  };
-  final Logger _logger = Logger('ApiClient');
-  final RegExp _regList = RegExp(r'^List<(.*)>$');
-  final RegExp _regMap = RegExp(r'^Map<String,(.*)>$');
-
-  final String basePath;
-  final bool debug;
-  final Client client = Client();
-
-  Map<String, String> _defaultHeaderMap = <String, String>{};
-
-  void addDefaultHeader(String key, String value) {
-    _defaultHeaderMap[key] = value;
+class {{clientName}} {
+  {{clientName}}({
+    Dio? dio,
+    String? basePathOverride,
+    List<Interceptor>? interceptors,
+  })  : this.dio = dio ??
+    Dio(BaseOptions(
+    baseUrl: basePathOverride ?? basePath,
+    connectTimeout: 10000,
+    receiveTimeout: 30000,
+  )) {
+    this.dio.interceptors.addAll(interceptors ?? [
+      OAuthInterceptor(),
+      BasicAuthInterceptor(),
+      BearerAuthInterceptor(),
+      ApiKeyAuthInterceptor(),
+    ]);
   }
 
-  dynamic deserialize(String jsonVal, String targetType) {
-    // Remove all spaces.  Necessary for reg expressions as well.
-    targetType = targetType.replaceAll(' ', '');
+  static const String basePath = r'{{{basePath}}}';
 
-    if (targetType == 'String') {
-      return jsonVal;
+  final Dio dio;
+  // final Logger _logger = Logger('ApiClient');
+
+  void setOAuthToken(String name, String token) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is OAuthInterceptor) {
+        interceptor.tokens[name] = token;
+        break;
+      }
     }
-
-    var decodedJson = json.decode(jsonVal);
-
-    return _deserialize(decodedJson, targetType);
   }
 
-  // We don't use a Map<String, String> for queryParams.
-  // If collectionFormat is 'multi' a key might appear multiple times.
-  Future<Response> invokeAPI({
-    String path,
-    String method,
-    Iterable<QueryParam> queryParams,
-    Object body,
-    Map<String, String> headerParams,
-    String contentType,
-    List<String> authNames,
+  void setBearerAuth(String name, String token) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is BearerAuthInterceptor) {
+        interceptor.tokens[name] = token;
+        break;
+      }
+    }
+  }
+
+  void setBasicAuth(String name, String username, String password) {
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is BasicAuthInterceptor) {
+        interceptor.authInfo[name] = BasicAuthInfo(username, password);
+        break;
+      }
+    }
+  }
+
+  void setApiKey(String name, String apiKey) {
+  // ApiKeyAuth({{#isKeyInCookie}}'cookie'{{/isKeyInCookie}}{{^isKeyInCookie}}{{#isKeyInHeader}}'header'{{/isKeyInHeader}}{{^isKeyInHeader}}'query'{{/isKeyInHeader}}{{/isKeyInCookie}}, '{{{keyParamName}}}');
+    for (final interceptor in dio.interceptors) {
+      if (interceptor is ApiKeyAuthInterceptor) {
+        interceptor.apiKeys[name] = apiKey;
+        break;
+      }
+    }
+  }
+
+  {{#apiInfo}}{{#apis}}
+    /// Get {{classname}} instance
+    {{classname}} get{{classname}}() {
+    return {{classname}}(this);
+    }{{/apis}}{{/apiInfo}}
+
+  Future<Response<Object>> invokeAPI({
+    required String path,
+    Object? body,
+    Options? options,
+    Map<String, dynamic>? queryParameters,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
-    _updateParamsForAuth(authNames, queryParams, headerParams);
+      return dio.request<Object>(
+        path,
+        data: body,
+        options: options,
+        queryParameters: queryParameters,
+        cancelToken: cancelToken,
+        onSendProgress: onSendProgress,
+        onReceiveProgress: onReceiveProgress,
+      );
+  }
+{{#native_serialization}}
 
-    final List<String> queryParamList = queryParams
-    .where((QueryParam queryParam) => queryParam.value != null)
-    .map<String>((QueryParam queryParam) => '${queryParam.name}=${queryParam.value}')
-    .toList();
+  Future<T> deserializeAsync<T>(dynamic json, String targetType, {bool growable = false}) async =>
+    // ignore: deprecated_member_use_from_same_package
+    deserialize(json, targetType, growable: growable) as T;
 
-    String queryString = queryParamList.isNotEmpty ? '?${queryParamList.join('&')}' : '';
+  @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
+  dynamic deserialize(dynamic json, String targetType, {bool growable = false}) {
+    // Remove all spaces. Necessary for regular expressions as well.
+    targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
-    final String url = '$basePath$path$queryString';
-
-    headerParams.addAll(_defaultHeaderMap);
-    headerParams['Content-Type'] = contentType;
-
-    final String msgBody = serialize(body);
-
-    if (debug) {
-      _logger.info('$method $url');
-    }
-
-    switch(method) {
-      case "POST":
-        return client.post(url, headers: headerParams, body: msgBody);
-      case "PUT":
-        return client.put(url, headers: headerParams, body: msgBody);
-      case "DELETE":
-        return client.delete(url, headers: headerParams);
-      case "PATCH":
-        return client.patch(url, headers: headerParams, body: msgBody);
-      default:
-        return client.get(url, headers: headerParams);
-    }
+    // If the expected target type is String, nothing to do...
+    return targetType == 'String'
+      ? jsonEncode(json)
+      : _deserialize(json, targetType, growable: growable == true);
   }
 
-  String serialize(Object obj) {
-    if (obj == null) {
-      return '';
-    }
-
-    return json.encode(obj);
-  }
-
-  void setAccessToken(String accessToken) {
-    _authentications.forEach((key, auth) {
-      auth.setAccessToken(accessToken);
-    });
-  }
-
-  dynamic _deserialize(dynamic value, String targetType) {
+  static dynamic _deserialize(dynamic value, String targetType, {bool growable = false}) {
     try {
       switch (targetType) {
         case 'String':
@@ -129,46 +112,52 @@ class ApiClient {
         case 'int':
           return value is int ? value : int.parse('$value');
         case 'bool':
-          return value is bool ? value : '$value'.toLowerCase() == 'true';
+          if (value is bool) {
+            return value;
+          }
+          final valueString = '$value'.toLowerCase();
+          return valueString == 'true' || valueString == '1';
         case 'double':
           return value is double ? value : double.parse('$value');
         {{#models}}
           {{#model}}
-            case '{{classname}}':
-              return {{classname}}.fromJson(value);
+        case '{{{classname}}}':
+            {{#isEnum}}
+          {{#native_serialization}}return {{{classname}}}TypeTransformer().decode(value);{{/native_serialization}}
+          {{#json_serializable}} return _$enumDecode(_${{{classname}}}EnumMap, value);{{/json_serializable}}
+            {{/isEnum}}
+            {{^isEnum}}
+          return {{{classname}}}.fromJson(value);
+            {{/isEnum}}
           {{/model}}
         {{/models}}
-        default: {
-          Match match;
+        default:
+          Match? match;
           if (value is List && (match = _regList.firstMatch(targetType)) != null) {
-            return value.map((dynamic v) => _deserialize(v, match[1])).toList();
+            targetType = match![1]!; // ignore: parameter_assignments
+            return value
+              .map((v) => _deserialize(v, targetType, growable: growable))
+              .toList(growable: growable);
           }
-
+          if (value is Set && (match = _regSet.firstMatch(targetType)) != null) {
+            targetType = match![1]!; // ignore: parameter_assignments
+            return value
+              .map((v) => _deserialize(v, targetType, growable: growable))
+              .toSet();
+          }
           if (value is Map && (match = _regMap.firstMatch(targetType)) != null) {
-            return Map.fromIterables(value.keys, value.values.map((v) => _deserialize(v, match[1])));
+            targetType = match![1]!; // ignore: parameter_assignments
+            return Map.fromIterables(
+              value.keys,
+              value.values.map((v) => _deserialize(v, targetType, growable: growable)),
+            );
           }
-        }
+          break;
       }
-    } catch (exception, stack) {
-      throw ApiException.withInner(500, 'Exception during deserialization with type: $targetType.', exception, stack);
+    } on Exception catch (error, trace) {
+      throw ApiException.withInner(HttpStatus.internalServerError, 'Exception during deserialization.', error, trace,);
     }
-
-    throw ApiException(500, 'Could not find a suitable class for deserialization');
+    throw ApiException(HttpStatus.internalServerError, 'Could not find a suitable class for deserialization',);
   }
-
-  /// Update query and header parameters based on authentication settings.
-  /// @param authNames The authentications to apply
-  void _updateParamsForAuth(
-    List<String> authNames,
-    List<QueryParam> queryParams,
-    Map<String, String> headerParams,
-  ) {
-    authNames.forEach((authName) {
-      Authentication auth = _authentications[authName];
-      if (auth == null) {
-        throw ArgumentError("Authentication undefined: $authName");
-      }
-      auth.applyToParams(queryParams, headerParams);
-    });
-  }
+{{/native_serialization}}
 }

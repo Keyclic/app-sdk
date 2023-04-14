@@ -1,78 +1,111 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewData {
+  /// Returns a new [ReviewData] instance.
   ReviewData({
     this.reviewBody,
-    this.reviewRating,
-    this.reviewRequest,
+    required this.reviewRating,
+    required this.reviewRequest,
   });
 
-  factory ReviewData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewData(
-      reviewBody: json['reviewBody'],
-      reviewRating: json['reviewRating'],
-      reviewRequest: json['reviewRequest'],
+      reviewBody: json[r'reviewBody'],
+      reviewRating: json[r'reviewRating'] == null
+          ? null
+          : json[r'reviewRating'].toDouble(),
+      reviewRequest: json[r'reviewRequest'],
     );
   }
 
-  String reviewBody;
+  String? reviewBody;
 
   num reviewRating;
 
   String reviewRequest;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewData &&
-        runtimeType == other.runtimeType &&
-        reviewBody == other.reviewBody &&
-        reviewRating == other.reviewRating &&
-        reviewRequest == other.reviewRequest;
+        other.reviewBody == reviewBody &&
+        other.reviewRating == reviewRating &&
+        other.reviewRequest == reviewRequest;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (reviewBody == null ? 0 : reviewBody.hashCode) +
+      reviewRating.hashCode +
+      reviewRequest.hashCode;
 
-    hashCode ^= reviewBody?.hashCode ?? 0;
-    hashCode ^= reviewRating?.hashCode ?? 0;
-    hashCode ^= reviewRequest?.hashCode ?? 0;
+  static List<ReviewData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewData>[];
+    }
 
-    return hashCode;
+    return json.fold(<ReviewData>[], (List<ReviewData> previousValue, element) {
+      final ReviewData? object = ReviewData.fromJson(element);
+      if (object is ReviewData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ReviewData> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => ReviewData.fromJson(value))?.toList() ??
-        <ReviewData>[];
+  static Map<String, ReviewData> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewData>{};
+    }
+
+    return json.entries.fold(<String, ReviewData>{},
+        (Map<String, ReviewData> previousValue, element) {
+      final ReviewData? object = ReviewData.fromJson(element.value);
+      if (object is ReviewData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReviewData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewData>((String key, dynamic value) {
-          return MapEntry(key, ReviewData.fromJson(value));
-        }) ??
-        <String, ReviewData>{};
+  // maps a json object with a list of ReviewData-objects as value to a dart map
+  static Map<String, List<ReviewData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewData>>(
+          key, ReviewData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (reviewBody != null) 'reviewBody': reviewBody,
-      if (reviewRating != null) 'reviewRating': reviewRating,
-      if (reviewRequest != null) 'reviewRequest': reviewRequest,
+    return <String, dynamic>{
+      if (reviewBody != null) r'reviewBody': reviewBody,
+      r'reviewRating': reviewRating,
+      r'reviewRequest': reviewRequest,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest, ]';
   }
 }

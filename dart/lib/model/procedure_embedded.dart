@@ -1,66 +1,95 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ProcedureEmbedded {
+  /// Returns a new [ProcedureEmbedded] instance.
   ProcedureEmbedded({
     this.document,
   });
 
-  factory ProcedureEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ProcedureEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ProcedureEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ProcedureEmbedded(
-      document: Document.fromJson(json['document']),
+      document: Document.fromJson(json[r'document']),
     );
   }
 
-  Document document;
+  Document? document;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ProcedureEmbedded &&
-        runtimeType == other.runtimeType &&
-        document == other.document;
+    return other is ProcedureEmbedded && other.document == document;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (document == null ? 0 : document.hashCode);
 
-    hashCode ^= document?.hashCode ?? 0;
+  static List<ProcedureEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ProcedureEmbedded>[];
+    }
 
-    return hashCode;
+    return json.fold(<ProcedureEmbedded>[],
+        (List<ProcedureEmbedded> previousValue, element) {
+      final ProcedureEmbedded? object = ProcedureEmbedded.fromJson(element);
+      if (object is ProcedureEmbedded) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ProcedureEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ProcedureEmbedded.fromJson(value))
-            ?.toList() ??
-        <ProcedureEmbedded>[];
+  static Map<String, ProcedureEmbedded> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ProcedureEmbedded>{};
+    }
+
+    return json.entries.fold(<String, ProcedureEmbedded>{},
+        (Map<String, ProcedureEmbedded> previousValue, element) {
+      final ProcedureEmbedded? object =
+          ProcedureEmbedded.fromJson(element.value);
+      if (object is ProcedureEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ProcedureEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ProcedureEmbedded>((String key, dynamic value) {
-          return MapEntry(key, ProcedureEmbedded.fromJson(value));
-        }) ??
-        <String, ProcedureEmbedded>{};
+  // maps a json object with a list of ProcedureEmbedded-objects as value to a dart map
+  static Map<String, List<ProcedureEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ProcedureEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ProcedureEmbedded>>(
+          key, ProcedureEmbedded.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'ProcedureEmbedded[document=$document]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (document != null) 'document': document.toJson(),
+    return <String, dynamic>{
+      if (document != null) r'document': document,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ProcedureEmbedded[document=$document, ]';
   }
 }

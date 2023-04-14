@@ -1,72 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ExternalServiceCollection {
+  /// Returns a new [ExternalServiceCollection] instance.
   ExternalServiceCollection({
-    this.items,
+    this.items = const [],
   });
 
-  factory ExternalServiceCollection.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ExternalServiceCollection] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ExternalServiceCollection? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ExternalServiceCollection(
-      items: ExternalService.listFromJson(json['items']),
+      items: ExternalService.listFromJson(json[r'items']),
     );
   }
 
-  List<ExternalService> items;
+  List<ExternalService>? items;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ExternalServiceCollection &&
-        runtimeType == other.runtimeType &&
         DeepCollectionEquality.unordered().equals(items, other.items);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (items == null ? 0 : items.hashCode);
 
-    if (items is List && items.isNotEmpty) {
-      hashCode ^= items
-          .map((ExternalService element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<ExternalServiceCollection> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ExternalServiceCollection>[];
     }
 
-    return hashCode;
-  }
+    return json.fold(<ExternalServiceCollection>[],
+        (List<ExternalServiceCollection> previousValue, element) {
+      final ExternalServiceCollection? object =
+          ExternalServiceCollection.fromJson(element);
+      if (object is ExternalServiceCollection) {
+        previousValue.add(object);
+      }
 
-  static List<ExternalServiceCollection> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ExternalServiceCollection.fromJson(value))
-            ?.toList() ??
-        <ExternalServiceCollection>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ExternalServiceCollection> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ExternalServiceCollection>(
-            (String key, dynamic value) {
-          return MapEntry(key, ExternalServiceCollection.fromJson(value));
-        }) ??
-        <String, ExternalServiceCollection>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ExternalServiceCollection>{};
+    }
+
+    return json.entries.fold(<String, ExternalServiceCollection>{},
+        (Map<String, ExternalServiceCollection> previousValue, element) {
+      final ExternalServiceCollection? object =
+          ExternalServiceCollection.fromJson(element.value);
+      if (object is ExternalServiceCollection) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (items != null) 'items': items,
-    };
+  // maps a json object with a list of ExternalServiceCollection-objects as value to a dart map
+  static Map<String, List<ExternalServiceCollection>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ExternalServiceCollection>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ExternalServiceCollection>>(
+          key, ExternalServiceCollection.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ExternalServiceCollection[items=$items, ]';
+  String toString() => 'ExternalServiceCollection[items=$items]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (items != null) r'items': items,
+    };
   }
 }

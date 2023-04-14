@@ -1,74 +1,104 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PublicationEmbedded {
+  /// Returns a new [PublicationEmbedded] instance.
   PublicationEmbedded({
     this.author,
     this.place,
   });
 
-  factory PublicationEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PublicationEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PublicationEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PublicationEmbedded(
-      author: Person.fromJson(json['author']),
-      place: Place.fromJson(json['place']),
+      author: Person.fromJson(json[r'author']),
+      place: Place.fromJson(json[r'place']),
     );
   }
 
-  Person author;
+  Person? author;
 
-  Place place;
+  Place? place;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PublicationEmbedded &&
-        runtimeType == other.runtimeType &&
-        author == other.author &&
-        place == other.place;
+        other.author == author &&
+        other.place == place;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (author == null ? 0 : author.hashCode) +
+      (place == null ? 0 : place.hashCode);
 
-    hashCode ^= author?.hashCode ?? 0;
-    hashCode ^= place?.hashCode ?? 0;
+  static List<PublicationEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PublicationEmbedded>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<PublicationEmbedded>[],
+        (List<PublicationEmbedded> previousValue, element) {
+      final PublicationEmbedded? object = PublicationEmbedded.fromJson(element);
+      if (object is PublicationEmbedded) {
+        previousValue.add(object);
+      }
 
-  static List<PublicationEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PublicationEmbedded.fromJson(value))
-            ?.toList() ??
-        <PublicationEmbedded>[];
+      return previousValue;
+    });
   }
 
   static Map<String, PublicationEmbedded> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, PublicationEmbedded>((String key, dynamic value) {
-          return MapEntry(key, PublicationEmbedded.fromJson(value));
-        }) ??
-        <String, PublicationEmbedded>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PublicationEmbedded>{};
+    }
+
+    return json.entries.fold(<String, PublicationEmbedded>{},
+        (Map<String, PublicationEmbedded> previousValue, element) {
+      final PublicationEmbedded? object =
+          PublicationEmbedded.fromJson(element.value);
+      if (object is PublicationEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (author != null) 'author': author.toJson(),
-      if (place != null) 'place': place.toJson(),
-    };
+  // maps a json object with a list of PublicationEmbedded-objects as value to a dart map
+  static Map<String, List<PublicationEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PublicationEmbedded>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PublicationEmbedded>>(
+          key, PublicationEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'PublicationEmbedded[author=$author, place=$place, ]';
+  String toString() => 'PublicationEmbedded[author=$author, place=$place]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (author != null) r'author': author,
+      if (place != null) r'place': place,
+    };
   }
 }

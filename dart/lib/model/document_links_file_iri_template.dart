@@ -1,69 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class DocumentLinksFileIriTemplate {
+  /// Returns a new [DocumentLinksFileIriTemplate] instance.
   DocumentLinksFileIriTemplate({
     this.mapping,
   });
 
-  factory DocumentLinksFileIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [DocumentLinksFileIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static DocumentLinksFileIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return DocumentLinksFileIriTemplate(
-      mapping: DocumentLinksFileIriTemplateMapping.fromJson(json['mapping']),
+      mapping: DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  DocumentLinksFileIriTemplateMapping mapping;
+  DocumentLinksFileIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is DocumentLinksFileIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is DocumentLinksFileIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<DocumentLinksFileIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <DocumentLinksFileIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<DocumentLinksFileIriTemplate>[],
+        (List<DocumentLinksFileIriTemplate> previousValue, element) {
+      final DocumentLinksFileIriTemplate? object =
+          DocumentLinksFileIriTemplate.fromJson(element);
+      if (object is DocumentLinksFileIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<DocumentLinksFileIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => DocumentLinksFileIriTemplate.fromJson(value))
-            ?.toList() ??
-        <DocumentLinksFileIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, DocumentLinksFileIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, DocumentLinksFileIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, DocumentLinksFileIriTemplate.fromJson(value));
-        }) ??
-        <String, DocumentLinksFileIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, DocumentLinksFileIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, DocumentLinksFileIriTemplate>{},
+        (Map<String, DocumentLinksFileIriTemplate> previousValue, element) {
+      final DocumentLinksFileIriTemplate? object =
+          DocumentLinksFileIriTemplate.fromJson(element.value);
+      if (object is DocumentLinksFileIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of DocumentLinksFileIriTemplate-objects as value to a dart map
+  static Map<String, List<DocumentLinksFileIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<DocumentLinksFileIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<DocumentLinksFileIriTemplate>>(
+          key, DocumentLinksFileIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'DocumentLinksFileIriTemplate[mapping=$mapping, ]';
+  String toString() => 'DocumentLinksFileIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

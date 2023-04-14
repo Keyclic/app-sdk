@@ -1,69 +1,96 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class WorkflowLinksSelfIriTemplate {
+  /// Returns a new [WorkflowLinksSelfIriTemplate] instance.
   WorkflowLinksSelfIriTemplate({
     this.mapping,
   });
 
-  factory WorkflowLinksSelfIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [WorkflowLinksSelfIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static WorkflowLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return WorkflowLinksSelfIriTemplate(
-      mapping: WorkflowLinksSelfIriTemplateMapping.fromJson(json['mapping']),
+      mapping: WorkflowLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  WorkflowLinksSelfIriTemplateMapping mapping;
+  WorkflowLinksSelfIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is WorkflowLinksSelfIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is WorkflowLinksSelfIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<WorkflowLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <WorkflowLinksSelfIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<WorkflowLinksSelfIriTemplate>[],
+        (List<WorkflowLinksSelfIriTemplate> previousValue, element) {
+      final WorkflowLinksSelfIriTemplate? object =
+          WorkflowLinksSelfIriTemplate.fromJson(element);
+      if (object is WorkflowLinksSelfIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<WorkflowLinksSelfIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map(
-                (dynamic value) => WorkflowLinksSelfIriTemplate.fromJson(value))
-            ?.toList() ??
-        <WorkflowLinksSelfIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, WorkflowLinksSelfIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, WorkflowLinksSelfIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, WorkflowLinksSelfIriTemplate.fromJson(value));
-        }) ??
-        <String, WorkflowLinksSelfIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, WorkflowLinksSelfIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, WorkflowLinksSelfIriTemplate>{},
+        (Map<String, WorkflowLinksSelfIriTemplate> previousValue, element) {
+      final WorkflowLinksSelfIriTemplate? object =
+          WorkflowLinksSelfIriTemplate.fromJson(element.value);
+      if (object is WorkflowLinksSelfIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of WorkflowLinksSelfIriTemplate-objects as value to a dart map
+  static Map<String, List<WorkflowLinksSelfIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<WorkflowLinksSelfIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<WorkflowLinksSelfIriTemplate>>(
+          key, WorkflowLinksSelfIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'WorkflowLinksSelfIriTemplate[mapping=$mapping, ]';
+  String toString() => 'WorkflowLinksSelfIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

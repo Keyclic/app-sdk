@@ -1,79 +1,109 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReportLinksChildrenIriTemplateMapping {
+  /// Returns a new [ReportLinksChildrenIriTemplateMapping] instance.
   ReportLinksChildrenIriTemplateMapping({
     this.organization,
     this.parent,
   });
 
-  factory ReportLinksChildrenIriTemplateMapping.fromJson(
-      Map<String, dynamic> json) {
+  /// Returns a new [ReportLinksChildrenIriTemplateMapping] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReportLinksChildrenIriTemplateMapping? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReportLinksChildrenIriTemplateMapping(
-      organization: json['organization'],
-      parent: json['parent'],
+      organization: json[r'organization'],
+      parent: json[r'parent'],
     );
   }
 
-  String organization;
+  String? organization;
 
-  String parent;
+  String? parent;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReportLinksChildrenIriTemplateMapping &&
-        runtimeType == other.runtimeType &&
-        organization == other.organization &&
-        parent == other.parent;
+        other.organization == organization &&
+        other.parent == parent;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= parent?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode =>
+      (organization == null ? 0 : organization.hashCode) +
+      (parent == null ? 0 : parent.hashCode);
 
   static List<ReportLinksChildrenIriTemplateMapping> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                ReportLinksChildrenIriTemplateMapping.fromJson(value))
-            ?.toList() ??
-        <ReportLinksChildrenIriTemplateMapping>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <ReportLinksChildrenIriTemplateMapping>[];
+    }
+
+    return json.fold(<ReportLinksChildrenIriTemplateMapping>[],
+        (List<ReportLinksChildrenIriTemplateMapping> previousValue, element) {
+      final ReportLinksChildrenIriTemplateMapping? object =
+          ReportLinksChildrenIriTemplateMapping.fromJson(element);
+      if (object is ReportLinksChildrenIriTemplateMapping) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, ReportLinksChildrenIriTemplateMapping> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, ReportLinksChildrenIriTemplateMapping>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, ReportLinksChildrenIriTemplateMapping.fromJson(value));
-        }) ??
-        <String, ReportLinksChildrenIriTemplateMapping>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReportLinksChildrenIriTemplateMapping>{};
+    }
+
+    return json.entries.fold(<String, ReportLinksChildrenIriTemplateMapping>{},
+        (Map<String, ReportLinksChildrenIriTemplateMapping> previousValue,
+            element) {
+      final ReportLinksChildrenIriTemplateMapping? object =
+          ReportLinksChildrenIriTemplateMapping.fromJson(element.value);
+      if (object is ReportLinksChildrenIriTemplateMapping) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (organization != null) 'organization': organization,
-      if (parent != null) 'parent': parent,
-    };
+  // maps a json object with a list of ReportLinksChildrenIriTemplateMapping-objects as value to a dart map
+  static Map<String, List<ReportLinksChildrenIriTemplateMapping>>
+      mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReportLinksChildrenIriTemplateMapping>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReportLinksChildrenIriTemplateMapping>>(
+          key, ReportLinksChildrenIriTemplateMapping.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ReportLinksChildrenIriTemplateMapping[organization=$organization, parent=$parent, ]';
+  String toString() =>
+      'ReportLinksChildrenIriTemplateMapping[organization=$organization, parent=$parent]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (organization != null) r'organization': organization,
+      if (parent != null) r'parent': parent,
+    };
   }
 }

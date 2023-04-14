@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
 
-class BookmarkPagination extends Pagination {
+part of keyclic_sdk_api;
+
+class BookmarkPagination implements Pagination, BookmarkPaginationAllOf {
+  /// Returns a new [BookmarkPagination] instance.
   BookmarkPagination({
     this.limit,
     this.page,
@@ -10,93 +15,119 @@ class BookmarkPagination extends Pagination {
     this.embedded,
   });
 
-  factory BookmarkPagination.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [BookmarkPagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BookmarkPagination? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return BookmarkPagination(
-      limit: json['limit'],
-      page: json['page'],
-      pages: json['pages'],
-      total: json['total'],
-      links: PaginationLinks.fromJson(json['_links']),
-      embedded: BookmarkCollection.fromJson(json['_embedded']),
+      limit: json[r'limit'],
+      page: json[r'page'],
+      pages: json[r'pages'],
+      total: json[r'total'],
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: BookmarkCollection.fromJson(json[r'_embedded']),
     );
   }
 
-  int limit;
+  int? limit;
 
-  int page;
+  int? page;
 
-  int pages;
+  int? pages;
 
-  int total;
+  int? total;
 
-  PaginationLinks links;
+  PaginationLinks? links;
 
-  BookmarkCollection embedded;
+  BookmarkCollection? embedded;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is BookmarkPagination &&
-        runtimeType == other.runtimeType &&
-        limit == other.limit &&
-        page == other.page &&
-        pages == other.pages &&
-        total == other.total &&
-        links == other.links &&
-        embedded == other.embedded;
+        other.limit == limit &&
+        other.page == page &&
+        other.pages == pages &&
+        other.total == total &&
+        other.links == links &&
+        other.embedded == embedded;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (limit == null ? 0 : limit.hashCode) +
+      (page == null ? 0 : page.hashCode) +
+      (pages == null ? 0 : pages.hashCode) +
+      (total == null ? 0 : total.hashCode) +
+      (links == null ? 0 : links.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
-    hashCode ^= limit?.hashCode ?? 0;
-    hashCode ^= page?.hashCode ?? 0;
-    hashCode ^= pages?.hashCode ?? 0;
-    hashCode ^= total?.hashCode ?? 0;
-    hashCode ^= links?.hashCode ?? 0;
-    hashCode ^= embedded?.hashCode ?? 0;
+  static List<BookmarkPagination> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <BookmarkPagination>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<BookmarkPagination>[],
+        (List<BookmarkPagination> previousValue, element) {
+      final BookmarkPagination? object = BookmarkPagination.fromJson(element);
+      if (object is BookmarkPagination) {
+        previousValue.add(object);
+      }
 
-  static List<BookmarkPagination> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => BookmarkPagination.fromJson(value))
-            ?.toList() ??
-        <BookmarkPagination>[];
+      return previousValue;
+    });
   }
 
   static Map<String, BookmarkPagination> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, BookmarkPagination>((String key, dynamic value) {
-          return MapEntry(key, BookmarkPagination.fromJson(value));
-        }) ??
-        <String, BookmarkPagination>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, BookmarkPagination>{};
+    }
+
+    return json.entries.fold(<String, BookmarkPagination>{},
+        (Map<String, BookmarkPagination> previousValue, element) {
+      final BookmarkPagination? object =
+          BookmarkPagination.fromJson(element.value);
+      if (object is BookmarkPagination) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (limit != null) 'limit': limit,
-      if (page != null) 'page': page,
-      if (pages != null) 'pages': pages,
-      if (total != null) 'total': total,
-      if (links != null) '_links': links.toJson(),
-      if (embedded != null) '_embedded': embedded.toJson(),
-    };
+  // maps a json object with a list of BookmarkPagination-objects as value to a dart map
+  static Map<String, List<BookmarkPagination>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<BookmarkPagination>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<BookmarkPagination>>(
+          key, BookmarkPagination.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'BookmarkPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded, ]';
+  String toString() =>
+      'BookmarkPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (limit != null) r'limit': limit,
+      if (page != null) r'page': page,
+      if (pages != null) r'pages': pages,
+      if (total != null) r'total': total,
+      if (links != null) r'_links': links,
+      if (embedded != null) r'_embedded': embedded,
+    };
   }
 }

@@ -1,72 +1,100 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InvitationLinksMemberIriTemplate {
+  /// Returns a new [InvitationLinksMemberIriTemplate] instance.
   InvitationLinksMemberIriTemplate({
     this.mapping,
   });
 
-  factory InvitationLinksMemberIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InvitationLinksMemberIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InvitationLinksMemberIriTemplate? fromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InvitationLinksMemberIriTemplate(
       mapping:
-          AssignmentLinksMemberIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksMemberIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  AssignmentLinksMemberIriTemplateMapping mapping;
+  AssignmentLinksMemberIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is InvitationLinksMemberIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+        other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
-
-    hashCode ^= mapping?.hashCode ?? 0;
-
-    return hashCode;
-  }
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<InvitationLinksMemberIriTemplate> listFromJson(
-      List<dynamic> json) {
-    return json
-            ?.map((dynamic value) =>
-                InvitationLinksMemberIriTemplate.fromJson(value))
-            ?.toList() ??
-        <InvitationLinksMemberIriTemplate>[];
+      List<dynamic>? json) {
+    if (json == null) {
+      return <InvitationLinksMemberIriTemplate>[];
+    }
+
+    return json.fold(<InvitationLinksMemberIriTemplate>[],
+        (List<InvitationLinksMemberIriTemplate> previousValue, element) {
+      final InvitationLinksMemberIriTemplate? object =
+          InvitationLinksMemberIriTemplate.fromJson(element);
+      if (object is InvitationLinksMemberIriTemplate) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
   static Map<String, InvitationLinksMemberIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, InvitationLinksMemberIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(
-              key, InvitationLinksMemberIriTemplate.fromJson(value));
-        }) ??
-        <String, InvitationLinksMemberIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InvitationLinksMemberIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, InvitationLinksMemberIriTemplate>{},
+        (Map<String, InvitationLinksMemberIriTemplate> previousValue, element) {
+      final InvitationLinksMemberIriTemplate? object =
+          InvitationLinksMemberIriTemplate.fromJson(element.value);
+      if (object is InvitationLinksMemberIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of InvitationLinksMemberIriTemplate-objects as value to a dart map
+  static Map<String, List<InvitationLinksMemberIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InvitationLinksMemberIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InvitationLinksMemberIriTemplate>>(
+          key, InvitationLinksMemberIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'InvitationLinksMemberIriTemplate[mapping=$mapping, ]';
+  String toString() => 'InvitationLinksMemberIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

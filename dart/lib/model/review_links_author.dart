@@ -1,74 +1,106 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ReviewLinksAuthor {
+  /// Returns a new [ReviewLinksAuthor] instance.
   ReviewLinksAuthor({
     this.href,
     this.iriTemplate,
   });
 
-  factory ReviewLinksAuthor.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ReviewLinksAuthor] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ReviewLinksAuthor? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ReviewLinksAuthor(
-      href: json['href'],
-      iriTemplate: ReviewLinksAuthorIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: ReviewLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the author associated to the given review. */
-  String href;
+  /// The URI of the author associated to the given review.
+  String? href;
 
-  ReviewLinksAuthorIriTemplate iriTemplate;
+  ReviewLinksAuthorIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ReviewLinksAuthor &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<ReviewLinksAuthor> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ReviewLinksAuthor>[];
+    }
 
-    return hashCode;
+    return json.fold(<ReviewLinksAuthor>[],
+        (List<ReviewLinksAuthor> previousValue, element) {
+      final ReviewLinksAuthor? object = ReviewLinksAuthor.fromJson(element);
+      if (object is ReviewLinksAuthor) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ReviewLinksAuthor> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ReviewLinksAuthor.fromJson(value))
-            ?.toList() ??
-        <ReviewLinksAuthor>[];
+  static Map<String, ReviewLinksAuthor> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ReviewLinksAuthor>{};
+    }
+
+    return json.entries.fold(<String, ReviewLinksAuthor>{},
+        (Map<String, ReviewLinksAuthor> previousValue, element) {
+      final ReviewLinksAuthor? object =
+          ReviewLinksAuthor.fromJson(element.value);
+      if (object is ReviewLinksAuthor) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ReviewLinksAuthor> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ReviewLinksAuthor>((String key, dynamic value) {
-          return MapEntry(key, ReviewLinksAuthor.fromJson(value));
-        }) ??
-        <String, ReviewLinksAuthor>{};
+  // maps a json object with a list of ReviewLinksAuthor-objects as value to a dart map
+  static Map<String, List<ReviewLinksAuthor>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ReviewLinksAuthor>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ReviewLinksAuthor>>(
+          key, ReviewLinksAuthor.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'ReviewLinksAuthor[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ReviewLinksAuthor[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

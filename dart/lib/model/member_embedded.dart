@@ -1,85 +1,110 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class MemberEmbedded {
+  /// Returns a new [MemberEmbedded] instance.
   MemberEmbedded({
     this.organization,
     this.person,
-    this.roles,
+    this.roles = const [],
   });
 
-  factory MemberEmbedded.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [MemberEmbedded] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static MemberEmbedded? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return MemberEmbedded(
-      organization: Organization.fromJson(json['organization']),
-      person: Person.fromJson(json['person']),
-      roles: Role.listFromJson(json['roles']),
+      organization: Organization.fromJson(json[r'organization']),
+      person: Person.fromJson(json[r'person']),
+      roles: Role.listFromJson(json[r'roles']),
     );
   }
 
-  Organization organization;
+  Organization? organization;
 
-  Person person;
+  Person? person;
 
-  List<Role> roles;
+  List<Role>? roles;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is MemberEmbedded &&
-        runtimeType == other.runtimeType &&
-        organization == other.organization &&
-        person == other.person &&
+        other.organization == organization &&
+        other.person == person &&
         DeepCollectionEquality.unordered().equals(roles, other.roles);
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (organization == null ? 0 : organization.hashCode) +
+      (person == null ? 0 : person.hashCode) +
+      (roles == null ? 0 : roles.hashCode);
 
-    if (roles is List && roles.isNotEmpty) {
-      hashCode ^= roles
-          .map((Role element) => element.hashCode)
-          .reduce((int value, int cursor) => value ^ cursor);
+  static List<MemberEmbedded> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <MemberEmbedded>[];
     }
 
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= person?.hashCode ?? 0;
+    return json.fold(<MemberEmbedded>[],
+        (List<MemberEmbedded> previousValue, element) {
+      final MemberEmbedded? object = MemberEmbedded.fromJson(element);
+      if (object is MemberEmbedded) {
+        previousValue.add(object);
+      }
 
-    return hashCode;
+      return previousValue;
+    });
   }
 
-  static List<MemberEmbedded> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => MemberEmbedded.fromJson(value))
-            ?.toList() ??
-        <MemberEmbedded>[];
+  static Map<String, MemberEmbedded> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, MemberEmbedded>{};
+    }
+
+    return json.entries.fold(<String, MemberEmbedded>{},
+        (Map<String, MemberEmbedded> previousValue, element) {
+      final MemberEmbedded? object = MemberEmbedded.fromJson(element.value);
+      if (object is MemberEmbedded) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, MemberEmbedded> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, MemberEmbedded>((String key, dynamic value) {
-          return MapEntry(key, MemberEmbedded.fromJson(value));
-        }) ??
-        <String, MemberEmbedded>{};
-  }
+  // maps a json object with a list of MemberEmbedded-objects as value to a dart map
+  static Map<String, List<MemberEmbedded>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<MemberEmbedded>>{};
+    }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (organization != null) 'organization': organization.toJson(),
-      if (person != null) 'person': person.toJson(),
-      if (roles != null) 'roles': roles,
-    };
+    return json.map((key, value) {
+      return MapEntry<String, List<MemberEmbedded>>(
+          key, MemberEmbedded.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'MemberEmbedded[organization=$organization, person=$person, roles=$roles, ]';
+  String toString() =>
+      'MemberEmbedded[organization=$organization, person=$person, roles=$roles]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (organization != null) r'organization': organization,
+      if (person != null) r'person': person,
+      if (roles != null) r'roles': roles,
+    };
   }
 }

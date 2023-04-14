@@ -8,17 +8,17 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**default_** | **String** |  | [optional] [default to null]
-**description** | **String** |  | [optional] [default to null]
-**enum_** | **List&lt;String&gt;** |  | [optional] [default to []]
-**format** | **String** |  | [optional] [default to null]
-**id** | **String** |  | [optional] [default to null]
-**maxItems** | **int** |  | [optional] [default to null]
-**minItems** | **int** |  | [optional] [default to null]
-**oneOf** | [**List&lt;ItemsChoice&gt;**](ItemsChoice.md) |  | [optional] [default to []]
-**propertyOrder** | **int** |  | [optional] [default to null]
-**title** | **String** |  | [optional] [default to null]
-**type** | **String** |  | [optional] [default to null]
+**default_** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
+**enum_** | **List<String>** |  | [optional] [default to const []]
+**format** | **String** |  | [optional] 
+**id** | **String** |  | [optional] [readonly] 
+**maxItems** | **int** |  | [optional] 
+**minItems** | **int** |  | [optional] 
+**oneOf** | [**List<ItemsChoice>**](ItemsChoice.md) |  | [optional] [default to const []]
+**propertyOrder** | **int** |  | [optional] 
+**title** | **String** |  | [optional] 
+**type** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

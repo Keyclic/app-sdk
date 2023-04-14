@@ -1,73 +1,103 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlacePreferences {
+  /// Returns a new [PlacePreferences] instance.
   PlacePreferences({
     this.public,
     this.visibility,
   });
 
-  factory PlacePreferences.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlacePreferences] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlacePreferences? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlacePreferences(
-      public: json['public'],
-      visibility: json['visibility'],
+      public: json[r'public'],
+      visibility: json[r'visibility'],
     );
   }
 
-  bool public;
+  bool? public;
 
-  String visibility;
+  String? visibility;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlacePreferences &&
-        runtimeType == other.runtimeType &&
-        public == other.public &&
-        visibility == other.visibility;
+        other.public == public &&
+        other.visibility == visibility;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (public == null ? 0 : public.hashCode) +
+      (visibility == null ? 0 : visibility.hashCode);
 
-    hashCode ^= public?.hashCode ?? 0;
-    hashCode ^= visibility?.hashCode ?? 0;
+  static List<PlacePreferences> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlacePreferences>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlacePreferences>[],
+        (List<PlacePreferences> previousValue, element) {
+      final PlacePreferences? object = PlacePreferences.fromJson(element);
+      if (object is PlacePreferences) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlacePreferences> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlacePreferences.fromJson(value))
-            ?.toList() ??
-        <PlacePreferences>[];
+  static Map<String, PlacePreferences> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlacePreferences>{};
+    }
+
+    return json.entries.fold(<String, PlacePreferences>{},
+        (Map<String, PlacePreferences> previousValue, element) {
+      final PlacePreferences? object = PlacePreferences.fromJson(element.value);
+      if (object is PlacePreferences) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlacePreferences> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlacePreferences>((String key, dynamic value) {
-          return MapEntry(key, PlacePreferences.fromJson(value));
-        }) ??
-        <String, PlacePreferences>{};
+  // maps a json object with a list of PlacePreferences-objects as value to a dart map
+  static Map<String, List<PlacePreferences>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlacePreferences>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlacePreferences>>(
+          key, PlacePreferences.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'PlacePreferences[public=$public, visibility=$visibility]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (public != null) 'public': public,
-      if (visibility != null) 'visibility': visibility,
+    return <String, dynamic>{
+      if (public != null) r'public': public,
+      if (visibility != null) r'visibility': visibility,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlacePreferences[public=$public, visibility=$visibility, ]';
   }
 }

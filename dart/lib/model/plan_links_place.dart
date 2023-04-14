@@ -1,74 +1,103 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class PlanLinksPlace {
+  /// Returns a new [PlanLinksPlace] instance.
   PlanLinksPlace({
     this.href,
     this.iriTemplate,
   });
 
-  factory PlanLinksPlace.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [PlanLinksPlace] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PlanLinksPlace? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return PlanLinksPlace(
-      href: json['href'],
-      iriTemplate: PlanLinksPlaceIriTemplate.fromJson(json['iriTemplate']),
+      href: json[r'href'],
+      iriTemplate: PlanLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
-  /* The URI of the place associated to the given plan. */
-  String href;
+  /// The URI of the place associated to the given plan.
+  String? href;
 
-  PlanLinksPlaceIriTemplate iriTemplate;
+  PlanLinksPlaceIriTemplate? iriTemplate;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is PlanLinksPlace &&
-        runtimeType == other.runtimeType &&
-        href == other.href &&
-        iriTemplate == other.iriTemplate;
+        other.href == href &&
+        other.iriTemplate == iriTemplate;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (href == null ? 0 : href.hashCode) +
+      (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-    hashCode ^= href?.hashCode ?? 0;
-    hashCode ^= iriTemplate?.hashCode ?? 0;
+  static List<PlanLinksPlace> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PlanLinksPlace>[];
+    }
 
-    return hashCode;
+    return json.fold(<PlanLinksPlace>[],
+        (List<PlanLinksPlace> previousValue, element) {
+      final PlanLinksPlace? object = PlanLinksPlace.fromJson(element);
+      if (object is PlanLinksPlace) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<PlanLinksPlace> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => PlanLinksPlace.fromJson(value))
-            ?.toList() ??
-        <PlanLinksPlace>[];
+  static Map<String, PlanLinksPlace> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PlanLinksPlace>{};
+    }
+
+    return json.entries.fold(<String, PlanLinksPlace>{},
+        (Map<String, PlanLinksPlace> previousValue, element) {
+      final PlanLinksPlace? object = PlanLinksPlace.fromJson(element.value);
+      if (object is PlanLinksPlace) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, PlanLinksPlace> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, PlanLinksPlace>((String key, dynamic value) {
-          return MapEntry(key, PlanLinksPlace.fromJson(value));
-        }) ??
-        <String, PlanLinksPlace>{};
+  // maps a json object with a list of PlanLinksPlace-objects as value to a dart map
+  static Map<String, List<PlanLinksPlace>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PlanLinksPlace>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PlanLinksPlace>>(
+          key, PlanLinksPlace.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'PlanLinksPlace[href=$href, iriTemplate=$iriTemplate]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (href != null) 'href': href,
-      if (iriTemplate != null) 'iriTemplate': iriTemplate.toJson(),
+    return <String, dynamic>{
+      if (href != null) r'href': href,
+      if (iriTemplate != null) r'iriTemplate': iriTemplate,
     };
-  }
-
-  @override
-  String toString() {
-    return 'PlanLinksPlace[href=$href, iriTemplate=$iriTemplate, ]';
   }
 }

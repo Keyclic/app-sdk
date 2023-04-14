@@ -1,69 +1,97 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class NoteLinksAboutIriTemplate {
+  /// Returns a new [NoteLinksAboutIriTemplate] instance.
   NoteLinksAboutIriTemplate({
     this.mapping,
   });
 
-  factory NoteLinksAboutIriTemplate.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [NoteLinksAboutIriTemplate] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static NoteLinksAboutIriTemplate? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return NoteLinksAboutIriTemplate(
       mapping:
-          AssignmentLinksReportIriTemplateMapping.fromJson(json['mapping']),
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  AssignmentLinksReportIriTemplateMapping mapping;
+  AssignmentLinksReportIriTemplateMapping? mapping;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is NoteLinksAboutIriTemplate &&
-        runtimeType == other.runtimeType &&
-        mapping == other.mapping;
+    return other is NoteLinksAboutIriTemplate && other.mapping == mapping;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-    hashCode ^= mapping?.hashCode ?? 0;
+  static List<NoteLinksAboutIriTemplate> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <NoteLinksAboutIriTemplate>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<NoteLinksAboutIriTemplate>[],
+        (List<NoteLinksAboutIriTemplate> previousValue, element) {
+      final NoteLinksAboutIriTemplate? object =
+          NoteLinksAboutIriTemplate.fromJson(element);
+      if (object is NoteLinksAboutIriTemplate) {
+        previousValue.add(object);
+      }
 
-  static List<NoteLinksAboutIriTemplate> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => NoteLinksAboutIriTemplate.fromJson(value))
-            ?.toList() ??
-        <NoteLinksAboutIriTemplate>[];
+      return previousValue;
+    });
   }
 
   static Map<String, NoteLinksAboutIriTemplate> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, NoteLinksAboutIriTemplate>(
-            (String key, dynamic value) {
-          return MapEntry(key, NoteLinksAboutIriTemplate.fromJson(value));
-        }) ??
-        <String, NoteLinksAboutIriTemplate>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, NoteLinksAboutIriTemplate>{};
+    }
+
+    return json.entries.fold(<String, NoteLinksAboutIriTemplate>{},
+        (Map<String, NoteLinksAboutIriTemplate> previousValue, element) {
+      final NoteLinksAboutIriTemplate? object =
+          NoteLinksAboutIriTemplate.fromJson(element.value);
+      if (object is NoteLinksAboutIriTemplate) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (mapping != null) 'mapping': mapping.toJson(),
-    };
+  // maps a json object with a list of NoteLinksAboutIriTemplate-objects as value to a dart map
+  static Map<String, List<NoteLinksAboutIriTemplate>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<NoteLinksAboutIriTemplate>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<NoteLinksAboutIriTemplate>>(
+          key, NoteLinksAboutIriTemplate.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'NoteLinksAboutIriTemplate[mapping=$mapping, ]';
+  String toString() => 'NoteLinksAboutIriTemplate[mapping=$mapping]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (mapping != null) r'mapping': mapping,
+    };
   }
 }

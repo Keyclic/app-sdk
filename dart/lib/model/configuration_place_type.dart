@@ -1,82 +1,113 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ConfigurationPlaceType {
+  /// Returns a new [ConfigurationPlaceType] instance.
   ConfigurationPlaceType({
     this.id,
     this.type,
     this.workflow,
   });
 
-  factory ConfigurationPlaceType.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ConfigurationPlaceType] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ConfigurationPlaceType? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ConfigurationPlaceType(
-      id: json['id'],
-      type: json['type'],
-      workflow: PlaceTypeWorkflow.fromJson(json['workflow']),
+      id: json[r'id'],
+      type: json[r'type'],
+      workflow: PlaceTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
-  String id;
+  final String? id;
 
-  String type;
+  String? type;
 
-  PlaceTypeWorkflow workflow;
+  PlaceTypeWorkflow? workflow;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is ConfigurationPlaceType &&
-        runtimeType == other.runtimeType &&
-        id == other.id &&
-        type == other.type &&
-        workflow == other.workflow;
+        other.id == id &&
+        other.type == type &&
+        other.workflow == workflow;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (id == null ? 0 : id.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
-    hashCode ^= id?.hashCode ?? 0;
-    hashCode ^= type?.hashCode ?? 0;
-    hashCode ^= workflow?.hashCode ?? 0;
+  static List<ConfigurationPlaceType> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ConfigurationPlaceType>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<ConfigurationPlaceType>[],
+        (List<ConfigurationPlaceType> previousValue, element) {
+      final ConfigurationPlaceType? object =
+          ConfigurationPlaceType.fromJson(element);
+      if (object is ConfigurationPlaceType) {
+        previousValue.add(object);
+      }
 
-  static List<ConfigurationPlaceType> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ConfigurationPlaceType.fromJson(value))
-            ?.toList() ??
-        <ConfigurationPlaceType>[];
+      return previousValue;
+    });
   }
 
   static Map<String, ConfigurationPlaceType> mapFromJson(
-      Map<String, dynamic> json) {
-    return json
-            ?.map<String, ConfigurationPlaceType>((String key, dynamic value) {
-          return MapEntry(key, ConfigurationPlaceType.fromJson(value));
-        }) ??
-        <String, ConfigurationPlaceType>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ConfigurationPlaceType>{};
+    }
+
+    return json.entries.fold(<String, ConfigurationPlaceType>{},
+        (Map<String, ConfigurationPlaceType> previousValue, element) {
+      final ConfigurationPlaceType? object =
+          ConfigurationPlaceType.fromJson(element.value);
+      if (object is ConfigurationPlaceType) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (id != null) 'id': id,
-      if (type != null) 'type': type,
-      if (workflow != null) 'workflow': workflow.toJson(),
-    };
+  // maps a json object with a list of ConfigurationPlaceType-objects as value to a dart map
+  static Map<String, List<ConfigurationPlaceType>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ConfigurationPlaceType>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ConfigurationPlaceType>>(
+          key, ConfigurationPlaceType.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'ConfigurationPlaceType[id=$id, type=$type, workflow=$workflow, ]';
+  String toString() =>
+      'ConfigurationPlaceType[id=$id, type=$type, workflow=$workflow]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (id != null) r'id': id,
+      if (type != null) r'type': type,
+      if (workflow != null) r'workflow': workflow,
+    };
   }
 }

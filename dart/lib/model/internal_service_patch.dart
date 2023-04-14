@@ -1,6 +1,11 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class InternalServicePatch {
+  /// Returns a new [InternalServicePatch] instance.
   InternalServicePatch({
     this.address,
     this.contactPoint,
@@ -9,88 +14,115 @@ class InternalServicePatch {
     this.name,
   });
 
-  factory InternalServicePatch.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [InternalServicePatch] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static InternalServicePatch? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return InternalServicePatch(
-      address: ExternalServicePatchAddress.fromJson(json['address']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
       contactPoint:
-          ExternalServicePatchContactPoint.fromJson(json['contactPoint']),
-      description: json['description'],
-      manager: json['manager'],
-      name: json['name'],
+          ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
+      description: json[r'description'],
+      manager: json[r'manager'],
+      name: json[r'name'],
     );
   }
 
-  ExternalServicePatchAddress address;
+  ExternalServicePatchAddress? address;
 
-  ExternalServicePatchContactPoint contactPoint;
+  ExternalServicePatchContactPoint? contactPoint;
 
-  String description;
+  String? description;
 
-  String manager;
+  String? manager;
 
-  String name;
+  String? name;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is InternalServicePatch &&
-        runtimeType == other.runtimeType &&
-        address == other.address &&
-        contactPoint == other.contactPoint &&
-        description == other.description &&
-        manager == other.manager &&
-        name == other.name;
+        other.address == address &&
+        other.contactPoint == contactPoint &&
+        other.description == description &&
+        other.manager == manager &&
+        other.name == name;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (address == null ? 0 : address.hashCode) +
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      (manager == null ? 0 : manager.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
-    hashCode ^= address?.hashCode ?? 0;
-    hashCode ^= contactPoint?.hashCode ?? 0;
-    hashCode ^= description?.hashCode ?? 0;
-    hashCode ^= manager?.hashCode ?? 0;
-    hashCode ^= name?.hashCode ?? 0;
+  static List<InternalServicePatch> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <InternalServicePatch>[];
+    }
 
-    return hashCode;
-  }
+    return json.fold(<InternalServicePatch>[],
+        (List<InternalServicePatch> previousValue, element) {
+      final InternalServicePatch? object =
+          InternalServicePatch.fromJson(element);
+      if (object is InternalServicePatch) {
+        previousValue.add(object);
+      }
 
-  static List<InternalServicePatch> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => InternalServicePatch.fromJson(value))
-            ?.toList() ??
-        <InternalServicePatch>[];
+      return previousValue;
+    });
   }
 
   static Map<String, InternalServicePatch> mapFromJson(
-      Map<String, dynamic> json) {
-    return json?.map<String, InternalServicePatch>((String key, dynamic value) {
-          return MapEntry(key, InternalServicePatch.fromJson(value));
-        }) ??
-        <String, InternalServicePatch>{};
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, InternalServicePatch>{};
+    }
+
+    return json.entries.fold(<String, InternalServicePatch>{},
+        (Map<String, InternalServicePatch> previousValue, element) {
+      final InternalServicePatch? object =
+          InternalServicePatch.fromJson(element.value);
+      if (object is InternalServicePatch) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      if (address != null) 'address': address.toJson(),
-      if (contactPoint != null) 'contactPoint': contactPoint.toJson(),
-      if (description != null) 'description': description,
-      if (manager != null) 'manager': manager,
-      if (name != null) 'name': name,
-    };
+  // maps a json object with a list of InternalServicePatch-objects as value to a dart map
+  static Map<String, List<InternalServicePatch>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<InternalServicePatch>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<InternalServicePatch>>(
+          key, InternalServicePatch.listFromJson(value));
+    });
   }
 
   @override
-  String toString() {
-    return 'InternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, manager=$manager, name=$name, ]';
+  String toString() =>
+      'InternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, manager=$manager, name=$name]';
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      if (address != null) r'address': address,
+      if (contactPoint != null) r'contactPoint': contactPoint,
+      if (description != null) r'description': description,
+      if (manager != null) r'manager': manager,
+      if (name != null) r'name': name,
+    };
   }
 }

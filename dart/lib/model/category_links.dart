@@ -1,73 +1,102 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class CategoryLinks {
+  /// Returns a new [CategoryLinks] instance.
   CategoryLinks({
     this.organization,
     this.self,
   });
 
-  factory CategoryLinks.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [CategoryLinks] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static CategoryLinks? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return CategoryLinks(
-      organization: CategoryLinksOrganization.fromJson(json['organization']),
-      self: CategoryLinksSelf.fromJson(json['self']),
+      organization: CategoryLinksOrganization.fromJson(json[r'organization']),
+      self: CategoryLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  CategoryLinksOrganization organization;
+  CategoryLinksOrganization? organization;
 
-  CategoryLinksSelf self;
+  CategoryLinksSelf? self;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is CategoryLinks &&
-        runtimeType == other.runtimeType &&
-        organization == other.organization &&
-        self == other.self;
+        other.organization == organization &&
+        other.self == self;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (organization == null ? 0 : organization.hashCode) +
+      (self == null ? 0 : self.hashCode);
 
-    hashCode ^= organization?.hashCode ?? 0;
-    hashCode ^= self?.hashCode ?? 0;
+  static List<CategoryLinks> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <CategoryLinks>[];
+    }
 
-    return hashCode;
+    return json.fold(<CategoryLinks>[],
+        (List<CategoryLinks> previousValue, element) {
+      final CategoryLinks? object = CategoryLinks.fromJson(element);
+      if (object is CategoryLinks) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<CategoryLinks> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => CategoryLinks.fromJson(value))
-            ?.toList() ??
-        <CategoryLinks>[];
+  static Map<String, CategoryLinks> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, CategoryLinks>{};
+    }
+
+    return json.entries.fold(<String, CategoryLinks>{},
+        (Map<String, CategoryLinks> previousValue, element) {
+      final CategoryLinks? object = CategoryLinks.fromJson(element.value);
+      if (object is CategoryLinks) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, CategoryLinks> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, CategoryLinks>((String key, dynamic value) {
-          return MapEntry(key, CategoryLinks.fromJson(value));
-        }) ??
-        <String, CategoryLinks>{};
+  // maps a json object with a list of CategoryLinks-objects as value to a dart map
+  static Map<String, List<CategoryLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<CategoryLinks>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<CategoryLinks>>(
+          key, CategoryLinks.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'CategoryLinks[organization=$organization, self=$self]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (organization != null) 'organization': organization.toJson(),
-      if (self != null) 'self': self.toJson(),
+    return <String, dynamic>{
+      if (organization != null) r'organization': organization,
+      if (self != null) r'self': self,
     };
-  }
-
-  @override
-  String toString() {
-    return 'CategoryLinks[organization=$organization, self=$self, ]';
   }
 }

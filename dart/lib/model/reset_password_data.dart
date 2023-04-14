@@ -1,66 +1,95 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class ResetPasswordData {
+  /// Returns a new [ResetPasswordData] instance.
   ResetPasswordData({
-    this.email,
+    required this.email,
   });
 
-  factory ResetPasswordData.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [ResetPasswordData] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResetPasswordData? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return ResetPasswordData(
-      email: json['email'],
+      email: json[r'email'],
     );
   }
 
   String email;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
-    return other is ResetPasswordData &&
-        runtimeType == other.runtimeType &&
-        email == other.email;
+    return other is ResetPasswordData && other.email == email;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode => email.hashCode;
 
-    hashCode ^= email?.hashCode ?? 0;
+  static List<ResetPasswordData> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <ResetPasswordData>[];
+    }
 
-    return hashCode;
+    return json.fold(<ResetPasswordData>[],
+        (List<ResetPasswordData> previousValue, element) {
+      final ResetPasswordData? object = ResetPasswordData.fromJson(element);
+      if (object is ResetPasswordData) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<ResetPasswordData> listFromJson(List<dynamic> json) {
-    return json
-            ?.map((dynamic value) => ResetPasswordData.fromJson(value))
-            ?.toList() ??
-        <ResetPasswordData>[];
+  static Map<String, ResetPasswordData> mapFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, ResetPasswordData>{};
+    }
+
+    return json.entries.fold(<String, ResetPasswordData>{},
+        (Map<String, ResetPasswordData> previousValue, element) {
+      final ResetPasswordData? object =
+          ResetPasswordData.fromJson(element.value);
+      if (object is ResetPasswordData) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, ResetPasswordData> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, ResetPasswordData>((String key, dynamic value) {
-          return MapEntry(key, ResetPasswordData.fromJson(value));
-        }) ??
-        <String, ResetPasswordData>{};
+  // maps a json object with a list of ResetPasswordData-objects as value to a dart map
+  static Map<String, List<ResetPasswordData>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<ResetPasswordData>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<ResetPasswordData>>(
+          key, ResetPasswordData.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() => 'ResetPasswordData[email=$email]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (email != null) 'email': email,
+    return <String, dynamic>{
+      r'email': email,
     };
-  }
-
-  @override
-  String toString() {
-    return 'ResetPasswordData[email=$email, ]';
   }
 }

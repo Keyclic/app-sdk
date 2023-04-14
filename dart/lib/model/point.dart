@@ -1,78 +1,107 @@
-part of keyclic_sdk_api.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
 
 class Point {
+  /// Returns a new [Point] instance.
   Point({
     this.latitude,
     this.longitude,
     this.srid,
   });
 
-  factory Point.fromJson(Map<String, dynamic> json) {
+  /// Returns a new [Point] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Point? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
     }
 
     return Point(
-      latitude: json['latitude']?.toDouble(),
-      longitude: json['longitude']?.toDouble(),
-      srid: json['srid'],
+      latitude: json[r'latitude']?.toDouble(),
+      longitude: json[r'longitude']?.toDouble(),
+      srid: json[r'srid'],
     );
   }
 
-  double latitude;
+  double? latitude;
 
-  double longitude;
+  double? longitude;
 
-  int srid;
+  int? srid;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     // Same reference
     if (identical(this, other)) {
       return true;
     }
 
     return other is Point &&
-        runtimeType == other.runtimeType &&
-        latitude == other.latitude &&
-        longitude == other.longitude &&
-        srid == other.srid;
+        other.latitude == latitude &&
+        other.longitude == longitude &&
+        other.srid == srid;
   }
 
-  /// By default hashCode return reference
   @override
-  int get hashCode {
-    int hashCode = 0;
+  int get hashCode =>
+      (latitude == null ? 0 : latitude.hashCode) +
+      (longitude == null ? 0 : longitude.hashCode) +
+      (srid == null ? 0 : srid.hashCode);
 
-    hashCode ^= latitude?.hashCode ?? 0;
-    hashCode ^= longitude?.hashCode ?? 0;
-    hashCode ^= srid?.hashCode ?? 0;
+  static List<Point> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <Point>[];
+    }
 
-    return hashCode;
+    return json.fold(<Point>[], (List<Point> previousValue, element) {
+      final Point? object = Point.fromJson(element);
+      if (object is Point) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
   }
 
-  static List<Point> listFromJson(List<dynamic> json) {
-    return json?.map((dynamic value) => Point.fromJson(value))?.toList() ??
-        <Point>[];
+  static Map<String, Point> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, Point>{};
+    }
+
+    return json.entries.fold(<String, Point>{},
+        (Map<String, Point> previousValue, element) {
+      final Point? object = Point.fromJson(element.value);
+      if (object is Point) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
   }
 
-  static Map<String, Point> mapFromJson(Map<String, dynamic> json) {
-    return json?.map<String, Point>((String key, dynamic value) {
-          return MapEntry(key, Point.fromJson(value));
-        }) ??
-        <String, Point>{};
+  // maps a json object with a list of Point-objects as value to a dart map
+  static Map<String, List<Point>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<Point>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<Point>>(key, Point.listFromJson(value));
+    });
   }
+
+  @override
+  String toString() =>
+      'Point[latitude=$latitude, longitude=$longitude, srid=$srid]';
 
   Map<String, dynamic> toJson() {
-    return {
-      if (latitude != null) 'latitude': latitude,
-      if (longitude != null) 'longitude': longitude,
-      if (srid != null) 'srid': srid,
+    return <String, dynamic>{
+      if (latitude != null) r'latitude': latitude,
+      if (longitude != null) r'longitude': longitude,
+      if (srid != null) r'srid': srid,
     };
-  }
-
-  @override
-  String toString() {
-    return 'Point[latitude=$latitude, longitude=$longitude, srid=$srid, ]';
   }
 }

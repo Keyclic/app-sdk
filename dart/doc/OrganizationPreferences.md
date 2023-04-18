@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **categoryRequired** | **bool** |  | [optional] 
 **electronicSignature** | [**PreferencesElectronicSignature**](PreferencesElectronicSignature.md) |  | [optional] 
+**feedbackParentPlace** | **bool** |  | [optional] 
 **form** | [**PreferencesForm**](PreferencesForm.md) |  | [optional] 
 **offline** | **bool** |  | [optional] 
 **public** | **bool** |  | [optional] 

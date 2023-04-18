@@ -34,3 +34,6 @@ $RECYCLE.BIN/
 Desktop.ini
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+.fvm
+local.generate*

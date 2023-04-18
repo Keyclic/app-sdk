@@ -9,6 +9,7 @@ class OrganizationPreferences {
   OrganizationPreferences({
     this.categoryRequired,
     this.electronicSignature,
+    this.feedbackParentPlace,
     this.form,
     this.offline,
     this.public,
@@ -28,6 +29,7 @@ class OrganizationPreferences {
       categoryRequired: json[r'categoryRequired'],
       electronicSignature:
           PreferencesElectronicSignature.fromJson(json[r'electronicSignature']),
+      feedbackParentPlace: json[r'feedbackParentPlace'],
       form: PreferencesForm.fromJson(json[r'form']),
       offline: json[r'offline'],
       public: json[r'public'],
@@ -40,6 +42,8 @@ class OrganizationPreferences {
   bool? categoryRequired;
 
   PreferencesElectronicSignature? electronicSignature;
+
+  bool? feedbackParentPlace;
 
   PreferencesForm? form;
 
@@ -63,6 +67,7 @@ class OrganizationPreferences {
     return other is OrganizationPreferences &&
         other.categoryRequired == categoryRequired &&
         other.electronicSignature == electronicSignature &&
+        other.feedbackParentPlace == feedbackParentPlace &&
         other.form == form &&
         other.offline == offline &&
         other.public == public &&
@@ -75,6 +80,7 @@ class OrganizationPreferences {
   int get hashCode =>
       (categoryRequired == null ? 0 : categoryRequired.hashCode) +
       (electronicSignature == null ? 0 : electronicSignature.hashCode) +
+      (feedbackParentPlace == null ? 0 : feedbackParentPlace.hashCode) +
       (form == null ? 0 : form.hashCode) +
       (offline == null ? 0 : offline.hashCode) +
       (public == null ? 0 : public.hashCode) +
@@ -132,13 +138,15 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
+      'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (categoryRequired != null) r'categoryRequired': categoryRequired,
       if (electronicSignature != null)
         r'electronicSignature': electronicSignature,
+      if (feedbackParentPlace != null)
+        r'feedbackParentPlace': feedbackParentPlace,
       if (form != null) r'form': form,
       if (offline != null) r'offline': offline,
       if (public != null) r'public': public,

@@ -21,5 +21,8 @@ void main() {
 
     // String text
     test('to test the property `text`', () async {});
+
+    // List<String> tags (default value: const [])
+    test('to test the property `tags`', () async {});
   });
 }

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **file** | [**DocumentPatchFile**](DocumentPatchFile.md) |  | [optional] 
 **permission** | [**DocumentPatchPermission**](DocumentPatchPermission.md) |  | [optional] 
 **text** | **String** |  | [optional] 
+**tags** | **List<String>** |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

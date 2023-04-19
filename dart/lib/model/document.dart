@@ -14,6 +14,7 @@ class Document {
     this.file,
     this.id,
     this.permission,
+    this.tags = const [],
     this.text,
     this.type,
     this.updatedAt,
@@ -50,6 +51,7 @@ class Document {
       file: DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],
       permission: DocumentPermission.fromJson(json[r'permission']),
+      tags: List<String>.from(json[r'tags'] ?? []),
       text: json[r'text'],
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -69,6 +71,8 @@ class Document {
   final String? id;
 
   DocumentPermission? permission;
+
+  List<String>? tags;
 
   String? text;
 
@@ -91,6 +95,7 @@ class Document {
         other.file == file &&
         other.id == id &&
         other.permission == permission &&
+        DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.text == text &&
         other.type == type &&
         other.updatedAt == updatedAt;
@@ -105,6 +110,7 @@ class Document {
       (file == null ? 0 : file.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (permission == null ? 0 : permission.hashCode) +
+      (tags == null ? 0 : tags.hashCode) +
       (text == null ? 0 : text.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -155,7 +161,7 @@ class Document {
 
   @override
   String toString() =>
-      'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, text=$text, type=$type, updatedAt=$updatedAt]';
+      'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, tags=$tags, text=$text, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -166,6 +172,7 @@ class Document {
       if (file != null) r'file': file,
       if (id != null) r'id': id,
       if (permission != null) r'permission': permission,
+      if (tags != null) r'tags': tags,
       if (text != null) r'text': text,
       if (type != null) r'type': type,
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),

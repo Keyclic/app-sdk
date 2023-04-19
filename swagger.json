@@ -24734,29 +24734,35 @@
         "Rule": {
             "type": "object",
             "properties": {
-                "_embedded": {
-                    "type": "object",
-                    "properties": {
-                        "category": {
-                            "$ref": "#\/definitions\/Category"
-                        },
-                        "service": {
-                            "$ref": "#\/definitions\/InternalService"
-                        }
-                    }
-                },
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "category": {
+                            "$ref": "#\/definitions\/RuleLinksCategory"
+                        },
+                        "place": {
+                            "$ref": "#\/definitions\/RuleLinksPlace"
+                        },
                         "self": {
                             "$ref": "#\/definitions\/RuleLinksSelf"
+                        },
+                        "service": {
+                            "$ref": "#\/definitions\/RuleLinksService"
                         }
                     }
+                },
+                "description": {
+                    "format": "string",
+                    "type": "string"
                 },
                 "id": {
                     "format": "uuid",
                     "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
                     "readOnly": true,
+                    "type": "string"
+                },
+                "name": {
+                    "format": "string",
                     "type": "string"
                 },
                 "type": {
@@ -24796,6 +24802,58 @@
                 "service"
             ]
         },
+        "RuleLinksCategory": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the category associated to the given rule.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/RuleLinksCategoryIriTemplate"
+                }
+            }
+        },
+        "RuleLinksCategoryIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "category": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "RuleLinksPlace": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the place associated to the given rule.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/RuleLinksPlaceIriTemplate"
+                }
+            }
+        },
+        "RuleLinksPlaceIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "place": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "RuleLinksSelf": {
             "type": "object",
             "properties": {
@@ -24816,6 +24874,32 @@
                     "type": "object",
                     "properties": {
                         "rule": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "RuleLinksService": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the service associated to the given rule.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/RuleLinksServiceIriTemplate"
+                }
+            }
+        },
+        "RuleLinksServiceIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "service": {
                             "type": "string"
                         }
                     }

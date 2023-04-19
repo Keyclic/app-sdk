@@ -1382,16 +1382,26 @@ class ApiClient {
           return RuleCollection.fromJson(value);
         case 'RuleData':
           return RuleData.fromJson(value);
-        case 'RuleEmbedded':
-          return RuleEmbedded.fromJson(value);
         case 'RuleLinks':
           return RuleLinks.fromJson(value);
+        case 'RuleLinksCategory':
+          return RuleLinksCategory.fromJson(value);
+        case 'RuleLinksCategoryIriTemplate':
+          return RuleLinksCategoryIriTemplate.fromJson(value);
+        case 'RuleLinksPlace':
+          return RuleLinksPlace.fromJson(value);
+        case 'RuleLinksPlaceIriTemplate':
+          return RuleLinksPlaceIriTemplate.fromJson(value);
         case 'RuleLinksSelf':
           return RuleLinksSelf.fromJson(value);
         case 'RuleLinksSelfIriTemplate':
           return RuleLinksSelfIriTemplate.fromJson(value);
         case 'RuleLinksSelfIriTemplateMapping':
           return RuleLinksSelfIriTemplateMapping.fromJson(value);
+        case 'RuleLinksService':
+          return RuleLinksService.fromJson(value);
+        case 'RuleLinksServiceIriTemplate':
+          return RuleLinksServiceIriTemplate.fromJson(value);
         case 'RulePagination':
           return RulePagination.fromJson(value);
         case 'RulePaginationAllOf':

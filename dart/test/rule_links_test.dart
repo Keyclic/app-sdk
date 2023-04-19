@@ -10,7 +10,16 @@ void main() {
   // final instance = RuleLinks();
 
   group('test RuleLinks', () {
+    // RuleLinksCategory category
+    test('to test the property `category`', () async {});
+
+    // RuleLinksPlace place
+    test('to test the property `place`', () async {});
+
     // RuleLinksSelf self
     test('to test the property `self`', () async {});
+
+    // RuleLinksService service
+    test('to test the property `service`', () async {});
   });
 }

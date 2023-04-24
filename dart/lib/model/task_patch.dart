@@ -47,7 +47,7 @@ class TaskPatch {
       name: json[r'name'],
       priority: json[r'priority'],
       scheduledAt: scheduledAt,
-      tags: List<String>.from(json[r'tags'] ?? []),
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
     );
   }
 

@@ -22,7 +22,9 @@ class Feature {
     return Feature(
       type: json[r'type'],
       geometry: FeatureGeometry.fromJson(json[r'geometry']),
-      properties: List<String>.from(json[r'properties'] ?? []),
+      properties: json[r'properties'] == null
+          ? null
+          : List<String>.from(json[r'properties']),
     );
   }
 

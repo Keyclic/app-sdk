@@ -31,7 +31,7 @@ class Checkpoint {
     return Checkpoint(
       createdAt: createdAt,
       data: CheckpointState.fromJson(json[r'data']),
-      state: List<String>.from(json[r'state'] ?? []),
+      state: json[r'state'] == null ? null : List<String>.from(json[r'state']),
       links: CheckpointLinks.fromJson(json[r'_links']),
       embedded: CheckpointEmbedded.fromJson(json[r'_embedded']),
     );

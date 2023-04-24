@@ -69,7 +69,7 @@ class Operation {
       priority: OperationPriority.fromJson(json[r'priority']),
       scheduledAt: scheduledAt,
       signature: OperationSignature.fromJson(json[r'signature']),
-      tags: List<String>.from(json[r'tags'] ?? []),
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );

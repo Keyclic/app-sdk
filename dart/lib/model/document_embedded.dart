@@ -27,7 +27,9 @@ class DocumentEmbedded {
           : Map<String, dynamic>.from(json[r'container']),
       createdBy: Person.fromJson(json[r'createdBy']),
       signers: Signer.listFromJson(json[r'signers']),
-      stateTransitions: List<String>.from(json[r'stateTransitions'] ?? []),
+      stateTransitions: json[r'stateTransitions'] == null
+          ? null
+          : List<String>.from(json[r'stateTransitions']),
       type: DocumentType.fromJson(json[r'type']),
     );
   }

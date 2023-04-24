@@ -25,7 +25,9 @@ class FeedbackEmbedded {
       category: Category.fromJson(json[r'category']),
       markers: Marker.listFromJson(json[r'markers']),
       reporter: Person.fromJson(json[r'reporter']),
-      stateTransitions: List<String>.from(json[r'stateTransitions'] ?? []),
+      stateTransitions: json[r'stateTransitions'] == null
+          ? null
+          : List<String>.from(json[r'stateTransitions']),
       tracking: json[r'tracking'],
     );
   }

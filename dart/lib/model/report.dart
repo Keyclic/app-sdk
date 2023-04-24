@@ -71,7 +71,7 @@ class Report {
       priority: ReportPriority.fromJson(json[r'priority']),
       reference: json[r'reference'],
       scheduledAt: scheduledAt,
-      tags: List<String>.from(json[r'tags'] ?? []),
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );

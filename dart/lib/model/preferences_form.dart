@@ -18,7 +18,9 @@ class PreferencesForm {
     }
 
     return PreferencesForm(
-      required_: List<String>.from(json[r'required'] ?? []),
+      required_: json[r'required'] == null
+          ? null
+          : List<String>.from(json[r'required']),
     );
   }
 

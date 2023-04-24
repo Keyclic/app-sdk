@@ -53,7 +53,7 @@ class Feedback {
           ? null
           : Map<String, dynamic>.from(json[r'metadata']),
       public: json[r'public'],
-      state: List<String>.from(json[r'state'] ?? []),
+      state: List<String>.from(json[r'state']),
       type: json[r'type'],
       updatedAt: updatedAt,
       visibility: FeedbackVisibilityEnum.fromJson(json[r'visibility']),

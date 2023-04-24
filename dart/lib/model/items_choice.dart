@@ -30,7 +30,7 @@ class ItemsChoice {
     return ItemsChoice(
       default_: json[r'default'],
       description: json[r'description'],
-      enum_: List<String>.from(json[r'enum'] ?? []),
+      enum_: json[r'enum'] == null ? null : List<String>.from(json[r'enum']),
       format: json[r'format'],
       id: json[r'id'],
       maxItems: json[r'maxItems'],

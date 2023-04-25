@@ -20,7 +20,7 @@ class MemberPatch {
 
     return MemberPatch(
       contactPoint: MemberPatchContactPoint.fromJson(json[r'contactPoint']),
-      roles: List<String>.from(json[r'roles'] ?? []),
+      roles: json[r'roles'] == null ? null : List<String>.from(json[r'roles']),
     );
   }
 

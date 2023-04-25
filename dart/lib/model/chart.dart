@@ -19,8 +19,9 @@ class Chart {
     }
 
     return Chart(
-      data: List<int>.from(json[r'data'] ?? []),
-      labels: List<String>.from(json[r'labels'] ?? []),
+      data: json[r'data'] == null ? null : List<int>.from(json[r'data']),
+      labels:
+          json[r'labels'] == null ? null : List<String>.from(json[r'labels']),
     );
   }
 

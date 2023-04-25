@@ -26,7 +26,7 @@ class ConditionListCondition {
       operator_: json[r'operator'],
       path: json[r'path'],
       type: json[r'type'],
-      value: List<String>.from(json[r'value'] ?? []),
+      value: json[r'value'] == null ? null : List<String>.from(json[r'value']),
     );
   }
 

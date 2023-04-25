@@ -42,7 +42,9 @@ class MemberTypeRole {
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
-      permissions: List<String>.from(json[r'permissions'] ?? []),
+      permissions: json[r'permissions'] == null
+          ? null
+          : List<String>.from(json[r'permissions']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );

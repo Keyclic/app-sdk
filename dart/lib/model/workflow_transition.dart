@@ -25,12 +25,15 @@ class WorkflowTransition {
     }
 
     return WorkflowTransition(
-      fields: List<String>.from(json[r'fields'] ?? []),
+      fields:
+          json[r'fields'] == null ? null : List<String>.from(json[r'fields']),
       description: json[r'description'],
       from: WorkflowState.fromJson(json[r'from']),
       id: json[r'id'],
       name: json[r'name'],
-      required_: List<String>.from(json[r'required'] ?? []),
+      required_: json[r'required'] == null
+          ? null
+          : List<String>.from(json[r'required']),
       to: WorkflowState.fromJson(json[r'to']),
       type: json[r'type'],
     );

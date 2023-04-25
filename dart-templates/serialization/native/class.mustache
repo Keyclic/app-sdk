@@ -94,7 +94,12 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
         {{{name}}}: {{{items.datatypeWithEnum}}}.listFromJson(json[r'{{{baseName}}}']),
         {{/isEnum}}
         {{^isEnum}}
-        {{{name}}}: {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{{items.datatype}}}>.from(json[r'{{{baseName}}}'] ?? []),
+        {{{name}}}:
+          {{^required}}
+            json[r'{{{baseName}}}'] == null ?
+              null :
+          {{/required}}
+          {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
         {{/isEnum}}
       {{/isArray}}
       {{^isArray}}

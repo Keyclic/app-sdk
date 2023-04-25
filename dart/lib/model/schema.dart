@@ -20,7 +20,9 @@ class Schema {
 
     return Schema(
       properties: SchemaProperty.mapFromJson(json[r'properties']),
-      required_: List<String>.from(json[r'required'] ?? []),
+      required_: json[r'required'] == null
+          ? null
+          : List<String>.from(json[r'required']),
     );
   }
 

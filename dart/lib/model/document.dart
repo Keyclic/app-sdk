@@ -51,7 +51,7 @@ class Document {
       file: DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],
       permission: DocumentPermission.fromJson(json[r'permission']),
-      tags: List<String>.from(json[r'tags'] ?? []),
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       text: json[r'text'],
       type: json[r'type'],
       updatedAt: updatedAt,

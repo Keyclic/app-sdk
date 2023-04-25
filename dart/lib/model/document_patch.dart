@@ -28,7 +28,7 @@ class DocumentPatch {
       file: DocumentPatchFile.fromJson(json[r'file']),
       permission: DocumentPatchPermission.fromJson(json[r'permission']),
       text: json[r'text'],
-      tags: List<String>.from(json[r'tags'] ?? []),
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
     );
   }
 

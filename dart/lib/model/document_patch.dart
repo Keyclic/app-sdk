@@ -11,6 +11,7 @@ class DocumentPatch {
     this.file,
     this.permission,
     this.text,
+    this.tags = const [],
   });
 
   /// Returns a new [DocumentPatch] instance and imports its values from
@@ -27,6 +28,7 @@ class DocumentPatch {
       file: DocumentPatchFile.fromJson(json[r'file']),
       permission: DocumentPatchPermission.fromJson(json[r'permission']),
       text: json[r'text'],
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
     );
   }
 
@@ -37,6 +39,8 @@ class DocumentPatch {
   DocumentPatchPermission? permission;
 
   String? text;
+
+  List<String>? tags;
 
   @override
   bool operator ==(Object other) {
@@ -49,7 +53,8 @@ class DocumentPatch {
         DeepCollectionEquality.unordered().equals(body, other.body) &&
         other.file == file &&
         other.permission == permission &&
-        other.text == text;
+        other.text == text &&
+        DeepCollectionEquality.unordered().equals(tags, other.tags);
   }
 
   @override
@@ -57,7 +62,8 @@ class DocumentPatch {
       (body == null ? 0 : body.hashCode) +
       (file == null ? 0 : file.hashCode) +
       (permission == null ? 0 : permission.hashCode) +
-      (text == null ? 0 : text.hashCode);
+      (text == null ? 0 : text.hashCode) +
+      (tags == null ? 0 : tags.hashCode);
 
   static List<DocumentPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -106,7 +112,7 @@ class DocumentPatch {
 
   @override
   String toString() =>
-      'DocumentPatch[body=$body, file=$file, permission=$permission, text=$text]';
+      'DocumentPatch[body=$body, file=$file, permission=$permission, text=$text, tags=$tags]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -114,6 +120,7 @@ class DocumentPatch {
       if (file != null) r'file': file,
       if (permission != null) r'permission': permission,
       if (text != null) r'text': text,
+      if (tags != null) r'tags': tags,
     };
   }
 }

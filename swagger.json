@@ -22304,6 +22304,9 @@
                 "electronicSignature": {
                     "$ref": "#\/definitions\/PreferencesElectronicSignature"
                 },
+                "feedbackParentPlace": {
+                    "type": "boolean"
+                },
                 "form": {
                     "$ref": "#\/definitions\/PreferencesForm"
                 },

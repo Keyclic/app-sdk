@@ -16,6 +16,9 @@ void main() {
     // PreferencesElectronicSignature electronicSignature
     test('to test the property `electronicSignature`', () async {});
 
+    // bool feedbackParentPlace
+    test('to test the property `feedbackParentPlace`', () async {});
+
     // PreferencesForm form
     test('to test the property `form`', () async {});
 

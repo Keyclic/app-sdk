@@ -8,6 +8,7 @@ class DocumentType {
   /// Returns a new [DocumentType] instance.
   DocumentType({
     this.id,
+    this.code,
     this.type,
     this.name,
     this.description,
@@ -23,6 +24,7 @@ class DocumentType {
 
     return DocumentType(
       id: json[r'id'],
+      code: json[r'code'],
       type: json[r'type'],
       name: json[r'name'],
       description: json[r'description'],
@@ -31,6 +33,8 @@ class DocumentType {
   }
 
   String? id;
+
+  String? code;
 
   String? type;
 
@@ -49,6 +53,7 @@ class DocumentType {
 
     return other is DocumentType &&
         other.id == id &&
+        other.code == code &&
         other.type == type &&
         other.name == name &&
         other.description == description &&
@@ -58,6 +63,7 @@ class DocumentType {
   @override
   int get hashCode =>
       (id == null ? 0 : id.hashCode) +
+      (code == null ? 0 : code.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (description == null ? 0 : description.hashCode) +
@@ -110,11 +116,12 @@ class DocumentType {
 
   @override
   String toString() =>
-      'DocumentType[id=$id, type=$type, name=$name, description=$description, signed=$signed]';
+      'DocumentType[id=$id, code=$code, type=$type, name=$name, description=$description, signed=$signed]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (id != null) r'id': id,
+      if (code != null) r'code': code,
       if (type != null) r'type': type,
       if (name != null) r'name': name,
       if (description != null) r'description': description,

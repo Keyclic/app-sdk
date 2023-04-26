@@ -9342,6 +9342,9 @@
                         "$ref": "#\/parameters\/order__"
                     },
                     {
+                        "$ref": "#\/parameters\/branch_code"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -11813,6 +11816,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/branch_code"
                     },
                     {
                         "$ref": "#\/parameters\/business_activity"
@@ -26765,6 +26771,12 @@
             "name": "persons[]",
             "pattern": ".*",
             "type": "array"
+        },
+        "branch_code": {
+            "in": "query",
+            "name": "branch_code",
+            "pattern": ".*",
+            "type": "string"
         },
         "geo_elevation": {
             "in": "query",

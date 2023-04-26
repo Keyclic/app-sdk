@@ -1283,6 +1283,7 @@ class OrganizationApi {
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [branchCode]
   /// * [businessActivity]
   /// * [businessActivitiesLeftSquareBracketRightSquareBracket]
   /// * [after]
@@ -1318,6 +1319,7 @@ class OrganizationApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? branchCode,
     String? businessActivity,
     List<String>? businessActivitiesLeftSquareBracketRightSquareBracket,
     DateTime? after,
@@ -1375,6 +1377,7 @@ class OrganizationApi {
         r'order[]': encodeCollectionQueryParameter(
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (branchCode != null) r'branch_code': encodeQueryParameter(branchCode),
       if (businessActivity != null)
         r'business_activity': encodeQueryParameter(businessActivity),
       if (businessActivitiesLeftSquareBracketRightSquareBracket != null)

@@ -22409,6 +22409,8 @@
         "Permission": {
             "type": "string",
             "enum": [
+                "DISPATCHER:READ",
+                "DISPATCHER:WRITE",
                 "FILTER:ALL",
                 "ORGANIZATION:AGENT",
                 "ORGANIZATION:MEMBER",
@@ -24792,12 +24794,17 @@
                 "dispatcher": {
                     "type": "string"
                 },
+                "place": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "number"
+                },
                 "service": {
                     "type": "string"
                 }
             },
             "required": [
-                "category",
                 "dispatcher",
                 "service"
             ]

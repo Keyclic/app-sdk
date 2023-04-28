@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.RuleEmbedded
+# keyclic_sdk_api.model.RuleLinksPlace
 
 ## Load the model package
 ```dart
@@ -8,8 +8,8 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**category** | [**Category**](Category.md) |  | [optional] 
-**service** | [**InternalService**](InternalService.md) |  | [optional] 
+**href** | **String** | The URI of the place associated to the given rule. | [optional] 
+**iriTemplate** | [**RuleLinksPlaceIriTemplate**](RuleLinksPlaceIriTemplate.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

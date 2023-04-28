@@ -7,7 +7,10 @@ part of keyclic_sdk_api;
 class RuleLinks {
   /// Returns a new [RuleLinks] instance.
   RuleLinks({
+    this.category,
+    this.place,
     this.self,
+    this.service,
   });
 
   /// Returns a new [RuleLinks] instance and imports its values from
@@ -18,11 +21,20 @@ class RuleLinks {
     }
 
     return RuleLinks(
+      category: RuleLinksCategory.fromJson(json[r'category']),
+      place: RuleLinksPlace.fromJson(json[r'place']),
       self: RuleLinksSelf.fromJson(json[r'self']),
+      service: RuleLinksService.fromJson(json[r'service']),
     );
   }
 
+  RuleLinksCategory? category;
+
+  RuleLinksPlace? place;
+
   RuleLinksSelf? self;
+
+  RuleLinksService? service;
 
   @override
   bool operator ==(Object other) {
@@ -31,11 +43,19 @@ class RuleLinks {
       return true;
     }
 
-    return other is RuleLinks && other.self == self;
+    return other is RuleLinks &&
+        other.category == category &&
+        other.place == place &&
+        other.self == self &&
+        other.service == service;
   }
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode =>
+      (category == null ? 0 : category.hashCode) +
+      (place == null ? 0 : place.hashCode) +
+      (self == null ? 0 : self.hashCode) +
+      (service == null ? 0 : service.hashCode);
 
   static List<RuleLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -82,11 +102,15 @@ class RuleLinks {
   }
 
   @override
-  String toString() => 'RuleLinks[self=$self]';
+  String toString() =>
+      'RuleLinks[category=$category, place=$place, self=$self, service=$service]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (category != null) r'category': category,
+      if (place != null) r'place': place,
       if (self != null) r'self': self,
+      if (service != null) r'service': service,
     };
   }
 }

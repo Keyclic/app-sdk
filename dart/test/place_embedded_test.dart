@@ -19,7 +19,7 @@ void main() {
     // List<NodePath> path (default value: const [])
     test('to test the property `path`', () async {});
 
-    // List<PlaceEmbeddedTargetGroupsInner> targetGroups (default value: const [])
+    // List<TargetGroup> targetGroups (default value: const [])
     test('to test the property `targetGroups`', () async {});
 
     // OperationEmbeddedWorkflow workflow

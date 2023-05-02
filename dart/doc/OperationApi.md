@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**cgetAssignmentsByOperation**](OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 [**cgetCommentsByOperation**](OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
+[**cgetDocumentsByOperation**](OperationApi.md#cgetdocumentsbyoperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
 [**deleteImageByOperationAndImage**](OperationApi.md#deleteimagebyoperationandimage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
 [**deleteOperation**](OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 [**getOperation**](OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
@@ -18,6 +19,7 @@ Method | HTTP request | Description
 [**patchOperation**](OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 [**postAssignByOperation**](OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
 [**postCommentByOperation**](OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
+[**postDocumentByOperation**](OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 [**postImageByOperation**](OperationApi.md#postimagebyoperation) | **POST** /operations/{operation}/images | Create one Image resource.
 [**postOperation**](OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
 [**postSignByOperation**](OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
@@ -136,6 +138,79 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ActivityPagination**](ActivityPagination.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **cgetDocumentsByOperation**
+> DocumentPagination cgetDocumentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, page, limit)
+
+Retrieve all Document resources.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
+
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final before = 2013-10-20T19:20:30+01:00; // DateTime | 
+final organization = organization_example; // String | 
+final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final state = state_example; // String | 
+final statesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final page = 56; // int | Page of the overview.
+final limit = 56; // int | Page of the overview.
+
+try { 
+    final result = api_instance.cgetDocumentsByOperation(xKeyclicApp, operation, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, page, limit);
+    print(result);
+} catch (e) {
+    print('Exception when calling OperationApi->cgetDocumentsByOperation: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **after** | **DateTime**|  | [optional] 
+ **before** | **DateTime**|  | [optional] 
+ **organization** | **String**|  | [optional] 
+ **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **state** | **String**|  | [optional] 
+ **statesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **page** | **int**| Page of the overview. | [optional] [default to 1]
+ **limit** | **int**| Page of the overview. | [optional] [default to 10]
+
+### Return type
+
+[**DocumentPagination**](DocumentPagination.md)
 
 ### Authorization
 
@@ -527,6 +602,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Operation**](Operation.md)
+
+### Authorization
+
+[bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json;charset=UTF-8
+ - **Accept**: application/hal+json;charset=UTF-8
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postDocumentByOperation**
+> Document postDocumentByOperation(xKeyclicApp, operation, documentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+
+Create one Document resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
+
+final api_instance = OperationApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final operation = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
+final documentData = DocumentData(); // DocumentData | 
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+
+try { 
+    final result = api_instance.postDocumentByOperation(xKeyclicApp, operation, documentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    print(result);
+} catch (e) {
+    print('Exception when calling OperationApi->postDocumentByOperation: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
+ **operation** | **String**| The identifier of the resource. | 
+ **documentData** | [**DocumentData**](DocumentData.md)|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**Document**](Document.md)
 
 ### Authorization
 

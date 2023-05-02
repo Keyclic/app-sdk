@@ -419,7 +419,6 @@ doc/PlaceApi.md
 doc/PlaceCollection.md
 doc/PlaceData.md
 doc/PlaceEmbedded.md
-doc/PlaceEmbeddedTargetGroupsInner.md
 doc/PlaceLinks.md
 doc/PlaceLinksChildren.md
 doc/PlaceLinksChildrenIriTemplate.md
@@ -610,6 +609,7 @@ doc/SignerSignature.md
 doc/State.md
 doc/SuccessLogin.md
 doc/SuccessLoginCredentials.md
+doc/TargetGroup.md
 doc/TaskPatch.md
 doc/Template.md
 doc/TemplateApi.md
@@ -1074,7 +1074,6 @@ lib/model/place.dart
 lib/model/place_collection.dart
 lib/model/place_data.dart
 lib/model/place_embedded.dart
-lib/model/place_embedded_target_groups_inner.dart
 lib/model/place_links.dart
 lib/model/place_links_children.dart
 lib/model/place_links_children_iri_template.dart
@@ -1253,6 +1252,7 @@ lib/model/signer_signature.dart
 lib/model/state.dart
 lib/model/success_login.dart
 lib/model/success_login_credentials.dart
+lib/model/target_group.dart
 lib/model/task_patch.dart
 lib/model/template.dart
 lib/model/template_collection.dart
@@ -1688,7 +1688,6 @@ test/person_test.dart
 test/place_api_test.dart
 test/place_collection_test.dart
 test/place_data_test.dart
-test/place_embedded_target_groups_inner_test.dart
 test/place_embedded_test.dart
 test/place_links_children_iri_template_mapping_test.dart
 test/place_links_children_iri_template_test.dart
@@ -1881,6 +1880,7 @@ test/signer_test.dart
 test/state_test.dart
 test/success_login_credentials_test.dart
 test/success_login_test.dart
+test/target_group_test.dart
 test/task_patch_test.dart
 test/template_api_test.dart
 test/template_collection_test.dart

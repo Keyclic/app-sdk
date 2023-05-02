@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *OccupantApi* | [**postOccupant**](doc//OccupantApi.md#postoccupant) | **POST** /occupants | Create one Occupant resource.
 *OperationApi* | [**cgetAssignmentsByOperation**](doc//OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 *OperationApi* | [**cgetCommentsByOperation**](doc//OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
+*OperationApi* | [**cgetDocumentsByOperation**](doc//OperationApi.md#cgetdocumentsbyoperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
 *OperationApi* | [**deleteImageByOperationAndImage**](doc//OperationApi.md#deleteimagebyoperationandimage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
 *OperationApi* | [**deleteOperation**](doc//OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 *OperationApi* | [**getOperation**](doc//OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
@@ -152,6 +153,7 @@ Class | Method | HTTP request | Description
 *OperationApi* | [**patchOperation**](doc//OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 *OperationApi* | [**postAssignByOperation**](doc//OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
 *OperationApi* | [**postCommentByOperation**](doc//OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
+*OperationApi* | [**postDocumentByOperation**](doc//OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 *OperationApi* | [**postImageByOperation**](doc//OperationApi.md#postimagebyoperation) | **POST** /operations/{operation}/images | Create one Image resource.
 *OperationApi* | [**postOperation**](doc//OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
 *OperationApi* | [**postSignByOperation**](doc//OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
@@ -630,7 +632,6 @@ Class | Method | HTTP request | Description
  - [PlaceCollection](doc//PlaceCollection.md)
  - [PlaceData](doc//PlaceData.md)
  - [PlaceEmbedded](doc//PlaceEmbedded.md)
- - [PlaceEmbeddedTargetGroupsInner](doc//PlaceEmbeddedTargetGroupsInner.md)
  - [PlaceLinks](doc//PlaceLinks.md)
  - [PlaceLinksChildren](doc//PlaceLinksChildren.md)
  - [PlaceLinksChildrenIriTemplate](doc//PlaceLinksChildrenIriTemplate.md)
@@ -809,6 +810,7 @@ Class | Method | HTTP request | Description
  - [State](doc//State.md)
  - [SuccessLogin](doc//SuccessLogin.md)
  - [SuccessLoginCredentials](doc//SuccessLoginCredentials.md)
+ - [TargetGroup](doc//TargetGroup.md)
  - [TaskPatch](doc//TaskPatch.md)
  - [Template](doc//Template.md)
  - [TemplateCollection](doc//TemplateCollection.md)

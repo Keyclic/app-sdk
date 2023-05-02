@@ -25,8 +25,7 @@ class PlaceEmbedded {
       documentTypes: DocumentType.listFromJson(json[r'documentTypes']),
       organization: Organization.fromJson(json[r'organization']),
       path: NodePath.listFromJson(json[r'path']),
-      targetGroups:
-          PlaceEmbeddedTargetGroupsInner.listFromJson(json[r'targetGroups']),
+      targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
       workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
@@ -37,7 +36,7 @@ class PlaceEmbedded {
 
   List<NodePath>? path;
 
-  List<PlaceEmbeddedTargetGroupsInner>? targetGroups;
+  List<TargetGroup>? targetGroups;
 
   OperationEmbeddedWorkflow? workflow;
 

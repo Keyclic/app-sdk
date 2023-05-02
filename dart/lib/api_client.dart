@@ -1119,8 +1119,6 @@ class ApiClient {
           return PlaceData.fromJson(value);
         case 'PlaceEmbedded':
           return PlaceEmbedded.fromJson(value);
-        case 'PlaceEmbeddedTargetGroupsInner':
-          return PlaceEmbeddedTargetGroupsInner.fromJson(value);
         case 'PlaceLinks':
           return PlaceLinks.fromJson(value);
         case 'PlaceLinksChildren':
@@ -1478,6 +1476,8 @@ class ApiClient {
           return SuccessLogin.fromJson(value);
         case 'SuccessLoginCredentials':
           return SuccessLoginCredentials.fromJson(value);
+        case 'TargetGroup':
+          return TargetGroup.fromJson(value);
         case 'TaskPatch':
           return TaskPatch.fromJson(value);
         case 'Template':

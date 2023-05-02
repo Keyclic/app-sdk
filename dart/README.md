@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
 *OperationApi* | [**patchOperation**](doc//OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 *OperationApi* | [**postAssignByOperation**](doc//OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
 *OperationApi* | [**postCommentByOperation**](doc//OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
+*OperationApi* | [**postDocumentByOperation**](doc//OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 *OperationApi* | [**postImageByOperation**](doc//OperationApi.md#postimagebyoperation) | **POST** /operations/{operation}/images | Create one Image resource.
 *OperationApi* | [**postOperation**](doc//OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
 *OperationApi* | [**postSignByOperation**](doc//OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
@@ -631,7 +632,6 @@ Class | Method | HTTP request | Description
  - [PlaceCollection](doc//PlaceCollection.md)
  - [PlaceData](doc//PlaceData.md)
  - [PlaceEmbedded](doc//PlaceEmbedded.md)
- - [PlaceEmbeddedTargetGroupsInner](doc//PlaceEmbeddedTargetGroupsInner.md)
  - [PlaceLinks](doc//PlaceLinks.md)
  - [PlaceLinksChildren](doc//PlaceLinksChildren.md)
  - [PlaceLinksChildrenIriTemplate](doc//PlaceLinksChildrenIriTemplate.md)
@@ -810,6 +810,7 @@ Class | Method | HTTP request | Description
  - [State](doc//State.md)
  - [SuccessLogin](doc//SuccessLogin.md)
  - [SuccessLoginCredentials](doc//SuccessLoginCredentials.md)
+ - [TargetGroup](doc//TargetGroup.md)
  - [TaskPatch](doc//TaskPatch.md)
  - [Template](doc//Template.md)
  - [TemplateCollection](doc//TemplateCollection.md)

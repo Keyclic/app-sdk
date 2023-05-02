@@ -60,6 +60,11 @@ void main() {
     //Future<Operation> postCommentByOperation(String xKeyclicApp, String operation, CommentData commentData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test postCommentByOperation', () async {});
 
+    // Create one Document resource.
+    //
+    //Future<Document> postDocumentByOperation(String xKeyclicApp, String operation, DocumentData documentData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    test('test postDocumentByOperation', () async {});
+
     // Create one Image resource.
     //
     //Future<Operation> postImageByOperation(String xKeyclicApp, String operation, ImageData imageData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

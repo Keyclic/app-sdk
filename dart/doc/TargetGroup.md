@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.PlaceEmbeddedTargetGroupsInner
+# keyclic_sdk_api.model.TargetGroup
 
 ## Load the model package
 ```dart

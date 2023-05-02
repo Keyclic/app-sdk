@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for PlaceEmbeddedTargetGroupsInner
+// tests for TargetGroup
 void main() {
-  // final instance = PlaceEmbeddedTargetGroupsInner();
+  // final instance = TargetGroup();
 
-  group('test PlaceEmbeddedTargetGroupsInner', () {
+  group('test TargetGroup', () {
     // String id
     test('to test the property `id`', () async {});
 

@@ -28,7 +28,7 @@ void main() {
     // Place place
     test('to test the property `place`', () async {});
 
-    // List<PlaceEmbeddedTargetGroupsInner> targetGroups (default value: const [])
+    // List<TargetGroup> targetGroups (default value: const [])
     test('to test the property `targetGroups`', () async {});
 
     // OperationEmbeddedWorkflow workflow

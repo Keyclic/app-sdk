@@ -54,7 +54,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/assignments'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/assignments'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -62,8 +63,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -81,7 +84,10 @@ class OperationApi {
     );
 
     final queryParameters = <String, dynamic>{
-      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]': encodeCollectionQueryParameter(orderLeftSquareBracketRightSquareBracket, format: ListFormat.multi),
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
       if (page != null) r'page': encodeQueryParameter(page),
@@ -100,7 +106,8 @@ class OperationApi {
     AssignmentPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<AssignmentPagination>(response.data!, 'AssignmentPagination');
+      responseData = await _apiClient.deserializeAsync<AssignmentPagination>(
+          response.data!, 'AssignmentPagination');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -161,7 +168,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/comments'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/comments'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -169,8 +177,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -204,7 +214,8 @@ class OperationApi {
     ActivityPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<ActivityPagination>(response.data!, 'ActivityPagination');
+      responseData = await _apiClient.deserializeAsync<ActivityPagination>(
+          response.data!, 'ActivityPagination');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -279,7 +290,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/documents'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/documents'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -287,8 +299,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -306,13 +320,23 @@ class OperationApi {
     );
 
     final queryParameters = <String, dynamic>{
-      if (orderLeftSquareBracketRightSquareBracket != null) r'order[]': encodeCollectionQueryParameter(orderLeftSquareBracketRightSquareBracket, format: ListFormat.multi),
+      if (orderLeftSquareBracketRightSquareBracket != null)
+        r'order[]': encodeCollectionQueryParameter(
+            orderLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
-      if (organization != null) r'organization': encodeQueryParameter(organization),
-      if (organizationsLeftSquareBracketRightSquareBracket != null) r'organizations[]': encodeCollectionQueryParameter(organizationsLeftSquareBracketRightSquareBracket, format: ListFormat.multi),
+      if (organization != null)
+        r'organization': encodeQueryParameter(organization),
+      if (organizationsLeftSquareBracketRightSquareBracket != null)
+        r'organizations[]': encodeCollectionQueryParameter(
+            organizationsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (state != null) r'state': encodeQueryParameter(state),
-      if (statesLeftSquareBracketRightSquareBracket != null) r'states[]': encodeCollectionQueryParameter(statesLeftSquareBracketRightSquareBracket, format: ListFormat.multi),
+      if (statesLeftSquareBracketRightSquareBracket != null)
+        r'states[]': encodeCollectionQueryParameter(
+            statesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (page != null) r'page': encodeQueryParameter(page),
       if (limit != null) r'limit': encodeQueryParameter(limit),
     };
@@ -329,7 +353,8 @@ class OperationApi {
     DocumentPagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<DocumentPagination>(response.data!, 'DocumentPagination');
+      responseData = await _apiClient.deserializeAsync<DocumentPagination>(
+          response.data!, 'DocumentPagination');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -388,7 +413,9 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/images/{image}'.replaceAll('{' r'operation' '}', operation.toString()).replaceAll('{' r'image' '}', image.toString());
+    final String path = r'/operations/{operation}/images/{image}'
+        .replaceAll('{' r'operation' '}', operation.toString())
+        .replaceAll('{' r'image' '}', image.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -396,8 +423,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -458,7 +487,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -466,8 +496,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -528,7 +560,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -536,8 +569,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -565,7 +600,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -622,7 +658,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/tracking'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/tracking'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -630,8 +667,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -659,7 +698,8 @@ class OperationApi {
     Tracking responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Tracking>(response.data!, 'Tracking');
+      responseData = await _apiClient.deserializeAsync<Tracking>(
+          response.data!, 'Tracking');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -718,7 +758,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'PATCH',
       headers: <String, dynamic>{
@@ -726,8 +767,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -774,7 +817,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -833,7 +877,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/assign'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/assign'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -841,8 +886,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -889,7 +936,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -948,7 +996,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/comments'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/comments'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -956,8 +1005,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1004,7 +1055,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -1063,7 +1115,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/documents'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/documents'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -1071,8 +1124,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1119,7 +1174,8 @@ class OperationApi {
     Document responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Document>(response.data!, 'Document');
+      responseData = await _apiClient.deserializeAsync<Document>(
+          response.data!, 'Document');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -1178,7 +1234,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/images'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/images'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -1186,8 +1243,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1234,7 +1293,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -1299,8 +1359,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1347,7 +1409,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -1406,7 +1469,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/sign'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/sign'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -1414,8 +1478,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1462,7 +1528,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -1521,7 +1588,8 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/workflow'.replaceAll('{' r'operation' '}', operation.toString());
+    final String path = r'/operations/{operation}/workflow'
+        .replaceAll('{' r'operation' '}', operation.toString());
     final options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -1529,8 +1597,10 @@ class OperationApi {
         if (acceptLanguage != null) r'accept-language': acceptLanguage,
         if (xDateTime != null) r'x-date-time': xDateTime,
         r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null) r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null) r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1577,7 +1647,8 @@ class OperationApi {
     Operation responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<Operation>(response.data!, 'Operation');
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,

@@ -23296,6 +23296,12 @@
         "PreferencesForm": {
             "type": "object",
             "properties": {
+                "hidden": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "required": {
                     "items": {
                         "type": "string"

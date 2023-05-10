@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class PreferencesForm {
   /// Returns a new [PreferencesForm] instance.
   PreferencesForm({
+    this.hidden = const [],
     this.required_ = const [],
   });
 
@@ -18,11 +19,15 @@ class PreferencesForm {
     }
 
     return PreferencesForm(
+      hidden:
+          json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),
     );
   }
+
+  List<String>? hidden;
 
   List<String>? required_;
 
@@ -34,11 +39,14 @@ class PreferencesForm {
     }
 
     return other is PreferencesForm &&
+        DeepCollectionEquality.unordered().equals(hidden, other.hidden) &&
         DeepCollectionEquality.unordered().equals(required_, other.required_);
   }
 
   @override
-  int get hashCode => (required_ == null ? 0 : required_.hashCode);
+  int get hashCode =>
+      (hidden == null ? 0 : hidden.hashCode) +
+      (required_ == null ? 0 : required_.hashCode);
 
   static List<PreferencesForm> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -86,10 +94,11 @@ class PreferencesForm {
   }
 
   @override
-  String toString() => 'PreferencesForm[required_=$required_]';
+  String toString() => 'PreferencesForm[hidden=$hidden, required_=$required_]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (hidden != null) r'hidden': hidden,
       if (required_ != null) r'required': required_,
     };
   }

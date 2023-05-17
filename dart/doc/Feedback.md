@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] [readonly] 
 **metadata** | [**Object**](.md) |  | [optional] 
 **public** | **bool** |  | [optional] 
-**state** | **List<String>** |  | [default to const []]
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **visibility** | **String** |  | [optional] 

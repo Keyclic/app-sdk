@@ -19601,13 +19601,6 @@
                 "public": {
                     "type": "boolean"
                 },
-                "state": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "maxLength": 18,
-                    "type": "array"
-                },
                 "type": {
                     "format": "string",
                     "type": "string"
@@ -19627,10 +19620,7 @@
                     "format": "string",
                     "type": "string"
                 }
-            },
-            "required": [
-                "state"
-            ]
+            }
         },
         "FeedbackCollection": {
             "type": "object",

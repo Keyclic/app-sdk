@@ -15,7 +15,6 @@ class Feedback {
     this.id,
     this.metadata,
     this.public,
-    this.state = const [],
     this.type,
     this.updatedAt,
     this.visibility,
@@ -53,7 +52,6 @@ class Feedback {
           ? null
           : Map<String, dynamic>.from(json[r'metadata']),
       public: json[r'public'],
-      state: List<String>.from(json[r'state']),
       type: json[r'type'],
       updatedAt: updatedAt,
       visibility: FeedbackVisibilityEnum.fromJson(json[r'visibility']),
@@ -75,8 +73,6 @@ class Feedback {
   Map<String, dynamic>? metadata;
 
   bool? public;
-
-  List<String> state;
 
   String? type;
 
@@ -100,7 +96,6 @@ class Feedback {
         other.id == id &&
         other.metadata == metadata &&
         other.public == public &&
-        DeepCollectionEquality.unordered().equals(state, other.state) &&
         other.type == type &&
         other.updatedAt == updatedAt &&
         other.visibility == visibility;
@@ -116,7 +111,6 @@ class Feedback {
       (id == null ? 0 : id.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       (public == null ? 0 : public.hashCode) +
-      state.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
@@ -167,7 +161,7 @@ class Feedback {
 
   @override
   String toString() =>
-      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, public=$public, state=$state, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
+      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, public=$public, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -179,7 +173,6 @@ class Feedback {
       if (id != null) r'id': id,
       if (metadata != null) r'metadata': metadata,
       if (public != null) r'public': public,
-      r'state': state,
       if (type != null) r'type': type,
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
       if (visibility != null) r'visibility': visibility,

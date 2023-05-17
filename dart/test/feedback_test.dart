@@ -34,9 +34,6 @@ void main() {
     // bool public
     test('to test the property `public`', () async {});
 
-    // List<String> state (default value: const [])
-    test('to test the property `state`', () async {});
-
     // String type
     test('to test the property `type`', () async {});
 

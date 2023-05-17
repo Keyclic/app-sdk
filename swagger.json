@@ -19083,6 +19083,9 @@
                 "id": {
                     "type": "string"
                 },
+                "code": {
+                    "type": "string"
+                },
                 "type": {
                     "type": "string"
                 },

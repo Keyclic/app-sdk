@@ -8,11 +8,11 @@ class IntegrationLinkJsonhalRead {
   /// Returns a new [IntegrationLinkJsonhalRead] instance.
   IntegrationLinkJsonhalRead({
     this.links,
-    this.data = const {},
-    this.metadata = const {},
+    this.data,
+    this.metadata,
     this.name,
     required this.source_,
-    this.state = const IntegrationLinkJsonhalReadStateEnum._('INACTIVE'),
+    this.state,
     this.target,
     this.id,
     this.createdAt,

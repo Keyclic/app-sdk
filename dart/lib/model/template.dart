@@ -7,10 +7,10 @@ part of keyclic_sdk_api;
 class Template {
   /// Returns a new [Template] instance.
   Template({
-    this.body = const [],
+    this.body,
     this.createdAt,
-    this.footer = const [],
-    this.header = const [],
+    this.footer,
+    this.header,
     this.id,
     required this.name,
     required this.type,

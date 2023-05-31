@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class PriceRead {
   /// Returns a new [PriceRead] instance.
   PriceRead({
-    this.currencyCode = const PriceReadCurrencyCodeEnum._('EUR'),
+    this.currencyCode,
     this.value,
   });
 

@@ -8,7 +8,7 @@ class PriceJsonhalRead {
   /// Returns a new [PriceJsonhalRead] instance.
   PriceJsonhalRead({
     this.links,
-    this.currencyCode = const PriceJsonhalReadCurrencyCodeEnum._('EUR'),
+    this.currencyCode,
     this.value,
   });
 

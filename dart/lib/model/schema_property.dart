@@ -10,7 +10,7 @@ class SchemaProperty {
     this.conditions,
     this.default_,
     this.description,
-    this.enum_ = const [],
+    this.enum_,
     this.format,
     this.id,
     this.items,

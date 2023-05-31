@@ -7,10 +7,10 @@ part of keyclic_sdk_api;
 class DocumentEmbedded {
   /// Returns a new [DocumentEmbedded] instance.
   DocumentEmbedded({
-    this.container = const {},
+    this.container,
     this.createdBy,
-    this.signers = const [],
-    this.stateTransitions = const [],
+    this.signers,
+    this.stateTransitions,
     this.type,
   });
 

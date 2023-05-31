@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ReportCollection {
   /// Returns a new [ReportCollection] instance.
   ReportCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [ReportCollection] instance and imports its values from

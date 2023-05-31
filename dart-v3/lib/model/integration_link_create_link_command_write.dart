@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class IntegrationLinkCreateLinkCommandWrite {
   /// Returns a new [IntegrationLinkCreateLinkCommandWrite] instance.
   IntegrationLinkCreateLinkCommandWrite({
-    this.data = const {},
+    this.data,
     required this.integration,
-    this.metadata = const {},
+    this.metadata,
     this.name,
     required this.source_,
     this.target,

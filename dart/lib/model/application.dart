@@ -11,7 +11,7 @@ class Application {
     this.about,
     this.agreement,
     this.configuration,
-    this.contactPoints = const [],
+    this.contactPoints,
     this.createdAt,
     this.id,
     required this.name,

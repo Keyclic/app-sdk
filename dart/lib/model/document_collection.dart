@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class DocumentCollection {
   /// Returns a new [DocumentCollection] instance.
   DocumentCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [DocumentCollection] instance and imports its values from

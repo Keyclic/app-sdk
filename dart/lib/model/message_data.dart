@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class MessageData {
   /// Returns a new [MessageData] instance.
   MessageData({
-    this.text = const [],
+    this.text,
     required this.task,
   });
 

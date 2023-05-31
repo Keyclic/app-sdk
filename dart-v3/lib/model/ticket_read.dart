@@ -10,7 +10,7 @@ class TicketRead {
     this.description,
     this.scheduledAt,
     this.id,
-    this.tags = const [],
+    this.tags,
     this.createdAt,
     this.updatedAt,
   });

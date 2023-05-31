@@ -13,8 +13,8 @@ class OperationTypeWorkflow {
     this.id,
     this.name,
     this.start,
-    this.states = const [],
-    this.transitions = const [],
+    this.states,
+    this.transitions,
     this.type,
     this.updatedAt,
   });

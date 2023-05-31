@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class NoteCollection {
   /// Returns a new [NoteCollection] instance.
   NoteCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [NoteCollection] instance and imports its values from

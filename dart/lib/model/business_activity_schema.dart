@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class BusinessActivitySchema {
   /// Returns a new [BusinessActivitySchema] instance.
   BusinessActivitySchema({
-    this.properties = const {},
-    this.required_ = const [],
+    this.properties,
+    this.required_,
   });
 
   /// Returns a new [BusinessActivitySchema] instance and imports its values from

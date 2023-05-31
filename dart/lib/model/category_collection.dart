@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class CategoryCollection {
   /// Returns a new [CategoryCollection] instance.
   CategoryCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [CategoryCollection] instance and imports its values from

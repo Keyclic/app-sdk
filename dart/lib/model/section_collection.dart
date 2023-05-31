@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class SectionCollection {
   /// Returns a new [SectionCollection] instance.
   SectionCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [SectionCollection] instance and imports its values from

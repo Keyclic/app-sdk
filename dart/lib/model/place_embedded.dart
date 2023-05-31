@@ -7,10 +7,10 @@ part of keyclic_sdk_api;
 class PlaceEmbedded {
   /// Returns a new [PlaceEmbedded] instance.
   PlaceEmbedded({
-    this.documentTypes = const [],
+    this.documentTypes,
     this.organization,
-    this.path = const [],
-    this.targetGroups = const [],
+    this.path,
+    this.targetGroups,
     this.workflow,
   });
 

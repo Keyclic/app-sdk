@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ActivityGroup {
   /// Returns a new [ActivityGroup] instance.
   ActivityGroup({
-    this.activities = const [],
+    this.activities,
     this.activityCount,
     this.actorCount,
     this.createdAt,

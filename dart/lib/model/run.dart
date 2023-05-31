@@ -7,10 +7,10 @@ part of keyclic_sdk_api;
 class Run {
   /// Returns a new [Run] instance.
   Run({
-    this.children = const [],
+    this.children,
     this.error,
     this.name,
-    this.result = const {},
+    this.result,
     this.state,
   });
 

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ExternalServiceCollection {
   /// Returns a new [ExternalServiceCollection] instance.
   ExternalServiceCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [ExternalServiceCollection] instance and imports its values from

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class RuleCollection {
   /// Returns a new [RuleCollection] instance.
   RuleCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [RuleCollection] instance and imports its values from

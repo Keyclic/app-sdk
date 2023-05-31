@@ -11,7 +11,7 @@ class ConditionListCondition {
     this.operator_,
     this.path,
     this.type,
-    this.value = const [],
+    this.value,
   });
 
   /// Returns a new [ConditionListCondition] instance and imports its values from

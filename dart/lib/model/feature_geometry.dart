@@ -8,7 +8,7 @@ class FeatureGeometry {
   /// Returns a new [FeatureGeometry] instance.
   FeatureGeometry({
     this.type,
-    this.coordinates = const [],
+    this.coordinates,
   });
 
   /// Returns a new [FeatureGeometry] instance and imports its values from

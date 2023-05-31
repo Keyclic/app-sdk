@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class OrganizationCollection {
   /// Returns a new [OrganizationCollection] instance.
   OrganizationCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [OrganizationCollection] instance and imports its values from

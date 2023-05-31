@@ -11,7 +11,7 @@ class MemberTypeRole {
     this.description,
     this.id,
     this.name,
-    this.permissions = const [],
+    this.permissions,
     this.type,
     this.updatedAt,
   });

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ArticleCollection {
   /// Returns a new [ArticleCollection] instance.
   ArticleCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [ArticleCollection] instance and imports its values from

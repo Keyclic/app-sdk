@@ -19,7 +19,7 @@ class Report {
     this.priority,
     this.reference,
     this.scheduledAt,
-    this.tags = const [],
+    this.tags,
     this.type,
     this.updatedAt,
   });

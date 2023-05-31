@@ -8,9 +8,9 @@ class PreferencesForm {
   /// Returns a new [PreferencesForm] instance.
   PreferencesForm({
     this.contract,
-    this.hidden = const [],
+    this.hidden,
     this.manualDispatch,
-    this.required_ = const [],
+    this.required_,
   });
 
   /// Returns a new [PreferencesForm] instance and imports its values from

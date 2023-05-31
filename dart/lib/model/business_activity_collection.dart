@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class BusinessActivityCollection {
   /// Returns a new [BusinessActivityCollection] instance.
   BusinessActivityCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [BusinessActivityCollection] instance and imports its values from

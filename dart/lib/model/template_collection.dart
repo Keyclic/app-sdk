@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class TemplateCollection {
   /// Returns a new [TemplateCollection] instance.
   TemplateCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [TemplateCollection] instance and imports its values from

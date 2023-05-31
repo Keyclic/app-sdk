@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class IntegrationLinkEditLinkCommandWrite {
   /// Returns a new [IntegrationLinkEditLinkCommandWrite] instance.
   IntegrationLinkEditLinkCommandWrite({
-    this.data = const {},
-    this.metadata = const {},
+    this.data,
+    this.metadata,
     this.name,
     this.state,
     this.target,

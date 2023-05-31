@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class BookmarkCollection {
   /// Returns a new [BookmarkCollection] instance.
   BookmarkCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [BookmarkCollection] instance and imports its values from

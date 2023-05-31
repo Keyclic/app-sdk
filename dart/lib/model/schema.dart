@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class Schema {
   /// Returns a new [Schema] instance.
   Schema({
-    this.properties = const {},
-    this.required_ = const [],
+    this.properties,
+    this.required_,
   });
 
   /// Returns a new [Schema] instance and imports its values from

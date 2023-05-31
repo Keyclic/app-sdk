@@ -9,7 +9,7 @@ class TrackingCheckpoint {
   TrackingCheckpoint({
     this.createdAt,
     this.data,
-    this.state = const [],
+    this.state,
     this.links,
     this.embedded,
   });

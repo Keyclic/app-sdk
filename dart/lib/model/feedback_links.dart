@@ -9,8 +9,8 @@ class FeedbackLinks {
   FeedbackLinks({
     this.businessActivity,
     this.category,
-    this.images = const [],
-    this.plans = const [],
+    this.images,
+    this.plans,
     this.report,
     this.reporter,
     this.self,

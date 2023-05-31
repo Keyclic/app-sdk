@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class InternalServiceCollection {
   /// Returns a new [InternalServiceCollection] instance.
   InternalServiceCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [InternalServiceCollection] instance and imports its values from

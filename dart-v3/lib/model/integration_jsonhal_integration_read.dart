@@ -8,7 +8,7 @@ class IntegrationJsonhalIntegrationRead {
   /// Returns a new [IntegrationJsonhalIntegrationRead] instance.
   IntegrationJsonhalIntegrationRead({
     this.links,
-    this.inputs = const {},
+    this.inputs,
     this.id,
     this.createdAt,
     this.updatedAt,

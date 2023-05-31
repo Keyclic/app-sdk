@@ -19277,14 +19277,16 @@
                         "type": "object",
                         "additionalProperties": true
                     },
-                    "type": "array"
+                    "type": "array",
+                    "nullable": true
                 },
                 "file": {
                     "type": "object",
                     "properties": {
                         "name": {
                             "format": "string",
-                            "type": "string"
+                            "type": "string",
+                            "nullable": true
                         }
                     }
                 },
@@ -19293,19 +19295,22 @@
                     "properties": {
                         "targetGroup": {
                             "format": "string",
-                            "type": "string"
+                            "type": "string",
+                            "nullable": true
                         }
                     }
                 },
                 "text": {
                     "format": "string",
-                    "type": "string"
+                    "type": "string",
+                    "nullable": true
                 },
                 "tags": {
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": "array",
+                    "nullable": true
                 }
             }
         },

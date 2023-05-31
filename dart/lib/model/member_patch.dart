@@ -8,7 +8,7 @@ class MemberPatch {
   /// Returns a new [MemberPatch] instance.
   MemberPatch({
     this.contactPoint,
-    this.roles = const [],
+    this.roles,
   });
 
   /// Returns a new [MemberPatch] instance and imports its values from

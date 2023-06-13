@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
 *OccupantApi* | [**postOccupant**](doc//OccupantApi.md#postoccupant) | **POST** /occupants | Create one Occupant resource.
 *OperationApi* | [**cgetAssignmentsByOperation**](doc//OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 *OperationApi* | [**cgetCommentsByOperation**](doc//OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
+*OperationApi* | [**cgetDocumentsByOperation**](doc//OperationApi.md#cgetdocumentsbyoperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
 *OperationApi* | [**deleteImageByOperationAndImage**](doc//OperationApi.md#deleteimagebyoperationandimage) | **DELETE** /operations/{operation}/images/{image} | Remove one Image resource.
 *OperationApi* | [**deleteOperation**](doc//OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 *OperationApi* | [**getOperation**](doc//OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.

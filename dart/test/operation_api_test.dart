@@ -20,6 +20,11 @@ void main() {
     //Future<ActivityPagination> cgetCommentsByOperation(String xKeyclicApp, String operation, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, int page, int limit }) async
     test('test cgetCommentsByOperation', () async {});
 
+    // Retrieve all Document resources.
+    //
+    //Future<DocumentPagination> cgetDocumentsByOperation(String xKeyclicApp, String operation, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String state, List<String> statesLeftSquareBracketRightSquareBracket, int page, int limit }) async
+    test('test cgetDocumentsByOperation', () async {});
+
     // Remove one Image resource.
     //
     //Future deleteImageByOperationAndImage(String xKeyclicApp, String operation, String image, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

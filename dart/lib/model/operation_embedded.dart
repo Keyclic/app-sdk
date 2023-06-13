@@ -8,6 +8,8 @@ class OperationEmbedded {
   /// Returns a new [OperationEmbedded] instance.
   OperationEmbedded({
     this.createdBy,
+    this.documentTypes = const [],
+    this.documents = const [],
     this.operator_,
     this.workflow,
   });
@@ -21,12 +23,18 @@ class OperationEmbedded {
 
     return OperationEmbedded(
       createdBy: Person.fromJson(json[r'createdBy']),
+      documentTypes: DocumentType.listFromJson(json[r'documentTypes']),
+      documents: Document.listFromJson(json[r'documents']),
       operator_: Person.fromJson(json[r'operator']),
       workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 
   Person? createdBy;
+
+  List<DocumentType>? documentTypes;
+
+  List<Document>? documents;
 
   Person? operator_;
 
@@ -41,6 +49,9 @@ class OperationEmbedded {
 
     return other is OperationEmbedded &&
         other.createdBy == createdBy &&
+        DeepCollectionEquality.unordered()
+            .equals(documentTypes, other.documentTypes) &&
+        DeepCollectionEquality.unordered().equals(documents, other.documents) &&
         other.operator_ == operator_ &&
         other.workflow == workflow;
   }
@@ -48,6 +59,8 @@ class OperationEmbedded {
   @override
   int get hashCode =>
       (createdBy == null ? 0 : createdBy.hashCode) +
+      (documentTypes == null ? 0 : documentTypes.hashCode) +
+      (documents == null ? 0 : documents.hashCode) +
       (operator_ == null ? 0 : operator_.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
@@ -100,11 +113,13 @@ class OperationEmbedded {
 
   @override
   String toString() =>
-      'OperationEmbedded[createdBy=$createdBy, operator_=$operator_, workflow=$workflow]';
+      'OperationEmbedded[createdBy=$createdBy, documentTypes=$documentTypes, documents=$documents, operator_=$operator_, workflow=$workflow]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (createdBy != null) r'createdBy': createdBy,
+      if (documentTypes != null) r'documentTypes': documentTypes,
+      if (documents != null) r'documents': documents,
       if (operator_ != null) r'operator': operator_,
       if (workflow != null) r'workflow': workflow,
     };

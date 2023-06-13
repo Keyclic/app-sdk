@@ -19083,13 +19083,7 @@
                 "type": {
                     "type": "string"
                 }
-            },
-            "required": [
-                "container",
-                "file",
-                "permission",
-                "type"
-            ]
+            }
         },
         "DocumentFile": {
             "type": "object",

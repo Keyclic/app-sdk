@@ -7,11 +7,11 @@ part of keyclic_sdk_api;
 class DocumentData {
   /// Returns a new [DocumentData] instance.
   DocumentData({
-    required this.container,
-    required this.file,
-    required this.permission,
+    this.container,
+    this.file,
+    this.permission,
     this.template,
-    required this.type,
+    this.type,
   });
 
   /// Returns a new [DocumentData] instance and imports its values from
@@ -23,22 +23,22 @@ class DocumentData {
 
     return DocumentData(
       container: json[r'container'],
-      file: DocumentDataFile.fromJson(json[r'file'])!,
-      permission: DocumentDataPermission.fromJson(json[r'permission'])!,
+      file: DocumentDataFile.fromJson(json[r'file']),
+      permission: DocumentDataPermission.fromJson(json[r'permission']),
       template: json[r'template'],
       type: json[r'type'],
     );
   }
 
-  String container;
+  String? container;
 
-  DocumentDataFile file;
+  DocumentDataFile? file;
 
-  DocumentDataPermission permission;
+  DocumentDataPermission? permission;
 
   String? template;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -57,11 +57,11 @@ class DocumentData {
 
   @override
   int get hashCode =>
-      container.hashCode +
-      file.hashCode +
-      permission.hashCode +
+      (container == null ? 0 : container.hashCode) +
+      (file == null ? 0 : file.hashCode) +
+      (permission == null ? 0 : permission.hashCode) +
       (template == null ? 0 : template.hashCode) +
-      type.hashCode;
+      (type == null ? 0 : type.hashCode);
 
   static List<DocumentData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -114,11 +114,11 @@ class DocumentData {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      r'container': container,
-      r'file': file,
-      r'permission': permission,
+      if (container != null) r'container': container,
+      if (file != null) r'file': file,
+      if (permission != null) r'permission': permission,
       if (template != null) r'template': template,
-      r'type': type,
+      if (type != null) r'type': type,
     };
   }
 }

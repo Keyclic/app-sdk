@@ -25533,7 +25533,6 @@
                 }
             },
             "required": [
-                "document",
                 "member"
             ]
         },

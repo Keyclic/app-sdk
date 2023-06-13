@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class SignerData {
   /// Returns a new [SignerData] instance.
   SignerData({
-    required this.document,
+    this.document,
     this.procedure,
     required this.member,
   });
@@ -26,7 +26,7 @@ class SignerData {
     );
   }
 
-  String document;
+  String? document;
 
   String? procedure;
 
@@ -47,7 +47,7 @@ class SignerData {
 
   @override
   int get hashCode =>
-      document.hashCode +
+      (document == null ? 0 : document.hashCode) +
       (procedure == null ? 0 : procedure.hashCode) +
       member.hashCode;
 
@@ -101,7 +101,7 @@ class SignerData {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      r'document': document,
+      if (document != null) r'document': document,
       if (procedure != null) r'procedure': procedure,
       r'member': member,
     };

@@ -10,9 +10,6 @@ void main() {
   // final instance = SignerData();
 
   group('test SignerData', () {
-    // String document
-    test('to test the property `document`', () async {});
-
     // String procedure
     test('to test the property `procedure`', () async {});
 

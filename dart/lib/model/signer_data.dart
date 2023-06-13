@@ -7,8 +7,7 @@ part of keyclic_sdk_api;
 class SignerData {
   /// Returns a new [SignerData] instance.
   SignerData({
-    required this.document,
-    this.procedure,
+    required this.procedure,
     required this.member,
   });
 
@@ -20,15 +19,12 @@ class SignerData {
     }
 
     return SignerData(
-      document: json[r'document'],
       procedure: json[r'procedure'],
       member: json[r'member'],
     );
   }
 
-  String document;
-
-  String? procedure;
+  String procedure;
 
   String member;
 
@@ -40,16 +36,12 @@ class SignerData {
     }
 
     return other is SignerData &&
-        other.document == document &&
         other.procedure == procedure &&
         other.member == member;
   }
 
   @override
-  int get hashCode =>
-      document.hashCode +
-      (procedure == null ? 0 : procedure.hashCode) +
-      member.hashCode;
+  int get hashCode => procedure.hashCode + member.hashCode;
 
   static List<SignerData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -96,13 +88,11 @@ class SignerData {
   }
 
   @override
-  String toString() =>
-      'SignerData[document=$document, procedure=$procedure, member=$member]';
+  String toString() => 'SignerData[procedure=$procedure, member=$member]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      r'document': document,
-      if (procedure != null) r'procedure': procedure,
+      r'procedure': procedure,
       r'member': member,
     };
   }

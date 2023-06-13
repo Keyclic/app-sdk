@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.37.1"
+        "version": "2.43.4-dev.21cb3e375"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -25522,9 +25522,6 @@
         "SignerData": {
             "type": "object",
             "properties": {
-                "document": {
-                    "type": "string"
-                },
                 "procedure": {
                     "type": "string"
                 },
@@ -25533,7 +25530,7 @@
                 }
             },
             "required": [
-                "document",
+                "procedure",
                 "member"
             ]
         },

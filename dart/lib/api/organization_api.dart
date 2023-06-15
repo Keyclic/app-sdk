@@ -557,6 +557,7 @@ class OrganizationApi {
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [archived]
   /// * [after]
   /// * [before]
   /// * [organizationsLeftSquareBracketRightSquareBracket]
@@ -586,6 +587,7 @@ class OrganizationApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? archived,
     DateTime? after,
     DateTime? before,
     List<String>? organizationsLeftSquareBracketRightSquareBracket,
@@ -637,6 +639,7 @@ class OrganizationApi {
         r'order[]': encodeCollectionQueryParameter(
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
       if (organizationsLeftSquareBracketRightSquareBracket != null)
@@ -1132,6 +1135,7 @@ class OrganizationApi {
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [archived]
   /// * [businessActivity]
   /// * [businessActivitiesLeftSquareBracketRightSquareBracket]
   /// * [after]
@@ -1162,6 +1166,7 @@ class OrganizationApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? archived,
     String? businessActivity,
     List<String>? businessActivitiesLeftSquareBracketRightSquareBracket,
     DateTime? after,
@@ -1214,6 +1219,7 @@ class OrganizationApi {
         r'order[]': encodeCollectionQueryParameter(
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
       if (businessActivity != null)
         r'business_activity': encodeQueryParameter(businessActivity),
       if (businessActivitiesLeftSquareBracketRightSquareBracket != null)

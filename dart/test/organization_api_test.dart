@@ -32,7 +32,7 @@ void main() {
 
     // Retrieve all Member resources.
     //
-    //Future<MemberPagination> cgetMembersByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, List<String> organizationsLeftSquareBracketRightSquareBracket, String permission, String query, String role, List<String> rolesLeftSquareBracketRightSquareBracket, String type, int page, int limit }) async
+    //Future<MemberPagination> cgetMembersByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String archived, DateTime after, DateTime before, List<String> organizationsLeftSquareBracketRightSquareBracket, String permission, String query, String role, List<String> rolesLeftSquareBracketRightSquareBracket, String type, int page, int limit }) async
     test('test cgetMembersByOrganization', () async {});
 
     // Retrieve all Occupant resources.
@@ -47,7 +47,7 @@ void main() {
 
     // Retrieve all Organization resources.
     //
-    //Future<OrganizationPagination> cgetOrganizations(String xKeyclicApp, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, DateTime disabledAt, String geoPoint, String geoCoordinates, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
+    //Future<OrganizationPagination> cgetOrganizations(String xKeyclicApp, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String archived, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, DateTime disabledAt, String geoPoint, String geoCoordinates, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
     test('test cgetOrganizations', () async {});
 
     // Retrieve all Place resources.

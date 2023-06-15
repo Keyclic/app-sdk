@@ -4694,6 +4694,9 @@
                         "$ref": "#\/parameters\/order__"
                     },
                     {
+                        "$ref": "#\/parameters\/archived"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
@@ -8514,6 +8517,9 @@
                         "$ref": "#\/parameters\/order__"
                     },
                     {
+                        "$ref": "#\/parameters\/archived"
+                    },
+                    {
                         "$ref": "#\/parameters\/business_activity"
                     },
                     {
@@ -9089,6 +9095,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/archived"
                     },
                     {
                         "$ref": "#\/parameters\/after"
@@ -11239,6 +11248,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/archived"
                     },
                     {
                         "$ref": "#\/parameters\/after"
@@ -22267,6 +22279,9 @@
                     "maxLength": 255,
                     "type": "string"
                 },
+                "archived": {
+                    "type": "boolean"
+                },
                 "createdAt": {
                     "format": "date-time",
                     "readOnly": true,
@@ -22279,6 +22294,10 @@
                 },
                 "enabled": {
                     "type": "boolean"
+                },
+                "endDate": {
+                    "format": "date-time",
+                    "type": "string"
                 },
                 "id": {
                     "format": "uuid",
@@ -22294,6 +22313,10 @@
                 },
                 "preferences": {
                     "$ref": "#\/definitions\/OrganizationPreferences"
+                },
+                "startDate": {
+                    "format": "date-time",
+                    "type": "string"
                 },
                 "type": {
                     "format": "string",
@@ -22517,9 +22540,17 @@
                     "maxLength": 255,
                     "type": "string"
                 },
+                "archivedAt": {
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "description": {
                     "format": "string",
                     "maxLength": 255,
+                    "type": "string"
+                },
+                "endDate": {
+                    "format": "date-time",
                     "type": "string"
                 },
                 "logo": {
@@ -22545,6 +22576,10 @@
                             }
                         }
                     }
+                },
+                "startDate": {
+                    "format": "date-time",
+                    "type": "string"
                 }
             }
         },

@@ -9,10 +9,13 @@ class OrganizationPatch {
   OrganizationPatch({
     this.address,
     this.alternateName,
+    this.archivedAt,
     this.description,
+    this.endDate,
     this.logo,
     this.name,
     this.preferences,
+    this.startDate,
   });
 
   /// Returns a new [OrganizationPatch] instance and imports its values from
@@ -22,13 +25,35 @@ class OrganizationPatch {
       return null;
     }
 
+    DateTime? archivedAt = json[r'archivedAt'] == null
+        ? null
+        : DateTime.parse(json[r'archivedAt']);
+    if (archivedAt != null && archivedAt.isUtc == false) {
+      archivedAt = DateTime.parse('${json[r'archivedAt']}Z');
+    }
+
+    DateTime? endDate =
+        json[r'endDate'] == null ? null : DateTime.parse(json[r'endDate']);
+    if (endDate != null && endDate.isUtc == false) {
+      endDate = DateTime.parse('${json[r'endDate']}Z');
+    }
+
+    DateTime? startDate =
+        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
+    if (startDate != null && startDate.isUtc == false) {
+      startDate = DateTime.parse('${json[r'startDate']}Z');
+    }
+
     return OrganizationPatch(
       address: ExternalServicePatchAddress.fromJson(json[r'address']),
       alternateName: json[r'alternateName'],
+      archivedAt: archivedAt,
       description: json[r'description'],
+      endDate: endDate,
       logo: json[r'logo'],
       name: json[r'name'],
       preferences: OrganizationPatchPreferences.fromJson(json[r'preferences']),
+      startDate: startDate,
     );
   }
 
@@ -36,13 +61,19 @@ class OrganizationPatch {
 
   String? alternateName;
 
+  DateTime? archivedAt;
+
   String? description;
+
+  DateTime? endDate;
 
   String? logo;
 
   String? name;
 
   OrganizationPatchPreferences? preferences;
+
+  DateTime? startDate;
 
   @override
   bool operator ==(Object other) {
@@ -54,20 +85,26 @@ class OrganizationPatch {
     return other is OrganizationPatch &&
         other.address == address &&
         other.alternateName == alternateName &&
+        other.archivedAt == archivedAt &&
         other.description == description &&
+        other.endDate == endDate &&
         other.logo == logo &&
         other.name == name &&
-        other.preferences == preferences;
+        other.preferences == preferences &&
+        other.startDate == startDate;
   }
 
   @override
   int get hashCode =>
       (address == null ? 0 : address.hashCode) +
       (alternateName == null ? 0 : alternateName.hashCode) +
+      (archivedAt == null ? 0 : archivedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (endDate == null ? 0 : endDate.hashCode) +
       (logo == null ? 0 : logo.hashCode) +
       (name == null ? 0 : name.hashCode) +
-      (preferences == null ? 0 : preferences.hashCode);
+      (preferences == null ? 0 : preferences.hashCode) +
+      (startDate == null ? 0 : startDate.hashCode);
 
   static List<OrganizationPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -118,16 +155,20 @@ class OrganizationPatch {
 
   @override
   String toString() =>
-      'OrganizationPatch[address=$address, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences]';
+      'OrganizationPatch[address=$address, alternateName=$alternateName, archivedAt=$archivedAt, description=$description, endDate=$endDate, logo=$logo, name=$name, preferences=$preferences, startDate=$startDate]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (address != null) r'address': address,
       if (alternateName != null) r'alternateName': alternateName,
+      if (archivedAt != null)
+        r'archivedAt': archivedAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
+      if (endDate != null) r'endDate': endDate!.toUtc().toIso8601String(),
       if (logo != null) r'logo': logo,
       if (name != null) r'name': name,
       if (preferences != null) r'preferences': preferences,
+      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
     };
   }
 }

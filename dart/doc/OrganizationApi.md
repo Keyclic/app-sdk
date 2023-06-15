@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetMembersByOrganization**
-> MemberPagination cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
+> MemberPagination cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
 
 Retrieve all Member resources.
 
@@ -338,6 +338,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final archived = archived_example; // String | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
 final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
@@ -350,7 +351,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
+    final result = api_instance.cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->cgetMembersByOrganization: $e\n');
@@ -368,6 +369,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **archived** | **String**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
@@ -617,7 +619,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOrganizations**
-> OrganizationPagination cgetOrganizations(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, disabledAt, geoPoint, geoCoordinates, organization, organizationsLeftSquareBracketRightSquareBracket, query, page, limit)
+> OrganizationPagination cgetOrganizations(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, disabledAt, geoPoint, geoCoordinates, organization, organizationsLeftSquareBracketRightSquareBracket, query, page, limit)
 
 Retrieve all Organization resources.
 
@@ -636,6 +638,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final archived = archived_example; // String | 
 final businessActivity = businessActivity_example; // String | 
 final businessActivitiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -650,7 +653,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetOrganizations(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, disabledAt, geoPoint, geoCoordinates, organization, organizationsLeftSquareBracketRightSquareBracket, query, page, limit);
+    final result = api_instance.cgetOrganizations(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, disabledAt, geoPoint, geoCoordinates, organization, organizationsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->cgetOrganizations: $e\n');
@@ -667,6 +670,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **archived** | **String**|  | [optional] 
  **businessActivity** | **String**|  | [optional] 
  **businessActivitiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 

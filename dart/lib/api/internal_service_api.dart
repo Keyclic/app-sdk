@@ -20,6 +20,7 @@ class InternalServiceApi {
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [archived]
   /// * [after]
   /// * [before]
   /// * [organization]
@@ -50,6 +51,7 @@ class InternalServiceApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? archived,
     DateTime? after,
     DateTime? before,
     String? organization,
@@ -102,6 +104,7 @@ class InternalServiceApi {
         r'order[]': encodeCollectionQueryParameter(
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
       if (organization != null)

@@ -12,8 +12,6 @@ class ApiClient {
   }) : this.dio = dio ??
             Dio(BaseOptions(
               baseUrl: basePathOverride ?? basePath,
-              connectTimeout: 10000,
-              receiveTimeout: 30000,
             )) {
     this.dio.interceptors.addAll(interceptors ??
         [

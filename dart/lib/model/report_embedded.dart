@@ -31,8 +31,7 @@ class ReportEmbedded {
       documents: Document.listFromJson(json[r'documents']),
       feedback: Feedback.fromJson(json[r'feedback']),
       place: Place.fromJson(json[r'place']),
-      targetGroups:
-          PlaceEmbeddedTargetGroupsInner.listFromJson(json[r'targetGroups']),
+      targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
       workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
@@ -49,7 +48,7 @@ class ReportEmbedded {
 
   Place? place;
 
-  List<PlaceEmbeddedTargetGroupsInner>? targetGroups;
+  List<TargetGroup>? targetGroups;
 
   OperationEmbeddedWorkflow? workflow;
 

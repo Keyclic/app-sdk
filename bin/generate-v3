@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+#set -o errexit -o nounset -o xtrace
+
+# This script generates Swagger codegen client
+# then it generates app-sdk from templates and swagger.json file
+# then it fixes src and test files.
+
+CURRENT_DIR=$(pwd)
+
+cleanup() {
+    cd "${CURRENT_DIR}" || exit
+    echo "Don't forget to publish on Github and dart registries."
+}
+
+SWAGGER_FILE="${1}"
+if [[ -z "${SWAGGER_FILE}" ]]; then
+    SWAGGER_FILE="https://api.keyclic.com/swagger.json"
+fi
+echo "Use file ${SWAGGER_FILE} as definition API."
+echo
+
+#### Dart generation of keyclic_sdk_api ###
+echo "Dart generation."
+rm -rf "${CURRENT_DIR}"/dart-v3/* 2>&1
+docker run \
+    --rm \
+    --volume "${PWD}":/local \
+    --user "$(id -u)":"$(id -g)" \
+    openapitools/openapi-generator-cli:v6.5.0 \
+    generate \
+    --config /local/options-v3.dart.json \
+    --input-spec ${SWAGGER_FILE} \
+    --generator-name dart \
+    --output /local/dart-v3 \
+    --template-dir /local/dart-templates
+
+sleep 3
+
+# Prepare and build package for dart
+cd "${CURRENT_DIR}"/dart-v3 || { echo -e "Cannot find dart directory"; exit 1; }
+
+# change some files to match requirements of pubspec.yaml specifications
+cp ../LICENSE .
+
+rm .travis.yml
+
+dart pub get
+dart --version
+dart format --fix lib
+dart format --fix test
+
+# When the script exits call cleanup function
+trap cleanup EXIT
+
+# to debug, replace docker command above with the following code (need local copy of the project)
+# java \
+#   -DdebugModels \
+#   -jar ../openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar \
+#   generate \
+#   --config options.dart.json \
+#   --input-spec ${SWAGGER_FILE} \
+#   --generator-name dart \
+#   --output dart \
+#   --template-dir dart-templates \
+#   > .codegen.models.dart.log

@@ -1,0 +1,35 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api_platform;
+
+class ApiKeyAuthInterceptor extends AuthInterceptor {
+  final Map<String, String> apiKeys = {};
+
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    final authInfo =
+        getAuthInfo(options, (secure) => secure['type'] == 'apiKey');
+
+    for (final info in authInfo) {
+      final String authName = info['name']!;
+      final apiKey = apiKeys[authName];
+
+      if (apiKey == null) {
+        continue;
+      }
+
+      final String authKeyName = info['keyName']!;
+      final String authWhere = info['where']!;
+
+      if (authWhere == 'query') {
+        options.queryParameters[authKeyName] = apiKey;
+      } else {
+        options.headers[authKeyName] = apiKey;
+      }
+    }
+
+    super.onRequest(options, handler);
+  }
+}

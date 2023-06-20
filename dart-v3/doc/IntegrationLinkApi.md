@@ -1,0 +1,278 @@
+# keyclic_sdk_api_platform.api.IntegrationLinkApi
+
+## Load the API package
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+```
+
+All URIs are relative to *http://localhost*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**deleteIntegrationLink**](IntegrationLinkApi.md#deleteintegrationlink) | **DELETE** /integration-links/{identifier} | Removes the IntegrationLink resource.
+[**getIntegrationLink**](IntegrationLinkApi.md#getintegrationlink) | **GET** /integration-links/{identifier} | Retrieves a IntegrationLink resource.
+[**getIntegrationLinks**](IntegrationLinkApi.md#getintegrationlinks) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
+[**patchIntegrationLink**](IntegrationLinkApi.md#patchintegrationlink) | **PATCH** /integration-links/{identifier} | Updates the IntegrationLink resource.
+[**postIntegrationLink**](IntegrationLinkApi.md#postintegrationlink) | **POST** /integration-links | Creates a IntegrationLink resource.
+
+
+# **deleteIntegrationLink**
+> deleteIntegrationLink(identifier)
+
+Removes the IntegrationLink resource.
+
+Removes the IntegrationLink resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = IntegrationLinkApi();
+final identifier = identifier_example; // String | Link identifier
+
+try { 
+    api_instance.deleteIntegrationLink(identifier);
+} catch (e) {
+    print('Exception when calling IntegrationLinkApi->deleteIntegrationLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| Link identifier | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getIntegrationLink**
+> IntegrationLinkJsonhalRead getIntegrationLink(identifier)
+
+Retrieves a IntegrationLink resource.
+
+Retrieves a IntegrationLink resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = IntegrationLinkApi();
+final identifier = identifier_example; // String | Link identifier
+
+try { 
+    final result = api_instance.getIntegrationLink(identifier);
+    print(result);
+} catch (e) {
+    print('Exception when calling IntegrationLinkApi->getIntegrationLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| Link identifier | 
+
+### Return type
+
+[**IntegrationLinkJsonhalRead**](IntegrationLinkJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getIntegrationLinks**
+> GetIntegrationLinks200Response getIntegrationLinks(page, limit, pagination, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket)
+
+Retrieves the collection of IntegrationLink resources.
+
+Retrieves the collection of IntegrationLink resources.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = IntegrationLinkApi();
+final page = 56; // int | The collection page number
+final limit = 56; // int | The number of items per page
+final pagination = true; // bool | Enable or disable pagination
+final jsonData = []; // List<String> | 
+final jsonMetadata = []; // List<String> | 
+final source_ = source__example; // String | 
+final sourceLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final state = state_example; // String | 
+final stateLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final target = target_example; // String | 
+final targetLeftSquareBracketRightSquareBracket = []; // List<String> | 
+
+try { 
+    final result = api_instance.getIntegrationLinks(page, limit, pagination, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket);
+    print(result);
+} catch (e) {
+    print('Exception when calling IntegrationLinkApi->getIntegrationLinks: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| The collection page number | [optional] [default to 1]
+ **limit** | **int**| The number of items per page | [optional] [default to 10]
+ **pagination** | **bool**| Enable or disable pagination | [optional] 
+ **jsonData** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **jsonMetadata** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **source_** | **String**|  | [optional] 
+ **sourceLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **state** | **String**|  | [optional] 
+ **stateLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **target** | **String**|  | [optional] 
+ **targetLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+
+### Return type
+
+[**GetIntegrationLinks200Response**](GetIntegrationLinks200Response.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **patchIntegrationLink**
+> IntegrationLinkJsonhalRead patchIntegrationLink(identifier, integrationLinkEditLinkCommandData, acceptLanguage)
+
+Updates the IntegrationLink resource.
+
+Updates the IntegrationLink resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = IntegrationLinkApi();
+final identifier = identifier_example; // String | Link identifier
+final integrationLinkEditLinkCommandData = IntegrationLinkEditLinkCommandData(); // IntegrationLinkEditLinkCommandData | The updated IntegrationLink resource
+final acceptLanguage = acceptLanguage_example; // String | 
+
+try { 
+    final result = api_instance.patchIntegrationLink(identifier, integrationLinkEditLinkCommandData, acceptLanguage);
+    print(result);
+} catch (e) {
+    print('Exception when calling IntegrationLinkApi->patchIntegrationLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| Link identifier | 
+ **integrationLinkEditLinkCommandData** | [**IntegrationLinkEditLinkCommandData**](IntegrationLinkEditLinkCommandData.md)| The updated IntegrationLink resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+
+### Return type
+
+[**IntegrationLinkJsonhalRead**](IntegrationLinkJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postIntegrationLink**
+> IntegrationLinkJsonhalRead postIntegrationLink(integrationLinkCreateLinkCommandData, acceptLanguage)
+
+Creates a IntegrationLink resource.
+
+Creates a IntegrationLink resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = IntegrationLinkApi();
+final integrationLinkCreateLinkCommandData = IntegrationLinkCreateLinkCommandData(); // IntegrationLinkCreateLinkCommandData | The new IntegrationLink resource
+final acceptLanguage = acceptLanguage_example; // String | 
+
+try { 
+    final result = api_instance.postIntegrationLink(integrationLinkCreateLinkCommandData, acceptLanguage);
+    print(result);
+} catch (e) {
+    print('Exception when calling IntegrationLinkApi->postIntegrationLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationLinkCreateLinkCommandData** | [**IntegrationLinkCreateLinkCommandData**](IntegrationLinkCreateLinkCommandData.md)| The new IntegrationLink resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+
+### Return type
+
+[**IntegrationLinkJsonhalRead**](IntegrationLinkJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

@@ -22,15 +22,15 @@ class TemplatePatch {
     }
 
     return TemplatePatch(
-      body: json[r'body'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'body'])
-          : [],
-      footer: json[r'footer'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'footer'])
-          : [],
-      header: json[r'header'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'header'])
-          : [],
+      body: json[r'body'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'body']),
+      footer: json[r'footer'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'footer']),
+      header: json[r'header'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'header']),
       name: json[r'name'],
       type: json[r'type'],
     );

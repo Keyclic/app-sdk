@@ -16,9 +16,19 @@ class Permission {
 
   String toJson() => value;
 
+  static const connectorColonRead = Permission._(r'connector:read');
+  static const contractColonBillingColonRead =
+      Permission._(r'contract:billing:read');
+  static const contractColonRead = Permission._(r'contract:read');
+  static const contractTypeColonRead = Permission._(r'contract_type:read');
   static const dISPATCHERColonREAD = Permission._(r'DISPATCHER:READ');
   static const dISPATCHERColonWRITE = Permission._(r'DISPATCHER:WRITE');
   static const fILTERColonALL = Permission._(r'FILTER:ALL');
+  static const integrationLinkColonRead =
+      Permission._(r'integration-link:read');
+  static const integrationLinkColonWrite =
+      Permission._(r'integration-link:write');
+  static const integrationColonRead = Permission._(r'integration:read');
   static const oRGANIZATIONColonAGENT = Permission._(r'ORGANIZATION:AGENT');
   static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
   static const oRGANIZATIONColonOPERATOR =
@@ -41,12 +51,20 @@ class Permission {
   static const sERVICEColonALL = Permission._(r'SERVICE:ALL');
   static const NOTE_READ = Permission._(r'NOTE_READ');
   static const NOTE_WRITE = Permission._(r'NOTE_WRITE');
+  static const ticketColonRead = Permission._(r'ticket:read');
 
   /// List of all possible values in this [enum][Permission].
   static const values = <Permission>[
+    connectorColonRead,
+    contractColonBillingColonRead,
+    contractColonRead,
+    contractTypeColonRead,
     dISPATCHERColonREAD,
     dISPATCHERColonWRITE,
     fILTERColonALL,
+    integrationLinkColonRead,
+    integrationLinkColonWrite,
+    integrationColonRead,
     oRGANIZATIONColonAGENT,
     oRGANIZATIONColonMEMBER,
     oRGANIZATIONColonOPERATOR,
@@ -67,6 +85,7 @@ class Permission {
     sERVICEColonALL,
     NOTE_READ,
     NOTE_WRITE,
+    ticketColonRead,
   ];
 
   static Permission? fromJson(dynamic value) =>
@@ -102,12 +121,26 @@ class PermissionTypeTransformer {
   /// and users are still using an old app with the old code.
   Permission? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
+      case r'connector:read':
+        return Permission.connectorColonRead;
+      case r'contract:billing:read':
+        return Permission.contractColonBillingColonRead;
+      case r'contract:read':
+        return Permission.contractColonRead;
+      case r'contract_type:read':
+        return Permission.contractTypeColonRead;
       case r'DISPATCHER:READ':
         return Permission.dISPATCHERColonREAD;
       case r'DISPATCHER:WRITE':
         return Permission.dISPATCHERColonWRITE;
       case r'FILTER:ALL':
         return Permission.fILTERColonALL;
+      case r'integration-link:read':
+        return Permission.integrationLinkColonRead;
+      case r'integration-link:write':
+        return Permission.integrationLinkColonWrite;
+      case r'integration:read':
+        return Permission.integrationColonRead;
       case r'ORGANIZATION:AGENT':
         return Permission.oRGANIZATIONColonAGENT;
       case r'ORGANIZATION:MEMBER':
@@ -148,6 +181,8 @@ class PermissionTypeTransformer {
         return Permission.NOTE_READ;
       case r'NOTE_WRITE':
         return Permission.NOTE_WRITE;
+      case r'ticket:read':
+        return Permission.ticketColonRead;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

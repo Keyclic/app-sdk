@@ -8,7 +8,9 @@ class OrganizationPreferences {
   /// Returns a new [OrganizationPreferences] instance.
   OrganizationPreferences({
     this.categoryRequired,
+    this.contract,
     this.electronicSignature,
+    this.equipment,
     this.feedbackParentPlace,
     this.form,
     this.offline,
@@ -27,8 +29,10 @@ class OrganizationPreferences {
 
     return OrganizationPreferences(
       categoryRequired: json[r'categoryRequired'],
+      contract: PreferencesContract.fromJson(json[r'contract']),
       electronicSignature:
           PreferencesElectronicSignature.fromJson(json[r'electronicSignature']),
+      equipment: PreferencesEquipment.fromJson(json[r'equipment']),
       feedbackParentPlace: json[r'feedbackParentPlace'],
       form: PreferencesForm.fromJson(json[r'form']),
       offline: json[r'offline'],
@@ -41,7 +45,11 @@ class OrganizationPreferences {
 
   bool? categoryRequired;
 
+  PreferencesContract? contract;
+
   PreferencesElectronicSignature? electronicSignature;
+
+  PreferencesEquipment? equipment;
 
   bool? feedbackParentPlace;
 
@@ -66,7 +74,9 @@ class OrganizationPreferences {
 
     return other is OrganizationPreferences &&
         other.categoryRequired == categoryRequired &&
+        other.contract == contract &&
         other.electronicSignature == electronicSignature &&
+        other.equipment == equipment &&
         other.feedbackParentPlace == feedbackParentPlace &&
         other.form == form &&
         other.offline == offline &&
@@ -79,7 +89,9 @@ class OrganizationPreferences {
   @override
   int get hashCode =>
       (categoryRequired == null ? 0 : categoryRequired.hashCode) +
+      (contract == null ? 0 : contract.hashCode) +
       (electronicSignature == null ? 0 : electronicSignature.hashCode) +
+      (equipment == null ? 0 : equipment.hashCode) +
       (feedbackParentPlace == null ? 0 : feedbackParentPlace.hashCode) +
       (form == null ? 0 : form.hashCode) +
       (offline == null ? 0 : offline.hashCode) +
@@ -138,13 +150,15 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[categoryRequired=$categoryRequired, electronicSignature=$electronicSignature, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
+      'OrganizationPreferences[categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (categoryRequired != null) r'categoryRequired': categoryRequired,
+      if (contract != null) r'contract': contract,
       if (electronicSignature != null)
         r'electronicSignature': electronicSignature,
+      if (equipment != null) r'equipment': equipment,
       if (feedbackParentPlace != null)
         r'feedbackParentPlace': feedbackParentPlace,
       if (form != null) r'form': form,

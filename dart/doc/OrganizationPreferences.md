@@ -9,7 +9,9 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **categoryRequired** | **bool** |  | [optional] 
+**contract** | [**PreferencesContract**](PreferencesContract.md) |  | [optional] 
 **electronicSignature** | [**PreferencesElectronicSignature**](PreferencesElectronicSignature.md) |  | [optional] 
+**equipment** | [**PreferencesEquipment**](PreferencesEquipment.md) |  | [optional] 
 **feedbackParentPlace** | **bool** |  | [optional] 
 **form** | [**PreferencesForm**](PreferencesForm.md) |  | [optional] 
 **offline** | **bool** |  | [optional] 

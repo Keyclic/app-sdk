@@ -13,8 +13,14 @@ void main() {
     // bool categoryRequired
     test('to test the property `categoryRequired`', () async {});
 
+    // PreferencesContract contract
+    test('to test the property `contract`', () async {});
+
     // PreferencesElectronicSignature electronicSignature
     test('to test the property `electronicSignature`', () async {});
+
+    // PreferencesEquipment equipment
+    test('to test the property `equipment`', () async {});
 
     // bool feedbackParentPlace
     test('to test the property `feedbackParentPlace`', () async {});

@@ -21,15 +21,15 @@ class RunData {
     }
 
     return RunData(
-      event: json[r'event'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'event'])
-          : [],
-      inputs: json[r'inputs'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'inputs'])
-          : [],
-      outputs: json[r'outputs'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'outputs'])
-          : [],
+      event: json[r'event'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'event']),
+      inputs: json[r'inputs'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'inputs']),
+      outputs: json[r'outputs'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'outputs']),
       verbose: json[r'verbose'],
     );
   }

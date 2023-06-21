@@ -24,7 +24,7 @@ class DocumentEmbedded {
     return DocumentEmbedded(
       container: json[r'container'] == null
           ? null
-          : Map<String, dynamic>.from(json[r'container']),
+          : Map<String, Object>.from(json[r'container']),
       createdBy: Person.fromJson(json[r'createdBy']),
       signers: Signer.listFromJson(json[r'signers']),
       stateTransitions: json[r'stateTransitions'] == null
@@ -34,7 +34,7 @@ class DocumentEmbedded {
     );
   }
 
-  Map<String, dynamic>? container;
+  Map<String, Object>? container;
 
   Person? createdBy;
 

@@ -34,7 +34,7 @@ class FeedbackData {
       geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
       metadata: json[r'metadata'] == null
           ? null
-          : Map<String, dynamic>.from(json[r'metadata']),
+          : Map<String, Object>.from(json[r'metadata']),
       place: json[r'place'],
       priority: json[r'priority'],
       reporter: json[r'reporter'],
@@ -52,7 +52,7 @@ class FeedbackData {
 
   FeedbackDataGeo geo;
 
-  Map<String, dynamic>? metadata;
+  Map<String, Object>? metadata;
 
   String place;
 

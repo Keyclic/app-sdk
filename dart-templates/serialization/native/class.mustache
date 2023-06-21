@@ -128,7 +128,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{#isFreeFormObject}}
                 {{{name}}}: json[r'{{{baseName}}}'] == null ?
                 null :
-                Map<String, dynamic>.from(json[r'{{{baseName}}}']),
+                Map<String, Object>.from(json[r'{{{baseName}}}']),
               {{/isFreeFormObject}}
               {{^isFreeFormObject}}
                 {{#isFloat}}
@@ -161,7 +161,12 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   // maximum: {{{maximum}}}
     {{/maximum}}
   {{/isEnum}}
-  {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+  {{#isFreeFormObject}}
+    {{#isReadOnly}}final {{/isReadOnly}}Map<String, Object>{{^required}}?{{/required}} {{{name}}};
+  {{/isFreeFormObject}}
+  {{^isFreeFormObject}}
+    {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+  {{/isFreeFormObject}}
 
   {{/vars}}
   @override

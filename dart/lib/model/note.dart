@@ -40,9 +40,9 @@ class Note {
       links: NoteLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
-      text: json[r'text'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'text'])
-          : [],
+      text: json[r'text'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'text']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );

@@ -44,9 +44,9 @@ class Document {
     return Document(
       embedded: DocumentEmbedded.fromJson(json[r'_embedded']),
       links: DocumentLinks.fromJson(json[r'_links']),
-      body: json[r'body'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'body'])
-          : [],
+      body: json[r'body'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'body']),
       createdAt: createdAt,
       file: DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],

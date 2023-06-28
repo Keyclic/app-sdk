@@ -51,13 +51,19 @@ generate() {
   ./bin/generate "$@"
 }
 
+generate-v3() {
+  check dart
+
+  ./bin/generate-v3 "$@"
+}
+
 main() {
     if [[ -z ${1} ]]; then
         usage
         exit 0
     fi
 
-    if [[ ! ${1} =~ ^deploy-dart$|^generate$ ]]; then
+    if [[ ! ${1} =~ ^deploy-dart$|^generate$|^generate-v3$ ]]; then
         echo "${1} is not a supported command."
         exit 1
     fi

@@ -40,11 +40,17 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
                 {{items.complexType}}.listFromJson(json[r'{{{baseName}}}']),
             {{/items.complexType}}
             {{^items.complexType}}
-                List.from(json[r'{{{baseName}}}'] ?? []).map((e) => List<{{items.items.dataType}}>.from(e ?? [])).toList(growable: false),
+                json[r'{{{baseName}}}'] == null ? null : List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']).map((e) => List<{{items.items.dataType}}>.from(e)).toList(growable: false),
             {{/items.complexType}}
         {{/items.isArray}}
         {{^items.isArray}}
-        {{{name}}}: {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
+        {{{name}}}: 
+          {{#items.isFreeFormObject}}
+          json[r'{{{baseName}}}'] == null ? null : List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']),
+          {{/items.isFreeFormObject}}
+          {{^items.isFreeFormObject}}
+          {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
+          {{/items.isFreeFormObject}}
         {{/items.isArray}}
       {{/isArray}}
       {{^isArray}}
@@ -73,7 +79,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.isModel}}
             {{^items.isModel}}
-              json[r'{{{baseName}}}'],
+              {{{dataType}}}.from(json[r'{{{baseName}}}']),
             {{/items.isModel}}
           {{/items.isMap}}
           {{/items.isArray}}
@@ -122,7 +128,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{#isFreeFormObject}}
                 {{{name}}}: json[r'{{{baseName}}}'] == null ?
                 null :
-                Map<String, dynamic>.from(json[r'{{{baseName}}}']),
+                Map<String, Object>.from(json[r'{{{baseName}}}']),
               {{/isFreeFormObject}}
               {{^isFreeFormObject}}
                 {{#isFloat}}
@@ -156,7 +162,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{/maximum}}
   {{/isEnum}}
   {{#isFreeFormObject}}
-    {{#isReadOnly}}final {{/isReadOnly}}Map<String, dynamic>{{^required}}?{{/required}} {{{name}}};
+    {{#isReadOnly}}final {{/isReadOnly}}Map<String, Object>{{^required}}?{{/required}} {{{name}}};
   {{/isFreeFormObject}}
   {{^isFreeFormObject}}
     {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};

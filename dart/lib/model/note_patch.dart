@@ -18,9 +18,9 @@ class NotePatch {
     }
 
     return NotePatch(
-      text: json[r'text'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'text'])
-          : [],
+      text: json[r'text'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'text']),
     );
   }
 

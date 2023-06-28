@@ -50,7 +50,7 @@ class Feedback {
       id: json[r'id'],
       metadata: json[r'metadata'] == null
           ? null
-          : Map<String, dynamic>.from(json[r'metadata']),
+          : Map<String, Object>.from(json[r'metadata']),
       public: json[r'public'],
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -70,7 +70,7 @@ class Feedback {
 
   final String? id;
 
-  Map<String, dynamic>? metadata;
+  Map<String, Object>? metadata;
 
   bool? public;
 

@@ -19,9 +19,9 @@ class MessageData {
     }
 
     return MessageData(
-      text: json[r'text'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'text'])
-          : [],
+      text: json[r'text'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'text']),
       task: json[r'task'],
     );
   }

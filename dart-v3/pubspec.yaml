@@ -1,0 +1,16 @@
+#
+# AUTO-GENERATED FILE, DO NOT MODIFY!
+#
+
+name: 'keyclic_sdk_api_platform'
+version: '3.2.0-beta1'
+description: 'The keyclic_sdk_api package is an implementation of the Keyclic API.'
+homepage: 'https://keyclic.com'
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dependencies:
+  collection: '^1.15.0'
+  dio: '^4.0.0'
+  logging: '^1.0.0'
+dev_dependencies:
+  test: '1.16.0'

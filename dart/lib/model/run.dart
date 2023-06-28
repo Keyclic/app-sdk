@@ -27,7 +27,7 @@ class Run {
       name: json[r'name'],
       result: json[r'result'] == null
           ? null
-          : Map<String, dynamic>.from(json[r'result']),
+          : Map<String, Object>.from(json[r'result']),
       state: json[r'state'],
     );
   }
@@ -38,7 +38,7 @@ class Run {
 
   String? name;
 
-  Map<String, dynamic>? result;
+  Map<String, Object>? result;
 
   String? state;
 

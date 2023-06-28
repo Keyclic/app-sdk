@@ -5,7 +5,7 @@
 class {{classname}} {
   const {{classname}}(this._apiClient);
 
-  final ApiClient _apiClient;
+  final {{clientName}} _apiClient;
 
   {{#operation}}
   /// {{#summary}}{{.}}{{/summary}}{{^summary}}{{nickname}}{{/summary}}

@@ -21,7 +21,7 @@ class {{clientName}} {
   static const String basePath = r'{{{basePath}}}';
 
   final Dio dio;
-  // final Logger _logger = Logger('ApiClient');
+  // final Logger _logger = Logger('{{clientName}}');
 
   void setOAuthToken(String name, String token) {
     for (final interceptor in dio.interceptors) {

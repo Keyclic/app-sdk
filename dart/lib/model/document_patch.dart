@@ -22,9 +22,9 @@ class DocumentPatch {
     }
 
     return DocumentPatch(
-      body: json[r'body'] is Iterable
-          ? List<Map<String, dynamic>>.from(json[r'body'])
-          : [],
+      body: json[r'body'] == null
+          ? null
+          : List<Map<String, dynamic>>.from(json[r'body']),
       file: DocumentPatchFile.fromJson(json[r'file']),
       permission: DocumentPatchPermission.fromJson(json[r'permission']),
       text: json[r'text'],

@@ -28,14 +28,14 @@ class BillingJsonhalRead {
     }
 
     return BillingJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       adjustedCost: PriceJsonhalRead.fromJson(json[r'adjustedCost']),
       initialCost: PriceJsonhalRead.fromJson(json[r'initialCost']),
       startDate: startDate,
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   PriceJsonhalRead? adjustedCost;
 

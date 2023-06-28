@@ -106,7 +106,7 @@ final resourceType = resourceType_example; // String |
 final orderLeftSquareBracketCreatedAtRightSquareBracket = orderLeftSquareBracketCreatedAtRightSquareBracket_example; // String | 
 final orderLeftSquareBracketNameRightSquareBracket = orderLeftSquareBracketNameRightSquareBracket_example; // String | 
 final orderLeftSquareBracketUpdatedAtRightSquareBracket = orderLeftSquareBracketUpdatedAtRightSquareBracket_example; // String | 
-final propertiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final propertiesLeftSquareBracketRightSquareBracket = []; // List<String> | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
 final contractsPeriodIdentifier = contractsPeriodIdentifier_example; // String | 
 final contractsPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final parentPeriodIdentifier = parentPeriodIdentifier_example; // String | 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
  **orderLeftSquareBracketCreatedAtRightSquareBracket** | **String**|  | [optional] 
  **orderLeftSquareBracketNameRightSquareBracket** | **String**|  | [optional] 
  **orderLeftSquareBracketUpdatedAtRightSquareBracket** | **String**|  | [optional] 
- **propertiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **propertiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty} | [optional] [default to const []]
  **contractsPeriodIdentifier** | **String**|  | [optional] 
  **contractsPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parentPeriodIdentifier** | **String**|  | [optional] 

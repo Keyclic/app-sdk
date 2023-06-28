@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.43.4-dev.21cb3e375"
+        "version": "2.44.1-dev.34128b9b5"
     },
     "servers": [
         {
@@ -794,7 +794,7 @@
                     {
                         "name": "properties[]",
                         "in": "query",
-                        "description": "",
+                        "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
@@ -1115,24 +1115,292 @@
             },
             "parameters": []
         },
-        "/connectors/{identifier}": {
+        "/brands": {
             "get": {
-                "operationId": "getConnector",
+                "operationId": "getBrands",
                 "tags": [
-                    "Connector"
+                    "Brand"
                 ],
                 "responses": {
                     "200": {
-                        "description": "Connector resource",
+                        "description": "Brand collection",
                         "content": {
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Connector.jsonhal-connector.read"
+                                    "type": "object",
+                                    "properties": {
+                                        "_embedded": {
+                                            "type": "object",
+                                            "properties": {
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Brand.jsonhal-Read"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "item"
+                                            ]
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "itemsPerPage": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "_links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    },
+                                                    "nullable": false
+                                                },
+                                                "first": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "last": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "next": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "previous": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string",
+                                                                "format": "iri-reference"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "_links"
+                                    ]
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Connector-connector.read"
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Brand-Read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Brand resources.",
+                "description": "Retrieves the collection of Brand resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 0,
+                            "maximum": 50
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/brands/{identifier}": {
+            "get": {
+                "operationId": "getBrand",
+                "tags": [
+                    "Brand"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Brand resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Brand.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Brand-Read"
                                 }
                             }
                         }
@@ -1141,13 +1409,13 @@
                         "description": "Resource not found"
                     }
                 },
-                "summary": "Retrieves a Connector resource.",
-                "description": "Retrieves a Connector resource.",
+                "summary": "Retrieves a Brand resource.",
+                "description": "Retrieves a Brand resource.",
                 "parameters": [
                     {
                         "name": "identifier",
                         "in": "path",
-                        "description": "Connector identifier",
+                        "description": "Brand identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -1174,6 +1442,81 @@
                                 "fr-FR",
                                 "en-US"
                             ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
                         },
                         "style": "simple",
                         "explode": false,
@@ -2222,7 +2565,7 @@
                     {
                         "name": "properties[]",
                         "in": "query",
-                        "description": "",
+                        "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
@@ -2459,6 +2802,103 @@
                 ],
                 "deprecated": false
             },
+            "post": {
+                "operationId": "postContract",
+                "tags": [
+                    "Contract"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Contract resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a Contract resource.",
+                "description": "Creates a Contract resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new Contract resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contract.CreateContractCommand-Data"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
             "parameters": []
         },
         "/contracts/{identifier}": {
@@ -2601,6 +3041,204 @@
                         "allowReserved": false
                     }
                 ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteContract",
+                "tags": [
+                    "Contract"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Contract resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Contract resource.",
+                "description": "Removes the Contract resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Contract identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "patchContract",
+                "tags": [
+                    "Contract"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Contract resource updated",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Contract resource.",
+                "description": "Updates the Contract resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Contract identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Contract resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Contract.EditContractCommand-Data"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "deprecated": false
             },
             "parameters": []
@@ -2767,6 +3405,20 @@
                         "allowEmptyValue": true,
                         "schema": {
                             "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
                         },
                         "style": "form",
                         "explode": false,
@@ -3113,6 +3765,103 @@
                 ],
                 "deprecated": false
             },
+            "post": {
+                "operationId": "postEquipment",
+                "tags": [
+                    "Equipment"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Equipment resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a Equipment resource.",
+                "description": "Creates a Equipment resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new Equipment resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Equipment.CreateEquipmentCommand-Data"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
             "parameters": []
         },
         "/equipments/{identifier}": {
@@ -3255,6 +4004,204 @@
                         "allowReserved": false
                     }
                 ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteEquipment",
+                "tags": [
+                    "Equipment"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Equipment resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Equipment resource.",
+                "description": "Removes the Equipment resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Equipment identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "patchEquipment",
+                "tags": [
+                    "Equipment"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Equipment resource updated",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Equipment resource.",
+                "description": "Updates the Equipment resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Equipment identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Equipment resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Equipment.EditEquipmentCommand-Data"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "deprecated": false
             },
             "parameters": []
@@ -3552,6 +4499,27 @@
                         "style": "form",
                         "explode": true,
                         "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
                     }
                 ],
                 "deprecated": false
@@ -3667,6 +4635,27 @@
                         "style": "simple",
                         "explode": false,
                         "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
                     }
                 ],
                 "deprecated": false
@@ -3696,6 +4685,27 @@
                         "allowEmptyValue": false,
                         "schema": {
                             "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
                         },
                         "style": "simple",
                         "explode": false,
@@ -5676,6 +6686,150 @@
                 "deprecated": false
             },
             "parameters": []
+        },
+        "/workflow-states/{identifier}": {
+            "get": {
+                "operationId": "getState",
+                "tags": [
+                    "WorkflowState"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "WorkflowState resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkflowState.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkflowState-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a WorkflowState resource.",
+                "description": "Retrieves a WorkflowState resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "State identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
         }
     },
     "components": {
@@ -5713,6 +6867,11 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "state": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -5735,13 +6894,26 @@
                                         "format": "iri-reference"
                                     }
                                 }
+                            },
+                            "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "state": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
                             }
                         }
-                    },
-                    "type": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "nullable": true
                     },
                     "description": {
                         "type": "string",
@@ -5868,6 +7040,23 @@
                     "name"
                 ]
             },
+            "Billing-Data": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "initialCost": {
+                        "description": "Initial cost of the contract before adjustments have been applied.",
+                        "$ref": "#/components/schemas/Price-Data"
+                    },
+                    "startDate": {
+                        "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                }
+            },
             "Billing-Read": {
                 "type": "object",
                 "description": "",
@@ -5924,31 +7113,36 @@
                     }
                 }
             },
-            "Connector-connector.read": {
+            "Brand-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Detailed description of brand.",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Name of the brand.",
+                        "type": "string",
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
-            "Connector.jsonhal-connector.read": {
+            "Brand.jsonhal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -5967,38 +7161,38 @@
                             }
                         }
                     },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Detailed description of brand.",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "Name of the brand.",
+                        "type": "string",
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "Contract-Read": {
                 "type": "object",
-                "description": "A contract is an agreement that legally obligates two parties to certain terms and conditions.",
+                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
                 "deprecated": false,
                 "properties": {
                     "billing": {
                         "description": "A dictionary containing information about the contract's billing, including the start date, initial cost, and adjusted cost.",
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Billing-Read"
-                            }
-                        ],
-                        "nullable": true
+                        "$ref": "#/components/schemas/Billing-Read"
                     },
                     "description": {
                         "minLength": 1,
@@ -6039,11 +7233,8 @@
                     },
                     "provider": {
                         "description": "Organization responsible for the contract.",
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Service-Read"
-                            }
-                        ],
+                        "type": "string",
+                        "format": "iri-reference",
                         "nullable": true
                     },
                     "renewal": {
@@ -6100,12 +7291,154 @@
                 "required": [
                     "name",
                     "number",
+                    "provider",
                     "state"
                 ]
             },
+            "Contract.CreateContractCommand-Data": {
+                "type": "object",
+                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
+                "deprecated": false,
+                "properties": {
+                    "billing": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Billing-Data"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "duration": {
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "onCall": {
+                        "type": "boolean"
+                    },
+                    "provider": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "renewal": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal-Data"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "signedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "state": {
+                        "default": "DRAFT",
+                        "example": "DRAFT",
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "number",
+                    "provider",
+                    "state",
+                    "type"
+                ]
+            },
+            "Contract.EditContractCommand-Data": {
+                "type": "object",
+                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
+                "deprecated": false,
+                "properties": {
+                    "billing": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Billing-Data"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "duration": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "onCall": {
+                        "type": "boolean"
+                    },
+                    "provider": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "renewal": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal-Data"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "signedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
             "Contract.jsonhal-Read": {
                 "type": "object",
-                "description": "A contract is an agreement that legally obligates two parties to certain terms and conditions.",
+                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
                 "deprecated": false,
                 "properties": {
                     "_links": {
@@ -6119,17 +7452,30 @@
                                         "format": "iri-reference"
                                     }
                                 }
+                            },
+                            "provider": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
                             }
                         }
                     },
                     "billing": {
                         "description": "A dictionary containing information about the contract's billing, including the start date, initial cost, and adjusted cost.",
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Billing.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
+                        "$ref": "#/components/schemas/Billing.jsonhal-Read"
                     },
                     "description": {
                         "minLength": 1,
@@ -6168,15 +7514,6 @@
                         "description": "The onCall property represents whether a staff member is currently available for on-call duties.",
                         "type": "boolean"
                     },
-                    "provider": {
-                        "description": "Organization responsible for the contract.",
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Service.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
                     "renewal": {
                         "$ref": "#/components/schemas/Renewal.jsonhal-Read"
                     },
@@ -6204,12 +7541,6 @@
                         "format": "date-time",
                         "nullable": true
                     },
-                    "type": {
-                        "description": "The type of the contract defined by the organization.",
-                        "type": "string",
-                        "format": "iri-reference",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -6231,6 +7562,7 @@
                 "required": [
                     "name",
                     "number",
+                    "provider",
                     "state"
                 ]
             },
@@ -6322,12 +7654,19 @@
                 "deprecated": false,
                 "properties": {
                     "brand": {
-                        "minLength": 1,
-                        "maxLength": 255,
+                        "description": "The brand of the asset. The brand refers to the specific manufacturer or company that produces or sells an asset.",
                         "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "commissioningDate": {
+                        "description": "The date when an asset is officially put into service or operation.",
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     },
                     "lifetime": {
+                        "description": "The expected or estimated duration of an asset's useful life or operational lifespan.",
                         "type": "string",
                         "format": "duration",
                         "nullable": true
@@ -6335,14 +7674,33 @@
                     "model": {
                         "minLength": 1,
                         "maxLength": 255,
+                        "description": "The model of the asset. The model provides detailed information about the features, capabilities, and technical specifications of the asset.",
                         "type": "string",
                         "nullable": true
                     },
+                    "mpn": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "The Manufacturer Part Number (MPN) is a unique identifier assigned by the manufacturer to a specific part or component of an asset.",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "retirementDate": {
+                        "readOnly": true,
+                        "description": "The date when an asset is expected to reach the end of its operational life based on the commissioning date and the estimated lifetime.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "serialNumber": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "The unique identifier assigned to an individual asset, allowing for easy identification and tracking.",
                         "type": "string",
                         "nullable": true
                     },
                     "warranty": {
+                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
                         "$ref": "#/components/schemas/Warranty-Read"
                     },
                     "type": {
@@ -6373,11 +7731,120 @@
                     },
                     "name": {
                         "type": "string"
+                    },
+                    "state": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
                     }
                 },
                 "required": [
                     "name"
                 ]
+            },
+            "Equipment.CreateEquipmentCommand-Data": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "brand": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "commissioningDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lifetime": {
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "model": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "mpn": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "serialNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
+            },
+            "Equipment.EditEquipmentCommand-Data": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "brand": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "commissioningDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lifetime": {
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "model": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "mpn": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "serialNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "type": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    }
+                }
             },
             "Equipment.jsonhal-Read": {
                 "type": "object",
@@ -6395,16 +7862,44 @@
                                         "format": "iri-reference"
                                     }
                                 }
+                            },
+                            "brand": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "state": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
                             }
                         }
                     },
-                    "brand": {
-                        "minLength": 1,
-                        "maxLength": 255,
+                    "commissioningDate": {
+                        "description": "The date when an asset is officially put into service or operation.",
                         "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     },
                     "lifetime": {
+                        "description": "The expected or estimated duration of an asset's useful life or operational lifespan.",
                         "type": "string",
                         "format": "duration",
                         "nullable": true
@@ -6412,20 +7907,34 @@
                     "model": {
                         "minLength": 1,
                         "maxLength": 255,
+                        "description": "The model of the asset. The model provides detailed information about the features, capabilities, and technical specifications of the asset.",
                         "type": "string",
                         "nullable": true
                     },
+                    "mpn": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "The Manufacturer Part Number (MPN) is a unique identifier assigned by the manufacturer to a specific part or component of an asset.",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "retirementDate": {
+                        "readOnly": true,
+                        "description": "The date when an asset is expected to reach the end of its operational life based on the commissioning date and the estimated lifetime.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "serialNumber": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "description": "The unique identifier assigned to an individual asset, allowing for easy identification and tracking.",
                         "type": "string",
                         "nullable": true
                     },
                     "warranty": {
+                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
                         "$ref": "#/components/schemas/Warranty.jsonhal-Read"
-                    },
-                    "type": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "nullable": true
                     },
                     "id": {
                         "readOnly": true,
@@ -6594,6 +8103,7 @@
                     },
                     "integration": {
                         "type": "string",
+                        "format": "iri-reference",
                         "nullable": true
                     },
                     "metadata": {
@@ -6722,6 +8232,17 @@
                     "source"
                 ]
             },
+            "Price-Data": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "value": {
+                        "minimum": 0,
+                        "type": "number"
+                    }
+                }
+            },
             "Price-Read": {
                 "type": "object",
                 "description": "",
@@ -6778,6 +8299,19 @@
                     }
                 }
             },
+            "Renewal-Data": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "duration": {
+                        "description": "Duration of the renewal in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    }
+                }
+            },
             "Renewal-Read": {
                 "type": "object",
                 "description": "",
@@ -6815,46 +8349,6 @@
                         "type": "string",
                         "format": "duration",
                         "nullable": true
-                    }
-                }
-            },
-            "Service-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    }
-                }
-            },
-            "Service.jsonhal-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "name": {
-                        "type": "string"
                     }
                 }
             },
@@ -7035,9 +8529,17 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "period": {
+                    "duration": {
+                        "description": "The duration of the warranty in ISO 8601 duration format.",
                         "type": "string",
                         "format": "duration",
+                        "nullable": true
+                    },
+                    "endDate": {
+                        "readOnly": true,
+                        "description": "The end date of the warranty, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     },
                     "startDate": {
@@ -7067,9 +8569,17 @@
                             }
                         }
                     },
-                    "period": {
+                    "duration": {
+                        "description": "The duration of the warranty in ISO 8601 duration format.",
                         "type": "string",
                         "format": "duration",
+                        "nullable": true
+                    },
+                    "endDate": {
+                        "readOnly": true,
+                        "description": "The end date of the warranty, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
                         "nullable": true
                     },
                     "startDate": {
@@ -7079,6 +8589,64 @@
                         "nullable": true
                     }
                 }
+            },
+            "WorkflowState-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "color": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "WorkflowState.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "name"
+                ]
             }
         },
         "responses": {},

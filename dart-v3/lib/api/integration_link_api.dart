@@ -14,6 +14,7 @@ class IntegrationLinkApi {
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
+  /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -25,6 +26,7 @@ class IntegrationLinkApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<void>> deleteIntegrationLink({
     required String identifier,
+    String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -38,6 +40,7 @@ class IntegrationLinkApi {
       method: r'DELETE',
       headers: <String, dynamic>{
         // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -68,6 +71,7 @@ class IntegrationLinkApi {
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
+  /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -79,6 +83,7 @@ class IntegrationLinkApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> getIntegrationLink({
     required String identifier,
+    String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -92,6 +97,7 @@ class IntegrationLinkApi {
       method: r'GET',
       headers: <String, dynamic>{
         // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -158,6 +164,7 @@ class IntegrationLinkApi {
   /// * [stateLeftSquareBracketRightSquareBracket] -
   /// * [target] -
   /// * [targetLeftSquareBracketRightSquareBracket] -
+  /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -179,6 +186,7 @@ class IntegrationLinkApi {
     List<String>? stateLeftSquareBracketRightSquareBracket,
     String? target,
     List<String>? targetLeftSquareBracketRightSquareBracket,
+    String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -191,6 +199,7 @@ class IntegrationLinkApi {
       method: r'GET',
       headers: <String, dynamic>{
         // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
         ...?headers,
       },
       extra: <String, dynamic>{

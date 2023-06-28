@@ -10,7 +10,7 @@ void main() {
   // final instance = IntegrationLinkJsonhalRead();
 
   group('test IntegrationLinkJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // Map<String, dynamic> data (default value: const {})

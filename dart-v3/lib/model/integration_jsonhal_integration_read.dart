@@ -37,7 +37,7 @@ class IntegrationJsonhalIntegrationRead {
     }
 
     return IntegrationJsonhalIntegrationRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       inputs: Map<String, Object>.from(json[r'inputs']),
       id: json[r'id'],
       createdAt: createdAt,
@@ -45,7 +45,7 @@ class IntegrationJsonhalIntegrationRead {
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   Map<String, Object>? inputs;
 

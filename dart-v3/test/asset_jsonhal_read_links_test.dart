@@ -12,5 +12,11 @@ void main() {
   group('test AssetJsonhalReadLinks', () {
     // GetAssetTypes200ResponseLinksFirst self
     test('to test the property `self`', () async {});
+
+    // GetAssetTypes200ResponseLinksFirst type
+    test('to test the property `type`', () async {});
+
+    // GetAssetTypes200ResponseLinksFirst state
+    test('to test the property `state`', () async {});
   });
 }

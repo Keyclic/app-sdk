@@ -10,7 +10,7 @@ void main() {
   // final instance = ContractTypeJsonhalRead();
 
   group('test ContractTypeJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // Detailed description of the contract type.

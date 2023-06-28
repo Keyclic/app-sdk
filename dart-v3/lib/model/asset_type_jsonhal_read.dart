@@ -37,7 +37,7 @@ class AssetTypeJsonhalRead {
     }
 
     return AssetTypeJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
@@ -46,7 +46,7 @@ class AssetTypeJsonhalRead {
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   /// Detailed description of the asset type.
   String? description;

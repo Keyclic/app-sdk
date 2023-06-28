@@ -9,6 +9,69 @@ class ContractApi {
 
   final ApiPlatformClient _apiClient;
 
+  /// Removes the Contract resource.
+  /// Removes the Contract resource.
+  ///
+  /// Parameters:
+  /// * [identifier] - Contract identifier
+  /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
+  /// * [acceptLanguage] -
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<void>> deleteContract({
+    required String identifier,
+    required String xKeyclicApp,
+    required String xOrganizationId,
+    String? acceptLanguage,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/contracts/{identifier}'
+        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        r'X-Keyclic-App': xKeyclicApp,
+        r'X-Organization-Id': xOrganizationId,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    return _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+  }
+
   /// Retrieves a Contract resource.
   /// Retrieves a Contract resource.
   ///
@@ -147,7 +210,7 @@ class ContractApi {
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketSignedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketStateRightSquareBracket] -
-  /// * [propertiesLeftSquareBracketRightSquareBracket] -
+  /// * [propertiesLeftSquareBracketRightSquareBracket] - Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
   /// * [onCall] -
   /// * [onCallLeftSquareBracketRightSquareBracket] -
   /// * [organizationPeriodIdentifier] -
@@ -408,6 +471,244 @@ class ContractApi {
     }
 
     return Response<GetContracts200Response>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+  }
+
+  /// Updates the Contract resource.
+  /// Updates the Contract resource.
+  ///
+  /// Parameters:
+  /// * [identifier] - Contract identifier
+  /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
+  /// * [contractEditContractCommandData] - The updated Contract resource
+  /// * [acceptLanguage] -
+  /// * [xDateTime] -
+  /// * [xKeyclicAppPlatform] -
+  /// * [xKeyclicAppVersion] -
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ContractJsonhalRead] as data
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<ContractJsonhalRead>> patchContract({
+    required String identifier,
+    required String xKeyclicApp,
+    required String xOrganizationId,
+    required ContractEditContractCommandData contractEditContractCommandData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/contracts/{identifier}'
+        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final options = Options(
+      method: r'PATCH',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        if (xDateTime != null) r'X-Date-Time': xDateTime,
+        r'X-Keyclic-App': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        r'X-Organization-Id': xOrganizationId,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/merge-patch+json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic bodyData;
+
+    try {
+      bodyData = contractEditContractCommandData.toJson();
+      // bodyData = jsonEncode(contractEditContractCommandData);
+      // bodyData = jsonDecode(jsonEncode(contractEditContractCommandData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ContractJsonhalRead responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<ContractJsonhalRead>(
+          response.data!, 'ContractJsonhalRead');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<ContractJsonhalRead>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+  }
+
+  /// Creates a Contract resource.
+  /// Creates a Contract resource.
+  ///
+  /// Parameters:
+  /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
+  /// * [contractCreateContractCommandData] - The new Contract resource
+  /// * [acceptLanguage] -
+  /// * [xDateTime] -
+  /// * [xKeyclicAppPlatform] -
+  /// * [xKeyclicAppVersion] -
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [ContractJsonhalRead] as data
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<ContractJsonhalRead>> postContract({
+    required String xKeyclicApp,
+    required String xOrganizationId,
+    required ContractCreateContractCommandData
+        contractCreateContractCommandData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/contracts';
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        if (xDateTime != null) r'X-Date-Time': xDateTime,
+        r'X-Keyclic-App': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        r'X-Organization-Id': xOrganizationId,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic bodyData;
+
+    try {
+      bodyData = contractCreateContractCommandData.toJson();
+      // bodyData = jsonEncode(contractCreateContractCommandData);
+      // bodyData = jsonDecode(jsonEncode(contractCreateContractCommandData));
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    ContractJsonhalRead responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<ContractJsonhalRead>(
+          response.data!, 'ContractJsonhalRead');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<ContractJsonhalRead>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

@@ -13,6 +13,7 @@ class AssetRead {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.state,
   });
 
   /// Returns a new [AssetRead] instance and imports its values from
@@ -43,6 +44,7 @@ class AssetRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      state: json[r'state'],
     );
   }
 
@@ -61,6 +63,8 @@ class AssetRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  String? state;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -74,7 +78,8 @@ class AssetRead {
         other.name == name &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.state == state;
   }
 
   @override
@@ -84,7 +89,8 @@ class AssetRead {
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (state == null ? 0 : state.hashCode);
 
   static List<AssetRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -132,7 +138,7 @@ class AssetRead {
 
   @override
   String toString() =>
-      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, state=$state]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -142,6 +148,7 @@ class AssetRead {
       if (id != null) r'id': id,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if (state != null) r'state': state,
     };
   }
 }

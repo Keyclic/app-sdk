@@ -10,7 +10,7 @@ void main() {
   // final instance = RenewalJsonhalRead();
 
   group('test RenewalJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // Duration of the renewal in ISO 8601 duration format.

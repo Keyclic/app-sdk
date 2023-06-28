@@ -16,11 +16,17 @@ class Permission {
 
   String toJson() => value;
 
+  static const assetEquipmentColonRead = Permission._(r'asset-equipment:read');
+  static const assetEquipmentColonWrite =
+      Permission._(r'asset-equipment:write');
   static const connectorColonRead = Permission._(r'connector:read');
   static const contractColonBillingColonRead =
       Permission._(r'contract:billing:read');
+  static const contractColonBillingColonWrite =
+      Permission._(r'contract:billing:write');
   static const contractColonRead = Permission._(r'contract:read');
-  static const contractTypeColonRead = Permission._(r'contract_type:read');
+  static const contractTypeColonRead = Permission._(r'contract-type:read');
+  static const contractColonWrite = Permission._(r'contract:write');
   static const dISPATCHERColonREAD = Permission._(r'DISPATCHER:READ');
   static const dISPATCHERColonWRITE = Permission._(r'DISPATCHER:WRITE');
   static const fILTERColonALL = Permission._(r'FILTER:ALL');
@@ -55,10 +61,14 @@ class Permission {
 
   /// List of all possible values in this [enum][Permission].
   static const values = <Permission>[
+    assetEquipmentColonRead,
+    assetEquipmentColonWrite,
     connectorColonRead,
     contractColonBillingColonRead,
+    contractColonBillingColonWrite,
     contractColonRead,
     contractTypeColonRead,
+    contractColonWrite,
     dISPATCHERColonREAD,
     dISPATCHERColonWRITE,
     fILTERColonALL,
@@ -121,14 +131,22 @@ class PermissionTypeTransformer {
   /// and users are still using an old app with the old code.
   Permission? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
+      case r'asset-equipment:read':
+        return Permission.assetEquipmentColonRead;
+      case r'asset-equipment:write':
+        return Permission.assetEquipmentColonWrite;
       case r'connector:read':
         return Permission.connectorColonRead;
       case r'contract:billing:read':
         return Permission.contractColonBillingColonRead;
+      case r'contract:billing:write':
+        return Permission.contractColonBillingColonWrite;
       case r'contract:read':
         return Permission.contractColonRead;
-      case r'contract_type:read':
+      case r'contract-type:read':
         return Permission.contractTypeColonRead;
+      case r'contract:write':
+        return Permission.contractColonWrite;
       case r'DISPATCHER:READ':
         return Permission.dISPATCHERColonREAD;
       case r'DISPATCHER:WRITE':

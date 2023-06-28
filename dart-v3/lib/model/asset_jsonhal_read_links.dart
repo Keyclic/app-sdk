@@ -8,6 +8,8 @@ class AssetJsonhalReadLinks {
   /// Returns a new [AssetJsonhalReadLinks] instance.
   AssetJsonhalReadLinks({
     this.self,
+    this.type,
+    this.state,
   });
 
   /// Returns a new [AssetJsonhalReadLinks] instance and imports its values from
@@ -19,10 +21,16 @@ class AssetJsonhalReadLinks {
 
     return AssetJsonhalReadLinks(
       self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      state: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
   GetAssetTypes200ResponseLinksFirst? self;
+
+  GetAssetTypes200ResponseLinksFirst? type;
+
+  GetAssetTypes200ResponseLinksFirst? state;
 
   @override
   bool operator ==(Object other) {
@@ -31,11 +39,17 @@ class AssetJsonhalReadLinks {
       return true;
     }
 
-    return other is AssetJsonhalReadLinks && other.self == self;
+    return other is AssetJsonhalReadLinks &&
+        other.self == self &&
+        other.type == type &&
+        other.state == state;
   }
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode =>
+      (self == null ? 0 : self.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (state == null ? 0 : state.hashCode);
 
   static List<AssetJsonhalReadLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -86,11 +100,14 @@ class AssetJsonhalReadLinks {
   }
 
   @override
-  String toString() => 'AssetJsonhalReadLinks[self=$self]';
+  String toString() =>
+      'AssetJsonhalReadLinks[self=$self, type=$type, state=$state]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (self != null) r'self': self,
+      if (type != null) r'type': type,
+      if (state != null) r'state': state,
     };
   }
 }

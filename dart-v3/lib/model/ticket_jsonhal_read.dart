@@ -45,7 +45,7 @@ class TicketJsonhalRead {
     }
 
     return TicketJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       scheduledAt: scheduledAt,
       id: json[r'id'],
@@ -55,7 +55,7 @@ class TicketJsonhalRead {
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   String? description;
 

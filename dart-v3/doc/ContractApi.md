@@ -9,9 +9,64 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteContract**](ContractApi.md#deletecontract) | **DELETE** /contracts/{identifier} | Removes the Contract resource.
 [**getContract**](ContractApi.md#getcontract) | **GET** /contracts/{identifier} | Retrieves a Contract resource.
 [**getContracts**](ContractApi.md#getcontracts) | **GET** /contracts | Retrieves the collection of Contract resources.
+[**patchContract**](ContractApi.md#patchcontract) | **PATCH** /contracts/{identifier} | Updates the Contract resource.
+[**postContract**](ContractApi.md#postcontract) | **POST** /contracts | Creates a Contract resource.
 
+
+# **deleteContract**
+> deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage)
+
+Removes the Contract resource.
+
+Removes the Contract resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = ContractApi();
+final identifier = identifier_example; // String | Contract identifier
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final acceptLanguage = acceptLanguage_example; // String | 
+
+try { 
+    api_instance.deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage);
+} catch (e) {
+    print('Exception when calling ContractApi->deleteContract: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| Contract identifier | 
+ **xKeyclicApp** | **String**|  | 
+ **xOrganizationId** | **String**|  | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getContract**
 > ContractJsonhalRead getContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
@@ -123,7 +178,7 @@ final orderLeftSquareBracketNumberRightSquareBracket = orderLeftSquareBracketNum
 final orderLeftSquareBracketUpdatedAtRightSquareBracket = orderLeftSquareBracketUpdatedAtRightSquareBracket_example; // String | 
 final orderLeftSquareBracketSignedAtRightSquareBracket = orderLeftSquareBracketSignedAtRightSquareBracket_example; // String | 
 final orderLeftSquareBracketStateRightSquareBracket = orderLeftSquareBracketStateRightSquareBracket_example; // String | 
-final propertiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final propertiesLeftSquareBracketRightSquareBracket = []; // List<String> | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
 final onCall = true; // bool | 
 final onCallLeftSquareBracketRightSquareBracket = []; // List<bool> | 
 final organizationPeriodIdentifier = organizationPeriodIdentifier_example; // String | 
@@ -184,7 +239,7 @@ Name | Type | Description  | Notes
  **orderLeftSquareBracketUpdatedAtRightSquareBracket** | **String**|  | [optional] 
  **orderLeftSquareBracketSignedAtRightSquareBracket** | **String**|  | [optional] 
  **orderLeftSquareBracketStateRightSquareBracket** | **String**|  | [optional] 
- **propertiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **propertiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty} | [optional] [default to const []]
  **onCall** | **bool**|  | [optional] 
  **onCallLeftSquareBracketRightSquareBracket** | [**List<bool>**](bool.md)|  | [optional] [default to const []]
  **organizationPeriodIdentifier** | **String**|  | [optional] 
@@ -209,6 +264,114 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **patchContract**
+> ContractJsonhalRead patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandData, acceptLanguage)
+
+Updates the Contract resource.
+
+Updates the Contract resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = ContractApi();
+final identifier = identifier_example; // String | Contract identifier
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final contractEditContractCommandData = ContractEditContractCommandData(); // ContractEditContractCommandData | The updated Contract resource
+final acceptLanguage = acceptLanguage_example; // String | 
+
+try { 
+    final result = api_instance.patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandData, acceptLanguage);
+    print(result);
+} catch (e) {
+    print('Exception when calling ContractApi->patchContract: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| Contract identifier | 
+ **xKeyclicApp** | **String**|  | 
+ **xOrganizationId** | **String**|  | 
+ **contractEditContractCommandData** | [**ContractEditContractCommandData**](ContractEditContractCommandData.md)| The updated Contract resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+
+### Return type
+
+[**ContractJsonhalRead**](ContractJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postContract**
+> ContractJsonhalRead postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandData, acceptLanguage)
+
+Creates a Contract resource.
+
+Creates a Contract resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = ContractApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final contractCreateContractCommandData = ContractCreateContractCommandData(); // ContractCreateContractCommandData | The new Contract resource
+final acceptLanguage = acceptLanguage_example; // String | 
+
+try { 
+    final result = api_instance.postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandData, acceptLanguage);
+    print(result);
+} catch (e) {
+    print('Exception when calling ContractApi->postContract: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | 
+ **xOrganizationId** | **String**|  | 
+ **contractCreateContractCommandData** | [**ContractCreateContractCommandData**](ContractCreateContractCommandData.md)| The new Contract resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+
+### Return type
+
+[**ContractJsonhalRead**](ContractJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/hal+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -19,12 +19,12 @@ class RenewalJsonhalRead {
     }
 
     return RenewalJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       duration: json[r'duration'],
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   /// Duration of the renewal in ISO 8601 duration format.
   String? duration;

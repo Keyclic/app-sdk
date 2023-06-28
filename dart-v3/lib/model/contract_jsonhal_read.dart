@@ -15,12 +15,10 @@ class ContractJsonhalRead {
     required this.name,
     required this.number,
     this.onCall,
-    this.provider,
     this.renewal,
     this.signedAt,
     this.state = const ContractJsonhalReadStateEnum._('DRAFT'),
     this.terminationDate,
-    this.type,
     this.id,
     this.createdAt,
     this.updatedAt,
@@ -68,29 +66,27 @@ class ContractJsonhalRead {
     }
 
     return ContractJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
-      billing: ContractJsonhalReadBilling.fromJson(json[r'billing']),
+      links: ContractJsonhalReadLinks.fromJson(json[r'_links']),
+      billing: BillingJsonhalRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      provider: ContractJsonhalReadProvider.fromJson(json[r'provider']),
       renewal: json[r'renewal'] is Map ? RenewalJsonhalRead.fromJson(json[r'renewal']) : null,
       signedAt: signedAt,
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,
-      type: json[r'type'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  ContractJsonhalReadLinks? links;
 
-  ContractJsonhalReadBilling? billing;
+  BillingJsonhalRead? billing;
 
   /// Detailed description of the contract.
   String? description;
@@ -110,8 +106,6 @@ class ContractJsonhalRead {
   /// The onCall property represents whether a staff member is currently available for on-call duties.
   bool? onCall;
 
-  ContractJsonhalReadProvider? provider;
-
   RenewalJsonhalRead? renewal;
 
   DateTime? signedAt;
@@ -121,9 +115,6 @@ class ContractJsonhalRead {
 
   /// The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
   final DateTime? terminationDate;
-
-  /// The type of the contract defined by the organization.
-  String? type;
 
   /// The resource identifier.
   final String? id;
@@ -150,12 +141,10 @@ class ContractJsonhalRead {
         other.name == name &&
         other.number == number &&
         other.onCall == onCall &&
-        other.provider == provider &&
         other.renewal == renewal &&
         other.signedAt == signedAt &&
         other.state == state &&
         other.terminationDate == terminationDate &&
-        other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt;
@@ -171,12 +160,10 @@ class ContractJsonhalRead {
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
-      (provider == null ? 0 : provider.hashCode) +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
-      (type == null ? 0 : type.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -230,7 +217,7 @@ class ContractJsonhalRead {
 
   @override
   String toString() =>
-      'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -243,13 +230,11 @@ class ContractJsonhalRead {
       r'name': name,
       r'number': number,
       if (onCall != null) r'onCall': onCall,
-      if (provider != null) r'provider': provider,
       if (renewal != null) r'renewal': renewal,
       if (signedAt != null) r'signedAt': signedAt!.toUtc().toIso8601String(),
       r'state': state,
       if (terminationDate != null)
         r'terminationDate': terminationDate!.toUtc().toIso8601String(),
-      if (type != null) r'type': type,
       if (id != null) r'id': id,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),

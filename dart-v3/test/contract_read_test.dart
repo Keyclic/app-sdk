@@ -10,7 +10,7 @@ void main() {
   // final instance = ContractRead();
 
   group('test ContractRead', () {
-    // ContractReadBilling billing
+    // BillingRead billing
     test('to test the property `billing`', () async {});
 
     // Detailed description of the contract.
@@ -37,7 +37,8 @@ void main() {
     // bool onCall
     test('to test the property `onCall`', () async {});
 
-    // ContractReadProvider provider
+    // Organization responsible for the contract.
+    // String provider
     test('to test the property `provider`', () async {});
 
     // RenewalRead renewal

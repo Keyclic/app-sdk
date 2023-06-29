@@ -14,7 +14,7 @@ void main() {
     //
     // Removes the Equipment resource.
     //
-    //Future deleteEquipment(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage }) async
+    //Future deleteEquipment(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test deleteEquipment', () async {});
 
     // Retrieves a Equipment resource.
@@ -35,14 +35,14 @@ void main() {
     //
     // Updates the Equipment resource.
     //
-    //Future<EquipmentJsonhalRead> patchEquipment(String identifier, String xKeyclicApp, String xOrganizationId, EquipmentEditEquipmentCommandData equipmentEditEquipmentCommandData, { String acceptLanguage }) async
+    //Future<EquipmentJsonhalRead> patchEquipment(String identifier, String xKeyclicApp, String xOrganizationId, EquipmentEditEquipmentCommandData equipmentEditEquipmentCommandData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test patchEquipment', () async {});
 
     // Creates a Equipment resource.
     //
     // Creates a Equipment resource.
     //
-    //Future<EquipmentJsonhalRead> postEquipment(String xKeyclicApp, String xOrganizationId, EquipmentCreateEquipmentCommandData equipmentCreateEquipmentCommandData, { String acceptLanguage }) async
+    //Future<EquipmentJsonhalRead> postEquipment(String xKeyclicApp, String xOrganizationId, EquipmentCreateEquipmentCommandData equipmentCreateEquipmentCommandData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test postEquipment', () async {});
   });
 }

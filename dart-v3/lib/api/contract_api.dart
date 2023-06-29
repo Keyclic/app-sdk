@@ -17,6 +17,9 @@ class ContractApi {
   /// * [xKeyclicApp] -
   /// * [xOrganizationId] -
   /// * [acceptLanguage] -
+  /// * [xDateTime] -
+  /// * [xKeyclicAppPlatform] -
+  /// * [xKeyclicAppVersion] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -31,6 +34,9 @@ class ContractApi {
     required String xKeyclicApp,
     required String xOrganizationId,
     String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -45,7 +51,12 @@ class ContractApi {
       headers: <String, dynamic>{
         // to string ??
         if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        if (xDateTime != null) r'X-Date-Time': xDateTime,
         r'X-Keyclic-App': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'X-Keyclic-App-Version': xKeyclicAppVersion,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **deleteEquipment**
-> deleteEquipment(identifier, xKeyclicApp, xOrganizationId, acceptLanguage)
+> deleteEquipment(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Removes the Equipment resource.
 
@@ -36,9 +36,12 @@ final identifier = identifier_example; // String | Equipment identifier
 final xKeyclicApp = xKeyclicApp_example; // String | 
 final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    api_instance.deleteEquipment(identifier, xKeyclicApp, xOrganizationId, acceptLanguage);
+    api_instance.deleteEquipment(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling EquipmentApi->deleteEquipment: $e\n');
 }
@@ -52,6 +55,9 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -225,7 +231,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchEquipment**
-> EquipmentJsonhalRead patchEquipment(identifier, xKeyclicApp, xOrganizationId, equipmentEditEquipmentCommandData, acceptLanguage)
+> EquipmentJsonhalRead patchEquipment(identifier, xKeyclicApp, xOrganizationId, equipmentEditEquipmentCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Updates the Equipment resource.
 
@@ -245,9 +251,12 @@ final xKeyclicApp = xKeyclicApp_example; // String |
 final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final equipmentEditEquipmentCommandData = EquipmentEditEquipmentCommandData(); // EquipmentEditEquipmentCommandData | The updated Equipment resource
 final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.patchEquipment(identifier, xKeyclicApp, xOrganizationId, equipmentEditEquipmentCommandData, acceptLanguage);
+    final result = api_instance.patchEquipment(identifier, xKeyclicApp, xOrganizationId, equipmentEditEquipmentCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling EquipmentApi->patchEquipment: $e\n');
@@ -263,6 +272,9 @@ Name | Type | Description  | Notes
  **xOrganizationId** | **String**|  | 
  **equipmentEditEquipmentCommandData** | [**EquipmentEditEquipmentCommandData**](EquipmentEditEquipmentCommandData.md)| The updated Equipment resource | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -280,7 +292,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postEquipment**
-> EquipmentJsonhalRead postEquipment(xKeyclicApp, xOrganizationId, equipmentCreateEquipmentCommandData, acceptLanguage)
+> EquipmentJsonhalRead postEquipment(xKeyclicApp, xOrganizationId, equipmentCreateEquipmentCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Creates a Equipment resource.
 
@@ -299,9 +311,12 @@ final xKeyclicApp = xKeyclicApp_example; // String |
 final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final equipmentCreateEquipmentCommandData = EquipmentCreateEquipmentCommandData(); // EquipmentCreateEquipmentCommandData | The new Equipment resource
 final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.postEquipment(xKeyclicApp, xOrganizationId, equipmentCreateEquipmentCommandData, acceptLanguage);
+    final result = api_instance.postEquipment(xKeyclicApp, xOrganizationId, equipmentCreateEquipmentCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling EquipmentApi->postEquipment: $e\n');
@@ -316,6 +331,9 @@ Name | Type | Description  | Notes
  **xOrganizationId** | **String**|  | 
  **equipmentCreateEquipmentCommandData** | [**EquipmentCreateEquipmentCommandData**](EquipmentCreateEquipmentCommandData.md)| The new Equipment resource | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
 
 ### Return type
 

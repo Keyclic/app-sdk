@@ -14,7 +14,7 @@ void main() {
     //
     // Removes the Contract resource.
     //
-    //Future deleteContract(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage }) async
+    //Future deleteContract(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test deleteContract', () async {});
 
     // Retrieves a Contract resource.
@@ -35,14 +35,14 @@ void main() {
     //
     // Updates the Contract resource.
     //
-    //Future<ContractJsonhalRead> patchContract(String identifier, String xKeyclicApp, String xOrganizationId, ContractEditContractCommandData contractEditContractCommandData, { String acceptLanguage }) async
+    //Future<ContractJsonhalRead> patchContract(String identifier, String xKeyclicApp, String xOrganizationId, ContractEditContractCommandData contractEditContractCommandData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test patchContract', () async {});
 
     // Creates a Contract resource.
     //
     // Creates a Contract resource.
     //
-    //Future<ContractJsonhalRead> postContract(String xKeyclicApp, String xOrganizationId, ContractCreateContractCommandData contractCreateContractCommandData, { String acceptLanguage }) async
+    //Future<ContractJsonhalRead> postContract(String xKeyclicApp, String xOrganizationId, ContractCreateContractCommandData contractCreateContractCommandData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test postContract', () async {});
   });
 }

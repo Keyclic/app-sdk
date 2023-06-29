@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **deleteContract**
-> deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage)
+> deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Removes the Contract resource.
 
@@ -36,9 +36,12 @@ final identifier = identifier_example; // String | Contract identifier
 final xKeyclicApp = xKeyclicApp_example; // String | 
 final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    api_instance.deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage);
+    api_instance.deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling ContractApi->deleteContract: $e\n');
 }
@@ -52,6 +55,9 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -269,7 +275,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **patchContract**
-> ContractJsonhalRead patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandData, acceptLanguage)
+> ContractJsonhalRead patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Updates the Contract resource.
 
@@ -289,9 +295,12 @@ final xKeyclicApp = xKeyclicApp_example; // String |
 final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final contractEditContractCommandData = ContractEditContractCommandData(); // ContractEditContractCommandData | The updated Contract resource
 final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandData, acceptLanguage);
+    final result = api_instance.patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling ContractApi->patchContract: $e\n');
@@ -307,6 +316,9 @@ Name | Type | Description  | Notes
  **xOrganizationId** | **String**|  | 
  **contractEditContractCommandData** | [**ContractEditContractCommandData**](ContractEditContractCommandData.md)| The updated Contract resource | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
 
 ### Return type
 
@@ -324,7 +336,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postContract**
-> ContractJsonhalRead postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandData, acceptLanguage)
+> ContractJsonhalRead postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Creates a Contract resource.
 
@@ -343,9 +355,12 @@ final xKeyclicApp = xKeyclicApp_example; // String |
 final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final contractCreateContractCommandData = ContractCreateContractCommandData(); // ContractCreateContractCommandData | The new Contract resource
 final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandData, acceptLanguage);
+    final result = api_instance.postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling ContractApi->postContract: $e\n');
@@ -360,6 +375,9 @@ Name | Type | Description  | Notes
  **xOrganizationId** | **String**|  | 
  **contractCreateContractCommandData** | [**ContractCreateContractCommandData**](ContractCreateContractCommandData.md)| The new Contract resource | 
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
 
 ### Return type
 

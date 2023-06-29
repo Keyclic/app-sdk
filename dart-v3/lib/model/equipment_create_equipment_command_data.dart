@@ -17,6 +17,7 @@ class EquipmentCreateEquipmentCommandData {
     this.serialNumber,
     this.state,
     this.type,
+    this.warranty,
   });
 
   /// Returns a new [EquipmentCreateEquipmentCommandData] instance and imports its values from
@@ -45,6 +46,8 @@ class EquipmentCreateEquipmentCommandData {
       serialNumber: json[r'serialNumber'],
       state: json[r'state'],
       type: json[r'type'],
+      warranty: EquipmentCreateEquipmentCommandDataWarranty.fromJson(
+          json[r'warranty']),
     );
   }
 
@@ -68,6 +71,8 @@ class EquipmentCreateEquipmentCommandData {
 
   String? type;
 
+  EquipmentCreateEquipmentCommandDataWarranty? warranty;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -85,7 +90,8 @@ class EquipmentCreateEquipmentCommandData {
         other.name == name &&
         other.serialNumber == serialNumber &&
         other.state == state &&
-        other.type == type;
+        other.type == type &&
+        other.warranty == warranty;
   }
 
   @override
@@ -99,7 +105,8 @@ class EquipmentCreateEquipmentCommandData {
       (name == null ? 0 : name.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
       (state == null ? 0 : state.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      (type == null ? 0 : type.hashCode) +
+      (warranty == null ? 0 : warranty.hashCode);
 
   static List<EquipmentCreateEquipmentCommandData> listFromJson(
       List<dynamic>? json) {
@@ -153,7 +160,7 @@ class EquipmentCreateEquipmentCommandData {
 
   @override
   String toString() =>
-      'EquipmentCreateEquipmentCommandData[brand=$brand, commissioningDate=$commissioningDate, description=$description, lifetime=$lifetime, model=$model, mpn=$mpn, name=$name, serialNumber=$serialNumber, state=$state, type=$type]';
+      'EquipmentCreateEquipmentCommandData[brand=$brand, commissioningDate=$commissioningDate, description=$description, lifetime=$lifetime, model=$model, mpn=$mpn, name=$name, serialNumber=$serialNumber, state=$state, type=$type, warranty=$warranty]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -168,6 +175,7 @@ class EquipmentCreateEquipmentCommandData {
       if (serialNumber != null) r'serialNumber': serialNumber,
       if (state != null) r'state': state,
       if (type != null) r'type': type,
+      if (warranty != null) r'warranty': warranty,
     };
   }
 }

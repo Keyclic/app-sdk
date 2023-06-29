@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getEquipments**
-> GetEquipments200Response getEquipments(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetEquipments200Response getEquipments(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, commissioningDateLeftSquareBracketBeforeRightSquareBracket, commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket, commissioningDateLeftSquareBracketAfterRightSquareBracket, commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket, retirementDateLeftSquareBracketBeforeRightSquareBracket, retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket, retirementDateLeftSquareBracketAfterRightSquareBracket, retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket, brand, brandLeftSquareBracketRightSquareBracket, model, mpn, serialNumber, state, stateLeftSquareBracketRightSquareBracket, type, typeLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Equipment resources.
 
@@ -171,13 +171,34 @@ final contractsPeriodIdentifier = contractsPeriodIdentifier_example; // String |
 final contractsPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final parentPeriodIdentifier = parentPeriodIdentifier_example; // String | 
 final parentPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final commissioningDateLeftSquareBracketBeforeRightSquareBracket = commissioningDateLeftSquareBracketBeforeRightSquareBracket_example; // String | 
+final commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket = commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket_example; // String | 
+final commissioningDateLeftSquareBracketAfterRightSquareBracket = commissioningDateLeftSquareBracketAfterRightSquareBracket_example; // String | 
+final commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket = commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket_example; // String | 
+final retirementDateLeftSquareBracketBeforeRightSquareBracket = retirementDateLeftSquareBracketBeforeRightSquareBracket_example; // String | 
+final retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket = retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket_example; // String | 
+final retirementDateLeftSquareBracketAfterRightSquareBracket = retirementDateLeftSquareBracketAfterRightSquareBracket_example; // String | 
+final retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket = retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket_example; // String | 
+final warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket = warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket_example; // String | 
+final warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket = warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket_example; // String | 
+final warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket = warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket_example; // String | 
+final warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket = warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket_example; // String | 
+final brand = brand_example; // String | 
+final brandLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final model = model_example; // String | 
+final mpn = mpn_example; // String | 
+final serialNumber = serialNumber_example; // String | 
+final state = state_example; // String | 
+final stateLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final type = type_example; // String | 
+final typeLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getEquipments(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getEquipments(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, commissioningDateLeftSquareBracketBeforeRightSquareBracket, commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket, commissioningDateLeftSquareBracketAfterRightSquareBracket, commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket, retirementDateLeftSquareBracketBeforeRightSquareBracket, retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket, retirementDateLeftSquareBracketAfterRightSquareBracket, retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket, brand, brandLeftSquareBracketRightSquareBracket, model, mpn, serialNumber, state, stateLeftSquareBracketRightSquareBracket, type, typeLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling EquipmentApi->getEquipments: $e\n');
@@ -210,6 +231,27 @@ Name | Type | Description  | Notes
  **contractsPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parentPeriodIdentifier** | **String**|  | [optional] 
  **parentPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **commissioningDateLeftSquareBracketBeforeRightSquareBracket** | **String**|  | [optional] 
+ **commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket** | **String**|  | [optional] 
+ **commissioningDateLeftSquareBracketAfterRightSquareBracket** | **String**|  | [optional] 
+ **commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket** | **String**|  | [optional] 
+ **retirementDateLeftSquareBracketBeforeRightSquareBracket** | **String**|  | [optional] 
+ **retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket** | **String**|  | [optional] 
+ **retirementDateLeftSquareBracketAfterRightSquareBracket** | **String**|  | [optional] 
+ **retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket** | **String**|  | [optional] 
+ **warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket** | **String**|  | [optional] 
+ **warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket** | **String**|  | [optional] 
+ **warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket** | **String**|  | [optional] 
+ **warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket** | **String**|  | [optional] 
+ **brand** | **String**|  | [optional] 
+ **brandLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **model** | **String**|  | [optional] 
+ **mpn** | **String**|  | [optional] 
+ **serialNumber** | **String**|  | [optional] 
+ **state** | **String**|  | [optional] 
+ **stateLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **type** | **String**|  | [optional] 
+ **typeLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

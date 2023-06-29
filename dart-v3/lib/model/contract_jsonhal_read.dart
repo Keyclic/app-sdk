@@ -11,7 +11,7 @@ class ContractJsonhalRead {
     this.billing,
     this.description,
     this.duration,
-    this.effectiveDate,
+    required this.effectiveDate,
     required this.name,
     required this.number,
     this.onCall,
@@ -95,7 +95,7 @@ class ContractJsonhalRead {
   String? duration;
 
   /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must be in the future and must not be earlier than the billing start date.
-  DateTime? effectiveDate;
+  DateTime effectiveDate;
 
   /// Name of the contract.
   String name;
@@ -156,7 +156,7 @@ class ContractJsonhalRead {
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
-      (effectiveDate == null ? 0 : effectiveDate.hashCode) +
+      effectiveDate.hashCode +
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
@@ -225,8 +225,7 @@ class ContractJsonhalRead {
       if (billing != null) r'billing': billing,
       if (description != null) r'description': description,
       if (duration != null) r'duration': duration,
-      if (effectiveDate != null)
-        r'effectiveDate': effectiveDate!.toUtc().toIso8601String(),
+      r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
       if (onCall != null) r'onCall': onCall,

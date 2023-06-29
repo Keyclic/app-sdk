@@ -29,6 +29,7 @@ doc/ContractTypeJsonhalRead.md
 doc/ContractTypeRead.md
 doc/EquipmentApi.md
 doc/EquipmentCreateEquipmentCommandData.md
+doc/EquipmentCreateEquipmentCommandDataWarranty.md
 doc/EquipmentEditEquipmentCommandData.md
 doc/EquipmentJsonhalRead.md
 doc/EquipmentJsonhalReadLinks.md
@@ -76,6 +77,7 @@ doc/TicketRead.md
 doc/TicketTypeApi.md
 doc/TicketTypeJsonhalRead.md
 doc/TicketTypeRead.md
+doc/WarrantyData.md
 doc/WarrantyJsonhalRead.md
 doc/WarrantyRead.md
 doc/WorkflowStateApi.md
@@ -123,6 +125,7 @@ lib/model/contract_read.dart
 lib/model/contract_type_jsonhal_read.dart
 lib/model/contract_type_read.dart
 lib/model/equipment_create_equipment_command_data.dart
+lib/model/equipment_create_equipment_command_data_warranty.dart
 lib/model/equipment_edit_equipment_command_data.dart
 lib/model/equipment_jsonhal_read.dart
 lib/model/equipment_jsonhal_read_links.dart
@@ -166,6 +169,7 @@ lib/model/ticket_jsonhal_read.dart
 lib/model/ticket_read.dart
 lib/model/ticket_type_jsonhal_read.dart
 lib/model/ticket_type_read.dart
+lib/model/warranty_data.dart
 lib/model/warranty_jsonhal_read.dart
 lib/model/warranty_read.dart
 lib/model/workflow_state_jsonhal_read.dart
@@ -198,6 +202,7 @@ test/contract_type_jsonhal_read_test.dart
 test/contract_type_read_test.dart
 test/equipment_api_test.dart
 test/equipment_create_equipment_command_data_test.dart
+test/equipment_create_equipment_command_data_warranty_test.dart
 test/equipment_edit_equipment_command_data_test.dart
 test/equipment_jsonhal_read_links_test.dart
 test/equipment_jsonhal_read_test.dart
@@ -245,6 +250,7 @@ test/ticket_read_test.dart
 test/ticket_type_api_test.dart
 test/ticket_type_jsonhal_read_test.dart
 test/ticket_type_read_test.dart
+test/warranty_data_test.dart
 test/warranty_jsonhal_read_test.dart
 test/warranty_read_test.dart
 test/workflow_state_api_test.dart

@@ -10,7 +10,7 @@ void main() {
   // final instance = BillingJsonhalRead();
 
   group('test BillingJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // PriceJsonhalRead adjustedCost

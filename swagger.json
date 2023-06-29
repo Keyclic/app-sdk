@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.43.4-dev.a27c9fa8b"
+        "version": "2.44.1-dev.44dbbb9b5"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -22631,10 +22631,14 @@
         "Permission": {
             "type": "string",
             "enum": [
+                "asset-equipment:read",
+                "asset-equipment:write",
                 "connector:read",
                 "contract:billing:read",
+                "contract:billing:write",
                 "contract:read",
-                "contract_type:read",
+                "contract-type:read",
+                "contract:write",
                 "DISPATCHER:READ",
                 "DISPATCHER:WRITE",
                 "FILTER:ALL",

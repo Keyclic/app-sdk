@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **deleteIntegrationLink**
-> deleteIntegrationLink(identifier)
+> deleteIntegrationLink(identifier, acceptLanguage)
 
 Removes the IntegrationLink resource.
 
@@ -33,9 +33,10 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 
 final api_instance = IntegrationLinkApi();
 final identifier = identifier_example; // String | Link identifier
+final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    api_instance.deleteIntegrationLink(identifier);
+    api_instance.deleteIntegrationLink(identifier, acceptLanguage);
 } catch (e) {
     print('Exception when calling IntegrationLinkApi->deleteIntegrationLink: $e\n');
 }
@@ -46,6 +47,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String**| Link identifier | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
 
 ### Return type
 
@@ -63,7 +65,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIntegrationLink**
-> IntegrationLinkJsonhalRead getIntegrationLink(identifier)
+> IntegrationLinkJsonhalRead getIntegrationLink(identifier, acceptLanguage)
 
 Retrieves a IntegrationLink resource.
 
@@ -79,9 +81,10 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 
 final api_instance = IntegrationLinkApi();
 final identifier = identifier_example; // String | Link identifier
+final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    final result = api_instance.getIntegrationLink(identifier);
+    final result = api_instance.getIntegrationLink(identifier, acceptLanguage);
     print(result);
 } catch (e) {
     print('Exception when calling IntegrationLinkApi->getIntegrationLink: $e\n');
@@ -93,6 +96,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String**| Link identifier | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
 
 ### Return type
 
@@ -110,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIntegrationLinks**
-> GetIntegrationLinks200Response getIntegrationLinks(page, limit, pagination, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket)
+> GetIntegrationLinks200Response getIntegrationLinks(page, limit, pagination, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage)
 
 Retrieves the collection of IntegrationLink resources.
 
@@ -136,9 +140,10 @@ final state = state_example; // String |
 final stateLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final target = target_example; // String | 
 final targetLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    final result = api_instance.getIntegrationLinks(page, limit, pagination, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket);
+    final result = api_instance.getIntegrationLinks(page, limit, pagination, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {
     print('Exception when calling IntegrationLinkApi->getIntegrationLinks: $e\n');
@@ -160,6 +165,7 @@ Name | Type | Description  | Notes
  **stateLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **target** | **String**|  | [optional] 
  **targetLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
 
 ### Return type
 

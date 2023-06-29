@@ -14,21 +14,21 @@ void main() {
     //
     // Removes the IntegrationLink resource.
     //
-    //Future deleteIntegrationLink(String identifier) async
+    //Future deleteIntegrationLink(String identifier, { String acceptLanguage }) async
     test('test deleteIntegrationLink', () async {});
 
     // Retrieves a IntegrationLink resource.
     //
     // Retrieves a IntegrationLink resource.
     //
-    //Future<IntegrationLinkJsonhalRead> getIntegrationLink(String identifier) async
+    //Future<IntegrationLinkJsonhalRead> getIntegrationLink(String identifier, { String acceptLanguage }) async
     test('test getIntegrationLink', () async {});
 
     // Retrieves the collection of IntegrationLink resources.
     //
     // Retrieves the collection of IntegrationLink resources.
     //
-    //Future<GetIntegrationLinks200Response> getIntegrationLinks({ int page, int limit, bool pagination, List<String> jsonData, List<String> jsonMetadata, String source_, List<String> sourceLeftSquareBracketRightSquareBracket, String state, List<String> stateLeftSquareBracketRightSquareBracket, String target, List<String> targetLeftSquareBracketRightSquareBracket }) async
+    //Future<GetIntegrationLinks200Response> getIntegrationLinks({ int page, int limit, bool pagination, List<String> jsonData, List<String> jsonMetadata, String source_, List<String> sourceLeftSquareBracketRightSquareBracket, String state, List<String> stateLeftSquareBracketRightSquareBracket, String target, List<String> targetLeftSquareBracketRightSquareBracket, String acceptLanguage }) async
     test('test getIntegrationLinks', () async {});
 
     // Updates the IntegrationLink resource.

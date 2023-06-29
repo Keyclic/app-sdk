@@ -130,7 +130,7 @@ class AssetApi {
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [propertiesLeftSquareBracketRightSquareBracket] -
+  /// * [propertiesLeftSquareBracketRightSquareBracket] - Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
   /// * [contractsPeriodIdentifier] -
   /// * [contractsPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [parentPeriodIdentifier] -

@@ -10,7 +10,7 @@ void main() {
   // final instance = TicketTypeJsonhalRead();
 
   group('test TicketTypeJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // String description

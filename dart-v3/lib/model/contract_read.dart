@@ -14,7 +14,7 @@ class ContractRead {
     required this.name,
     required this.number,
     this.onCall,
-    this.provider,
+    required this.provider,
     this.renewal,
     this.signedAt,
     this.state = const ContractReadStateEnum._('DRAFT'),
@@ -67,14 +67,14 @@ class ContractRead {
     }
 
     return ContractRead(
-      billing: ContractReadBilling.fromJson(json[r'billing']),
+      billing: BillingRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      provider: ContractReadProvider.fromJson(json[r'provider']),
+      provider: json[r'provider'],
       renewal: RenewalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractReadStateEnum.fromJson(json[r'state'])!,
@@ -86,7 +86,7 @@ class ContractRead {
     );
   }
 
-  ContractReadBilling? billing;
+  BillingRead? billing;
 
   /// Detailed description of the contract.
   String? description;
@@ -106,7 +106,8 @@ class ContractRead {
   /// The onCall property represents whether a staff member is currently available for on-call duties.
   bool? onCall;
 
-  ContractReadProvider? provider;
+  /// Organization responsible for the contract.
+  String provider;
 
   RenewalRead? renewal;
 
@@ -165,7 +166,7 @@ class ContractRead {
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
-      (provider == null ? 0 : provider.hashCode) +
+      provider.hashCode +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
@@ -234,7 +235,7 @@ class ContractRead {
       r'name': name,
       r'number': number,
       if (onCall != null) r'onCall': onCall,
-      if (provider != null) r'provider': provider,
+      r'provider': provider,
       if (renewal != null) r'renewal': renewal,
       if (signedAt != null) r'signedAt': signedAt!.toUtc().toIso8601String(),
       r'state': state,

@@ -13,9 +13,6 @@ void main() {
     // AssetJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
-    // String type
-    test('to test the property `type`', () async {});
-
     // String description
     test('to test the property `description`', () async {});
 

@@ -74,9 +74,9 @@ class ApiPlatformClient {
     return AssetTypeApi(this);
   }
 
-  /// Get ConnectorApi instance
-  ConnectorApi getConnectorApi() {
-    return ConnectorApi(this);
+  /// Get BrandApi instance
+  BrandApi getBrandApi() {
+    return BrandApi(this);
   }
 
   /// Get ContractApi instance
@@ -112,6 +112,11 @@ class ApiPlatformClient {
   /// Get TicketTypeApi instance
   TicketTypeApi getTicketTypeApi() {
     return TicketTypeApi(this);
+  }
+
+  /// Get WorkflowStateApi instance
+  WorkflowStateApi getWorkflowStateApi() {
+    return WorkflowStateApi(this);
   }
 
   Future<Response<Object>> invokeAPI({
@@ -177,34 +182,46 @@ class ApiPlatformClient {
           return AssetRead.fromJson(value);
         case 'AssetTypeJsonhalRead':
           return AssetTypeJsonhalRead.fromJson(value);
+        case 'AssetTypeJsonhalReadLinks':
+          return AssetTypeJsonhalReadLinks.fromJson(value);
         case 'AssetTypeRead':
           return AssetTypeRead.fromJson(value);
+        case 'BillingData':
+          return BillingData.fromJson(value);
         case 'BillingJsonhalRead':
           return BillingJsonhalRead.fromJson(value);
         case 'BillingRead':
           return BillingRead.fromJson(value);
-        case 'ConnectorConnectorRead':
-          return ConnectorConnectorRead.fromJson(value);
-        case 'ConnectorJsonhalConnectorRead':
-          return ConnectorJsonhalConnectorRead.fromJson(value);
+        case 'BrandJsonhalRead':
+          return BrandJsonhalRead.fromJson(value);
+        case 'BrandRead':
+          return BrandRead.fromJson(value);
+        case 'ContractCreateContractCommandData':
+          return ContractCreateContractCommandData.fromJson(value);
+        case 'ContractCreateContractCommandDataBilling':
+          return ContractCreateContractCommandDataBilling.fromJson(value);
+        case 'ContractCreateContractCommandDataRenewal':
+          return ContractCreateContractCommandDataRenewal.fromJson(value);
+        case 'ContractEditContractCommandData':
+          return ContractEditContractCommandData.fromJson(value);
         case 'ContractJsonhalRead':
           return ContractJsonhalRead.fromJson(value);
-        case 'ContractJsonhalReadBilling':
-          return ContractJsonhalReadBilling.fromJson(value);
-        case 'ContractJsonhalReadProvider':
-          return ContractJsonhalReadProvider.fromJson(value);
+        case 'ContractJsonhalReadLinks':
+          return ContractJsonhalReadLinks.fromJson(value);
         case 'ContractRead':
           return ContractRead.fromJson(value);
-        case 'ContractReadBilling':
-          return ContractReadBilling.fromJson(value);
-        case 'ContractReadProvider':
-          return ContractReadProvider.fromJson(value);
         case 'ContractTypeJsonhalRead':
           return ContractTypeJsonhalRead.fromJson(value);
         case 'ContractTypeRead':
           return ContractTypeRead.fromJson(value);
+        case 'EquipmentCreateEquipmentCommandData':
+          return EquipmentCreateEquipmentCommandData.fromJson(value);
+        case 'EquipmentEditEquipmentCommandData':
+          return EquipmentEditEquipmentCommandData.fromJson(value);
         case 'EquipmentJsonhalRead':
           return EquipmentJsonhalRead.fromJson(value);
+        case 'EquipmentJsonhalReadLinks':
+          return EquipmentJsonhalReadLinks.fromJson(value);
         case 'EquipmentRead':
           return EquipmentRead.fromJson(value);
         case 'GetAssetTypes200Response':
@@ -221,6 +238,10 @@ class ApiPlatformClient {
           return GetAssets200Response.fromJson(value);
         case 'GetAssets200ResponseEmbedded':
           return GetAssets200ResponseEmbedded.fromJson(value);
+        case 'GetBrands200Response':
+          return GetBrands200Response.fromJson(value);
+        case 'GetBrands200ResponseEmbedded':
+          return GetBrands200ResponseEmbedded.fromJson(value);
         case 'GetContractTypes200Response':
           return GetContractTypes200Response.fromJson(value);
         case 'GetContractTypes200ResponseEmbedded':
@@ -261,18 +282,18 @@ class ApiPlatformClient {
           return IntegrationLinkJsonhalRead.fromJson(value);
         case 'IntegrationLinkRead':
           return IntegrationLinkRead.fromJson(value);
+        case 'PriceData':
+          return PriceData.fromJson(value);
         case 'PriceJsonhalRead':
           return PriceJsonhalRead.fromJson(value);
         case 'PriceRead':
           return PriceRead.fromJson(value);
+        case 'RenewalData':
+          return RenewalData.fromJson(value);
         case 'RenewalJsonhalRead':
           return RenewalJsonhalRead.fromJson(value);
         case 'RenewalRead':
           return RenewalRead.fromJson(value);
-        case 'ServiceJsonhalRead':
-          return ServiceJsonhalRead.fromJson(value);
-        case 'ServiceRead':
-          return ServiceRead.fromJson(value);
         case 'TicketJsonhalRead':
           return TicketJsonhalRead.fromJson(value);
         case 'TicketRead':
@@ -285,6 +306,10 @@ class ApiPlatformClient {
           return WarrantyJsonhalRead.fromJson(value);
         case 'WarrantyRead':
           return WarrantyRead.fromJson(value);
+        case 'WorkflowStateJsonhalRead':
+          return WorkflowStateJsonhalRead.fromJson(value);
+        case 'WorkflowStateRead':
+          return WorkflowStateRead.fromJson(value);
         default:
           Match? match;
           if (value is List &&

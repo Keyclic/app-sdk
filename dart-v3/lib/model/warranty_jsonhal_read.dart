@@ -8,7 +8,8 @@ class WarrantyJsonhalRead {
   /// Returns a new [WarrantyJsonhalRead] instance.
   WarrantyJsonhalRead({
     this.links,
-    this.period,
+    this.duration,
+    this.endDate,
     this.startDate,
   });
 
@@ -19,6 +20,12 @@ class WarrantyJsonhalRead {
       return null;
     }
 
+    DateTime? endDate =
+        json[r'endDate'] is String ? DateTime.parse(json[r'endDate']) : null;
+    if (endDate is DateTime && endDate.isUtc == false) {
+      endDate = DateTime.parse('${json[r'endDate']}Z');
+    }
+
     DateTime? startDate = json[r'startDate'] is String
         ? DateTime.parse(json[r'startDate'])
         : null;
@@ -27,15 +34,20 @@ class WarrantyJsonhalRead {
     }
 
     return WarrantyJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
-      period: json[r'period'],
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      duration: json[r'duration'],
+      endDate: endDate,
       startDate: startDate,
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
-  String? period;
+  /// The duration of the warranty in ISO 8601 duration format.
+  String? duration;
+
+  /// The end date of the warranty, in ISO 8601 format.
+  final DateTime? endDate;
 
   /// The start date of the warranty, in ISO 8601 format.
   DateTime? startDate;
@@ -49,14 +61,16 @@ class WarrantyJsonhalRead {
 
     return other is WarrantyJsonhalRead &&
         other.links == links &&
-        other.period == period &&
+        other.duration == duration &&
+        other.endDate == endDate &&
         other.startDate == startDate;
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
-      (period == null ? 0 : period.hashCode) +
+      (duration == null ? 0 : duration.hashCode) +
+      (endDate == null ? 0 : endDate.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
   static List<WarrantyJsonhalRead> listFromJson(List<dynamic>? json) {
@@ -108,12 +122,13 @@ class WarrantyJsonhalRead {
 
   @override
   String toString() =>
-      'WarrantyJsonhalRead[links=$links, period=$period, startDate=$startDate]';
+      'WarrantyJsonhalRead[links=$links, duration=$duration, endDate=$endDate, startDate=$startDate]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (period != null) r'period': period,
+      if (duration != null) r'duration': duration,
+      if (endDate != null) r'endDate': endDate!.toUtc().toIso8601String(),
       if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
     };
   }

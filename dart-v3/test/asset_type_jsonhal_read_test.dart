@@ -10,7 +10,7 @@ void main() {
   // final instance = AssetTypeJsonhalRead();
 
   group('test AssetTypeJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // Detailed description of the asset type.

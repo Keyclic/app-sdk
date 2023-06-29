@@ -8,7 +8,6 @@ class AssetJsonhalRead {
   /// Returns a new [AssetJsonhalRead] instance.
   AssetJsonhalRead({
     this.links,
-    this.type,
     this.description,
     required this.name,
     this.id,
@@ -39,7 +38,6 @@ class AssetJsonhalRead {
 
     return AssetJsonhalRead(
       links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
-      type: json[r'type'],
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
@@ -49,8 +47,6 @@ class AssetJsonhalRead {
   }
 
   AssetJsonhalReadLinks? links;
-
-  String? type;
 
   String? description;
 
@@ -74,7 +70,6 @@ class AssetJsonhalRead {
 
     return other is AssetJsonhalRead &&
         other.links == links &&
-        other.type == type &&
         other.description == description &&
         other.name == name &&
         other.id == id &&
@@ -85,7 +80,6 @@ class AssetJsonhalRead {
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
-      (type == null ? 0 : type.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
@@ -139,12 +133,11 @@ class AssetJsonhalRead {
 
   @override
   String toString() =>
-      'AssetJsonhalRead[links=$links, type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (type != null) r'type': type,
       if (description != null) r'description': description,
       r'name': name,
       if (id != null) r'id': id,

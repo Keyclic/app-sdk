@@ -10,10 +10,10 @@ void main() {
   // final instance = ContractJsonhalRead();
 
   group('test ContractJsonhalRead', () {
-    // AssetJsonhalReadLinks links
+    // ContractJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
-    // ContractJsonhalReadBilling billing
+    // BillingJsonhalRead billing
     test('to test the property `billing`', () async {});
 
     // Detailed description of the contract.
@@ -40,9 +40,6 @@ void main() {
     // bool onCall
     test('to test the property `onCall`', () async {});
 
-    // ContractJsonhalReadProvider provider
-    test('to test the property `provider`', () async {});
-
     // RenewalJsonhalRead renewal
     test('to test the property `renewal`', () async {});
 
@@ -56,10 +53,6 @@ void main() {
     // The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
     // DateTime terminationDate
     test('to test the property `terminationDate`', () async {});
-
-    // The type of the contract defined by the organization.
-    // String type
-    test('to test the property `type`', () async {});
 
     // The resource identifier.
     // String id

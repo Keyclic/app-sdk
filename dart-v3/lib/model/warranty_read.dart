@@ -7,7 +7,8 @@ part of keyclic_sdk_api_platform;
 class WarrantyRead {
   /// Returns a new [WarrantyRead] instance.
   WarrantyRead({
-    this.period,
+    this.duration,
+    this.endDate,
     this.startDate,
   });
 
@@ -18,6 +19,12 @@ class WarrantyRead {
       return null;
     }
 
+    DateTime? endDate =
+        json[r'endDate'] is String ? DateTime.parse(json[r'endDate']) : null;
+    if (endDate is DateTime && endDate.isUtc == false) {
+      endDate = DateTime.parse('${json[r'endDate']}Z');
+    }
+
     DateTime? startDate = json[r'startDate'] is String
         ? DateTime.parse(json[r'startDate'])
         : null;
@@ -26,12 +33,17 @@ class WarrantyRead {
     }
 
     return WarrantyRead(
-      period: json[r'period'],
+      duration: json[r'duration'],
+      endDate: endDate,
       startDate: startDate,
     );
   }
 
-  String? period;
+  /// The duration of the warranty in ISO 8601 duration format.
+  String? duration;
+
+  /// The end date of the warranty, in ISO 8601 format.
+  final DateTime? endDate;
 
   /// The start date of the warranty, in ISO 8601 format.
   DateTime? startDate;
@@ -44,13 +56,15 @@ class WarrantyRead {
     }
 
     return other is WarrantyRead &&
-        other.period == period &&
+        other.duration == duration &&
+        other.endDate == endDate &&
         other.startDate == startDate;
   }
 
   @override
   int get hashCode =>
-      (period == null ? 0 : period.hashCode) +
+      (duration == null ? 0 : duration.hashCode) +
+      (endDate == null ? 0 : endDate.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
   static List<WarrantyRead> listFromJson(List<dynamic>? json) {
@@ -99,11 +113,13 @@ class WarrantyRead {
   }
 
   @override
-  String toString() => 'WarrantyRead[period=$period, startDate=$startDate]';
+  String toString() =>
+      'WarrantyRead[duration=$duration, endDate=$endDate, startDate=$startDate]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      if (period != null) r'period': period,
+      if (duration != null) r'duration': duration,
+      if (endDate != null) r'endDate': endDate!.toUtc().toIso8601String(),
       if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
     };
   }

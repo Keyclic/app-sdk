@@ -10,15 +10,31 @@ void main() {
   // final instance = EquipmentRead();
 
   group('test EquipmentRead', () {
+    // The brand of the asset. The brand refers to the specific manufacturer or company that produces or sells an asset.
     // String brand
     test('to test the property `brand`', () async {});
 
+    // The date when an asset is officially put into service or operation.
+    // DateTime commissioningDate
+    test('to test the property `commissioningDate`', () async {});
+
+    // The expected or estimated duration of an asset's useful life or operational lifespan.
     // String lifetime
     test('to test the property `lifetime`', () async {});
 
+    // The model of the asset. The model provides detailed information about the features, capabilities, and technical specifications of the asset.
     // String model
     test('to test the property `model`', () async {});
 
+    // The Manufacturer Part Number (MPN) is a unique identifier assigned by the manufacturer to a specific part or component of an asset.
+    // String mpn
+    test('to test the property `mpn`', () async {});
+
+    // The date when an asset is expected to reach the end of its operational life based on the commissioning date and the estimated lifetime.
+    // DateTime retirementDate
+    test('to test the property `retirementDate`', () async {});
+
+    // The unique identifier assigned to an individual asset, allowing for easy identification and tracking.
     // String serialNumber
     test('to test the property `serialNumber`', () async {});
 
@@ -45,5 +61,8 @@ void main() {
 
     // String name
     test('to test the property `name`', () async {});
+
+    // String state
+    test('to test the property `state`', () async {});
   });
 }

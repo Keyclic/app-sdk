@@ -8,12 +8,13 @@ class EquipmentJsonhalRead {
   /// Returns a new [EquipmentJsonhalRead] instance.
   EquipmentJsonhalRead({
     this.links,
-    this.brand,
+    this.commissioningDate,
     this.lifetime,
     this.model,
+    this.mpn,
+    this.retirementDate,
     this.serialNumber,
     this.warranty,
-    this.type,
     this.id,
     this.createdAt,
     this.updatedAt,
@@ -26,6 +27,20 @@ class EquipmentJsonhalRead {
   static EquipmentJsonhalRead? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
+    }
+
+    DateTime? commissioningDate = json[r'commissioningDate'] is String
+        ? DateTime.parse(json[r'commissioningDate'])
+        : null;
+    if (commissioningDate is DateTime && commissioningDate.isUtc == false) {
+      commissioningDate = DateTime.parse('${json[r'commissioningDate']}Z');
+    }
+
+    DateTime? retirementDate = json[r'retirementDate'] is String
+        ? DateTime.parse(json[r'retirementDate'])
+        : null;
+    if (retirementDate is DateTime && retirementDate.isUtc == false) {
+      retirementDate = DateTime.parse('${json[r'retirementDate']}Z');
     }
 
     DateTime? createdAt = json[r'createdAt'] is String
@@ -43,13 +58,14 @@ class EquipmentJsonhalRead {
     }
 
     return EquipmentJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
-      brand: json[r'brand'],
+      links: EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
+      commissioningDate: commissioningDate,
       lifetime: json[r'lifetime'],
       model: json[r'model'],
+      mpn: json[r'mpn'],
+      retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
       warranty: json[r'warranty'] is Map ? WarrantyJsonhalRead.fromJson(json[r'warranty']) : null,
-      type: json[r'type'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
@@ -58,19 +74,27 @@ class EquipmentJsonhalRead {
     );
   }
 
-  AssetJsonhalReadLinks? links;
+  EquipmentJsonhalReadLinks? links;
 
-  String? brand;
+  /// The date when an asset is officially put into service or operation.
+  DateTime? commissioningDate;
 
+  /// The expected or estimated duration of an asset's useful life or operational lifespan.
   String? lifetime;
 
+  /// The model of the asset. The model provides detailed information about the features, capabilities, and technical specifications of the asset.
   String? model;
 
+  /// The Manufacturer Part Number (MPN) is a unique identifier assigned by the manufacturer to a specific part or component of an asset.
+  String? mpn;
+
+  /// The date when an asset is expected to reach the end of its operational life based on the commissioning date and the estimated lifetime.
+  final DateTime? retirementDate;
+
+  /// The unique identifier assigned to an individual asset, allowing for easy identification and tracking.
   String? serialNumber;
 
   WarrantyJsonhalRead? warranty;
-
-  String? type;
 
   /// The resource identifier.
   final String? id;
@@ -94,12 +118,13 @@ class EquipmentJsonhalRead {
 
     return other is EquipmentJsonhalRead &&
         other.links == links &&
-        other.brand == brand &&
+        other.commissioningDate == commissioningDate &&
         other.lifetime == lifetime &&
         other.model == model &&
+        other.mpn == mpn &&
+        other.retirementDate == retirementDate &&
         other.serialNumber == serialNumber &&
         other.warranty == warranty &&
-        other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
@@ -110,12 +135,13 @@ class EquipmentJsonhalRead {
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
-      (brand == null ? 0 : brand.hashCode) +
+      (commissioningDate == null ? 0 : commissioningDate.hashCode) +
       (lifetime == null ? 0 : lifetime.hashCode) +
       (model == null ? 0 : model.hashCode) +
+      (mpn == null ? 0 : mpn.hashCode) +
+      (retirementDate == null ? 0 : retirementDate.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
       (warranty == null ? 0 : warranty.hashCode) +
-      (type == null ? 0 : type.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
@@ -172,17 +198,20 @@ class EquipmentJsonhalRead {
 
   @override
   String toString() =>
-      'EquipmentJsonhalRead[links=$links, brand=$brand, lifetime=$lifetime, model=$model, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
+      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
-      if (brand != null) r'brand': brand,
+      if (commissioningDate != null)
+        r'commissioningDate': commissioningDate!.toUtc().toIso8601String(),
       if (lifetime != null) r'lifetime': lifetime,
       if (model != null) r'model': model,
+      if (mpn != null) r'mpn': mpn,
+      if (retirementDate != null)
+        r'retirementDate': retirementDate!.toUtc().toIso8601String(),
       if (serialNumber != null) r'serialNumber': serialNumber,
       if (warranty != null) r'warranty': warranty,
-      if (type != null) r'type': type,
       if (id != null) r'id': id,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),

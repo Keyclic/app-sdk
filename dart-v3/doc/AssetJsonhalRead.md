@@ -9,7 +9,6 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**AssetJsonhalReadLinks**](AssetJsonhalReadLinks.md) |  | [optional] 
-**type** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 

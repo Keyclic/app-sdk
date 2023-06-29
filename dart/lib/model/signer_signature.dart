@@ -19,8 +19,8 @@ class SignerSignature {
     }
 
     DateTime? signedAt =
-        json[r'signedAt'] is String ? DateTime.parse(json[r'signedAt']) : null;
-    if (signedAt is DateTime && signedAt.isUtc == false) {
+        json[r'signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
+    if (signedAt != null && signedAt.isUtc == false) {
       signedAt = DateTime.parse('${json[r'signedAt']}Z');
     }
 

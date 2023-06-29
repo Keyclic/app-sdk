@@ -21,10 +21,9 @@ class Checkpoint {
       return null;
     }
 
-    DateTime? createdAt = json[r'createdAt'] is String
-        ? DateTime.parse(json[r'createdAt'])
-        : null;
-    if (createdAt is DateTime && createdAt.isUtc == false) {
+    DateTime? createdAt =
+        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    if (createdAt != null && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 

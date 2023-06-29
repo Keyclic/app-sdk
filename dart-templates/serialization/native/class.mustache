@@ -10,8 +10,8 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
 
     {{#vars}}
     {{#isDateTime}}
-        {{{datatype}}}? {{{name}}} = json[r'{{{baseName}}}'] is String ? DateTime.parse(json[r'{{{baseName}}}']) : null;
-        if ({{{name}}} is DateTime && {{{name}}}.isUtc == false) {
+        {{{datatype}}}{{^required}}?{{/required}} {{{name}}} = {{^required}}json[r'{{{baseName}}}'] == null ? null : {{/required}}DateTime.parse(json[r'{{{baseName}}}']);
+        if ({{^required}}{{{name}}} != null && {{/required}}{{{name}}}.isUtc == false) {
           {{=<< >>=}}
             <<name>> = DateTime.parse('${json[r'<<baseName>>']}Z');
           <<={{ }}=>>

@@ -28,16 +28,16 @@ class ContractEditContractCommandData {
       return null;
     }
 
-    DateTime? effectiveDate = json[r'effectiveDate'] is String
-        ? DateTime.parse(json[r'effectiveDate'])
-        : null;
-    if (effectiveDate is DateTime && effectiveDate.isUtc == false) {
+    DateTime? effectiveDate = json[r'effectiveDate'] == null
+        ? null
+        : DateTime.parse(json[r'effectiveDate']);
+    if (effectiveDate != null && effectiveDate.isUtc == false) {
       effectiveDate = DateTime.parse('${json[r'effectiveDate']}Z');
     }
 
     DateTime? signedAt =
-        json[r'signedAt'] is String ? DateTime.parse(json[r'signedAt']) : null;
-    if (signedAt is DateTime && signedAt.isUtc == false) {
+        json[r'signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
+    if (signedAt != null && signedAt.isUtc == false) {
       signedAt = DateTime.parse('${json[r'signedAt']}Z');
     }
 

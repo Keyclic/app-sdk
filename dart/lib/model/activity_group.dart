@@ -26,17 +26,17 @@ class ActivityGroup {
       return null;
     }
 
-    DateTime? createdAt = json[r'created_at'] is String
-        ? DateTime.parse(json[r'created_at'])
-        : null;
-    if (createdAt is DateTime && createdAt.isUtc == false) {
+    DateTime? createdAt = json[r'created_at'] == null
+        ? null
+        : DateTime.parse(json[r'created_at']);
+    if (createdAt != null && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'created_at']}Z');
     }
 
-    DateTime? updatedAt = json[r'updated_at'] is String
-        ? DateTime.parse(json[r'updated_at'])
-        : null;
-    if (updatedAt is DateTime && updatedAt.isUtc == false) {
+    DateTime? updatedAt = json[r'updated_at'] == null
+        ? null
+        : DateTime.parse(json[r'updated_at']);
+    if (updatedAt != null && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updated_at']}Z');
     }
 

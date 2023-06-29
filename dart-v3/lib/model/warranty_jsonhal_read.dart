@@ -21,15 +21,14 @@ class WarrantyJsonhalRead {
     }
 
     DateTime? endDate =
-        json[r'endDate'] is String ? DateTime.parse(json[r'endDate']) : null;
-    if (endDate is DateTime && endDate.isUtc == false) {
+        json[r'endDate'] == null ? null : DateTime.parse(json[r'endDate']);
+    if (endDate != null && endDate.isUtc == false) {
       endDate = DateTime.parse('${json[r'endDate']}Z');
     }
 
-    DateTime? startDate = json[r'startDate'] is String
-        ? DateTime.parse(json[r'startDate'])
-        : null;
-    if (startDate is DateTime && startDate.isUtc == false) {
+    DateTime? startDate =
+        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
+    if (startDate != null && startDate.isUtc == false) {
       startDate = DateTime.parse('${json[r'startDate']}Z');
     }
 

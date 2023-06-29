@@ -208,6 +208,27 @@ class EquipmentApi {
   /// * [contractsPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [parentPeriodIdentifier] -
   /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [commissioningDateLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [commissioningDateLeftSquareBracketAfterRightSquareBracket] -
+  /// * [commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [retirementDateLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [retirementDateLeftSquareBracketAfterRightSquareBracket] -
+  /// * [retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket] -
+  /// * [warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [brand] -
+  /// * [brandLeftSquareBracketRightSquareBracket] -
+  /// * [model] -
+  /// * [mpn] -
+  /// * [serialNumber] -
+  /// * [state] -
+  /// * [stateLeftSquareBracketRightSquareBracket] -
+  /// * [type] -
+  /// * [typeLeftSquareBracketRightSquareBracket] -
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -244,6 +265,29 @@ class EquipmentApi {
     List<String>? contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? parentPeriodIdentifier,
     List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    String? commissioningDateLeftSquareBracketBeforeRightSquareBracket,
+    String? commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? commissioningDateLeftSquareBracketAfterRightSquareBracket,
+    String? commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? retirementDateLeftSquareBracketBeforeRightSquareBracket,
+    String? retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? retirementDateLeftSquareBracketAfterRightSquareBracket,
+    String? retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket,
+    String?
+        warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket,
+    String?
+        warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? brand,
+    List<String>? brandLeftSquareBracketRightSquareBracket,
+    String? model,
+    String? mpn,
+    String? serialNumber,
+    String? state,
+    List<String>? stateLeftSquareBracketRightSquareBracket,
+    String? type,
+    List<String>? typeLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -336,6 +380,68 @@ class EquipmentApi {
       if (parentPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
         r'parent.identifier[]': encodeCollectionQueryParameter(
             parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (commissioningDateLeftSquareBracketBeforeRightSquareBracket != null)
+        r'commissioningDate[before]': encodeQueryParameter(
+            commissioningDateLeftSquareBracketBeforeRightSquareBracket),
+      if (commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket !=
+          null)
+        r'commissioningDate[strictly_before]': encodeQueryParameter(
+            commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (commissioningDateLeftSquareBracketAfterRightSquareBracket != null)
+        r'commissioningDate[after]': encodeQueryParameter(
+            commissioningDateLeftSquareBracketAfterRightSquareBracket),
+      if (commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket !=
+          null)
+        r'commissioningDate[strictly_after]': encodeQueryParameter(
+            commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (retirementDateLeftSquareBracketBeforeRightSquareBracket != null)
+        r'retirementDate[before]': encodeQueryParameter(
+            retirementDateLeftSquareBracketBeforeRightSquareBracket),
+      if (retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket !=
+          null)
+        r'retirementDate[strictly_before]': encodeQueryParameter(
+            retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (retirementDateLeftSquareBracketAfterRightSquareBracket != null)
+        r'retirementDate[after]': encodeQueryParameter(
+            retirementDateLeftSquareBracketAfterRightSquareBracket),
+      if (retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket !=
+          null)
+        r'retirementDate[strictly_after]': encodeQueryParameter(
+            retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket !=
+          null)
+        r'warranty.endDate[before]': encodeQueryParameter(
+            warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket),
+      if (warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket !=
+          null)
+        r'warranty.endDate[strictly_before]': encodeQueryParameter(
+            warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket != null)
+        r'warranty.endDate[after]': encodeQueryParameter(
+            warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket),
+      if (warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket !=
+          null)
+        r'warranty.endDate[strictly_after]': encodeQueryParameter(
+            warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (brand != null) r'brand': encodeQueryParameter(brand),
+      if (brandLeftSquareBracketRightSquareBracket != null)
+        r'brand[]': encodeCollectionQueryParameter(
+            brandLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (model != null) r'model': encodeQueryParameter(model),
+      if (mpn != null) r'mpn': encodeQueryParameter(mpn),
+      if (serialNumber != null)
+        r'serialNumber': encodeQueryParameter(serialNumber),
+      if (state != null) r'state': encodeQueryParameter(state),
+      if (stateLeftSquareBracketRightSquareBracket != null)
+        r'state[]': encodeCollectionQueryParameter(
+            stateLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (type != null) r'type': encodeQueryParameter(type),
+      if (typeLeftSquareBracketRightSquareBracket != null)
+        r'type[]': encodeCollectionQueryParameter(
+            typeLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
     };
 

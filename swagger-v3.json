@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.44.1-dev.0e56765f0"
+        "version": "2.44.1-dev.e52300781"
     },
     "servers": [
         {
@@ -3802,6 +3802,309 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "commissioningDate[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "commissioningDate[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "commissioningDate[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "commissioningDate[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "retirementDate[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "retirementDate[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "retirementDate[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "retirementDate[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.endDate[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.endDate[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.endDate[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.endDate[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "brand",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "brand[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "model",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "mpn",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "serialNumber",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "state",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "state[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "type[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "Accept-Language",
                         "in": "header",
                         "description": "",
@@ -7559,6 +7862,7 @@
                     }
                 },
                 "required": [
+                    "effectiveDate",
                     "name",
                     "number",
                     "provider",
@@ -7659,6 +7963,7 @@
                     },
                     "duration": {
                         "type": "string",
+                        "format": "duration",
                         "nullable": true
                     },
                     "effectiveDate": {
@@ -7830,6 +8135,7 @@
                     }
                 },
                 "required": [
+                    "effectiveDate",
                     "name",
                     "number",
                     "provider",
@@ -8061,6 +8367,14 @@
                         "type": "string",
                         "format": "iri-reference",
                         "nullable": true
+                    },
+                    "warranty": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Warranty-Data"
+                            }
+                        ],
+                        "nullable": true
                     }
                 }
             },
@@ -8112,6 +8426,14 @@
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "warranty": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Warranty-Data"
+                            }
+                        ],
                         "nullable": true
                     }
                 }
@@ -8791,6 +9113,25 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    }
+                }
+            },
+            "Warranty-Data": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "duration": {
+                        "description": "The duration of the warranty in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "description": "The start date of the warranty, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
                     }
                 }
             },

@@ -216,6 +216,8 @@ class ApiPlatformClient {
           return ContractTypeRead.fromJson(value);
         case 'EquipmentCreateEquipmentCommandData':
           return EquipmentCreateEquipmentCommandData.fromJson(value);
+        case 'EquipmentCreateEquipmentCommandDataWarranty':
+          return EquipmentCreateEquipmentCommandDataWarranty.fromJson(value);
         case 'EquipmentEditEquipmentCommandData':
           return EquipmentEditEquipmentCommandData.fromJson(value);
         case 'EquipmentJsonhalRead':
@@ -302,6 +304,8 @@ class ApiPlatformClient {
           return TicketTypeJsonhalRead.fromJson(value);
         case 'TicketTypeRead':
           return TicketTypeRead.fromJson(value);
+        case 'WarrantyData':
+          return WarrantyData.fromJson(value);
         case 'WarrantyJsonhalRead':
           return WarrantyJsonhalRead.fromJson(value);
         case 'WarrantyRead':

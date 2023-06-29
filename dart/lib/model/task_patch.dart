@@ -26,15 +26,15 @@ class TaskPatch {
     }
 
     DateTime? dueBy =
-        json[r'dueBy'] is String ? DateTime.parse(json[r'dueBy']) : null;
-    if (dueBy is DateTime && dueBy.isUtc == false) {
+        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
+    if (dueBy != null && dueBy.isUtc == false) {
       dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
-    DateTime? scheduledAt = json[r'scheduledAt'] is String
-        ? DateTime.parse(json[r'scheduledAt'])
-        : null;
-    if (scheduledAt is DateTime && scheduledAt.isUtc == false) {
+    DateTime? scheduledAt = json[r'scheduledAt'] == null
+        ? null
+        : DateTime.parse(json[r'scheduledAt']);
+    if (scheduledAt != null && scheduledAt.isUtc == false) {
       scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
     }
 

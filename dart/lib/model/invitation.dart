@@ -23,24 +23,21 @@ class Invitation {
       return null;
     }
 
-    DateTime? createdAt = json[r'createdAt'] is String
-        ? DateTime.parse(json[r'createdAt'])
-        : null;
-    if (createdAt is DateTime && createdAt.isUtc == false) {
+    DateTime? createdAt =
+        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    if (createdAt != null && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime? expiredAt = json[r'expiredAt'] is String
-        ? DateTime.parse(json[r'expiredAt'])
-        : null;
-    if (expiredAt is DateTime && expiredAt.isUtc == false) {
+    DateTime? expiredAt =
+        json[r'expiredAt'] == null ? null : DateTime.parse(json[r'expiredAt']);
+    if (expiredAt != null && expiredAt.isUtc == false) {
       expiredAt = DateTime.parse('${json[r'expiredAt']}Z');
     }
 
-    DateTime? updatedAt = json[r'updatedAt'] is String
-        ? DateTime.parse(json[r'updatedAt'])
-        : null;
-    if (updatedAt is DateTime && updatedAt.isUtc == false) {
+    DateTime? updatedAt =
+        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    if (updatedAt != null && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 

@@ -25,8 +25,8 @@ class Activity {
     }
 
     DateTime? time =
-        json[r'time'] is String ? DateTime.parse(json[r'time']) : null;
-    if (time is DateTime && time.isUtc == false) {
+        json[r'time'] == null ? null : DateTime.parse(json[r'time']);
+    if (time != null && time.isUtc == false) {
       time = DateTime.parse('${json[r'time']}Z');
     }
 

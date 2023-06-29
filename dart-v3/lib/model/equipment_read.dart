@@ -31,31 +31,29 @@ class EquipmentRead {
       return null;
     }
 
-    DateTime? commissioningDate = json[r'commissioningDate'] is String
-        ? DateTime.parse(json[r'commissioningDate'])
-        : null;
-    if (commissioningDate is DateTime && commissioningDate.isUtc == false) {
+    DateTime? commissioningDate = json[r'commissioningDate'] == null
+        ? null
+        : DateTime.parse(json[r'commissioningDate']);
+    if (commissioningDate != null && commissioningDate.isUtc == false) {
       commissioningDate = DateTime.parse('${json[r'commissioningDate']}Z');
     }
 
-    DateTime? retirementDate = json[r'retirementDate'] is String
-        ? DateTime.parse(json[r'retirementDate'])
-        : null;
-    if (retirementDate is DateTime && retirementDate.isUtc == false) {
+    DateTime? retirementDate = json[r'retirementDate'] == null
+        ? null
+        : DateTime.parse(json[r'retirementDate']);
+    if (retirementDate != null && retirementDate.isUtc == false) {
       retirementDate = DateTime.parse('${json[r'retirementDate']}Z');
     }
 
-    DateTime? createdAt = json[r'createdAt'] is String
-        ? DateTime.parse(json[r'createdAt'])
-        : null;
-    if (createdAt is DateTime && createdAt.isUtc == false) {
+    DateTime? createdAt =
+        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    if (createdAt != null && createdAt.isUtc == false) {
       createdAt = DateTime.parse('${json[r'createdAt']}Z');
     }
 
-    DateTime? updatedAt = json[r'updatedAt'] is String
-        ? DateTime.parse(json[r'updatedAt'])
-        : null;
-    if (updatedAt is DateTime && updatedAt.isUtc == false) {
+    DateTime? updatedAt =
+        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    if (updatedAt != null && updatedAt.isUtc == false) {
       updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
     }
 

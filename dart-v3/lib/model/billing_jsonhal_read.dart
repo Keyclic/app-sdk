@@ -20,10 +20,9 @@ class BillingJsonhalRead {
       return null;
     }
 
-    DateTime? startDate = json[r'startDate'] is String
-        ? DateTime.parse(json[r'startDate'])
-        : null;
-    if (startDate is DateTime && startDate.isUtc == false) {
+    DateTime? startDate =
+        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
+    if (startDate != null && startDate.isUtc == false) {
       startDate = DateTime.parse('${json[r'startDate']}Z');
     }
 

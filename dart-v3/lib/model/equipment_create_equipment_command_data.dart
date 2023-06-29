@@ -28,10 +28,10 @@ class EquipmentCreateEquipmentCommandData {
       return null;
     }
 
-    DateTime? commissioningDate = json[r'commissioningDate'] is String
-        ? DateTime.parse(json[r'commissioningDate'])
-        : null;
-    if (commissioningDate is DateTime && commissioningDate.isUtc == false) {
+    DateTime? commissioningDate = json[r'commissioningDate'] == null
+        ? null
+        : DateTime.parse(json[r'commissioningDate']);
+    if (commissioningDate != null && commissioningDate.isUtc == false) {
       commissioningDate = DateTime.parse('${json[r'commissioningDate']}Z');
     }
 

@@ -400,6 +400,8 @@ class ReportApi {
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
   /// * [archived]
+  /// * [asset]
+  /// * [assetsLeftSquareBracketRightSquareBracket]
   /// * [assignedTo]
   /// * [assignedTosLeftSquareBracketRightSquareBracket]
   /// * [batch]
@@ -461,6 +463,8 @@ class ReportApi {
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
     String? archived,
+    String? asset,
+    List<String>? assetsLeftSquareBracketRightSquareBracket,
     String? assignedTo,
     List<String>? assignedTosLeftSquareBracketRightSquareBracket,
     String? batch,
@@ -544,6 +548,11 @@ class ReportApi {
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (archived != null) r'archived': encodeQueryParameter(archived),
+      if (asset != null) r'asset': encodeQueryParameter(asset),
+      if (assetsLeftSquareBracketRightSquareBracket != null)
+        r'assets[]': encodeCollectionQueryParameter(
+            assetsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (assignedTo != null) r'assigned_to': encodeQueryParameter(assignedTo),
       if (assignedTosLeftSquareBracketRightSquareBracket != null)
         r'assigned_tos[]': encodeCollectionQueryParameter(

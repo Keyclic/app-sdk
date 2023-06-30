@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postExport**
-> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket)
+> ModelExport postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket)
 
 Create one Export resource.
 
@@ -91,6 +91,8 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final archived = archived_example; // String | 
+final asset = asset_example; // String | 
+final assetsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final assignedTo = assignedTo_example; // String | 
 final assignedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final batch = batch_example; // String | 
@@ -133,7 +135,7 @@ final statesLeftSquareBracketRightSquareBracket = []; // List<String> |
 final visibilityLeftSquareBracketRightSquareBracket = []; // List<String> | 
 
 try { 
-    final result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket);
+    final result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket);
     print(result);
 } catch (e) {
     print('Exception when calling ExportApi->postExport: $e\n');
@@ -151,6 +153,8 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **archived** | **String**|  | [optional] 
+ **asset** | **String**|  | [optional] 
+ **assetsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **assignedTo** | **String**|  | [optional] 
  **assignedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **batch** | **String**|  | [optional] 

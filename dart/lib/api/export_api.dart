@@ -127,6 +127,8 @@ class ExportApi {
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
   /// * [archived]
+  /// * [asset]
+  /// * [assetsLeftSquareBracketRightSquareBracket]
   /// * [assignedTo]
   /// * [assignedTosLeftSquareBracketRightSquareBracket]
   /// * [batch]
@@ -186,6 +188,8 @@ class ExportApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     String? archived,
+    String? asset,
+    List<String>? assetsLeftSquareBracketRightSquareBracket,
     String? assignedTo,
     List<String>? assignedTosLeftSquareBracketRightSquareBracket,
     String? batch,
@@ -264,6 +268,11 @@ class ExportApi {
 
     final queryParameters = <String, dynamic>{
       if (archived != null) r'archived': encodeQueryParameter(archived),
+      if (asset != null) r'asset': encodeQueryParameter(asset),
+      if (assetsLeftSquareBracketRightSquareBracket != null)
+        r'assets[]': encodeCollectionQueryParameter(
+            assetsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (assignedTo != null) r'assigned_to': encodeQueryParameter(assignedTo),
       if (assignedTosLeftSquareBracketRightSquareBracket != null)
         r'assigned_tos[]': encodeCollectionQueryParameter(

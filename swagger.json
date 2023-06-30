@@ -3133,6 +3133,12 @@
                         "$ref": "#\/parameters\/archived"
                     },
                     {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assets__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -9337,6 +9343,12 @@
                         "$ref": "#\/parameters\/archived"
                     },
                     {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assets__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -9809,6 +9821,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/archived"
+                    },
+                    {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assets__"
                     },
                     {
                         "$ref": "#\/parameters\/assigned_to"
@@ -10742,6 +10760,12 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assets__"
+                    },
+                    {
                         "$ref": "#\/parameters\/assigned_to"
                     },
                     {
@@ -11344,6 +11368,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/archived"
+                    },
+                    {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assets__"
                     },
                     {
                         "$ref": "#\/parameters\/assigned_to"
@@ -14202,6 +14232,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/archived"
+                    },
+                    {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/assets__"
                     },
                     {
                         "$ref": "#\/parameters\/assigned_to"
@@ -26645,6 +26681,22 @@
             "name": "archived",
             "pattern": ".*",
             "type": "string"
+        },
+        "asset": {
+            "in": "query",
+            "name": "asset",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "assets__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "assets[]",
+            "pattern": ".*",
+            "type": "array"
         },
         "assigned_to": {
             "in": "query",

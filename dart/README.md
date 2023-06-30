@@ -801,6 +801,8 @@ Class | Method | HTTP request | Description
  - [SignerCollection](doc//SignerCollection.md)
  - [SignerData](doc//SignerData.md)
  - [SignerLinks](doc//SignerLinks.md)
+ - [SignerLinksMember](doc//SignerLinksMember.md)
+ - [SignerLinksMemberIriTemplate](doc//SignerLinksMemberIriTemplate.md)
  - [SignerLinksProcedure](doc//SignerLinksProcedure.md)
  - [SignerLinksProcedureIriTemplate](doc//SignerLinksProcedureIriTemplate.md)
  - [SignerLinksSelf](doc//SignerLinksSelf.md)

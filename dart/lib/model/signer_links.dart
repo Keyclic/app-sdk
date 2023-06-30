@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class SignerLinks {
   /// Returns a new [SignerLinks] instance.
   SignerLinks({
+    this.member,
     this.procedure,
     this.self,
   });
@@ -19,10 +20,13 @@ class SignerLinks {
     }
 
     return SignerLinks(
+      member: SignerLinksMember.fromJson(json[r'member']),
       procedure: SignerLinksProcedure.fromJson(json[r'procedure']),
       self: SignerLinksSelf.fromJson(json[r'self']),
     );
   }
+
+  SignerLinksMember? member;
 
   SignerLinksProcedure? procedure;
 
@@ -36,12 +40,14 @@ class SignerLinks {
     }
 
     return other is SignerLinks &&
+        other.member == member &&
         other.procedure == procedure &&
         other.self == self;
   }
 
   @override
   int get hashCode =>
+      (member == null ? 0 : member.hashCode) +
       (procedure == null ? 0 : procedure.hashCode) +
       (self == null ? 0 : self.hashCode);
 
@@ -91,10 +97,12 @@ class SignerLinks {
   }
 
   @override
-  String toString() => 'SignerLinks[procedure=$procedure, self=$self]';
+  String toString() =>
+      'SignerLinks[member=$member, procedure=$procedure, self=$self]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (member != null) r'member': member,
       if (procedure != null) r'procedure': procedure,
       if (self != null) r'self': self,
     };

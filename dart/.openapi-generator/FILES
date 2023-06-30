@@ -600,6 +600,8 @@ doc/SignerApi.md
 doc/SignerCollection.md
 doc/SignerData.md
 doc/SignerLinks.md
+doc/SignerLinksMember.md
+doc/SignerLinksMemberIriTemplate.md
 doc/SignerLinksProcedure.md
 doc/SignerLinksProcedureIriTemplate.md
 doc/SignerLinksSelf.md
@@ -1245,6 +1247,8 @@ lib/model/signer.dart
 lib/model/signer_collection.dart
 lib/model/signer_data.dart
 lib/model/signer_links.dart
+lib/model/signer_links_member.dart
+lib/model/signer_links_member_iri_template.dart
 lib/model/signer_links_procedure.dart
 lib/model/signer_links_procedure_iri_template.dart
 lib/model/signer_links_self.dart
@@ -1873,6 +1877,8 @@ test/signature_signer_test.dart
 test/signer_api_test.dart
 test/signer_collection_test.dart
 test/signer_data_test.dart
+test/signer_links_member_iri_template_test.dart
+test/signer_links_member_test.dart
 test/signer_links_procedure_iri_template_test.dart
 test/signer_links_procedure_test.dart
 test/signer_links_self_iri_template_mapping_test.dart

@@ -1456,6 +1456,10 @@ class ApiClient {
           return SignerData.fromJson(value);
         case 'SignerLinks':
           return SignerLinks.fromJson(value);
+        case 'SignerLinksMember':
+          return SignerLinksMember.fromJson(value);
+        case 'SignerLinksMemberIriTemplate':
+          return SignerLinksMemberIriTemplate.fromJson(value);
         case 'SignerLinksProcedure':
           return SignerLinksProcedure.fromJson(value);
         case 'SignerLinksProcedureIriTemplate':

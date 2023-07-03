@@ -10,6 +10,9 @@ void main() {
   // final instance = SignerLinks();
 
   group('test SignerLinks', () {
+    // SignerLinksMember member
+    test('to test the property `member`', () async {});
+
     // SignerLinksProcedure procedure
     test('to test the property `procedure`', () async {});
 

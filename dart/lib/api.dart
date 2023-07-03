@@ -621,6 +621,8 @@ part 'model/signer.dart';
 part 'model/signer_collection.dart';
 part 'model/signer_data.dart';
 part 'model/signer_links.dart';
+part 'model/signer_links_member.dart';
+part 'model/signer_links_member_iri_template.dart';
 part 'model/signer_links_procedure.dart';
 part 'model/signer_links_procedure_iri_template.dart';
 part 'model/signer_links_self.dart';

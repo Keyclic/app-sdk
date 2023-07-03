@@ -25618,6 +25618,9 @@
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "member": {
+                            "$ref": "#\/definitions\/SignerLinksMember"
+                        },
                         "procedure": {
                             "$ref": "#\/definitions\/SignerLinksProcedure"
                         },
@@ -25672,6 +25675,32 @@
                 "procedure",
                 "member"
             ]
+        },
+        "SignerLinksMember": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the member associated to the given signer.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/SignerLinksMemberIriTemplate"
+                }
+            }
+        },
+        "SignerLinksMemberIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "member": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "SignerLinksProcedure": {
             "type": "object",

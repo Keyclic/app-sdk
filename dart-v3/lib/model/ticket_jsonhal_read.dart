@@ -11,7 +11,7 @@ class TicketJsonhalRead {
     this.description,
     this.scheduledAt,
     this.id,
-    this.tags = const [],
+    this.tags = const {},
     this.createdAt,
     this.updatedAt,
   });
@@ -47,7 +47,7 @@ class TicketJsonhalRead {
       description: json[r'description'],
       scheduledAt: scheduledAt,
       id: json[r'id'],
-      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
+      tags: Map<String, Object>.from(json[r'tags']),
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -62,7 +62,7 @@ class TicketJsonhalRead {
   /// The resource identifier.
   final String? id;
 
-  List<String>? tags;
+  Map<String, Object>? tags;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;

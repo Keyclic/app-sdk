@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.44.1-dev.e52300781"
+        "version": "2.45.1"
     },
     "servers": [
         {
@@ -126,6 +126,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AssetType-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -302,6 +310,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AssetType-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/AssetType-Read"
                                 }
@@ -538,6 +551,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Asset-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -990,6 +1011,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Asset-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Asset-Read"
+                                }
                             }
                         }
                     },
@@ -1004,6 +1030,783 @@
                         "name": "identifier",
                         "in": "path",
                         "description": "Asset identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/attachments": {
+            "get": {
+                "operationId": "getAttachments",
+                "tags": [
+                    "Attachment"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Attachment collection",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_embedded": {
+                                            "type": "object",
+                                            "properties": {
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Attachment.jsonhal-Read"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "item"
+                                            ]
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "itemsPerPage": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "_links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    },
+                                                    "nullable": false
+                                                },
+                                                "first": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "last": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "next": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "previous": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string",
+                                                                "format": "iri-reference"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "_links"
+                                    ]
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Attachment-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Attachment-Read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Attachment resources.",
+                "description": "Retrieves the collection of Attachment resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 0,
+                            "maximum": 50
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "resource.iri",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "resource.iri[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "attachedTo.iri",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "attachedTo.iri[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "relation",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "postAttachment",
+                "tags": [
+                    "Attachment"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Attachment resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attachment.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attachment-Read"
+                                }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attachment-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a Attachment resource.",
+                "description": "Creates a Attachment resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new Attachment resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Attachment.CreateAttachmentCommand-Write"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/attachments/{identifier}": {
+            "get": {
+                "operationId": "getAttachment",
+                "tags": [
+                    "Attachment"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Attachment resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attachment.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attachment-Read"
+                                }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Attachment-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Attachment resource.",
+                "description": "Retrieves a Attachment resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Attachment identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteAttachment",
+                "tags": [
+                    "Attachment"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Attachment resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the Attachment resource.",
+                "description": "Removes the Attachment resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Attachment identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -1229,6 +2032,14 @@
                                         "$ref": "#/components/schemas/Brand-Read"
                                     }
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Brand-Read"
+                                    }
+                                }
                             }
                         }
                     }
@@ -1399,6 +2210,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Brand-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Brand-Read"
                                 }
@@ -1641,6 +2457,14 @@
                                         "$ref": "#/components/schemas/ContractType-Read"
                                     }
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ContractType-Read"
+                                    }
+                                }
                             }
                         }
                     }
@@ -1811,6 +2635,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ContractType-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ContractType-Read"
                                 }
@@ -2047,6 +2876,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Contract-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -2820,6 +3657,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Contract-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract-Read"
+                                }
                             }
                         },
                         "links": {}
@@ -2936,7 +3778,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Contract.CreateContractCommand-Data"
+                                "$ref": "#/components/schemas/Contract.CreateContractCommand-Write"
                             }
                         }
                     },
@@ -2962,6 +3804,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Contract-Read"
                                 }
@@ -3235,6 +4082,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Contract-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Contract-Read"
+                                }
                             }
                         },
                         "links": {}
@@ -3368,7 +4220,7 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Contract.EditContractCommand-Data"
+                                "$ref": "#/components/schemas/Contract.EditContractCommand-Write"
                             }
                         }
                     },
@@ -3486,6 +4338,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Equipment-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -3659,20 +4519,6 @@
                     },
                     {
                         "name": "updatedAt[strictly_after]",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "form",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "resourceType",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -3914,6 +4760,62 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "warranty.startDate[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.startDate[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.startDate[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.startDate[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "warranty.endDate[before]",
                         "in": "query",
                         "description": "",
@@ -3970,7 +4872,169 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "brand",
+                        "name": "order[brand.name]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[commissioningDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[lifetime]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[model]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[mpn]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[retirementDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[serialNumber]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[warranty.startDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[warranty.endDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "brand.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -3984,7 +5048,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "brand[]",
+                        "name": "brand.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4043,7 +5107,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "state",
+                        "name": "state.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4057,7 +5121,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "state[]",
+                        "name": "state.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4074,7 +5138,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "type",
+                        "name": "type.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4088,7 +5152,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "type[]",
+                        "name": "type.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4221,6 +5285,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Equipment-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment-Read"
+                                }
                             }
                         },
                         "links": {}
@@ -4337,7 +5406,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Equipment.CreateEquipmentCommand-Data"
+                                "$ref": "#/components/schemas/Equipment.CreateEquipmentCommand-Write"
                             }
                         }
                     },
@@ -4363,6 +5432,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Equipment-Read"
                                 }
@@ -4636,6 +5710,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Equipment-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Equipment-Read"
+                                }
                             }
                         },
                         "links": {}
@@ -4769,12 +5848,539 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Equipment.EditEquipmentCommand-Data"
+                                "$ref": "#/components/schemas/Equipment.EditEquipmentCommand-Write"
                             }
                         }
                     },
                     "required": true
                 },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/files": {
+            "get": {
+                "operationId": "getFiles",
+                "tags": [
+                    "File"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "File collection",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_embedded": {
+                                            "type": "object",
+                                            "properties": {
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/File.jsonhal-Read"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "item"
+                                            ]
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "itemsPerPage": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "_links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    },
+                                                    "nullable": false
+                                                },
+                                                "first": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "last": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "next": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "previous": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string",
+                                                                "format": "iri-reference"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "_links"
+                                    ]
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/File-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/File-Read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of File resources.",
+                "description": "Retrieves the collection of File resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 0,
+                            "maximum": 50
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "postFile",
+                "tags": [
+                    "File"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "File resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File-Read"
+                                }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a File resource.",
+                "description": "Creates a File resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new File resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/File.CreateFileCommand-Write"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/files/{identifier}": {
+            "get": {
+                "operationId": "getFile",
+                "tags": [
+                    "File"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "File resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File-Read"
+                                }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a File resource.",
+                "description": "Retrieves a File resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "File identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "fr-FR",
+                            "enum": [
+                                "fr-FR",
+                                "en-US"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
                 "deprecated": false
             },
             "parameters": []
@@ -4887,6 +6493,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IntegrationLink-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -5115,6 +6729,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/IntegrationLink-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IntegrationLink-Read"
+                                }
                             }
                         },
                         "links": {}
@@ -5156,7 +6775,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/IntegrationLink.CreateLinkCommand-Data"
+                                "$ref": "#/components/schemas/IntegrationLink.CreateLinkCommand-Write"
                             }
                         }
                     },
@@ -5182,6 +6801,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IntegrationLink-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IntegrationLink-Read"
                                 }
@@ -5305,6 +6929,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/IntegrationLink-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IntegrationLink-Read"
+                                }
                             }
                         },
                         "links": {}
@@ -5363,7 +6992,7 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/IntegrationLink.EditLinkCommand-Data"
+                                "$ref": "#/components/schemas/IntegrationLink.EditLinkCommand-Write"
                             }
                         }
                     },
@@ -5481,6 +7110,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Integration-integration.read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -5795,6 +7432,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Integration-integration.read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Integration-integration.read"
+                                }
                             }
                         }
                     },
@@ -5953,6 +7595,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TicketType-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -6129,6 +7779,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TicketType-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/TicketType-Read"
                                 }
@@ -6365,6 +8020,14 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Ticket-Read"
+                                    }
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "type": "array",
                                     "items": {
@@ -7135,6 +8798,11 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Ticket-Read"
                                 }
+                            },
+                            "application/pdf": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Ticket-Read"
+                                }
                             }
                         }
                     },
@@ -7276,6 +8944,11 @@
                                 }
                             },
                             "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkflowState-Read"
+                                }
+                            },
+                            "application/pdf": {
                                 "schema": {
                                     "$ref": "#/components/schemas/WorkflowState-Read"
                                 }
@@ -7441,6 +9114,11 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
@@ -7469,6 +9147,15 @@
                                 }
                             },
                             "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "parent": {
                                 "type": "object",
                                 "properties": {
                                     "href": {
@@ -7613,19 +9300,90 @@
                     "name"
                 ]
             },
-            "Billing-Data": {
+            "Attachment-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "initialCost": {
-                        "description": "Initial cost of the contract before adjustments have been applied.",
-                        "$ref": "#/components/schemas/Price-Data"
-                    },
-                    "startDate": {
-                        "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
+                    "attachedTo": {
                         "type": "string",
-                        "format": "date-time",
+                        "format": "iri-reference"
+                    },
+                    "relation": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "resource": {
+                        "type": "string",
+                        "format": "iri-reference"
+                    }
+                }
+            },
+            "Attachment.CreateAttachmentCommand-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "attachedTo",
+                    "resource"
+                ],
+                "properties": {
+                    "attachedTo": {
+                        "description": "IRI resource is attached to.",
+                        "type": "string",
+                        "format": "iri-reference"
+                    },
+                    "relation": {
+                        "description": "Attachment relation (optional).",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "resource": {
+                        "description": "IRI of the attached ressource.",
+                        "type": "string",
+                        "format": "iri-reference"
+                    }
+                }
+            },
+            "Attachment.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "attachedTo": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "resource": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "relation": {
+                        "type": "string",
                         "nullable": true
                     }
                 }
@@ -7642,6 +9400,23 @@
                     "initialCost": {
                         "description": "Initial cost of the contract before adjustments have been applied.",
                         "$ref": "#/components/schemas/Price-Read"
+                    },
+                    "startDate": {
+                        "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                }
+            },
+            "Billing-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "initialCost": {
+                        "description": "Initial cost of the contract before adjustments have been applied.",
+                        "$ref": "#/components/schemas/Price-Write"
                     },
                     "startDate": {
                         "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
@@ -7869,7 +9644,7 @@
                     "state"
                 ]
             },
-            "Contract.CreateContractCommand-Data": {
+            "Contract.CreateContractCommand-Write": {
                 "type": "object",
                 "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
                 "deprecated": false,
@@ -7877,7 +9652,7 @@
                     "billing": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Billing-Data"
+                                "$ref": "#/components/schemas/Billing-Write"
                             }
                         ],
                         "nullable": true
@@ -7915,7 +9690,7 @@
                     "renewal": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Renewal-Data"
+                                "$ref": "#/components/schemas/Renewal-Write"
                             }
                         ],
                         "nullable": true
@@ -7944,7 +9719,7 @@
                     "type"
                 ]
             },
-            "Contract.EditContractCommand-Data": {
+            "Contract.EditContractCommand-Write": {
                 "type": "object",
                 "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
                 "deprecated": false,
@@ -7952,7 +9727,7 @@
                     "billing": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Billing-Data"
+                                "$ref": "#/components/schemas/Billing-Write"
                             }
                         ],
                         "nullable": true
@@ -7990,7 +9765,7 @@
                     "renewal": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Renewal-Data"
+                                "$ref": "#/components/schemas/Renewal-Write"
                             }
                         ],
                         "nullable": true
@@ -8308,6 +10083,11 @@
                     "name": {
                         "type": "string"
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
@@ -8318,7 +10098,7 @@
                     "name"
                 ]
             },
-            "Equipment.CreateEquipmentCommand-Data": {
+            "Equipment.CreateEquipmentCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8354,6 +10134,11 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "serialNumber": {
                         "type": "string",
                         "nullable": true
@@ -8371,14 +10156,14 @@
                     "warranty": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Warranty-Data"
+                                "$ref": "#/components/schemas/Warranty-Write"
                             }
                         ],
                         "nullable": true
                     }
                 }
             },
-            "Equipment.EditEquipmentCommand-Data": {
+            "Equipment.EditEquipmentCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8414,6 +10199,11 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "serialNumber": {
                         "type": "string",
                         "nullable": true
@@ -8431,7 +10221,7 @@
                     "warranty": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Warranty-Data"
+                                "$ref": "#/components/schemas/Warranty-Write"
                             }
                         ],
                         "nullable": true
@@ -8465,6 +10255,15 @@
                                 }
                             },
                             "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "parent": {
                                 "type": "object",
                                 "properties": {
                                     "href": {
@@ -8556,6 +10355,125 @@
                 "required": [
                     "name"
                 ]
+            },
+            "File-Read": {
+                "type": "object",
+                "description": "A File holds the physical representation of binary datas.",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "File.CreateFileCommand-Write": {
+                "type": "object",
+                "description": "A File holds the physical representation of binary datas.",
+                "deprecated": false,
+                "required": [
+                    "content"
+                ],
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "contentType": {
+                        "enum": [
+                            "application/json",
+                            "application/msword",
+                            "application/octet-stream",
+                            "application/pdf",
+                            "application/vnd.ms-excel",
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            "application/zip",
+                            "image/gif",
+                            "image/jpeg",
+                            "image/jpg",
+                            "image/png",
+                            "text/csv",
+                            "text/plain"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "File.jsonhal-Read": {
+                "type": "object",
+                "description": "A File holds the physical representation of binary datas.",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "location": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
             },
             "Integration-integration.read": {
                 "type": "object",
@@ -8684,7 +10602,7 @@
                     "source"
                 ]
             },
-            "IntegrationLink.CreateLinkCommand-Data": {
+            "IntegrationLink.CreateLinkCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8720,7 +10638,7 @@
                     "source"
                 ]
             },
-            "IntegrationLink.EditLinkCommand-Data": {
+            "IntegrationLink.EditLinkCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8824,17 +10742,6 @@
                     "source"
                 ]
             },
-            "Price-Data": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "value": {
-                        "minimum": 0,
-                        "type": "number"
-                    }
-                }
-            },
             "Price-Read": {
                 "type": "object",
                 "description": "",
@@ -8850,6 +10757,17 @@
                         "example": "EUR",
                         "type": "string"
                     },
+                    "value": {
+                        "minimum": 0,
+                        "type": "number"
+                    }
+                }
+            },
+            "Price-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
                     "value": {
                         "minimum": 0,
                         "type": "number"
@@ -8891,7 +10809,7 @@
                     }
                 }
             },
-            "Renewal-Data": {
+            "Renewal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8901,16 +10819,28 @@
                         "type": "string",
                         "format": "duration",
                         "nullable": true
+                    },
+                    "noticePeriod": {
+                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
                     }
                 }
             },
-            "Renewal-Read": {
+            "Renewal-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
                     "duration": {
                         "description": "Duration of the renewal in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "noticePeriod": {
+                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
                         "type": "string",
                         "format": "duration",
                         "nullable": true
@@ -8941,6 +10871,12 @@
                         "type": "string",
                         "format": "duration",
                         "nullable": true
+                    },
+                    "noticePeriod": {
+                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
                     }
                 }
             },
@@ -8964,10 +10900,8 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
+                        "type": "object",
+                        "additionalProperties": true,
                         "nullable": true
                     },
                     "createdAt": {
@@ -9018,10 +10952,8 @@
                         "type": "string"
                     },
                     "tags": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
+                        "type": "object",
+                        "additionalProperties": true,
                         "nullable": true
                     },
                     "createdAt": {
@@ -9116,25 +11048,6 @@
                     }
                 }
             },
-            "Warranty-Data": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "duration": {
-                        "description": "The duration of the warranty in ISO 8601 duration format.",
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "startDate": {
-                        "description": "The start date of the warranty, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    }
-                }
-            },
             "Warranty-Read": {
                 "type": "object",
                 "description": "",
@@ -9151,6 +11064,25 @@
                         "description": "The end date of the warranty, in ISO 8601 format.",
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "description": "The start date of the warranty, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                }
+            },
+            "Warranty-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "duration": {
+                        "description": "The duration of the warranty in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
                         "nullable": true
                     },
                     "startDate": {

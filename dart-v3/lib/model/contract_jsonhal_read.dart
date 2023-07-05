@@ -70,7 +70,7 @@ class ContractJsonhalRead {
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      renewal: json[r'renewal'] is Map ? RenewalJsonhalRead.fromJson(json[r'renewal']) : null,
+      renewal: RenewalJsonhalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,

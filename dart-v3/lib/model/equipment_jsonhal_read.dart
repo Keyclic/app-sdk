@@ -63,7 +63,7 @@ class EquipmentJsonhalRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: json[r'warranty'] is Map ? WarrantyJsonhalRead.fromJson(json[r'warranty']) : null,
+      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,

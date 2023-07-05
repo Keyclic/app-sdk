@@ -200,7 +200,6 @@ class EquipmentApi {
   /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [resourceType] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
@@ -216,19 +215,32 @@ class EquipmentApi {
   /// * [retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [retirementDateLeftSquareBracketAfterRightSquareBracket] -
   /// * [retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [warrantyPeriodStartDateLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [warrantyPeriodStartDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [warrantyPeriodStartDateLeftSquareBracketAfterRightSquareBracket] -
+  /// * [warrantyPeriodStartDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket] -
   /// * [warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket] -
   /// * [warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [brand] -
-  /// * [brandLeftSquareBracketRightSquareBracket] -
+  /// * [orderLeftSquareBracketBrandPeriodNameRightSquareBracket] -
+  /// * [orderLeftSquareBracketCommissioningDateRightSquareBracket] -
+  /// * [orderLeftSquareBracketLifetimeRightSquareBracket] -
+  /// * [orderLeftSquareBracketModelRightSquareBracket] -
+  /// * [orderLeftSquareBracketMpnRightSquareBracket] -
+  /// * [orderLeftSquareBracketRetirementDateRightSquareBracket] -
+  /// * [orderLeftSquareBracketSerialNumberRightSquareBracket] -
+  /// * [orderLeftSquareBracketWarrantyPeriodStartDateRightSquareBracket] -
+  /// * [orderLeftSquareBracketWarrantyPeriodEndDateRightSquareBracket] -
+  /// * [brandPeriodIdentifier] -
+  /// * [brandPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [model] -
   /// * [mpn] -
   /// * [serialNumber] -
-  /// * [state] -
-  /// * [stateLeftSquareBracketRightSquareBracket] -
-  /// * [type] -
-  /// * [typeLeftSquareBracketRightSquareBracket] -
+  /// * [statePeriodIdentifier] -
+  /// * [statePeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [typePeriodIdentifier] -
+  /// * [typePeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -257,7 +269,6 @@ class EquipmentApi {
     String? updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
-    String? resourceType,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
@@ -273,21 +284,36 @@ class EquipmentApi {
     String? retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? retirementDateLeftSquareBracketAfterRightSquareBracket,
     String? retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? warrantyPeriodStartDateLeftSquareBracketBeforeRightSquareBracket,
+    String?
+        warrantyPeriodStartDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? warrantyPeriodStartDateLeftSquareBracketAfterRightSquareBracket,
+    String?
+        warrantyPeriodStartDateLeftSquareBracketStrictlyAfterRightSquareBracket,
     String? warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket,
     String?
         warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket,
     String?
         warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket,
-    String? brand,
-    List<String>? brandLeftSquareBracketRightSquareBracket,
+    String? orderLeftSquareBracketBrandPeriodNameRightSquareBracket,
+    String? orderLeftSquareBracketCommissioningDateRightSquareBracket,
+    String? orderLeftSquareBracketLifetimeRightSquareBracket,
+    String? orderLeftSquareBracketModelRightSquareBracket,
+    String? orderLeftSquareBracketMpnRightSquareBracket,
+    String? orderLeftSquareBracketRetirementDateRightSquareBracket,
+    String? orderLeftSquareBracketSerialNumberRightSquareBracket,
+    String? orderLeftSquareBracketWarrantyPeriodStartDateRightSquareBracket,
+    String? orderLeftSquareBracketWarrantyPeriodEndDateRightSquareBracket,
+    String? brandPeriodIdentifier,
+    List<String>? brandPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? model,
     String? mpn,
     String? serialNumber,
-    String? state,
-    List<String>? stateLeftSquareBracketRightSquareBracket,
-    String? type,
-    List<String>? typeLeftSquareBracketRightSquareBracket,
+    String? statePeriodIdentifier,
+    List<String>? statePeriodIdentifierLeftSquareBracketRightSquareBracket,
+    String? typePeriodIdentifier,
+    List<String>? typePeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -357,8 +383,6 @@ class EquipmentApi {
       if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'updatedAt[strictly_after]': encodeQueryParameter(
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (resourceType != null)
-        r'resourceType': encodeQueryParameter(resourceType),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),
@@ -409,6 +433,22 @@ class EquipmentApi {
           null)
         r'retirementDate[strictly_after]': encodeQueryParameter(
             retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (warrantyPeriodStartDateLeftSquareBracketBeforeRightSquareBracket !=
+          null)
+        r'warranty.startDate[before]': encodeQueryParameter(
+            warrantyPeriodStartDateLeftSquareBracketBeforeRightSquareBracket),
+      if (warrantyPeriodStartDateLeftSquareBracketStrictlyBeforeRightSquareBracket !=
+          null)
+        r'warranty.startDate[strictly_before]': encodeQueryParameter(
+            warrantyPeriodStartDateLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (warrantyPeriodStartDateLeftSquareBracketAfterRightSquareBracket !=
+          null)
+        r'warranty.startDate[after]': encodeQueryParameter(
+            warrantyPeriodStartDateLeftSquareBracketAfterRightSquareBracket),
+      if (warrantyPeriodStartDateLeftSquareBracketStrictlyAfterRightSquareBracket !=
+          null)
+        r'warranty.startDate[strictly_after]': encodeQueryParameter(
+            warrantyPeriodStartDateLeftSquareBracketStrictlyAfterRightSquareBracket),
       if (warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket !=
           null)
         r'warranty.endDate[before]': encodeQueryParameter(
@@ -424,24 +464,55 @@ class EquipmentApi {
           null)
         r'warranty.endDate[strictly_after]': encodeQueryParameter(
             warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (brand != null) r'brand': encodeQueryParameter(brand),
-      if (brandLeftSquareBracketRightSquareBracket != null)
-        r'brand[]': encodeCollectionQueryParameter(
-            brandLeftSquareBracketRightSquareBracket,
+      if (orderLeftSquareBracketBrandPeriodNameRightSquareBracket != null)
+        r'order[brand.name]': encodeQueryParameter(
+            orderLeftSquareBracketBrandPeriodNameRightSquareBracket),
+      if (orderLeftSquareBracketCommissioningDateRightSquareBracket != null)
+        r'order[commissioningDate]': encodeQueryParameter(
+            orderLeftSquareBracketCommissioningDateRightSquareBracket),
+      if (orderLeftSquareBracketLifetimeRightSquareBracket != null)
+        r'order[lifetime]': encodeQueryParameter(
+            orderLeftSquareBracketLifetimeRightSquareBracket),
+      if (orderLeftSquareBracketModelRightSquareBracket != null)
+        r'order[model]':
+            encodeQueryParameter(orderLeftSquareBracketModelRightSquareBracket),
+      if (orderLeftSquareBracketMpnRightSquareBracket != null)
+        r'order[mpn]':
+            encodeQueryParameter(orderLeftSquareBracketMpnRightSquareBracket),
+      if (orderLeftSquareBracketRetirementDateRightSquareBracket != null)
+        r'order[retirementDate]': encodeQueryParameter(
+            orderLeftSquareBracketRetirementDateRightSquareBracket),
+      if (orderLeftSquareBracketSerialNumberRightSquareBracket != null)
+        r'order[serialNumber]': encodeQueryParameter(
+            orderLeftSquareBracketSerialNumberRightSquareBracket),
+      if (orderLeftSquareBracketWarrantyPeriodStartDateRightSquareBracket !=
+          null)
+        r'order[warranty.startDate]': encodeQueryParameter(
+            orderLeftSquareBracketWarrantyPeriodStartDateRightSquareBracket),
+      if (orderLeftSquareBracketWarrantyPeriodEndDateRightSquareBracket != null)
+        r'order[warranty.endDate]': encodeQueryParameter(
+            orderLeftSquareBracketWarrantyPeriodEndDateRightSquareBracket),
+      if (brandPeriodIdentifier != null)
+        r'brand.identifier': encodeQueryParameter(brandPeriodIdentifier),
+      if (brandPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
+        r'brand.identifier[]': encodeCollectionQueryParameter(
+            brandPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (model != null) r'model': encodeQueryParameter(model),
       if (mpn != null) r'mpn': encodeQueryParameter(mpn),
       if (serialNumber != null)
         r'serialNumber': encodeQueryParameter(serialNumber),
-      if (state != null) r'state': encodeQueryParameter(state),
-      if (stateLeftSquareBracketRightSquareBracket != null)
-        r'state[]': encodeCollectionQueryParameter(
-            stateLeftSquareBracketRightSquareBracket,
+      if (statePeriodIdentifier != null)
+        r'state.identifier': encodeQueryParameter(statePeriodIdentifier),
+      if (statePeriodIdentifierLeftSquareBracketRightSquareBracket != null)
+        r'state.identifier[]': encodeCollectionQueryParameter(
+            statePeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (type != null) r'type': encodeQueryParameter(type),
-      if (typeLeftSquareBracketRightSquareBracket != null)
-        r'type[]': encodeCollectionQueryParameter(
-            typeLeftSquareBracketRightSquareBracket,
+      if (typePeriodIdentifier != null)
+        r'type.identifier': encodeQueryParameter(typePeriodIdentifier),
+      if (typePeriodIdentifierLeftSquareBracketRightSquareBracket != null)
+        r'type.identifier[]': encodeCollectionQueryParameter(
+            typePeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
     };
 
@@ -488,7 +559,7 @@ class EquipmentApi {
   /// * [identifier] - Equipment identifier
   /// * [xKeyclicApp] -
   /// * [xOrganizationId] -
-  /// * [equipmentEditEquipmentCommandData] - The updated Equipment resource
+  /// * [equipmentEditEquipmentCommandWrite] - The updated Equipment resource
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -506,8 +577,8 @@ class EquipmentApi {
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
-    required EquipmentEditEquipmentCommandData
-        equipmentEditEquipmentCommandData,
+    required EquipmentEditEquipmentCommandWrite
+        equipmentEditEquipmentCommandWrite,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -553,9 +624,9 @@ class EquipmentApi {
     dynamic bodyData;
 
     try {
-      bodyData = equipmentEditEquipmentCommandData.toJson();
-      // bodyData = jsonEncode(equipmentEditEquipmentCommandData);
-      // bodyData = jsonDecode(jsonEncode(equipmentEditEquipmentCommandData));
+      bodyData = equipmentEditEquipmentCommandWrite.toJson();
+      // bodyData = jsonEncode(equipmentEditEquipmentCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(equipmentEditEquipmentCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -608,7 +679,7 @@ class EquipmentApi {
   /// Parameters:
   /// * [xKeyclicApp] -
   /// * [xOrganizationId] -
-  /// * [equipmentCreateEquipmentCommandData] - The new Equipment resource
+  /// * [equipmentCreateEquipmentCommandWrite] - The new Equipment resource
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -625,8 +696,8 @@ class EquipmentApi {
   Future<Response<EquipmentJsonhalRead>> postEquipment({
     required String xKeyclicApp,
     required String xOrganizationId,
-    required EquipmentCreateEquipmentCommandData
-        equipmentCreateEquipmentCommandData,
+    required EquipmentCreateEquipmentCommandWrite
+        equipmentCreateEquipmentCommandWrite,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -671,9 +742,9 @@ class EquipmentApi {
     dynamic bodyData;
 
     try {
-      bodyData = equipmentCreateEquipmentCommandData.toJson();
-      // bodyData = jsonEncode(equipmentCreateEquipmentCommandData);
-      // bodyData = jsonDecode(jsonEncode(equipmentCreateEquipmentCommandData));
+      bodyData = equipmentCreateEquipmentCommandWrite.toJson();
+      // bodyData = jsonEncode(equipmentCreateEquipmentCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(equipmentCreateEquipmentCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

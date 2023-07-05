@@ -35,14 +35,14 @@ void main() {
     //
     // Updates the IntegrationLink resource.
     //
-    //Future<IntegrationLinkJsonhalRead> patchIntegrationLink(String identifier, IntegrationLinkEditLinkCommandData integrationLinkEditLinkCommandData, { String acceptLanguage }) async
+    //Future<IntegrationLinkJsonhalRead> patchIntegrationLink(String identifier, IntegrationLinkEditLinkCommandWrite integrationLinkEditLinkCommandWrite, { String acceptLanguage }) async
     test('test patchIntegrationLink', () async {});
 
     // Creates a IntegrationLink resource.
     //
     // Creates a IntegrationLink resource.
     //
-    //Future<IntegrationLinkJsonhalRead> postIntegrationLink(IntegrationLinkCreateLinkCommandData integrationLinkCreateLinkCommandData, { String acceptLanguage }) async
+    //Future<IntegrationLinkJsonhalRead> postIntegrationLink(IntegrationLinkCreateLinkCommandWrite integrationLinkCreateLinkCommandWrite, { String acceptLanguage }) async
     test('test postIntegrationLink', () async {});
   });
 }

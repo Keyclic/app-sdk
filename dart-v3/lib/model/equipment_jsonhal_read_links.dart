@@ -10,6 +10,7 @@ class EquipmentJsonhalReadLinks {
     this.self,
     this.brand,
     this.type,
+    this.parent,
     this.state,
   });
 
@@ -24,6 +25,7 @@ class EquipmentJsonhalReadLinks {
       self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
       brand: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'brand']),
       type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
       state: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
@@ -33,6 +35,8 @@ class EquipmentJsonhalReadLinks {
   GetAssetTypes200ResponseLinksFirst? brand;
 
   GetAssetTypes200ResponseLinksFirst? type;
+
+  GetAssetTypes200ResponseLinksFirst? parent;
 
   GetAssetTypes200ResponseLinksFirst? state;
 
@@ -47,6 +51,7 @@ class EquipmentJsonhalReadLinks {
         other.self == self &&
         other.brand == brand &&
         other.type == type &&
+        other.parent == parent &&
         other.state == state;
   }
 
@@ -55,6 +60,7 @@ class EquipmentJsonhalReadLinks {
       (self == null ? 0 : self.hashCode) +
       (brand == null ? 0 : brand.hashCode) +
       (type == null ? 0 : type.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
   static List<EquipmentJsonhalReadLinks> listFromJson(List<dynamic>? json) {
@@ -107,13 +113,14 @@ class EquipmentJsonhalReadLinks {
 
   @override
   String toString() =>
-      'EquipmentJsonhalReadLinks[self=$self, brand=$brand, type=$type, state=$state]';
+      'EquipmentJsonhalReadLinks[self=$self, brand=$brand, type=$type, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (self != null) r'self': self,
       if (brand != null) r'brand': brand,
       if (type != null) r'type': type,
+      if (parent != null) r'parent': parent,
       if (state != null) r'state': state,
     };
   }

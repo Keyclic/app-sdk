@@ -20,7 +20,7 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
-    // List<String> tags (default value: const [])
+    // Map<String, dynamic> tags (default value: const {})
     test('to test the property `tags`', () async {});
 
     // The date and time when the resource was created, in UTC format.

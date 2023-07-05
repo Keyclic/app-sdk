@@ -284,7 +284,7 @@ class IntegrationLinkApi {
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
-  /// * [integrationLinkEditLinkCommandData] - The updated IntegrationLink resource
+  /// * [integrationLinkEditLinkCommandWrite] - The updated IntegrationLink resource
   /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -297,8 +297,8 @@ class IntegrationLinkApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> patchIntegrationLink({
     required String identifier,
-    required IntegrationLinkEditLinkCommandData
-        integrationLinkEditLinkCommandData,
+    required IntegrationLinkEditLinkCommandWrite
+        integrationLinkEditLinkCommandWrite,
     String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -334,9 +334,9 @@ class IntegrationLinkApi {
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkEditLinkCommandData.toJson();
-      // bodyData = jsonEncode(integrationLinkEditLinkCommandData);
-      // bodyData = jsonDecode(jsonEncode(integrationLinkEditLinkCommandData));
+      bodyData = integrationLinkEditLinkCommandWrite.toJson();
+      // bodyData = jsonEncode(integrationLinkEditLinkCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(integrationLinkEditLinkCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -388,7 +388,7 @@ class IntegrationLinkApi {
   /// Creates a IntegrationLink resource.
   ///
   /// Parameters:
-  /// * [integrationLinkCreateLinkCommandData] - The new IntegrationLink resource
+  /// * [integrationLinkCreateLinkCommandWrite] - The new IntegrationLink resource
   /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -400,8 +400,8 @@ class IntegrationLinkApi {
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> postIntegrationLink({
-    required IntegrationLinkCreateLinkCommandData
-        integrationLinkCreateLinkCommandData,
+    required IntegrationLinkCreateLinkCommandWrite
+        integrationLinkCreateLinkCommandWrite,
     String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -436,9 +436,9 @@ class IntegrationLinkApi {
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkCreateLinkCommandData.toJson();
-      // bodyData = jsonEncode(integrationLinkCreateLinkCommandData);
-      // bodyData = jsonDecode(jsonEncode(integrationLinkCreateLinkCommandData));
+      bodyData = integrationLinkCreateLinkCommandWrite.toJson();
+      // bodyData = jsonEncode(integrationLinkCreateLinkCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(integrationLinkCreateLinkCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
-**tags** | **List<String>** |  | [optional] [default to const []]
+**tags** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 

@@ -31,6 +31,9 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
+    // String parent
+    test('to test the property `parent`', () async {});
+
     // String serialNumber
     test('to test the property `serialNumber`', () async {});
 

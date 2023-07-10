@@ -14,6 +14,7 @@ class EquipmentCreateEquipmentCommandData {
     this.model,
     this.mpn,
     this.name,
+    this.parent,
     this.serialNumber,
     this.state,
     this.type,
@@ -43,6 +44,7 @@ class EquipmentCreateEquipmentCommandData {
       model: json[r'model'],
       mpn: json[r'mpn'],
       name: json[r'name'],
+      parent: json[r'parent'],
       serialNumber: json[r'serialNumber'],
       state: json[r'state'],
       type: json[r'type'],
@@ -64,6 +66,8 @@ class EquipmentCreateEquipmentCommandData {
   String? mpn;
 
   String? name;
+
+  String? parent;
 
   String? serialNumber;
 
@@ -88,6 +92,7 @@ class EquipmentCreateEquipmentCommandData {
         other.model == model &&
         other.mpn == mpn &&
         other.name == name &&
+        other.parent == parent &&
         other.serialNumber == serialNumber &&
         other.state == state &&
         other.type == type &&
@@ -103,6 +108,7 @@ class EquipmentCreateEquipmentCommandData {
       (model == null ? 0 : model.hashCode) +
       (mpn == null ? 0 : mpn.hashCode) +
       (name == null ? 0 : name.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
       (state == null ? 0 : state.hashCode) +
       (type == null ? 0 : type.hashCode) +
@@ -160,7 +166,7 @@ class EquipmentCreateEquipmentCommandData {
 
   @override
   String toString() =>
-      'EquipmentCreateEquipmentCommandData[brand=$brand, commissioningDate=$commissioningDate, description=$description, lifetime=$lifetime, model=$model, mpn=$mpn, name=$name, serialNumber=$serialNumber, state=$state, type=$type, warranty=$warranty]';
+      'EquipmentCreateEquipmentCommandData[brand=$brand, commissioningDate=$commissioningDate, description=$description, lifetime=$lifetime, model=$model, mpn=$mpn, name=$name, parent=$parent, serialNumber=$serialNumber, state=$state, type=$type, warranty=$warranty]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -172,6 +178,7 @@ class EquipmentCreateEquipmentCommandData {
       if (model != null) r'model': model,
       if (mpn != null) r'mpn': mpn,
       if (name != null) r'name': name,
+      if (parent != null) r'parent': parent,
       if (serialNumber != null) r'serialNumber': serialNumber,
       if (state != null) r'state': state,
       if (type != null) r'type': type,

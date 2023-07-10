@@ -13,6 +13,7 @@ class AssetRead {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.parent,
     this.state,
   });
 
@@ -42,6 +43,7 @@ class AssetRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      parent: json[r'parent'],
       state: json[r'state'],
     );
   }
@@ -61,6 +63,8 @@ class AssetRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  String? parent;
+
   String? state;
 
   @override
@@ -77,6 +81,7 @@ class AssetRead {
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
+        other.parent == parent &&
         other.state == state;
   }
 
@@ -88,6 +93,7 @@ class AssetRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
   static List<AssetRead> listFromJson(List<dynamic>? json) {
@@ -136,7 +142,7 @@ class AssetRead {
 
   @override
   String toString() =>
-      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, state=$state]';
+      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -146,6 +152,7 @@ class AssetRead {
       if (id != null) r'id': id,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if (parent != null) r'parent': parent,
       if (state != null) r'state': state,
     };
   }

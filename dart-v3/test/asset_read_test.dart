@@ -31,6 +31,9 @@ void main() {
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
 
+    // String parent
+    test('to test the property `parent`', () async {});
+
     // String state
     test('to test the property `state`', () async {});
   });

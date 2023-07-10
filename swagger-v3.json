@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.44.1-dev.e52300781"
+        "version": "2.45.1"
     },
     "servers": [
         {
@@ -7441,6 +7441,11 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
@@ -7469,6 +7474,15 @@
                                 }
                             },
                             "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "parent": {
                                 "type": "object",
                                 "properties": {
                                     "href": {
@@ -8308,6 +8322,11 @@
                     "name": {
                         "type": "string"
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
@@ -8352,6 +8371,11 @@
                     },
                     "name": {
                         "type": "string",
+                        "nullable": true
+                    },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
                         "nullable": true
                     },
                     "serialNumber": {
@@ -8414,6 +8438,11 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "serialNumber": {
                         "type": "string",
                         "nullable": true
@@ -8465,6 +8494,15 @@
                                 }
                             },
                             "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "parent": {
                                 "type": "object",
                                 "properties": {
                                     "href": {

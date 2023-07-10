@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class ReportLinks {
   /// Returns a new [ReportLinks] instance.
   ReportLinks({
+    this.asset,
     this.category,
     this.children,
     this.feedback,
@@ -25,6 +26,7 @@ class ReportLinks {
     }
 
     return ReportLinks(
+      asset: ReportLinksAsset.fromJson(json[r'asset']),
       category: ReportLinksCategory.fromJson(json[r'category']),
       children: ReportLinksChildren.fromJson(json[r'children']),
       feedback: ReportLinksFeedback.fromJson(json[r'feedback']),
@@ -35,6 +37,8 @@ class ReportLinks {
       tracking: ReportLinksTracking.fromJson(json[r'tracking']),
     );
   }
+
+  ReportLinksAsset? asset;
 
   ReportLinksCategory? category;
 
@@ -60,6 +64,7 @@ class ReportLinks {
     }
 
     return other is ReportLinks &&
+        other.asset == asset &&
         other.category == category &&
         other.children == children &&
         other.feedback == feedback &&
@@ -72,6 +77,7 @@ class ReportLinks {
 
   @override
   int get hashCode =>
+      (asset == null ? 0 : asset.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (children == null ? 0 : children.hashCode) +
       (feedback == null ? 0 : feedback.hashCode) +
@@ -128,10 +134,11 @@ class ReportLinks {
 
   @override
   String toString() =>
-      'ReportLinks[category=$category, children=$children, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
+      'ReportLinks[asset=$asset, category=$category, children=$children, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (asset != null) r'asset': asset,
       if (category != null) r'category': category,
       if (children != null) r'children': children,
       if (feedback != null) r'feedback': feedback,

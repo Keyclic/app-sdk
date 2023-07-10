@@ -10,6 +10,9 @@ void main() {
   // final instance = ReportLinks();
 
   group('test ReportLinks', () {
+    // ReportLinksAsset asset
+    test('to test the property `asset`', () async {});
+
     // ReportLinksCategory category
     test('to test the property `category`', () async {});
 

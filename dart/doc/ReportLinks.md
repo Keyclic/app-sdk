@@ -8,6 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**asset** | [**ReportLinksAsset**](ReportLinksAsset.md) |  | [optional] 
 **category** | [**ReportLinksCategory**](ReportLinksCategory.md) |  | [optional] 
 **children** | [**ReportLinksChildren**](ReportLinksChildren.md) |  | [optional] 
 **feedback** | [**ReportLinksFeedback**](ReportLinksFeedback.md) |  | [optional] 

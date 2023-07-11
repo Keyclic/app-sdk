@@ -1265,6 +1265,12 @@ class ApiClient {
           return ReportEmbedded.fromJson(value);
         case 'ReportLinks':
           return ReportLinks.fromJson(value);
+        case 'ReportLinksAsset':
+          return ReportLinksAsset.fromJson(value);
+        case 'ReportLinksAssetIriTemplate':
+          return ReportLinksAssetIriTemplate.fromJson(value);
+        case 'ReportLinksAssetIriTemplateMapping':
+          return ReportLinksAssetIriTemplateMapping.fromJson(value);
         case 'ReportLinksCategory':
           return ReportLinksCategory.fromJson(value);
         case 'ReportLinksCategoryIriTemplate':

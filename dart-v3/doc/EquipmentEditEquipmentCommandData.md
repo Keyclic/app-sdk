@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **model** | **String** |  | [optional] 
 **mpn** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
+**parent** | **String** |  | [optional] 
 **serialNumber** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 

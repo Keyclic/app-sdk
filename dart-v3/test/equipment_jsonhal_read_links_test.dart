@@ -19,6 +19,9 @@ void main() {
     // GetAssetTypes200ResponseLinksFirst type
     test('to test the property `type`', () async {});
 
+    // GetAssetTypes200ResponseLinksFirst parent
+    test('to test the property `parent`', () async {});
+
     // GetAssetTypes200ResponseLinksFirst state
     test('to test the property `state`', () async {});
   });

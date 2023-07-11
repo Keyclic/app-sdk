@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **self** | [**GetAssetTypes200ResponseLinksFirst**](GetAssetTypes200ResponseLinksFirst.md) |  | [optional] 
 **brand** | [**GetAssetTypes200ResponseLinksFirst**](GetAssetTypes200ResponseLinksFirst.md) |  | [optional] 
 **type** | [**GetAssetTypes200ResponseLinksFirst**](GetAssetTypes200ResponseLinksFirst.md) |  | [optional] 
+**parent** | [**GetAssetTypes200ResponseLinksFirst**](GetAssetTypes200ResponseLinksFirst.md) |  | [optional] 
 **state** | [**GetAssetTypes200ResponseLinksFirst**](GetAssetTypes200ResponseLinksFirst.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

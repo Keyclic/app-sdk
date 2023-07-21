@@ -2405,6 +2405,7 @@ class OrganizationApi {
   /// * [xDateTime]
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
+  /// * [archived]
   /// * [asset]
   /// * [assetsLeftSquareBracketRightSquareBracket]
   /// * [assignedTo]
@@ -2453,6 +2454,7 @@ class OrganizationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    String? archived,
     String? asset,
     List<String>? assetsLeftSquareBracketRightSquareBracket,
     String? assignedTo,
@@ -2520,6 +2522,7 @@ class OrganizationApi {
     );
 
     final queryParameters = <String, dynamic>{
+      if (archived != null) r'archived': encodeQueryParameter(archived),
       if (asset != null) r'asset': encodeQueryParameter(asset),
       if (assetsLeftSquareBracketRightSquareBracket != null)
         r'assets[]': encodeCollectionQueryParameter(

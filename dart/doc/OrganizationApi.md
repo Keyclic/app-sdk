@@ -1277,7 +1277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAnalyticByOrganization**
-> Chart getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, assetsLeftSquareBracketRightSquareBracket, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket)
+> Chart getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket)
 
 Retrieve one Analytic resource.
 
@@ -1296,6 +1296,7 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final archived = archived_example; // String | 
 final asset = asset_example; // String | 
 final assetsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final assignedTo = assignedTo_example; // String | 
@@ -1328,7 +1329,7 @@ final optionsLeftSquareBracketPropertyRightSquareBracket = optionsLeftSquareBrac
 final optionsLeftSquareBracketSortRightSquareBracket = optionsLeftSquareBracketSortRightSquareBracket_example; // String | 
 
 try { 
-    final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, assetsLeftSquareBracketRightSquareBracket, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
+    final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, assignedTo, assignedTosLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->getAnalyticByOrganization: $e\n');
@@ -1345,6 +1346,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **archived** | **String**|  | [optional] 
  **asset** | **String**|  | [optional] 
  **assetsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **assignedTo** | **String**|  | [optional] 

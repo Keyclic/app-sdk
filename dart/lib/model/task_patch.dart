@@ -15,7 +15,7 @@ class TaskPatch {
     this.name,
     this.priority,
     this.scheduledAt,
-    this.tags = const [],
+    this.tags,
   });
 
   /// Returns a new [TaskPatch] instance and imports its values from

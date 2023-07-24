@@ -7,11 +7,11 @@ part of keyclic_sdk_api;
 class DocumentPatch {
   /// Returns a new [DocumentPatch] instance.
   DocumentPatch({
-    this.body = const [],
+    this.body,
     this.file,
     this.permission,
     this.text,
-    this.tags = const [],
+    this.tags,
   });
 
   /// Returns a new [DocumentPatch] instance and imports its values from

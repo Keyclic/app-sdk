@@ -7,9 +7,9 @@ part of keyclic_sdk_api;
 class TemplatePatch {
   /// Returns a new [TemplatePatch] instance.
   TemplatePatch({
-    this.body = const [],
-    this.footer = const [],
-    this.header = const [],
+    this.body,
+    this.footer,
+    this.header,
     this.name,
     this.type,
   });

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class NotePatch {
   /// Returns a new [NotePatch] instance.
   NotePatch({
-    this.text = const [],
+    this.text,
   });
 
   /// Returns a new [NotePatch] instance and imports its values from

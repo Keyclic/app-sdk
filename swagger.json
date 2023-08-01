@@ -10760,6 +10760,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/archived"
+                    },
+                    {
                         "$ref": "#\/parameters\/asset"
                     },
                     {

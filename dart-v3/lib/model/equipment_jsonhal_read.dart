@@ -20,6 +20,7 @@ class EquipmentJsonhalRead {
     this.updatedAt,
     this.description,
     required this.name,
+    this.address,
   });
 
   /// Returns a new [EquipmentJsonhalRead] instance and imports its values from
@@ -69,6 +70,7 @@ class EquipmentJsonhalRead {
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
+      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
 
@@ -107,6 +109,8 @@ class EquipmentJsonhalRead {
 
   String name;
 
+  PostalAddressJsonhalRead? address;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -127,7 +131,8 @@ class EquipmentJsonhalRead {
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
         other.description == description &&
-        other.name == name;
+        other.name == name &&
+        other.address == address;
   }
 
   @override
@@ -144,7 +149,8 @@ class EquipmentJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
-      name.hashCode;
+      name.hashCode +
+      (address == null ? 0 : address.hashCode);
 
   static List<EquipmentJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -196,7 +202,7 @@ class EquipmentJsonhalRead {
 
   @override
   String toString() =>
-      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
+      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, address=$address]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -215,6 +221,7 @@ class EquipmentJsonhalRead {
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       r'name': name,
+      if (address != null) r'address': address,
     };
   }
 }

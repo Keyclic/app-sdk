@@ -23,6 +23,9 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
+    // PostalAddressRead address
+    test('to test the property `address`', () async {});
+
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});

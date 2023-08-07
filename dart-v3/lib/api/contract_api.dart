@@ -500,7 +500,7 @@ class ContractApi {
   /// * [identifier] - Contract identifier
   /// * [xKeyclicApp] -
   /// * [xOrganizationId] -
-  /// * [contractEditContractCommandData] - The updated Contract resource
+  /// * [contractEditContractCommandWrite] - The updated Contract resource
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -518,7 +518,7 @@ class ContractApi {
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
-    required ContractEditContractCommandData contractEditContractCommandData,
+    required ContractEditContractCommandWrite contractEditContractCommandWrite,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -564,9 +564,9 @@ class ContractApi {
     dynamic bodyData;
 
     try {
-      bodyData = contractEditContractCommandData.toJson();
-      // bodyData = jsonEncode(contractEditContractCommandData);
-      // bodyData = jsonDecode(jsonEncode(contractEditContractCommandData));
+      bodyData = contractEditContractCommandWrite.toJson();
+      // bodyData = jsonEncode(contractEditContractCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(contractEditContractCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -619,7 +619,7 @@ class ContractApi {
   /// Parameters:
   /// * [xKeyclicApp] -
   /// * [xOrganizationId] -
-  /// * [contractCreateContractCommandData] - The new Contract resource
+  /// * [contractCreateContractCommandWrite] - The new Contract resource
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -636,8 +636,8 @@ class ContractApi {
   Future<Response<ContractJsonhalRead>> postContract({
     required String xKeyclicApp,
     required String xOrganizationId,
-    required ContractCreateContractCommandData
-        contractCreateContractCommandData,
+    required ContractCreateContractCommandWrite
+        contractCreateContractCommandWrite,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -682,9 +682,9 @@ class ContractApi {
     dynamic bodyData;
 
     try {
-      bodyData = contractCreateContractCommandData.toJson();
-      // bodyData = jsonEncode(contractCreateContractCommandData);
-      // bodyData = jsonDecode(jsonEncode(contractCreateContractCommandData));
+      bodyData = contractCreateContractCommandWrite.toJson();
+      // bodyData = jsonEncode(contractCreateContractCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(contractCreateContractCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -186,24 +186,24 @@ class ApiPlatformClient {
           return AssetTypeJsonhalReadLinks.fromJson(value);
         case 'AssetTypeRead':
           return AssetTypeRead.fromJson(value);
-        case 'BillingData':
-          return BillingData.fromJson(value);
         case 'BillingJsonhalRead':
           return BillingJsonhalRead.fromJson(value);
         case 'BillingRead':
           return BillingRead.fromJson(value);
+        case 'BillingWrite':
+          return BillingWrite.fromJson(value);
         case 'BrandJsonhalRead':
           return BrandJsonhalRead.fromJson(value);
         case 'BrandRead':
           return BrandRead.fromJson(value);
-        case 'ContractCreateContractCommandData':
-          return ContractCreateContractCommandData.fromJson(value);
-        case 'ContractCreateContractCommandDataBilling':
-          return ContractCreateContractCommandDataBilling.fromJson(value);
-        case 'ContractCreateContractCommandDataRenewal':
-          return ContractCreateContractCommandDataRenewal.fromJson(value);
-        case 'ContractEditContractCommandData':
-          return ContractEditContractCommandData.fromJson(value);
+        case 'ContractCreateContractCommandWrite':
+          return ContractCreateContractCommandWrite.fromJson(value);
+        case 'ContractCreateContractCommandWriteBilling':
+          return ContractCreateContractCommandWriteBilling.fromJson(value);
+        case 'ContractCreateContractCommandWriteRenewal':
+          return ContractCreateContractCommandWriteRenewal.fromJson(value);
+        case 'ContractEditContractCommandWrite':
+          return ContractEditContractCommandWrite.fromJson(value);
         case 'ContractJsonhalRead':
           return ContractJsonhalRead.fromJson(value);
         case 'ContractJsonhalReadLinks':
@@ -214,12 +214,12 @@ class ApiPlatformClient {
           return ContractTypeJsonhalRead.fromJson(value);
         case 'ContractTypeRead':
           return ContractTypeRead.fromJson(value);
-        case 'EquipmentCreateEquipmentCommandData':
-          return EquipmentCreateEquipmentCommandData.fromJson(value);
-        case 'EquipmentCreateEquipmentCommandDataWarranty':
-          return EquipmentCreateEquipmentCommandDataWarranty.fromJson(value);
-        case 'EquipmentEditEquipmentCommandData':
-          return EquipmentEditEquipmentCommandData.fromJson(value);
+        case 'EquipmentCreateEquipmentCommandWrite':
+          return EquipmentCreateEquipmentCommandWrite.fromJson(value);
+        case 'EquipmentCreateEquipmentCommandWriteWarranty':
+          return EquipmentCreateEquipmentCommandWriteWarranty.fromJson(value);
+        case 'EquipmentEditEquipmentCommandWrite':
+          return EquipmentEditEquipmentCommandWrite.fromJson(value);
         case 'EquipmentJsonhalRead':
           return EquipmentJsonhalRead.fromJson(value);
         case 'EquipmentJsonhalReadLinks':
@@ -276,26 +276,30 @@ class ApiPlatformClient {
           return IntegrationIntegrationRead.fromJson(value);
         case 'IntegrationJsonhalIntegrationRead':
           return IntegrationJsonhalIntegrationRead.fromJson(value);
-        case 'IntegrationLinkCreateLinkCommandData':
-          return IntegrationLinkCreateLinkCommandData.fromJson(value);
-        case 'IntegrationLinkEditLinkCommandData':
-          return IntegrationLinkEditLinkCommandData.fromJson(value);
+        case 'IntegrationLinkCreateLinkCommandWrite':
+          return IntegrationLinkCreateLinkCommandWrite.fromJson(value);
+        case 'IntegrationLinkEditLinkCommandWrite':
+          return IntegrationLinkEditLinkCommandWrite.fromJson(value);
         case 'IntegrationLinkJsonhalRead':
           return IntegrationLinkJsonhalRead.fromJson(value);
         case 'IntegrationLinkRead':
           return IntegrationLinkRead.fromJson(value);
-        case 'PriceData':
-          return PriceData.fromJson(value);
+        case 'PostalAddressJsonhalRead':
+          return PostalAddressJsonhalRead.fromJson(value);
+        case 'PostalAddressRead':
+          return PostalAddressRead.fromJson(value);
         case 'PriceJsonhalRead':
           return PriceJsonhalRead.fromJson(value);
         case 'PriceRead':
           return PriceRead.fromJson(value);
-        case 'RenewalData':
-          return RenewalData.fromJson(value);
+        case 'PriceWrite':
+          return PriceWrite.fromJson(value);
         case 'RenewalJsonhalRead':
           return RenewalJsonhalRead.fromJson(value);
         case 'RenewalRead':
           return RenewalRead.fromJson(value);
+        case 'RenewalWrite':
+          return RenewalWrite.fromJson(value);
         case 'TicketJsonhalRead':
           return TicketJsonhalRead.fromJson(value);
         case 'TicketRead':
@@ -304,12 +308,12 @@ class ApiPlatformClient {
           return TicketTypeJsonhalRead.fromJson(value);
         case 'TicketTypeRead':
           return TicketTypeRead.fromJson(value);
-        case 'WarrantyData':
-          return WarrantyData.fromJson(value);
         case 'WarrantyJsonhalRead':
           return WarrantyJsonhalRead.fromJson(value);
         case 'WarrantyRead':
           return WarrantyRead.fromJson(value);
+        case 'WarrantyWrite':
+          return WarrantyWrite.fromJson(value);
         case 'WorkflowStateJsonhalRead':
           return WorkflowStateJsonhalRead.fromJson(value);
         case 'WorkflowStateRead':

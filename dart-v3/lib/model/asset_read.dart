@@ -11,6 +11,7 @@ class AssetRead {
     this.description,
     required this.name,
     this.id,
+    this.address,
     this.createdAt,
     this.updatedAt,
     this.parent,
@@ -41,6 +42,7 @@ class AssetRead {
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
+      address: PostalAddressRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       parent: json[r'parent'],
@@ -56,6 +58,8 @@ class AssetRead {
 
   /// The resource identifier.
   final String? id;
+
+  PostalAddressRead? address;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
@@ -79,6 +83,7 @@ class AssetRead {
         other.description == description &&
         other.name == name &&
         other.id == id &&
+        other.address == address &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
         other.parent == parent &&
@@ -91,6 +96,7 @@ class AssetRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
+      (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
@@ -142,7 +148,7 @@ class AssetRead {
 
   @override
   String toString() =>
-      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
+      'AssetRead[type=$type, description=$description, name=$name, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -150,6 +156,7 @@ class AssetRead {
       if (description != null) r'description': description,
       r'name': name,
       if (id != null) r'id': id,
+      if (address != null) r'address': address,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
       if (parent != null) r'parent': parent,

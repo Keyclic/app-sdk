@@ -9,6 +9,7 @@ class RenewalJsonhalRead {
   RenewalJsonhalRead({
     this.links,
     this.duration,
+    this.noticePeriod,
   });
 
   /// Returns a new [RenewalJsonhalRead] instance and imports its values from
@@ -21,6 +22,7 @@ class RenewalJsonhalRead {
     return RenewalJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       duration: json[r'duration'],
+      noticePeriod: json[r'noticePeriod'],
     );
   }
 
@@ -28,6 +30,9 @@ class RenewalJsonhalRead {
 
   /// Duration of the renewal in ISO 8601 duration format.
   String? duration;
+
+  /// Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.
+  String? noticePeriod;
 
   @override
   bool operator ==(Object other) {
@@ -38,13 +43,15 @@ class RenewalJsonhalRead {
 
     return other is RenewalJsonhalRead &&
         other.links == links &&
-        other.duration == duration;
+        other.duration == duration &&
+        other.noticePeriod == noticePeriod;
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
-      (duration == null ? 0 : duration.hashCode);
+      (duration == null ? 0 : duration.hashCode) +
+      (noticePeriod == null ? 0 : noticePeriod.hashCode);
 
   static List<RenewalJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -94,12 +101,14 @@ class RenewalJsonhalRead {
   }
 
   @override
-  String toString() => 'RenewalJsonhalRead[links=$links, duration=$duration]';
+  String toString() =>
+      'RenewalJsonhalRead[links=$links, duration=$duration, noticePeriod=$noticePeriod]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (links != null) r'_links': links,
       if (duration != null) r'duration': duration,
+      if (noticePeriod != null) r'noticePeriod': noticePeriod,
     };
   }
 }

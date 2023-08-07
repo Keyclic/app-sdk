@@ -159,6 +159,7 @@ class PersonApi {
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
+  /// * [archived]
   /// * [after]
   /// * [before]
   /// * [organization]
@@ -189,6 +190,7 @@ class PersonApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
+    String? archived,
     DateTime? after,
     DateTime? before,
     String? organization,
@@ -241,6 +243,7 @@ class PersonApi {
         r'order[]': encodeCollectionQueryParameter(
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
       if (organization != null)

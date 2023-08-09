@@ -16,8 +16,14 @@ void main() {
     // String alternateName
     test('to test the property `alternateName`', () async {});
 
+    // DateTime archivedAt
+    test('to test the property `archivedAt`', () async {});
+
     // String description
     test('to test the property `description`', () async {});
+
+    // DateTime endDate
+    test('to test the property `endDate`', () async {});
 
     // String logo
     test('to test the property `logo`', () async {});
@@ -27,5 +33,8 @@ void main() {
 
     // OrganizationPatchPreferences preferences
     test('to test the property `preferences`', () async {});
+
+    // DateTime startDate
+    test('to test the property `startDate`', () async {});
   });
 }

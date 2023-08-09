@@ -19,6 +19,9 @@ void main() {
     // String alternateName
     test('to test the property `alternateName`', () async {});
 
+    // bool archived
+    test('to test the property `archived`', () async {});
+
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
 
@@ -28,6 +31,9 @@ void main() {
     // bool enabled
     test('to test the property `enabled`', () async {});
 
+    // DateTime endDate
+    test('to test the property `endDate`', () async {});
+
     // String id
     test('to test the property `id`', () async {});
 
@@ -36,6 +42,9 @@ void main() {
 
     // OrganizationPreferences preferences
     test('to test the property `preferences`', () async {});
+
+    // DateTime startDate
+    test('to test the property `startDate`', () async {});
 
     // String type
     test('to test the property `type`', () async {});

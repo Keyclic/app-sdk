@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **cgetMembersByInternalService**
-> MemberPagination cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
+> MemberPagination cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
 
 Retrieve all Member resources.
 
@@ -39,6 +39,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final archived = archived_example; // String | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
 final organization = organization_example; // String | 
@@ -52,7 +53,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
+    final result = api_instance.cgetMembersByInternalService(xKeyclicApp, internalService, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling InternalServiceApi->cgetMembersByInternalService: $e\n');
@@ -70,6 +71,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **archived** | **String**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **organization** | **String**|  | [optional] 

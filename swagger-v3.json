@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.45.1"
+        "version": "2.45.4-dev.55e3625cc"
     },
     "servers": [
         {
@@ -2936,7 +2936,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Contract.CreateContractCommand-Data"
+                                "$ref": "#/components/schemas/Contract.CreateContractCommand-Write"
                             }
                         }
                     },
@@ -3368,7 +3368,7 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Contract.EditContractCommand-Data"
+                                "$ref": "#/components/schemas/Contract.EditContractCommand-Write"
                             }
                         }
                     },
@@ -3672,20 +3672,6 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "resourceType",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "form",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "order[createdAt]",
                         "in": "query",
                         "description": "",
@@ -3914,6 +3900,62 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "warranty.startDate[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.startDate[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.startDate[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "warranty.startDate[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "warranty.endDate[before]",
                         "in": "query",
                         "description": "",
@@ -3970,7 +4012,169 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "brand",
+                        "name": "order[brand.name]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[commissioningDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[lifetime]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[model]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[mpn]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[retirementDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[serialNumber]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[warranty.startDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[warranty.endDate]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "brand.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -3984,7 +4188,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "brand[]",
+                        "name": "brand.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4043,7 +4247,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "state",
+                        "name": "state.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4057,7 +4261,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "state[]",
+                        "name": "state.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4074,7 +4278,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "type",
+                        "name": "type.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4088,7 +4292,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "type[]",
+                        "name": "type.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4337,7 +4541,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Equipment.CreateEquipmentCommand-Data"
+                                "$ref": "#/components/schemas/Equipment.CreateEquipmentCommand-Write"
                             }
                         }
                     },
@@ -4769,7 +4973,7 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Equipment.EditEquipmentCommand-Data"
+                                "$ref": "#/components/schemas/Equipment.EditEquipmentCommand-Write"
                             }
                         }
                     },
@@ -4936,6 +5140,20 @@
                         "name": "pagination",
                         "in": "query",
                         "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "exists[target]",
+                        "in": "query",
+                        "description": "",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
@@ -5156,7 +5374,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/IntegrationLink.CreateLinkCommand-Data"
+                                "$ref": "#/components/schemas/IntegrationLink.CreateLinkCommand-Write"
                             }
                         }
                     },
@@ -5363,7 +5581,7 @@
                     "content": {
                         "application/merge-patch+json": {
                             "schema": {
-                                "$ref": "#/components/schemas/IntegrationLink.EditLinkCommand-Data"
+                                "$ref": "#/components/schemas/IntegrationLink.EditLinkCommand-Write"
                             }
                         }
                     },
@@ -7429,6 +7647,9 @@
                         "description": "The resource identifier.",
                         "type": "string"
                     },
+                    "address": {
+                        "$ref": "#/components/schemas/PostalAddress-Read"
+                    },
                     "createdAt": {
                         "readOnly": true,
                         "description": "The date and time when the resource was created, in UTC format.",
@@ -7513,6 +7734,9 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
                     },
                     "createdAt": {
                         "readOnly": true,
@@ -7627,23 +7851,6 @@
                     "name"
                 ]
             },
-            "Billing-Data": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "initialCost": {
-                        "description": "Initial cost of the contract before adjustments have been applied.",
-                        "$ref": "#/components/schemas/Price-Data"
-                    },
-                    "startDate": {
-                        "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    }
-                }
-            },
             "Billing-Read": {
                 "type": "object",
                 "description": "",
@@ -7656,6 +7863,23 @@
                     "initialCost": {
                         "description": "Initial cost of the contract before adjustments have been applied.",
                         "$ref": "#/components/schemas/Price-Read"
+                    },
+                    "startDate": {
+                        "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                }
+            },
+            "Billing-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "initialCost": {
+                        "description": "Initial cost of the contract before adjustments have been applied.",
+                        "$ref": "#/components/schemas/Price-Write"
                     },
                     "startDate": {
                         "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
@@ -7883,7 +8107,7 @@
                     "state"
                 ]
             },
-            "Contract.CreateContractCommand-Data": {
+            "Contract.CreateContractCommand-Write": {
                 "type": "object",
                 "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
                 "deprecated": false,
@@ -7891,7 +8115,7 @@
                     "billing": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Billing-Data"
+                                "$ref": "#/components/schemas/Billing-Write"
                             }
                         ],
                         "nullable": true
@@ -7929,7 +8153,7 @@
                     "renewal": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Renewal-Data"
+                                "$ref": "#/components/schemas/Renewal-Write"
                             }
                         ],
                         "nullable": true
@@ -7958,7 +8182,7 @@
                     "type"
                 ]
             },
-            "Contract.EditContractCommand-Data": {
+            "Contract.EditContractCommand-Write": {
                 "type": "object",
                 "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
                 "deprecated": false,
@@ -7966,7 +8190,7 @@
                     "billing": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Billing-Data"
+                                "$ref": "#/components/schemas/Billing-Write"
                             }
                         ],
                         "nullable": true
@@ -8004,7 +8228,7 @@
                     "renewal": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Renewal-Data"
+                                "$ref": "#/components/schemas/Renewal-Write"
                             }
                         ],
                         "nullable": true
@@ -8322,6 +8546,9 @@
                     "name": {
                         "type": "string"
                     },
+                    "address": {
+                        "$ref": "#/components/schemas/PostalAddress-Read"
+                    },
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
@@ -8337,7 +8564,7 @@
                     "name"
                 ]
             },
-            "Equipment.CreateEquipmentCommand-Data": {
+            "Equipment.CreateEquipmentCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8395,14 +8622,14 @@
                     "warranty": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Warranty-Data"
+                                "$ref": "#/components/schemas/Warranty-Write"
                             }
                         ],
                         "nullable": true
                     }
                 }
             },
-            "Equipment.EditEquipmentCommand-Data": {
+            "Equipment.EditEquipmentCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8460,7 +8687,7 @@
                     "warranty": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Warranty-Data"
+                                "$ref": "#/components/schemas/Warranty-Write"
                             }
                         ],
                         "nullable": true
@@ -8589,6 +8816,9 @@
                     },
                     "name": {
                         "type": "string"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
                     }
                 },
                 "required": [
@@ -8722,7 +8952,7 @@
                     "source"
                 ]
             },
-            "IntegrationLink.CreateLinkCommand-Data": {
+            "IntegrationLink.CreateLinkCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8758,7 +8988,7 @@
                     "source"
                 ]
             },
-            "IntegrationLink.EditLinkCommand-Data": {
+            "IntegrationLink.EditLinkCommand-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8862,14 +9092,55 @@
                     "source"
                 ]
             },
-            "Price-Data": {
+            "PostalAddress-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "value": {
-                        "minimum": 0,
-                        "type": "number"
+                    "locality": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "streetAddress": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "PostalAddress.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "locality": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "streetAddress": {
+                        "type": "string",
+                        "nullable": true
                     }
                 }
             },
@@ -8888,6 +9159,17 @@
                         "example": "EUR",
                         "type": "string"
                     },
+                    "value": {
+                        "minimum": 0,
+                        "type": "number"
+                    }
+                }
+            },
+            "Price-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
                     "value": {
                         "minimum": 0,
                         "type": "number"
@@ -8929,7 +9211,7 @@
                     }
                 }
             },
-            "Renewal-Data": {
+            "Renewal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -8939,16 +9221,28 @@
                         "type": "string",
                         "format": "duration",
                         "nullable": true
+                    },
+                    "noticePeriod": {
+                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
                     }
                 }
             },
-            "Renewal-Read": {
+            "Renewal-Write": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
                     "duration": {
                         "description": "Duration of the renewal in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "noticePeriod": {
+                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
                         "type": "string",
                         "format": "duration",
                         "nullable": true
@@ -8976,6 +9270,12 @@
                     },
                     "duration": {
                         "description": "Duration of the renewal in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "noticePeriod": {
+                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
                         "type": "string",
                         "format": "duration",
                         "nullable": true
@@ -9154,25 +9454,6 @@
                     }
                 }
             },
-            "Warranty-Data": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "duration": {
-                        "description": "The duration of the warranty in ISO 8601 duration format.",
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "startDate": {
-                        "description": "The start date of the warranty, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    }
-                }
-            },
             "Warranty-Read": {
                 "type": "object",
                 "description": "",
@@ -9189,6 +9470,25 @@
                         "description": "The end date of the warranty, in ISO 8601 format.",
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "startDate": {
+                        "description": "The start date of the warranty, in ISO 8601 format.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                }
+            },
+            "Warranty-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "duration": {
+                        "description": "The duration of the warranty in ISO 8601 duration format.",
+                        "type": "string",
+                        "format": "duration",
                         "nullable": true
                     },
                     "startDate": {

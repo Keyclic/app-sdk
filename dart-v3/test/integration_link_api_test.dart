@@ -28,21 +28,21 @@ void main() {
     //
     // Retrieves the collection of IntegrationLink resources.
     //
-    //Future<GetIntegrationLinks200Response> getIntegrationLinks({ int page, int limit, bool pagination, List<String> jsonData, List<String> jsonMetadata, String source_, List<String> sourceLeftSquareBracketRightSquareBracket, String state, List<String> stateLeftSquareBracketRightSquareBracket, String target, List<String> targetLeftSquareBracketRightSquareBracket, String acceptLanguage }) async
+    //Future<GetIntegrationLinks200Response> getIntegrationLinks({ int page, int limit, bool pagination, bool existsLeftSquareBracketTargetRightSquareBracket, List<String> jsonData, List<String> jsonMetadata, String source_, List<String> sourceLeftSquareBracketRightSquareBracket, String state, List<String> stateLeftSquareBracketRightSquareBracket, String target, List<String> targetLeftSquareBracketRightSquareBracket, String acceptLanguage }) async
     test('test getIntegrationLinks', () async {});
 
     // Updates the IntegrationLink resource.
     //
     // Updates the IntegrationLink resource.
     //
-    //Future<IntegrationLinkJsonhalRead> patchIntegrationLink(String identifier, IntegrationLinkEditLinkCommandData integrationLinkEditLinkCommandData, { String acceptLanguage }) async
+    //Future<IntegrationLinkJsonhalRead> patchIntegrationLink(String identifier, IntegrationLinkEditLinkCommandWrite integrationLinkEditLinkCommandWrite, { String acceptLanguage }) async
     test('test patchIntegrationLink', () async {});
 
     // Creates a IntegrationLink resource.
     //
     // Creates a IntegrationLink resource.
     //
-    //Future<IntegrationLinkJsonhalRead> postIntegrationLink(IntegrationLinkCreateLinkCommandData integrationLinkCreateLinkCommandData, { String acceptLanguage }) async
+    //Future<IntegrationLinkJsonhalRead> postIntegrationLink(IntegrationLinkCreateLinkCommandWrite integrationLinkCreateLinkCommandWrite, { String acceptLanguage }) async
     test('test postIntegrationLink', () async {});
   });
 }

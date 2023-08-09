@@ -21,6 +21,7 @@ class EquipmentRead {
     this.updatedAt,
     this.description,
     required this.name,
+    this.address,
     this.parent,
     this.state,
   });
@@ -73,6 +74,7 @@ class EquipmentRead {
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
+      address: PostalAddressRead.fromJson(json[r'address']),
       parent: json[r'parent'],
       state: json[r'state'],
     );
@@ -116,6 +118,8 @@ class EquipmentRead {
 
   String name;
 
+  PostalAddressRead? address;
+
   String? parent;
 
   String? state;
@@ -142,6 +146,7 @@ class EquipmentRead {
         other.updatedAt == updatedAt &&
         other.description == description &&
         other.name == name &&
+        other.address == address &&
         other.parent == parent &&
         other.state == state;
   }
@@ -162,6 +167,7 @@ class EquipmentRead {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
+      (address == null ? 0 : address.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
@@ -212,7 +218,7 @@ class EquipmentRead {
 
   @override
   String toString() =>
-      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, parent=$parent, state=$state]';
+      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, address=$address, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -232,6 +238,7 @@ class EquipmentRead {
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
       if (description != null) r'description': description,
       r'name': name,
+      if (address != null) r'address': address,
       if (parent != null) r'parent': parent,
       if (state != null) r'state': state,
     };

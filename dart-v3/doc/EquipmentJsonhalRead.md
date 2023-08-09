@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
+**address** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

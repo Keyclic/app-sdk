@@ -11,6 +11,7 @@ class AssetJsonhalRead {
     this.description,
     required this.name,
     this.id,
+    this.address,
     this.createdAt,
     this.updatedAt,
   });
@@ -39,6 +40,7 @@ class AssetJsonhalRead {
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
+      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -52,6 +54,8 @@ class AssetJsonhalRead {
 
   /// The resource identifier.
   final String? id;
+
+  PostalAddressJsonhalRead? address;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
@@ -71,6 +75,7 @@ class AssetJsonhalRead {
         other.description == description &&
         other.name == name &&
         other.id == id &&
+        other.address == address &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt;
   }
@@ -81,6 +86,7 @@ class AssetJsonhalRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
+      (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
@@ -131,7 +137,7 @@ class AssetJsonhalRead {
 
   @override
   String toString() =>
-      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -139,6 +145,7 @@ class AssetJsonhalRead {
       if (description != null) r'description': description,
       r'name': name,
       if (id != null) r'id': id,
+      if (address != null) r'address': address,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };

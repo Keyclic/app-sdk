@@ -156,6 +156,7 @@ class IntegrationLinkApi {
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
+  /// * [existsLeftSquareBracketTargetRightSquareBracket] -
   /// * [jsonData] -
   /// * [jsonMetadata] -
   /// * [source_] -
@@ -178,6 +179,7 @@ class IntegrationLinkApi {
     int? page,
     int? limit,
     bool? pagination,
+    bool? existsLeftSquareBracketTargetRightSquareBracket,
     List<String>? jsonData,
     List<String>? jsonMetadata,
     String? source_,
@@ -220,6 +222,9 @@ class IntegrationLinkApi {
       if (page != null) r'page': encodeQueryParameter(page),
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (existsLeftSquareBracketTargetRightSquareBracket != null)
+        r'exists[target]': encodeQueryParameter(
+            existsLeftSquareBracketTargetRightSquareBracket),
       if (jsonData != null)
         r'json_data':
             encodeCollectionQueryParameter(jsonData, format: ListFormat.csv),
@@ -284,7 +289,7 @@ class IntegrationLinkApi {
   ///
   /// Parameters:
   /// * [identifier] - Link identifier
-  /// * [integrationLinkEditLinkCommandData] - The updated IntegrationLink resource
+  /// * [integrationLinkEditLinkCommandWrite] - The updated IntegrationLink resource
   /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -297,8 +302,8 @@ class IntegrationLinkApi {
   /// Throws [DioError] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> patchIntegrationLink({
     required String identifier,
-    required IntegrationLinkEditLinkCommandData
-        integrationLinkEditLinkCommandData,
+    required IntegrationLinkEditLinkCommandWrite
+        integrationLinkEditLinkCommandWrite,
     String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -334,9 +339,9 @@ class IntegrationLinkApi {
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkEditLinkCommandData.toJson();
-      // bodyData = jsonEncode(integrationLinkEditLinkCommandData);
-      // bodyData = jsonDecode(jsonEncode(integrationLinkEditLinkCommandData));
+      bodyData = integrationLinkEditLinkCommandWrite.toJson();
+      // bodyData = jsonEncode(integrationLinkEditLinkCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(integrationLinkEditLinkCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -388,7 +393,7 @@ class IntegrationLinkApi {
   /// Creates a IntegrationLink resource.
   ///
   /// Parameters:
-  /// * [integrationLinkCreateLinkCommandData] - The new IntegrationLink resource
+  /// * [integrationLinkCreateLinkCommandWrite] - The new IntegrationLink resource
   /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -400,8 +405,8 @@ class IntegrationLinkApi {
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> postIntegrationLink({
-    required IntegrationLinkCreateLinkCommandData
-        integrationLinkCreateLinkCommandData,
+    required IntegrationLinkCreateLinkCommandWrite
+        integrationLinkCreateLinkCommandWrite,
     String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -436,9 +441,9 @@ class IntegrationLinkApi {
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkCreateLinkCommandData.toJson();
-      // bodyData = jsonEncode(integrationLinkCreateLinkCommandData);
-      // bodyData = jsonDecode(jsonEncode(integrationLinkCreateLinkCommandData));
+      bodyData = integrationLinkCreateLinkCommandWrite.toJson();
+      // bodyData = jsonEncode(integrationLinkCreateLinkCommandWrite);
+      // bodyData = jsonDecode(jsonEncode(integrationLinkCreateLinkCommandWrite));
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

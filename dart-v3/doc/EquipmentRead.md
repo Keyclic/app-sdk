@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
+**address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 
 **parent** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 

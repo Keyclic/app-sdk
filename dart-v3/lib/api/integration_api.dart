@@ -109,10 +109,10 @@ class IntegrationApi {
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [connector] -
-  /// * [connectorLeftSquareBracketRightSquareBracket] -
-  /// * [organization] -
-  /// * [organizationLeftSquareBracketRightSquareBracket] -
+  /// * [connectorPeriodIdentifier] -
+  /// * [connectorPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [organizationPeriodIdentifier] -
+  /// * [organizationPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [acceptLanguage] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -137,10 +137,11 @@ class IntegrationApi {
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
-    String? connector,
-    List<String>? connectorLeftSquareBracketRightSquareBracket,
-    String? organization,
-    List<String>? organizationLeftSquareBracketRightSquareBracket,
+    String? connectorPeriodIdentifier,
+    List<String>? connectorPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    String? organizationPeriodIdentifier,
+    List<String>?
+        organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -205,16 +206,20 @@ class IntegrationApi {
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (connector != null) r'connector': encodeQueryParameter(connector),
-      if (connectorLeftSquareBracketRightSquareBracket != null)
-        r'connector[]': encodeCollectionQueryParameter(
-            connectorLeftSquareBracketRightSquareBracket,
+      if (connectorPeriodIdentifier != null)
+        r'connector.identifier':
+            encodeQueryParameter(connectorPeriodIdentifier),
+      if (connectorPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
+        r'connector.identifier[]': encodeCollectionQueryParameter(
+            connectorPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (organization != null)
-        r'organization': encodeQueryParameter(organization),
-      if (organizationLeftSquareBracketRightSquareBracket != null)
-        r'organization[]': encodeCollectionQueryParameter(
-            organizationLeftSquareBracketRightSquareBracket,
+      if (organizationPeriodIdentifier != null)
+        r'organization.identifier':
+            encodeQueryParameter(organizationPeriodIdentifier),
+      if (organizationPeriodIdentifierLeftSquareBracketRightSquareBracket !=
+          null)
+        r'organization.identifier[]': encodeCollectionQueryParameter(
+            organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
     };
 

@@ -5907,7 +5907,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "connector",
+                        "name": "connector.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -5921,7 +5921,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "connector[]",
+                        "name": "connector.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -5938,7 +5938,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "organization",
+                        "name": "organization.identifier",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -5952,7 +5952,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "organization[]",
+                        "name": "organization.identifier[]",
                         "in": "query",
                         "description": "",
                         "required": false,

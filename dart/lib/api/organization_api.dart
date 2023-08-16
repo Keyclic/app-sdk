@@ -865,7 +865,9 @@ class OrganizationApi {
   /// * [categoriesLeftSquareBracketRightSquareBracket]
   /// * [createdBy]
   /// * [createdBiesLeftSquareBracketRightSquareBracket]
+  /// * [afterDueBy]
   /// * [after]
+  /// * [beforeDueBy]
   /// * [before]
   /// * [deep]
   /// * [delegatedTo]
@@ -927,7 +929,9 @@ class OrganizationApi {
     List<String>? categoriesLeftSquareBracketRightSquareBracket,
     String? createdBy,
     List<String>? createdBiesLeftSquareBracketRightSquareBracket,
+    DateTime? afterDueBy,
     DateTime? after,
+    DateTime? beforeDueBy,
     DateTime? before,
     String? deep,
     String? delegatedTo,
@@ -1026,7 +1030,10 @@ class OrganizationApi {
         r'created_bies[]': encodeCollectionQueryParameter(
             createdBiesLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (afterDueBy != null) r'afterDueBy': encodeQueryParameter(afterDueBy),
       if (after != null) r'after': encodeQueryParameter(after),
+      if (beforeDueBy != null)
+        r'beforeDueBy': encodeQueryParameter(beforeDueBy),
       if (before != null) r'before': encodeQueryParameter(before),
       if (deep != null) r'deep': encodeQueryParameter(deep),
       if (delegatedTo != null)
@@ -1612,7 +1619,9 @@ class OrganizationApi {
   /// * [categoriesLeftSquareBracketRightSquareBracket]
   /// * [createdBy]
   /// * [createdBiesLeftSquareBracketRightSquareBracket]
+  /// * [afterDueBy]
   /// * [after]
+  /// * [beforeDueBy]
   /// * [before]
   /// * [deep]
   /// * [delegatedTo]
@@ -1674,7 +1683,9 @@ class OrganizationApi {
     List<String>? categoriesLeftSquareBracketRightSquareBracket,
     String? createdBy,
     List<String>? createdBiesLeftSquareBracketRightSquareBracket,
+    DateTime? afterDueBy,
     DateTime? after,
+    DateTime? beforeDueBy,
     DateTime? before,
     String? deep,
     String? delegatedTo,
@@ -1773,7 +1784,10 @@ class OrganizationApi {
         r'created_bies[]': encodeCollectionQueryParameter(
             createdBiesLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (afterDueBy != null) r'afterDueBy': encodeQueryParameter(afterDueBy),
       if (after != null) r'after': encodeQueryParameter(after),
+      if (beforeDueBy != null)
+        r'beforeDueBy': encodeQueryParameter(beforeDueBy),
       if (before != null) r'before': encodeQueryParameter(before),
       if (deep != null) r'deep': encodeQueryParameter(deep),
       if (delegatedTo != null)

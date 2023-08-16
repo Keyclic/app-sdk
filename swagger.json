@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.44.1-dev.e52300781"
+        "version": "2.45.4-dev.5874f7d10"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -3163,7 +3163,13 @@
                         "$ref": "#\/parameters\/created_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/afterDueBy"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/beforeDueBy"
                     },
                     {
                         "$ref": "#\/parameters\/before"
@@ -9382,7 +9388,13 @@
                         "$ref": "#\/parameters\/created_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/afterDueBy"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/beforeDueBy"
                     },
                     {
                         "$ref": "#\/parameters\/before"
@@ -9862,7 +9874,13 @@
                         "$ref": "#\/parameters\/created_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/afterDueBy"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/beforeDueBy"
                     },
                     {
                         "$ref": "#\/parameters\/before"
@@ -11415,7 +11433,13 @@
                         "$ref": "#\/parameters\/created_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/afterDueBy"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/beforeDueBy"
                     },
                     {
                         "$ref": "#\/parameters\/before"
@@ -14279,7 +14303,13 @@
                         "$ref": "#\/parameters\/created_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/afterDueBy"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/beforeDueBy"
                     },
                     {
                         "$ref": "#\/parameters\/before"
@@ -26830,6 +26860,26 @@
             "name": "created_bies[]",
             "pattern": ".*",
             "type": "array"
+        },
+        "afterDueBy": {
+            "enum": [
+                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
+                "([+-])(\\d\\d)(:)?(\\d\\d))"
+            ],
+            "format": "date-time",
+            "in": "query",
+            "name": "afterDueBy",
+            "type": "string"
+        },
+        "beforeDueBy": {
+            "enum": [
+                "(\\d\\d\\d\\d)(-)?(\\d\\d)(-)?(\\d\\d)(T)?(\\d\\d)(:)?(\\d\\d)(:)?(\\d\\d)(\\.\\d+)?(Z",
+                "([+-])(\\d\\d)(:)?(\\d\\d))"
+            ],
+            "format": "date-time",
+            "in": "query",
+            "name": "beforeDueBy",
+            "type": "string"
         },
         "deep": {
             "in": "query",

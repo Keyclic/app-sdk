@@ -124,7 +124,6 @@ class BinaryContentTypeEnum {
   static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument =
       BinaryContentTypeEnum._(
           r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-  static const imageSlashGif = BinaryContentTypeEnum._(r'image/gif');
   static const imageSlashJpeg = BinaryContentTypeEnum._(r'image/jpeg');
   static const imageSlashJpg = BinaryContentTypeEnum._(r'image/jpg');
   static const applicationSlashJson =
@@ -148,7 +147,6 @@ class BinaryContentTypeEnum {
     textSlashCsv,
     applicationSlashMsword,
     applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument,
-    imageSlashGif,
     imageSlashJpeg,
     imageSlashJpg,
     applicationSlashJson,
@@ -201,8 +199,6 @@ class BinaryContentTypeEnumTypeTransformer {
       case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
         return BinaryContentTypeEnum
             .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
-      case r'image/gif':
-        return BinaryContentTypeEnum.imageSlashGif;
       case r'image/jpeg':
         return BinaryContentTypeEnum.imageSlashJpeg;
       case r'image/jpg':

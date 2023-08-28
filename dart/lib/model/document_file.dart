@@ -119,7 +119,6 @@ class DocumentFileContentTypeEnum {
   static const applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument =
       DocumentFileContentTypeEnum._(
           r'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-  static const imageSlashGif = DocumentFileContentTypeEnum._(r'image/gif');
   static const imageSlashJpeg = DocumentFileContentTypeEnum._(r'image/jpeg');
   static const imageSlashJpg = DocumentFileContentTypeEnum._(r'image/jpg');
   static const applicationSlashJson =
@@ -143,7 +142,6 @@ class DocumentFileContentTypeEnum {
     textSlashCsv,
     applicationSlashMsword,
     applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument,
-    imageSlashGif,
     imageSlashJpeg,
     imageSlashJpg,
     applicationSlashJson,
@@ -196,8 +194,6 @@ class DocumentFileContentTypeEnumTypeTransformer {
       case r'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
         return DocumentFileContentTypeEnum
             .applicationSlashVndPeriodOpenxmlformatsOfficedocumentPeriodWordprocessingmlPeriodDocument;
-      case r'image/gif':
-        return DocumentFileContentTypeEnum.imageSlashGif;
       case r'image/jpeg':
         return DocumentFileContentTypeEnum.imageSlashJpeg;
       case r'image/jpg':

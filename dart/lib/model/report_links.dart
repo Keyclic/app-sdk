@@ -10,6 +10,7 @@ class ReportLinks {
     this.asset,
     this.category,
     this.children,
+    this.equipment,
     this.feedback,
     this.operations,
     this.organization,
@@ -29,6 +30,7 @@ class ReportLinks {
       asset: ReportLinksAsset.fromJson(json[r'asset']),
       category: ReportLinksCategory.fromJson(json[r'category']),
       children: ReportLinksChildren.fromJson(json[r'children']),
+      equipment: ReportLinksEquipment.fromJson(json[r'equipment']),
       feedback: ReportLinksFeedback.fromJson(json[r'feedback']),
       operations: ReportLinksOperations.fromJson(json[r'operations']),
       organization: ReportLinksOrganization.fromJson(json[r'organization']),
@@ -43,6 +45,8 @@ class ReportLinks {
   ReportLinksCategory? category;
 
   ReportLinksChildren? children;
+
+  ReportLinksEquipment? equipment;
 
   ReportLinksFeedback? feedback;
 
@@ -67,6 +71,7 @@ class ReportLinks {
         other.asset == asset &&
         other.category == category &&
         other.children == children &&
+        other.equipment == equipment &&
         other.feedback == feedback &&
         other.operations == operations &&
         other.organization == organization &&
@@ -80,6 +85,7 @@ class ReportLinks {
       (asset == null ? 0 : asset.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (children == null ? 0 : children.hashCode) +
+      (equipment == null ? 0 : equipment.hashCode) +
       (feedback == null ? 0 : feedback.hashCode) +
       (operations == null ? 0 : operations.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
@@ -134,13 +140,14 @@ class ReportLinks {
 
   @override
   String toString() =>
-      'ReportLinks[asset=$asset, category=$category, children=$children, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
+      'ReportLinks[asset=$asset, category=$category, children=$children, equipment=$equipment, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (asset != null) r'asset': asset,
       if (category != null) r'category': category,
       if (children != null) r'children': children,
+      if (equipment != null) r'equipment': equipment,
       if (feedback != null) r'feedback': feedback,
       if (operations != null) r'operations': operations,
       if (organization != null) r'organization': organization,

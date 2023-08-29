@@ -24213,6 +24213,9 @@
                         "children": {
                             "$ref": "#\/definitions\/ReportLinksChildren"
                         },
+                        "equipment": {
+                            "$ref": "#\/definitions\/ReportLinksEquipment"
+                        },
                         "feedback": {
                             "$ref": "#\/definitions\/ReportLinksFeedback"
                         },
@@ -24377,6 +24380,32 @@
                             "type": "string"
                         },
                         "parent": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ReportLinksEquipment": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the equipment associated to the given report.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ReportLinksEquipmentIriTemplate"
+                }
+            }
+        },
+        "ReportLinksEquipmentIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "identifier": {
                             "type": "string"
                         }
                     }

@@ -505,6 +505,8 @@ doc/ReportLinksCategoryIriTemplate.md
 doc/ReportLinksChildren.md
 doc/ReportLinksChildrenIriTemplate.md
 doc/ReportLinksChildrenIriTemplateMapping.md
+doc/ReportLinksEquipment.md
+doc/ReportLinksEquipmentIriTemplate.md
 doc/ReportLinksFeedback.md
 doc/ReportLinksFeedbackIriTemplate.md
 doc/ReportLinksOperations.md
@@ -1163,6 +1165,8 @@ lib/model/report_links_category_iri_template.dart
 lib/model/report_links_children.dart
 lib/model/report_links_children_iri_template.dart
 lib/model/report_links_children_iri_template_mapping.dart
+lib/model/report_links_equipment.dart
+lib/model/report_links_equipment_iri_template.dart
 lib/model/report_links_feedback.dart
 lib/model/report_links_feedback_iri_template.dart
 lib/model/report_links_operations.dart
@@ -1788,6 +1792,8 @@ test/report_links_category_test.dart
 test/report_links_children_iri_template_mapping_test.dart
 test/report_links_children_iri_template_test.dart
 test/report_links_children_test.dart
+test/report_links_equipment_iri_template_test.dart
+test/report_links_equipment_test.dart
 test/report_links_feedback_iri_template_test.dart
 test/report_links_feedback_test.dart
 test/report_links_operations_iri_template_test.dart

@@ -19,6 +19,9 @@ void main() {
     // ReportLinksChildren children
     test('to test the property `children`', () async {});
 
+    // ReportLinksEquipment equipment
+    test('to test the property `equipment`', () async {});
+
     // ReportLinksFeedback feedback
     test('to test the property `feedback`', () async {});
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **asset** | [**ReportLinksAsset**](ReportLinksAsset.md) |  | [optional] 
 **category** | [**ReportLinksCategory**](ReportLinksCategory.md) |  | [optional] 
 **children** | [**ReportLinksChildren**](ReportLinksChildren.md) |  | [optional] 
+**equipment** | [**ReportLinksEquipment**](ReportLinksEquipment.md) |  | [optional] 
 **feedback** | [**ReportLinksFeedback**](ReportLinksFeedback.md) |  | [optional] 
 **operations** | [**ReportLinksOperations**](ReportLinksOperations.md) |  | [optional] 
 **organization** | [**ReportLinksOrganization**](ReportLinksOrganization.md) |  | [optional] 

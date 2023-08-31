@@ -714,6 +714,8 @@ Class | Method | HTTP request | Description
  - [ReportLinksChildren](doc//ReportLinksChildren.md)
  - [ReportLinksChildrenIriTemplate](doc//ReportLinksChildrenIriTemplate.md)
  - [ReportLinksChildrenIriTemplateMapping](doc//ReportLinksChildrenIriTemplateMapping.md)
+ - [ReportLinksEquipment](doc//ReportLinksEquipment.md)
+ - [ReportLinksEquipmentIriTemplate](doc//ReportLinksEquipmentIriTemplate.md)
  - [ReportLinksFeedback](doc//ReportLinksFeedback.md)
  - [ReportLinksFeedbackIriTemplate](doc//ReportLinksFeedbackIriTemplate.md)
  - [ReportLinksOperations](doc//ReportLinksOperations.md)

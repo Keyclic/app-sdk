@@ -1281,6 +1281,10 @@ class ApiClient {
           return ReportLinksChildrenIriTemplate.fromJson(value);
         case 'ReportLinksChildrenIriTemplateMapping':
           return ReportLinksChildrenIriTemplateMapping.fromJson(value);
+        case 'ReportLinksEquipment':
+          return ReportLinksEquipment.fromJson(value);
+        case 'ReportLinksEquipmentIriTemplate':
+          return ReportLinksEquipmentIriTemplate.fromJson(value);
         case 'ReportLinksFeedback':
           return ReportLinksFeedback.fromJson(value);
         case 'ReportLinksFeedbackIriTemplate':

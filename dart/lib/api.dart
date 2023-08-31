@@ -534,6 +534,8 @@ part 'model/report_links_category_iri_template.dart';
 part 'model/report_links_children.dart';
 part 'model/report_links_children_iri_template.dart';
 part 'model/report_links_children_iri_template_mapping.dart';
+part 'model/report_links_equipment.dart';
+part 'model/report_links_equipment_iri_template.dart';
 part 'model/report_links_feedback.dart';
 part 'model/report_links_feedback_iri_template.dart';
 part 'model/report_links_operations.dart';

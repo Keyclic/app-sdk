@@ -10,6 +10,9 @@ void main() {
   // final instance = ProcedureLinks();
 
   group('test ProcedureLinks', () {
+    // ProcedureLinksCreatedBy createdBy
+    test('to test the property `createdBy`', () async {});
+
     // ProcedureLinksDocument document
     test('to test the property `document`', () async {});
 

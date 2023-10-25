@@ -497,6 +497,8 @@ part 'model/procedure.dart';
 part 'model/procedure_data.dart';
 part 'model/procedure_embedded.dart';
 part 'model/procedure_links.dart';
+part 'model/procedure_links_created_by.dart';
+part 'model/procedure_links_created_by_iri_template.dart';
 part 'model/procedure_links_document.dart';
 part 'model/procedure_links_document_iri_template.dart';
 part 'model/procedure_links_self.dart';

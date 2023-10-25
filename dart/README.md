@@ -677,6 +677,8 @@ Class | Method | HTTP request | Description
  - [ProcedureData](doc//ProcedureData.md)
  - [ProcedureEmbedded](doc//ProcedureEmbedded.md)
  - [ProcedureLinks](doc//ProcedureLinks.md)
+ - [ProcedureLinksCreatedBy](doc//ProcedureLinksCreatedBy.md)
+ - [ProcedureLinksCreatedByIriTemplate](doc//ProcedureLinksCreatedByIriTemplate.md)
  - [ProcedureLinksDocument](doc//ProcedureLinksDocument.md)
  - [ProcedureLinksDocumentIriTemplate](doc//ProcedureLinksDocumentIriTemplate.md)
  - [ProcedureLinksSelf](doc//ProcedureLinksSelf.md)

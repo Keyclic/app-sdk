@@ -23754,6 +23754,9 @@
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "createdBy": {
+                            "$ref": "#\/definitions\/ProcedureLinksCreatedBy"
+                        },
                         "document": {
                             "$ref": "#\/definitions\/ProcedureLinksDocument"
                         },
@@ -23821,6 +23824,32 @@
                 "document",
                 "type"
             ]
+        },
+        "ProcedureLinksCreatedBy": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the createdBy associated to the given procedure.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ProcedureLinksCreatedByIriTemplate"
+                }
+            }
+        },
+        "ProcedureLinksCreatedByIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "person": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "ProcedureLinksDocument": {
             "type": "object",

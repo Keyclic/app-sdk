@@ -1207,6 +1207,10 @@ class ApiClient {
           return ProcedureEmbedded.fromJson(value);
         case 'ProcedureLinks':
           return ProcedureLinks.fromJson(value);
+        case 'ProcedureLinksCreatedBy':
+          return ProcedureLinksCreatedBy.fromJson(value);
+        case 'ProcedureLinksCreatedByIriTemplate':
+          return ProcedureLinksCreatedByIriTemplate.fromJson(value);
         case 'ProcedureLinksDocument':
           return ProcedureLinksDocument.fromJson(value);
         case 'ProcedureLinksDocumentIriTemplate':

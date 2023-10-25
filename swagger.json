@@ -22770,7 +22770,6 @@
                 "asset-type:read",
                 "connector:read",
                 "contract:billing:read",
-                "contract:write",
                 "contract:read",
                 "contract-type:read",
                 "contract:write",

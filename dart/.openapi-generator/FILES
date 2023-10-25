@@ -466,6 +466,8 @@ doc/ProcedureApi.md
 doc/ProcedureData.md
 doc/ProcedureEmbedded.md
 doc/ProcedureLinks.md
+doc/ProcedureLinksCreatedBy.md
+doc/ProcedureLinksCreatedByIriTemplate.md
 doc/ProcedureLinksDocument.md
 doc/ProcedureLinksDocumentIriTemplate.md
 doc/ProcedureLinksSelf.md
@@ -1128,6 +1130,8 @@ lib/model/procedure.dart
 lib/model/procedure_data.dart
 lib/model/procedure_embedded.dart
 lib/model/procedure_links.dart
+lib/model/procedure_links_created_by.dart
+lib/model/procedure_links_created_by_iri_template.dart
 lib/model/procedure_links_document.dart
 lib/model/procedure_links_document_iri_template.dart
 lib/model/procedure_links_self.dart
@@ -1753,6 +1757,8 @@ test/problem_test.dart
 test/procedure_api_test.dart
 test/procedure_data_test.dart
 test/procedure_embedded_test.dart
+test/procedure_links_created_by_iri_template_test.dart
+test/procedure_links_created_by_test.dart
 test/procedure_links_document_iri_template_test.dart
 test/procedure_links_document_test.dart
 test/procedure_links_self_iri_template_test.dart

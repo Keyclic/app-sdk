@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class ProcedureLinks {
   /// Returns a new [ProcedureLinks] instance.
   ProcedureLinks({
+    this.createdBy,
     this.document,
     this.self,
   });
@@ -19,10 +20,13 @@ class ProcedureLinks {
     }
 
     return ProcedureLinks(
+      createdBy: ProcedureLinksCreatedBy.fromJson(json[r'createdBy']),
       document: ProcedureLinksDocument.fromJson(json[r'document']),
       self: ProcedureLinksSelf.fromJson(json[r'self']),
     );
   }
+
+  ProcedureLinksCreatedBy? createdBy;
 
   ProcedureLinksDocument? document;
 
@@ -36,12 +40,14 @@ class ProcedureLinks {
     }
 
     return other is ProcedureLinks &&
+        other.createdBy == createdBy &&
         other.document == document &&
         other.self == self;
   }
 
   @override
   int get hashCode =>
+      (createdBy == null ? 0 : createdBy.hashCode) +
       (document == null ? 0 : document.hashCode) +
       (self == null ? 0 : self.hashCode);
 
@@ -91,10 +97,12 @@ class ProcedureLinks {
   }
 
   @override
-  String toString() => 'ProcedureLinks[document=$document, self=$self]';
+  String toString() =>
+      'ProcedureLinks[createdBy=$createdBy, document=$document, self=$self]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (createdBy != null) r'createdBy': createdBy,
       if (document != null) r'document': document,
       if (self != null) r'self': self,
     };

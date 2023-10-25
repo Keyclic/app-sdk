@@ -23,7 +23,6 @@ class Permission {
   static const connectorColonRead = Permission._(r'connector:read');
   static const contractColonBillingColonRead =
       Permission._(r'contract:billing:read');
-  static const contractColonWrite = Permission._(r'contract:write');
   static const contractColonRead = Permission._(r'contract:read');
   static const contractTypeColonRead = Permission._(r'contract-type:read');
   static const contractColonWrite = Permission._(r'contract:write');
@@ -66,7 +65,6 @@ class Permission {
     assetTypeColonRead,
     connectorColonRead,
     contractColonBillingColonRead,
-    contractColonWrite,
     contractColonRead,
     contractTypeColonRead,
     contractColonWrite,
@@ -142,8 +140,6 @@ class PermissionTypeTransformer {
         return Permission.connectorColonRead;
       case r'contract:billing:read':
         return Permission.contractColonBillingColonRead;
-      case r'contract:write':
-        return Permission.contractColonWrite;
       case r'contract:read':
         return Permission.contractColonRead;
       case r'contract-type:read':

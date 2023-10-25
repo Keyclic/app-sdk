@@ -9,10 +9,11 @@ class DocumentType {
   DocumentType({
     this.id,
     this.code,
-    this.type,
-    this.name,
     this.description,
+    this.name,
+    this.permissions = const [],
     this.signed,
+    this.type,
   });
 
   /// Returns a new [DocumentType] instance and imports its values from
@@ -25,10 +26,13 @@ class DocumentType {
     return DocumentType(
       id: json[r'id'],
       code: json[r'code'],
-      type: json[r'type'],
-      name: json[r'name'],
       description: json[r'description'],
+      name: json[r'name'],
+      permissions: json[r'permissions'] == null
+          ? null
+          : List<String>.from(json[r'permissions']),
       signed: json[r'signed'],
+      type: json[r'type'],
     );
   }
 
@@ -36,13 +40,15 @@ class DocumentType {
 
   String? code;
 
-  String? type;
+  String? description;
 
   String? name;
 
-  String? description;
+  List<String>? permissions;
 
   bool? signed;
+
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -54,20 +60,23 @@ class DocumentType {
     return other is DocumentType &&
         other.id == id &&
         other.code == code &&
-        other.type == type &&
-        other.name == name &&
         other.description == description &&
-        other.signed == signed;
+        other.name == name &&
+        DeepCollectionEquality.unordered()
+            .equals(permissions, other.permissions) &&
+        other.signed == signed &&
+        other.type == type;
   }
 
   @override
   int get hashCode =>
       (id == null ? 0 : id.hashCode) +
       (code == null ? 0 : code.hashCode) +
-      (type == null ? 0 : type.hashCode) +
-      (name == null ? 0 : name.hashCode) +
       (description == null ? 0 : description.hashCode) +
-      (signed == null ? 0 : signed.hashCode);
+      (name == null ? 0 : name.hashCode) +
+      (permissions == null ? 0 : permissions.hashCode) +
+      (signed == null ? 0 : signed.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<DocumentType> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -116,16 +125,17 @@ class DocumentType {
 
   @override
   String toString() =>
-      'DocumentType[id=$id, code=$code, type=$type, name=$name, description=$description, signed=$signed]';
+      'DocumentType[id=$id, code=$code, description=$description, name=$name, permissions=$permissions, signed=$signed, type=$type]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (id != null) r'id': id,
       if (code != null) r'code': code,
-      if (type != null) r'type': type,
-      if (name != null) r'name': name,
       if (description != null) r'description': description,
+      if (name != null) r'name': name,
+      if (permissions != null) r'permissions': permissions,
       if (signed != null) r'signed': signed,
+      if (type != null) r'type': type,
     };
   }
 }

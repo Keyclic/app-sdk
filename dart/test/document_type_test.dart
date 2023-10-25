@@ -16,16 +16,19 @@ void main() {
     // String code
     test('to test the property `code`', () async {});
 
-    // String type
-    test('to test the property `type`', () async {});
+    // String description
+    test('to test the property `description`', () async {});
 
     // String name
     test('to test the property `name`', () async {});
 
-    // String description
-    test('to test the property `description`', () async {});
+    // List<String> permissions (default value: const [])
+    test('to test the property `permissions`', () async {});
 
     // bool signed
     test('to test the property `signed`', () async {});
+
+    // String type
+    test('to test the property `type`', () async {});
   });
 }

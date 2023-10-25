@@ -19393,17 +19393,24 @@
                 "code": {
                     "type": "string"
                 },
-                "type": {
+                "description": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
                 },
-                "description": {
-                    "type": "string"
+                "permissions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "string"
+                    }
                 },
                 "signed": {
                     "type": "boolean"
+                },
+                "type": {
+                    "type": "string"
                 }
             }
         },

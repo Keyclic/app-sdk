@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| Equipment identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| Equipment identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
  **statePeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **typePeriodIdentifier** | **String**|  | [optional] 
  **typePeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
  **equipmentEditEquipmentCommandWrite** | [**EquipmentEditEquipmentCommandWrite**](EquipmentEditEquipmentCommandWrite.md)| The updated Equipment resource | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
  **equipmentCreateEquipmentCommandWrite** | [**EquipmentCreateEquipmentCommandWrite**](EquipmentCreateEquipmentCommandWrite.md)| The new Equipment resource | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

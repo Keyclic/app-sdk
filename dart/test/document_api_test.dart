@@ -27,7 +27,7 @@ void main() {
 
     // Create one Workflow resource.
     //
-    //Future<Document> postWorkflowByDocument(String xKeyclicApp, String document, DocumentWorkflowData documentWorkflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<Document> postWorkflowByDocument(String xKeyclicApp, String document, DocumentWorkflowData documentWorkflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xAsyncProcessing }) async
     test('test postWorkflowByDocument', () async {});
   });
 }

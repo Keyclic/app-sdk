@@ -31,6 +31,9 @@ void main() {
     // DocumentPermission permission
     test('to test the property `permission`', () async {});
 
+    // String state
+    test('to test the property `state`', () async {});
+
     // List<String> tags (default value: const [])
     test('to test the property `tags`', () async {});
 

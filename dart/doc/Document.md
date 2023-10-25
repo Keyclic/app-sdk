@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **file** | [**DocumentFile**](DocumentFile.md) |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **permission** | [**DocumentPermission**](DocumentPermission.md) |  | [optional] 
+**state** | **String** |  | 
 **tags** | **List<String>** |  | [optional] [default to const []]
 **text** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 

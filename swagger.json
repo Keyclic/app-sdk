@@ -2952,6 +2952,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/x-async-processing"
+                    },
+                    {
                         "$ref": "#\/parameters\/DocumentWorkflowData"
                     },
                     {
@@ -19096,6 +19099,18 @@
                 "permission": {
                     "$ref": "#\/definitions\/DocumentPermission"
                 },
+                "state": {
+                    "enum": [
+                        "DRAFT",
+                        "PENDING_REVIEW",
+                        "PUBLISHED",
+                        "PUBLISHING_FAILED",
+                        "PUBLISHING"
+                    ],
+                    "format": "string",
+                    "maxLength": 18,
+                    "type": "string"
+                },
                 "tags": {
                     "items": {
                         "type": "string"
@@ -19115,7 +19130,10 @@
                     "readOnly": true,
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "state"
+            ]
         },
         "DocumentCollection": {
             "type": "object",
@@ -26817,6 +26835,16 @@
             "name": "services[]",
             "pattern": ".*",
             "type": "array"
+        },
+        "x-async-processing": {
+            "enum": [
+                true,
+                false
+            ],
+            "name": "x-async-processing",
+            "in": "header",
+            "type": "boolean",
+            "required": false
         },
         "DocumentWorkflowData": {
             "name": "DocumentWorkflowData",

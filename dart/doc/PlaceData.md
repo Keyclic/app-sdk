@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
 **branchCode** | **String** |  | [optional] 
+**parent** | **String** |  | [optional] 
 **polygon** | **String** |  | [optional] 
 **organization** | **String** |  | 
 

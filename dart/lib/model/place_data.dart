@@ -9,6 +9,7 @@ class PlaceData {
   PlaceData({
     required this.name,
     this.branchCode,
+    this.parent,
     this.polygon,
     required this.organization,
   });
@@ -23,6 +24,7 @@ class PlaceData {
     return PlaceData(
       name: json[r'name'],
       branchCode: json[r'branchCode'],
+      parent: json[r'parent'],
       polygon: json[r'polygon'],
       organization: json[r'organization'],
     );
@@ -31,6 +33,8 @@ class PlaceData {
   String name;
 
   String? branchCode;
+
+  String? parent;
 
   String? polygon;
 
@@ -46,6 +50,7 @@ class PlaceData {
     return other is PlaceData &&
         other.name == name &&
         other.branchCode == branchCode &&
+        other.parent == parent &&
         other.polygon == polygon &&
         other.organization == organization;
   }
@@ -54,6 +59,7 @@ class PlaceData {
   int get hashCode =>
       name.hashCode +
       (branchCode == null ? 0 : branchCode.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
       (polygon == null ? 0 : polygon.hashCode) +
       organization.hashCode;
 
@@ -103,12 +109,13 @@ class PlaceData {
 
   @override
   String toString() =>
-      'PlaceData[name=$name, branchCode=$branchCode, polygon=$polygon, organization=$organization]';
+      'PlaceData[name=$name, branchCode=$branchCode, parent=$parent, polygon=$polygon, organization=$organization]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       r'name': name,
       if (branchCode != null) r'branchCode': branchCode,
+      if (parent != null) r'parent': parent,
       if (polygon != null) r'polygon': polygon,
       r'organization': organization,
     };

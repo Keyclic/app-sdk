@@ -22627,6 +22627,9 @@
         "OrganizationPreferences": {
             "type": "object",
             "properties": {
+                "archiving": {
+                    "$ref": "#\/definitions\/PreferencesArchiving"
+                },
                 "categoryRequired": {
                     "type": "boolean"
                 },
@@ -23613,6 +23616,14 @@
                     "items": {
                         "$ref": "#\/definitions\/Feature"
                     }
+                }
+            }
+        },
+        "PreferencesArchiving": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
                 }
             }
         },

@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class OrganizationPreferences {
   /// Returns a new [OrganizationPreferences] instance.
   OrganizationPreferences({
+    this.archiving,
     this.categoryRequired,
     this.contract,
     this.electronicSignature,
@@ -28,6 +29,7 @@ class OrganizationPreferences {
     }
 
     return OrganizationPreferences(
+      archiving: PreferencesArchiving.fromJson(json[r'archiving']),
       categoryRequired: json[r'categoryRequired'],
       contract: PreferencesContract.fromJson(json[r'contract']),
       electronicSignature:
@@ -42,6 +44,8 @@ class OrganizationPreferences {
       reviewEnabled: json[r'reviewEnabled'],
     );
   }
+
+  PreferencesArchiving? archiving;
 
   bool? categoryRequired;
 
@@ -73,6 +77,7 @@ class OrganizationPreferences {
     }
 
     return other is OrganizationPreferences &&
+        other.archiving == archiving &&
         other.categoryRequired == categoryRequired &&
         other.contract == contract &&
         other.electronicSignature == electronicSignature &&
@@ -88,6 +93,7 @@ class OrganizationPreferences {
 
   @override
   int get hashCode =>
+      (archiving == null ? 0 : archiving.hashCode) +
       (categoryRequired == null ? 0 : categoryRequired.hashCode) +
       (contract == null ? 0 : contract.hashCode) +
       (electronicSignature == null ? 0 : electronicSignature.hashCode) +
@@ -150,10 +156,11 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
+      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (archiving != null) r'archiving': archiving,
       if (categoryRequired != null) r'categoryRequired': categoryRequired,
       if (contract != null) r'contract': contract,
       if (electronicSignature != null)

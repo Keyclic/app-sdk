@@ -23171,6 +23171,9 @@
                 "branchCode": {
                     "type": "string"
                 },
+                "parent": {
+                    "type": "string"
+                },
                 "polygon": {
                     "type": "string"
                 },

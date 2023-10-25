@@ -16,6 +16,9 @@ void main() {
     // String branchCode
     test('to test the property `branchCode`', () async {});
 
+    // String parent
+    test('to test the property `parent`', () async {});
+
     // String polygon
     test('to test the property `polygon`', () async {});
 

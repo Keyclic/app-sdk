@@ -736,16 +736,12 @@ class ApiClient {
           return FeedbackLinksCategory.fromJson(value);
         case 'FeedbackLinksCategoryIriTemplate':
           return FeedbackLinksCategoryIriTemplate.fromJson(value);
-        case 'FeedbackLinksImage':
-          return FeedbackLinksImage.fromJson(value);
-        case 'FeedbackLinksImageIriTemplate':
-          return FeedbackLinksImageIriTemplate.fromJson(value);
-        case 'FeedbackLinksImageIriTemplateMapping':
-          return FeedbackLinksImageIriTemplateMapping.fromJson(value);
         case 'FeedbackLinksImages':
           return FeedbackLinksImages.fromJson(value);
         case 'FeedbackLinksImagesIriTemplate':
           return FeedbackLinksImagesIriTemplate.fromJson(value);
+        case 'FeedbackLinksImagesIriTemplateMapping':
+          return FeedbackLinksImagesIriTemplateMapping.fromJson(value);
         case 'FeedbackLinksPlans':
           return FeedbackLinksPlans.fromJson(value);
         case 'FeedbackLinksPlansIriTemplate':
@@ -986,12 +982,6 @@ class ApiClient {
           return OperationLinksFeedback.fromJson(value);
         case 'OperationLinksFeedbackIriTemplate':
           return OperationLinksFeedbackIriTemplate.fromJson(value);
-        case 'OperationLinksImage':
-          return OperationLinksImage.fromJson(value);
-        case 'OperationLinksImageIriTemplate':
-          return OperationLinksImageIriTemplate.fromJson(value);
-        case 'OperationLinksImageIriTemplateMapping':
-          return OperationLinksImageIriTemplateMapping.fromJson(value);
         case 'OperationLinksImages':
           return OperationLinksImages.fromJson(value);
         case 'OperationLinksImagesIriTemplate':

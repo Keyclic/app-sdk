@@ -9,7 +9,6 @@ class FeedbackLinks {
   FeedbackLinks({
     this.businessActivity,
     this.category,
-    this.image,
     this.images = const [],
     this.plans = const [],
     this.report,
@@ -29,7 +28,6 @@ class FeedbackLinks {
       businessActivity:
           FeedbackLinksBusinessActivity.fromJson(json[r'businessActivity']),
       category: FeedbackLinksCategory.fromJson(json[r'category']),
-      image: FeedbackLinksImage.fromJson(json[r'image']),
       images: FeedbackLinksImages.listFromJson(json[r'images']),
       plans: FeedbackLinksPlans.listFromJson(json[r'plans']),
       report: FeedbackLinksReport.fromJson(json[r'report']),
@@ -42,8 +40,6 @@ class FeedbackLinks {
   FeedbackLinksBusinessActivity? businessActivity;
 
   FeedbackLinksCategory? category;
-
-  FeedbackLinksImage? image;
 
   List<FeedbackLinksImages>? images;
 
@@ -67,7 +63,6 @@ class FeedbackLinks {
     return other is FeedbackLinks &&
         other.businessActivity == businessActivity &&
         other.category == category &&
-        other.image == image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
         DeepCollectionEquality.unordered().equals(plans, other.plans) &&
         other.report == report &&
@@ -80,7 +75,6 @@ class FeedbackLinks {
   int get hashCode =>
       (businessActivity == null ? 0 : businessActivity.hashCode) +
       (category == null ? 0 : category.hashCode) +
-      (image == null ? 0 : image.hashCode) +
       (images == null ? 0 : images.hashCode) +
       (plans == null ? 0 : plans.hashCode) +
       (report == null ? 0 : report.hashCode) +
@@ -135,13 +129,12 @@ class FeedbackLinks {
 
   @override
   String toString() =>
-      'FeedbackLinks[businessActivity=$businessActivity, category=$category, image=$image, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
+      'FeedbackLinks[businessActivity=$businessActivity, category=$category, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (businessActivity != null) r'businessActivity': businessActivity,
       if (category != null) r'category': category,
-      if (image != null) r'image': image,
       if (images != null) r'images': images,
       if (plans != null) r'plans': plans,
       if (report != null) r'report': report,

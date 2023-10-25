@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class BookmarkData {
   /// Returns a new [BookmarkData] instance.
   BookmarkData({
+    required this.asset,
     required this.member,
-    required this.place,
   });
 
   /// Returns a new [BookmarkData] instance and imports its values from
@@ -19,14 +19,14 @@ class BookmarkData {
     }
 
     return BookmarkData(
+      asset: json[r'asset'],
       member: json[r'member'],
-      place: json[r'place'],
     );
   }
 
-  String member;
+  String asset;
 
-  String place;
+  String member;
 
   @override
   bool operator ==(Object other) {
@@ -36,12 +36,12 @@ class BookmarkData {
     }
 
     return other is BookmarkData &&
-        other.member == member &&
-        other.place == place;
+        other.asset == asset &&
+        other.member == member;
   }
 
   @override
-  int get hashCode => member.hashCode + place.hashCode;
+  int get hashCode => asset.hashCode + member.hashCode;
 
   static List<BookmarkData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -89,12 +89,12 @@ class BookmarkData {
   }
 
   @override
-  String toString() => 'BookmarkData[member=$member, place=$place]';
+  String toString() => 'BookmarkData[asset=$asset, member=$member]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
+      r'asset': asset,
       r'member': member,
-      r'place': place,
     };
   }
 }

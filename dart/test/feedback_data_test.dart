@@ -10,6 +10,9 @@ void main() {
   // final instance = FeedbackData();
 
   group('test FeedbackData', () {
+    // String asset
+    test('to test the property `asset`', () async {});
+
     // String batch
     test('to test the property `batch`', () async {});
 
@@ -27,9 +30,6 @@ void main() {
 
     // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
-
-    // String place
-    test('to test the property `place`', () async {});
 
     // String priority
     test('to test the property `priority`', () async {});

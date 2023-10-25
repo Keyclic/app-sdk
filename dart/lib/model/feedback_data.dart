@@ -7,13 +7,13 @@ part of keyclic_sdk_api;
 class FeedbackData {
   /// Returns a new [FeedbackData] instance.
   FeedbackData({
+    required this.asset,
     this.batch,
     this.businessActivity,
     this.category,
     this.description,
     required this.geo,
     this.metadata,
-    required this.place,
     this.priority,
     this.reporter,
     required this.visibility,
@@ -27,6 +27,7 @@ class FeedbackData {
     }
 
     return FeedbackData(
+      asset: json[r'asset'],
       batch: json[r'batch'],
       businessActivity: json[r'businessActivity'],
       category: json[r'category'],
@@ -35,12 +36,13 @@ class FeedbackData {
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object>.from(json[r'metadata']),
-      place: json[r'place'],
       priority: json[r'priority'],
       reporter: json[r'reporter'],
       visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility'])!,
     );
   }
+
+  String asset;
 
   String? batch;
 
@@ -53,8 +55,6 @@ class FeedbackData {
   FeedbackDataGeo geo;
 
   Map<String, Object>? metadata;
-
-  String place;
 
   String? priority;
 
@@ -70,13 +70,13 @@ class FeedbackData {
     }
 
     return other is FeedbackData &&
+        other.asset == asset &&
         other.batch == batch &&
         other.businessActivity == businessActivity &&
         other.category == category &&
         other.description == description &&
         other.geo == geo &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
-        other.place == place &&
         other.priority == priority &&
         other.reporter == reporter &&
         other.visibility == visibility;
@@ -84,13 +84,13 @@ class FeedbackData {
 
   @override
   int get hashCode =>
+      asset.hashCode +
       (batch == null ? 0 : batch.hashCode) +
       (businessActivity == null ? 0 : businessActivity.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
       geo.hashCode +
       (metadata == null ? 0 : metadata.hashCode) +
-      place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       visibility.hashCode;
@@ -142,10 +142,11 @@ class FeedbackData {
 
   @override
   String toString() =>
-      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
+      'FeedbackData[asset=$asset, batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, priority=$priority, reporter=$reporter, visibility=$visibility]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
+      r'asset': asset,
       if ((keys == null && batch != null) ||
           (keys?.contains(r'batch') ?? false))
         r'batch': batch,
@@ -162,7 +163,6 @@ class FeedbackData {
       if ((keys == null && metadata != null) ||
           (keys?.contains(r'metadata') ?? false))
         r'metadata': metadata,
-      r'place': place,
       if ((keys == null && priority != null) ||
           (keys?.contains(r'priority') ?? false))
         r'priority': priority,

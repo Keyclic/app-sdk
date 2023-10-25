@@ -7,9 +7,9 @@ part of keyclic_sdk_api;
 class PlanData {
   /// Returns a new [PlanData] instance.
   PlanData({
+    required this.asset,
     required this.file,
     this.name,
-    required this.place,
   });
 
   /// Returns a new [PlanData] instance and imports its values from
@@ -20,17 +20,17 @@ class PlanData {
     }
 
     return PlanData(
+      asset: json[r'asset'],
       file: json[r'file'],
       name: json[r'name'],
-      place: json[r'place'],
     );
   }
+
+  String asset;
 
   String file;
 
   String? name;
-
-  String place;
 
   @override
   bool operator ==(Object other) {
@@ -40,14 +40,14 @@ class PlanData {
     }
 
     return other is PlanData &&
+        other.asset == asset &&
         other.file == file &&
-        other.name == name &&
-        other.place == place;
+        other.name == name;
   }
 
   @override
   int get hashCode =>
-      file.hashCode + (name == null ? 0 : name.hashCode) + place.hashCode;
+      asset.hashCode + file.hashCode + (name == null ? 0 : name.hashCode);
 
   static List<PlanData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -94,14 +94,14 @@ class PlanData {
   }
 
   @override
-  String toString() => 'PlanData[file=$file, name=$name, place=$place]';
+  String toString() => 'PlanData[asset=$asset, file=$file, name=$name]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
+      r'asset': asset,
       r'file': file,
       if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
         r'name': name,
-      r'place': place,
     };
   }
 }

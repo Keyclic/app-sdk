@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postWorkflowByDocument**
-> Document postWorkflowByDocument(xKeyclicApp, document, documentWorkflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Document postWorkflowByDocument(xKeyclicApp, document, documentWorkflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xAsyncProcessing)
 
 Create one Workflow resource.
 
@@ -202,9 +202,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xAsyncProcessing = true; // bool | 
 
 try { 
-    final result = api_instance.postWorkflowByDocument(xKeyclicApp, document, documentWorkflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postWorkflowByDocument(xKeyclicApp, document, documentWorkflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xAsyncProcessing);
     print(result);
 } catch (e) {
     print('Exception when calling DocumentApi->postWorkflowByDocument: $e\n');
@@ -222,6 +223,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xAsyncProcessing** | **bool**|  | [optional] 
 
 ### Return type
 

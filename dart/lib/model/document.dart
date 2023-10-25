@@ -14,6 +14,7 @@ class Document {
     this.file,
     this.id,
     this.permission,
+    required this.state,
     this.tags = const [],
     this.text,
     this.type,
@@ -49,6 +50,7 @@ class Document {
       file: DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],
       permission: DocumentPermission.fromJson(json[r'permission']),
+      state: DocumentStateEnum.fromJson(json[r'state'])!,
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       text: json[r'text'],
       type: json[r'type'],
@@ -69,6 +71,8 @@ class Document {
   final String? id;
 
   DocumentPermission? permission;
+
+  DocumentStateEnum state;
 
   List<String>? tags;
 
@@ -93,6 +97,7 @@ class Document {
         other.file == file &&
         other.id == id &&
         other.permission == permission &&
+        other.state == state &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.text == text &&
         other.type == type &&
@@ -108,6 +113,7 @@ class Document {
       (file == null ? 0 : file.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (permission == null ? 0 : permission.hashCode) +
+      state.hashCode +
       (tags == null ? 0 : tags.hashCode) +
       (text == null ? 0 : text.hashCode) +
       (type == null ? 0 : type.hashCode) +
@@ -159,7 +165,7 @@ class Document {
 
   @override
   String toString() =>
-      'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, tags=$tags, text=$text, type=$type, updatedAt=$updatedAt]';
+      'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, state=$state, tags=$tags, text=$text, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -170,10 +176,93 @@ class Document {
       if (file != null) r'file': file,
       if (id != null) r'id': id,
       if (permission != null) r'permission': permission,
+      r'state': state,
       if (tags != null) r'tags': tags,
       if (text != null) r'text': text,
       if (type != null) r'type': type,
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };
   }
+}
+
+class DocumentStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const DocumentStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const DRAFT = DocumentStateEnum._(r'DRAFT');
+  static const PENDING_REVIEW = DocumentStateEnum._(r'PENDING_REVIEW');
+  static const PUBLISHED = DocumentStateEnum._(r'PUBLISHED');
+  static const PUBLISHING_FAILED = DocumentStateEnum._(r'PUBLISHING_FAILED');
+  static const PUBLISHING = DocumentStateEnum._(r'PUBLISHING');
+
+  /// List of all possible values in this [enum][DocumentStateEnum].
+  static const values = <DocumentStateEnum>[
+    DRAFT,
+    PENDING_REVIEW,
+    PUBLISHED,
+    PUBLISHING_FAILED,
+    PUBLISHING,
+  ];
+
+  static DocumentStateEnum? fromJson(dynamic value) =>
+      DocumentStateEnumTypeTransformer().decode(value);
+
+  static List<DocumentStateEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return DocumentStateEnum.fromJson(value);
+        })
+        .whereType<DocumentStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [DocumentStateEnum] to String,
+/// and [decode] dynamic data back to [DocumentStateEnum].
+class DocumentStateEnumTypeTransformer {
+  const DocumentStateEnumTypeTransformer._();
+
+  factory DocumentStateEnumTypeTransformer() =>
+      _instance ??= DocumentStateEnumTypeTransformer._();
+
+  String encode(DocumentStateEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a DocumentStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  DocumentStateEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'DRAFT':
+        return DocumentStateEnum.DRAFT;
+      case r'PENDING_REVIEW':
+        return DocumentStateEnum.PENDING_REVIEW;
+      case r'PUBLISHED':
+        return DocumentStateEnum.PUBLISHED;
+      case r'PUBLISHING_FAILED':
+        return DocumentStateEnum.PUBLISHING_FAILED;
+      case r'PUBLISHING':
+        return DocumentStateEnum.PUBLISHING;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [DocumentStateEnumTypeTransformer] instance.
+  static DocumentStateEnumTypeTransformer? _instance;
 }

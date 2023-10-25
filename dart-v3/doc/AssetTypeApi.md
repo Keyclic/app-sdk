@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| Type identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
  **page** | **int**| The collection page number | [optional] [default to 1]
  **limit** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional] 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

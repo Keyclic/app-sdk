@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
  **connector** | **String**| The identifier of the resource. | 
  **workflow** | **String**|  | 
  **runData** | [**RunData**](RunData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

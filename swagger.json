@@ -20832,6 +20832,7 @@
                 },
                 "title": {
                     "format": "string",
+                    "maxLength": 255,
                     "type": "string"
                 },
                 "type": {
@@ -21383,6 +21384,7 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
                     "type": "string"
                 },
                 "permissions": {
@@ -25165,6 +25167,7 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
                     "type": "string"
                 },
                 "permissions": {
@@ -26575,10 +26578,11 @@
             "format": "string",
             "required": false,
             "enum": [
-                "fr-FR",
-                "en-US"
+                "en-US",
+                "es-ES",
+                "fr-FR"
             ],
-            "default": "fr-FR"
+            "default": "en-US"
         },
         "x-date-time": {
             "name": "x-date-time",

@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| Task identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
  **reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket** | [**List<int>**](int.md)|  | [optional] [default to const []]
  **state** | **String**|  | [optional] 
  **stateLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

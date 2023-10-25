@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| Contract identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| Contract identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
  **providerPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **state** | **String**|  | [optional] 
  **stateLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
  **contractEditContractCommandWrite** | [**ContractEditContractCommandWrite**](ContractEditContractCommandWrite.md)| The updated Contract resource | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
  **contractCreateContractCommandWrite** | [**ContractCreateContractCommandWrite**](ContractCreateContractCommandWrite.md)| The new Contract resource | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

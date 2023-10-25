@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
  **identifier** | **String**| State identifier | 
  **xKeyclicApp** | **String**|  | 
  **xOrganizationId** | **String**|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'fr-FR']
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 

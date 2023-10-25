@@ -196,10 +196,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -340,10 +341,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -881,10 +883,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -1025,10 +1028,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -1293,10 +1297,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -1437,10 +1442,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -1705,10 +1711,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -1849,10 +1856,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -2714,10 +2722,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -2845,10 +2854,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -3000,10 +3010,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -3129,10 +3140,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -3277,10 +3289,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -4319,10 +4332,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -4450,10 +4464,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -4605,10 +4620,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -4734,10 +4750,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -4882,10 +4899,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -5302,10 +5320,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -5358,10 +5377,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -5438,10 +5458,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -5492,10 +5513,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -5565,10 +5587,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -5979,10 +6002,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -6048,10 +6072,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -6241,10 +6266,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -6385,10 +6411,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -7244,10 +7271,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -7388,10 +7416,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",
@@ -7532,10 +7561,11 @@
                             "type": "string",
                             "format": "string",
                             "description": "The preferred language of the user, in ISO 639-1 format",
-                            "default": "fr-FR",
+                            "default": "en-US",
                             "enum": [
-                                "fr-FR",
-                                "en-US"
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
                             ]
                         },
                         "style": "simple",

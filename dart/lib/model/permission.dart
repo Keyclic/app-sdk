@@ -19,11 +19,11 @@ class Permission {
   static const assetEquipmentColonRead = Permission._(r'asset-equipment:read');
   static const assetEquipmentColonWrite =
       Permission._(r'asset-equipment:write');
+  static const assetTypeColonRead = Permission._(r'asset-type:read');
   static const connectorColonRead = Permission._(r'connector:read');
   static const contractColonBillingColonRead =
       Permission._(r'contract:billing:read');
-  static const contractColonBillingColonWrite =
-      Permission._(r'contract:billing:write');
+  static const contractColonWrite = Permission._(r'contract:write');
   static const contractColonRead = Permission._(r'contract:read');
   static const contractTypeColonRead = Permission._(r'contract-type:read');
   static const contractColonWrite = Permission._(r'contract:write');
@@ -63,9 +63,10 @@ class Permission {
   static const values = <Permission>[
     assetEquipmentColonRead,
     assetEquipmentColonWrite,
+    assetTypeColonRead,
     connectorColonRead,
     contractColonBillingColonRead,
-    contractColonBillingColonWrite,
+    contractColonWrite,
     contractColonRead,
     contractTypeColonRead,
     contractColonWrite,
@@ -135,12 +136,14 @@ class PermissionTypeTransformer {
         return Permission.assetEquipmentColonRead;
       case r'asset-equipment:write':
         return Permission.assetEquipmentColonWrite;
+      case r'asset-type:read':
+        return Permission.assetTypeColonRead;
       case r'connector:read':
         return Permission.connectorColonRead;
       case r'contract:billing:read':
         return Permission.contractColonBillingColonRead;
-      case r'contract:billing:write':
-        return Permission.contractColonBillingColonWrite;
+      case r'contract:write':
+        return Permission.contractColonWrite;
       case r'contract:read':
         return Permission.contractColonRead;
       case r'contract-type:read':

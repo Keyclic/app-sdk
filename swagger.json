@@ -22758,9 +22758,10 @@
             "enum": [
                 "asset-equipment:read",
                 "asset-equipment:write",
+                "asset-type:read",
                 "connector:read",
                 "contract:billing:read",
-                "contract:billing:write",
+                "contract:write",
                 "contract:read",
                 "contract-type:read",
                 "contract:write",

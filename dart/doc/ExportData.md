@@ -9,8 +9,9 @@ import 'package:keyclic_sdk_api/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contentType** | **String** |  | [optional] 
-**organization** | **String** |  | [optional] 
+**dataSource** | **String** |  | 
 **groupBy** | **String** |  | [optional] 
+**organization** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

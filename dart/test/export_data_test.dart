@@ -13,10 +13,13 @@ void main() {
     // String contentType
     test('to test the property `contentType`', () async {});
 
-    // String organization
-    test('to test the property `organization`', () async {});
+    // String dataSource
+    test('to test the property `dataSource`', () async {});
 
     // String groupBy
     test('to test the property `groupBy`', () async {});
+
+    // String organization
+    test('to test the property `organization`', () async {});
   });
 }

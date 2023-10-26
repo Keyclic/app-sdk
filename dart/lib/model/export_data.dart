@@ -8,8 +8,9 @@ class ExportData {
   /// Returns a new [ExportData] instance.
   ExportData({
     this.contentType,
-    this.organization,
+    required this.dataSource,
     this.groupBy,
+    this.organization,
   });
 
   /// Returns a new [ExportData] instance and imports its values from
@@ -21,16 +22,19 @@ class ExportData {
 
     return ExportData(
       contentType: ExportDataContentTypeEnum.fromJson(json[r'contentType']),
-      organization: json[r'organization'],
+      dataSource: ExportDataDataSourceEnum.fromJson(json[r'dataSource'])!,
       groupBy: json[r'groupBy'],
+      organization: json[r'organization'],
     );
   }
 
   ExportDataContentTypeEnum? contentType;
 
-  String? organization;
+  ExportDataDataSourceEnum dataSource;
 
   String? groupBy;
+
+  String? organization;
 
   @override
   bool operator ==(Object other) {
@@ -41,15 +45,17 @@ class ExportData {
 
     return other is ExportData &&
         other.contentType == contentType &&
-        other.organization == organization &&
-        other.groupBy == groupBy;
+        other.dataSource == dataSource &&
+        other.groupBy == groupBy &&
+        other.organization == organization;
   }
 
   @override
   int get hashCode =>
       (contentType == null ? 0 : contentType.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
-      (groupBy == null ? 0 : groupBy.hashCode);
+      dataSource.hashCode +
+      (groupBy == null ? 0 : groupBy.hashCode) +
+      (organization == null ? 0 : organization.hashCode);
 
   static List<ExportData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -97,13 +103,14 @@ class ExportData {
 
   @override
   String toString() =>
-      'ExportData[contentType=$contentType, organization=$organization, groupBy=$groupBy]';
+      'ExportData[contentType=$contentType, dataSource=$dataSource, groupBy=$groupBy, organization=$organization]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (contentType != null) r'contentType': contentType,
-      if (organization != null) r'organization': organization,
+      r'dataSource': dataSource,
       if (groupBy != null) r'groupBy': groupBy,
+      if (organization != null) r'organization': organization,
     };
   }
 }
@@ -179,4 +186,74 @@ class ExportDataContentTypeEnumTypeTransformer {
 
   /// Singleton [ExportDataContentTypeEnumTypeTransformer] instance.
   static ExportDataContentTypeEnumTypeTransformer? _instance;
+}
+
+class ExportDataDataSourceEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ExportDataDataSourceEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const places = ExportDataDataSourceEnum._(r'/places');
+  static const reports = ExportDataDataSourceEnum._(r'/reports');
+
+  /// List of all possible values in this [enum][ExportDataDataSourceEnum].
+  static const values = <ExportDataDataSourceEnum>[
+    places,
+    reports,
+  ];
+
+  static ExportDataDataSourceEnum? fromJson(dynamic value) =>
+      ExportDataDataSourceEnumTypeTransformer().decode(value);
+
+  static List<ExportDataDataSourceEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return ExportDataDataSourceEnum.fromJson(value);
+        })
+        .whereType<ExportDataDataSourceEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ExportDataDataSourceEnum] to String,
+/// and [decode] dynamic data back to [ExportDataDataSourceEnum].
+class ExportDataDataSourceEnumTypeTransformer {
+  const ExportDataDataSourceEnumTypeTransformer._();
+
+  factory ExportDataDataSourceEnumTypeTransformer() =>
+      _instance ??= ExportDataDataSourceEnumTypeTransformer._();
+
+  String encode(ExportDataDataSourceEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ExportDataDataSourceEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ExportDataDataSourceEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'/places':
+        return ExportDataDataSourceEnum.places;
+      case r'/reports':
+        return ExportDataDataSourceEnum.reports;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ExportDataDataSourceEnumTypeTransformer] instance.
+  static ExportDataDataSourceEnumTypeTransformer? _instance;
 }

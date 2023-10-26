@@ -20279,7 +20279,22 @@
                     "type": "string"
                 },
                 "contentType": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "text\/csv",
+                        "application\/msword",
+                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        "image\/jpeg",
+                        "image\/jpg",
+                        "application\/json",
+                        "application\/octet-stream",
+                        "application\/pdf",
+                        "image\/png",
+                        "text\/plain",
+                        "application\/vnd.ms-excel",
+                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "application\/zip"
+                    ]
                 },
                 "name": {
                     "type": "string"

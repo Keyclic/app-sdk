@@ -9,7 +9,6 @@ class OperationLinks {
   OperationLinks({
     this.assignments,
     this.feedback,
-    this.image,
     this.images = const [],
     this.operator_,
     this.organization,
@@ -28,7 +27,6 @@ class OperationLinks {
     return OperationLinks(
       assignments: OperationLinksAssignments.fromJson(json[r'assignments']),
       feedback: OperationLinksFeedback.fromJson(json[r'feedback']),
-      image: OperationLinksImage.fromJson(json[r'image']),
       images: OperationLinksImages.listFromJson(json[r'images']),
       operator_: OperationLinksOperator.fromJson(json[r'operator']),
       organization: OperationLinksOrganization.fromJson(json[r'organization']),
@@ -41,8 +39,6 @@ class OperationLinks {
   OperationLinksAssignments? assignments;
 
   OperationLinksFeedback? feedback;
-
-  OperationLinksImage? image;
 
   List<OperationLinksImages>? images;
 
@@ -66,7 +62,6 @@ class OperationLinks {
     return other is OperationLinks &&
         other.assignments == assignments &&
         other.feedback == feedback &&
-        other.image == image &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
         other.operator_ == operator_ &&
         other.organization == organization &&
@@ -79,7 +74,6 @@ class OperationLinks {
   int get hashCode =>
       (assignments == null ? 0 : assignments.hashCode) +
       (feedback == null ? 0 : feedback.hashCode) +
-      (image == null ? 0 : image.hashCode) +
       (images == null ? 0 : images.hashCode) +
       (operator_ == null ? 0 : operator_.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
@@ -134,13 +128,12 @@ class OperationLinks {
 
   @override
   String toString() =>
-      'OperationLinks[assignments=$assignments, feedback=$feedback, image=$image, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking]';
+      'OperationLinks[assignments=$assignments, feedback=$feedback, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       if (assignments != null) r'assignments': assignments,
       if (feedback != null) r'feedback': feedback,
-      if (image != null) r'image': image,
       if (images != null) r'images': images,
       if (operator_ != null) r'operator': operator_,
       if (organization != null) r'organization': organization,

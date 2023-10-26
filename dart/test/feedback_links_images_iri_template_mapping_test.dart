@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for FeedbackLinksImageIriTemplateMapping
+// tests for FeedbackLinksImagesIriTemplateMapping
 void main() {
-  // final instance = FeedbackLinksImageIriTemplateMapping();
+  // final instance = FeedbackLinksImagesIriTemplateMapping();
 
-  group('test FeedbackLinksImageIriTemplateMapping', () {
+  group('test FeedbackLinksImagesIriTemplateMapping', () {
     // String feedback
     test('to test the property `feedback`', () async {});
 

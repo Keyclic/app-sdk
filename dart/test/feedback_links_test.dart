@@ -16,9 +16,6 @@ void main() {
     // FeedbackLinksCategory category
     test('to test the property `category`', () async {});
 
-    // FeedbackLinksImage image
-    test('to test the property `image`', () async {});
-
     // List<FeedbackLinksImages> images (default value: const [])
     test('to test the property `images`', () async {});
 

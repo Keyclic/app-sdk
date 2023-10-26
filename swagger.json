@@ -19864,9 +19864,6 @@
                         "category": {
                             "$ref": "#\/definitions\/FeedbackLinksCategory"
                         },
-                        "image": {
-                            "$ref": "#\/definitions\/FeedbackLinksImage"
-                        },
                         "images": {
                             "type": "array",
                             "items": {
@@ -20077,35 +20074,6 @@
                     "type": "object",
                     "properties": {
                         "category": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "FeedbackLinksImage": {
-            "type": "object",
-            "properties": {
-                "href": {
-                    "description": "The URI of the image associated to the given feedback.",
-                    "type": "string",
-                    "format": "string"
-                },
-                "iriTemplate": {
-                    "$ref": "#\/definitions\/FeedbackLinksImageIriTemplate"
-                }
-            }
-        },
-        "FeedbackLinksImageIriTemplate": {
-            "type": "object",
-            "properties": {
-                "mapping": {
-                    "type": "object",
-                    "properties": {
-                        "feedback": {
-                            "type": "string"
-                        },
-                        "image": {
                             "type": "string"
                         }
                     }
@@ -21838,9 +21806,6 @@
                         "feedback": {
                             "$ref": "#\/definitions\/OperationLinksFeedback"
                         },
-                        "image": {
-                            "$ref": "#\/definitions\/OperationLinksImage"
-                        },
                         "images": {
                             "type": "array",
                             "items": {
@@ -22007,35 +21972,6 @@
                     "type": "object",
                     "properties": {
                         "feedback": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "OperationLinksImage": {
-            "type": "object",
-            "properties": {
-                "href": {
-                    "description": "The URI of the image associated to the given operation.",
-                    "type": "string",
-                    "format": "string"
-                },
-                "iriTemplate": {
-                    "$ref": "#\/definitions\/OperationLinksImageIriTemplate"
-                }
-            }
-        },
-        "OperationLinksImageIriTemplate": {
-            "type": "object",
-            "properties": {
-                "mapping": {
-                    "type": "object",
-                    "properties": {
-                        "image": {
-                            "type": "string"
-                        },
-                        "operation": {
                             "type": "string"
                         }
                     }

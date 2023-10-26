@@ -25,6 +25,13 @@ class TaskPatch {
       return null;
     }
 
+    DateTime? archivedAt = json[r'archivedAt'] == null
+        ? null
+        : DateTime.parse(json[r'archivedAt']);
+    if (archivedAt != null && archivedAt.isUtc == false) {
+      archivedAt = DateTime.parse('${json[r'archivedAt']}Z');
+    }
+
     DateTime? dueBy =
         json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
     if (dueBy != null && dueBy.isUtc == false) {
@@ -39,7 +46,7 @@ class TaskPatch {
     }
 
     return TaskPatch(
-      archivedAt: json[r'archivedAt'],
+      archivedAt: archivedAt,
       category: json[r'category'],
       description: json[r'description'],
       dueBy: dueBy,
@@ -51,7 +58,7 @@ class TaskPatch {
     );
   }
 
-  String? archivedAt;
+  DateTime? archivedAt;
 
   String? category;
 
@@ -150,7 +157,8 @@ class TaskPatch {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      if (archivedAt != null) r'archivedAt': archivedAt,
+      if (archivedAt != null)
+        r'archivedAt': archivedAt!.toUtc().toIso8601String(),
       if (category != null) r'category': category,
       if (description != null) r'description': description,
       if (dueBy != null) r'dueBy': dueBy!.toUtc().toIso8601String(),

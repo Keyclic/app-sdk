@@ -276,7 +276,6 @@ part 'model/feedback_workflow_transition_data.dart';
 part 'model/file_data.dart';
 part 'model/geo_shape.dart';
 part 'model/geo_shape_centroid.dart';
-part 'model/image_data.dart';
 part 'model/internal_service.dart';
 part 'model/internal_service_collection.dart';
 part 'model/internal_service_contact_point.dart';

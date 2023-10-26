@@ -764,8 +764,6 @@ class ApiClient {
           return GeoShape.fromJson(value);
         case 'GeoShapeCentroid':
           return GeoShapeCentroid.fromJson(value);
-        case 'ImageData':
-          return ImageData.fromJson(value);
         case 'InternalService':
           return InternalService.fromJson(value);
         case 'InternalServiceCollection':

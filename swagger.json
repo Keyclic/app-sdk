@@ -19487,13 +19487,23 @@
                         "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                     ]
                 },
-                "organization": {
-                    "type": "string"
+                "dataSource": {
+                    "type": "string",
+                    "enum": [
+                        "\/places",
+                        "\/reports"
+                    ]
                 },
                 "groupBy": {
                     "type": "string"
+                },
+                "organization": {
+                    "type": "string"
                 }
-            }
+            },
+            "required": [
+                "dataSource"
+            ]
         },
         "ExternalService": {
             "type": "object",

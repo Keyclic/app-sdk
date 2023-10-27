@@ -4,8 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class ExternalServicePagination
-    implements Pagination, ExternalServicePaginationAllOf {
+class ExternalServicePagination implements Pagination {
   /// Returns a new [ExternalServicePagination] instance.
   ExternalServicePagination({
     this.limit,

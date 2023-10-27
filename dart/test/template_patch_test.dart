@@ -10,13 +10,13 @@ void main() {
   // final instance = TemplatePatch();
 
   group('test TemplatePatch', () {
-    // List<Object> body (default value: const [])
+    // List<Map<String, Object>> body (default value: const [])
     test('to test the property `body`', () async {});
 
-    // List<Object> footer (default value: const [])
+    // List<Map<String, Object>> footer (default value: const [])
     test('to test the property `footer`', () async {});
 
-    // List<Object> header (default value: const [])
+    // List<Map<String, Object>> header (default value: const [])
     test('to test the property `header`', () async {});
 
     // String name

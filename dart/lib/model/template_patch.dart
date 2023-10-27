@@ -24,23 +24,23 @@ class TemplatePatch {
     return TemplatePatch(
       body: json[r'body'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'body']),
+          : List<Map<String, Object>>.from(json[r'body']),
       footer: json[r'footer'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'footer']),
+          : List<Map<String, Object>>.from(json[r'footer']),
       header: json[r'header'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'header']),
+          : List<Map<String, Object>>.from(json[r'header']),
       name: json[r'name'],
       type: json[r'type'],
     );
   }
 
-  List<Map<String, dynamic>>? body;
+  List<Map<String, Object>>? body;
 
-  List<Map<String, dynamic>>? footer;
+  List<Map<String, Object>>? footer;
 
-  List<Map<String, dynamic>>? header;
+  List<Map<String, Object>>? header;
 
   String? name;
 

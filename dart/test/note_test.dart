@@ -19,7 +19,7 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
-    // List<Object> text (default value: const [])
+    // List<Map<String, Object>> text (default value: const [])
     test('to test the property `text`', () async {});
 
     // String type

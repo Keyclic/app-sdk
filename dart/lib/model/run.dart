@@ -10,7 +10,7 @@ class Run {
     this.children = const [],
     this.error,
     this.name,
-    this.result,
+    this.result = const {},
     this.state,
   });
 
@@ -53,7 +53,7 @@ class Run {
         DeepCollectionEquality.unordered().equals(children, other.children) &&
         other.error == error &&
         other.name == name &&
-        other.result == result &&
+        DeepCollectionEquality.unordered().equals(result, other.result) &&
         other.state == state;
   }
 

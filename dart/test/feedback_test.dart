@@ -28,7 +28,7 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
-    // Map<String, dynamic> metadata
+    // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
     // bool public

@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class AssignmentPagination implements Pagination, AssignmentPaginationAllOf {
+class AssignmentPagination implements Pagination {
   /// Returns a new [AssignmentPagination] instance.
   AssignmentPagination({
     this.limit,

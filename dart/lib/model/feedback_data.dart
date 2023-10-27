@@ -12,7 +12,7 @@ class FeedbackData {
     this.category,
     this.description,
     required this.geo,
-    this.metadata,
+    this.metadata = const {},
     required this.place,
     this.priority,
     this.reporter,
@@ -75,7 +75,7 @@ class FeedbackData {
         other.category == category &&
         other.description == description &&
         other.geo == geo &&
-        other.metadata == metadata &&
+        DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.place == place &&
         other.priority == priority &&
         other.reporter == reporter &&

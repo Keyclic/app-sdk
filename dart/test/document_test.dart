@@ -16,7 +16,7 @@ void main() {
     // DocumentLinks links
     test('to test the property `links`', () async {});
 
-    // List<Object> body (default value: const [])
+    // List<Map<String, Object>> body (default value: const [])
     test('to test the property `body`', () async {});
 
     // DateTime createdAt

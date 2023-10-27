@@ -10,7 +10,7 @@ void main() {
   // final instance = DocumentPatch();
 
   group('test DocumentPatch', () {
-    // List<Object> body (default value: const [])
+    // List<Map<String, Object>> body (default value: const [])
     test('to test the property `body`', () async {});
 
     // DocumentPatchFile file

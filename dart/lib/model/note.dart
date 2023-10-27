@@ -40,7 +40,7 @@ class Note {
       id: json[r'id'],
       text: json[r'text'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'text']),
+          : List<Map<String, Object>>.from(json[r'text']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -52,7 +52,7 @@ class Note {
 
   final String? id;
 
-  List<Map<String, dynamic>>? text;
+  List<Map<String, Object>>? text;
 
   String? type;
 

@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class ServicePagination implements Pagination, ServicePaginationAllOf {
+class ServicePagination implements Pagination {
   /// Returns a new [ServicePagination] instance.
   ServicePagination({
     this.limit,

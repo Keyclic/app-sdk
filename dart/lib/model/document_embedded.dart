@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class DocumentEmbedded {
   /// Returns a new [DocumentEmbedded] instance.
   DocumentEmbedded({
-    this.container,
+    this.container = const {},
     this.createdBy,
     this.signers = const [],
     this.stateTransitions = const [],
@@ -52,7 +52,7 @@ class DocumentEmbedded {
     }
 
     return other is DocumentEmbedded &&
-        other.container == container &&
+        DeepCollectionEquality.unordered().equals(container, other.container) &&
         other.createdBy == createdBy &&
         DeepCollectionEquality.unordered().equals(signers, other.signers) &&
         DeepCollectionEquality.unordered()

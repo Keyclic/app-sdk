@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class CategoryPagination implements Pagination, CategoryPaginationAllOf {
+class CategoryPagination implements Pagination {
   /// Returns a new [CategoryPagination] instance.
   CategoryPagination({
     this.limit,

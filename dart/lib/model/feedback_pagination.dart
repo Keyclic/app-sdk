@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class FeedbackPagination implements Pagination, FeedbackPaginationAllOf {
+class FeedbackPagination implements Pagination {
   /// Returns a new [FeedbackPagination] instance.
   FeedbackPagination({
     this.limit,

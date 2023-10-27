@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class ReportPagination implements Pagination, ReportPaginationAllOf {
+class ReportPagination implements Pagination {
   /// Returns a new [ReportPagination] instance.
   ReportPagination({
     this.limit,

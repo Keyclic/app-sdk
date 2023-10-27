@@ -19,7 +19,7 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // Map<String, dynamic> result
+    // Map<String, dynamic> result (default value: const {})
     test('to test the property `result`', () async {});
 
     // String state

@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class NotePagination implements Pagination, NotePaginationAllOf {
+class NotePagination implements Pagination {
   /// Returns a new [NotePagination] instance.
   NotePagination({
     this.limit,

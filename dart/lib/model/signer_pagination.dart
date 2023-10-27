@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class SignerPagination implements Pagination, SignerPaginationAllOf {
+class SignerPagination implements Pagination {
   /// Returns a new [SignerPagination] instance.
   SignerPagination({
     this.limit,

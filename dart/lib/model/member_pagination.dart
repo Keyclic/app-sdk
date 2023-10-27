@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class MemberPagination implements Pagination, MemberPaginationAllOf {
+class MemberPagination implements Pagination {
   /// Returns a new [MemberPagination] instance.
   MemberPagination({
     this.limit,

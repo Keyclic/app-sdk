@@ -10,7 +10,7 @@ void main() {
   // final instance = DocumentEmbedded();
 
   group('test DocumentEmbedded', () {
-    // Map<String, dynamic> container
+    // Map<String, dynamic> container (default value: const {})
     test('to test the property `container`', () async {});
 
     // Person createdBy

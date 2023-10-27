@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class BookmarkPagination implements Pagination, BookmarkPaginationAllOf {
+class BookmarkPagination implements Pagination {
   /// Returns a new [BookmarkPagination] instance.
   BookmarkPagination({
     this.limit,

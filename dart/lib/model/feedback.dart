@@ -13,7 +13,7 @@ class Feedback {
     this.description,
     this.geoCoordinates,
     this.id,
-    this.metadata,
+    this.metadata = const {},
     this.public,
     this.type,
     this.updatedAt,
@@ -92,7 +92,7 @@ class Feedback {
         other.description == description &&
         other.geoCoordinates == geoCoordinates &&
         other.id == id &&
-        other.metadata == metadata &&
+        DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.public == public &&
         other.type == type &&
         other.updatedAt == updatedAt &&

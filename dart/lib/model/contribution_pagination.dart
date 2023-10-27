@@ -4,8 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class ContributionPagination
-    implements Pagination, ContributionPaginationAllOf {
+class ContributionPagination implements Pagination {
   /// Returns a new [ContributionPagination] instance.
   ContributionPagination({
     this.limit,

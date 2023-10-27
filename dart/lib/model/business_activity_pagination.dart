@@ -4,8 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class BusinessActivityPagination
-    implements Pagination, BusinessActivityPaginationAllOf {
+class BusinessActivityPagination implements Pagination {
   /// Returns a new [BusinessActivityPagination] instance.
   BusinessActivityPagination({
     this.limit,

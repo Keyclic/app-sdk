@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class PlacePagination implements Pagination, PlacePaginationAllOf {
+class PlacePagination implements Pagination {
   /// Returns a new [PlacePagination] instance.
   PlacePagination({
     this.limit,

@@ -25,7 +25,7 @@ void main() {
     // FeedbackDataGeo geo
     test('to test the property `geo`', () async {});
 
-    // Map<String, dynamic> metadata
+    // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
     // String place

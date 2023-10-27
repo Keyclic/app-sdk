@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **links** | [**NoteLinks**](NoteLinks.md) |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **id** | **String** |  | [optional] [readonly] 
-**text** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**text** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 

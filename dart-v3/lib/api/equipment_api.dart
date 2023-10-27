@@ -207,6 +207,7 @@ class EquipmentApi {
   /// * [contractsPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [parentPeriodIdentifier] -
   /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [subtree] -
   /// * [commissioningDateLeftSquareBracketBeforeRightSquareBracket] -
   /// * [commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [commissioningDateLeftSquareBracketAfterRightSquareBracket] -
@@ -276,6 +277,7 @@ class EquipmentApi {
     List<String>? contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? parentPeriodIdentifier,
     List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    String? subtree,
     String? commissioningDateLeftSquareBracketBeforeRightSquareBracket,
     String? commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? commissioningDateLeftSquareBracketAfterRightSquareBracket,
@@ -405,6 +407,7 @@ class EquipmentApi {
         r'parent.identifier[]': encodeCollectionQueryParameter(
             parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (subtree != null) r'subtree': encodeQueryParameter(subtree),
       if (commissioningDateLeftSquareBracketBeforeRightSquareBracket != null)
         r'commissioningDate[before]': encodeQueryParameter(
             commissioningDateLeftSquareBracketBeforeRightSquareBracket),

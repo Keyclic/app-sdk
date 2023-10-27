@@ -135,6 +135,7 @@ class AssetApi {
   /// * [contractsPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [parentPeriodIdentifier] -
   /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [subtree] -
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -172,6 +173,7 @@ class AssetApi {
     List<String>? contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? parentPeriodIdentifier,
     List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    String? subtree,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -269,6 +271,7 @@ class AssetApi {
         r'parent.identifier[]': encodeCollectionQueryParameter(
             parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (subtree != null) r'subtree': encodeQueryParameter(subtree),
     };
 
     final response = await _apiClient.dio.request<Object>(

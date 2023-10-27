@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.45.4-dev.55e3625cc"
+        "version": "2.47.2-dev.2d6f7fd1c"
     },
     "servers": [
         {
@@ -870,6 +870,20 @@
                         },
                         "style": "form",
                         "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "subtree",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
                         "allowReserved": false
                     },
                     {
@@ -3798,6 +3812,20 @@
                         },
                         "style": "form",
                         "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "subtree",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
                         "allowReserved": false
                     },
                     {

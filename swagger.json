@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.45.4-dev.5874f7d10"
+        "version": "2.48.1"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -22565,8 +22565,8 @@
                     "type": "string"
                 },
                 "archivedAt": {
-                    "format": "date-time",
-                    "type": "string"
+                    "type": "string",
+                    "format": "date-time"
                 },
                 "description": {
                     "format": "string",
@@ -25975,7 +25975,7 @@
             "properties": {
                 "archivedAt": {
                     "type": "string",
-                    "format": "string"
+                    "format": "date-time"
                 },
                 "category": {
                     "type": "string",

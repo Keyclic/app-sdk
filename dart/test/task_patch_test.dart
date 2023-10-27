@@ -10,7 +10,7 @@ void main() {
   // final instance = TaskPatch();
 
   group('test TaskPatch', () {
-    // String archivedAt
+    // DateTime archivedAt
     test('to test the property `archivedAt`', () async {});
 
     // String category

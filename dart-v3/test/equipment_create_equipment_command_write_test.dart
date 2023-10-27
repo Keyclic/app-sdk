@@ -43,7 +43,7 @@ void main() {
     // String type
     test('to test the property `type`', () async {});
 
-    // EquipmentCreateEquipmentCommandWriteWarranty warranty
+    // WarrantyWrite warranty
     test('to test the property `warranty`', () async {});
   });
 }

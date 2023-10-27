@@ -198,10 +198,6 @@ class ApiPlatformClient {
           return BrandRead.fromJson(value);
         case 'ContractCreateContractCommandWrite':
           return ContractCreateContractCommandWrite.fromJson(value);
-        case 'ContractCreateContractCommandWriteBilling':
-          return ContractCreateContractCommandWriteBilling.fromJson(value);
-        case 'ContractCreateContractCommandWriteRenewal':
-          return ContractCreateContractCommandWriteRenewal.fromJson(value);
         case 'ContractEditContractCommandWrite':
           return ContractEditContractCommandWrite.fromJson(value);
         case 'ContractJsonhalRead':
@@ -216,8 +212,6 @@ class ApiPlatformClient {
           return ContractTypeRead.fromJson(value);
         case 'EquipmentCreateEquipmentCommandWrite':
           return EquipmentCreateEquipmentCommandWrite.fromJson(value);
-        case 'EquipmentCreateEquipmentCommandWriteWarranty':
-          return EquipmentCreateEquipmentCommandWriteWarranty.fromJson(value);
         case 'EquipmentEditEquipmentCommandWrite':
           return EquipmentEditEquipmentCommandWrite.fromJson(value);
         case 'EquipmentJsonhalRead':

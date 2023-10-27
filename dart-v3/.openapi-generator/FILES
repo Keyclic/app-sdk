@@ -18,8 +18,6 @@ doc/BrandJsonhalRead.md
 doc/BrandRead.md
 doc/ContractApi.md
 doc/ContractCreateContractCommandWrite.md
-doc/ContractCreateContractCommandWriteBilling.md
-doc/ContractCreateContractCommandWriteRenewal.md
 doc/ContractEditContractCommandWrite.md
 doc/ContractJsonhalRead.md
 doc/ContractJsonhalReadLinks.md
@@ -29,7 +27,6 @@ doc/ContractTypeJsonhalRead.md
 doc/ContractTypeRead.md
 doc/EquipmentApi.md
 doc/EquipmentCreateEquipmentCommandWrite.md
-doc/EquipmentCreateEquipmentCommandWriteWarranty.md
 doc/EquipmentEditEquipmentCommandWrite.md
 doc/EquipmentJsonhalRead.md
 doc/EquipmentJsonhalReadLinks.md
@@ -118,8 +115,6 @@ lib/model/billing_write.dart
 lib/model/brand_jsonhal_read.dart
 lib/model/brand_read.dart
 lib/model/contract_create_contract_command_write.dart
-lib/model/contract_create_contract_command_write_billing.dart
-lib/model/contract_create_contract_command_write_renewal.dart
 lib/model/contract_edit_contract_command_write.dart
 lib/model/contract_jsonhal_read.dart
 lib/model/contract_jsonhal_read_links.dart
@@ -127,7 +122,6 @@ lib/model/contract_read.dart
 lib/model/contract_type_jsonhal_read.dart
 lib/model/contract_type_read.dart
 lib/model/equipment_create_equipment_command_write.dart
-lib/model/equipment_create_equipment_command_write_warranty.dart
 lib/model/equipment_edit_equipment_command_write.dart
 lib/model/equipment_jsonhal_read.dart
 lib/model/equipment_jsonhal_read_links.dart
@@ -194,8 +188,6 @@ test/brand_api_test.dart
 test/brand_jsonhal_read_test.dart
 test/brand_read_test.dart
 test/contract_api_test.dart
-test/contract_create_contract_command_write_billing_test.dart
-test/contract_create_contract_command_write_renewal_test.dart
 test/contract_create_contract_command_write_test.dart
 test/contract_edit_contract_command_write_test.dart
 test/contract_jsonhal_read_links_test.dart
@@ -206,7 +198,6 @@ test/contract_type_jsonhal_read_test.dart
 test/contract_type_read_test.dart
 test/equipment_api_test.dart
 test/equipment_create_equipment_command_write_test.dart
-test/equipment_create_equipment_command_write_warranty_test.dart
 test/equipment_edit_equipment_command_write_test.dart
 test/equipment_jsonhal_read_links_test.dart
 test/equipment_jsonhal_read_test.dart

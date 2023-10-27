@@ -48,8 +48,7 @@ class EquipmentCreateEquipmentCommandWrite {
       serialNumber: json[r'serialNumber'],
       state: json[r'state'],
       type: json[r'type'],
-      warranty: EquipmentCreateEquipmentCommandWriteWarranty.fromJson(
-          json[r'warranty']),
+      warranty: WarrantyWrite.fromJson(json[r'warranty']),
     );
   }
 
@@ -75,7 +74,7 @@ class EquipmentCreateEquipmentCommandWrite {
 
   String? type;
 
-  EquipmentCreateEquipmentCommandWriteWarranty? warranty;
+  WarrantyWrite? warranty;
 
   @override
   bool operator ==(Object other) {

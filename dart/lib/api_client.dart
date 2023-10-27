@@ -1173,6 +1173,8 @@ class ApiClient {
           return Point.fromJson(value);
         case 'Polygon':
           return Polygon.fromJson(value);
+        case 'PreferencesArchiving':
+          return PreferencesArchiving.fromJson(value);
         case 'PreferencesContract':
           return PreferencesContract.fromJson(value);
         case 'PreferencesElectronicSignature':

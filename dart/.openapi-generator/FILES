@@ -448,6 +448,7 @@ doc/PlanPaginationAllOf.md
 doc/PlanPatch.md
 doc/Point.md
 doc/Polygon.md
+doc/PreferencesArchiving.md
 doc/PreferencesContract.md
 doc/PreferencesElectronicSignature.md
 doc/PreferencesEquipment.md
@@ -1108,6 +1109,7 @@ lib/model/plan_pagination_all_of.dart
 lib/model/plan_patch.dart
 lib/model/point.dart
 lib/model/polygon.dart
+lib/model/preferences_archiving.dart
 lib/model/preferences_contract.dart
 lib/model/preferences_electronic_signature.dart
 lib/model/preferences_equipment.dart
@@ -1731,6 +1733,7 @@ test/plan_patch_test.dart
 test/plan_test.dart
 test/point_test.dart
 test/polygon_test.dart
+test/preferences_archiving_test.dart
 test/preferences_contract_test.dart
 test/preferences_electronic_signature_test.dart
 test/preferences_equipment_test.dart

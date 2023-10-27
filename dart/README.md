@@ -660,6 +660,7 @@ Class | Method | HTTP request | Description
  - [PlanPatch](doc//PlanPatch.md)
  - [Point](doc//Point.md)
  - [Polygon](doc//Polygon.md)
+ - [PreferencesArchiving](doc//PreferencesArchiving.md)
  - [PreferencesContract](doc//PreferencesContract.md)
  - [PreferencesElectronicSignature](doc//PreferencesElectronicSignature.md)
  - [PreferencesEquipment](doc//PreferencesEquipment.md)

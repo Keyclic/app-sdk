@@ -480,6 +480,7 @@ part 'model/plan_pagination_all_of.dart';
 part 'model/plan_patch.dart';
 part 'model/point.dart';
 part 'model/polygon.dart';
+part 'model/preferences_archiving.dart';
 part 'model/preferences_contract.dart';
 part 'model/preferences_electronic_signature.dart';
 part 'model/preferences_equipment.dart';

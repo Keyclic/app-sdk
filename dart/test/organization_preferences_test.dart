@@ -10,6 +10,9 @@ void main() {
   // final instance = OrganizationPreferences();
 
   group('test OrganizationPreferences', () {
+    // PreferencesArchiving archiving
+    test('to test the property `archiving`', () async {});
+
     // bool categoryRequired
     test('to test the property `categoryRequired`', () async {});
 

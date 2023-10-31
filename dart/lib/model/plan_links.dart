@@ -98,11 +98,16 @@ class PlanLinks {
   @override
   String toString() => 'PlanLinks[image=$image, place=$place, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (image != null) r'image': image,
-      if (place != null) r'place': place,
-      if (self != null) r'self': self,
+      if ((keys == null && image != null) ||
+          (keys?.contains(r'image') ?? false))
+        r'image': image?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

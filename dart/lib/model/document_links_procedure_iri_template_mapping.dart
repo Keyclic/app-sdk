@@ -95,9 +95,11 @@ class DocumentLinksProcedureIriTemplateMapping {
   String toString() =>
       'DocumentLinksProcedureIriTemplateMapping[procedure=$procedure]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (procedure != null) r'procedure': procedure,
+      if ((keys == null && procedure != null) ||
+          (keys?.contains(r'procedure') ?? false))
+        r'procedure': procedure,
     };
   }
 }

@@ -130,16 +130,31 @@ class OperationLinks {
   String toString() =>
       'OperationLinks[assignments=$assignments, feedback=$feedback, images=$images, operator_=$operator_, organization=$organization, report=$report, self=$self, tracking=$tracking]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (assignments != null) r'assignments': assignments,
-      if (feedback != null) r'feedback': feedback,
-      if (images != null) r'images': images,
-      if (operator_ != null) r'operator': operator_,
-      if (organization != null) r'organization': organization,
-      if (report != null) r'report': report,
-      if (self != null) r'self': self,
-      if (tracking != null) r'tracking': tracking,
+      if ((keys == null && assignments != null) ||
+          (keys?.contains(r'assignments') ?? false))
+        r'assignments': assignments?.toJson(),
+      if ((keys == null && feedback != null) ||
+          (keys?.contains(r'feedback') ?? false))
+        r'feedback': feedback?.toJson(),
+      if ((keys == null && images != null) ||
+          (keys?.contains(r'images') ?? false))
+        r'images': images,
+      if ((keys == null && operator_ != null) ||
+          (keys?.contains(r'operator_') ?? false))
+        r'operator': operator_?.toJson(),
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && report != null) ||
+          (keys?.contains(r'report') ?? false))
+        r'report': report?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && tracking != null) ||
+          (keys?.contains(r'tracking') ?? false))
+        r'tracking': tracking?.toJson(),
     };
   }
 }

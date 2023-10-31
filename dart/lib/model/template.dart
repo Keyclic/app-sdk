@@ -147,16 +147,26 @@ class Template {
   String toString() =>
       'Template[body=$body, createdAt=$createdAt, footer=$footer, header=$header, id=$id, name=$name, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (body != null) r'body': body,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (footer != null) r'footer': footer,
-      if (header != null) r'header': header,
-      if (id != null) r'id': id,
+      if ((keys == null && body != null) || (keys?.contains(r'body') ?? false))
+        r'body': body,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && footer != null) ||
+          (keys?.contains(r'footer') ?? false))
+        r'footer': footer,
+      if ((keys == null && header != null) ||
+          (keys?.contains(r'header') ?? false))
+        r'header': header,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
       r'name': name,
       r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

@@ -93,10 +93,14 @@ class BookmarkEmbedded {
   @override
   String toString() => 'BookmarkEmbedded[member=$member, place=$place]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (member != null) r'member': member,
-      if (place != null) r'place': place,
+      if ((keys == null && member != null) ||
+          (keys?.contains(r'member') ?? false))
+        r'member': member?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
     };
   }
 }

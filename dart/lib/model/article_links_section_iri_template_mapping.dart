@@ -93,9 +93,11 @@ class ArticleLinksSectionIriTemplateMapping {
   String toString() =>
       'ArticleLinksSectionIriTemplateMapping[section=$section]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (section != null) r'section': section,
+      if ((keys == null && section != null) ||
+          (keys?.contains(r'section') ?? false))
+        r'section': section,
     };
   }
 }

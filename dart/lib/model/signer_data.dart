@@ -90,7 +90,7 @@ class SignerData {
   @override
   String toString() => 'SignerData[procedure=$procedure, member=$member]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'procedure': procedure,
       r'member': member,

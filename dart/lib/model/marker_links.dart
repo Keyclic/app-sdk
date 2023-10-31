@@ -90,10 +90,12 @@ class MarkerLinks {
   @override
   String toString() => 'MarkerLinks[plan=$plan, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (plan != null) r'plan': plan,
-      if (self != null) r'self': self,
+      if ((keys == null && plan != null) || (keys?.contains(r'plan') ?? false))
+        r'plan': plan?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

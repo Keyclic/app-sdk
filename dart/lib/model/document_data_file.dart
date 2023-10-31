@@ -100,11 +100,16 @@ class DocumentDataFile {
   String toString() =>
       'DocumentDataFile[content=$content, contentType=$contentType, name=$name]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (content != null) r'content': content,
-      if (contentType != null) r'contentType': contentType,
-      if (name != null) r'name': name,
+      if ((keys == null && content != null) ||
+          (keys?.contains(r'content') ?? false))
+        r'content': content,
+      if ((keys == null && contentType != null) ||
+          (keys?.contains(r'contentType') ?? false))
+        r'contentType': contentType,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

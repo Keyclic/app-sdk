@@ -93,10 +93,14 @@ class MemberPatch {
   @override
   String toString() => 'MemberPatch[contactPoint=$contactPoint, roles=$roles]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (contactPoint != null) r'contactPoint': contactPoint,
-      if (roles != null) r'roles': roles,
+      if ((keys == null && contactPoint != null) ||
+          (keys?.contains(r'contactPoint') ?? false))
+        r'contactPoint': contactPoint?.toJson(),
+      if ((keys == null && roles != null) ||
+          (keys?.contains(r'roles') ?? false))
+        r'roles': roles,
     };
   }
 }

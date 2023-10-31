@@ -87,9 +87,10 @@ class DocumentPatchFile {
   @override
   String toString() => 'DocumentPatchFile[name=$name]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (name != null) r'name': name,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

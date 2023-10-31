@@ -84,7 +84,7 @@ class ImageData {
   @override
   String toString() => 'ImageData[image=$image]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'image': image,
     };

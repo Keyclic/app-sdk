@@ -93,9 +93,11 @@ class LegacySignatureData {
   @override
   String toString() => 'LegacySignatureData[signer=$signer, image=$image]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (signer != null) r'signer': signer,
+      if ((keys == null && signer != null) ||
+          (keys?.contains(r'signer') ?? false))
+        r'signer': signer?.toJson(),
       r'image': image,
     };
   }

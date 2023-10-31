@@ -109,12 +109,19 @@ class BusinessActivityLinks {
   String toString() =>
       'BusinessActivityLinks[image=$image, schema=$schema, self=$self, thumbnail=$thumbnail]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (image != null) r'image': image,
-      if (schema != null) r'schema': schema,
-      if (self != null) r'self': self,
-      if (thumbnail != null) r'thumbnail': thumbnail,
+      if ((keys == null && image != null) ||
+          (keys?.contains(r'image') ?? false))
+        r'image': image?.toJson(),
+      if ((keys == null && schema != null) ||
+          (keys?.contains(r'schema') ?? false))
+        r'schema': schema?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && thumbnail != null) ||
+          (keys?.contains(r'thumbnail') ?? false))
+        r'thumbnail': thumbnail?.toJson(),
     };
   }
 }

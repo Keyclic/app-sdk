@@ -37,6 +37,7 @@ class SecurityApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -69,9 +70,7 @@ class SecurityApi {
     dynamic bodyData;
 
     try {
-      bodyData = loginData.toJson();
-      // bodyData = jsonEncode(loginData);
-      // bodyData = jsonDecode(jsonEncode(loginData));
+      bodyData = loginData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -148,6 +147,7 @@ class SecurityApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -181,9 +181,7 @@ class SecurityApi {
     dynamic bodyData;
 
     try {
-      bodyData = passwordChangeData.toJson();
-      // bodyData = jsonEncode(passwordChangeData);
-      // bodyData = jsonDecode(jsonEncode(passwordChangeData));
+      bodyData = passwordChangeData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -233,6 +231,7 @@ class SecurityApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -265,9 +264,7 @@ class SecurityApi {
     dynamic bodyData;
 
     try {
-      bodyData = resetPasswordData.toJson();
-      // bodyData = jsonEncode(resetPasswordData);
-      // bodyData = jsonDecode(jsonEncode(resetPasswordData));
+      bodyData = resetPasswordData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -317,6 +314,7 @@ class SecurityApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -356,9 +354,7 @@ class SecurityApi {
     dynamic bodyData;
 
     try {
-      bodyData = registerData.toJson();
-      // bodyData = jsonEncode(registerData);
-      // bodyData = jsonDecode(jsonEncode(registerData));
+      bodyData = registerData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

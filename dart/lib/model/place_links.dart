@@ -111,13 +111,21 @@ class PlaceLinks {
   String toString() =>
       'PlaceLinks[children=$children, geo=$geo, organization=$organization, plans=$plans, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (children != null) r'children': children,
-      if (geo != null) r'geo': geo,
-      if (organization != null) r'organization': organization,
-      if (plans != null) r'plans': plans,
-      if (self != null) r'self': self,
+      if ((keys == null && children != null) ||
+          (keys?.contains(r'children') ?? false))
+        r'children': children?.toJson(),
+      if ((keys == null && geo != null) || (keys?.contains(r'geo') ?? false))
+        r'geo': geo?.toJson(),
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && plans != null) ||
+          (keys?.contains(r'plans') ?? false))
+        r'plans': plans?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

@@ -90,10 +90,12 @@ class ActivityEntity {
   @override
   String toString() => 'ActivityEntity[id=$id, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (id != null) r'id': id,
-      if (type != null) r'type': type,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

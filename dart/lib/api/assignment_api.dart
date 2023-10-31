@@ -135,6 +135,7 @@ class AssignmentApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -174,9 +175,7 @@ class AssignmentApi {
     dynamic bodyData;
 
     try {
-      bodyData = assignmentData.toJson();
-      // bodyData = jsonEncode(assignmentData);
-      // bodyData = jsonDecode(jsonEncode(assignmentData));
+      bodyData = assignmentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

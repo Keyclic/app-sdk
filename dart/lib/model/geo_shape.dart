@@ -99,11 +99,17 @@ class GeoShape {
   String toString() =>
       'GeoShape[centroid=$centroid, elevation=$elevation, polygon=$polygon]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (centroid != null) r'centroid': centroid,
-      if (elevation != null) r'elevation': elevation,
-      if (polygon != null) r'polygon': polygon,
+      if ((keys == null && centroid != null) ||
+          (keys?.contains(r'centroid') ?? false))
+        r'centroid': centroid?.toJson(),
+      if ((keys == null && elevation != null) ||
+          (keys?.contains(r'elevation') ?? false))
+        r'elevation': elevation,
+      if ((keys == null && polygon != null) ||
+          (keys?.contains(r'polygon') ?? false))
+        r'polygon': polygon?.toJson(),
     };
   }
 }

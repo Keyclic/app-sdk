@@ -100,11 +100,13 @@ class CategoryData {
   String toString() =>
       'CategoryData[name=$name, organization=$organization, parent=$parent]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'name': name,
       r'organization': organization,
-      if (parent != null) r'parent': parent,
+      if ((keys == null && parent != null) ||
+          (keys?.contains(r'parent') ?? false))
+        r'parent': parent,
     };
   }
 }

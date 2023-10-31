@@ -89,10 +89,11 @@ class SignatureData {
   @override
   String toString() => 'SignatureData[image=$image, text=$text]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'image': image,
-      if (text != null) r'text': text,
+      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
+        r'text': text,
     };
   }
 }

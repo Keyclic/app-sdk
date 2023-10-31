@@ -161,19 +161,38 @@ class Configuration {
   String toString() =>
       'Configuration[links=$links, createdAt=$createdAt, description=$description, id=$id, memberType=$memberType, name=$name, operationType=$operationType, placeType=$placeType, reportType=$reportType, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (description != null) r'description': description,
-      if (id != null) r'id': id,
-      if (memberType != null) r'memberType': memberType,
-      if (name != null) r'name': name,
-      if (operationType != null) r'operationType': operationType,
-      if (placeType != null) r'placeType': placeType,
-      if (reportType != null) r'reportType': reportType,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && memberType != null) ||
+          (keys?.contains(r'memberType') ?? false))
+        r'memberType': memberType?.toJson(),
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && operationType != null) ||
+          (keys?.contains(r'operationType') ?? false))
+        r'operationType': operationType?.toJson(),
+      if ((keys == null && placeType != null) ||
+          (keys?.contains(r'placeType') ?? false))
+        r'placeType': placeType?.toJson(),
+      if ((keys == null && reportType != null) ||
+          (keys?.contains(r'reportType') ?? false))
+        r'reportType': reportType?.toJson(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

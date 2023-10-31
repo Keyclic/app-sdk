@@ -1026,6 +1026,7 @@ class PersonApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1066,9 +1067,7 @@ class PersonApi {
     dynamic bodyData;
 
     try {
-      bodyData = personPatch.toJson();
-      // bodyData = jsonEncode(personPatch);
-      // bodyData = jsonDecode(jsonEncode(personPatch));
+      bodyData = personPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -100,11 +100,16 @@ class BookmarkLinks {
   String toString() =>
       'BookmarkLinks[member=$member, place=$place, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (member != null) r'member': member,
-      if (place != null) r'place': place,
-      if (self != null) r'self': self,
+      if ((keys == null && member != null) ||
+          (keys?.contains(r'member') ?? false))
+        r'member': member?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

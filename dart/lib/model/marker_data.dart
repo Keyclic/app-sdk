@@ -96,11 +96,11 @@ class MarkerData {
   String toString() =>
       'MarkerData[feedback=$feedback, plan=$plan, point=$point]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'feedback': feedback,
       r'plan': plan,
-      r'point': point,
+      r'point': point.toJson(),
     };
   }
 }

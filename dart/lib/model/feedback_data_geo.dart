@@ -94,10 +94,14 @@ class FeedbackDataGeo {
   @override
   String toString() => 'FeedbackDataGeo[point=$point, elevation=$elevation]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (point != null) r'point': point,
-      if (elevation != null) r'elevation': elevation,
+      if ((keys == null && point != null) ||
+          (keys?.contains(r'point') ?? false))
+        r'point': point?.toJson(),
+      if ((keys == null && elevation != null) ||
+          (keys?.contains(r'elevation') ?? false))
+        r'elevation': elevation,
     };
   }
 }

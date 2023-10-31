@@ -669,6 +669,7 @@ class PlaceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -709,9 +710,7 @@ class PlaceApi {
     dynamic bodyData;
 
     try {
-      bodyData = placePatch.toJson();
-      // bodyData = jsonEncode(placePatch);
-      // bodyData = jsonDecode(jsonEncode(placePatch));
+      bodyData = placePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -788,6 +787,7 @@ class PlaceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -828,9 +828,7 @@ class PlaceApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentData.toJson();
-      // bodyData = jsonEncode(documentData);
-      // bodyData = jsonDecode(jsonEncode(documentData));
+      bodyData = documentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -905,6 +903,7 @@ class PlaceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -944,9 +943,7 @@ class PlaceApi {
     dynamic bodyData;
 
     try {
-      bodyData = placeData.toJson();
-      // bodyData = jsonEncode(placeData);
-      // bodyData = jsonDecode(jsonEncode(placeData));
+      bodyData = placeData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1023,6 +1020,7 @@ class PlaceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1063,9 +1061,7 @@ class PlaceApi {
     dynamic bodyData;
 
     try {
-      bodyData = workflowData.toJson();
-      // bodyData = jsonEncode(workflowData);
-      // bodyData = jsonDecode(jsonEncode(workflowData));
+      bodyData = workflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

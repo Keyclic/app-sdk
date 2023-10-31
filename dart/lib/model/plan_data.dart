@@ -96,10 +96,11 @@ class PlanData {
   @override
   String toString() => 'PlanData[file=$file, name=$name, place=$place]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'file': file,
-      if (name != null) r'name': name,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
       r'place': place,
     };
   }

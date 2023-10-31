@@ -103,11 +103,17 @@ class InternalServicePostalAddress {
   String toString() =>
       'InternalServicePostalAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (locality != null) r'locality': locality,
-      if (postalCode != null) r'postalCode': postalCode,
-      if (streetAddress != null) r'streetAddress': streetAddress,
+      if ((keys == null && locality != null) ||
+          (keys?.contains(r'locality') ?? false))
+        r'locality': locality,
+      if ((keys == null && postalCode != null) ||
+          (keys?.contains(r'postalCode') ?? false))
+        r'postalCode': postalCode,
+      if ((keys == null && streetAddress != null) ||
+          (keys?.contains(r'streetAddress') ?? false))
+        r'streetAddress': streetAddress,
     };
   }
 }

@@ -99,10 +99,14 @@ class FeedbackGeoCoordinates {
   String toString() =>
       'FeedbackGeoCoordinates[elevation=$elevation, point=$point]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (elevation != null) r'elevation': elevation,
-      if (point != null) r'point': point,
+      if ((keys == null && elevation != null) ||
+          (keys?.contains(r'elevation') ?? false))
+        r'elevation': elevation,
+      if ((keys == null && point != null) ||
+          (keys?.contains(r'point') ?? false))
+        r'point': point?.toJson(),
     };
   }
 }

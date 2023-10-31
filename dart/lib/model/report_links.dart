@@ -142,18 +142,37 @@ class ReportLinks {
   String toString() =>
       'ReportLinks[asset=$asset, category=$category, children=$children, equipment=$equipment, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (asset != null) r'asset': asset,
-      if (category != null) r'category': category,
-      if (children != null) r'children': children,
-      if (equipment != null) r'equipment': equipment,
-      if (feedback != null) r'feedback': feedback,
-      if (operations != null) r'operations': operations,
-      if (organization != null) r'organization': organization,
-      if (place != null) r'place': place,
-      if (self != null) r'self': self,
-      if (tracking != null) r'tracking': tracking,
+      if ((keys == null && asset != null) ||
+          (keys?.contains(r'asset') ?? false))
+        r'asset': asset?.toJson(),
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category?.toJson(),
+      if ((keys == null && children != null) ||
+          (keys?.contains(r'children') ?? false))
+        r'children': children?.toJson(),
+      if ((keys == null && equipment != null) ||
+          (keys?.contains(r'equipment') ?? false))
+        r'equipment': equipment?.toJson(),
+      if ((keys == null && feedback != null) ||
+          (keys?.contains(r'feedback') ?? false))
+        r'feedback': feedback?.toJson(),
+      if ((keys == null && operations != null) ||
+          (keys?.contains(r'operations') ?? false))
+        r'operations': operations?.toJson(),
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && tracking != null) ||
+          (keys?.contains(r'tracking') ?? false))
+        r'tracking': tracking?.toJson(),
     };
   }
 }

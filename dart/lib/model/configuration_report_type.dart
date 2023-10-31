@@ -110,12 +110,18 @@ class ConfigurationReportType {
   String toString() =>
       'ConfigurationReportType[id=$id, priorities=$priorities, type=$type, workflow=$workflow]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (id != null) r'id': id,
-      if (priorities != null) r'priorities': priorities,
-      if (type != null) r'type': type,
-      if (workflow != null) r'workflow': workflow,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && priorities != null) ||
+          (keys?.contains(r'priorities') ?? false))
+        r'priorities': priorities,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && workflow != null) ||
+          (keys?.contains(r'workflow') ?? false))
+        r'workflow': workflow?.toJson(),
     };
   }
 }

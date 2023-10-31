@@ -98,10 +98,13 @@ class ArticleLinksSection {
   String toString() =>
       'ArticleLinksSection[href=$href, iriTemplate=$iriTemplate]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (href != null) r'href': href,
-      if (iriTemplate != null) r'iriTemplate': iriTemplate,
+      if ((keys == null && href != null) || (keys?.contains(r'href') ?? false))
+        r'href': href,
+      if ((keys == null && iriTemplate != null) ||
+          (keys?.contains(r'iriTemplate') ?? false))
+        r'iriTemplate': iriTemplate?.toJson(),
     };
   }
 }

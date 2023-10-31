@@ -114,13 +114,19 @@ class DocumentPatch {
   String toString() =>
       'DocumentPatch[body=$body, file=$file, permission=$permission, text=$text, tags=$tags]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (body != null) r'body': body,
-      if (file != null) r'file': file,
-      if (permission != null) r'permission': permission,
-      if (text != null) r'text': text,
-      if (tags != null) r'tags': tags,
+      if ((keys == null && body != null) || (keys?.contains(r'body') ?? false))
+        r'body': body,
+      if ((keys == null && file != null) || (keys?.contains(r'file') ?? false))
+        r'file': file?.toJson(),
+      if ((keys == null && permission != null) ||
+          (keys?.contains(r'permission') ?? false))
+        r'permission': permission?.toJson(),
+      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
+        r'text': text,
+      if ((keys == null && tags != null) || (keys?.contains(r'tags') ?? false))
+        r'tags': tags,
     };
   }
 }

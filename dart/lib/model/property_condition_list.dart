@@ -89,9 +89,11 @@ class PropertyConditionList {
   @override
   String toString() => 'PropertyConditionList[allOf=$allOf]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (allOf != null) r'allOf': allOf,
+      if ((keys == null && allOf != null) ||
+          (keys?.contains(r'allOf') ?? false))
+        r'allOf': allOf,
     };
   }
 }

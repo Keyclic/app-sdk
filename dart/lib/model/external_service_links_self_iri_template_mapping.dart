@@ -95,9 +95,11 @@ class ExternalServiceLinksSelfIriTemplateMapping {
   String toString() =>
       'ExternalServiceLinksSelfIriTemplateMapping[externalService=$externalService]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (externalService != null) r'externalService': externalService,
+      if ((keys == null && externalService != null) ||
+          (keys?.contains(r'externalService') ?? false))
+        r'externalService': externalService,
     };
   }
 }

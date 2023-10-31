@@ -210,6 +210,7 @@ class MemberApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class MemberApi {
     dynamic bodyData;
 
     try {
-      bodyData = memberPatch.toJson();
-      // bodyData = jsonEncode(memberPatch);
-      // bodyData = jsonDecode(jsonEncode(memberPatch));
+      bodyData = memberPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -327,6 +326,7 @@ class MemberApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -366,9 +366,7 @@ class MemberApi {
     dynamic bodyData;
 
     try {
-      bodyData = memberData.toJson();
-      // bodyData = jsonEncode(memberData);
-      // bodyData = jsonDecode(jsonEncode(memberData));
+      bodyData = memberData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

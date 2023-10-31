@@ -100,10 +100,13 @@ class WorkflowData {
   String toString() =>
       'WorkflowData[text=$text, datetime=$datetime, transition=$transition]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (text != null) r'text': text,
-      if (datetime != null) r'datetime': datetime,
+      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
+        r'text': text,
+      if ((keys == null && datetime != null) ||
+          (keys?.contains(r'datetime') ?? false))
+        r'datetime': datetime,
       r'transition': transition,
     };
   }

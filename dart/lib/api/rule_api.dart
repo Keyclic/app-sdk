@@ -210,6 +210,7 @@ class RuleApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class RuleApi {
     dynamic bodyData;
 
     try {
-      bodyData = rulePatch.toJson();
-      // bodyData = jsonEncode(rulePatch);
-      // bodyData = jsonDecode(jsonEncode(rulePatch));
+      bodyData = rulePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -327,6 +326,7 @@ class RuleApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -366,9 +366,7 @@ class RuleApi {
     dynamic bodyData;
 
     try {
-      bodyData = ruleData.toJson();
-      // bodyData = jsonEncode(ruleData);
-      // bodyData = jsonDecode(jsonEncode(ruleData));
+      bodyData = ruleData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

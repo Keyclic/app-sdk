@@ -88,9 +88,11 @@ class AgreementTermsOfService {
   @override
   String toString() => 'AgreementTermsOfService[content=$content]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (content != null) r'content': content,
+      if ((keys == null && content != null) ||
+          (keys?.contains(r'content') ?? false))
+        r'content': content,
     };
   }
 }

@@ -95,10 +95,12 @@ class PreferencesNotification {
   @override
   String toString() => 'PreferencesNotification[mail=$mail, push=$push]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (mail != null) r'mail': mail,
-      if (push != null) r'push': push,
+      if ((keys == null && mail != null) || (keys?.contains(r'mail') ?? false))
+        r'mail': mail,
+      if ((keys == null && push != null) || (keys?.contains(r'push') ?? false))
+        r'push': push,
     };
   }
 }

@@ -190,24 +190,46 @@ class Operation {
   String toString() =>
       'Operation[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, signature=$signature, tags=$tags, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (embedded != null) r'_embedded': embedded,
-      if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (description != null) r'description': description,
-      if (dueBy != null) r'dueBy': dueBy!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
-      if (identificationNumber != null)
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && dueBy != null) ||
+          (keys?.contains(r'dueBy') ?? false))
+        r'dueBy': dueBy?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && identificationNumber != null) ||
+          (keys?.contains(r'identificationNumber') ?? false))
         r'identificationNumber': identificationNumber,
-      if (name != null) r'name': name,
-      if (priority != null) r'priority': priority,
-      if (scheduledAt != null)
-        r'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
-      if (signature != null) r'signature': signature,
-      if (tags != null) r'tags': tags,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && priority != null) ||
+          (keys?.contains(r'priority') ?? false))
+        r'priority': priority?.toJson(),
+      if ((keys == null && scheduledAt != null) ||
+          (keys?.contains(r'scheduledAt') ?? false))
+        r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
+      if ((keys == null && signature != null) ||
+          (keys?.contains(r'signature') ?? false))
+        r'signature': signature?.toJson(),
+      if ((keys == null && tags != null) || (keys?.contains(r'tags') ?? false))
+        r'tags': tags,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

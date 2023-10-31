@@ -136,17 +136,35 @@ class PersonPatch {
   String toString() =>
       'PersonPatch[agreement=$agreement, givenName=$givenName, familyName=$familyName, email=$email, jobTitle=$jobTitle, image=$image, optIn=$optIn, preferences=$preferences, telephone=$telephone]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (agreement != null) r'agreement': agreement,
-      if (givenName != null) r'givenName': givenName,
-      if (familyName != null) r'familyName': familyName,
-      if (email != null) r'email': email,
-      if (jobTitle != null) r'jobTitle': jobTitle,
-      if (image != null) r'image': image,
-      if (optIn != null) r'optIn': optIn,
-      if (preferences != null) r'preferences': preferences,
-      if (telephone != null) r'telephone': telephone,
+      if ((keys == null && agreement != null) ||
+          (keys?.contains(r'agreement') ?? false))
+        r'agreement': agreement?.toJson(),
+      if ((keys == null && givenName != null) ||
+          (keys?.contains(r'givenName') ?? false))
+        r'givenName': givenName,
+      if ((keys == null && familyName != null) ||
+          (keys?.contains(r'familyName') ?? false))
+        r'familyName': familyName,
+      if ((keys == null && email != null) ||
+          (keys?.contains(r'email') ?? false))
+        r'email': email,
+      if ((keys == null && jobTitle != null) ||
+          (keys?.contains(r'jobTitle') ?? false))
+        r'jobTitle': jobTitle,
+      if ((keys == null && image != null) ||
+          (keys?.contains(r'image') ?? false))
+        r'image': image,
+      if ((keys == null && optIn != null) ||
+          (keys?.contains(r'optIn') ?? false))
+        r'optIn': optIn,
+      if ((keys == null && preferences != null) ||
+          (keys?.contains(r'preferences') ?? false))
+        r'preferences': preferences?.toJson(),
+      if ((keys == null && telephone != null) ||
+          (keys?.contains(r'telephone') ?? false))
+        r'telephone': telephone,
     };
   }
 }

@@ -97,9 +97,11 @@ class OrganizationLinksDispatcherIriTemplateMapping {
   String toString() =>
       'OrganizationLinksDispatcherIriTemplateMapping[dispatcher=$dispatcher]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (dispatcher != null) r'dispatcher': dispatcher,
+      if ((keys == null && dispatcher != null) ||
+          (keys?.contains(r'dispatcher') ?? false))
+        r'dispatcher': dispatcher,
     };
   }
 }

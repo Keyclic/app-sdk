@@ -190,22 +190,46 @@ class Organization {
   String toString() =>
       'Organization[links=$links, address=$address, alternateName=$alternateName, archived=$archived, createdAt=$createdAt, description=$description, enabled=$enabled, endDate=$endDate, id=$id, name=$name, preferences=$preferences, startDate=$startDate, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (address != null) r'address': address,
-      if (alternateName != null) r'alternateName': alternateName,
-      if (archived != null) r'archived': archived,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (description != null) r'description': description,
-      if (enabled != null) r'enabled': enabled,
-      if (endDate != null) r'endDate': endDate!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
+      if ((keys == null && alternateName != null) ||
+          (keys?.contains(r'alternateName') ?? false))
+        r'alternateName': alternateName,
+      if ((keys == null && archived != null) ||
+          (keys?.contains(r'archived') ?? false))
+        r'archived': archived,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && enabled != null) ||
+          (keys?.contains(r'enabled') ?? false))
+        r'enabled': enabled,
+      if ((keys == null && endDate != null) ||
+          (keys?.contains(r'endDate') ?? false))
+        r'endDate': endDate?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
       r'name': name,
-      if (preferences != null) r'preferences': preferences,
-      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && preferences != null) ||
+          (keys?.contains(r'preferences') ?? false))
+        r'preferences': preferences?.toJson(),
+      if ((keys == null && startDate != null) ||
+          (keys?.contains(r'startDate') ?? false))
+        r'startDate': startDate?.toUtc().toIso8601String(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

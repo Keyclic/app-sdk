@@ -106,12 +106,17 @@ class PaginationLinks {
   String toString() =>
       'PaginationLinks[first=$first, last=$last, next=$next, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (first != null) r'first': first,
-      if (last != null) r'last': last,
-      if (next != null) r'next': next,
-      if (self != null) r'self': self,
+      if ((keys == null && first != null) ||
+          (keys?.contains(r'first') ?? false))
+        r'first': first?.toJson(),
+      if ((keys == null && last != null) || (keys?.contains(r'last') ?? false))
+        r'last': last?.toJson(),
+      if ((keys == null && next != null) || (keys?.contains(r'next') ?? false))
+        r'next': next?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

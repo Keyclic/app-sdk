@@ -41,6 +41,7 @@ class ConnectorApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -82,9 +83,7 @@ class ConnectorApi {
     dynamic bodyData;
 
     try {
-      bodyData = runData.toJson();
-      // bodyData = jsonEncode(runData);
-      // bodyData = jsonDecode(jsonEncode(runData));
+      bodyData = runData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

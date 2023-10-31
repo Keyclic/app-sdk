@@ -85,7 +85,7 @@ class ContributionData {
   @override
   String toString() => 'ContributionData[feedback=$feedback]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'feedback': feedback,
     };

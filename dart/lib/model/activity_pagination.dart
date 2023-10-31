@@ -114,13 +114,22 @@ class ActivityPagination {
   String toString() =>
       'ActivityPagination[duration=$duration, next=$next, unseen=$unseen, unread=$unread, results=$results]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (duration != null) r'duration': duration,
-      if (next != null) r'next': next,
-      if (unseen != null) r'unseen': unseen,
-      if (unread != null) r'unread': unread,
-      if (results != null) r'results': results,
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration,
+      if ((keys == null && next != null) || (keys?.contains(r'next') ?? false))
+        r'next': next,
+      if ((keys == null && unseen != null) ||
+          (keys?.contains(r'unseen') ?? false))
+        r'unseen': unseen,
+      if ((keys == null && unread != null) ||
+          (keys?.contains(r'unread') ?? false))
+        r'unread': unread,
+      if ((keys == null && results != null) ||
+          (keys?.contains(r'results') ?? false))
+        r'results': results,
     };
   }
 }

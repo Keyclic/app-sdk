@@ -255,6 +255,7 @@ class ProcedureApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -294,9 +295,7 @@ class ProcedureApi {
     dynamic bodyData;
 
     try {
-      bodyData = procedureData.toJson();
-      // bodyData = jsonEncode(procedureData);
-      // bodyData = jsonDecode(jsonEncode(procedureData));
+      bodyData = procedureData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -373,6 +372,7 @@ class ProcedureApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -413,9 +413,7 @@ class ProcedureApi {
     dynamic bodyData;
 
     try {
-      bodyData = procedureWorkflowData.toJson();
-      // bodyData = jsonEncode(procedureWorkflowData);
-      // bodyData = jsonDecode(jsonEncode(procedureWorkflowData));
+      bodyData = procedureWorkflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

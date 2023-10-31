@@ -122,14 +122,26 @@ class OperationEmbedded {
   String toString() =>
       'OperationEmbedded[createdBy=$createdBy, documentTypes=$documentTypes, documents=$documents, operator_=$operator_, targetGroups=$targetGroups, workflow=$workflow]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (createdBy != null) r'createdBy': createdBy,
-      if (documentTypes != null) r'documentTypes': documentTypes,
-      if (documents != null) r'documents': documents,
-      if (operator_ != null) r'operator': operator_,
-      if (targetGroups != null) r'targetGroups': targetGroups,
-      if (workflow != null) r'workflow': workflow,
+      if ((keys == null && createdBy != null) ||
+          (keys?.contains(r'createdBy') ?? false))
+        r'createdBy': createdBy?.toJson(),
+      if ((keys == null && documentTypes != null) ||
+          (keys?.contains(r'documentTypes') ?? false))
+        r'documentTypes': documentTypes,
+      if ((keys == null && documents != null) ||
+          (keys?.contains(r'documents') ?? false))
+        r'documents': documents,
+      if ((keys == null && operator_ != null) ||
+          (keys?.contains(r'operator_') ?? false))
+        r'operator': operator_?.toJson(),
+      if ((keys == null && targetGroups != null) ||
+          (keys?.contains(r'targetGroups') ?? false))
+        r'targetGroups': targetGroups,
+      if ((keys == null && workflow != null) ||
+          (keys?.contains(r'workflow') ?? false))
+        r'workflow': workflow?.toJson(),
     };
   }
 }

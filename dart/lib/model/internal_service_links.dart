@@ -98,10 +98,13 @@ class InternalServiceLinks {
   String toString() =>
       'InternalServiceLinks[organization=$organization, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (organization != null) r'organization': organization,
-      if (self != null) r'self': self,
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

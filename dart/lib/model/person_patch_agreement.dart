@@ -103,11 +103,17 @@ class PersonPatchAgreement {
   String toString() =>
       'PersonPatchAgreement[privacyPolicy=$privacyPolicy, termsOfService=$termsOfService, olderThan=$olderThan]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (privacyPolicy != null) r'privacyPolicy': privacyPolicy,
-      if (termsOfService != null) r'termsOfService': termsOfService,
-      if (olderThan != null) r'olderThan': olderThan,
+      if ((keys == null && privacyPolicy != null) ||
+          (keys?.contains(r'privacyPolicy') ?? false))
+        r'privacyPolicy': privacyPolicy,
+      if ((keys == null && termsOfService != null) ||
+          (keys?.contains(r'termsOfService') ?? false))
+        r'termsOfService': termsOfService,
+      if ((keys == null && olderThan != null) ||
+          (keys?.contains(r'olderThan') ?? false))
+        r'olderThan': olderThan,
     };
   }
 }

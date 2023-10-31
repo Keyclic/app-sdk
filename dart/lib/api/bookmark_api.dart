@@ -335,6 +335,7 @@ class BookmarkApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -374,9 +375,7 @@ class BookmarkApi {
     dynamic bodyData;
 
     try {
-      bodyData = bookmarkData.toJson();
-      // bodyData = jsonEncode(bookmarkData);
-      // bodyData = jsonDecode(jsonEncode(bookmarkData));
+      bodyData = bookmarkData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -95,10 +95,14 @@ class PublicationEmbedded {
   @override
   String toString() => 'PublicationEmbedded[author=$author, place=$place]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (author != null) r'author': author,
-      if (place != null) r'place': place,
+      if ((keys == null && author != null) ||
+          (keys?.contains(r'author') ?? false))
+        r'author': author?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
     };
   }
 }

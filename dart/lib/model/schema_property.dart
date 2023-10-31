@@ -154,20 +154,42 @@ class SchemaProperty {
   String toString() =>
       'SchemaProperty[conditions=$conditions, default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, items=$items, maxItems=$maxItems, minItems=$minItems, propertyOrder=$propertyOrder, title=$title, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (conditions != null) r'conditions': conditions,
-      if (default_ != null) r'default': default_,
-      if (description != null) r'description': description,
-      if (enum_ != null) r'enum': enum_,
-      if (format != null) r'format': format,
-      if (id != null) r'id': id,
-      if (items != null) r'items': items,
-      if (maxItems != null) r'maxItems': maxItems,
-      if (minItems != null) r'minItems': minItems,
-      if (propertyOrder != null) r'propertyOrder': propertyOrder,
-      if (title != null) r'title': title,
-      if (type != null) r'type': type,
+      if ((keys == null && conditions != null) ||
+          (keys?.contains(r'conditions') ?? false))
+        r'conditions': conditions?.toJson(),
+      if ((keys == null && default_ != null) ||
+          (keys?.contains(r'default_') ?? false))
+        r'default': default_,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && enum_ != null) ||
+          (keys?.contains(r'enum_') ?? false))
+        r'enum': enum_,
+      if ((keys == null && format != null) ||
+          (keys?.contains(r'format') ?? false))
+        r'format': format,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && items != null) ||
+          (keys?.contains(r'items') ?? false))
+        r'items': items?.toJson(),
+      if ((keys == null && maxItems != null) ||
+          (keys?.contains(r'maxItems') ?? false))
+        r'maxItems': maxItems,
+      if ((keys == null && minItems != null) ||
+          (keys?.contains(r'minItems') ?? false))
+        r'minItems': minItems,
+      if ((keys == null && propertyOrder != null) ||
+          (keys?.contains(r'propertyOrder') ?? false))
+        r'propertyOrder': propertyOrder,
+      if ((keys == null && title != null) ||
+          (keys?.contains(r'title') ?? false))
+        r'title': title,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

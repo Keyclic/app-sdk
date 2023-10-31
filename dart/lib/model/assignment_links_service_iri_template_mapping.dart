@@ -95,9 +95,11 @@ class AssignmentLinksServiceIriTemplateMapping {
   String toString() =>
       'AssignmentLinksServiceIriTemplateMapping[service=$service]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (service != null) r'service': service,
+      if ((keys == null && service != null) ||
+          (keys?.contains(r'service') ?? false))
+        r'service': service,
     };
   }
 }

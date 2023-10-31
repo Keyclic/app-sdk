@@ -118,13 +118,20 @@ class TemplatePatch {
   String toString() =>
       'TemplatePatch[body=$body, footer=$footer, header=$header, name=$name, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (body != null) r'body': body,
-      if (footer != null) r'footer': footer,
-      if (header != null) r'header': header,
-      if (name != null) r'name': name,
-      if (type != null) r'type': type,
+      if ((keys == null && body != null) || (keys?.contains(r'body') ?? false))
+        r'body': body,
+      if ((keys == null && footer != null) ||
+          (keys?.contains(r'footer') ?? false))
+        r'footer': footer,
+      if ((keys == null && header != null) ||
+          (keys?.contains(r'header') ?? false))
+        r'header': header,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

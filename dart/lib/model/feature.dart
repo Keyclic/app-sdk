@@ -100,11 +100,16 @@ class Feature {
   String toString() =>
       'Feature[type=$type, geometry=$geometry, properties=$properties]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (type != null) r'type': type,
-      if (geometry != null) r'geometry': geometry,
-      if (properties != null) r'properties': properties,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && geometry != null) ||
+          (keys?.contains(r'geometry') ?? false))
+        r'geometry': geometry?.toJson(),
+      if ((keys == null && properties != null) ||
+          (keys?.contains(r'properties') ?? false))
+        r'properties': properties,
     };
   }
 }

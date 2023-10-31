@@ -112,13 +112,21 @@ class DocumentData {
   String toString() =>
       'DocumentData[container=$container, file=$file, permission=$permission, template=$template, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (container != null) r'container': container,
-      if (file != null) r'file': file,
-      if (permission != null) r'permission': permission,
-      if (template != null) r'template': template,
-      if (type != null) r'type': type,
+      if ((keys == null && container != null) ||
+          (keys?.contains(r'container') ?? false))
+        r'container': container,
+      if ((keys == null && file != null) || (keys?.contains(r'file') ?? false))
+        r'file': file?.toJson(),
+      if ((keys == null && permission != null) ||
+          (keys?.contains(r'permission') ?? false))
+        r'permission': permission?.toJson(),
+      if ((keys == null && template != null) ||
+          (keys?.contains(r'template') ?? false))
+        r'template': template,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

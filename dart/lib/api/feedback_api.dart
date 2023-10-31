@@ -558,6 +558,7 @@ class FeedbackApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -598,9 +599,7 @@ class FeedbackApi {
     dynamic bodyData;
 
     try {
-      bodyData = commentData.toJson();
-      // bodyData = jsonEncode(commentData);
-      // bodyData = jsonDecode(jsonEncode(commentData));
+      bodyData = commentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -677,6 +676,7 @@ class FeedbackApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -717,9 +717,7 @@ class FeedbackApi {
     dynamic bodyData;
 
     try {
-      bodyData = imageData.toJson();
-      // bodyData = jsonEncode(imageData);
-      // bodyData = jsonDecode(jsonEncode(imageData));
+      bodyData = imageData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -794,6 +792,7 @@ class FeedbackApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -833,9 +832,7 @@ class FeedbackApi {
     dynamic bodyData;
 
     try {
-      bodyData = feedbackData.toJson();
-      // bodyData = jsonEncode(feedbackData);
-      // bodyData = jsonDecode(jsonEncode(feedbackData));
+      bodyData = feedbackData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -914,6 +911,7 @@ class FeedbackApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     bool? xEnableDispatch,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -955,9 +953,7 @@ class FeedbackApi {
     dynamic bodyData;
 
     try {
-      bodyData = feedbackWorkflowTransitionData.toJson();
-      // bodyData = jsonEncode(feedbackWorkflowTransitionData);
-      // bodyData = jsonDecode(jsonEncode(feedbackWorkflowTransitionData));
+      bodyData = feedbackWorkflowTransitionData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -210,6 +210,7 @@ class DocumentApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class DocumentApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentPatch.toJson();
-      // bodyData = jsonEncode(documentPatch);
-      // bodyData = jsonDecode(jsonEncode(documentPatch));
+      bodyData = documentPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -331,6 +330,7 @@ class DocumentApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     bool? xAsyncProcessing,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -372,9 +372,7 @@ class DocumentApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentWorkflowData.toJson();
-      // bodyData = jsonEncode(documentWorkflowData);
-      // bodyData = jsonDecode(jsonEncode(documentWorkflowData));
+      bodyData = documentWorkflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

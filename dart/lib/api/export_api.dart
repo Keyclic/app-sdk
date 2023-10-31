@@ -236,6 +236,7 @@ class ExportApi {
     String? state,
     List<String>? statesLeftSquareBracketRightSquareBracket,
     List<String>? visibilityLeftSquareBracketRightSquareBracket,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -383,9 +384,7 @@ class ExportApi {
     dynamic bodyData;
 
     try {
-      bodyData = exportData.toJson();
-      // bodyData = jsonEncode(exportData);
-      // bodyData = jsonDecode(jsonEncode(exportData));
+      bodyData = exportData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

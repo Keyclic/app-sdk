@@ -89,9 +89,10 @@ class RuleLinksSelfIriTemplateMapping {
   @override
   String toString() => 'RuleLinksSelfIriTemplateMapping[rule=$rule]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (rule != null) r'rule': rule,
+      if ((keys == null && rule != null) || (keys?.contains(r'rule') ?? false))
+        r'rule': rule,
     };
   }
 }

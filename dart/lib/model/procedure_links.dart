@@ -100,11 +100,16 @@ class ProcedureLinks {
   String toString() =>
       'ProcedureLinks[createdBy=$createdBy, document=$document, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (createdBy != null) r'createdBy': createdBy,
-      if (document != null) r'document': document,
-      if (self != null) r'self': self,
+      if ((keys == null && createdBy != null) ||
+          (keys?.contains(r'createdBy') ?? false))
+        r'createdBy': createdBy?.toJson(),
+      if ((keys == null && document != null) ||
+          (keys?.contains(r'document') ?? false))
+        r'document': document?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

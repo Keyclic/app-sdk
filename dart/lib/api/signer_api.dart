@@ -210,6 +210,7 @@ class SignerApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class SignerApi {
     dynamic bodyData;
 
     try {
-      bodyData = signatureData.toJson();
-      // bodyData = jsonEncode(signatureData);
-      // bodyData = jsonDecode(jsonEncode(signatureData));
+      bodyData = signatureData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -327,6 +326,7 @@ class SignerApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -366,9 +366,7 @@ class SignerApi {
     dynamic bodyData;
 
     try {
-      bodyData = signerData.toJson();
-      // bodyData = jsonEncode(signerData);
-      // bodyData = jsonDecode(jsonEncode(signerData));
+      bodyData = signerData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

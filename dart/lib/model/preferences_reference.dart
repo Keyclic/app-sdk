@@ -88,9 +88,11 @@ class PreferencesReference {
   @override
   String toString() => 'PreferencesReference[prefix=$prefix]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (prefix != null) r'prefix': prefix,
+      if ((keys == null && prefix != null) ||
+          (keys?.contains(r'prefix') ?? false))
+        r'prefix': prefix,
     };
   }
 }

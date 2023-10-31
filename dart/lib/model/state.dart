@@ -115,14 +115,23 @@ class State {
   String toString() =>
       'State[id=$id, type=$type, name=$name, description=$description, color=$color, progression=$progression]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (id != null) r'id': id,
-      if (type != null) r'type': type,
-      if (name != null) r'name': name,
-      if (description != null) r'description': description,
-      if (color != null) r'color': color,
-      if (progression != null) r'progression': progression,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && color != null) ||
+          (keys?.contains(r'color') ?? false))
+        r'color': color,
+      if ((keys == null && progression != null) ||
+          (keys?.contains(r'progression') ?? false))
+        r'progression': progression,
     };
   }
 }

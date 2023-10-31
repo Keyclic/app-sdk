@@ -100,10 +100,13 @@ class FeedbackLinksPlansIriTemplateMapping {
   String toString() =>
       'FeedbackLinksPlansIriTemplateMapping[plan=$plan, feedback=$feedback]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (plan != null) r'plan': plan,
-      if (feedback != null) r'feedback': feedback,
+      if ((keys == null && plan != null) || (keys?.contains(r'plan') ?? false))
+        r'plan': plan,
+      if ((keys == null && feedback != null) ||
+          (keys?.contains(r'feedback') ?? false))
+        r'feedback': feedback,
     };
   }
 }

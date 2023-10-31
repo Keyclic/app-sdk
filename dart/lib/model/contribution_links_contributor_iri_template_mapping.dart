@@ -98,9 +98,11 @@ class ContributionLinksContributorIriTemplateMapping {
   String toString() =>
       'ContributionLinksContributorIriTemplateMapping[person=$person]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (person != null) r'person': person,
+      if ((keys == null && person != null) ||
+          (keys?.contains(r'person') ?? false))
+        r'person': person,
     };
   }
 }

@@ -154,20 +154,39 @@ class WorkflowState {
   String toString() =>
       'WorkflowState[allowAdd=$allowAdd, allowDispatch=$allowDispatch, backgroundColor=$backgroundColor, color=$color, description=$description, end=$end, id=$id, key=$key, name=$name, progression=$progression, reference=$reference, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (allowAdd != null) r'allowAdd': allowAdd,
-      if (allowDispatch != null) r'allowDispatch': allowDispatch,
-      if (backgroundColor != null) r'backgroundColor': backgroundColor,
-      if (color != null) r'color': color,
-      if (description != null) r'description': description,
-      if (end != null) r'end': end,
-      if (id != null) r'id': id,
-      if (key != null) r'key': key,
-      if (name != null) r'name': name,
-      if (progression != null) r'progression': progression,
-      if (reference != null) r'reference': reference,
-      if (type != null) r'type': type,
+      if ((keys == null && allowAdd != null) ||
+          (keys?.contains(r'allowAdd') ?? false))
+        r'allowAdd': allowAdd,
+      if ((keys == null && allowDispatch != null) ||
+          (keys?.contains(r'allowDispatch') ?? false))
+        r'allowDispatch': allowDispatch,
+      if ((keys == null && backgroundColor != null) ||
+          (keys?.contains(r'backgroundColor') ?? false))
+        r'backgroundColor': backgroundColor,
+      if ((keys == null && color != null) ||
+          (keys?.contains(r'color') ?? false))
+        r'color': color,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && end != null) || (keys?.contains(r'end') ?? false))
+        r'end': end,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && key != null) || (keys?.contains(r'key') ?? false))
+        r'key': key,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && progression != null) ||
+          (keys?.contains(r'progression') ?? false))
+        r'progression': progression,
+      if ((keys == null && reference != null) ||
+          (keys?.contains(r'reference') ?? false))
+        r'reference': reference,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

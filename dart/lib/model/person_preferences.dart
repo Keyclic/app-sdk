@@ -87,9 +87,11 @@ class PersonPreferences {
   @override
   String toString() => 'PersonPreferences[notification=$notification]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (notification != null) r'notification': notification,
+      if ((keys == null && notification != null) ||
+          (keys?.contains(r'notification') ?? false))
+        r'notification': notification?.toJson(),
     };
   }
 }

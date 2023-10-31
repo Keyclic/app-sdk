@@ -111,13 +111,22 @@ class Run {
   String toString() =>
       'Run[children=$children, error=$error, name=$name, result=$result, state=$state]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (children != null) r'children': children,
-      if (error != null) r'error': error,
-      if (name != null) r'name': name,
-      if (result != null) r'result': result,
-      if (state != null) r'state': state,
+      if ((keys == null && children != null) ||
+          (keys?.contains(r'children') ?? false))
+        r'children': children,
+      if ((keys == null && error != null) ||
+          (keys?.contains(r'error') ?? false))
+        r'error': error,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && result != null) ||
+          (keys?.contains(r'result') ?? false))
+        r'result': result,
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
     };
   }
 }

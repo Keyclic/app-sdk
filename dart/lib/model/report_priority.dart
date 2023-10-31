@@ -112,13 +112,20 @@ class ReportPriority {
   String toString() =>
       'ReportPriority[color=$color, id=$id, name=$name, position=$position, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (color != null) r'color': color,
-      if (id != null) r'id': id,
-      if (name != null) r'name': name,
-      if (position != null) r'position': position,
-      if (type != null) r'type': type,
+      if ((keys == null && color != null) ||
+          (keys?.contains(r'color') ?? false))
+        r'color': color,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && position != null) ||
+          (keys?.contains(r'position') ?? false))
+        r'position': position,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

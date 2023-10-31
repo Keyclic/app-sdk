@@ -93,9 +93,10 @@ class MessageData {
   @override
   String toString() => 'MessageData[text=$text, task=$task]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (text != null) r'text': text,
+      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
+        r'text': text,
       r'task': task,
     };
   }

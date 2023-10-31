@@ -88,9 +88,11 @@ class InternalServiceEmbedded {
   @override
   String toString() => 'InternalServiceEmbedded[manager=$manager]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (manager != null) r'manager': manager,
+      if ((keys == null && manager != null) ||
+          (keys?.contains(r'manager') ?? false))
+        r'manager': manager?.toJson(),
     };
   }
 }

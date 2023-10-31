@@ -523,6 +523,7 @@ class ContractApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -564,9 +565,7 @@ class ContractApi {
     dynamic bodyData;
 
     try {
-      bodyData = contractEditContractCommandWrite.toJson();
-      // bodyData = jsonEncode(contractEditContractCommandWrite);
-      // bodyData = jsonDecode(jsonEncode(contractEditContractCommandWrite));
+      bodyData = contractEditContractCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -642,6 +641,7 @@ class ContractApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -682,9 +682,7 @@ class ContractApi {
     dynamic bodyData;
 
     try {
-      bodyData = contractCreateContractCommandWrite.toJson();
-      // bodyData = jsonEncode(contractCreateContractCommandWrite);
-      // bodyData = jsonDecode(jsonEncode(contractCreateContractCommandWrite));
+      bodyData = contractCreateContractCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

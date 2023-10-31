@@ -124,14 +124,20 @@ class IntegrationLinkCreateLinkCommandWrite {
   String toString() =>
       'IntegrationLinkCreateLinkCommandWrite[data=$data, integration=$integration, metadata=$metadata, name=$name, source_=$source_, target=$target]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (data != null) r'data': data,
+      if ((keys == null && data != null) || (keys?.contains(r'data') ?? false))
+        r'data': data,
       r'integration': integration,
-      if (metadata != null) r'metadata': metadata,
-      if (name != null) r'name': name,
+      if ((keys == null && metadata != null) ||
+          (keys?.contains(r'metadata') ?? false))
+        r'metadata': metadata,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
       r'source': source_,
-      if (target != null) r'target': target,
+      if ((keys == null && target != null) ||
+          (keys?.contains(r'target') ?? false))
+        r'target': target,
     };
   }
 }

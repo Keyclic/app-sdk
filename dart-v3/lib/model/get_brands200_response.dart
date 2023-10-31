@@ -111,12 +111,18 @@ class GetBrands200Response {
   String toString() =>
       'GetBrands200Response[embedded=$embedded, totalItems=$totalItems, itemsPerPage=$itemsPerPage, links=$links]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (embedded != null) r'_embedded': embedded,
-      if (totalItems != null) r'totalItems': totalItems,
-      if (itemsPerPage != null) r'itemsPerPage': itemsPerPage,
-      r'_links': links,
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
+      if ((keys == null && totalItems != null) ||
+          (keys?.contains(r'totalItems') ?? false))
+        r'totalItems': totalItems,
+      if ((keys == null && itemsPerPage != null) ||
+          (keys?.contains(r'itemsPerPage') ?? false))
+        r'itemsPerPage': itemsPerPage,
+      r'_links': links.toJson(),
     };
   }
 }

@@ -150,17 +150,31 @@ class AssetRead {
   String toString() =>
       'AssetRead[type=$type, description=$description, name=$name, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (type != null) r'type': type,
-      if (description != null) r'description': description,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
       r'name': name,
-      if (id != null) r'id': id,
-      if (address != null) r'address': address,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
-      if (parent != null) r'parent': parent,
-      if (state != null) r'state': state,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && parent != null) ||
+          (keys?.contains(r'parent') ?? false))
+        r'parent': parent,
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
     };
   }
 }

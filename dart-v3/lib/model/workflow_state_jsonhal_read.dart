@@ -110,12 +110,17 @@ class WorkflowStateJsonhalRead {
   String toString() =>
       'WorkflowStateJsonhalRead[links=$links, color=$color, name=$name, id=$id]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (color != null) r'color': color,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && color != null) ||
+          (keys?.contains(r'color') ?? false))
+        r'color': color,
       r'name': name,
-      if (id != null) r'id': id,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
     };
   }
 }

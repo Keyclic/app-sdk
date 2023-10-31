@@ -70,7 +70,7 @@ class ContractJsonhalRead {
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      renewal: json[r'renewal'] is Map ? RenewalJsonhalRead.fromJson(json[r'renewal']) : null,
+      renewal: RenewalJsonhalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,
@@ -215,24 +215,44 @@ class ContractJsonhalRead {
   String toString() =>
       'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (billing != null) r'billing': billing,
-      if (description != null) r'description': description,
-      if (duration != null) r'duration': duration,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && billing != null) ||
+          (keys?.contains(r'billing') ?? false))
+        r'billing': billing?.toJson(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration,
       r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
-      if (onCall != null) r'onCall': onCall,
-      if (renewal != null) r'renewal': renewal,
-      if (signedAt != null) r'signedAt': signedAt!.toUtc().toIso8601String(),
+      if ((keys == null && onCall != null) ||
+          (keys?.contains(r'onCall') ?? false))
+        r'onCall': onCall,
+      if ((keys == null && renewal != null) ||
+          (keys?.contains(r'renewal') ?? false))
+        r'renewal': renewal?.toJson(),
+      if ((keys == null && signedAt != null) ||
+          (keys?.contains(r'signedAt') ?? false))
+        r'signedAt': signedAt?.toUtc().toIso8601String(),
       r'state': state,
-      if (terminationDate != null)
-        r'terminationDate': terminationDate!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && terminationDate != null) ||
+          (keys?.contains(r'terminationDate') ?? false))
+        r'terminationDate': terminationDate?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

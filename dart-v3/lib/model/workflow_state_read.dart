@@ -102,11 +102,14 @@ class WorkflowStateRead {
   @override
   String toString() => 'WorkflowStateRead[color=$color, name=$name, id=$id]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (color != null) r'color': color,
+      if ((keys == null && color != null) ||
+          (keys?.contains(r'color') ?? false))
+        r'color': color,
       r'name': name,
-      if (id != null) r'id': id,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
     };
   }
 }

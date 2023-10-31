@@ -90,7 +90,7 @@ class GetContracts200ResponseEmbedded {
   @override
   String toString() => 'GetContracts200ResponseEmbedded[item=$item]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'item': item,
     };

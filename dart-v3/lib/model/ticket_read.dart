@@ -139,15 +139,24 @@ class TicketRead {
   String toString() =>
       'TicketRead[description=$description, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (description != null) r'description': description,
-      if (scheduledAt != null)
-        r'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
-      if (tags != null) r'tags': tags,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && scheduledAt != null) ||
+          (keys?.contains(r'scheduledAt') ?? false))
+        r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && tags != null) || (keys?.contains(r'tags') ?? false))
+        r'tags': tags,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

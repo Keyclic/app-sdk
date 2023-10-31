@@ -155,17 +155,30 @@ class IntegrationLinkRead {
   String toString() =>
       'IntegrationLinkRead[data=$data, metadata=$metadata, name=$name, source_=$source_, state=$state, target=$target, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (data != null) r'data': data,
-      if (metadata != null) r'metadata': metadata,
-      if (name != null) r'name': name,
+      if ((keys == null && data != null) || (keys?.contains(r'data') ?? false))
+        r'data': data,
+      if ((keys == null && metadata != null) ||
+          (keys?.contains(r'metadata') ?? false))
+        r'metadata': metadata,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
       r'source': source_,
-      if (state != null) r'state': state,
-      if (target != null) r'target': target,
-      if (id != null) r'id': id,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
+      if ((keys == null && target != null) ||
+          (keys?.contains(r'target') ?? false))
+        r'target': target,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

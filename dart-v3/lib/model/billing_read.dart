@@ -107,11 +107,17 @@ class BillingRead {
   String toString() =>
       'BillingRead[adjustedCost=$adjustedCost, initialCost=$initialCost, startDate=$startDate]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (adjustedCost != null) r'adjustedCost': adjustedCost,
-      if (initialCost != null) r'initialCost': initialCost,
-      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
+      if ((keys == null && adjustedCost != null) ||
+          (keys?.contains(r'adjustedCost') ?? false))
+        r'adjustedCost': adjustedCost?.toJson(),
+      if ((keys == null && initialCost != null) ||
+          (keys?.contains(r'initialCost') ?? false))
+        r'initialCost': initialCost?.toJson(),
+      if ((keys == null && startDate != null) ||
+          (keys?.contains(r'startDate') ?? false))
+        r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }
 }

@@ -103,11 +103,15 @@ class ContractJsonhalReadLinks {
   String toString() =>
       'ContractJsonhalReadLinks[self=$self, provider=$provider, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (self != null) r'self': self,
-      if (provider != null) r'provider': provider,
-      if (type != null) r'type': type,
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && provider != null) ||
+          (keys?.contains(r'provider') ?? false))
+        r'provider': provider?.toJson(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type?.toJson(),
     };
   }
 }

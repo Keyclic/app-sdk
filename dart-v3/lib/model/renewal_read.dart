@@ -96,10 +96,14 @@ class RenewalRead {
   String toString() =>
       'RenewalRead[duration=$duration, noticePeriod=$noticePeriod]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (duration != null) r'duration': duration,
-      if (noticePeriod != null) r'noticePeriod': noticePeriod,
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration,
+      if ((keys == null && noticePeriod != null) ||
+          (keys?.contains(r'noticePeriod') ?? false))
+        r'noticePeriod': noticePeriod,
     };
   }
 }

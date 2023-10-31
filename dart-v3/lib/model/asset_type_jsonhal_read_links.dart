@@ -88,9 +88,10 @@ class AssetTypeJsonhalReadLinks {
   @override
   String toString() => 'AssetTypeJsonhalReadLinks[self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (self != null) r'self': self,
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

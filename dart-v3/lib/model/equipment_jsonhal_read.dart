@@ -64,7 +64,7 @@ class EquipmentJsonhalRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: json[r'warranty'] is Map ? WarrantyJsonhalRead.fromJson(json[r'warranty']) : null,
+      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
@@ -204,24 +204,46 @@ class EquipmentJsonhalRead {
   String toString() =>
       'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, address=$address]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (commissioningDate != null)
-        r'commissioningDate': commissioningDate!.toUtc().toIso8601String(),
-      if (lifetime != null) r'lifetime': lifetime,
-      if (model != null) r'model': model,
-      if (mpn != null) r'mpn': mpn,
-      if (retirementDate != null)
-        r'retirementDate': retirementDate!.toUtc().toIso8601String(),
-      if (serialNumber != null) r'serialNumber': serialNumber,
-      if (warranty != null) r'warranty': warranty,
-      if (id != null) r'id': id,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
-      if (description != null) r'description': description,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && commissioningDate != null) ||
+          (keys?.contains(r'commissioningDate') ?? false))
+        r'commissioningDate': commissioningDate?.toUtc().toIso8601String(),
+      if ((keys == null && lifetime != null) ||
+          (keys?.contains(r'lifetime') ?? false))
+        r'lifetime': lifetime,
+      if ((keys == null && model != null) ||
+          (keys?.contains(r'model') ?? false))
+        r'model': model,
+      if ((keys == null && mpn != null) || (keys?.contains(r'mpn') ?? false))
+        r'mpn': mpn,
+      if ((keys == null && retirementDate != null) ||
+          (keys?.contains(r'retirementDate') ?? false))
+        r'retirementDate': retirementDate?.toUtc().toIso8601String(),
+      if ((keys == null && serialNumber != null) ||
+          (keys?.contains(r'serialNumber') ?? false))
+        r'serialNumber': serialNumber,
+      if ((keys == null && warranty != null) ||
+          (keys?.contains(r'warranty') ?? false))
+        r'warranty': warranty?.toJson(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
       r'name': name,
-      if (address != null) r'address': address,
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
     };
   }
 }

@@ -56,11 +56,11 @@ trap cleanup EXIT
 # to debug, replace docker command above with the following code (need local copy of the project)
 # java \
 #   -DdebugModels \
-#   -jar ../openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar \
+#   -jar ../openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli-6.5.0.jar \
 #   generate \
-#   --config options.dart.json \
+#   --config options-v3.dart.json \
 #   --input-spec ${SWAGGER_FILE} \
 #   --generator-name dart \
-#   --output dart \
+#   --output dart-v3 \
 #   --template-dir dart-templates \
 #   > .codegen.models.dart.log

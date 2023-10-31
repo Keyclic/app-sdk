@@ -237,26 +237,26 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   @override
   String toString() => '{{{classname}}}[{{#vars}}{{{name}}}=${{{name}}}{{^-last}}, {{/-last}}{{/vars}}]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
   {{#vars}}
     {{^required}}
-    if ({{{name}}} != null)
+    if ((keys == null && {{{name}}} != null) || (keys?.contains(r'{{{name}}}') ?? false))
     {{/required}}
     {{#isDateTime}}
       {{#pattern}}
       r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
-        ? {{{name}}}.millisecondsSinceEpoch
-        : {{{name}}}.toUtc().toIso8601String(),
+        ? {{{name}}}?.millisecondsSinceEpoch
+        : {{{name}}}?.toUtc().toIso8601String(),
       {{/pattern}}
       {{^pattern}}
-      r'{{{baseName}}}': {{{name}}}{{^required}}!{{/required}}.toUtc().toIso8601String(),
+      r'{{{baseName}}}': {{{name}}}{{^required}}?{{/required}}.toUtc().toIso8601String(),
       {{/pattern}}
     {{/isDateTime}}
     {{#isDate}}
       {{#pattern}}
       r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
-        ? {{{name}}}.millisecondsSinceEpoch
+        ? {{{name}}}?.millisecondsSinceEpoch
         : _dateFormatter.format({{{name}}}.toUtc()),
       {{/pattern}}
       {{^pattern}}
@@ -265,7 +265,18 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{/isDate}}
     {{^isDateTime}}
       {{^isDate}}
-      r'{{{baseName}}}': {{{name}}},
+        r'{{{baseName}}}':
+        {{#complexType}}
+          {{#isContainer}}
+            {{name}},
+          {{/isContainer}}
+          {{^isContainer}}
+            {{name}}{{^required}}?{{/required}}.toJson(),
+          {{/isContainer}}
+        {{/complexType}}
+        {{^complexType}}
+          {{name}},
+        {{/complexType}}
       {{/isDate}}
     {{/isDateTime}}
   {{/vars}}

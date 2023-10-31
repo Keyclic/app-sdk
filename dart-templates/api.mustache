@@ -37,6 +37,7 @@ class {{classname}} {
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isHeaderParam}}{{#isBodyParam}}
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isBodyParam}}{{#isFormParam}}
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isFormParam}}{{/allParams}}
+    {{#hasConsumes}}{{#hasBodyParam}}List<String>? bodyParameters,{{/hasBodyParam}}{{/hasConsumes}}
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -121,9 +122,7 @@ class {{classname}} {
             bodyData = {{paramName}}{{#isFile}}.finalize(){{/isFile}};
         {{/isPrimitiveType}}
         {{^isPrimitiveType}}
-            bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}{{paramName}}.toJson();
-            // bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}jsonEncode({{paramName}});
-            // bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}jsonDecode(jsonEncode({{paramName}}));
+            bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}{{paramName}}.toJson(bodyParameters);
         {{/isPrimitiveType}}
       {{/bodyParam}}
     } catch(error, stackTrace) {

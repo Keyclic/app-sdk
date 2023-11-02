@@ -10,7 +10,7 @@ void main() {
   // final instance = ReportLinksEquipmentIriTemplate();
 
   group('test ReportLinksEquipmentIriTemplate', () {
-    // ReportLinksAssetIriTemplateMapping mapping
+    // AssignmentLinksContractIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });
 }

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **links** | [**AssignmentLinks**](AssignmentLinks.md) |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **id** | **String** |  | [optional] [readonly] 
+**outOfContract** | **bool** |  | [optional] 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 

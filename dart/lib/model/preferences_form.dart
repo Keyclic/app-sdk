@@ -7,7 +7,9 @@ part of keyclic_sdk_api;
 class PreferencesForm {
   /// Returns a new [PreferencesForm] instance.
   PreferencesForm({
+    this.contract,
     this.hidden = const [],
+    this.manualDispatch,
     this.required_ = const [],
   });
 
@@ -19,15 +21,21 @@ class PreferencesForm {
     }
 
     return PreferencesForm(
+      contract: json[r'contract'],
       hidden:
           json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
+      manualDispatch: json[r'manualDispatch'],
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),
     );
   }
 
+  bool? contract;
+
   List<String>? hidden;
+
+  bool? manualDispatch;
 
   List<String>? required_;
 
@@ -39,13 +47,17 @@ class PreferencesForm {
     }
 
     return other is PreferencesForm &&
+        other.contract == contract &&
         DeepCollectionEquality.unordered().equals(hidden, other.hidden) &&
+        other.manualDispatch == manualDispatch &&
         DeepCollectionEquality.unordered().equals(required_, other.required_);
   }
 
   @override
   int get hashCode =>
+      (contract == null ? 0 : contract.hashCode) +
       (hidden == null ? 0 : hidden.hashCode) +
+      (manualDispatch == null ? 0 : manualDispatch.hashCode) +
       (required_ == null ? 0 : required_.hashCode);
 
   static List<PreferencesForm> listFromJson(List<dynamic>? json) {
@@ -94,11 +106,14 @@ class PreferencesForm {
   }
 
   @override
-  String toString() => 'PreferencesForm[hidden=$hidden, required_=$required_]';
+  String toString() =>
+      'PreferencesForm[contract=$contract, hidden=$hidden, manualDispatch=$manualDispatch, required_=$required_]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (contract != null) r'contract': contract,
       if (hidden != null) r'hidden': hidden,
+      if (manualDispatch != null) r'manualDispatch': manualDispatch,
       if (required_ != null) r'required': required_,
     };
   }

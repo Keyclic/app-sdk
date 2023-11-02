@@ -893,6 +893,7 @@ class FeedbackApi {
   /// * [xDateTime]
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
+  /// * [xEnableDispatch]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -912,6 +913,7 @@ class FeedbackApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -932,6 +934,7 @@ class FeedbackApi {
           r'x-keyclic-app-platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'x-enable-dispatch': xEnableDispatch,
         ...?headers,
       },
       extra: <String, dynamic>{

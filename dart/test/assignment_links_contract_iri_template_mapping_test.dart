@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for ReportLinksAssetIriTemplateMapping
+// tests for AssignmentLinksContractIriTemplateMapping
 void main() {
-  // final instance = ReportLinksAssetIriTemplateMapping();
+  // final instance = AssignmentLinksContractIriTemplateMapping();
 
-  group('test ReportLinksAssetIriTemplateMapping', () {
+  group('test AssignmentLinksContractIriTemplateMapping', () {
     // String identifier
     test('to test the property `identifier`', () async {});
   });

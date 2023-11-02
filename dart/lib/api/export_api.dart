@@ -145,6 +145,7 @@ class ExportApi {
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
+  /// * [isEmpty]
   /// * [isNull]
   /// * [leaf]
   /// * [level]
@@ -208,6 +209,7 @@ class ExportApi {
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
     String? hasDocuments,
+    String? isEmpty,
     String? isNull,
     String? leaf,
     String? level,
@@ -311,6 +313,7 @@ class ExportApi {
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),
+      if (isEmpty != null) r'is_empty': encodeQueryParameter(isEmpty),
       if (isNull != null) r'is_null': encodeQueryParameter(isNull),
       if (leaf != null) r'leaf': encodeQueryParameter(leaf),
       if (level != null) r'level': encodeQueryParameter(level),

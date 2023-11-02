@@ -27,7 +27,7 @@ void main() {
 
     // Retrieve all Operation resources.
     //
-    //Future<OperationPagination> cgetOperationsByReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String archived, String asset, List<String> assetsLeftSquareBracketRightSquareBracket, String assignedTo, List<String> assignedTosLeftSquareBracketRightSquareBracket, String batch, List<String> batchesLeftSquareBracketRightSquareBracket, String category, List<String> categoriesLeftSquareBracketRightSquareBracket, String createdBy, List<String> createdBiesLeftSquareBracketRightSquareBracket, DateTime afterDueBy, DateTime after, DateTime beforeDueBy, DateTime before, String deep, String delegatedTo, List<String> delegatedTosLeftSquareBracketRightSquareBracket, String hasDocuments, String isNull, String leaf, String level, String managedBy, List<String> managedBiesLeftSquareBracketRightSquareBracket, String member, List<String> membersLeftSquareBracketRightSquareBracket, String operationStateAll, String operationState, List<String> operationStatesLeftSquareBracketRightSquareBracket, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String phase, List<String> phasesLeftSquareBracketRightSquareBracket, String place, List<String> placesLeftSquareBracketRightSquareBracket, String priority, List<String> prioritiesLeftSquareBracketRightSquareBracket, String query, List<String> ratingLeftSquareBracketRightSquareBracket, DateTime scheduledAtAfter, DateTime scheduledAtBefore, String state, List<String> statesLeftSquareBracketRightSquareBracket, List<String> visibilityLeftSquareBracketRightSquareBracket, int page, int limit }) async
+    //Future<OperationPagination> cgetOperationsByReport(String xKeyclicApp, String report, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String archived, String asset, List<String> assetsLeftSquareBracketRightSquareBracket, String assignedTo, List<String> assignedTosLeftSquareBracketRightSquareBracket, String batch, List<String> batchesLeftSquareBracketRightSquareBracket, String category, List<String> categoriesLeftSquareBracketRightSquareBracket, String createdBy, List<String> createdBiesLeftSquareBracketRightSquareBracket, DateTime afterDueBy, DateTime after, DateTime beforeDueBy, DateTime before, String deep, String delegatedTo, List<String> delegatedTosLeftSquareBracketRightSquareBracket, String hasDocuments, String isEmpty, String isNull, String leaf, String level, String managedBy, List<String> managedBiesLeftSquareBracketRightSquareBracket, String member, List<String> membersLeftSquareBracketRightSquareBracket, String operationStateAll, String operationState, List<String> operationStatesLeftSquareBracketRightSquareBracket, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String phase, List<String> phasesLeftSquareBracketRightSquareBracket, String place, List<String> placesLeftSquareBracketRightSquareBracket, String priority, List<String> prioritiesLeftSquareBracketRightSquareBracket, String query, List<String> ratingLeftSquareBracketRightSquareBracket, DateTime scheduledAtAfter, DateTime scheduledAtBefore, String state, List<String> statesLeftSquareBracketRightSquareBracket, List<String> visibilityLeftSquareBracketRightSquareBracket, int page, int limit }) async
     test('test cgetOperationsByReport', () async {});
 
     // Retrieve one Report resource.
@@ -42,7 +42,7 @@ void main() {
 
     // Edit one Report resource.
     //
-    //Future<Report> patchReport(String xKeyclicApp, String report, TaskPatch taskPatch, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<Report> patchReport(String xKeyclicApp, String report, TaskPatch taskPatch, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
     test('test patchReport', () async {});
 
     // Create one Document resource.
@@ -52,7 +52,7 @@ void main() {
 
     // Create one Workflow resource.
     //
-    //Future<Report> postWorkflowByReport(String xKeyclicApp, String report, WorkflowData workflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<Report> postWorkflowByReport(String xKeyclicApp, String report, WorkflowData workflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
     test('test postWorkflowByReport', () async {});
   });
 }

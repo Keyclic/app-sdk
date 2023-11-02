@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
 *OperationApi* | [**postSignByOperation**](doc//OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
 *OperationApi* | [**postWorkflowByOperation**](doc//OperationApi.md#postworkflowbyoperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
 *OrganizationApi* | [**cgetCategoriesByOrganization**](doc//OrganizationApi.md#cgetcategoriesbyorganization) | **GET** /organizations/{organization}/categories | Retrieve all Category resources.
+*OrganizationApi* | [**cgetDispatchServicesByOrganization**](doc//OrganizationApi.md#cgetdispatchservicesbyorganization) | **GET** /organizations/{organization}/dispatch-services | Retrieve all DispatchService resources.
 *OrganizationApi* | [**cgetDocumentsByOrganization**](doc//OrganizationApi.md#cgetdocumentsbyorganization) | **GET** /organizations/{organization}/documents | Retrieve all Document resources.
 *OrganizationApi* | [**cgetExternalServicesByOrganization**](doc//OrganizationApi.md#cgetexternalservicesbyorganization) | **GET** /organizations/{organization}/external-services | Retrieve all ExternalService resources.
 *OrganizationApi* | [**cgetInternalServicesByOrganization**](doc//OrganizationApi.md#cgetinternalservicesbyorganization) | **GET** /organizations/{organization}/internal-services | Retrieve all InternalService resources.
@@ -281,6 +282,9 @@ Class | Method | HTTP request | Description
  - [AssignmentData](doc//AssignmentData.md)
  - [AssignmentEmbedded](doc//AssignmentEmbedded.md)
  - [AssignmentLinks](doc//AssignmentLinks.md)
+ - [AssignmentLinksContract](doc//AssignmentLinksContract.md)
+ - [AssignmentLinksContractIriTemplate](doc//AssignmentLinksContractIriTemplate.md)
+ - [AssignmentLinksContractIriTemplateMapping](doc//AssignmentLinksContractIriTemplateMapping.md)
  - [AssignmentLinksMember](doc//AssignmentLinksMember.md)
  - [AssignmentLinksMemberIriTemplate](doc//AssignmentLinksMemberIriTemplate.md)
  - [AssignmentLinksMemberIriTemplateMapping](doc//AssignmentLinksMemberIriTemplateMapping.md)
@@ -361,6 +365,7 @@ Class | Method | HTTP request | Description
  - [ConfigurationOperationType](doc//ConfigurationOperationType.md)
  - [ConfigurationPlaceType](doc//ConfigurationPlaceType.md)
  - [ConfigurationReportType](doc//ConfigurationReportType.md)
+ - [Contract](doc//Contract.md)
  - [Contribution](doc//Contribution.md)
  - [ContributionCollection](doc//ContributionCollection.md)
  - [ContributionData](doc//ContributionData.md)
@@ -706,7 +711,8 @@ Class | Method | HTTP request | Description
  - [ReportLinks](doc//ReportLinks.md)
  - [ReportLinksAsset](doc//ReportLinksAsset.md)
  - [ReportLinksAssetIriTemplate](doc//ReportLinksAssetIriTemplate.md)
- - [ReportLinksAssetIriTemplateMapping](doc//ReportLinksAssetIriTemplateMapping.md)
+ - [ReportLinksAssignment](doc//ReportLinksAssignment.md)
+ - [ReportLinksAssignmentIriTemplate](doc//ReportLinksAssignmentIriTemplate.md)
  - [ReportLinksCategory](doc//ReportLinksCategory.md)
  - [ReportLinksCategoryIriTemplate](doc//ReportLinksCategoryIriTemplate.md)
  - [ReportLinksChildren](doc//ReportLinksChildren.md)

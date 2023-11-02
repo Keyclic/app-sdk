@@ -418,6 +418,7 @@ class ReportApi {
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
+  /// * [isEmpty]
   /// * [isNull]
   /// * [leaf]
   /// * [level]
@@ -483,6 +484,7 @@ class ReportApi {
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
     String? hasDocuments,
+    String? isEmpty,
     String? isNull,
     String? leaf,
     String? level,
@@ -591,6 +593,7 @@ class ReportApi {
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),
+      if (isEmpty != null) r'is_empty': encodeQueryParameter(isEmpty),
       if (isNull != null) r'is_null': encodeQueryParameter(isNull),
       if (leaf != null) r'leaf': encodeQueryParameter(leaf),
       if (level != null) r'level': encodeQueryParameter(level),
@@ -897,6 +900,7 @@ class ReportApi {
   /// * [xDateTime]
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
+  /// * [xEnableDispatch]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -916,6 +920,7 @@ class ReportApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -936,6 +941,7 @@ class ReportApi {
           r'x-keyclic-app-platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'x-enable-dispatch': xEnableDispatch,
         ...?headers,
       },
       extra: <String, dynamic>{
@@ -1135,6 +1141,7 @@ class ReportApi {
   /// * [xDateTime]
   /// * [xKeyclicAppPlatform]
   /// * [xKeyclicAppVersion]
+  /// * [xEnableDispatch]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1154,6 +1161,7 @@ class ReportApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1174,6 +1182,7 @@ class ReportApi {
           r'x-keyclic-app-platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'x-keyclic-app-version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'x-enable-dispatch': xEnableDispatch,
         ...?headers,
       },
       extra: <String, dynamic>{

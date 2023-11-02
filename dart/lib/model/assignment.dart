@@ -11,6 +11,7 @@ class Assignment {
     this.links,
     this.createdAt,
     this.id,
+    this.outOfContract,
     this.type,
     this.updatedAt,
   });
@@ -39,6 +40,7 @@ class Assignment {
       links: AssignmentLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
+      outOfContract: json[r'outOfContract'],
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -51,6 +53,8 @@ class Assignment {
   final DateTime? createdAt;
 
   final String? id;
+
+  bool? outOfContract;
 
   String? type;
 
@@ -68,6 +72,7 @@ class Assignment {
         other.links == links &&
         other.createdAt == createdAt &&
         other.id == id &&
+        other.outOfContract == outOfContract &&
         other.type == type &&
         other.updatedAt == updatedAt;
   }
@@ -78,6 +83,7 @@ class Assignment {
       (links == null ? 0 : links.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (outOfContract == null ? 0 : outOfContract.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
@@ -127,7 +133,7 @@ class Assignment {
 
   @override
   String toString() =>
-      'Assignment[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
+      'Assignment[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, outOfContract=$outOfContract, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
@@ -135,6 +141,7 @@ class Assignment {
       if (links != null) r'_links': links,
       if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
       if (id != null) r'id': id,
+      if (outOfContract != null) r'outOfContract': outOfContract,
       if (type != null) r'type': type,
       if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
     };

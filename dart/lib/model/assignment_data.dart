@@ -7,7 +7,9 @@ part of keyclic_sdk_api;
 class AssignmentData {
   /// Returns a new [AssignmentData] instance.
   AssignmentData({
+    this.contract,
     this.description,
+    this.outOfContract,
     required this.report,
     required this.service,
   });
@@ -20,13 +22,19 @@ class AssignmentData {
     }
 
     return AssignmentData(
+      contract: json[r'contract'],
       description: json[r'description'],
+      outOfContract: json[r'outOfContract'],
       report: json[r'report'],
       service: json[r'service'],
     );
   }
 
+  String? contract;
+
   String? description;
+
+  bool? outOfContract;
 
   String report;
 
@@ -40,14 +48,18 @@ class AssignmentData {
     }
 
     return other is AssignmentData &&
+        other.contract == contract &&
         other.description == description &&
+        other.outOfContract == outOfContract &&
         other.report == report &&
         other.service == service;
   }
 
   @override
   int get hashCode =>
+      (contract == null ? 0 : contract.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (outOfContract == null ? 0 : outOfContract.hashCode) +
       report.hashCode +
       service.hashCode;
 
@@ -98,11 +110,13 @@ class AssignmentData {
 
   @override
   String toString() =>
-      'AssignmentData[description=$description, report=$report, service=$service]';
+      'AssignmentData[contract=$contract, description=$description, outOfContract=$outOfContract, report=$report, service=$service]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (contract != null) r'contract': contract,
       if (description != null) r'description': description,
+      if (outOfContract != null) r'outOfContract': outOfContract,
       r'report': report,
       r'service': service,
     };

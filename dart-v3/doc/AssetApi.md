@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAssets**
-> GetAssets200Response getAssets(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetAssets200Response getAssets(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Asset resources.
 
@@ -111,13 +111,14 @@ final contractsPeriodIdentifier = contractsPeriodIdentifier_example; // String |
 final contractsPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final parentPeriodIdentifier = parentPeriodIdentifier_example; // String | 
 final parentPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final subtree = subtree_example; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getAssets(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getAssets(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling AssetApi->getAssets: $e\n');
@@ -151,6 +152,7 @@ Name | Type | Description  | Notes
  **contractsPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parentPeriodIdentifier** | **String**|  | [optional] 
  **parentPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **subtree** | **String**|  | [optional] 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

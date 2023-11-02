@@ -3190,6 +3190,9 @@
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
+                        "$ref": "#\/parameters\/is_empty"
+                    },
+                    {
                         "$ref": "#\/parameters\/is_null"
                     },
                     {
@@ -4605,6 +4608,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-enable-dispatch"
                     },
                     {
                         "$ref": "#\/parameters\/FeedbackWorkflowTransitionData"
@@ -8736,6 +8742,120 @@
                 ]
             }
         },
+        "\/organizations\/{organization}\/dispatch-services": {
+            "get": {
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "Retrieve all DispatchService resources.",
+                "externalDocs": {
+                    "description": "Keyclic API documentation.",
+                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
+                },
+                "operationId": "cgetDispatchServicesByOrganization",
+                "consumes": [
+                    "application\/json;charset=UTF-8"
+                ],
+                "produces": [
+                    "application\/hal+json;charset=UTF-8"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#\/parameters\/accept-language"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-date-time"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-platform"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/asset"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category"
+                    },
+                    {
+                        "$ref": "#\/parameters\/page"
+                    },
+                    {
+                        "$ref": "#\/parameters\/limit"
+                    },
+                    {
+                        "$ref": "#\/parameters\/order__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/query"
+                    },
+                    {
+                        "description": "The identifier of the resource.",
+                        "format": "uuid",
+                        "in": "path",
+                        "name": "organization",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/ServicePagination"
+                        }
+                    },
+                    "400": {
+                        "description": "Returned when the request is invalid.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "401": {
+                        "description": "Returned when the resource is unauthorized.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "403": {
+                        "description": "Returned when the resource is forbidden.",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when the resource is not found",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    },
+                    "500": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#\/definitions\/Problem"
+                        }
+                    }
+                },
+                "schemes": [
+                    "https"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
         "\/organizations\/{organization}\/documents": {
             "get": {
                 "tags": [
@@ -9415,6 +9535,9 @@
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
+                        "$ref": "#\/parameters\/is_empty"
+                    },
+                    {
                         "$ref": "#\/parameters\/is_null"
                     },
                     {
@@ -9899,6 +10022,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/has_documents"
+                    },
+                    {
+                        "$ref": "#\/parameters\/is_empty"
                     },
                     {
                         "$ref": "#\/parameters\/is_null"
@@ -11458,6 +11584,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/has_documents"
+                    },
+                    {
+                        "$ref": "#\/parameters\/is_empty"
                     },
                     {
                         "$ref": "#\/parameters\/is_null"
@@ -14330,6 +14459,9 @@
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
+                        "$ref": "#\/parameters\/is_empty"
+                    },
+                    {
                         "$ref": "#\/parameters\/is_null"
                     },
                     {
@@ -14592,6 +14724,9 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
+                        "$ref": "#\/parameters\/x-enable-dispatch"
+                    },
+                    {
                         "$ref": "#\/parameters\/TaskPatch"
                     },
                     {
@@ -14773,6 +14908,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/x-keyclic-app-version"
+                    },
+                    {
+                        "$ref": "#\/parameters\/x-enable-dispatch"
                     },
                     {
                         "$ref": "#\/parameters\/WorkflowData"
@@ -17620,6 +17758,9 @@
                 "_links": {
                     "type": "object",
                     "properties": {
+                        "contract": {
+                            "$ref": "#\/definitions\/AssignmentLinksContract"
+                        },
                         "member": {
                             "$ref": "#\/definitions\/AssignmentLinksMember"
                         },
@@ -17644,6 +17785,9 @@
                     "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
                     "readOnly": true,
                     "type": "string"
+                },
+                "outOfContract": {
+                    "type": "boolean"
                 },
                 "type": {
                     "format": "string",
@@ -17671,8 +17815,14 @@
         "AssignmentData": {
             "type": "object",
             "properties": {
+                "contract": {
+                    "type": "string"
+                },
                 "description": {
                     "type": "string"
+                },
+                "outOfContract": {
+                    "type": "boolean"
                 },
                 "report": {
                     "type": "string"
@@ -17685,6 +17835,32 @@
                 "report",
                 "service"
             ]
+        },
+        "AssignmentLinksContract": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the contract associated to the given assignment.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/AssignmentLinksContractIriTemplate"
+                }
+            }
+        },
+        "AssignmentLinksContractIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "identifier": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         },
         "AssignmentLinksMember": {
             "type": "object",
@@ -18764,6 +18940,23 @@
                 },
                 "workflow": {
                     "$ref": "#\/definitions\/ReportTypeWorkflow"
+                }
+            }
+        },
+        "Contract": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "number": {
+                    "type": "string"
                 }
             }
         },
@@ -23655,11 +23848,17 @@
         "PreferencesForm": {
             "type": "object",
             "properties": {
+                "contract": {
+                    "type": "boolean"
+                },
                 "hidden": {
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "manualDispatch": {
+                    "type": "boolean"
                 },
                 "required": {
                     "items": {
@@ -24357,6 +24556,32 @@
                     "type": "object",
                     "properties": {
                         "identifier": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ReportLinksAssignment": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the assignment associated to the given report.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ReportLinksAssignmentIriTemplate"
+                }
+            }
+        },
+        "ReportLinksAssignmentIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "assignment": {
                             "type": "string"
                         }
                     }
@@ -26980,6 +27205,12 @@
             "pattern": ".*",
             "type": "string"
         },
+        "is_empty": {
+            "in": "query",
+            "name": "is_empty",
+            "pattern": ".*",
+            "type": "string"
+        },
         "is_null": {
             "in": "query",
             "name": "is_null",
@@ -27183,6 +27414,16 @@
                 "$ref": "#\/definitions\/FeedbackData"
             },
             "required": true
+        },
+        "x-enable-dispatch": {
+            "enum": [
+                true,
+                false
+            ],
+            "name": "x-enable-dispatch",
+            "in": "header",
+            "type": "boolean",
+            "required": false
         },
         "FeedbackWorkflowTransitionData": {
             "name": "FeedbackWorkflowTransitionData",

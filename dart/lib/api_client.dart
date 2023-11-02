@@ -414,6 +414,12 @@ class ApiClient {
           return AssignmentEmbedded.fromJson(value);
         case 'AssignmentLinks':
           return AssignmentLinks.fromJson(value);
+        case 'AssignmentLinksContract':
+          return AssignmentLinksContract.fromJson(value);
+        case 'AssignmentLinksContractIriTemplate':
+          return AssignmentLinksContractIriTemplate.fromJson(value);
+        case 'AssignmentLinksContractIriTemplateMapping':
+          return AssignmentLinksContractIriTemplateMapping.fromJson(value);
         case 'AssignmentLinksMember':
           return AssignmentLinksMember.fromJson(value);
         case 'AssignmentLinksMemberIriTemplate':
@@ -574,6 +580,8 @@ class ApiClient {
           return ConfigurationPlaceType.fromJson(value);
         case 'ConfigurationReportType':
           return ConfigurationReportType.fromJson(value);
+        case 'Contract':
+          return Contract.fromJson(value);
         case 'Contribution':
           return Contribution.fromJson(value);
         case 'ContributionCollection':
@@ -1265,8 +1273,10 @@ class ApiClient {
           return ReportLinksAsset.fromJson(value);
         case 'ReportLinksAssetIriTemplate':
           return ReportLinksAssetIriTemplate.fromJson(value);
-        case 'ReportLinksAssetIriTemplateMapping':
-          return ReportLinksAssetIriTemplateMapping.fromJson(value);
+        case 'ReportLinksAssignment':
+          return ReportLinksAssignment.fromJson(value);
+        case 'ReportLinksAssignmentIriTemplate':
+          return ReportLinksAssignmentIriTemplate.fromJson(value);
         case 'ReportLinksCategory':
           return ReportLinksCategory.fromJson(value);
         case 'ReportLinksCategoryIriTemplate':

@@ -10,6 +10,9 @@ void main() {
   // final instance = AssignmentLinks();
 
   group('test AssignmentLinks', () {
+    // AssignmentLinksContract contract
+    test('to test the property `contract`', () async {});
+
     // AssignmentLinksMember member
     test('to test the property `member`', () async {});
 

@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postWorkflowByFeedback**
-> Feedback postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> Feedback postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
 
 Create one Workflow resource.
 
@@ -506,9 +506,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = true; // bool | 
 
 try { 
-    final result = api_instance.postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
     print('Exception when calling FeedbackApi->postWorkflowByFeedback: $e\n');
@@ -526,6 +527,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 

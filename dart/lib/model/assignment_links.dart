@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class AssignmentLinks {
   /// Returns a new [AssignmentLinks] instance.
   AssignmentLinks({
+    this.contract,
     this.member,
     this.report,
     this.self,
@@ -21,12 +22,15 @@ class AssignmentLinks {
     }
 
     return AssignmentLinks(
+      contract: AssignmentLinksContract.fromJson(json[r'contract']),
       member: AssignmentLinksMember.fromJson(json[r'member']),
       report: AssignmentLinksReport.fromJson(json[r'report']),
       self: AssignmentLinksSelf.fromJson(json[r'self']),
       service: AssignmentLinksService.fromJson(json[r'service']),
     );
   }
+
+  AssignmentLinksContract? contract;
 
   AssignmentLinksMember? member;
 
@@ -44,6 +48,7 @@ class AssignmentLinks {
     }
 
     return other is AssignmentLinks &&
+        other.contract == contract &&
         other.member == member &&
         other.report == report &&
         other.self == self &&
@@ -52,6 +57,7 @@ class AssignmentLinks {
 
   @override
   int get hashCode =>
+      (contract == null ? 0 : contract.hashCode) +
       (member == null ? 0 : member.hashCode) +
       (report == null ? 0 : report.hashCode) +
       (self == null ? 0 : self.hashCode) +
@@ -104,10 +110,11 @@ class AssignmentLinks {
 
   @override
   String toString() =>
-      'AssignmentLinks[member=$member, report=$report, self=$self, service=$service]';
+      'AssignmentLinks[contract=$contract, member=$member, report=$report, self=$self, service=$service]';
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
+      if (contract != null) r'contract': contract,
       if (member != null) r'member': member,
       if (report != null) r'report': report,
       if (self != null) r'self': self,

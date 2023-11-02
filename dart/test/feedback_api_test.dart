@@ -52,7 +52,7 @@ void main() {
 
     // Create one Workflow resource.
     //
-    //Future<Feedback> postWorkflowByFeedback(String xKeyclicApp, String feedback, FeedbackWorkflowTransitionData feedbackWorkflowTransitionData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<Feedback> postWorkflowByFeedback(String xKeyclicApp, String feedback, FeedbackWorkflowTransitionData feedbackWorkflowTransitionData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
     test('test postWorkflowByFeedback', () async {});
   });
 }

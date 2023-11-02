@@ -22,6 +22,9 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
+    // bool outOfContract
+    test('to test the property `outOfContract`', () async {});
+
     // String type
     test('to test the property `type`', () async {});
 

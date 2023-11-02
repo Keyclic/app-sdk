@@ -42,6 +42,9 @@ doc/AssignmentCollection.md
 doc/AssignmentData.md
 doc/AssignmentEmbedded.md
 doc/AssignmentLinks.md
+doc/AssignmentLinksContract.md
+doc/AssignmentLinksContractIriTemplate.md
+doc/AssignmentLinksContractIriTemplateMapping.md
 doc/AssignmentLinksMember.md
 doc/AssignmentLinksMemberIriTemplate.md
 doc/AssignmentLinksMemberIriTemplateMapping.md
@@ -127,6 +130,7 @@ doc/ConfigurationOperationType.md
 doc/ConfigurationPlaceType.md
 doc/ConfigurationReportType.md
 doc/ConnectorApi.md
+doc/Contract.md
 doc/Contribution.md
 doc/ContributionApi.md
 doc/ContributionCollection.md
@@ -497,7 +501,8 @@ doc/ReportEmbedded.md
 doc/ReportLinks.md
 doc/ReportLinksAsset.md
 doc/ReportLinksAssetIriTemplate.md
-doc/ReportLinksAssetIriTemplateMapping.md
+doc/ReportLinksAssignment.md
+doc/ReportLinksAssignmentIriTemplate.md
 doc/ReportLinksCategory.md
 doc/ReportLinksCategoryIriTemplate.md
 doc/ReportLinksChildren.md
@@ -730,6 +735,9 @@ lib/model/assignment_collection.dart
 lib/model/assignment_data.dart
 lib/model/assignment_embedded.dart
 lib/model/assignment_links.dart
+lib/model/assignment_links_contract.dart
+lib/model/assignment_links_contract_iri_template.dart
+lib/model/assignment_links_contract_iri_template_mapping.dart
 lib/model/assignment_links_member.dart
 lib/model/assignment_links_member_iri_template.dart
 lib/model/assignment_links_member_iri_template_mapping.dart
@@ -810,6 +818,7 @@ lib/model/configuration_member_type.dart
 lib/model/configuration_operation_type.dart
 lib/model/configuration_place_type.dart
 lib/model/configuration_report_type.dart
+lib/model/contract.dart
 lib/model/contribution.dart
 lib/model/contribution_collection.dart
 lib/model/contribution_data.dart
@@ -1155,7 +1164,8 @@ lib/model/report_embedded.dart
 lib/model/report_links.dart
 lib/model/report_links_asset.dart
 lib/model/report_links_asset_iri_template.dart
-lib/model/report_links_asset_iri_template_mapping.dart
+lib/model/report_links_assignment.dart
+lib/model/report_links_assignment_iri_template.dart
 lib/model/report_links_category.dart
 lib/model/report_links_category_iri_template.dart
 lib/model/report_links_children.dart
@@ -1325,6 +1335,9 @@ test/assignment_api_test.dart
 test/assignment_collection_test.dart
 test/assignment_data_test.dart
 test/assignment_embedded_test.dart
+test/assignment_links_contract_iri_template_mapping_test.dart
+test/assignment_links_contract_iri_template_test.dart
+test/assignment_links_contract_test.dart
 test/assignment_links_member_iri_template_mapping_test.dart
 test/assignment_links_member_iri_template_test.dart
 test/assignment_links_member_test.dart
@@ -1412,6 +1425,7 @@ test/configuration_place_type_test.dart
 test/configuration_report_type_test.dart
 test/configuration_test.dart
 test/connector_api_test.dart
+test/contract_test.dart
 test/contribution_api_test.dart
 test/contribution_collection_test.dart
 test/contribution_data_test.dart
@@ -1778,9 +1792,10 @@ test/register_data_test.dart
 test/report_api_test.dart
 test/report_collection_test.dart
 test/report_embedded_test.dart
-test/report_links_asset_iri_template_mapping_test.dart
 test/report_links_asset_iri_template_test.dart
 test/report_links_asset_test.dart
+test/report_links_assignment_iri_template_test.dart
+test/report_links_assignment_test.dart
 test/report_links_category_iri_template_test.dart
 test/report_links_category_test.dart
 test/report_links_children_iri_template_mapping_test.dart

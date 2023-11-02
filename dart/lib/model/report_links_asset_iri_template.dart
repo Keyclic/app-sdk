@@ -18,11 +18,12 @@ class ReportLinksAssetIriTemplate {
     }
 
     return ReportLinksAssetIriTemplate(
-      mapping: ReportLinksAssetIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping:
+          AssignmentLinksContractIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  ReportLinksAssetIriTemplateMapping? mapping;
+  AssignmentLinksContractIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {

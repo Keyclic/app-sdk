@@ -109,12 +109,18 @@ class AssetJsonhalReadLinks {
   String toString() =>
       'AssetJsonhalReadLinks[self=$self, type=$type, parent=$parent, state=$state]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (self != null) r'self': self,
-      if (type != null) r'type': type,
-      if (parent != null) r'parent': parent,
-      if (state != null) r'state': state,
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type?.toJson(),
+      if ((keys == null && parent != null) ||
+          (keys?.contains(r'parent') ?? false))
+        r'parent': parent?.toJson(),
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state?.toJson(),
     };
   }
 }

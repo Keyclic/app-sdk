@@ -133,13 +133,22 @@ class IntegrationJsonhalIntegrationRead {
   String toString() =>
       'IntegrationJsonhalIntegrationRead[links=$links, inputs=$inputs, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (inputs != null) r'inputs': inputs,
-      if (id != null) r'id': id,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && inputs != null) ||
+          (keys?.contains(r'inputs') ?? false))
+        r'inputs': inputs,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

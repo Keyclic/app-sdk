@@ -111,12 +111,18 @@ class RuleData {
   String toString() =>
       'RuleData[category=$category, dispatcher=$dispatcher, place=$place, position=$position, service=$service]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (category != null) r'category': category,
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category,
       r'dispatcher': dispatcher,
-      if (place != null) r'place': place,
-      if (position != null) r'position': position,
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place,
+      if ((keys == null && position != null) ||
+          (keys?.contains(r'position') ?? false))
+        r'position': position,
       r'service': service,
     };
   }

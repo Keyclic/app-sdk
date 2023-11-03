@@ -95,10 +95,13 @@ class SuccessLoginCredentials {
   @override
   String toString() => 'SuccessLoginCredentials[id=$id, login=$login]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (id != null) r'id': id,
-      if (login != null) r'login': login,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && login != null) ||
+          (keys?.contains(r'login') ?? false))
+        r'login': login,
     };
   }
 }

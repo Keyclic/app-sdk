@@ -101,9 +101,11 @@ class ReviewData {
   String toString() =>
       'ReviewData[reviewBody=$reviewBody, reviewRating=$reviewRating, reviewRequest=$reviewRequest]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (reviewBody != null) r'reviewBody': reviewBody,
+      if ((keys == null && reviewBody != null) ||
+          (keys?.contains(r'reviewBody') ?? false))
+        r'reviewBody': reviewBody,
       r'reviewRating': reviewRating,
       r'reviewRequest': reviewRequest,
     };

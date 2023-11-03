@@ -127,15 +127,28 @@ class MemberPatchContactPoint {
   String toString() =>
       'MemberPatchContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, telephone=$telephone, name=$name]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (description != null) r'description': description,
-      if (email != null) r'email': email,
-      if (familyName != null) r'familyName': familyName,
-      if (faxNumber != null) r'faxNumber': faxNumber,
-      if (givenName != null) r'givenName': givenName,
-      if (telephone != null) r'telephone': telephone,
-      if (name != null) r'name': name,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && email != null) ||
+          (keys?.contains(r'email') ?? false))
+        r'email': email,
+      if ((keys == null && familyName != null) ||
+          (keys?.contains(r'familyName') ?? false))
+        r'familyName': familyName,
+      if ((keys == null && faxNumber != null) ||
+          (keys?.contains(r'faxNumber') ?? false))
+        r'faxNumber': faxNumber,
+      if ((keys == null && givenName != null) ||
+          (keys?.contains(r'givenName') ?? false))
+        r'givenName': givenName,
+      if ((keys == null && telephone != null) ||
+          (keys?.contains(r'telephone') ?? false))
+        r'telephone': telephone,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

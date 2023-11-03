@@ -86,9 +86,11 @@ class PropertyItems {
   @override
   String toString() => 'PropertyItems[oneOf=$oneOf]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (oneOf != null) r'oneOf': oneOf,
+      if ((keys == null && oneOf != null) ||
+          (keys?.contains(r'oneOf') ?? false))
+        r'oneOf': oneOf,
     };
   }
 }

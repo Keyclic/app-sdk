@@ -3113,6 +3113,7 @@ class OrganizationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3153,9 +3154,7 @@ class OrganizationApi {
     dynamic bodyData;
 
     try {
-      bodyData = organizationPatch.toJson();
-      // bodyData = jsonEncode(organizationPatch);
-      // bodyData = jsonDecode(jsonEncode(organizationPatch));
+      bodyData = organizationPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

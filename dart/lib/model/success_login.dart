@@ -100,11 +100,17 @@ class SuccessLogin {
   String toString() =>
       'SuccessLogin[accessToken=$accessToken, credentials=$credentials, tokenType=$tokenType]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (accessToken != null) r'accessToken': accessToken,
-      if (credentials != null) r'credentials': credentials,
-      if (tokenType != null) r'tokenType': tokenType,
+      if ((keys == null && accessToken != null) ||
+          (keys?.contains(r'accessToken') ?? false))
+        r'accessToken': accessToken,
+      if ((keys == null && credentials != null) ||
+          (keys?.contains(r'credentials') ?? false))
+        r'credentials': credentials?.toJson(),
+      if ((keys == null && tokenType != null) ||
+          (keys?.contains(r'tokenType') ?? false))
+        r'tokenType': tokenType,
     };
   }
 }

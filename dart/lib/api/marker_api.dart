@@ -208,6 +208,7 @@ class MarkerApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -247,9 +248,7 @@ class MarkerApi {
     dynamic bodyData;
 
     try {
-      bodyData = markerData.toJson();
-      // bodyData = jsonEncode(markerData);
-      // bodyData = jsonDecode(jsonEncode(markerData));
+      bodyData = markerData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -110,12 +110,19 @@ class ExternalServicePatch {
   String toString() =>
       'ExternalServicePatch[address=$address, contactPoint=$contactPoint, description=$description, name=$name]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (address != null) r'address': address,
-      if (contactPoint != null) r'contactPoint': contactPoint,
-      if (description != null) r'description': description,
-      if (name != null) r'name': name,
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
+      if ((keys == null && contactPoint != null) ||
+          (keys?.contains(r'contactPoint') ?? false))
+        r'contactPoint': contactPoint?.toJson(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

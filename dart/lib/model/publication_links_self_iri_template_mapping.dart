@@ -93,9 +93,11 @@ class PublicationLinksSelfIriTemplateMapping {
   String toString() =>
       'PublicationLinksSelfIriTemplateMapping[publication=$publication]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (publication != null) r'publication': publication,
+      if ((keys == null && publication != null) ||
+          (keys?.contains(r'publication') ?? false))
+        r'publication': publication,
     };
   }
 }

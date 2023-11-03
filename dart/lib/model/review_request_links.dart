@@ -116,13 +116,22 @@ class ReviewRequestLinks {
   String toString() =>
       'ReviewRequestLinks[itemToReview=$itemToReview, organization=$organization, review=$review, reviewer=$reviewer, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (itemToReview != null) r'itemToReview': itemToReview,
-      if (organization != null) r'organization': organization,
-      if (review != null) r'review': review,
-      if (reviewer != null) r'reviewer': reviewer,
-      if (self != null) r'self': self,
+      if ((keys == null && itemToReview != null) ||
+          (keys?.contains(r'itemToReview') ?? false))
+        r'itemToReview': itemToReview?.toJson(),
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && review != null) ||
+          (keys?.contains(r'review') ?? false))
+        r'review': review?.toJson(),
+      if ((keys == null && reviewer != null) ||
+          (keys?.contains(r'reviewer') ?? false))
+        r'reviewer': reviewer?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

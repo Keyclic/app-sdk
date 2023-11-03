@@ -135,6 +135,7 @@ class ReviewApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -174,9 +175,7 @@ class ReviewApi {
     dynamic bodyData;
 
     try {
-      bodyData = reviewData.toJson();
-      // bodyData = jsonEncode(reviewData);
-      // bodyData = jsonDecode(jsonEncode(reviewData));
+      bodyData = reviewData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

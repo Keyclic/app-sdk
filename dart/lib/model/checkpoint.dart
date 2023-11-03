@@ -117,13 +117,22 @@ class Checkpoint {
   String toString() =>
       'Checkpoint[createdAt=$createdAt, data=$data, state=$state, links=$links, embedded=$embedded]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (data != null) r'data': data,
-      if (state != null) r'state': state,
-      if (links != null) r'_links': links,
-      if (embedded != null) r'_embedded': embedded,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && data != null) || (keys?.contains(r'data') ?? false))
+        r'data': data?.toJson(),
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
     };
   }
 }

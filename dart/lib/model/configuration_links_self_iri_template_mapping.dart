@@ -95,9 +95,11 @@ class ConfigurationLinksSelfIriTemplateMapping {
   String toString() =>
       'ConfigurationLinksSelfIriTemplateMapping[configuration=$configuration]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (configuration != null) r'configuration': configuration,
+      if ((keys == null && configuration != null) ||
+          (keys?.contains(r'configuration') ?? false))
+        r'configuration': configuration,
     };
   }
 }

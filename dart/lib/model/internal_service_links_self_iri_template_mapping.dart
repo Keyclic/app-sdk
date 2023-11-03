@@ -95,9 +95,11 @@ class InternalServiceLinksSelfIriTemplateMapping {
   String toString() =>
       'InternalServiceLinksSelfIriTemplateMapping[internalService=$internalService]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (internalService != null) r'internalService': internalService,
+      if ((keys == null && internalService != null) ||
+          (keys?.contains(r'internalService') ?? false))
+        r'internalService': internalService,
     };
   }
 }

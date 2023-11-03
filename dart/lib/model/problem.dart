@@ -104,12 +104,19 @@ class Problem {
   String toString() =>
       'Problem[type=$type, title=$title, detail=$detail, embedded=$embedded]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (type != null) r'type': type,
-      if (title != null) r'title': title,
-      if (detail != null) r'detail': detail,
-      if (embedded != null) r'_embedded': embedded,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && title != null) ||
+          (keys?.contains(r'title') ?? false))
+        r'title': title,
+      if ((keys == null && detail != null) ||
+          (keys?.contains(r'detail') ?? false))
+        r'detail': detail,
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
     };
   }
 }

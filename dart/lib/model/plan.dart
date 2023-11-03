@@ -127,14 +127,23 @@ class Plan {
   String toString() =>
       'Plan[links=$links, createdAt=$createdAt, id=$id, name=$name, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
-      if (name != null) r'name': name,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

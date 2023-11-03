@@ -92,9 +92,11 @@ class ArticleLinksSelfIriTemplateMapping {
   @override
   String toString() => 'ArticleLinksSelfIriTemplateMapping[article=$article]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (article != null) r'article': article,
+      if ((keys == null && article != null) ||
+          (keys?.contains(r'article') ?? false))
+        r'article': article,
     };
   }
 }

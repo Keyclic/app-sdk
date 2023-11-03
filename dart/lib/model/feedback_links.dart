@@ -131,16 +131,31 @@ class FeedbackLinks {
   String toString() =>
       'FeedbackLinks[businessActivity=$businessActivity, category=$category, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (businessActivity != null) r'businessActivity': businessActivity,
-      if (category != null) r'category': category,
-      if (images != null) r'images': images,
-      if (plans != null) r'plans': plans,
-      if (report != null) r'report': report,
-      if (reporter != null) r'reporter': reporter,
-      if (self != null) r'self': self,
-      if (tracking != null) r'tracking': tracking,
+      if ((keys == null && businessActivity != null) ||
+          (keys?.contains(r'businessActivity') ?? false))
+        r'businessActivity': businessActivity?.toJson(),
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category?.toJson(),
+      if ((keys == null && images != null) ||
+          (keys?.contains(r'images') ?? false))
+        r'images': images,
+      if ((keys == null && plans != null) ||
+          (keys?.contains(r'plans') ?? false))
+        r'plans': plans,
+      if ((keys == null && report != null) ||
+          (keys?.contains(r'report') ?? false))
+        r'report': report?.toJson(),
+      if ((keys == null && reporter != null) ||
+          (keys?.contains(r'reporter') ?? false))
+        r'reporter': reporter?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && tracking != null) ||
+          (keys?.contains(r'tracking') ?? false))
+        r'tracking': tracking?.toJson(),
     };
   }
 }

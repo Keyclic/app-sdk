@@ -112,13 +112,22 @@ class AssignmentLinks {
   String toString() =>
       'AssignmentLinks[contract=$contract, member=$member, report=$report, self=$self, service=$service]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (contract != null) r'contract': contract,
-      if (member != null) r'member': member,
-      if (report != null) r'report': report,
-      if (self != null) r'self': self,
-      if (service != null) r'service': service,
+      if ((keys == null && contract != null) ||
+          (keys?.contains(r'contract') ?? false))
+        r'contract': contract?.toJson(),
+      if ((keys == null && member != null) ||
+          (keys?.contains(r'member') ?? false))
+        r'member': member?.toJson(),
+      if ((keys == null && report != null) ||
+          (keys?.contains(r'report') ?? false))
+        r'report': report?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && service != null) ||
+          (keys?.contains(r'service') ?? false))
+        r'service': service?.toJson(),
     };
   }
 }

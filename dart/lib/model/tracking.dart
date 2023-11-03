@@ -106,12 +106,19 @@ class Tracking {
   String toString() =>
       'Tracking[checkpoints=$checkpoints, progression=$progression, state=$state, time=$time]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (checkpoints != null) r'checkpoints': checkpoints,
-      if (progression != null) r'progression': progression,
-      if (state != null) r'state': state,
-      if (time != null) r'time': time,
+      if ((keys == null && checkpoints != null) ||
+          (keys?.contains(r'checkpoints') ?? false))
+        r'checkpoints': checkpoints,
+      if ((keys == null && progression != null) ||
+          (keys?.contains(r'progression') ?? false))
+        r'progression': progression?.toJson(),
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
+      if ((keys == null && time != null) || (keys?.contains(r'time') ?? false))
+        r'time': time,
     };
   }
 }

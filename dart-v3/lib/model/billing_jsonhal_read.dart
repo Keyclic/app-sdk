@@ -115,12 +115,20 @@ class BillingJsonhalRead {
   String toString() =>
       'BillingJsonhalRead[links=$links, adjustedCost=$adjustedCost, initialCost=$initialCost, startDate=$startDate]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (adjustedCost != null) r'adjustedCost': adjustedCost,
-      if (initialCost != null) r'initialCost': initialCost,
-      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && adjustedCost != null) ||
+          (keys?.contains(r'adjustedCost') ?? false))
+        r'adjustedCost': adjustedCost?.toJson(),
+      if ((keys == null && initialCost != null) ||
+          (keys?.contains(r'initialCost') ?? false))
+        r'initialCost': initialCost?.toJson(),
+      if ((keys == null && startDate != null) ||
+          (keys?.contains(r'startDate') ?? false))
+        r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }
 }

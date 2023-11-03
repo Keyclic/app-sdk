@@ -98,9 +98,11 @@ class ApplicationLinksKnowledgeBaseIriTemplateMapping {
   String toString() =>
       'ApplicationLinksKnowledgeBaseIriTemplateMapping[knowledgeBase=$knowledgeBase]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (knowledgeBase != null) r'knowledgeBase': knowledgeBase,
+      if ((keys == null && knowledgeBase != null) ||
+          (keys?.contains(r'knowledgeBase') ?? false))
+        r'knowledgeBase': knowledgeBase,
     };
   }
 }

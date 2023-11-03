@@ -103,11 +103,15 @@ class ConfigurationPlaceType {
   String toString() =>
       'ConfigurationPlaceType[id=$id, type=$type, workflow=$workflow]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (id != null) r'id': id,
-      if (type != null) r'type': type,
-      if (workflow != null) r'workflow': workflow,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && workflow != null) ||
+          (keys?.contains(r'workflow') ?? false))
+        r'workflow': workflow?.toJson(),
     };
   }
 }

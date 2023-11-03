@@ -86,9 +86,11 @@ class PlaceCollection {
   @override
   String toString() => 'PlaceCollection[items=$items]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (items != null) r'items': items,
+      if ((keys == null && items != null) ||
+          (keys?.contains(r'items') ?? false))
+        r'items': items,
     };
   }
 }

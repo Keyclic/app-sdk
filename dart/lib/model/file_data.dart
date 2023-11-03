@@ -96,7 +96,7 @@ class FileData {
   String toString() =>
       'FileData[content=$content, contentType=$contentType, name=$name]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'content': content,
       r'contentType': contentType,

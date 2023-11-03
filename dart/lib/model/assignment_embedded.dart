@@ -96,10 +96,14 @@ class AssignmentEmbedded {
   String toString() =>
       'AssignmentEmbedded[createdBy=$createdBy, service=$service]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (createdBy != null) r'createdBy': createdBy,
-      if (service != null) r'service': service,
+      if ((keys == null && createdBy != null) ||
+          (keys?.contains(r'createdBy') ?? false))
+        r'createdBy': createdBy?.toJson(),
+      if ((keys == null && service != null) ||
+          (keys?.contains(r'service') ?? false))
+        r'service': service?.toJson(),
     };
   }
 }

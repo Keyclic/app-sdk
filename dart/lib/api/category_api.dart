@@ -363,6 +363,7 @@ class CategoryApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -403,9 +404,7 @@ class CategoryApi {
     dynamic bodyData;
 
     try {
-      bodyData = categoryPatch.toJson();
-      // bodyData = jsonEncode(categoryPatch);
-      // bodyData = jsonDecode(jsonEncode(categoryPatch));
+      bodyData = categoryPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -480,6 +479,7 @@ class CategoryApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -519,9 +519,7 @@ class CategoryApi {
     dynamic bodyData;
 
     try {
-      bodyData = categoryData.toJson();
-      // bodyData = jsonEncode(categoryData);
-      // bodyData = jsonDecode(jsonEncode(categoryData));
+      bodyData = categoryData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

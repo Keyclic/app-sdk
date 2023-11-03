@@ -107,12 +107,18 @@ class PublicationLinks {
   String toString() =>
       'PublicationLinks[author=$author, feed=$feed, organization=$organization, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (author != null) r'author': author,
-      if (feed != null) r'feed': feed,
-      if (organization != null) r'organization': organization,
-      if (self != null) r'self': self,
+      if ((keys == null && author != null) ||
+          (keys?.contains(r'author') ?? false))
+        r'author': author?.toJson(),
+      if ((keys == null && feed != null) || (keys?.contains(r'feed') ?? false))
+        r'feed': feed?.toJson(),
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

@@ -155,20 +155,33 @@ class TaskPatch {
   String toString() =>
       'TaskPatch[archivedAt=$archivedAt, category=$category, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (archivedAt != null)
-        r'archivedAt': archivedAt!.toUtc().toIso8601String(),
-      if (category != null) r'category': category,
-      if (description != null) r'description': description,
-      if (dueBy != null) r'dueBy': dueBy!.toUtc().toIso8601String(),
-      if (identificationNumber != null)
+      if ((keys == null && archivedAt != null) ||
+          (keys?.contains(r'archivedAt') ?? false))
+        r'archivedAt': archivedAt?.toUtc().toIso8601String(),
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && dueBy != null) ||
+          (keys?.contains(r'dueBy') ?? false))
+        r'dueBy': dueBy?.toUtc().toIso8601String(),
+      if ((keys == null && identificationNumber != null) ||
+          (keys?.contains(r'identificationNumber') ?? false))
         r'identificationNumber': identificationNumber,
-      if (name != null) r'name': name,
-      if (priority != null) r'priority': priority,
-      if (scheduledAt != null)
-        r'scheduledAt': scheduledAt!.toUtc().toIso8601String(),
-      if (tags != null) r'tags': tags,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && priority != null) ||
+          (keys?.contains(r'priority') ?? false))
+        r'priority': priority,
+      if ((keys == null && scheduledAt != null) ||
+          (keys?.contains(r'scheduledAt') ?? false))
+        r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
+      if ((keys == null && tags != null) || (keys?.contains(r'tags') ?? false))
+        r'tags': tags,
     };
   }
 }

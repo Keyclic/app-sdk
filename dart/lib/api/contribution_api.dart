@@ -261,6 +261,7 @@ class ContributionApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -300,9 +301,7 @@ class ContributionApi {
     dynamic bodyData;
 
     try {
-      bodyData = contributionData.toJson();
-      // bodyData = jsonEncode(contributionData);
-      // bodyData = jsonDecode(jsonEncode(contributionData));
+      bodyData = contributionData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

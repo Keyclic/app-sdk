@@ -96,10 +96,13 @@ class ExternalServiceLinks {
   @override
   String toString() => 'ExternalServiceLinks[provider=$provider, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (provider != null) r'provider': provider,
-      if (self != null) r'self': self,
+      if ((keys == null && provider != null) ||
+          (keys?.contains(r'provider') ?? false))
+        r'provider': provider?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

@@ -91,10 +91,13 @@ class DeviceLinks {
   @override
   String toString() => 'DeviceLinks[person=$person, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (person != null) r'person': person,
-      if (self != null) r'self': self,
+      if ((keys == null && person != null) ||
+          (keys?.contains(r'person') ?? false))
+        r'person': person?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

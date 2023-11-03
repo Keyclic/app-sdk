@@ -88,10 +88,13 @@ class Metric {
   @override
   String toString() => 'Metric[name=$name, duration=$duration]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (name != null) r'name': name,
-      if (duration != null) r'duration': duration,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration?.toJson(),
     };
   }
 }

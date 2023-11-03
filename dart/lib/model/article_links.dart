@@ -93,10 +93,13 @@ class ArticleLinks {
   @override
   String toString() => 'ArticleLinks[section=$section, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (section != null) r'section': section,
-      if (self != null) r'self': self,
+      if ((keys == null && section != null) ||
+          (keys?.contains(r'section') ?? false))
+        r'section': section?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

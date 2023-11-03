@@ -921,6 +921,7 @@ class ReportApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     bool? xEnableDispatch,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -962,9 +963,7 @@ class ReportApi {
     dynamic bodyData;
 
     try {
-      bodyData = taskPatch.toJson();
-      // bodyData = jsonEncode(taskPatch);
-      // bodyData = jsonDecode(jsonEncode(taskPatch));
+      bodyData = taskPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1041,6 +1040,7 @@ class ReportApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1081,9 +1081,7 @@ class ReportApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentData.toJson();
-      // bodyData = jsonEncode(documentData);
-      // bodyData = jsonDecode(jsonEncode(documentData));
+      bodyData = documentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1162,6 +1160,7 @@ class ReportApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     bool? xEnableDispatch,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1203,9 +1202,7 @@ class ReportApi {
     dynamic bodyData;
 
     try {
-      bodyData = workflowData.toJson();
-      // bodyData = jsonEncode(workflowData);
-      // bodyData = jsonDecode(jsonEncode(workflowData));
+      bodyData = workflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -87,7 +87,7 @@ class ResetPasswordData {
   @override
   String toString() => 'ResetPasswordData[email=$email]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'email': email,
     };

@@ -105,12 +105,19 @@ class PlacePatch {
   String toString() =>
       'PlacePatch[address=$address, branchCode=$branchCode, description=$description, name=$name]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (address != null) r'address': address,
-      if (branchCode != null) r'branchCode': branchCode,
-      if (description != null) r'description': description,
-      if (name != null) r'name': name,
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
+      if ((keys == null && branchCode != null) ||
+          (keys?.contains(r'branchCode') ?? false))
+        r'branchCode': branchCode,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

@@ -120,14 +120,25 @@ class BookmarkPagination implements Pagination, BookmarkPaginationAllOf {
   String toString() =>
       'BookmarkPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (limit != null) r'limit': limit,
-      if (page != null) r'page': page,
-      if (pages != null) r'pages': pages,
-      if (total != null) r'total': total,
-      if (links != null) r'_links': links,
-      if (embedded != null) r'_embedded': embedded,
+      if ((keys == null && limit != null) ||
+          (keys?.contains(r'limit') ?? false))
+        r'limit': limit,
+      if ((keys == null && page != null) || (keys?.contains(r'page') ?? false))
+        r'page': page,
+      if ((keys == null && pages != null) ||
+          (keys?.contains(r'pages') ?? false))
+        r'pages': pages,
+      if ((keys == null && total != null) ||
+          (keys?.contains(r'total') ?? false))
+        r'total': total,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
     };
   }
 }

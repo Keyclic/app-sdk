@@ -115,13 +115,19 @@ class Marker {
   String toString() =>
       'Marker[links=$links, createdAt=$createdAt, id=$id, point=$point, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
-      r'point': point,
-      if (type != null) r'type': type,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      r'point': point.toJson(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

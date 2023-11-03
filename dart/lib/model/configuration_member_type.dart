@@ -103,11 +103,15 @@ class ConfigurationMemberType {
   String toString() =>
       'ConfigurationMemberType[id=$id, roles=$roles, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (id != null) r'id': id,
-      if (roles != null) r'roles': roles,
-      if (type != null) r'type': type,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && roles != null) ||
+          (keys?.contains(r'roles') ?? false))
+        r'roles': roles,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

@@ -124,16 +124,26 @@ class OperationData {
   String toString() =>
       'OperationData[description=$description, identificationNumber=$identificationNumber, report=$report, member=$member, name=$name, organization=$organization, scheduledAt=$scheduledAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (description != null) r'description': description,
-      if (identificationNumber != null)
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && identificationNumber != null) ||
+          (keys?.contains(r'identificationNumber') ?? false))
         r'identificationNumber': identificationNumber,
       r'report': report,
-      if (member != null) r'member': member,
-      if (name != null) r'name': name,
-      if (organization != null) r'organization': organization,
-      if (scheduledAt != null) r'scheduledAt': scheduledAt,
+      if ((keys == null && member != null) ||
+          (keys?.contains(r'member') ?? false))
+        r'member': member,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization,
+      if ((keys == null && scheduledAt != null) ||
+          (keys?.contains(r'scheduledAt') ?? false))
+        r'scheduledAt': scheduledAt,
     };
   }
 }

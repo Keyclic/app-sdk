@@ -85,9 +85,10 @@ class PaginationLink {
   @override
   String toString() => 'PaginationLink[href=$href]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (href != null) r'href': href,
+      if ((keys == null && href != null) || (keys?.contains(r'href') ?? false))
+        r'href': href,
     };
   }
 }

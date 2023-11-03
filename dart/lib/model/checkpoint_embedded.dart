@@ -87,9 +87,11 @@ class CheckpointEmbedded {
   @override
   String toString() => 'CheckpointEmbedded[createdBy=$createdBy]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (createdBy != null) r'createdBy': createdBy,
+      if ((keys == null && createdBy != null) ||
+          (keys?.contains(r'createdBy') ?? false))
+        r'createdBy': createdBy?.toJson(),
     };
   }
 }

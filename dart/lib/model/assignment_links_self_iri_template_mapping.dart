@@ -93,9 +93,11 @@ class AssignmentLinksSelfIriTemplateMapping {
   String toString() =>
       'AssignmentLinksSelfIriTemplateMapping[assignment=$assignment]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (assignment != null) r'assignment': assignment,
+      if ((keys == null && assignment != null) ||
+          (keys?.contains(r'assignment') ?? false))
+        r'assignment': assignment,
     };
   }
 }

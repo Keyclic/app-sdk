@@ -106,12 +106,18 @@ class DocumentLinks {
   String toString() =>
       'DocumentLinks[createdBy=$createdBy, file=$file, procedure=$procedure, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (createdBy != null) r'createdBy': createdBy,
-      if (file != null) r'file': file,
-      if (procedure != null) r'procedure': procedure,
-      if (self != null) r'self': self,
+      if ((keys == null && createdBy != null) ||
+          (keys?.contains(r'createdBy') ?? false))
+        r'createdBy': createdBy?.toJson(),
+      if ((keys == null && file != null) || (keys?.contains(r'file') ?? false))
+        r'file': file?.toJson(),
+      if ((keys == null && procedure != null) ||
+          (keys?.contains(r'procedure') ?? false))
+        r'procedure': procedure?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

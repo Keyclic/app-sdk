@@ -183,6 +183,7 @@ class DeviceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -222,9 +223,7 @@ class DeviceApi {
     dynamic bodyData;
 
     try {
-      bodyData = deviceData.toJson();
-      // bodyData = jsonEncode(deviceData);
-      // bodyData = jsonDecode(jsonEncode(deviceData));
+      bodyData = deviceData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

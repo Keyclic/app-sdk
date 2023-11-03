@@ -115,13 +115,20 @@ class ApplicationContactPoint {
   String toString() =>
       'ApplicationContactPoint[email=$email, id=$id, name=$name, telephone=$telephone, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (email != null) r'email': email,
-      if (id != null) r'id': id,
-      if (name != null) r'name': name,
-      if (telephone != null) r'telephone': telephone,
-      if (type != null) r'type': type,
+      if ((keys == null && email != null) ||
+          (keys?.contains(r'email') ?? false))
+        r'email': email,
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && telephone != null) ||
+          (keys?.contains(r'telephone') ?? false))
+        r'telephone': telephone,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

@@ -99,10 +99,13 @@ class FeatureGeometry {
   @override
   String toString() => 'FeatureGeometry[type=$type, coordinates=$coordinates]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (type != null) r'type': type,
-      if (coordinates != null) r'coordinates': coordinates,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && coordinates != null) ||
+          (keys?.contains(r'coordinates') ?? false))
+        r'coordinates': coordinates,
     };
   }
 }

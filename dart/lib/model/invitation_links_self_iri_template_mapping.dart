@@ -93,9 +93,11 @@ class InvitationLinksSelfIriTemplateMapping {
   String toString() =>
       'InvitationLinksSelfIriTemplateMapping[invitation=$invitation]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (invitation != null) r'invitation': invitation,
+      if ((keys == null && invitation != null) ||
+          (keys?.contains(r'invitation') ?? false))
+        r'invitation': invitation,
     };
   }
 }

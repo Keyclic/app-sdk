@@ -90,10 +90,12 @@ class MarkerDataPoint {
   @override
   String toString() => 'MarkerDataPoint[x=$x, y=$y]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (x != null) r'x': x,
-      if (y != null) r'y': y,
+      if ((keys == null && x != null) || (keys?.contains(r'x') ?? false))
+        r'x': x,
+      if ((keys == null && y != null) || (keys?.contains(r'y') ?? false))
+        r'y': y,
     };
   }
 }

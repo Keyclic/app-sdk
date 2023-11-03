@@ -105,12 +105,19 @@ class RuleLinks {
   String toString() =>
       'RuleLinks[category=$category, place=$place, self=$self, service=$service]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (category != null) r'category': category,
-      if (place != null) r'place': place,
-      if (self != null) r'self': self,
-      if (service != null) r'service': service,
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && service != null) ||
+          (keys?.contains(r'service') ?? false))
+        r'service': service?.toJson(),
     };
   }
 }

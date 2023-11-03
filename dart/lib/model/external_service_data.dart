@@ -108,11 +108,13 @@ class ExternalServiceData {
   String toString() =>
       'ExternalServiceData[organization=$organization, name=$name, description=$description, provider=$provider]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'organization': organization,
       r'name': name,
-      if (description != null) r'description': description,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
       r'provider': provider,
     };
   }

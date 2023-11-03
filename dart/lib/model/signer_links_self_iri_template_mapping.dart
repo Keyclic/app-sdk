@@ -91,9 +91,11 @@ class SignerLinksSelfIriTemplateMapping {
   @override
   String toString() => 'SignerLinksSelfIriTemplateMapping[signer=$signer]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (signer != null) r'signer': signer,
+      if ((keys == null && signer != null) ||
+          (keys?.contains(r'signer') ?? false))
+        r'signer': signer,
     };
   }
 }

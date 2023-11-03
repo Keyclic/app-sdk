@@ -210,6 +210,7 @@ class NoteApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class NoteApi {
     dynamic bodyData;
 
     try {
-      bodyData = notePatch.toJson();
-      // bodyData = jsonEncode(notePatch);
-      // bodyData = jsonDecode(jsonEncode(notePatch));
+      bodyData = notePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -327,6 +326,7 @@ class NoteApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -366,9 +366,7 @@ class NoteApi {
     dynamic bodyData;
 
     try {
-      bodyData = messageData.toJson();
-      // bodyData = jsonEncode(messageData);
-      // bodyData = jsonDecode(jsonEncode(messageData));
+      bodyData = messageData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

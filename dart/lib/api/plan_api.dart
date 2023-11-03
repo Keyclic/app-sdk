@@ -210,6 +210,7 @@ class PlanApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class PlanApi {
     dynamic bodyData;
 
     try {
-      bodyData = planPatch.toJson();
-      // bodyData = jsonEncode(planPatch);
-      // bodyData = jsonDecode(jsonEncode(planPatch));
+      bodyData = planPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -327,6 +326,7 @@ class PlanApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -366,9 +366,7 @@ class PlanApi {
     dynamic bodyData;
 
     try {
-      bodyData = planData.toJson();
-      // bodyData = jsonEncode(planData);
-      // bodyData = jsonDecode(jsonEncode(planData));
+      bodyData = planData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

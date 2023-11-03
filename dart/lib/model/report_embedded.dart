@@ -131,16 +131,32 @@ class ReportEmbedded {
   String toString() =>
       'ReportEmbedded[assignment=$assignment, category=$category, children=$children, documents=$documents, feedback=$feedback, place=$place, targetGroups=$targetGroups, workflow=$workflow]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (assignment != null) r'assignment': assignment,
-      if (category != null) r'category': category,
-      if (children != null) r'children': children,
-      if (documents != null) r'documents': documents,
-      if (feedback != null) r'feedback': feedback,
-      if (place != null) r'place': place,
-      if (targetGroups != null) r'targetGroups': targetGroups,
-      if (workflow != null) r'workflow': workflow,
+      if ((keys == null && assignment != null) ||
+          (keys?.contains(r'assignment') ?? false))
+        r'assignment': assignment?.toJson(),
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category?.toJson(),
+      if ((keys == null && children != null) ||
+          (keys?.contains(r'children') ?? false))
+        r'children': children,
+      if ((keys == null && documents != null) ||
+          (keys?.contains(r'documents') ?? false))
+        r'documents': documents,
+      if ((keys == null && feedback != null) ||
+          (keys?.contains(r'feedback') ?? false))
+        r'feedback': feedback?.toJson(),
+      if ((keys == null && place != null) ||
+          (keys?.contains(r'place') ?? false))
+        r'place': place?.toJson(),
+      if ((keys == null && targetGroups != null) ||
+          (keys?.contains(r'targetGroups') ?? false))
+        r'targetGroups': targetGroups,
+      if ((keys == null && workflow != null) ||
+          (keys?.contains(r'workflow') ?? false))
+        r'workflow': workflow?.toJson(),
     };
   }
 }

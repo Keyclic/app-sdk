@@ -110,12 +110,20 @@ class RunData {
   String toString() =>
       'RunData[event=$event, inputs=$inputs, outputs=$outputs, verbose=$verbose]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (event != null) r'event': event,
-      if (inputs != null) r'inputs': inputs,
-      if (outputs != null) r'outputs': outputs,
-      if (verbose != null) r'verbose': verbose,
+      if ((keys == null && event != null) ||
+          (keys?.contains(r'event') ?? false))
+        r'event': event,
+      if ((keys == null && inputs != null) ||
+          (keys?.contains(r'inputs') ?? false))
+        r'inputs': inputs,
+      if ((keys == null && outputs != null) ||
+          (keys?.contains(r'outputs') ?? false))
+        r'outputs': outputs,
+      if ((keys == null && verbose != null) ||
+          (keys?.contains(r'verbose') ?? false))
+        r'verbose': verbose,
     };
   }
 }

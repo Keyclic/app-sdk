@@ -121,14 +121,22 @@ class GetAssetTypes200ResponseLinks {
   String toString() =>
       'GetAssetTypes200ResponseLinks[self=$self, first=$first, last=$last, next=$next, previous=$previous, item=$item]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (self != null) r'self': self,
-      if (first != null) r'first': first,
-      if (last != null) r'last': last,
-      if (next != null) r'next': next,
-      if (previous != null) r'previous': previous,
-      if (item != null) r'item': item,
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && first != null) ||
+          (keys?.contains(r'first') ?? false))
+        r'first': first?.toJson(),
+      if ((keys == null && last != null) || (keys?.contains(r'last') ?? false))
+        r'last': last?.toJson(),
+      if ((keys == null && next != null) || (keys?.contains(r'next') ?? false))
+        r'next': next?.toJson(),
+      if ((keys == null && previous != null) ||
+          (keys?.contains(r'previous') ?? false))
+        r'previous': previous?.toJson(),
+      if ((keys == null && item != null) || (keys?.contains(r'item') ?? false))
+        r'item': item,
     };
   }
 }

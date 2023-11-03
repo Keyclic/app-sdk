@@ -94,10 +94,14 @@ class PlacePreferences {
   String toString() =>
       'PlacePreferences[public=$public, visibility=$visibility]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (public != null) r'public': public,
-      if (visibility != null) r'visibility': visibility,
+      if ((keys == null && public != null) ||
+          (keys?.contains(r'public') ?? false))
+        r'public': public,
+      if ((keys == null && visibility != null) ||
+          (keys?.contains(r'visibility') ?? false))
+        r'visibility': visibility,
     };
   }
 }

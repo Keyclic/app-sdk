@@ -751,6 +751,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -791,9 +792,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = taskPatch.toJson();
-      // bodyData = jsonEncode(taskPatch);
-      // bodyData = jsonDecode(jsonEncode(taskPatch));
+      bodyData = taskPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -870,6 +869,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -910,9 +910,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = assignData.toJson();
-      // bodyData = jsonEncode(assignData);
-      // bodyData = jsonDecode(jsonEncode(assignData));
+      bodyData = assignData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -989,6 +987,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1029,9 +1028,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = commentData.toJson();
-      // bodyData = jsonEncode(commentData);
-      // bodyData = jsonDecode(jsonEncode(commentData));
+      bodyData = commentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1108,6 +1105,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1148,9 +1146,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentData.toJson();
-      // bodyData = jsonEncode(documentData);
-      // bodyData = jsonDecode(jsonEncode(documentData));
+      bodyData = documentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1227,6 +1223,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1267,9 +1264,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = imageData.toJson();
-      // bodyData = jsonEncode(imageData);
-      // bodyData = jsonDecode(jsonEncode(imageData));
+      bodyData = imageData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1344,6 +1339,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1383,9 +1379,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = operationData.toJson();
-      // bodyData = jsonEncode(operationData);
-      // bodyData = jsonDecode(jsonEncode(operationData));
+      bodyData = operationData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1462,6 +1456,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1502,9 +1497,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = legacySignatureData.toJson();
-      // bodyData = jsonEncode(legacySignatureData);
-      // bodyData = jsonDecode(jsonEncode(legacySignatureData));
+      bodyData = legacySignatureData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -1581,6 +1574,7 @@ class OperationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1621,9 +1615,7 @@ class OperationApi {
     dynamic bodyData;
 
     try {
-      bodyData = workflowData.toJson();
-      // bodyData = jsonEncode(workflowData);
-      // bodyData = jsonDecode(jsonEncode(workflowData));
+      bodyData = workflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

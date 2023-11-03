@@ -106,12 +106,17 @@ class MemberData {
   String toString() =>
       'MemberData[contactPoint=$contactPoint, organization=$organization, person=$person, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (contactPoint != null) r'contactPoint': contactPoint,
+      if ((keys == null && contactPoint != null) ||
+          (keys?.contains(r'contactPoint') ?? false))
+        r'contactPoint': contactPoint?.toJson(),
       r'organization': organization,
-      if (person != null) r'person': person,
-      if (type != null) r'type': type,
+      if ((keys == null && person != null) ||
+          (keys?.contains(r'person') ?? false))
+        r'person': person,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

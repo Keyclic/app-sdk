@@ -305,6 +305,7 @@ class IntegrationLinkApi {
     required IntegrationLinkEditLinkCommandWrite
         integrationLinkEditLinkCommandWrite,
     String? acceptLanguage,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -339,9 +340,7 @@ class IntegrationLinkApi {
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkEditLinkCommandWrite.toJson();
-      // bodyData = jsonEncode(integrationLinkEditLinkCommandWrite);
-      // bodyData = jsonDecode(jsonEncode(integrationLinkEditLinkCommandWrite));
+      bodyData = integrationLinkEditLinkCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -408,6 +407,7 @@ class IntegrationLinkApi {
     required IntegrationLinkCreateLinkCommandWrite
         integrationLinkCreateLinkCommandWrite,
     String? acceptLanguage,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -441,9 +441,7 @@ class IntegrationLinkApi {
     dynamic bodyData;
 
     try {
-      bodyData = integrationLinkCreateLinkCommandWrite.toJson();
-      // bodyData = jsonEncode(integrationLinkCreateLinkCommandWrite);
-      // bodyData = jsonDecode(jsonEncode(integrationLinkCreateLinkCommandWrite));
+      bodyData = integrationLinkCreateLinkCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

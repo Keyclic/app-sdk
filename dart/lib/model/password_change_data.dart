@@ -87,7 +87,7 @@ class PasswordChangeData {
   @override
   String toString() => 'PasswordChangeData[password=$password]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'password': password,
     };

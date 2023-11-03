@@ -208,6 +208,7 @@ class InvitationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -247,9 +248,7 @@ class InvitationApi {
     dynamic bodyData;
 
     try {
-      bodyData = invitationData.toJson();
-      // bodyData = jsonEncode(invitationData);
-      // bodyData = jsonDecode(jsonEncode(invitationData));
+      bodyData = invitationData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

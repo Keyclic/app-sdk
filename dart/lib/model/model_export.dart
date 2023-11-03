@@ -124,13 +124,19 @@ class ModelExport {
   String toString() =>
       'ModelExport[contentType=$contentType, createdAt=$createdAt, id=$id, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'contentType': contentType,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

@@ -355,6 +355,7 @@ class DigitalDocumentApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -395,9 +396,7 @@ class DigitalDocumentApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentPatch.toJson();
-      // bodyData = jsonEncode(documentPatch);
-      // bodyData = jsonDecode(jsonEncode(documentPatch));
+      bodyData = documentPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -472,6 +471,7 @@ class DigitalDocumentApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -511,9 +511,7 @@ class DigitalDocumentApi {
     dynamic bodyData;
 
     try {
-      bodyData = documentData.toJson();
-      // bodyData = jsonEncode(documentData);
-      // bodyData = jsonDecode(jsonEncode(documentData));
+      bodyData = documentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

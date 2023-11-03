@@ -94,10 +94,14 @@ class PriceRead {
   @override
   String toString() => 'PriceRead[currencyCode=$currencyCode, value=$value]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (currencyCode != null) r'currencyCode': currencyCode,
-      if (value != null) r'value': value,
+      if ((keys == null && currencyCode != null) ||
+          (keys?.contains(r'currencyCode') ?? false))
+        r'currencyCode': currencyCode,
+      if ((keys == null && value != null) ||
+          (keys?.contains(r'value') ?? false))
+        r'value': value,
     };
   }
 }

@@ -117,13 +117,22 @@ class DocumentEmbedded {
   String toString() =>
       'DocumentEmbedded[container=$container, createdBy=$createdBy, signers=$signers, stateTransitions=$stateTransitions, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (container != null) r'container': container,
-      if (createdBy != null) r'createdBy': createdBy,
-      if (signers != null) r'signers': signers,
-      if (stateTransitions != null) r'stateTransitions': stateTransitions,
-      if (type != null) r'type': type,
+      if ((keys == null && container != null) ||
+          (keys?.contains(r'container') ?? false))
+        r'container': container,
+      if ((keys == null && createdBy != null) ||
+          (keys?.contains(r'createdBy') ?? false))
+        r'createdBy': createdBy?.toJson(),
+      if ((keys == null && signers != null) ||
+          (keys?.contains(r'signers') ?? false))
+        r'signers': signers,
+      if ((keys == null && stateTransitions != null) ||
+          (keys?.contains(r'stateTransitions') ?? false))
+        r'stateTransitions': stateTransitions,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type?.toJson(),
     };
   }
 }

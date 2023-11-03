@@ -88,9 +88,11 @@ class FeedbackPaginationAllOf {
   @override
   String toString() => 'FeedbackPaginationAllOf[embedded=$embedded]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (embedded != null) r'_embedded': embedded,
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
     };
   }
 }

@@ -96,10 +96,14 @@ class ContributionLinks {
   String toString() =>
       'ContributionLinks[contributor=$contributor, feedback=$feedback]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (contributor != null) r'contributor': contributor,
-      if (feedback != null) r'feedback': feedback,
+      if ((keys == null && contributor != null) ||
+          (keys?.contains(r'contributor') ?? false))
+        r'contributor': contributor?.toJson(),
+      if ((keys == null && feedback != null) ||
+          (keys?.contains(r'feedback') ?? false))
+        r'feedback': feedback?.toJson(),
     };
   }
 }

@@ -586,6 +586,7 @@ class EquipmentApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -627,9 +628,7 @@ class EquipmentApi {
     dynamic bodyData;
 
     try {
-      bodyData = equipmentEditEquipmentCommandWrite.toJson();
-      // bodyData = jsonEncode(equipmentEditEquipmentCommandWrite);
-      // bodyData = jsonDecode(jsonEncode(equipmentEditEquipmentCommandWrite));
+      bodyData = equipmentEditEquipmentCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -705,6 +704,7 @@ class EquipmentApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -745,9 +745,7 @@ class EquipmentApi {
     dynamic bodyData;
 
     try {
-      bodyData = equipmentCreateEquipmentCommandWrite.toJson();
-      // bodyData = jsonEncode(equipmentCreateEquipmentCommandWrite);
-      // bodyData = jsonDecode(jsonEncode(equipmentCreateEquipmentCommandWrite));
+      bodyData = equipmentCreateEquipmentCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

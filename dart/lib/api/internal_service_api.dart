@@ -437,6 +437,7 @@ class InternalServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -477,9 +478,7 @@ class InternalServiceApi {
     dynamic bodyData;
 
     try {
-      bodyData = internalServicePatch.toJson();
-      // bodyData = jsonEncode(internalServicePatch);
-      // bodyData = jsonDecode(jsonEncode(internalServicePatch));
+      bodyData = internalServicePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -554,6 +553,7 @@ class InternalServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -593,9 +593,7 @@ class InternalServiceApi {
     dynamic bodyData;
 
     try {
-      bodyData = internalServiceData.toJson();
-      // bodyData = jsonEncode(internalServiceData);
-      // bodyData = jsonDecode(jsonEncode(internalServiceData));
+      bodyData = internalServiceData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -672,6 +670,7 @@ class InternalServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -712,9 +711,7 @@ class InternalServiceApi {
     dynamic bodyData;
 
     try {
-      bodyData = serviceMemberData.toJson();
-      // bodyData = jsonEncode(serviceMemberData);
-      // bodyData = jsonDecode(jsonEncode(serviceMemberData));
+      bodyData = serviceMemberData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

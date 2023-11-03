@@ -93,10 +93,13 @@ class CategoryEmbedded {
   @override
   String toString() => 'CategoryEmbedded[children=$children, path=$path]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (children != null) r'children': children,
-      if (path != null) r'path': path,
+      if ((keys == null && children != null) ||
+          (keys?.contains(r'children') ?? false))
+        r'children': children,
+      if ((keys == null && path != null) || (keys?.contains(r'path') ?? false))
+        r'path': path,
     };
   }
 }

@@ -157,18 +157,33 @@ class OrganizationPatch {
   String toString() =>
       'OrganizationPatch[address=$address, alternateName=$alternateName, archivedAt=$archivedAt, description=$description, endDate=$endDate, logo=$logo, name=$name, preferences=$preferences, startDate=$startDate]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (address != null) r'address': address,
-      if (alternateName != null) r'alternateName': alternateName,
-      if (archivedAt != null)
-        r'archivedAt': archivedAt!.toUtc().toIso8601String(),
-      if (description != null) r'description': description,
-      if (endDate != null) r'endDate': endDate!.toUtc().toIso8601String(),
-      if (logo != null) r'logo': logo,
-      if (name != null) r'name': name,
-      if (preferences != null) r'preferences': preferences,
-      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
+      if ((keys == null && alternateName != null) ||
+          (keys?.contains(r'alternateName') ?? false))
+        r'alternateName': alternateName,
+      if ((keys == null && archivedAt != null) ||
+          (keys?.contains(r'archivedAt') ?? false))
+        r'archivedAt': archivedAt?.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && endDate != null) ||
+          (keys?.contains(r'endDate') ?? false))
+        r'endDate': endDate?.toUtc().toIso8601String(),
+      if ((keys == null && logo != null) || (keys?.contains(r'logo') ?? false))
+        r'logo': logo,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && preferences != null) ||
+          (keys?.contains(r'preferences') ?? false))
+        r'preferences': preferences?.toJson(),
+      if ((keys == null && startDate != null) ||
+          (keys?.contains(r'startDate') ?? false))
+        r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }
 }

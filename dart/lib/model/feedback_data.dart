@@ -144,17 +144,31 @@ class FeedbackData {
   String toString() =>
       'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (batch != null) r'batch': batch,
-      if (businessActivity != null) r'businessActivity': businessActivity,
-      if (category != null) r'category': category,
-      if (description != null) r'description': description,
-      r'geo': geo,
-      if (metadata != null) r'metadata': metadata,
+      if ((keys == null && batch != null) ||
+          (keys?.contains(r'batch') ?? false))
+        r'batch': batch,
+      if ((keys == null && businessActivity != null) ||
+          (keys?.contains(r'businessActivity') ?? false))
+        r'businessActivity': businessActivity,
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category,
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      r'geo': geo.toJson(),
+      if ((keys == null && metadata != null) ||
+          (keys?.contains(r'metadata') ?? false))
+        r'metadata': metadata,
       r'place': place,
-      if (priority != null) r'priority': priority,
-      if (reporter != null) r'reporter': reporter,
+      if ((keys == null && priority != null) ||
+          (keys?.contains(r'priority') ?? false))
+        r'priority': priority,
+      if ((keys == null && reporter != null) ||
+          (keys?.contains(r'reporter') ?? false))
+        r'reporter': reporter,
       r'visibility': visibility,
     };
   }

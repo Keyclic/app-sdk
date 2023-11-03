@@ -94,9 +94,11 @@ class AssignmentLinksMemberIriTemplateMapping {
   String toString() =>
       'AssignmentLinksMemberIriTemplateMapping[member=$member]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (member != null) r'member': member,
+      if ((keys == null && member != null) ||
+          (keys?.contains(r'member') ?? false))
+        r'member': member,
     };
   }
 }

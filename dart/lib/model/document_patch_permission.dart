@@ -88,9 +88,11 @@ class DocumentPatchPermission {
   @override
   String toString() => 'DocumentPatchPermission[targetGroup=$targetGroup]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (targetGroup != null) r'targetGroup': targetGroup,
+      if ((keys == null && targetGroup != null) ||
+          (keys?.contains(r'targetGroup') ?? false))
+        r'targetGroup': targetGroup,
     };
   }
 }

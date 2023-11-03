@@ -93,10 +93,13 @@ class InvitationLinks {
   @override
   String toString() => 'InvitationLinks[member=$member, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (member != null) r'member': member,
-      if (self != null) r'self': self,
+      if ((keys == null && member != null) ||
+          (keys?.contains(r'member') ?? false))
+        r'member': member?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

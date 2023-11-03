@@ -102,10 +102,14 @@ class WarrantyWrite {
   String toString() =>
       'WarrantyWrite[duration=$duration, startDate=$startDate]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (duration != null) r'duration': duration,
-      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration,
+      if ((keys == null && startDate != null) ||
+          (keys?.contains(r'startDate') ?? false))
+        r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }
 }

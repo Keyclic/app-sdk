@@ -87,9 +87,11 @@ class ProcedureEmbedded {
   @override
   String toString() => 'ProcedureEmbedded[document=$document]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (document != null) r'document': document,
+      if ((keys == null && document != null) ||
+          (keys?.contains(r'document') ?? false))
+        r'document': document?.toJson(),
     };
   }
 }

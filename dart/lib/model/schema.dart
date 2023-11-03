@@ -93,10 +93,14 @@ class Schema {
   @override
   String toString() => 'Schema[properties=$properties, required_=$required_]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (properties != null) r'properties': properties,
-      if (required_ != null) r'required': required_,
+      if ((keys == null && properties != null) ||
+          (keys?.contains(r'properties') ?? false))
+        r'properties': properties,
+      if ((keys == null && required_ != null) ||
+          (keys?.contains(r'required_') ?? false))
+        r'required': required_,
     };
   }
 }

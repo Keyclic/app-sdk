@@ -95,9 +95,11 @@ class ReviewRequestLinksSelfIriTemplateMapping {
   String toString() =>
       'ReviewRequestLinksSelfIriTemplateMapping[reviewRequest=$reviewRequest]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (reviewRequest != null) r'reviewRequest': reviewRequest,
+      if ((keys == null && reviewRequest != null) ||
+          (keys?.contains(r'reviewRequest') ?? false))
+        r'reviewRequest': reviewRequest,
     };
   }
 }

@@ -122,14 +122,24 @@ class OrganizationLinks {
   String toString() =>
       'OrganizationLinks[application=$application, businessActivity=$businessActivity, configuration=$configuration, dispatcher=$dispatcher, logo=$logo, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (application != null) r'application': application,
-      if (businessActivity != null) r'businessActivity': businessActivity,
-      if (configuration != null) r'configuration': configuration,
-      if (dispatcher != null) r'dispatcher': dispatcher,
-      if (logo != null) r'logo': logo,
-      if (self != null) r'self': self,
+      if ((keys == null && application != null) ||
+          (keys?.contains(r'application') ?? false))
+        r'application': application?.toJson(),
+      if ((keys == null && businessActivity != null) ||
+          (keys?.contains(r'businessActivity') ?? false))
+        r'businessActivity': businessActivity?.toJson(),
+      if ((keys == null && configuration != null) ||
+          (keys?.contains(r'configuration') ?? false))
+        r'configuration': configuration?.toJson(),
+      if ((keys == null && dispatcher != null) ||
+          (keys?.contains(r'dispatcher') ?? false))
+        r'dispatcher': dispatcher?.toJson(),
+      if ((keys == null && logo != null) || (keys?.contains(r'logo') ?? false))
+        r'logo': logo?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

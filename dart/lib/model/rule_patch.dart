@@ -92,10 +92,14 @@ class RulePatch {
   @override
   String toString() => 'RulePatch[category=$category, service=$service]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (category != null) r'category': category,
-      if (service != null) r'service': service,
+      if ((keys == null && category != null) ||
+          (keys?.contains(r'category') ?? false))
+        r'category': category,
+      if ((keys == null && service != null) ||
+          (keys?.contains(r'service') ?? false))
+        r'service': service,
     };
   }
 }

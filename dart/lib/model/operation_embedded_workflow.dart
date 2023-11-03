@@ -104,11 +104,17 @@ class OperationEmbeddedWorkflow {
   String toString() =>
       'OperationEmbeddedWorkflow[metrics=$metrics, state=$state, transitions=$transitions]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (metrics != null) r'metrics': metrics,
-      if (state != null) r'state': state,
-      if (transitions != null) r'transitions': transitions,
+      if ((keys == null && metrics != null) ||
+          (keys?.contains(r'metrics') ?? false))
+        r'metrics': metrics,
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state?.toJson(),
+      if ((keys == null && transitions != null) ||
+          (keys?.contains(r'transitions') ?? false))
+        r'transitions': transitions,
     };
   }
 }

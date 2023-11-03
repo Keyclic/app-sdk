@@ -85,9 +85,11 @@ class CheckpointLinks {
   @override
   String toString() => 'CheckpointLinks[organization=$organization]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (organization != null) r'organization': organization,
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
     };
   }
 }

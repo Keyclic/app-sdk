@@ -158,22 +158,43 @@ class OrganizationPreferences {
   String toString() =>
       'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (archiving != null) r'archiving': archiving,
-      if (categoryRequired != null) r'categoryRequired': categoryRequired,
-      if (contract != null) r'contract': contract,
-      if (electronicSignature != null)
-        r'electronicSignature': electronicSignature,
-      if (equipment != null) r'equipment': equipment,
-      if (feedbackParentPlace != null)
+      if ((keys == null && archiving != null) ||
+          (keys?.contains(r'archiving') ?? false))
+        r'archiving': archiving?.toJson(),
+      if ((keys == null && categoryRequired != null) ||
+          (keys?.contains(r'categoryRequired') ?? false))
+        r'categoryRequired': categoryRequired,
+      if ((keys == null && contract != null) ||
+          (keys?.contains(r'contract') ?? false))
+        r'contract': contract?.toJson(),
+      if ((keys == null && electronicSignature != null) ||
+          (keys?.contains(r'electronicSignature') ?? false))
+        r'electronicSignature': electronicSignature?.toJson(),
+      if ((keys == null && equipment != null) ||
+          (keys?.contains(r'equipment') ?? false))
+        r'equipment': equipment?.toJson(),
+      if ((keys == null && feedbackParentPlace != null) ||
+          (keys?.contains(r'feedbackParentPlace') ?? false))
         r'feedbackParentPlace': feedbackParentPlace,
-      if (form != null) r'form': form,
-      if (offline != null) r'offline': offline,
-      if (public != null) r'public': public,
-      if (reference != null) r'reference': reference,
-      if (reverseGeocoding != null) r'reverseGeocoding': reverseGeocoding,
-      if (reviewEnabled != null) r'reviewEnabled': reviewEnabled,
+      if ((keys == null && form != null) || (keys?.contains(r'form') ?? false))
+        r'form': form?.toJson(),
+      if ((keys == null && offline != null) ||
+          (keys?.contains(r'offline') ?? false))
+        r'offline': offline,
+      if ((keys == null && public != null) ||
+          (keys?.contains(r'public') ?? false))
+        r'public': public,
+      if ((keys == null && reference != null) ||
+          (keys?.contains(r'reference') ?? false))
+        r'reference': reference?.toJson(),
+      if ((keys == null && reverseGeocoding != null) ||
+          (keys?.contains(r'reverseGeocoding') ?? false))
+        r'reverseGeocoding': reverseGeocoding,
+      if ((keys == null && reviewEnabled != null) ||
+          (keys?.contains(r'reviewEnabled') ?? false))
+        r'reviewEnabled': reviewEnabled,
     };
   }
 }

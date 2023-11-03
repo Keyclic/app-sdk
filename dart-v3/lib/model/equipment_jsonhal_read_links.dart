@@ -115,13 +115,21 @@ class EquipmentJsonhalReadLinks {
   String toString() =>
       'EquipmentJsonhalReadLinks[self=$self, brand=$brand, type=$type, parent=$parent, state=$state]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (self != null) r'self': self,
-      if (brand != null) r'brand': brand,
-      if (type != null) r'type': type,
-      if (parent != null) r'parent': parent,
-      if (state != null) r'state': state,
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
+      if ((keys == null && brand != null) ||
+          (keys?.contains(r'brand') ?? false))
+        r'brand': brand?.toJson(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type?.toJson(),
+      if ((keys == null && parent != null) ||
+          (keys?.contains(r'parent') ?? false))
+        r'parent': parent?.toJson(),
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state?.toJson(),
     };
   }
 }

@@ -208,6 +208,7 @@ class OccupantApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -247,9 +248,7 @@ class OccupantApi {
     dynamic bodyData;
 
     try {
-      bodyData = occupantData.toJson();
-      // bodyData = jsonEncode(occupantData);
-      // bodyData = jsonDecode(jsonEncode(occupantData));
+      bodyData = occupantData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

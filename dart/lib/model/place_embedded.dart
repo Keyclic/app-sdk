@@ -114,13 +114,22 @@ class PlaceEmbedded {
   String toString() =>
       'PlaceEmbedded[documentTypes=$documentTypes, organization=$organization, path=$path, targetGroups=$targetGroups, workflow=$workflow]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (documentTypes != null) r'documentTypes': documentTypes,
-      if (organization != null) r'organization': organization,
-      if (path != null) r'path': path,
-      if (targetGroups != null) r'targetGroups': targetGroups,
-      if (workflow != null) r'workflow': workflow,
+      if ((keys == null && documentTypes != null) ||
+          (keys?.contains(r'documentTypes') ?? false))
+        r'documentTypes': documentTypes,
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && path != null) || (keys?.contains(r'path') ?? false))
+        r'path': path,
+      if ((keys == null && targetGroups != null) ||
+          (keys?.contains(r'targetGroups') ?? false))
+        r'targetGroups': targetGroups,
+      if ((keys == null && workflow != null) ||
+          (keys?.contains(r'workflow') ?? false))
+        r'workflow': workflow?.toJson(),
     };
   }
 }

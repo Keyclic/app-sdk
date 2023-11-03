@@ -119,13 +119,21 @@ class IntegrationLinkEditLinkCommandWrite {
   String toString() =>
       'IntegrationLinkEditLinkCommandWrite[data=$data, metadata=$metadata, name=$name, state=$state, target=$target]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (data != null) r'data': data,
-      if (metadata != null) r'metadata': metadata,
-      if (name != null) r'name': name,
-      if (state != null) r'state': state,
-      if (target != null) r'target': target,
+      if ((keys == null && data != null) || (keys?.contains(r'data') ?? false))
+        r'data': data,
+      if ((keys == null && metadata != null) ||
+          (keys?.contains(r'metadata') ?? false))
+        r'metadata': metadata,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
+      if ((keys == null && target != null) ||
+          (keys?.contains(r'target') ?? false))
+        r'target': target,
     };
   }
 }

@@ -100,11 +100,17 @@ class MemberEmbedded {
   String toString() =>
       'MemberEmbedded[organization=$organization, person=$person, roles=$roles]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (organization != null) r'organization': organization,
-      if (person != null) r'person': person,
-      if (roles != null) r'roles': roles,
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization?.toJson(),
+      if ((keys == null && person != null) ||
+          (keys?.contains(r'person') ?? false))
+        r'person': person?.toJson(),
+      if ((keys == null && roles != null) ||
+          (keys?.contains(r'roles') ?? false))
+        r'roles': roles,
     };
   }
 }

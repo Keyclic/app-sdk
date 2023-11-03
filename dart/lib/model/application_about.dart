@@ -92,10 +92,12 @@ class ApplicationAbout {
   @override
   String toString() => 'ApplicationAbout[name=$name, text=$text]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (name != null) r'name': name,
-      if (text != null) r'text': text,
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
+        r'text': text,
     };
   }
 }

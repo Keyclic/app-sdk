@@ -88,9 +88,11 @@ class ApplicationConfiguration {
   @override
   String toString() => 'ApplicationConfiguration[public=$public]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (public != null) r'public': public,
+      if ((keys == null && public != null) ||
+          (keys?.contains(r'public') ?? false))
+        r'public': public,
     };
   }
 }

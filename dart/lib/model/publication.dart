@@ -148,17 +148,27 @@ class Publication {
   String toString() =>
       'Publication[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, message=$message, read=$read, title=$title, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (embedded != null) r'_embedded': embedded,
-      if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
+      if ((keys == null && embedded != null) ||
+          (keys?.contains(r'embedded') ?? false))
+        r'_embedded': embedded?.toJson(),
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
       r'message': message,
       r'read': read,
       r'title': title,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

@@ -90,10 +90,13 @@ class PersonLinks {
   @override
   String toString() => 'PersonLinks[image=$image, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (image != null) r'image': image,
-      if (self != null) r'self': self,
+      if ((keys == null && image != null) ||
+          (keys?.contains(r'image') ?? false))
+        r'image': image?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

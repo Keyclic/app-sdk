@@ -160,19 +160,36 @@ class Workflow {
   String toString() =>
       'Workflow[links=$links, createdAt=$createdAt, description=$description, end=$end, id=$id, name=$name, start=$start, states=$states, transitions=$transitions, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (description != null) r'description': description,
-      if (end != null) r'end': end,
-      if (id != null) r'id': id,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && end != null) || (keys?.contains(r'end') ?? false))
+        r'end': end?.toJson(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
       r'name': name,
-      if (start != null) r'start': start,
-      if (states != null) r'states': states,
-      if (transitions != null) r'transitions': transitions,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
+      if ((keys == null && start != null) ||
+          (keys?.contains(r'start') ?? false))
+        r'start': start?.toJson(),
+      if ((keys == null && states != null) ||
+          (keys?.contains(r'states') ?? false))
+        r'states': states,
+      if ((keys == null && transitions != null) ||
+          (keys?.contains(r'transitions') ?? false))
+        r'transitions': transitions,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

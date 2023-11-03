@@ -95,10 +95,13 @@ class ApplicationLinks {
   String toString() =>
       'ApplicationLinks[knowledgeBase=$knowledgeBase, self=$self]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (knowledgeBase != null) r'knowledgeBase': knowledgeBase,
-      if (self != null) r'self': self,
+      if ((keys == null && knowledgeBase != null) ||
+          (keys?.contains(r'knowledgeBase') ?? false))
+        r'knowledgeBase': knowledgeBase?.toJson(),
+      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
+        r'self': self?.toJson(),
     };
   }
 }

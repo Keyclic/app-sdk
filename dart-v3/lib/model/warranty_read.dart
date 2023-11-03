@@ -115,11 +115,17 @@ class WarrantyRead {
   String toString() =>
       'WarrantyRead[duration=$duration, endDate=$endDate, startDate=$startDate]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (duration != null) r'duration': duration,
-      if (endDate != null) r'endDate': endDate!.toUtc().toIso8601String(),
-      if (startDate != null) r'startDate': startDate!.toUtc().toIso8601String(),
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration,
+      if ((keys == null && endDate != null) ||
+          (keys?.contains(r'endDate') ?? false))
+        r'endDate': endDate?.toUtc().toIso8601String(),
+      if ((keys == null && startDate != null) ||
+          (keys?.contains(r'startDate') ?? false))
+        r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }
 }

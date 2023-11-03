@@ -90,7 +90,7 @@ class LoginData {
   @override
   String toString() => 'LoginData[login=$login, password=$password]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       r'login': login,
       r'password': password,

@@ -174,21 +174,42 @@ class ContractEditContractCommandWrite {
   String toString() =>
       'ContractEditContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, type=$type]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (billing != null) r'billing': billing,
-      if (description != null) r'description': description,
-      if (duration != null) r'duration': duration,
-      if (effectiveDate != null)
-        r'effectiveDate': effectiveDate!.toUtc().toIso8601String(),
-      if (name != null) r'name': name,
-      if (number != null) r'number': number,
-      if (onCall != null) r'onCall': onCall,
-      if (provider != null) r'provider': provider,
-      if (renewal != null) r'renewal': renewal,
-      if (signedAt != null) r'signedAt': signedAt!.toUtc().toIso8601String(),
-      if (state != null) r'state': state,
-      if (type != null) r'type': type,
+      if ((keys == null && billing != null) ||
+          (keys?.contains(r'billing') ?? false))
+        r'billing': billing?.toJson(),
+      if ((keys == null && description != null) ||
+          (keys?.contains(r'description') ?? false))
+        r'description': description,
+      if ((keys == null && duration != null) ||
+          (keys?.contains(r'duration') ?? false))
+        r'duration': duration,
+      if ((keys == null && effectiveDate != null) ||
+          (keys?.contains(r'effectiveDate') ?? false))
+        r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
+      if ((keys == null && number != null) ||
+          (keys?.contains(r'number') ?? false))
+        r'number': number,
+      if ((keys == null && onCall != null) ||
+          (keys?.contains(r'onCall') ?? false))
+        r'onCall': onCall,
+      if ((keys == null && provider != null) ||
+          (keys?.contains(r'provider') ?? false))
+        r'provider': provider,
+      if ((keys == null && renewal != null) ||
+          (keys?.contains(r'renewal') ?? false))
+        r'renewal': renewal?.toJson(),
+      if ((keys == null && signedAt != null) ||
+          (keys?.contains(r'signedAt') ?? false))
+        r'signedAt': signedAt?.toUtc().toIso8601String(),
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
     };
   }
 }

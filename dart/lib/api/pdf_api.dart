@@ -41,6 +41,7 @@ class PdfApi {
     String? xKeyclicAppVersion,
     int? page,
     int? limit,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -85,9 +86,7 @@ class PdfApi {
     dynamic bodyData;
 
     try {
-      bodyData = fileData.toJson();
-      // bodyData = jsonEncode(fileData);
-      // bodyData = jsonDecode(jsonEncode(fileData));
+      bodyData = fileData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

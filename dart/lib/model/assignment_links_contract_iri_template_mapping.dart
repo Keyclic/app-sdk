@@ -95,9 +95,11 @@ class AssignmentLinksContractIriTemplateMapping {
   String toString() =>
       'AssignmentLinksContractIriTemplateMapping[identifier=$identifier]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (identifier != null) r'identifier': identifier,
+      if ((keys == null && identifier != null) ||
+          (keys?.contains(r'identifier') ?? false))
+        r'identifier': identifier,
     };
   }
 }

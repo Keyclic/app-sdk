@@ -93,9 +93,11 @@ class WorkflowLinksSelfIriTemplateMapping {
   String toString() =>
       'WorkflowLinksSelfIriTemplateMapping[workflow=$workflow]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (workflow != null) r'workflow': workflow,
+      if ((keys == null && workflow != null) ||
+          (keys?.contains(r'workflow') ?? false))
+        r'workflow': workflow,
     };
   }
 }

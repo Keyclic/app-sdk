@@ -208,6 +208,7 @@ class PublicationApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -247,9 +248,7 @@ class PublicationApi {
     dynamic bodyData;
 
     try {
-      bodyData = publicationData.toJson();
-      // bodyData = jsonEncode(publicationData);
-      // bodyData = jsonDecode(jsonEncode(publicationData));
+      bodyData = publicationData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

@@ -168,20 +168,38 @@ class Application {
   String toString() =>
       'Application[links=$links, about=$about, agreement=$agreement, configuration=$configuration, contactPoints=$contactPoints, createdAt=$createdAt, id=$id, name=$name, token=$token, type=$type, updatedAt=$updatedAt, version=$version]';
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
-      if (links != null) r'_links': links,
-      if (about != null) r'about': about,
-      if (agreement != null) r'agreement': agreement,
-      if (configuration != null) r'configuration': configuration,
-      if (contactPoints != null) r'contactPoints': contactPoints,
-      if (createdAt != null) r'createdAt': createdAt!.toUtc().toIso8601String(),
-      if (id != null) r'id': id,
+      if ((keys == null && links != null) ||
+          (keys?.contains(r'links') ?? false))
+        r'_links': links?.toJson(),
+      if ((keys == null && about != null) ||
+          (keys?.contains(r'about') ?? false))
+        r'about': about?.toJson(),
+      if ((keys == null && agreement != null) ||
+          (keys?.contains(r'agreement') ?? false))
+        r'agreement': agreement?.toJson(),
+      if ((keys == null && configuration != null) ||
+          (keys?.contains(r'configuration') ?? false))
+        r'configuration': configuration?.toJson(),
+      if ((keys == null && contactPoints != null) ||
+          (keys?.contains(r'contactPoints') ?? false))
+        r'contactPoints': contactPoints,
+      if ((keys == null && createdAt != null) ||
+          (keys?.contains(r'createdAt') ?? false))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
+        r'id': id,
       r'name': name,
       r'token': token,
-      if (type != null) r'type': type,
-      if (updatedAt != null) r'updatedAt': updatedAt!.toUtc().toIso8601String(),
-      if (version != null) r'version': version,
+      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
+        r'type': type,
+      if ((keys == null && updatedAt != null) ||
+          (keys?.contains(r'updatedAt') ?? false))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && version != null) ||
+          (keys?.contains(r'version') ?? false))
+        r'version': version,
     };
   }
 }

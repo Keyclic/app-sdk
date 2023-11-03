@@ -210,6 +210,7 @@ class ExternalServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -250,9 +251,7 @@ class ExternalServiceApi {
     dynamic bodyData;
 
     try {
-      bodyData = externalServicePatch.toJson();
-      // bodyData = jsonEncode(externalServicePatch);
-      // bodyData = jsonDecode(jsonEncode(externalServicePatch));
+      bodyData = externalServicePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(
@@ -327,6 +326,7 @@ class ExternalServiceApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -366,9 +366,7 @@ class ExternalServiceApi {
     dynamic bodyData;
 
     try {
-      bodyData = externalServiceData.toJson();
-      // bodyData = jsonEncode(externalServiceData);
-      // bodyData = jsonDecode(jsonEncode(externalServiceData));
+      bodyData = externalServiceData.toJson(bodyParameters);
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: options.compose(

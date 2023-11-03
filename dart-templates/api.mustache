@@ -122,7 +122,7 @@ class {{classname}} {
             bodyData = {{paramName}}{{#isFile}}.finalize(){{/isFile}};
         {{/isPrimitiveType}}
         {{^isPrimitiveType}}
-            bodyData = {{^required}}{{paramName}} == null ? null : {{/required}}{{paramName}}.toJson(bodyParameters);
+            bodyData = {{paramName}}{{^required}}?{{/required}}.toJson(bodyParameters);
         {{/isPrimitiveType}}
       {{/bodyParam}}
     } catch(error, stackTrace) {

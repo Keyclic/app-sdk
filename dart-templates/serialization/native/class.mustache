@@ -79,7 +79,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.isModel}}
             {{^items.isModel}}
-              {{{dataType}}}.from(json[r'{{{baseName}}}']),
+              json[r'{{{baseName}}}'] == null ? null : {{{dataType}}}.from(json[r'{{{baseName}}}']),
             {{/items.isModel}}
           {{/items.isMap}}
           {{/items.isArray}}

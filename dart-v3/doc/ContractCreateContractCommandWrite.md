@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**billing** | [**ContractCreateContractCommandWriteBilling**](ContractCreateContractCommandWriteBilling.md) |  | [optional] 
+**billing** | [**BillingWrite**](BillingWrite.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **duration** | **String** |  | [optional] 
 **effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **number** | **String** |  | 
 **onCall** | **bool** |  | [optional] 
 **provider** | **String** |  | 
-**renewal** | [**ContractCreateContractCommandWriteRenewal**](ContractCreateContractCommandWriteRenewal.md) |  | [optional] 
+**renewal** | [**RenewalWrite**](RenewalWrite.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **state** | **String** |  | [default to 'DRAFT']
 **type** | **String** |  | 

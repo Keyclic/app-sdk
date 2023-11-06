@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class OperationPagination implements Pagination, OperationPaginationAllOf {
+class OperationPagination implements Pagination {
   /// Returns a new [OperationPagination] instance.
   OperationPagination({
     this.limit,

@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class TemplatePagination implements Pagination, TemplatePaginationAllOf {
+class TemplatePagination implements Pagination {
   /// Returns a new [TemplatePagination] instance.
   TemplatePagination({
     this.limit,

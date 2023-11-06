@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class ReviewPagination implements Pagination, ReviewPaginationAllOf {
+class ReviewPagination implements Pagination {
   /// Returns a new [ReviewPagination] instance.
   ReviewPagination({
     this.limit,

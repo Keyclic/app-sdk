@@ -40,8 +40,12 @@ class IntegrationLinkJsonhalRead {
 
     return IntegrationLinkJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      data: Map<String, Object>.from(json[r'data']),
-      metadata: Map<String, Object>.from(json[r'metadata']),
+      data: json[r'data'] == null
+          ? null
+          : Map<String, Object>.from(json[r'data']),
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],
       source_: json[r'source'],
       state: IntegrationLinkJsonhalReadStateEnum.fromJson(json[r'state']),

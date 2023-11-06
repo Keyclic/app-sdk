@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class PlanPagination implements Pagination, PlanPaginationAllOf {
+class PlanPagination implements Pagination {
   /// Returns a new [PlanPagination] instance.
   PlanPagination({
     this.limit,

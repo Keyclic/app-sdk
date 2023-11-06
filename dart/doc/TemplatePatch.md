@@ -8,9 +8,9 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**body** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
-**footer** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
-**header** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**body** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
+**footer** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
+**header** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
 **name** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 

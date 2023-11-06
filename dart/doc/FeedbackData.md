@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **category** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | 
-**metadata** | [**Object**](.md) |  | [optional] 
+**metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **place** | **String** |  | 
 **priority** | **String** |  | [optional] 
 **reporter** | **String** |  | [optional] 

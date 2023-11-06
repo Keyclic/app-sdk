@@ -10,7 +10,7 @@ void main() {
   // final instance = MessageData();
 
   group('test MessageData', () {
-    // List<Object> text (default value: const [])
+    // List<Map<String, Object>> text (default value: const [])
     test('to test the property `text`', () async {});
 
     // String task

@@ -23,8 +23,12 @@ class IntegrationLinkEditLinkCommandWrite {
     }
 
     return IntegrationLinkEditLinkCommandWrite(
-      data: Map<String, Object>.from(json[r'data']),
-      metadata: Map<String, Object>.from(json[r'metadata']),
+      data: json[r'data'] == null
+          ? null
+          : Map<String, Object>.from(json[r'data']),
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],
       state:
           IntegrationLinkEditLinkCommandWriteStateEnum.fromJson(json[r'state']),

@@ -4,8 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class InternalServicePagination
-    implements Pagination, InternalServicePaginationAllOf {
+class InternalServicePagination implements Pagination {
   /// Returns a new [InternalServicePagination] instance.
   InternalServicePagination({
     this.limit,

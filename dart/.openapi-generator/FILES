@@ -34,7 +34,6 @@ doc/ArticleLinksSelf.md
 doc/ArticleLinksSelfIriTemplate.md
 doc/ArticleLinksSelfIriTemplateMapping.md
 doc/ArticlePagination.md
-doc/ArticlePaginationAllOf.md
 doc/AssignData.md
 doc/Assignment.md
 doc/AssignmentApi.md
@@ -58,11 +57,9 @@ doc/AssignmentLinksService.md
 doc/AssignmentLinksServiceIriTemplate.md
 doc/AssignmentLinksServiceIriTemplateMapping.md
 doc/AssignmentPagination.md
-doc/AssignmentPaginationAllOf.md
 doc/Binary.md
 doc/BinaryCollection.md
 doc/BinaryPagination.md
-doc/BinaryPaginationAllOf.md
 doc/Bookmark.md
 doc/BookmarkApi.md
 doc/BookmarkCollection.md
@@ -78,7 +75,6 @@ doc/BookmarkLinksSelf.md
 doc/BookmarkLinksSelfIriTemplate.md
 doc/BookmarkLinksSelfIriTemplateMapping.md
 doc/BookmarkPagination.md
-doc/BookmarkPaginationAllOf.md
 doc/BusinessActivity.md
 doc/BusinessActivityApi.md
 doc/BusinessActivityCollection.md
@@ -93,7 +89,6 @@ doc/BusinessActivityLinksSelfIriTemplate.md
 doc/BusinessActivityLinksThumbnail.md
 doc/BusinessActivityLinksThumbnailIriTemplate.md
 doc/BusinessActivityPagination.md
-doc/BusinessActivityPaginationAllOf.md
 doc/BusinessActivitySchema.md
 doc/Category.md
 doc/CategoryApi.md
@@ -108,7 +103,6 @@ doc/CategoryLinksSelf.md
 doc/CategoryLinksSelfIriTemplate.md
 doc/CategoryLinksSelfIriTemplateMapping.md
 doc/CategoryPagination.md
-doc/CategoryPaginationAllOf.md
 doc/CategoryPatch.md
 doc/Chart.md
 doc/Checkpoint.md
@@ -143,7 +137,6 @@ doc/ContributionLinksFeedback.md
 doc/ContributionLinksFeedbackIriTemplate.md
 doc/ContributionLinksFeedbackIriTemplateMapping.md
 doc/ContributionPagination.md
-doc/ContributionPaginationAllOf.md
 doc/Device.md
 doc/DeviceApi.md
 doc/DeviceData.md
@@ -176,7 +169,6 @@ doc/DocumentLinksProcedureIriTemplateMapping.md
 doc/DocumentLinksSelf.md
 doc/DocumentLinksSelfIriTemplate.md
 doc/DocumentPagination.md
-doc/DocumentPaginationAllOf.md
 doc/DocumentPatch.md
 doc/DocumentPatchFile.md
 doc/DocumentPatchPermission.md
@@ -199,7 +191,6 @@ doc/ExternalServiceLinksSelf.md
 doc/ExternalServiceLinksSelfIriTemplate.md
 doc/ExternalServiceLinksSelfIriTemplateMapping.md
 doc/ExternalServicePagination.md
-doc/ExternalServicePaginationAllOf.md
 doc/ExternalServicePatch.md
 doc/ExternalServicePatchAddress.md
 doc/ExternalServicePatchContactPoint.md
@@ -236,7 +227,6 @@ doc/FeedbackLinksSelfIriTemplate.md
 doc/FeedbackLinksTracking.md
 doc/FeedbackLinksTrackingIriTemplate.md
 doc/FeedbackPagination.md
-doc/FeedbackPaginationAllOf.md
 doc/FeedbackWorkflowTransitionData.md
 doc/FileData.md
 doc/GeoShape.md
@@ -257,7 +247,6 @@ doc/InternalServiceLinksSelf.md
 doc/InternalServiceLinksSelfIriTemplate.md
 doc/InternalServiceLinksSelfIriTemplateMapping.md
 doc/InternalServicePagination.md
-doc/InternalServicePaginationAllOf.md
 doc/InternalServicePatch.md
 doc/InternalServicePostalAddress.md
 doc/Invitation.md
@@ -304,7 +293,6 @@ doc/MemberLinksPersonIriTemplate.md
 doc/MemberLinksSelf.md
 doc/MemberLinksSelfIriTemplate.md
 doc/MemberPagination.md
-doc/MemberPaginationAllOf.md
 doc/MemberPatch.md
 doc/MemberPatchContactPoint.md
 doc/MemberTypeRole.md
@@ -324,7 +312,6 @@ doc/NoteLinksSelf.md
 doc/NoteLinksSelfIriTemplate.md
 doc/NoteLinksSelfIriTemplateMapping.md
 doc/NotePagination.md
-doc/NotePaginationAllOf.md
 doc/NotePatch.md
 doc/Occupant.md
 doc/OccupantApi.md
@@ -339,7 +326,6 @@ doc/OccupantLinksSelf.md
 doc/OccupantLinksSelfIriTemplate.md
 doc/OccupantLinksSelfIriTemplateMapping.md
 doc/OccupantPagination.md
-doc/OccupantPaginationAllOf.md
 doc/Operation.md
 doc/OperationApi.md
 doc/OperationCollection.md
@@ -366,7 +352,6 @@ doc/OperationLinksSelfIriTemplate.md
 doc/OperationLinksTracking.md
 doc/OperationLinksTrackingIriTemplate.md
 doc/OperationPagination.md
-doc/OperationPaginationAllOf.md
 doc/OperationPriority.md
 doc/OperationSignature.md
 doc/OperationTypeWorkflow.md
@@ -388,7 +373,6 @@ doc/OrganizationLinksLogoIriTemplate.md
 doc/OrganizationLinksSelf.md
 doc/OrganizationLinksSelfIriTemplate.md
 doc/OrganizationPagination.md
-doc/OrganizationPaginationAllOf.md
 doc/OrganizationPatch.md
 doc/OrganizationPatchPreferences.md
 doc/OrganizationPatchPreferencesReference.md
@@ -431,7 +415,6 @@ doc/PlaceLinksPlansIriTemplate.md
 doc/PlaceLinksSelf.md
 doc/PlaceLinksSelfIriTemplate.md
 doc/PlacePagination.md
-doc/PlacePaginationAllOf.md
 doc/PlacePatch.md
 doc/PlacePostalAddress.md
 doc/PlacePreferences.md
@@ -448,7 +431,6 @@ doc/PlanLinksPlaceIriTemplate.md
 doc/PlanLinksSelf.md
 doc/PlanLinksSelfIriTemplate.md
 doc/PlanPagination.md
-doc/PlanPaginationAllOf.md
 doc/PlanPatch.md
 doc/Point.md
 doc/Polygon.md
@@ -491,7 +473,6 @@ doc/PublicationLinksSelf.md
 doc/PublicationLinksSelfIriTemplate.md
 doc/PublicationLinksSelfIriTemplateMapping.md
 doc/PublicationPagination.md
-doc/PublicationPaginationAllOf.md
 doc/RegisterData.md
 doc/RegisterDataAgreement.md
 doc/Report.md
@@ -523,7 +504,6 @@ doc/ReportLinksSelfIriTemplate.md
 doc/ReportLinksTracking.md
 doc/ReportLinksTrackingIriTemplate.md
 doc/ReportPagination.md
-doc/ReportPaginationAllOf.md
 doc/ReportPriority.md
 doc/ReportTypePriority.md
 doc/ReportTypeWorkflow.md
@@ -541,7 +521,6 @@ doc/ReviewLinksSelf.md
 doc/ReviewLinksSelfIriTemplate.md
 doc/ReviewLinksSelfIriTemplateMapping.md
 doc/ReviewPagination.md
-doc/ReviewPaginationAllOf.md
 doc/ReviewRequest.md
 doc/ReviewRequestApi.md
 doc/ReviewRequestCollection.md
@@ -560,7 +539,6 @@ doc/ReviewRequestLinksSelf.md
 doc/ReviewRequestLinksSelfIriTemplate.md
 doc/ReviewRequestLinksSelfIriTemplateMapping.md
 doc/ReviewRequestPagination.md
-doc/ReviewRequestPaginationAllOf.md
 doc/Role.md
 doc/RoleApi.md
 doc/Rule.md
@@ -578,7 +556,6 @@ doc/RuleLinksSelfIriTemplateMapping.md
 doc/RuleLinksService.md
 doc/RuleLinksServiceIriTemplate.md
 doc/RulePagination.md
-doc/RulePaginationAllOf.md
 doc/RulePatch.md
 doc/Run.md
 doc/RunData.md
@@ -591,7 +568,6 @@ doc/SectionLinks.md
 doc/SectionLinksSelf.md
 doc/SectionLinksSelfIriTemplate.md
 doc/SectionPagination.md
-doc/SectionPaginationAllOf.md
 doc/SecurityApi.md
 doc/Service.md
 doc/ServiceApi.md
@@ -599,7 +575,6 @@ doc/ServiceCollection.md
 doc/ServiceContactPoint.md
 doc/ServiceMemberData.md
 doc/ServicePagination.md
-doc/ServicePaginationAllOf.md
 doc/ServicePostalAddress.md
 doc/SignatureData.md
 doc/SignatureSigner.md
@@ -616,7 +591,6 @@ doc/SignerLinksSelf.md
 doc/SignerLinksSelfIriTemplate.md
 doc/SignerLinksSelfIriTemplateMapping.md
 doc/SignerPagination.md
-doc/SignerPaginationAllOf.md
 doc/SignerSignature.md
 doc/State.md
 doc/SuccessLogin.md
@@ -628,7 +602,6 @@ doc/TemplateApi.md
 doc/TemplateCollection.md
 doc/TemplateData.md
 doc/TemplatePagination.md
-doc/TemplatePaginationAllOf.md
 doc/TemplatePatch.md
 doc/Tracking.md
 doc/TrackingCheckpoint.md
@@ -728,7 +701,6 @@ lib/model/article_links_self.dart
 lib/model/article_links_self_iri_template.dart
 lib/model/article_links_self_iri_template_mapping.dart
 lib/model/article_pagination.dart
-lib/model/article_pagination_all_of.dart
 lib/model/assign_data.dart
 lib/model/assignment.dart
 lib/model/assignment_collection.dart
@@ -751,11 +723,9 @@ lib/model/assignment_links_service.dart
 lib/model/assignment_links_service_iri_template.dart
 lib/model/assignment_links_service_iri_template_mapping.dart
 lib/model/assignment_pagination.dart
-lib/model/assignment_pagination_all_of.dart
 lib/model/binary.dart
 lib/model/binary_collection.dart
 lib/model/binary_pagination.dart
-lib/model/binary_pagination_all_of.dart
 lib/model/bookmark.dart
 lib/model/bookmark_collection.dart
 lib/model/bookmark_data.dart
@@ -770,7 +740,6 @@ lib/model/bookmark_links_self.dart
 lib/model/bookmark_links_self_iri_template.dart
 lib/model/bookmark_links_self_iri_template_mapping.dart
 lib/model/bookmark_pagination.dart
-lib/model/bookmark_pagination_all_of.dart
 lib/model/business_activity.dart
 lib/model/business_activity_collection.dart
 lib/model/business_activity_links.dart
@@ -784,7 +753,6 @@ lib/model/business_activity_links_self_iri_template.dart
 lib/model/business_activity_links_thumbnail.dart
 lib/model/business_activity_links_thumbnail_iri_template.dart
 lib/model/business_activity_pagination.dart
-lib/model/business_activity_pagination_all_of.dart
 lib/model/business_activity_schema.dart
 lib/model/category.dart
 lib/model/category_collection.dart
@@ -798,7 +766,6 @@ lib/model/category_links_self.dart
 lib/model/category_links_self_iri_template.dart
 lib/model/category_links_self_iri_template_mapping.dart
 lib/model/category_pagination.dart
-lib/model/category_pagination_all_of.dart
 lib/model/category_patch.dart
 lib/model/chart.dart
 lib/model/checkpoint.dart
@@ -830,7 +797,6 @@ lib/model/contribution_links_feedback.dart
 lib/model/contribution_links_feedback_iri_template.dart
 lib/model/contribution_links_feedback_iri_template_mapping.dart
 lib/model/contribution_pagination.dart
-lib/model/contribution_pagination_all_of.dart
 lib/model/device.dart
 lib/model/device_data.dart
 lib/model/device_links.dart
@@ -859,7 +825,6 @@ lib/model/document_links_procedure_iri_template_mapping.dart
 lib/model/document_links_self.dart
 lib/model/document_links_self_iri_template.dart
 lib/model/document_pagination.dart
-lib/model/document_pagination_all_of.dart
 lib/model/document_patch.dart
 lib/model/document_patch_file.dart
 lib/model/document_patch_permission.dart
@@ -880,7 +845,6 @@ lib/model/external_service_links_self.dart
 lib/model/external_service_links_self_iri_template.dart
 lib/model/external_service_links_self_iri_template_mapping.dart
 lib/model/external_service_pagination.dart
-lib/model/external_service_pagination_all_of.dart
 lib/model/external_service_patch.dart
 lib/model/external_service_patch_address.dart
 lib/model/external_service_patch_contact_point.dart
@@ -915,7 +879,6 @@ lib/model/feedback_links_self_iri_template.dart
 lib/model/feedback_links_tracking.dart
 lib/model/feedback_links_tracking_iri_template.dart
 lib/model/feedback_pagination.dart
-lib/model/feedback_pagination_all_of.dart
 lib/model/feedback_workflow_transition_data.dart
 lib/model/file_data.dart
 lib/model/geo_shape.dart
@@ -935,7 +898,6 @@ lib/model/internal_service_links_self.dart
 lib/model/internal_service_links_self_iri_template.dart
 lib/model/internal_service_links_self_iri_template_mapping.dart
 lib/model/internal_service_pagination.dart
-lib/model/internal_service_pagination_all_of.dart
 lib/model/internal_service_patch.dart
 lib/model/internal_service_postal_address.dart
 lib/model/invitation.dart
@@ -978,7 +940,6 @@ lib/model/member_links_person_iri_template.dart
 lib/model/member_links_self.dart
 lib/model/member_links_self_iri_template.dart
 lib/model/member_pagination.dart
-lib/model/member_pagination_all_of.dart
 lib/model/member_patch.dart
 lib/model/member_patch_contact_point.dart
 lib/model/member_type_role.dart
@@ -997,7 +958,6 @@ lib/model/note_links_self.dart
 lib/model/note_links_self_iri_template.dart
 lib/model/note_links_self_iri_template_mapping.dart
 lib/model/note_pagination.dart
-lib/model/note_pagination_all_of.dart
 lib/model/note_patch.dart
 lib/model/occupant.dart
 lib/model/occupant_collection.dart
@@ -1011,7 +971,6 @@ lib/model/occupant_links_self.dart
 lib/model/occupant_links_self_iri_template.dart
 lib/model/occupant_links_self_iri_template_mapping.dart
 lib/model/occupant_pagination.dart
-lib/model/occupant_pagination_all_of.dart
 lib/model/operation.dart
 lib/model/operation_collection.dart
 lib/model/operation_data.dart
@@ -1037,7 +996,6 @@ lib/model/operation_links_self_iri_template.dart
 lib/model/operation_links_tracking.dart
 lib/model/operation_links_tracking_iri_template.dart
 lib/model/operation_pagination.dart
-lib/model/operation_pagination_all_of.dart
 lib/model/operation_priority.dart
 lib/model/operation_signature.dart
 lib/model/operation_type_workflow.dart
@@ -1058,7 +1016,6 @@ lib/model/organization_links_logo_iri_template.dart
 lib/model/organization_links_self.dart
 lib/model/organization_links_self_iri_template.dart
 lib/model/organization_pagination.dart
-lib/model/organization_pagination_all_of.dart
 lib/model/organization_patch.dart
 lib/model/organization_patch_preferences.dart
 lib/model/organization_patch_preferences_reference.dart
@@ -1098,7 +1055,6 @@ lib/model/place_links_plans_iri_template.dart
 lib/model/place_links_self.dart
 lib/model/place_links_self_iri_template.dart
 lib/model/place_pagination.dart
-lib/model/place_pagination_all_of.dart
 lib/model/place_patch.dart
 lib/model/place_postal_address.dart
 lib/model/place_preferences.dart
@@ -1114,7 +1070,6 @@ lib/model/plan_links_place_iri_template.dart
 lib/model/plan_links_self.dart
 lib/model/plan_links_self_iri_template.dart
 lib/model/plan_pagination.dart
-lib/model/plan_pagination_all_of.dart
 lib/model/plan_patch.dart
 lib/model/point.dart
 lib/model/polygon.dart
@@ -1155,7 +1110,6 @@ lib/model/publication_links_self.dart
 lib/model/publication_links_self_iri_template.dart
 lib/model/publication_links_self_iri_template_mapping.dart
 lib/model/publication_pagination.dart
-lib/model/publication_pagination_all_of.dart
 lib/model/register_data.dart
 lib/model/register_data_agreement.dart
 lib/model/report.dart
@@ -1186,7 +1140,6 @@ lib/model/report_links_self_iri_template.dart
 lib/model/report_links_tracking.dart
 lib/model/report_links_tracking_iri_template.dart
 lib/model/report_pagination.dart
-lib/model/report_pagination_all_of.dart
 lib/model/report_priority.dart
 lib/model/report_type_priority.dart
 lib/model/report_type_workflow.dart
@@ -1203,7 +1156,6 @@ lib/model/review_links_self.dart
 lib/model/review_links_self_iri_template.dart
 lib/model/review_links_self_iri_template_mapping.dart
 lib/model/review_pagination.dart
-lib/model/review_pagination_all_of.dart
 lib/model/review_request.dart
 lib/model/review_request_collection.dart
 lib/model/review_request_embedded.dart
@@ -1221,7 +1173,6 @@ lib/model/review_request_links_self.dart
 lib/model/review_request_links_self_iri_template.dart
 lib/model/review_request_links_self_iri_template_mapping.dart
 lib/model/review_request_pagination.dart
-lib/model/review_request_pagination_all_of.dart
 lib/model/role.dart
 lib/model/rule.dart
 lib/model/rule_collection.dart
@@ -1237,7 +1188,6 @@ lib/model/rule_links_self_iri_template_mapping.dart
 lib/model/rule_links_service.dart
 lib/model/rule_links_service_iri_template.dart
 lib/model/rule_pagination.dart
-lib/model/rule_pagination_all_of.dart
 lib/model/rule_patch.dart
 lib/model/run.dart
 lib/model/run_data.dart
@@ -1249,13 +1199,11 @@ lib/model/section_links.dart
 lib/model/section_links_self.dart
 lib/model/section_links_self_iri_template.dart
 lib/model/section_pagination.dart
-lib/model/section_pagination_all_of.dart
 lib/model/service.dart
 lib/model/service_collection.dart
 lib/model/service_contact_point.dart
 lib/model/service_member_data.dart
 lib/model/service_pagination.dart
-lib/model/service_pagination_all_of.dart
 lib/model/service_postal_address.dart
 lib/model/signature_data.dart
 lib/model/signature_signer.dart
@@ -1271,7 +1219,6 @@ lib/model/signer_links_self.dart
 lib/model/signer_links_self_iri_template.dart
 lib/model/signer_links_self_iri_template_mapping.dart
 lib/model/signer_pagination.dart
-lib/model/signer_pagination_all_of.dart
 lib/model/signer_signature.dart
 lib/model/state.dart
 lib/model/success_login.dart
@@ -1282,7 +1229,6 @@ lib/model/template.dart
 lib/model/template_collection.dart
 lib/model/template_data.dart
 lib/model/template_pagination.dart
-lib/model/template_pagination_all_of.dart
 lib/model/template_patch.dart
 lib/model/tracking.dart
 lib/model/tracking_checkpoint.dart
@@ -1327,7 +1273,6 @@ test/article_links_self_iri_template_mapping_test.dart
 test/article_links_self_iri_template_test.dart
 test/article_links_self_test.dart
 test/article_links_test.dart
-test/article_pagination_all_of_test.dart
 test/article_pagination_test.dart
 test/article_test.dart
 test/assign_data_test.dart
@@ -1351,11 +1296,9 @@ test/assignment_links_service_iri_template_mapping_test.dart
 test/assignment_links_service_iri_template_test.dart
 test/assignment_links_service_test.dart
 test/assignment_links_test.dart
-test/assignment_pagination_all_of_test.dart
 test/assignment_pagination_test.dart
 test/assignment_test.dart
 test/binary_collection_test.dart
-test/binary_pagination_all_of_test.dart
 test/binary_pagination_test.dart
 test/binary_test.dart
 test/bookmark_api_test.dart
@@ -1371,7 +1314,6 @@ test/bookmark_links_self_iri_template_mapping_test.dart
 test/bookmark_links_self_iri_template_test.dart
 test/bookmark_links_self_test.dart
 test/bookmark_links_test.dart
-test/bookmark_pagination_all_of_test.dart
 test/bookmark_pagination_test.dart
 test/bookmark_test.dart
 test/business_activity_api_test.dart
@@ -1386,7 +1328,6 @@ test/business_activity_links_self_test.dart
 test/business_activity_links_test.dart
 test/business_activity_links_thumbnail_iri_template_test.dart
 test/business_activity_links_thumbnail_test.dart
-test/business_activity_pagination_all_of_test.dart
 test/business_activity_pagination_test.dart
 test/business_activity_schema_test.dart
 test/business_activity_test.dart
@@ -1401,7 +1342,6 @@ test/category_links_self_iri_template_mapping_test.dart
 test/category_links_self_iri_template_test.dart
 test/category_links_self_test.dart
 test/category_links_test.dart
-test/category_pagination_all_of_test.dart
 test/category_pagination_test.dart
 test/category_patch_test.dart
 test/category_test.dart
@@ -1436,7 +1376,6 @@ test/contribution_links_feedback_iri_template_mapping_test.dart
 test/contribution_links_feedback_iri_template_test.dart
 test/contribution_links_feedback_test.dart
 test/contribution_links_test.dart
-test/contribution_pagination_all_of_test.dart
 test/contribution_pagination_test.dart
 test/contribution_test.dart
 test/device_api_test.dart
@@ -1469,7 +1408,6 @@ test/document_links_procedure_test.dart
 test/document_links_self_iri_template_test.dart
 test/document_links_self_test.dart
 test/document_links_test.dart
-test/document_pagination_all_of_test.dart
 test/document_pagination_test.dart
 test/document_patch_file_test.dart
 test/document_patch_permission_test.dart
@@ -1492,7 +1430,6 @@ test/external_service_links_self_iri_template_mapping_test.dart
 test/external_service_links_self_iri_template_test.dart
 test/external_service_links_self_test.dart
 test/external_service_links_test.dart
-test/external_service_pagination_all_of_test.dart
 test/external_service_pagination_test.dart
 test/external_service_patch_address_test.dart
 test/external_service_patch_contact_point_test.dart
@@ -1529,7 +1466,6 @@ test/feedback_links_self_test.dart
 test/feedback_links_test.dart
 test/feedback_links_tracking_iri_template_test.dart
 test/feedback_links_tracking_test.dart
-test/feedback_pagination_all_of_test.dart
 test/feedback_pagination_test.dart
 test/feedback_test.dart
 test/feedback_workflow_transition_data_test.dart
@@ -1550,7 +1486,6 @@ test/internal_service_links_self_iri_template_mapping_test.dart
 test/internal_service_links_self_iri_template_test.dart
 test/internal_service_links_self_test.dart
 test/internal_service_links_test.dart
-test/internal_service_pagination_all_of_test.dart
 test/internal_service_pagination_test.dart
 test/internal_service_patch_test.dart
 test/internal_service_postal_address_test.dart
@@ -1597,7 +1532,6 @@ test/member_links_person_test.dart
 test/member_links_self_iri_template_test.dart
 test/member_links_self_test.dart
 test/member_links_test.dart
-test/member_pagination_all_of_test.dart
 test/member_pagination_test.dart
 test/member_patch_contact_point_test.dart
 test/member_patch_test.dart
@@ -1617,7 +1551,6 @@ test/note_links_self_iri_template_mapping_test.dart
 test/note_links_self_iri_template_test.dart
 test/note_links_self_test.dart
 test/note_links_test.dart
-test/note_pagination_all_of_test.dart
 test/note_pagination_test.dart
 test/note_patch_test.dart
 test/note_test.dart
@@ -1632,7 +1565,6 @@ test/occupant_links_self_iri_template_mapping_test.dart
 test/occupant_links_self_iri_template_test.dart
 test/occupant_links_self_test.dart
 test/occupant_links_test.dart
-test/occupant_pagination_all_of_test.dart
 test/occupant_pagination_test.dart
 test/occupant_test.dart
 test/operation_api_test.dart
@@ -1659,7 +1591,6 @@ test/operation_links_self_test.dart
 test/operation_links_test.dart
 test/operation_links_tracking_iri_template_test.dart
 test/operation_links_tracking_test.dart
-test/operation_pagination_all_of_test.dart
 test/operation_pagination_test.dart
 test/operation_priority_test.dart
 test/operation_signature_test.dart
@@ -1681,7 +1612,6 @@ test/organization_links_logo_test.dart
 test/organization_links_self_iri_template_test.dart
 test/organization_links_self_test.dart
 test/organization_links_test.dart
-test/organization_pagination_all_of_test.dart
 test/organization_pagination_test.dart
 test/organization_patch_preferences_reference_test.dart
 test/organization_patch_preferences_test.dart
@@ -1724,7 +1654,6 @@ test/place_links_plans_test.dart
 test/place_links_self_iri_template_test.dart
 test/place_links_self_test.dart
 test/place_links_test.dart
-test/place_pagination_all_of_test.dart
 test/place_pagination_test.dart
 test/place_patch_test.dart
 test/place_postal_address_test.dart
@@ -1741,7 +1670,6 @@ test/plan_links_place_test.dart
 test/plan_links_self_iri_template_test.dart
 test/plan_links_self_test.dart
 test/plan_links_test.dart
-test/plan_pagination_all_of_test.dart
 test/plan_pagination_test.dart
 test/plan_patch_test.dart
 test/plan_test.dart
@@ -1784,7 +1712,6 @@ test/publication_links_self_iri_template_mapping_test.dart
 test/publication_links_self_iri_template_test.dart
 test/publication_links_self_test.dart
 test/publication_links_test.dart
-test/publication_pagination_all_of_test.dart
 test/publication_pagination_test.dart
 test/publication_test.dart
 test/register_data_agreement_test.dart
@@ -1816,7 +1743,6 @@ test/report_links_self_test.dart
 test/report_links_test.dart
 test/report_links_tracking_iri_template_test.dart
 test/report_links_tracking_test.dart
-test/report_pagination_all_of_test.dart
 test/report_pagination_test.dart
 test/report_priority_test.dart
 test/report_test.dart
@@ -1834,7 +1760,6 @@ test/review_links_self_iri_template_mapping_test.dart
 test/review_links_self_iri_template_test.dart
 test/review_links_self_test.dart
 test/review_links_test.dart
-test/review_pagination_all_of_test.dart
 test/review_pagination_test.dart
 test/review_request_api_test.dart
 test/review_request_collection_test.dart
@@ -1852,7 +1777,6 @@ test/review_request_links_self_iri_template_mapping_test.dart
 test/review_request_links_self_iri_template_test.dart
 test/review_request_links_self_test.dart
 test/review_request_links_test.dart
-test/review_request_pagination_all_of_test.dart
 test/review_request_pagination_test.dart
 test/review_request_test.dart
 test/review_test.dart
@@ -1871,7 +1795,6 @@ test/rule_links_self_test.dart
 test/rule_links_service_iri_template_test.dart
 test/rule_links_service_test.dart
 test/rule_links_test.dart
-test/rule_pagination_all_of_test.dart
 test/rule_pagination_test.dart
 test/rule_patch_test.dart
 test/rule_test.dart
@@ -1884,7 +1807,6 @@ test/section_collection_test.dart
 test/section_links_self_iri_template_test.dart
 test/section_links_self_test.dart
 test/section_links_test.dart
-test/section_pagination_all_of_test.dart
 test/section_pagination_test.dart
 test/section_test.dart
 test/security_api_test.dart
@@ -1892,7 +1814,6 @@ test/service_api_test.dart
 test/service_collection_test.dart
 test/service_contact_point_test.dart
 test/service_member_data_test.dart
-test/service_pagination_all_of_test.dart
 test/service_pagination_test.dart
 test/service_postal_address_test.dart
 test/service_test.dart
@@ -1909,7 +1830,6 @@ test/signer_links_self_iri_template_mapping_test.dart
 test/signer_links_self_iri_template_test.dart
 test/signer_links_self_test.dart
 test/signer_links_test.dart
-test/signer_pagination_all_of_test.dart
 test/signer_pagination_test.dart
 test/signer_signature_test.dart
 test/signer_test.dart
@@ -1921,7 +1841,6 @@ test/task_patch_test.dart
 test/template_api_test.dart
 test/template_collection_test.dart
 test/template_data_test.dart
-test/template_pagination_all_of_test.dart
 test/template_pagination_test.dart
 test/template_patch_test.dart
 test/template_test.dart

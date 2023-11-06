@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class OccupantPagination implements Pagination, OccupantPaginationAllOf {
+class OccupantPagination implements Pagination {
   /// Returns a new [OccupantPagination] instance.
   OccupantPagination({
     this.limit,

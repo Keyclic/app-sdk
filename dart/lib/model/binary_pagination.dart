@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class BinaryPagination implements Pagination, BinaryPaginationAllOf {
+class BinaryPagination implements Pagination {
   /// Returns a new [BinaryPagination] instance.
   BinaryPagination({
     this.limit,

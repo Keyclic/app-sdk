@@ -10,7 +10,7 @@ void main() {
   // final instance = ContractCreateContractCommandWrite();
 
   group('test ContractCreateContractCommandWrite', () {
-    // ContractCreateContractCommandWriteBilling billing
+    // BillingWrite billing
     test('to test the property `billing`', () async {});
 
     // String description
@@ -34,7 +34,7 @@ void main() {
     // String provider
     test('to test the property `provider`', () async {});
 
-    // ContractCreateContractCommandWriteRenewal renewal
+    // RenewalWrite renewal
     test('to test the property `renewal`', () async {});
 
     // DateTime signedAt

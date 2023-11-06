@@ -400,8 +400,6 @@ class ApiClient {
           return ArticleLinksSelfIriTemplateMapping.fromJson(value);
         case 'ArticlePagination':
           return ArticlePagination.fromJson(value);
-        case 'ArticlePaginationAllOf':
-          return ArticlePaginationAllOf.fromJson(value);
         case 'AssignData':
           return AssignData.fromJson(value);
         case 'Assignment':
@@ -446,16 +444,12 @@ class ApiClient {
           return AssignmentLinksServiceIriTemplateMapping.fromJson(value);
         case 'AssignmentPagination':
           return AssignmentPagination.fromJson(value);
-        case 'AssignmentPaginationAllOf':
-          return AssignmentPaginationAllOf.fromJson(value);
         case 'Binary':
           return Binary.fromJson(value);
         case 'BinaryCollection':
           return BinaryCollection.fromJson(value);
         case 'BinaryPagination':
           return BinaryPagination.fromJson(value);
-        case 'BinaryPaginationAllOf':
-          return BinaryPaginationAllOf.fromJson(value);
         case 'Bookmark':
           return Bookmark.fromJson(value);
         case 'BookmarkCollection':
@@ -484,8 +478,6 @@ class ApiClient {
           return BookmarkLinksSelfIriTemplateMapping.fromJson(value);
         case 'BookmarkPagination':
           return BookmarkPagination.fromJson(value);
-        case 'BookmarkPaginationAllOf':
-          return BookmarkPaginationAllOf.fromJson(value);
         case 'BusinessActivity':
           return BusinessActivity.fromJson(value);
         case 'BusinessActivityCollection':
@@ -512,8 +504,6 @@ class ApiClient {
           return BusinessActivityLinksThumbnailIriTemplate.fromJson(value);
         case 'BusinessActivityPagination':
           return BusinessActivityPagination.fromJson(value);
-        case 'BusinessActivityPaginationAllOf':
-          return BusinessActivityPaginationAllOf.fromJson(value);
         case 'BusinessActivitySchema':
           return BusinessActivitySchema.fromJson(value);
         case 'Category':
@@ -540,8 +530,6 @@ class ApiClient {
           return CategoryLinksSelfIriTemplateMapping.fromJson(value);
         case 'CategoryPagination':
           return CategoryPagination.fromJson(value);
-        case 'CategoryPaginationAllOf':
-          return CategoryPaginationAllOf.fromJson(value);
         case 'CategoryPatch':
           return CategoryPatch.fromJson(value);
         case 'Chart':
@@ -604,8 +592,6 @@ class ApiClient {
           return ContributionLinksFeedbackIriTemplateMapping.fromJson(value);
         case 'ContributionPagination':
           return ContributionPagination.fromJson(value);
-        case 'ContributionPaginationAllOf':
-          return ContributionPaginationAllOf.fromJson(value);
         case 'Device':
           return Device.fromJson(value);
         case 'DeviceData':
@@ -662,8 +648,6 @@ class ApiClient {
           return DocumentLinksSelfIriTemplate.fromJson(value);
         case 'DocumentPagination':
           return DocumentPagination.fromJson(value);
-        case 'DocumentPaginationAllOf':
-          return DocumentPaginationAllOf.fromJson(value);
         case 'DocumentPatch':
           return DocumentPatch.fromJson(value);
         case 'DocumentPatchFile':
@@ -704,8 +688,6 @@ class ApiClient {
           return ExternalServiceLinksSelfIriTemplateMapping.fromJson(value);
         case 'ExternalServicePagination':
           return ExternalServicePagination.fromJson(value);
-        case 'ExternalServicePaginationAllOf':
-          return ExternalServicePaginationAllOf.fromJson(value);
         case 'ExternalServicePatch':
           return ExternalServicePatch.fromJson(value);
         case 'ExternalServicePatchAddress':
@@ -774,8 +756,6 @@ class ApiClient {
           return FeedbackLinksTrackingIriTemplate.fromJson(value);
         case 'FeedbackPagination':
           return FeedbackPagination.fromJson(value);
-        case 'FeedbackPaginationAllOf':
-          return FeedbackPaginationAllOf.fromJson(value);
         case 'FeedbackWorkflowTransitionData':
           return FeedbackWorkflowTransitionData.fromJson(value);
         case 'FileData':
@@ -814,8 +794,6 @@ class ApiClient {
           return InternalServiceLinksSelfIriTemplateMapping.fromJson(value);
         case 'InternalServicePagination':
           return InternalServicePagination.fromJson(value);
-        case 'InternalServicePaginationAllOf':
-          return InternalServicePaginationAllOf.fromJson(value);
         case 'InternalServicePatch':
           return InternalServicePatch.fromJson(value);
         case 'InternalServicePostalAddress':
@@ -900,8 +878,6 @@ class ApiClient {
           return MemberLinksSelfIriTemplate.fromJson(value);
         case 'MemberPagination':
           return MemberPagination.fromJson(value);
-        case 'MemberPaginationAllOf':
-          return MemberPaginationAllOf.fromJson(value);
         case 'MemberPatch':
           return MemberPatch.fromJson(value);
         case 'MemberPatchContactPoint':
@@ -938,8 +914,6 @@ class ApiClient {
           return NoteLinksSelfIriTemplateMapping.fromJson(value);
         case 'NotePagination':
           return NotePagination.fromJson(value);
-        case 'NotePaginationAllOf':
-          return NotePaginationAllOf.fromJson(value);
         case 'NotePatch':
           return NotePatch.fromJson(value);
         case 'Occupant':
@@ -966,8 +940,6 @@ class ApiClient {
           return OccupantLinksSelfIriTemplateMapping.fromJson(value);
         case 'OccupantPagination':
           return OccupantPagination.fromJson(value);
-        case 'OccupantPaginationAllOf':
-          return OccupantPaginationAllOf.fromJson(value);
         case 'Operation':
           return Operation.fromJson(value);
         case 'OperationCollection':
@@ -1018,8 +990,6 @@ class ApiClient {
           return OperationLinksTrackingIriTemplate.fromJson(value);
         case 'OperationPagination':
           return OperationPagination.fromJson(value);
-        case 'OperationPaginationAllOf':
-          return OperationPaginationAllOf.fromJson(value);
         case 'OperationPriority':
           return OperationPriority.fromJson(value);
         case 'OperationSignature':
@@ -1060,8 +1030,6 @@ class ApiClient {
           return OrganizationLinksSelfIriTemplate.fromJson(value);
         case 'OrganizationPagination':
           return OrganizationPagination.fromJson(value);
-        case 'OrganizationPaginationAllOf':
-          return OrganizationPaginationAllOf.fromJson(value);
         case 'OrganizationPatch':
           return OrganizationPatch.fromJson(value);
         case 'OrganizationPatchPreferences':
@@ -1141,8 +1109,6 @@ class ApiClient {
           return PlaceLinksSelfIriTemplate.fromJson(value);
         case 'PlacePagination':
           return PlacePagination.fromJson(value);
-        case 'PlacePaginationAllOf':
-          return PlacePaginationAllOf.fromJson(value);
         case 'PlacePatch':
           return PlacePatch.fromJson(value);
         case 'PlacePostalAddress':
@@ -1173,8 +1139,6 @@ class ApiClient {
           return PlanLinksSelfIriTemplate.fromJson(value);
         case 'PlanPagination':
           return PlanPagination.fromJson(value);
-        case 'PlanPaginationAllOf':
-          return PlanPaginationAllOf.fromJson(value);
         case 'PlanPatch':
           return PlanPatch.fromJson(value);
         case 'Point':
@@ -1255,8 +1219,6 @@ class ApiClient {
           return PublicationLinksSelfIriTemplateMapping.fromJson(value);
         case 'PublicationPagination':
           return PublicationPagination.fromJson(value);
-        case 'PublicationPaginationAllOf':
-          return PublicationPaginationAllOf.fromJson(value);
         case 'RegisterData':
           return RegisterData.fromJson(value);
         case 'RegisterDataAgreement':
@@ -1317,8 +1279,6 @@ class ApiClient {
           return ReportLinksTrackingIriTemplate.fromJson(value);
         case 'ReportPagination':
           return ReportPagination.fromJson(value);
-        case 'ReportPaginationAllOf':
-          return ReportPaginationAllOf.fromJson(value);
         case 'ReportPriority':
           return ReportPriority.fromJson(value);
         case 'ReportTypePriority':
@@ -1351,8 +1311,6 @@ class ApiClient {
           return ReviewLinksSelfIriTemplateMapping.fromJson(value);
         case 'ReviewPagination':
           return ReviewPagination.fromJson(value);
-        case 'ReviewPaginationAllOf':
-          return ReviewPaginationAllOf.fromJson(value);
         case 'ReviewRequest':
           return ReviewRequest.fromJson(value);
         case 'ReviewRequestCollection':
@@ -1388,8 +1346,6 @@ class ApiClient {
           return ReviewRequestLinksSelfIriTemplateMapping.fromJson(value);
         case 'ReviewRequestPagination':
           return ReviewRequestPagination.fromJson(value);
-        case 'ReviewRequestPaginationAllOf':
-          return ReviewRequestPaginationAllOf.fromJson(value);
         case 'Role':
           return Role.fromJson(value);
         case 'Rule':
@@ -1420,8 +1376,6 @@ class ApiClient {
           return RuleLinksServiceIriTemplate.fromJson(value);
         case 'RulePagination':
           return RulePagination.fromJson(value);
-        case 'RulePaginationAllOf':
-          return RulePaginationAllOf.fromJson(value);
         case 'RulePatch':
           return RulePatch.fromJson(value);
         case 'Run':
@@ -1444,8 +1398,6 @@ class ApiClient {
           return SectionLinksSelfIriTemplate.fromJson(value);
         case 'SectionPagination':
           return SectionPagination.fromJson(value);
-        case 'SectionPaginationAllOf':
-          return SectionPaginationAllOf.fromJson(value);
         case 'Service':
           return Service.fromJson(value);
         case 'ServiceCollection':
@@ -1456,8 +1408,6 @@ class ApiClient {
           return ServiceMemberData.fromJson(value);
         case 'ServicePagination':
           return ServicePagination.fromJson(value);
-        case 'ServicePaginationAllOf':
-          return ServicePaginationAllOf.fromJson(value);
         case 'ServicePostalAddress':
           return ServicePostalAddress.fromJson(value);
         case 'SignatureData':
@@ -1488,8 +1438,6 @@ class ApiClient {
           return SignerLinksSelfIriTemplateMapping.fromJson(value);
         case 'SignerPagination':
           return SignerPagination.fromJson(value);
-        case 'SignerPaginationAllOf':
-          return SignerPaginationAllOf.fromJson(value);
         case 'SignerSignature':
           return SignerSignature.fromJson(value);
         case 'State':
@@ -1510,8 +1458,6 @@ class ApiClient {
           return TemplateData.fromJson(value);
         case 'TemplatePagination':
           return TemplatePagination.fromJson(value);
-        case 'TemplatePaginationAllOf':
-          return TemplatePaginationAllOf.fromJson(value);
         case 'TemplatePatch':
           return TemplatePatch.fromJson(value);
         case 'Tracking':

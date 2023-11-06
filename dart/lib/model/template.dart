@@ -39,14 +39,14 @@ class Template {
     return Template(
       body: json[r'body'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'body']),
+          : List<Map<String, Object>>.from(json[r'body']),
       createdAt: createdAt,
       footer: json[r'footer'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'footer']),
+          : List<Map<String, Object>>.from(json[r'footer']),
       header: json[r'header'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'header']),
+          : List<Map<String, Object>>.from(json[r'header']),
       id: json[r'id'],
       name: json[r'name'],
       type: json[r'type'],
@@ -54,13 +54,13 @@ class Template {
     );
   }
 
-  List<Map<String, dynamic>>? body;
+  List<Map<String, Object>>? body;
 
   final DateTime? createdAt;
 
-  List<Map<String, dynamic>>? footer;
+  List<Map<String, Object>>? footer;
 
-  List<Map<String, dynamic>>? header;
+  List<Map<String, Object>>? header;
 
   final String? id;
 

@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class RulePagination implements Pagination, RulePaginationAllOf {
+class RulePagination implements Pagination {
   /// Returns a new [RulePagination] instance.
   RulePagination({
     this.limit,

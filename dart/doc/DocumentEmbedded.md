@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**container** | [**Object**](.md) |  | [optional] 
+**container** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **createdBy** | [**Person**](Person.md) |  | [optional] 
 **signers** | [**List<Signer>**](Signer.md) |  | [optional] [default to const []]
 **stateTransitions** | **List<String>** |  | [optional] [default to const []]

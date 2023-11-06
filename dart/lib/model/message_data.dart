@@ -21,12 +21,12 @@ class MessageData {
     return MessageData(
       text: json[r'text'] == null
           ? null
-          : List<Map<String, dynamic>>.from(json[r'text']),
+          : List<Map<String, Object>>.from(json[r'text']),
       task: json[r'task'],
     );
   }
 
-  List<Map<String, dynamic>>? text;
+  List<Map<String, Object>>? text;
 
   String task;
 

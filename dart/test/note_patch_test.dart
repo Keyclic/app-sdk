@@ -10,7 +10,7 @@ void main() {
   // final instance = NotePatch();
 
   group('test NotePatch', () {
-    // List<Object> text (default value: const [])
+    // List<Map<String, Object>> text (default value: const [])
     test('to test the property `text`', () async {});
   });
 }

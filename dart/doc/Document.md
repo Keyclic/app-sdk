@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **embedded** | [**DocumentEmbedded**](DocumentEmbedded.md) |  | [optional] 
 **links** | [**DocumentLinks**](DocumentLinks.md) |  | [optional] 
-**body** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**body** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **file** | [**DocumentFile**](DocumentFile.md) |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 

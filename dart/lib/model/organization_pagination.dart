@@ -4,8 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class OrganizationPagination
-    implements Pagination, OrganizationPaginationAllOf {
+class OrganizationPagination implements Pagination {
   /// Returns a new [OrganizationPagination] instance.
   OrganizationPagination({
     this.limit,

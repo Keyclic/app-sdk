@@ -24,9 +24,13 @@ class IntegrationLinkCreateLinkCommandWrite {
     }
 
     return IntegrationLinkCreateLinkCommandWrite(
-      data: Map<String, Object>.from(json[r'data']),
+      data: json[r'data'] == null
+          ? null
+          : Map<String, Object>.from(json[r'data']),
       integration: json[r'integration'],
-      metadata: Map<String, Object>.from(json[r'metadata']),
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],
       source_: json[r'source'],
       target: json[r'target'],

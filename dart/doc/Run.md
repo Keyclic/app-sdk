@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **children** | [**List<Run>**](Run.md) |  | [optional] [default to const []]
 **error** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
-**result** | [**Object**](.md) |  | [optional] 
+**result** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **state** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

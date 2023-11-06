@@ -4,7 +4,7 @@
 
 part of keyclic_sdk_api;
 
-class DocumentPagination implements Pagination, DocumentPaginationAllOf {
+class DocumentPagination implements Pagination {
   /// Returns a new [DocumentPagination] instance.
   DocumentPagination({
     this.limit,

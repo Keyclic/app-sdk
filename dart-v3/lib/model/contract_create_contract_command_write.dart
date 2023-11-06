@@ -43,8 +43,7 @@ class ContractCreateContractCommandWrite {
     }
 
     return ContractCreateContractCommandWrite(
-      billing:
-          ContractCreateContractCommandWriteBilling.fromJson(json[r'billing']),
+      billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
@@ -52,15 +51,14 @@ class ContractCreateContractCommandWrite {
       number: json[r'number'],
       onCall: json[r'onCall'],
       provider: json[r'provider'],
-      renewal:
-          ContractCreateContractCommandWriteRenewal.fromJson(json[r'renewal']),
+      renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: json[r'state'],
       type: json[r'type'],
     );
   }
 
-  ContractCreateContractCommandWriteBilling? billing;
+  BillingWrite? billing;
 
   String? description;
 
@@ -76,7 +74,7 @@ class ContractCreateContractCommandWrite {
 
   String provider;
 
-  ContractCreateContractCommandWriteRenewal? renewal;
+  RenewalWrite? renewal;
 
   DateTime? signedAt;
 

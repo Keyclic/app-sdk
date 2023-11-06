@@ -4404,17 +4404,17 @@
                 ]
             }
         },
-        "\/feedbacks\/{feedback}\/images": {
+        "\/feedbacks\/{feedback}\/attachments": {
             "post": {
                 "tags": [
                     "Feedback"
                 ],
-                "summary": "Create one Image resource.",
+                "summary": "Create one Attachment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "postImageByFeedback",
+                "operationId": "postAttachmentByFeedback",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -4438,7 +4438,7 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "$ref": "#\/parameters\/ImageData"
+                        "$ref": "#\/parameters\/FileData"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -7859,17 +7859,17 @@
                 ]
             }
         },
-        "\/operations\/{operation}\/images\/{image}": {
+        "\/operations\/{operation}\/attachments\/{attachment}": {
             "delete": {
                 "tags": [
                     "Operation"
                 ],
-                "summary": "Remove one Image resource.",
+                "summary": "Remove one Attachment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "deleteImageByOperationAndImage",
+                "operationId": "deleteAttachmentByOperationAndAttachment",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -7904,7 +7904,7 @@
                         "description": "The identifier of the resource.",
                         "format": "uuid",
                         "in": "path",
-                        "name": "image",
+                        "name": "attachment",
                         "required": true,
                         "type": "string"
                     }
@@ -8216,17 +8216,17 @@
                 ]
             }
         },
-        "\/operations\/{operation}\/images": {
+        "\/operations\/{operation}\/attachments": {
             "post": {
                 "tags": [
                     "Operation"
                 ],
-                "summary": "Create one Image resource.",
+                "summary": "Create one Attachment resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "postImageByOperation",
+                "operationId": "postAttachmentByOperation",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -8250,7 +8250,7 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "$ref": "#\/parameters\/ImageData"
+                        "$ref": "#\/parameters\/FileData"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -20538,17 +20538,6 @@
                 }
             }
         },
-        "ImageData": {
-            "type": "object",
-            "properties": {
-                "image": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "image"
-            ]
-        },
         "InternalService": {
             "type": "object",
             "properties": {
@@ -27399,11 +27388,11 @@
             },
             "required": true
         },
-        "ImageData": {
-            "name": "ImageData",
+        "FileData": {
+            "name": "FileData",
             "in": "body",
             "schema": {
-                "$ref": "#\/definitions\/ImageData"
+                "$ref": "#\/definitions\/FileData"
             },
             "required": true
         },
@@ -27693,14 +27682,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/OrganizationPatch"
-            },
-            "required": true
-        },
-        "FileData": {
-            "name": "FileData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/FileData"
             },
             "required": true
         },

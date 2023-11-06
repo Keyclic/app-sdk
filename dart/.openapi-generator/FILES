@@ -231,7 +231,6 @@ doc/FeedbackWorkflowTransitionData.md
 doc/FileData.md
 doc/GeoShape.md
 doc/GeoShapeCentroid.md
-doc/ImageData.md
 doc/InternalService.md
 doc/InternalServiceApi.md
 doc/InternalServiceCollection.md
@@ -883,7 +882,6 @@ lib/model/feedback_workflow_transition_data.dart
 lib/model/file_data.dart
 lib/model/geo_shape.dart
 lib/model/geo_shape_centroid.dart
-lib/model/image_data.dart
 lib/model/internal_service.dart
 lib/model/internal_service_collection.dart
 lib/model/internal_service_contact_point.dart
@@ -1472,7 +1470,6 @@ test/feedback_workflow_transition_data_test.dart
 test/file_data_test.dart
 test/geo_shape_centroid_test.dart
 test/geo_shape_test.dart
-test/image_data_test.dart
 test/internal_service_api_test.dart
 test/internal_service_collection_test.dart
 test/internal_service_contact_point_test.dart

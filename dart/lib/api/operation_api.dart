@@ -376,13 +376,13 @@ class OperationApi {
     );
   }
 
-  /// Remove one Image resource.
+  /// Remove one Attachment resource.
   ///
   ///
   /// Parameters:
   /// * [xKeyclicApp]
   /// * [operation] - The identifier of the resource.
-  /// * [image] - The identifier of the resource.
+  /// * [attachment] - The identifier of the resource.
   /// * [acceptLanguage]
   /// * [xDateTime]
   /// * [xKeyclicAppPlatform]
@@ -397,11 +397,11 @@ class OperationApi {
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
   /// Keyclic API documentation.
-  /// Also see [Remove one Image resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<void>> deleteImageByOperationAndImage({
+  /// Also see [Remove one Attachment resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<void>> deleteAttachmentByOperationAndAttachment({
     required String xKeyclicApp,
     required String operation,
-    required String image,
+    required String attachment,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -413,9 +413,9 @@ class OperationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final String path = r'/operations/{operation}/images/{image}'
+    final String path = r'/operations/{operation}/attachments/{attachment}'
         .replaceAll('{' r'operation' '}', operation.toString())
-        .replaceAll('{' r'image' '}', image.toString());
+        .replaceAll('{' r'attachment' '}', attachment.toString());
     final options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -957,6 +957,124 @@ class OperationApi {
     );
   }
 
+  /// Create one Attachment resource.
+  ///
+  ///
+  /// Parameters:
+  /// * [xKeyclicApp]
+  /// * [operation] - The identifier of the resource.
+  /// * [fileData]
+  /// * [acceptLanguage]
+  /// * [xDateTime]
+  /// * [xKeyclicAppPlatform]
+  /// * [xKeyclicAppVersion]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [Operation] as data
+  /// Throws [DioError] if API call or serialization fails
+  /// Keyclic API documentation.
+  /// Also see [Create one Attachment resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
+  Future<Response<Operation>> postAttachmentByOperation({
+    required String xKeyclicApp,
+    required String operation,
+    required FileData fileData,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    List<String>? bodyParameters,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/operations/{operation}/attachments'
+        .replaceAll('{' r'operation' '}', operation.toString());
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'accept-language': acceptLanguage,
+        if (xDateTime != null) r'x-date-time': xDateTime,
+        r'x-keyclic-app': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'x-keyclic-app-platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'x-keyclic-app-version': xKeyclicAppVersion,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'bearer',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json;charset=UTF-8',
+      validateStatus: validateStatus,
+    );
+
+    dynamic bodyData;
+
+    try {
+      bodyData = fileData.toJson(bodyParameters);
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    Operation responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<Operation>(
+          response.data!, 'Operation');
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: response.requestOptions,
+        response: response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<Operation>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+  }
+
   /// Create one Comment resource.
   ///
   ///
@@ -1182,124 +1300,6 @@ class OperationApi {
     }
 
     return Response<Document>(
-      data: responseData,
-      headers: response.headers,
-      isRedirect: response.isRedirect,
-      requestOptions: response.requestOptions,
-      redirects: response.redirects,
-      statusCode: response.statusCode,
-      statusMessage: response.statusMessage,
-      extra: response.extra,
-    );
-  }
-
-  /// Create one Image resource.
-  ///
-  ///
-  /// Parameters:
-  /// * [xKeyclicApp]
-  /// * [operation] - The identifier of the resource.
-  /// * [imageData]
-  /// * [acceptLanguage]
-  /// * [xDateTime]
-  /// * [xKeyclicAppPlatform]
-  /// * [xKeyclicAppVersion]
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [Operation] as data
-  /// Throws [DioError] if API call or serialization fails
-  /// Keyclic API documentation.
-  /// Also see [Create one Image resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<Operation>> postImageByOperation({
-    required String xKeyclicApp,
-    required String operation,
-    required ImageData imageData,
-    String? acceptLanguage,
-    DateTime? xDateTime,
-    String? xKeyclicAppPlatform,
-    String? xKeyclicAppVersion,
-    List<String>? bodyParameters,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final String path = r'/operations/{operation}/images'
-        .replaceAll('{' r'operation' '}', operation.toString());
-    final options = Options(
-      method: r'POST',
-      headers: <String, dynamic>{
-        // to string ??
-        if (acceptLanguage != null) r'accept-language': acceptLanguage,
-        if (xDateTime != null) r'x-date-time': xDateTime,
-        r'x-keyclic-app': xKeyclicApp,
-        if (xKeyclicAppPlatform != null)
-          r'x-keyclic-app-platform': xKeyclicAppPlatform,
-        if (xKeyclicAppVersion != null)
-          r'x-keyclic-app-version': xKeyclicAppVersion,
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'bearer',
-            'keyName': 'Authorization',
-            'where': 'header',
-          },
-        ],
-        ...?extra,
-      },
-      contentType: 'application/json;charset=UTF-8',
-      validateStatus: validateStatus,
-    );
-
-    dynamic bodyData;
-
-    try {
-      bodyData = imageData.toJson(bodyParameters);
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: options.compose(
-          _apiClient.dio.options,
-          path,
-        ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    final response = await _apiClient.dio.request<Object>(
-      path,
-      data: bodyData,
-      options: options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    Operation responseData;
-
-    try {
-      responseData = await _apiClient.deserializeAsync<Operation>(
-          response.data!, 'Operation');
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: response.requestOptions,
-        response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    return Response<Operation>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

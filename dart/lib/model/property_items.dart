@@ -18,7 +18,9 @@ class PropertyItems {
     }
 
     return PropertyItems(
-      oneOf: ItemsChoice.listFromJson(json[r'oneOf']),
+      oneOf: json[r'oneOf'] is! Iterable
+          ? null
+          : ItemsChoice.listFromJson(json[r'oneOf']),
     );
   }
 
@@ -38,7 +40,7 @@ class PropertyItems {
   @override
   int get hashCode => (oneOf == null ? 0 : oneOf.hashCode);
 
-  static List<PropertyItems> listFromJson(List<dynamic>? json) {
+  static List<PropertyItems> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PropertyItems>[];
     }

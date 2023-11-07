@@ -22,12 +22,18 @@ class PlaceEmbedded {
     }
 
     return PlaceEmbedded(
-      documentTypes: DocumentType.listFromJson(json[r'documentTypes']),
+      documentTypes: json[r'documentTypes'] is! Iterable
+          ? null
+          : DocumentType.listFromJson(json[r'documentTypes']),
       organization: json[r'organization'] is! Map
           ? null
           : Organization.fromJson(json[r'organization']),
-      path: NodePath.listFromJson(json[r'path']),
-      targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
+      path: json[r'path'] is! Iterable
+          ? null
+          : NodePath.listFromJson(json[r'path']),
+      targetGroups: json[r'targetGroups'] is! Iterable
+          ? null
+          : TargetGroup.listFromJson(json[r'targetGroups']),
       workflow: json[r'workflow'] is! Map
           ? null
           : OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
@@ -69,7 +75,7 @@ class PlaceEmbedded {
       (targetGroups == null ? 0 : targetGroups.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<PlaceEmbedded> listFromJson(List<dynamic>? json) {
+  static List<PlaceEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlaceEmbedded>[];
     }

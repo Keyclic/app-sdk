@@ -43,7 +43,7 @@ class ProcedureLinksCreatedByIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ProcedureLinksCreatedByIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksCreatedByIriTemplate>[];
     }

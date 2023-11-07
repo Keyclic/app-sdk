@@ -61,7 +61,7 @@ class GetEquipments200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetEquipments200Response> listFromJson(List<dynamic>? json) {
+  static List<GetEquipments200Response> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <GetEquipments200Response>[];
     }

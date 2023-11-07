@@ -99,7 +99,7 @@ class TicketJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<TicketJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<TicketJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <TicketJsonhalRead>[];
     }

@@ -39,7 +39,8 @@ class ProcedureLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ProcedureLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinksSelfIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksSelfIriTemplate>[];
     }

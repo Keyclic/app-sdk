@@ -78,7 +78,7 @@ class DocumentType {
       (signed == null ? 0 : signed.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentType> listFromJson(List<dynamic>? json) {
+  static List<DocumentType> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentType>[];
     }

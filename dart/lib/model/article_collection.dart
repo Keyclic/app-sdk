@@ -18,7 +18,9 @@ class ArticleCollection {
     }
 
     return ArticleCollection(
-      items: Article.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Article.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class ArticleCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ArticleCollection> listFromJson(List<dynamic>? json) {
+  static List<ArticleCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ArticleCollection>[];
     }

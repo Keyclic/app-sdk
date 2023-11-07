@@ -48,7 +48,7 @@ class NoteLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<NoteLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<NoteLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <NoteLinksSelf>[];
     }

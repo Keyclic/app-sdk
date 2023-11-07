@@ -48,7 +48,7 @@ class DeviceLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DeviceLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<DeviceLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DeviceLinksSelf>[];
     }

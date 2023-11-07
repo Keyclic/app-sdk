@@ -73,7 +73,7 @@ class InternalServiceData {
       name.hashCode +
       organization.hashCode;
 
-  static List<InternalServiceData> listFromJson(List<dynamic>? json) {
+  static List<InternalServiceData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InternalServiceData>[];
     }

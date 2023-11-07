@@ -75,7 +75,7 @@ class TrackingCheckpoint {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<TrackingCheckpoint> listFromJson(List<dynamic>? json) {
+  static List<TrackingCheckpoint> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <TrackingCheckpoint>[];
     }

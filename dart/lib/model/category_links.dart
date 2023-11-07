@@ -49,7 +49,7 @@ class CategoryLinks {
       (organization == null ? 0 : organization.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<CategoryLinks> listFromJson(List<dynamic>? json) {
+  static List<CategoryLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <CategoryLinks>[];
     }

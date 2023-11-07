@@ -50,7 +50,7 @@ class BusinessActivityLinksThumbnail {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<BusinessActivityLinksThumbnail> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityLinksThumbnail>[];
     }

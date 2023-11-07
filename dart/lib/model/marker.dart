@@ -71,7 +71,7 @@ class Marker {
       point.hashCode +
       (type == null ? 0 : type.hashCode);
 
-  static List<Marker> listFromJson(List<dynamic>? json) {
+  static List<Marker> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Marker>[];
     }

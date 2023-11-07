@@ -62,7 +62,7 @@ class PaginationLinks {
       (next == null ? 0 : next.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<PaginationLinks> listFromJson(List<dynamic>? json) {
+  static List<PaginationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PaginationLinks>[];
     }

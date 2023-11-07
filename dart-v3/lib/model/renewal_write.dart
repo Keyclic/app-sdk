@@ -47,7 +47,7 @@ class RenewalWrite {
       (duration == null ? 0 : duration.hashCode) +
       (noticePeriod == null ? 0 : noticePeriod.hashCode);
 
-  static List<RenewalWrite> listFromJson(List<dynamic>? json) {
+  static List<RenewalWrite> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <RenewalWrite>[];
     }

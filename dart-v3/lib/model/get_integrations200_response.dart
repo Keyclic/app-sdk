@@ -61,7 +61,8 @@ class GetIntegrations200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetIntegrations200Response> listFromJson(List<dynamic>? json) {
+  static List<GetIntegrations200Response> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <GetIntegrations200Response>[];
     }

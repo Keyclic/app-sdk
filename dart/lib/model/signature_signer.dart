@@ -45,7 +45,7 @@ class SignatureSigner {
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode);
 
-  static List<SignatureSigner> listFromJson(List<dynamic>? json) {
+  static List<SignatureSigner> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SignatureSigner>[];
     }

@@ -97,7 +97,7 @@ class BusinessActivity {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<BusinessActivity> listFromJson(List<dynamic>? json) {
+  static List<BusinessActivity> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BusinessActivity>[];
     }

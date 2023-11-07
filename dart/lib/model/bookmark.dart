@@ -85,7 +85,7 @@ class Bookmark {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Bookmark> listFromJson(List<dynamic>? json) {
+  static List<Bookmark> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Bookmark>[];
     }

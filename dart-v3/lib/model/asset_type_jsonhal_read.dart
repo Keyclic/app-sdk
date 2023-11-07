@@ -88,7 +88,7 @@ class AssetTypeJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<AssetTypeJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<AssetTypeJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssetTypeJsonhalRead>[];
     }

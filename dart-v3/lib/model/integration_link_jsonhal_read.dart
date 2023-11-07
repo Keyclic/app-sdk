@@ -116,7 +116,8 @@ class IntegrationLinkJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<IntegrationLinkJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<IntegrationLinkJsonhalRead> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationLinkJsonhalRead>[];
     }

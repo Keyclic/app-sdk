@@ -73,7 +73,7 @@ class PlanPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<PlanPagination> listFromJson(List<dynamic>? json) {
+  static List<PlanPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlanPagination>[];
     }

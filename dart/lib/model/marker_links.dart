@@ -46,7 +46,7 @@ class MarkerLinks {
   int get hashCode =>
       (plan == null ? 0 : plan.hashCode) + (self == null ? 0 : self.hashCode);
 
-  static List<MarkerLinks> listFromJson(List<dynamic>? json) {
+  static List<MarkerLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <MarkerLinks>[];
     }

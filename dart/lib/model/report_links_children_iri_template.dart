@@ -40,7 +40,7 @@ class ReportLinksChildrenIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReportLinksChildrenIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportLinksChildrenIriTemplate>[];
     }

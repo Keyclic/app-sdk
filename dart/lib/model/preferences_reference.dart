@@ -37,7 +37,7 @@ class PreferencesReference {
   @override
   int get hashCode => (prefix == null ? 0 : prefix.hashCode);
 
-  static List<PreferencesReference> listFromJson(List<dynamic>? json) {
+  static List<PreferencesReference> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PreferencesReference>[];
     }

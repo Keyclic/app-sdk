@@ -53,8 +53,9 @@ class Application {
       configuration: json[r'configuration'] is! Map
           ? null
           : ApplicationConfiguration.fromJson(json[r'configuration']),
-      contactPoints:
-          ApplicationContactPoint.listFromJson(json[r'contactPoints']),
+      contactPoints: json[r'contactPoints'] is! Iterable
+          ? null
+          : ApplicationContactPoint.listFromJson(json[r'contactPoints']),
       createdAt: createdAt,
       id: json[r'id'],
       name: json[r'name'],
@@ -127,7 +128,7 @@ class Application {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (version == null ? 0 : version.hashCode);
 
-  static List<Application> listFromJson(List<dynamic>? json) {
+  static List<Application> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Application>[];
     }

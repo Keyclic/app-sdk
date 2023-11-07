@@ -39,7 +39,8 @@ class DocumentLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<DocumentLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<DocumentLinksSelfIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksSelfIriTemplate>[];
     }

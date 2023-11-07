@@ -89,7 +89,7 @@ class Section {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Section> listFromJson(List<dynamic>? json) {
+  static List<Section> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Section>[];
     }

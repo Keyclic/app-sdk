@@ -60,7 +60,7 @@ class WorkflowStateJsonhalRead {
       name.hashCode +
       (id == null ? 0 : id.hashCode);
 
-  static List<WorkflowStateJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<WorkflowStateJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WorkflowStateJsonhalRead>[];
     }

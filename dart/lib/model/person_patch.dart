@@ -91,7 +91,7 @@ class PersonPatch {
       (preferences == null ? 0 : preferences.hashCode) +
       (telephone == null ? 0 : telephone.hashCode);
 
-  static List<PersonPatch> listFromJson(List<dynamic>? json) {
+  static List<PersonPatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PersonPatch>[];
     }

@@ -77,7 +77,7 @@ class Device {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Device> listFromJson(List<dynamic>? json) {
+  static List<Device> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Device>[];
     }

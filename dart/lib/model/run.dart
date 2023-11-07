@@ -22,7 +22,9 @@ class Run {
     }
 
     return Run(
-      children: Run.listFromJson(json[r'children']),
+      children: json[r'children'] is! Iterable
+          ? null
+          : Run.listFromJson(json[r'children']),
       error: json[r'error'],
       name: json[r'name'],
       result: json[r'result'] is! Map
@@ -65,7 +67,7 @@ class Run {
       (result == null ? 0 : result.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<Run> listFromJson(List<dynamic>? json) {
+  static List<Run> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Run>[];
     }

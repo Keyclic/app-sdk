@@ -39,7 +39,7 @@ class PlaceLinksGeoIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlaceLinksGeoIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<PlaceLinksGeoIriTemplate> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlaceLinksGeoIriTemplate>[];
     }

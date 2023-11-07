@@ -18,7 +18,9 @@ class ReportCollection {
     }
 
     return ReportCollection(
-      items: Report.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Report.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class ReportCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ReportCollection> listFromJson(List<dynamic>? json) {
+  static List<ReportCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportCollection>[];
     }

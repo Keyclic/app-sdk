@@ -104,7 +104,7 @@ class AssetRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<AssetRead> listFromJson(List<dynamic>? json) {
+  static List<AssetRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssetRead>[];
     }

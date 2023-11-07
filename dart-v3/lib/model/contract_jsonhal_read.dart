@@ -170,7 +170,7 @@ class ContractJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ContractJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<ContractJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ContractJsonhalRead>[];
     }

@@ -39,7 +39,8 @@ class RuleLinksCategoryIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<RuleLinksCategoryIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksCategoryIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <RuleLinksCategoryIriTemplate>[];
     }

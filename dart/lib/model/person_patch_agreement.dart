@@ -51,7 +51,7 @@ class PersonPatchAgreement {
       (termsOfService == null ? 0 : termsOfService.hashCode) +
       (olderThan == null ? 0 : olderThan.hashCode);
 
-  static List<PersonPatchAgreement> listFromJson(List<dynamic>? json) {
+  static List<PersonPatchAgreement> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PersonPatchAgreement>[];
     }

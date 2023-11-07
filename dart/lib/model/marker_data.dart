@@ -48,7 +48,7 @@ class MarkerData {
   @override
   int get hashCode => feedback.hashCode + plan.hashCode + point.hashCode;
 
-  static List<MarkerData> listFromJson(List<dynamic>? json) {
+  static List<MarkerData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <MarkerData>[];
     }

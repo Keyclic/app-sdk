@@ -48,7 +48,7 @@ class PublicationLinksAuthor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PublicationLinksAuthor> listFromJson(List<dynamic>? json) {
+  static List<PublicationLinksAuthor> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PublicationLinksAuthor>[];
     }

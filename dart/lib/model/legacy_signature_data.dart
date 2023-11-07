@@ -45,7 +45,7 @@ class LegacySignatureData {
   @override
   int get hashCode => (signer == null ? 0 : signer.hashCode) + image.hashCode;
 
-  static List<LegacySignatureData> listFromJson(List<dynamic>? json) {
+  static List<LegacySignatureData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <LegacySignatureData>[];
     }

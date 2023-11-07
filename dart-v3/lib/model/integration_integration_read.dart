@@ -74,7 +74,8 @@ class IntegrationIntegrationRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<IntegrationIntegrationRead> listFromJson(List<dynamic>? json) {
+  static List<IntegrationIntegrationRead> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationIntegrationRead>[];
     }

@@ -57,7 +57,7 @@ class ReviewLinks {
       (itemReviewed == null ? 0 : itemReviewed.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ReviewLinks> listFromJson(List<dynamic>? json) {
+  static List<ReviewLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewLinks>[];
     }

@@ -40,7 +40,7 @@ class SignerLinksProcedureIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<SignerLinksProcedureIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <SignerLinksProcedureIriTemplate>[];
     }

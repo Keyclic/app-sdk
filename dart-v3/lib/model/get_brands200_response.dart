@@ -61,7 +61,7 @@ class GetBrands200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetBrands200Response> listFromJson(List<dynamic>? json) {
+  static List<GetBrands200Response> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <GetBrands200Response>[];
     }

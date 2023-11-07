@@ -89,7 +89,7 @@ class KnowledgeBase {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<KnowledgeBase> listFromJson(List<dynamic>? json) {
+  static List<KnowledgeBase> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <KnowledgeBase>[];
     }

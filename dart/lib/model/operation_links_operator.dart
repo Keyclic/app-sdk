@@ -48,7 +48,7 @@ class OperationLinksOperator {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OperationLinksOperator> listFromJson(List<dynamic>? json) {
+  static List<OperationLinksOperator> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationLinksOperator>[];
     }

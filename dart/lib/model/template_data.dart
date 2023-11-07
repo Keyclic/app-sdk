@@ -23,13 +23,13 @@ class TemplateData {
     }
 
     return TemplateData(
-      body: json[r'body'] == null
+      body: json[r'body'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
-      footer: json[r'footer'] == null
+      footer: json[r'footer'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'footer']),
-      header: json[r'header'] == null
+      header: json[r'header'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'header']),
       name: json[r'name'],
@@ -75,7 +75,7 @@ class TemplateData {
       organization.hashCode +
       type.hashCode;
 
-  static List<TemplateData> listFromJson(List<dynamic>? json) {
+  static List<TemplateData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <TemplateData>[];
     }

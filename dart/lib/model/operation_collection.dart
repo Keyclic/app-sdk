@@ -18,7 +18,9 @@ class OperationCollection {
     }
 
     return OperationCollection(
-      items: Operation.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Operation.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class OperationCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<OperationCollection> listFromJson(List<dynamic>? json) {
+  static List<OperationCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationCollection>[];
     }

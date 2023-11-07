@@ -48,7 +48,7 @@ class ReportLinksOrganization {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReportLinksOrganization> listFromJson(List<dynamic>? json) {
+  static List<ReportLinksOrganization> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportLinksOrganization>[];
     }

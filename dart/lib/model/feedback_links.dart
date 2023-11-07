@@ -31,8 +31,12 @@ class FeedbackLinks {
       category: json[r'category'] is! Map
           ? null
           : FeedbackLinksCategory.fromJson(json[r'category']),
-      images: FeedbackLinksImages.listFromJson(json[r'images']),
-      plans: FeedbackLinksPlans.listFromJson(json[r'plans']),
+      images: json[r'images'] is! Iterable
+          ? null
+          : FeedbackLinksImages.listFromJson(json[r'images']),
+      plans: json[r'plans'] is! Iterable
+          ? null
+          : FeedbackLinksPlans.listFromJson(json[r'plans']),
       report: json[r'report'] is! Map
           ? null
           : FeedbackLinksReport.fromJson(json[r'report']),
@@ -93,7 +97,7 @@ class FeedbackLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<FeedbackLinks> listFromJson(List<dynamic>? json) {
+  static List<FeedbackLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackLinks>[];
     }

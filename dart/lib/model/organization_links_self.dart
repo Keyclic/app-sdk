@@ -48,7 +48,7 @@ class OrganizationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OrganizationLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<OrganizationLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksSelf>[];
     }

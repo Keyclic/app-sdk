@@ -80,7 +80,7 @@ class AssetTypeRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<AssetTypeRead> listFromJson(List<dynamic>? json) {
+  static List<AssetTypeRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssetTypeRead>[];
     }

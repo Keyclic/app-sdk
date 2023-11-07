@@ -150,7 +150,7 @@ class Operation {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Operation> listFromJson(List<dynamic>? json) {
+  static List<Operation> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Operation>[];
     }

@@ -73,7 +73,7 @@ class BinaryPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<BinaryPagination> listFromJson(List<dynamic>? json) {
+  static List<BinaryPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BinaryPagination>[];
     }

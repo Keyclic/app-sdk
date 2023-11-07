@@ -73,7 +73,7 @@ class NotePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<NotePagination> listFromJson(List<dynamic>? json) {
+  static List<NotePagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <NotePagination>[];
     }

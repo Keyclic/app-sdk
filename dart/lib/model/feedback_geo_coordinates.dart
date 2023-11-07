@@ -47,7 +47,7 @@ class FeedbackGeoCoordinates {
       (elevation == null ? 0 : elevation.hashCode) +
       (point == null ? 0 : point.hashCode);
 
-  static List<FeedbackGeoCoordinates> listFromJson(List<dynamic>? json) {
+  static List<FeedbackGeoCoordinates> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackGeoCoordinates>[];
     }

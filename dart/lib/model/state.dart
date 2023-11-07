@@ -69,7 +69,7 @@ class State {
       (color == null ? 0 : color.hashCode) +
       (progression == null ? 0 : progression.hashCode);
 
-  static List<State> listFromJson(List<dynamic>? json) {
+  static List<State> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <State>[];
     }

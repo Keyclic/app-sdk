@@ -40,7 +40,7 @@ class CategoryLinksSelfIriTemplateMapping {
   int get hashCode => (category == null ? 0 : category.hashCode);
 
   static List<CategoryLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <CategoryLinksSelfIriTemplateMapping>[];
     }

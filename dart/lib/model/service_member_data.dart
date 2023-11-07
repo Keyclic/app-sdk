@@ -37,7 +37,7 @@ class ServiceMemberData {
   @override
   int get hashCode => member.hashCode;
 
-  static List<ServiceMemberData> listFromJson(List<dynamic>? json) {
+  static List<ServiceMemberData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ServiceMemberData>[];
     }

@@ -39,7 +39,7 @@ class RuleLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<RuleLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksSelfIriTemplate> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <RuleLinksSelfIriTemplate>[];
     }

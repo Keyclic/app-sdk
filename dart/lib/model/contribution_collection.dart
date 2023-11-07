@@ -18,7 +18,9 @@ class ContributionCollection {
     }
 
     return ContributionCollection(
-      items: Contribution.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Contribution.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class ContributionCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ContributionCollection> listFromJson(List<dynamic>? json) {
+  static List<ContributionCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ContributionCollection>[];
     }

@@ -39,7 +39,7 @@ class PlanLinksImageIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlanLinksImageIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<PlanLinksImageIriTemplate> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlanLinksImageIriTemplate>[];
     }

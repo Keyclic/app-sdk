@@ -49,7 +49,7 @@ class ApplicationLinks {
       (knowledgeBase == null ? 0 : knowledgeBase.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ApplicationLinks> listFromJson(List<dynamic>? json) {
+  static List<ApplicationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinks>[];
     }

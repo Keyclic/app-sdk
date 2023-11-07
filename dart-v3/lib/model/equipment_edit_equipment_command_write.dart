@@ -116,7 +116,7 @@ class EquipmentEditEquipmentCommandWrite {
       (warranty == null ? 0 : warranty.hashCode);
 
   static List<EquipmentEditEquipmentCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <EquipmentEditEquipmentCommandWrite>[];
     }

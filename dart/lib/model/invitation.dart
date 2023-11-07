@@ -97,7 +97,7 @@ class Invitation {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Invitation> listFromJson(List<dynamic>? json) {
+  static List<Invitation> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Invitation>[];
     }

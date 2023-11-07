@@ -48,7 +48,7 @@ class ProcedureLinksDocument {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksDocument> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinksDocument> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksDocument>[];
     }

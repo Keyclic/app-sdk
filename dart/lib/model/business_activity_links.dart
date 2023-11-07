@@ -65,7 +65,7 @@ class BusinessActivityLinks {
       (self == null ? 0 : self.hashCode) +
       (thumbnail == null ? 0 : thumbnail.hashCode);
 
-  static List<BusinessActivityLinks> listFromJson(List<dynamic>? json) {
+  static List<BusinessActivityLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityLinks>[];
     }

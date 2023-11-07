@@ -61,7 +61,7 @@ class GetContracts200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetContracts200Response> listFromJson(List<dynamic>? json) {
+  static List<GetContracts200Response> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <GetContracts200Response>[];
     }

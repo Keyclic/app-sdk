@@ -61,7 +61,7 @@ class GetTicketTypes200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetTicketTypes200Response> listFromJson(List<dynamic>? json) {
+  static List<GetTicketTypes200Response> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <GetTicketTypes200Response>[];
     }

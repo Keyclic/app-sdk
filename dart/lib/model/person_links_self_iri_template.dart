@@ -40,7 +40,8 @@ class PersonLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PersonLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<PersonLinksSelfIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <PersonLinksSelfIriTemplate>[];
     }

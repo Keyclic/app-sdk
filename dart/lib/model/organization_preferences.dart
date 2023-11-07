@@ -118,7 +118,7 @@ class OrganizationPreferences {
       (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
       (reviewEnabled == null ? 0 : reviewEnabled.hashCode);
 
-  static List<OrganizationPreferences> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPreferences> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationPreferences>[];
     }

@@ -56,7 +56,7 @@ class NoteLinks {
       (author == null ? 0 : author.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<NoteLinks> listFromJson(List<dynamic>? json) {
+  static List<NoteLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <NoteLinks>[];
     }

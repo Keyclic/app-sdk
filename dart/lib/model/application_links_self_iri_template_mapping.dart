@@ -40,7 +40,7 @@ class ApplicationLinksSelfIriTemplateMapping {
   int get hashCode => (application == null ? 0 : application.hashCode);
 
   static List<ApplicationLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinksSelfIriTemplateMapping>[];
     }

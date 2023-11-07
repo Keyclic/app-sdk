@@ -119,7 +119,7 @@ class Feedback {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
-  static List<Feedback> listFromJson(List<dynamic>? json) {
+  static List<Feedback> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Feedback>[];
     }

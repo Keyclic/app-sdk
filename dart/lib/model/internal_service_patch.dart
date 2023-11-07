@@ -67,7 +67,7 @@ class InternalServicePatch {
       (manager == null ? 0 : manager.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<InternalServicePatch> listFromJson(List<dynamic>? json) {
+  static List<InternalServicePatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InternalServicePatch>[];
     }

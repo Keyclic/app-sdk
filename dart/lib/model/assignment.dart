@@ -91,7 +91,7 @@ class Assignment {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Assignment> listFromJson(List<dynamic>? json) {
+  static List<Assignment> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Assignment>[];
     }

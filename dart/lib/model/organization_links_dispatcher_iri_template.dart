@@ -43,7 +43,7 @@ class OrganizationLinksDispatcherIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<OrganizationLinksDispatcherIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksDispatcherIriTemplate>[];
     }

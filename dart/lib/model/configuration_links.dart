@@ -39,7 +39,7 @@ class ConfigurationLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<ConfigurationLinks> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ConfigurationLinks>[];
     }

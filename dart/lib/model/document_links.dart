@@ -65,7 +65,7 @@ class DocumentLinks {
       (procedure == null ? 0 : procedure.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<DocumentLinks> listFromJson(List<dynamic>? json) {
+  static List<DocumentLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentLinks>[];
     }

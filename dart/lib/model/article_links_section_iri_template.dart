@@ -40,7 +40,7 @@ class ArticleLinksSectionIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ArticleLinksSectionIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ArticleLinksSectionIriTemplate>[];
     }

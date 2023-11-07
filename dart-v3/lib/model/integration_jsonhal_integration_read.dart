@@ -84,7 +84,7 @@ class IntegrationJsonhalIntegrationRead {
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<IntegrationJsonhalIntegrationRead> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationJsonhalIntegrationRead>[];
     }

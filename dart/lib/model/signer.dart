@@ -75,7 +75,7 @@ class Signer {
       (state == null ? 0 : state.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<Signer> listFromJson(List<dynamic>? json) {
+  static List<Signer> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Signer>[];
     }

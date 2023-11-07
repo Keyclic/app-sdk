@@ -43,7 +43,7 @@ class OperationLinksOperatorIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<OperationLinksOperatorIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationLinksOperatorIriTemplate>[];
     }

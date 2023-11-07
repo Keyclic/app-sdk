@@ -65,7 +65,7 @@ class PublicationLinks {
       (organization == null ? 0 : organization.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<PublicationLinks> listFromJson(List<dynamic>? json) {
+  static List<PublicationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PublicationLinks>[];
     }

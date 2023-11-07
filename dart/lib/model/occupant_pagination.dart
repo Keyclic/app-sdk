@@ -73,7 +73,7 @@ class OccupantPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<OccupantPagination> listFromJson(List<dynamic>? json) {
+  static List<OccupantPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OccupantPagination>[];
     }

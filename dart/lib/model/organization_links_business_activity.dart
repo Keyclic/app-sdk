@@ -51,7 +51,7 @@ class OrganizationLinksBusinessActivity {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<OrganizationLinksBusinessActivity> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksBusinessActivity>[];
     }

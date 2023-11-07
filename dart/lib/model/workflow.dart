@@ -51,8 +51,12 @@ class Workflow {
       start: json[r'start'] is! Map
           ? null
           : WorkflowState.fromJson(json[r'start']),
-      states: WorkflowState.listFromJson(json[r'states']),
-      transitions: WorkflowTransition.listFromJson(json[r'transitions']),
+      states: json[r'states'] is! Iterable
+          ? null
+          : WorkflowState.listFromJson(json[r'states']),
+      transitions: json[r'transitions'] is! Iterable
+          ? null
+          : WorkflowTransition.listFromJson(json[r'transitions']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -116,7 +120,7 @@ class Workflow {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Workflow> listFromJson(List<dynamic>? json) {
+  static List<Workflow> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Workflow>[];
     }

@@ -39,7 +39,7 @@ class CheckpointEmbedded {
   @override
   int get hashCode => (createdBy == null ? 0 : createdBy.hashCode);
 
-  static List<CheckpointEmbedded> listFromJson(List<dynamic>? json) {
+  static List<CheckpointEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <CheckpointEmbedded>[];
     }

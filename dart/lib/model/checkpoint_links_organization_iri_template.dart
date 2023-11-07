@@ -43,7 +43,7 @@ class CheckpointLinksOrganizationIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<CheckpointLinksOrganizationIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <CheckpointLinksOrganizationIriTemplate>[];
     }

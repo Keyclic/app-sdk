@@ -20,12 +20,13 @@ class FeatureGeometry {
 
     return FeatureGeometry(
       type: FeatureGeometryTypeEnum.fromJson(json[r'type']),
-      coordinates:
-          List.from(json[r'coordinates'] ?? []).map<List<List<num>>>((ring) {
-        return List.from(ring).map<List<num>>((point) {
-          return List<num>.from(point, growable: false);
-        }).toList(growable: false);
-      }).toList(growable: false),
+      coordinates: json[r'coordinates'] is! Iterable
+          ? null
+          : List.from(json[r'coordinates'] ?? []).map<List<List<num>>>((ring) {
+              return List.from(ring).map<List<num>>((point) {
+                return List<num>.from(point, growable: false);
+              }).toList(growable: false);
+            }).toList(growable: false),
     );
   }
 
@@ -51,7 +52,7 @@ class FeatureGeometry {
       (type == null ? 0 : type.hashCode) +
       (coordinates == null ? 0 : coordinates.hashCode);
 
-  static List<FeatureGeometry> listFromJson(List<dynamic>? json) {
+  static List<FeatureGeometry> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeatureGeometry>[];
     }

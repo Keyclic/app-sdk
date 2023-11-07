@@ -73,7 +73,7 @@ class ReviewRequestPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<ReviewRequestPagination> listFromJson(List<dynamic>? json) {
+  static List<ReviewRequestPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewRequestPagination>[];
     }

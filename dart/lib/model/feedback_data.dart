@@ -95,7 +95,7 @@ class FeedbackData {
       (reporter == null ? 0 : reporter.hashCode) +
       visibility.hashCode;
 
-  static List<FeedbackData> listFromJson(List<dynamic>? json) {
+  static List<FeedbackData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackData>[];
     }

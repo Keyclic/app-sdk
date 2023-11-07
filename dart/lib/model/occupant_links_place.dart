@@ -48,7 +48,7 @@ class OccupantLinksPlace {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OccupantLinksPlace> listFromJson(List<dynamic>? json) {
+  static List<OccupantLinksPlace> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OccupantLinksPlace>[];
     }

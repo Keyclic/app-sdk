@@ -54,7 +54,7 @@ class BillingWrite {
       (initialCost == null ? 0 : initialCost.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<BillingWrite> listFromJson(List<dynamic>? json) {
+  static List<BillingWrite> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BillingWrite>[];
     }

@@ -113,7 +113,7 @@ class ReportLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<ReportLinks> listFromJson(List<dynamic>? json) {
+  static List<ReportLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportLinks>[];
     }

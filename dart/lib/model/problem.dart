@@ -59,7 +59,7 @@ class Problem {
       (detail == null ? 0 : detail.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<Problem> listFromJson(List<dynamic>? json) {
+  static List<Problem> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Problem>[];
     }

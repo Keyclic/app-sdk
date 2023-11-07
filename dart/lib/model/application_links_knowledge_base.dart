@@ -49,7 +49,8 @@ class ApplicationLinksKnowledgeBase {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ApplicationLinksKnowledgeBase> listFromJson(List<dynamic>? json) {
+  static List<ApplicationLinksKnowledgeBase> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinksKnowledgeBase>[];
     }

@@ -108,7 +108,7 @@ class IntegrationLinkRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<IntegrationLinkRead> listFromJson(List<dynamic>? json) {
+  static List<IntegrationLinkRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationLinkRead>[];
     }

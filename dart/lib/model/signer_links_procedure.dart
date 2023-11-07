@@ -48,7 +48,7 @@ class SignerLinksProcedure {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<SignerLinksProcedure> listFromJson(List<dynamic>? json) {
+  static List<SignerLinksProcedure> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SignerLinksProcedure>[];
     }

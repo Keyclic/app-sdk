@@ -26,7 +26,9 @@ class ActivityAggregatedPagination {
       next: json[r'next'],
       unseen: json[r'unseen'],
       unread: json[r'unread'],
-      results: ActivityGroup.listFromJson(json[r'results']),
+      results: json[r'results'] is! Iterable
+          ? null
+          : ActivityGroup.listFromJson(json[r'results']),
     );
   }
 
@@ -63,7 +65,8 @@ class ActivityAggregatedPagination {
       (unread == null ? 0 : unread.hashCode) +
       (results == null ? 0 : results.hashCode);
 
-  static List<ActivityAggregatedPagination> listFromJson(List<dynamic>? json) {
+  static List<ActivityAggregatedPagination> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ActivityAggregatedPagination>[];
     }

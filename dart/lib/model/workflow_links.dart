@@ -39,7 +39,7 @@ class WorkflowLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<WorkflowLinks> listFromJson(List<dynamic>? json) {
+  static List<WorkflowLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WorkflowLinks>[];
     }

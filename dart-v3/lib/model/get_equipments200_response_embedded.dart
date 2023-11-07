@@ -40,7 +40,7 @@ class GetEquipments200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetEquipments200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <GetEquipments200ResponseEmbedded>[];
     }

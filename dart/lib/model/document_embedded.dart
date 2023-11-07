@@ -28,7 +28,9 @@ class DocumentEmbedded {
       createdBy: json[r'createdBy'] is! Map
           ? null
           : Person.fromJson(json[r'createdBy']),
-      signers: Signer.listFromJson(json[r'signers']),
+      signers: json[r'signers'] is! Iterable
+          ? null
+          : Signer.listFromJson(json[r'signers']),
       stateTransitions: json[r'stateTransitions'] == null
           ? null
           : List<String>.from(json[r'stateTransitions']),
@@ -70,7 +72,7 @@ class DocumentEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentEmbedded> listFromJson(List<dynamic>? json) {
+  static List<DocumentEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentEmbedded>[];
     }

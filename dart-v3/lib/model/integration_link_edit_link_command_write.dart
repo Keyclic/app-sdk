@@ -70,7 +70,7 @@ class IntegrationLinkEditLinkCommandWrite {
       (target == null ? 0 : target.hashCode);
 
   static List<IntegrationLinkEditLinkCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationLinkEditLinkCommandWrite>[];
     }

@@ -37,7 +37,7 @@ class PasswordChangeData {
   @override
   int get hashCode => password.hashCode;
 
-  static List<PasswordChangeData> listFromJson(List<dynamic>? json) {
+  static List<PasswordChangeData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PasswordChangeData>[];
     }

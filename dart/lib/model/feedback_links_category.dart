@@ -48,7 +48,7 @@ class FeedbackLinksCategory {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<FeedbackLinksCategory> listFromJson(List<dynamic>? json) {
+  static List<FeedbackLinksCategory> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackLinksCategory>[];
     }

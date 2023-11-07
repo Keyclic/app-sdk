@@ -47,7 +47,7 @@ class Document {
       links: json[r'_links'] is! Map
           ? null
           : DocumentLinks.fromJson(json[r'_links']),
-      body: json[r'body'] == null
+      body: json[r'body'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
       createdAt: createdAt,
@@ -125,7 +125,7 @@ class Document {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Document> listFromJson(List<dynamic>? json) {
+  static List<Document> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Document>[];
     }

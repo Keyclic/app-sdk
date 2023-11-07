@@ -55,7 +55,7 @@ class Feature {
       (geometry == null ? 0 : geometry.hashCode) +
       (properties == null ? 0 : properties.hashCode);
 
-  static List<Feature> listFromJson(List<dynamic>? json) {
+  static List<Feature> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Feature>[];
     }

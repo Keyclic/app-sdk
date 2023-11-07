@@ -53,7 +53,7 @@ class ExternalServicePatchContactPoint {
       (telephone == null ? 0 : telephone.hashCode);
 
   static List<ExternalServicePatchContactPoint> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ExternalServicePatchContactPoint>[];
     }

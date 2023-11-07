@@ -49,7 +49,7 @@ class AssignmentEmbedded {
       (createdBy == null ? 0 : createdBy.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<AssignmentEmbedded> listFromJson(List<dynamic>? json) {
+  static List<AssignmentEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssignmentEmbedded>[];
     }

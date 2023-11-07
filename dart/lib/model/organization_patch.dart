@@ -110,7 +110,7 @@ class OrganizationPatch {
       (preferences == null ? 0 : preferences.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<OrganizationPatch> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationPatch>[];
     }

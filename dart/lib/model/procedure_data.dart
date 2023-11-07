@@ -49,7 +49,7 @@ class ProcedureData {
   int get hashCode =>
       document.hashCode + (mode == null ? 0 : mode.hashCode) + type.hashCode;
 
-  static List<ProcedureData> listFromJson(List<dynamic>? json) {
+  static List<ProcedureData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureData>[];
     }

@@ -48,7 +48,7 @@ class WorkflowLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<WorkflowLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<WorkflowLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WorkflowLinksSelf>[];
     }

@@ -89,7 +89,7 @@ class Article {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Article> listFromJson(List<dynamic>? json) {
+  static List<Article> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Article>[];
     }

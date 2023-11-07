@@ -62,7 +62,7 @@ class BillingRead {
       (initialCost == null ? 0 : initialCost.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<BillingRead> listFromJson(List<dynamic>? json) {
+  static List<BillingRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BillingRead>[];
     }

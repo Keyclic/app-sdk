@@ -46,7 +46,7 @@ class PersonLinks {
   int get hashCode =>
       (image == null ? 0 : image.hashCode) + (self == null ? 0 : self.hashCode);
 
-  static List<PersonLinks> listFromJson(List<dynamic>? json) {
+  static List<PersonLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PersonLinks>[];
     }

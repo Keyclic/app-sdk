@@ -31,7 +31,9 @@ class OperationLinks {
       feedback: json[r'feedback'] is! Map
           ? null
           : OperationLinksFeedback.fromJson(json[r'feedback']),
-      images: OperationLinksImages.listFromJson(json[r'images']),
+      images: json[r'images'] is! Iterable
+          ? null
+          : OperationLinksImages.listFromJson(json[r'images']),
       operator_: json[r'operator'] is! Map
           ? null
           : OperationLinksOperator.fromJson(json[r'operator']),
@@ -95,7 +97,7 @@ class OperationLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<OperationLinks> listFromJson(List<dynamic>? json) {
+  static List<OperationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationLinks>[];
     }

@@ -53,7 +53,7 @@ class SuccessLogin {
       (credentials == null ? 0 : credentials.hashCode) +
       (tokenType == null ? 0 : tokenType.hashCode);
 
-  static List<SuccessLogin> listFromJson(List<dynamic>? json) {
+  static List<SuccessLogin> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SuccessLogin>[];
     }

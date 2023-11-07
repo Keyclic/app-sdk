@@ -45,7 +45,7 @@ class PlacePreferences {
       (public == null ? 0 : public.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
-  static List<PlacePreferences> listFromJson(List<dynamic>? json) {
+  static List<PlacePreferences> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlacePreferences>[];
     }

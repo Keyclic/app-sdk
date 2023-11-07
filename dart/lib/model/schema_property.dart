@@ -109,7 +109,7 @@ class SchemaProperty {
       (title == null ? 0 : title.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<SchemaProperty> listFromJson(List<dynamic>? json) {
+  static List<SchemaProperty> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SchemaProperty>[];
     }

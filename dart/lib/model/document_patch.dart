@@ -22,7 +22,7 @@ class DocumentPatch {
     }
 
     return DocumentPatch(
-      body: json[r'body'] == null
+      body: json[r'body'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
       file: json[r'file'] is! Map
@@ -69,7 +69,7 @@ class DocumentPatch {
       (text == null ? 0 : text.hashCode) +
       (tags == null ? 0 : tags.hashCode);
 
-  static List<DocumentPatch> listFromJson(List<dynamic>? json) {
+  static List<DocumentPatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentPatch>[];
     }

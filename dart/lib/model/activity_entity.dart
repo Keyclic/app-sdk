@@ -42,7 +42,7 @@ class ActivityEntity {
   int get hashCode =>
       (id == null ? 0 : id.hashCode) + (type == null ? 0 : type.hashCode);
 
-  static List<ActivityEntity> listFromJson(List<dynamic>? json) {
+  static List<ActivityEntity> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ActivityEntity>[];
     }

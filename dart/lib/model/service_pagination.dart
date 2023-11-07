@@ -73,7 +73,7 @@ class ServicePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<ServicePagination> listFromJson(List<dynamic>? json) {
+  static List<ServicePagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ServicePagination>[];
     }

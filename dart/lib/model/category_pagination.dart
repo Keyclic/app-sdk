@@ -73,7 +73,7 @@ class CategoryPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<CategoryPagination> listFromJson(List<dynamic>? json) {
+  static List<CategoryPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <CategoryPagination>[];
     }

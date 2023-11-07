@@ -82,7 +82,7 @@ class OrganizationLinks {
       (logo == null ? 0 : logo.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<OrganizationLinks> listFromJson(List<dynamic>? json) {
+  static List<OrganizationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinks>[];
     }

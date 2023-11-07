@@ -91,7 +91,7 @@ class Review {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Review> listFromJson(List<dynamic>? json) {
+  static List<Review> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Review>[];
     }

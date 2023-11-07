@@ -158,7 +158,7 @@ class EquipmentJsonhalRead {
       name.hashCode +
       (address == null ? 0 : address.hashCode);
 
-  static List<EquipmentJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<EquipmentJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <EquipmentJsonhalRead>[];
     }

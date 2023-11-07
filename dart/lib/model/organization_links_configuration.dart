@@ -50,7 +50,7 @@ class OrganizationLinksConfiguration {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<OrganizationLinksConfiguration> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksConfiguration>[];
     }

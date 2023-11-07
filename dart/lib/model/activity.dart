@@ -89,7 +89,7 @@ class Activity {
       (title == null ? 0 : title.hashCode) +
       (verb == null ? 0 : verb.hashCode);
 
-  static List<Activity> listFromJson(List<dynamic>? json) {
+  static List<Activity> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Activity>[];
     }

@@ -49,7 +49,7 @@ class ExternalServiceLinks {
       (provider == null ? 0 : provider.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ExternalServiceLinks> listFromJson(List<dynamic>? json) {
+  static List<ExternalServiceLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceLinks>[];
     }

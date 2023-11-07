@@ -73,7 +73,7 @@ class SignerPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<SignerPagination> listFromJson(List<dynamic>? json) {
+  static List<SignerPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SignerPagination>[];
     }

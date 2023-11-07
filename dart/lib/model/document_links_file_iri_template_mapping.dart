@@ -40,7 +40,7 @@ class DocumentLinksFileIriTemplateMapping {
   int get hashCode => (document == null ? 0 : document.hashCode);
 
   static List<DocumentLinksFileIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksFileIriTemplateMapping>[];
     }

@@ -103,7 +103,7 @@ class Publication {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Publication> listFromJson(List<dynamic>? json) {
+  static List<Publication> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Publication>[];
     }

@@ -121,7 +121,7 @@ class ExternalService {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ExternalService> listFromJson(List<dynamic>? json) {
+  static List<ExternalService> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ExternalService>[];
     }

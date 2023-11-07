@@ -40,7 +40,7 @@ class CategoryLinksOrganizationIriTemplateMapping {
   int get hashCode => (organization == null ? 0 : organization.hashCode);
 
   static List<CategoryLinksOrganizationIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <CategoryLinksOrganizationIriTemplateMapping>[];
     }

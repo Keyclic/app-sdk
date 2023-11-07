@@ -73,7 +73,7 @@ class PublicationPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<PublicationPagination> listFromJson(List<dynamic>? json) {
+  static List<PublicationPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PublicationPagination>[];
     }

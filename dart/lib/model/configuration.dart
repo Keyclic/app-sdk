@@ -121,7 +121,7 @@ class Configuration {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Configuration> listFromJson(List<dynamic>? json) {
+  static List<Configuration> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Configuration>[];
     }

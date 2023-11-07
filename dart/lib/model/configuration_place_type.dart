@@ -53,7 +53,7 @@ class ConfigurationPlaceType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationPlaceType> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationPlaceType> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ConfigurationPlaceType>[];
     }

@@ -39,7 +39,7 @@ class SectionLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<SectionLinks> listFromJson(List<dynamic>? json) {
+  static List<SectionLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SectionLinks>[];
     }

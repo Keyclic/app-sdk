@@ -175,7 +175,7 @@ class EquipmentRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<EquipmentRead> listFromJson(List<dynamic>? json) {
+  static List<EquipmentRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <EquipmentRead>[];
     }

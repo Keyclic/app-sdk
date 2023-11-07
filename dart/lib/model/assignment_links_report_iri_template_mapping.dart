@@ -40,7 +40,7 @@ class AssignmentLinksReportIriTemplateMapping {
   int get hashCode => (report == null ? 0 : report.hashCode);
 
   static List<AssignmentLinksReportIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <AssignmentLinksReportIriTemplateMapping>[];
     }

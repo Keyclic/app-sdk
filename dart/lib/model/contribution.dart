@@ -85,7 +85,7 @@ class Contribution {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Contribution> listFromJson(List<dynamic>? json) {
+  static List<Contribution> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Contribution>[];
     }

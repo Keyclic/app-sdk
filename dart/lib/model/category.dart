@@ -97,7 +97,7 @@ class Category {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Category> listFromJson(List<dynamic>? json) {
+  static List<Category> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Category>[];
     }

@@ -48,7 +48,7 @@ class OperationLinksFeedback {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OperationLinksFeedback> listFromJson(List<dynamic>? json) {
+  static List<OperationLinksFeedback> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationLinksFeedback>[];
     }

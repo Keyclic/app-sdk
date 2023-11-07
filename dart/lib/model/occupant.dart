@@ -85,7 +85,7 @@ class Occupant {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Occupant> listFromJson(List<dynamic>? json) {
+  static List<Occupant> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Occupant>[];
     }

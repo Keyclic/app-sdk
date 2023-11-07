@@ -18,7 +18,9 @@ class OrganizationCollection {
     }
 
     return OrganizationCollection(
-      items: Organization.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Organization.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class OrganizationCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<OrganizationCollection> listFromJson(List<dynamic>? json) {
+  static List<OrganizationCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationCollection>[];
     }

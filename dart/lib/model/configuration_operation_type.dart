@@ -53,7 +53,8 @@ class ConfigurationOperationType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationOperationType> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationOperationType> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ConfigurationOperationType>[];
     }

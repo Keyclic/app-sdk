@@ -124,7 +124,7 @@ class ContractEditContractCommandWrite {
       (type == null ? 0 : type.hashCode);
 
   static List<ContractEditContractCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ContractEditContractCommandWrite>[];
     }

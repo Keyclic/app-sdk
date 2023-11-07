@@ -38,7 +38,9 @@ class GetAssetTypes200ResponseLinks {
       previous: json[r'previous'] is! Map
           ? null
           : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'previous']),
-      item: GetAssetTypes200ResponseLinksFirst.listFromJson(json[r'item']),
+      item: json[r'item'] is! Iterable
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.listFromJson(json[r'item']),
     );
   }
 
@@ -79,7 +81,8 @@ class GetAssetTypes200ResponseLinks {
       (previous == null ? 0 : previous.hashCode) +
       (item == null ? 0 : item.hashCode);
 
-  static List<GetAssetTypes200ResponseLinks> listFromJson(List<dynamic>? json) {
+  static List<GetAssetTypes200ResponseLinks> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <GetAssetTypes200ResponseLinks>[];
     }

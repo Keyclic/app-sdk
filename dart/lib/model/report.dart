@@ -156,7 +156,7 @@ class Report {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Report> listFromJson(List<dynamic>? json) {
+  static List<Report> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Report>[];
     }

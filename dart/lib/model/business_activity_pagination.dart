@@ -73,7 +73,8 @@ class BusinessActivityPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<BusinessActivityPagination> listFromJson(List<dynamic>? json) {
+  static List<BusinessActivityPagination> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityPagination>[];
     }

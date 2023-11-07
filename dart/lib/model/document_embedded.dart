@@ -22,7 +22,7 @@ class DocumentEmbedded {
     }
 
     return DocumentEmbedded(
-      container: json[r'container'] == null
+      container: json[r'container'] is! Map
           ? null
           : Map<String, Object>.from(json[r'container']),
       createdBy: json[r'createdBy'] is! Map

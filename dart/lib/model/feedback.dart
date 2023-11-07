@@ -52,7 +52,7 @@ class Feedback {
           ? null
           : FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
       id: json[r'id'],
-      metadata: json[r'metadata'] == null
+      metadata: json[r'metadata'] is! Map
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       public: json[r'public'],

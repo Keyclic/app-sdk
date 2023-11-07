@@ -33,7 +33,7 @@ class IntegrationIntegrationRead {
     }
 
     return IntegrationIntegrationRead(
-      inputs: json[r'inputs'] == null
+      inputs: json[r'inputs'] is! Map
           ? null
           : Map<String, Object>.from(json[r'inputs']),
       id: json[r'id'],

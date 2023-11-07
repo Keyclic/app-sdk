@@ -55,23 +55,22 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
       {{/isArray}}
       {{^isArray}}
         {{#isMap}}
+          {{{name}}}: {{^required}}json[r'{{{baseName}}}'] is! Map ? null : {{/required}}
           {{#items.isArray}}
-        {{{name}}}: 
             {{#items.complexType}}
-                {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
+              {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
             {{/items.complexType}}
             {{^items.complexType}}
-                Map<String, List>.from(json[r'{{{baseName}}}'] ?? {}),
+              Map<String, List>.from(json[r'{{{baseName}}}']),
             {{/items.complexType}}
           {{/items.isArray}}
           {{^items.isArray}}
-            {{{name}}}:
               {{#items.isMap}}
             {{#items.complexType}}
                 {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.complexType}}
             {{^items.complexType}}
-                Map<String, Map>.from(json[r'{{{baseName}}}'] ?? {}),
+                Map<String, Map>.from(json[r'{{{baseName}}}']),
             {{/items.complexType}}
           {{/items.isMap}}
           {{^items.isMap}}
@@ -79,7 +78,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.isModel}}
             {{^items.isModel}}
-              json[r'{{{baseName}}}'] == null ? null : {{{dataType}}}.from(json[r'{{{baseName}}}']),
+              {{{dataType}}}.from(json[r'{{{baseName}}}']),
             {{/items.isModel}}
           {{/items.isMap}}
           {{/items.isArray}}

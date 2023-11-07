@@ -38,10 +38,10 @@ class IntegrationLinkRead {
     }
 
     return IntegrationLinkRead(
-      data: json[r'data'] == null
+      data: json[r'data'] is! Map
           ? null
           : Map<String, Object>.from(json[r'data']),
-      metadata: json[r'metadata'] == null
+      metadata: json[r'metadata'] is! Map
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],

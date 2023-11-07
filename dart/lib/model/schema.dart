@@ -19,7 +19,9 @@ class Schema {
     }
 
     return Schema(
-      properties: SchemaProperty.mapFromJson(json[r'properties']),
+      properties: json[r'properties'] is! Map
+          ? null
+          : SchemaProperty.mapFromJson(json[r'properties']),
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),

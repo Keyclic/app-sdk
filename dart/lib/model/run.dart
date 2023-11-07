@@ -25,7 +25,7 @@ class Run {
       children: Run.listFromJson(json[r'children']),
       error: json[r'error'],
       name: json[r'name'],
-      result: json[r'result'] == null
+      result: json[r'result'] is! Map
           ? null
           : Map<String, Object>.from(json[r'result']),
       state: json[r'state'],

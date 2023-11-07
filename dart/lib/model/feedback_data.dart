@@ -32,7 +32,7 @@ class FeedbackData {
       category: json[r'category'],
       description: json[r'description'],
       geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
-      metadata: json[r'metadata'] == null
+      metadata: json[r'metadata'] is! Map
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       place: json[r'place'],

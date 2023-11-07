@@ -20,8 +20,9 @@ class AssignmentLinksMember {
 
     return AssignmentLinksMember(
       href: json[r'href'],
-      iriTemplate:
-          AssignmentLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : AssignmentLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

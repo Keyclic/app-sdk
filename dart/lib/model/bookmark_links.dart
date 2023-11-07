@@ -20,9 +20,15 @@ class BookmarkLinks {
     }
 
     return BookmarkLinks(
-      member: BookmarkLinksMember.fromJson(json[r'member']),
-      place: BookmarkLinksPlace.fromJson(json[r'place']),
-      self: BookmarkLinksSelf.fromJson(json[r'self']),
+      member: json[r'member'] is! Map
+          ? null
+          : BookmarkLinksMember.fromJson(json[r'member']),
+      place: json[r'place'] is! Map
+          ? null
+          : BookmarkLinksPlace.fromJson(json[r'place']),
+      self: json[r'self'] is! Map
+          ? null
+          : BookmarkLinksSelf.fromJson(json[r'self']),
     );
   }
 

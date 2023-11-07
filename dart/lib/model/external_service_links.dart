@@ -19,8 +19,12 @@ class ExternalServiceLinks {
     }
 
     return ExternalServiceLinks(
-      provider: ExternalServiceLinksProvider.fromJson(json[r'provider']),
-      self: ExternalServiceLinksSelf.fromJson(json[r'self']),
+      provider: json[r'provider'] is! Map
+          ? null
+          : ExternalServiceLinksProvider.fromJson(json[r'provider']),
+      self: json[r'self'] is! Map
+          ? null
+          : ExternalServiceLinksSelf.fromJson(json[r'self']),
     );
   }
 

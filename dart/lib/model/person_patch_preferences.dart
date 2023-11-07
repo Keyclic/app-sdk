@@ -18,8 +18,9 @@ class PersonPatchPreferences {
     }
 
     return PersonPatchPreferences(
-      notification:
-          PersonPatchPreferencesNotification.fromJson(json[r'notification']),
+      notification: json[r'notification'] is! Map
+          ? null
+          : PersonPatchPreferencesNotification.fromJson(json[r'notification']),
     );
   }
 

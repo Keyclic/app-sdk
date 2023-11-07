@@ -22,9 +22,12 @@ class FeedbackEmbedded {
     }
 
     return FeedbackEmbedded(
-      category: Category.fromJson(json[r'category']),
+      category: json[r'category'] is! Map
+          ? null
+          : Category.fromJson(json[r'category']),
       markers: Marker.listFromJson(json[r'markers']),
-      reporter: Person.fromJson(json[r'reporter']),
+      reporter:
+          json[r'reporter'] is! Map ? null : Person.fromJson(json[r'reporter']),
       stateTransitions: json[r'stateTransitions'] == null
           ? null
           : List<String>.from(json[r'stateTransitions']),

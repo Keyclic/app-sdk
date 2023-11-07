@@ -25,14 +25,22 @@ class ReportEmbedded {
     }
 
     return ReportEmbedded(
-      assignment: Assignment.fromJson(json[r'assignment']),
-      category: Category.fromJson(json[r'category']),
+      assignment: json[r'assignment'] is! Map
+          ? null
+          : Assignment.fromJson(json[r'assignment']),
+      category: json[r'category'] is! Map
+          ? null
+          : Category.fromJson(json[r'category']),
       children: Operation.listFromJson(json[r'children']),
       documents: Document.listFromJson(json[r'documents']),
-      feedback: Feedback.fromJson(json[r'feedback']),
-      place: Place.fromJson(json[r'place']),
+      feedback: json[r'feedback'] is! Map
+          ? null
+          : Feedback.fromJson(json[r'feedback']),
+      place: json[r'place'] is! Map ? null : Place.fromJson(json[r'place']),
       targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
-      workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 

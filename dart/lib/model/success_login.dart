@@ -21,7 +21,9 @@ class SuccessLogin {
 
     return SuccessLogin(
       accessToken: json[r'accessToken'],
-      credentials: SuccessLoginCredentials.fromJson(json[r'credentials']),
+      credentials: json[r'credentials'] is! Map
+          ? null
+          : SuccessLoginCredentials.fromJson(json[r'credentials']),
       tokenType: json[r'tokenType'],
     );
   }

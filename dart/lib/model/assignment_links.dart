@@ -22,11 +22,21 @@ class AssignmentLinks {
     }
 
     return AssignmentLinks(
-      contract: AssignmentLinksContract.fromJson(json[r'contract']),
-      member: AssignmentLinksMember.fromJson(json[r'member']),
-      report: AssignmentLinksReport.fromJson(json[r'report']),
-      self: AssignmentLinksSelf.fromJson(json[r'self']),
-      service: AssignmentLinksService.fromJson(json[r'service']),
+      contract: json[r'contract'] is! Map
+          ? null
+          : AssignmentLinksContract.fromJson(json[r'contract']),
+      member: json[r'member'] is! Map
+          ? null
+          : AssignmentLinksMember.fromJson(json[r'member']),
+      report: json[r'report'] is! Map
+          ? null
+          : AssignmentLinksReport.fromJson(json[r'report']),
+      self: json[r'self'] is! Map
+          ? null
+          : AssignmentLinksSelf.fromJson(json[r'self']),
+      service: json[r'service'] is! Map
+          ? null
+          : AssignmentLinksService.fromJson(json[r'service']),
     );
   }
 

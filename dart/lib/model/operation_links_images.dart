@@ -20,8 +20,9 @@ class OperationLinksImages {
 
     return OperationLinksImages(
       href: json[r'href'],
-      iriTemplate:
-          OperationLinksImagesIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OperationLinksImagesIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

@@ -18,7 +18,9 @@ class RuleLinksCategoryIriTemplate {
     }
 
     return RuleLinksCategoryIriTemplate(
-      mapping: CategoryLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : CategoryLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

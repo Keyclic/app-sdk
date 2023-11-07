@@ -20,8 +20,10 @@ class OperationLinksOrganization {
 
     return OperationLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          OperationLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OperationLinksOrganizationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

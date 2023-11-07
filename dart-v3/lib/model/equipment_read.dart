@@ -67,14 +67,18 @@ class EquipmentRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: WarrantyRead.fromJson(json[r'warranty']),
+      warranty: json[r'warranty'] is! Map
+          ? null
+          : WarrantyRead.fromJson(json[r'warranty']),
       type: json[r'type'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
-      address: PostalAddressRead.fromJson(json[r'address']),
+      address: json[r'address'] is! Map
+          ? null
+          : PostalAddressRead.fromJson(json[r'address']),
       parent: json[r'parent'],
       state: json[r'state'],
     );

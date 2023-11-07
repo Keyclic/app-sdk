@@ -20,7 +20,9 @@ class SignerLinksMember {
 
     return SignerLinksMember(
       href: json[r'href'],
-      iriTemplate: SignerLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : SignerLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

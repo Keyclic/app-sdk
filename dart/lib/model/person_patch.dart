@@ -26,14 +26,18 @@ class PersonPatch {
     }
 
     return PersonPatch(
-      agreement: PersonPatchAgreement.fromJson(json[r'agreement']),
+      agreement: json[r'agreement'] is! Map
+          ? null
+          : PersonPatchAgreement.fromJson(json[r'agreement']),
       givenName: json[r'givenName'],
       familyName: json[r'familyName'],
       email: json[r'email'],
       jobTitle: json[r'jobTitle'],
       image: json[r'image'],
       optIn: json[r'optIn'],
-      preferences: PersonPatchPreferences.fromJson(json[r'preferences']),
+      preferences: json[r'preferences'] is! Map
+          ? null
+          : PersonPatchPreferences.fromJson(json[r'preferences']),
       telephone: json[r'telephone'],
     );
   }

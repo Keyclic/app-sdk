@@ -36,11 +36,15 @@ class AssetJsonhalRead {
     }
 
     return AssetJsonhalRead(
-      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
-      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
+      address: json[r'address'] is! Map
+          ? null
+          : PostalAddressJsonhalRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
     );

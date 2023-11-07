@@ -18,7 +18,9 @@ class AssetTypeJsonhalReadLinks {
     }
 
     return AssetTypeJsonhalReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      self: json[r'self'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
     );
   }
 

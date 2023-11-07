@@ -35,7 +35,8 @@ class Plan {
     }
 
     return Plan(
-      links: PlanLinks.fromJson(json[r'_links']),
+      links:
+          json[r'_links'] is! Map ? null : PlanLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       name: json[r'name'],

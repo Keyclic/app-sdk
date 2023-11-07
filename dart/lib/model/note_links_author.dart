@@ -20,7 +20,9 @@ class NoteLinksAuthor {
 
     return NoteLinksAuthor(
       href: json[r'href'],
-      iriTemplate: NoteLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : NoteLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

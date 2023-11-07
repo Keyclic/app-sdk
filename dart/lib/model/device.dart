@@ -34,7 +34,9 @@ class Device {
     }
 
     return Device(
-      links: DeviceLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : DeviceLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],

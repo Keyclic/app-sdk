@@ -20,8 +20,9 @@ class ProcedureLinksDocument {
 
     return ProcedureLinksDocument(
       href: json[r'href'],
-      iriTemplate:
-          ProcedureLinksDocumentIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ProcedureLinksDocumentIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

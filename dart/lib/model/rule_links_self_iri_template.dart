@@ -18,7 +18,9 @@ class RuleLinksSelfIriTemplate {
     }
 
     return RuleLinksSelfIriTemplate(
-      mapping: RuleLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : RuleLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

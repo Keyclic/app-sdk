@@ -18,8 +18,10 @@ class OperationLinksSelfIriTemplate {
     }
 
     return OperationLinksSelfIriTemplate(
-      mapping: OperationLinksAssignmentsIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : OperationLinksAssignmentsIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

@@ -20,7 +20,9 @@ class PersonLinksSelf {
 
     return PersonLinksSelf(
       href: json[r'href'],
-      iriTemplate: PersonLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PersonLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

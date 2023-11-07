@@ -18,7 +18,9 @@ class WorkflowLinksSelfIriTemplate {
     }
 
     return WorkflowLinksSelfIriTemplate(
-      mapping: WorkflowLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : WorkflowLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

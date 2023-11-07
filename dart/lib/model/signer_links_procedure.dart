@@ -20,8 +20,9 @@ class SignerLinksProcedure {
 
     return SignerLinksProcedure(
       href: json[r'href'],
-      iriTemplate:
-          SignerLinksProcedureIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : SignerLinksProcedureIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

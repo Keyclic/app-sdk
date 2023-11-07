@@ -18,7 +18,9 @@ class SignerLinksSelfIriTemplate {
     }
 
     return SignerLinksSelfIriTemplate(
-      mapping: SignerLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : SignerLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

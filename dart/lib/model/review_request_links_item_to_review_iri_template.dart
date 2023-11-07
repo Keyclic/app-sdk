@@ -19,8 +19,10 @@ class ReviewRequestLinksItemToReviewIriTemplate {
     }
 
     return ReviewRequestLinksItemToReviewIriTemplate(
-      mapping: ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

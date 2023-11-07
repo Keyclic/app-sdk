@@ -20,8 +20,10 @@ class BusinessActivityLinksSchema {
 
     return BusinessActivityLinksSchema(
       href: json[r'href'],
-      iriTemplate:
-          BusinessActivityLinksSchemaIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BusinessActivityLinksSchemaIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

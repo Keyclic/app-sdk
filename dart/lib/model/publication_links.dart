@@ -21,11 +21,18 @@ class PublicationLinks {
     }
 
     return PublicationLinks(
-      author: PublicationLinksAuthor.fromJson(json[r'author']),
-      feed: PublicationLinksFeed.fromJson(json[r'feed']),
-      organization:
-          PublicationLinksOrganization.fromJson(json[r'organization']),
-      self: PublicationLinksSelf.fromJson(json[r'self']),
+      author: json[r'author'] is! Map
+          ? null
+          : PublicationLinksAuthor.fromJson(json[r'author']),
+      feed: json[r'feed'] is! Map
+          ? null
+          : PublicationLinksFeed.fromJson(json[r'feed']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : PublicationLinksOrganization.fromJson(json[r'organization']),
+      self: json[r'self'] is! Map
+          ? null
+          : PublicationLinksSelf.fromJson(json[r'self']),
     );
   }
 

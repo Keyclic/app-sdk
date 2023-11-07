@@ -20,9 +20,14 @@ class NoteLinks {
     }
 
     return NoteLinks(
-      about: NoteLinksAbout.fromJson(json[r'about']),
-      author: NoteLinksAuthor.fromJson(json[r'author']),
-      self: NoteLinksSelf.fromJson(json[r'self']),
+      about: json[r'about'] is! Map
+          ? null
+          : NoteLinksAbout.fromJson(json[r'about']),
+      author: json[r'author'] is! Map
+          ? null
+          : NoteLinksAuthor.fromJson(json[r'author']),
+      self:
+          json[r'self'] is! Map ? null : NoteLinksSelf.fromJson(json[r'self']),
     );
   }
 

@@ -20,7 +20,9 @@ class MarkerLinksPlan {
 
     return MarkerLinksPlan(
       href: json[r'href'],
-      iriTemplate: MarkerLinksPlanIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : MarkerLinksPlanIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

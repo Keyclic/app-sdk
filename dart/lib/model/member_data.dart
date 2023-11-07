@@ -21,8 +21,9 @@ class MemberData {
     }
 
     return MemberData(
-      contactPoint:
-          InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
       organization: json[r'organization'],
       person: json[r'person'],
       type: MemberDataTypeEnum.fromJson(json[r'type']),

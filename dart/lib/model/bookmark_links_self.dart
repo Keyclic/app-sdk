@@ -20,7 +20,9 @@ class BookmarkLinksSelf {
 
     return BookmarkLinksSelf(
       href: json[r'href'],
-      iriTemplate: BookmarkLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BookmarkLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

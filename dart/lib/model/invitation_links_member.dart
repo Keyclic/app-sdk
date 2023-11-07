@@ -20,8 +20,9 @@ class InvitationLinksMember {
 
     return InvitationLinksMember(
       href: json[r'href'],
-      iriTemplate:
-          InvitationLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : InvitationLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

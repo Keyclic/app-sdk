@@ -19,8 +19,10 @@ class MemberLinksOrganizationIriTemplate {
     }
 
     return MemberLinksOrganizationIriTemplate(
-      mapping: CategoryLinksOrganizationIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : CategoryLinksOrganizationIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

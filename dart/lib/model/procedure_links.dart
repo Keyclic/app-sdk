@@ -20,9 +20,15 @@ class ProcedureLinks {
     }
 
     return ProcedureLinks(
-      createdBy: ProcedureLinksCreatedBy.fromJson(json[r'createdBy']),
-      document: ProcedureLinksDocument.fromJson(json[r'document']),
-      self: ProcedureLinksSelf.fromJson(json[r'self']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : ProcedureLinksCreatedBy.fromJson(json[r'createdBy']),
+      document: json[r'document'] is! Map
+          ? null
+          : ProcedureLinksDocument.fromJson(json[r'document']),
+      self: json[r'self'] is! Map
+          ? null
+          : ProcedureLinksSelf.fromJson(json[r'self']),
     );
   }
 

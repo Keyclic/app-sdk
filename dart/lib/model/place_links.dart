@@ -22,11 +22,18 @@ class PlaceLinks {
     }
 
     return PlaceLinks(
-      children: PlaceLinksChildren.fromJson(json[r'children']),
-      geo: PlaceLinksGeo.fromJson(json[r'geo']),
-      organization: PlaceLinksOrganization.fromJson(json[r'organization']),
-      plans: PlaceLinksPlans.fromJson(json[r'plans']),
-      self: PlaceLinksSelf.fromJson(json[r'self']),
+      children: json[r'children'] is! Map
+          ? null
+          : PlaceLinksChildren.fromJson(json[r'children']),
+      geo: json[r'geo'] is! Map ? null : PlaceLinksGeo.fromJson(json[r'geo']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : PlaceLinksOrganization.fromJson(json[r'organization']),
+      plans: json[r'plans'] is! Map
+          ? null
+          : PlaceLinksPlans.fromJson(json[r'plans']),
+      self:
+          json[r'self'] is! Map ? null : PlaceLinksSelf.fromJson(json[r'self']),
     );
   }
 

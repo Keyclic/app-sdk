@@ -36,7 +36,9 @@ class Article {
     }
 
     return Article(
-      links: ArticleLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ArticleLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       name: json[r'name'],

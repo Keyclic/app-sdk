@@ -23,9 +23,12 @@ class InternalServiceData {
     }
 
     return InternalServiceData(
-      address: InternalServiceDataAddress.fromJson(json[r'address']),
-      contactPoint:
-          InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
+      address: json[r'address'] is! Map
+          ? null
+          : InternalServiceDataAddress.fromJson(json[r'address']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
       description: json[r'description'],
       manager: json[r'manager'],
       name: json[r'name'],

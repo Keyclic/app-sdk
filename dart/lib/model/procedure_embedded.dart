@@ -18,7 +18,9 @@ class ProcedureEmbedded {
     }
 
     return ProcedureEmbedded(
-      document: Document.fromJson(json[r'document']),
+      document: json[r'document'] is! Map
+          ? null
+          : Document.fromJson(json[r'document']),
     );
   }
 

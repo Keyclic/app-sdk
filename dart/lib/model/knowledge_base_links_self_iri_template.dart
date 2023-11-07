@@ -19,8 +19,10 @@ class KnowledgeBaseLinksSelfIriTemplate {
     }
 
     return KnowledgeBaseLinksSelfIriTemplate(
-      mapping: ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

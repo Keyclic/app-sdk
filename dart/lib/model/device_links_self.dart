@@ -20,7 +20,9 @@ class DeviceLinksSelf {
 
     return DeviceLinksSelf(
       href: json[r'href'],
-      iriTemplate: DeviceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : DeviceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

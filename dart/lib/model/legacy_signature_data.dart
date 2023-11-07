@@ -19,7 +19,9 @@ class LegacySignatureData {
     }
 
     return LegacySignatureData(
-      signer: LegacySignatureDataSigner.fromJson(json[r'signer']),
+      signer: json[r'signer'] is! Map
+          ? null
+          : LegacySignatureDataSigner.fromJson(json[r'signer']),
       image: json[r'image'],
     );
   }

@@ -18,7 +18,9 @@ class ConfigurationLinks {
     }
 
     return ConfigurationLinks(
-      self: ConfigurationLinksSelf.fromJson(json[r'self']),
+      self: json[r'self'] is! Map
+          ? null
+          : ConfigurationLinksSelf.fromJson(json[r'self']),
     );
   }
 

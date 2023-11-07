@@ -20,8 +20,9 @@ class ContributionLinksFeedback {
 
     return ContributionLinksFeedback(
       href: json[r'href'],
-      iriTemplate:
-          ContributionLinksFeedbackIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ContributionLinksFeedbackIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

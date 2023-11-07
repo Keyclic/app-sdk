@@ -21,8 +21,10 @@ class InternalServiceLinksOrganization {
 
     return InternalServiceLinksOrganization(
       href: json[r'href'],
-      iriTemplate: InternalServiceLinksOrganizationIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : InternalServiceLinksOrganizationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

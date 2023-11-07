@@ -21,8 +21,9 @@ class GetIntegrationLinks200Response {
     }
 
     return GetIntegrationLinks200Response(
-      embedded:
-          GetIntegrationLinks200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : GetIntegrationLinks200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,

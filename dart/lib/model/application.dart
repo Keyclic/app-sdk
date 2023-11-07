@@ -41,10 +41,18 @@ class Application {
     }
 
     return Application(
-      links: ApplicationLinks.fromJson(json[r'_links']),
-      about: ApplicationAbout.fromJson(json[r'about']),
-      agreement: ApplicationAgreement.fromJson(json[r'agreement']),
-      configuration: ApplicationConfiguration.fromJson(json[r'configuration']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ApplicationLinks.fromJson(json[r'_links']),
+      about: json[r'about'] is! Map
+          ? null
+          : ApplicationAbout.fromJson(json[r'about']),
+      agreement: json[r'agreement'] is! Map
+          ? null
+          : ApplicationAgreement.fromJson(json[r'agreement']),
+      configuration: json[r'configuration'] is! Map
+          ? null
+          : ApplicationConfiguration.fromJson(json[r'configuration']),
       contactPoints:
           ApplicationContactPoint.listFromJson(json[r'contactPoints']),
       createdAt: createdAt,

@@ -18,7 +18,9 @@ class RuleLinksPlaceIriTemplate {
     }
 
     return RuleLinksPlaceIriTemplate(
-      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

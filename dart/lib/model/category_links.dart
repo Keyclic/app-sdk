@@ -19,8 +19,12 @@ class CategoryLinks {
     }
 
     return CategoryLinks(
-      organization: CategoryLinksOrganization.fromJson(json[r'organization']),
-      self: CategoryLinksSelf.fromJson(json[r'self']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : CategoryLinksOrganization.fromJson(json[r'organization']),
+      self: json[r'self'] is! Map
+          ? null
+          : CategoryLinksSelf.fromJson(json[r'self']),
     );
   }
 

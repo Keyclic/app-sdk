@@ -25,7 +25,9 @@ class BillingWrite {
     }
 
     return BillingWrite(
-      initialCost: PriceWrite.fromJson(json[r'initialCost']),
+      initialCost: json[r'initialCost'] is! Map
+          ? null
+          : PriceWrite.fromJson(json[r'initialCost']),
       startDate: startDate,
     );
   }

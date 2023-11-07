@@ -19,9 +19,12 @@ class InternalServiceLinks {
     }
 
     return InternalServiceLinks(
-      organization:
-          InternalServiceLinksOrganization.fromJson(json[r'organization']),
-      self: InternalServiceLinksSelf.fromJson(json[r'self']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : InternalServiceLinksOrganization.fromJson(json[r'organization']),
+      self: json[r'self'] is! Map
+          ? null
+          : InternalServiceLinksSelf.fromJson(json[r'self']),
     );
   }
 

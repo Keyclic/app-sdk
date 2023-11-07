@@ -20,8 +20,9 @@ class ReviewLinksItemReviewed {
 
     return ReviewLinksItemReviewed(
       href: json[r'href'],
-      iriTemplate:
-          ReviewLinksItemReviewedIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReviewLinksItemReviewedIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

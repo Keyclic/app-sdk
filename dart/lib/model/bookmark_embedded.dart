@@ -19,8 +19,8 @@ class BookmarkEmbedded {
     }
 
     return BookmarkEmbedded(
-      member: Member.fromJson(json[r'member']),
-      place: Place.fromJson(json[r'place']),
+      member: json[r'member'] is! Map ? null : Member.fromJson(json[r'member']),
+      place: json[r'place'] is! Map ? null : Place.fromJson(json[r'place']),
     );
   }
 

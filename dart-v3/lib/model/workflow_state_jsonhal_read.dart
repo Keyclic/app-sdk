@@ -21,7 +21,9 @@ class WorkflowStateJsonhalRead {
     }
 
     return WorkflowStateJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       color: json[r'color'],
       name: json[r'name'],
       id: json[r'id'],

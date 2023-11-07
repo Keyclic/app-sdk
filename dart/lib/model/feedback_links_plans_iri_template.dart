@@ -18,7 +18,9 @@ class FeedbackLinksPlansIriTemplate {
     }
 
     return FeedbackLinksPlansIriTemplate(
-      mapping: FeedbackLinksPlansIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : FeedbackLinksPlansIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

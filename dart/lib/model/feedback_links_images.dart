@@ -20,8 +20,9 @@ class FeedbackLinksImages {
 
     return FeedbackLinksImages(
       href: json[r'href'],
-      iriTemplate:
-          FeedbackLinksImagesIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksImagesIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

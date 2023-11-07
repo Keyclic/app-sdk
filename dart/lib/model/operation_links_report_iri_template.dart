@@ -18,8 +18,9 @@ class OperationLinksReportIriTemplate {
     }
 
     return OperationLinksReportIriTemplate(
-      mapping:
-          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

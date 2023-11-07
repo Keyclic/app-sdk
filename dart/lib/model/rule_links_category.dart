@@ -20,7 +20,9 @@ class RuleLinksCategory {
 
     return RuleLinksCategory(
       href: json[r'href'],
-      iriTemplate: RuleLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : RuleLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

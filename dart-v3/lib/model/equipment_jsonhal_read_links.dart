@@ -22,11 +22,21 @@ class EquipmentJsonhalReadLinks {
     }
 
     return EquipmentJsonhalReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      brand: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'brand']),
-      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
-      parent: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
-      state: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
+      self: json[r'self'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      brand: json[r'brand'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'brand']),
+      type: json[r'type'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: json[r'parent'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
+      state: json[r'state'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 

@@ -20,8 +20,9 @@ class InternalServiceLinksSelf {
 
     return InternalServiceLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          InternalServiceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : InternalServiceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

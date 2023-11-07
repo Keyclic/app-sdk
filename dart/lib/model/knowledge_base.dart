@@ -36,7 +36,9 @@ class KnowledgeBase {
     }
 
     return KnowledgeBase(
-      links: KnowledgeBaseLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : KnowledgeBaseLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],

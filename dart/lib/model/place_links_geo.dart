@@ -20,7 +20,9 @@ class PlaceLinksGeo {
 
     return PlaceLinksGeo(
       href: json[r'href'],
-      iriTemplate: PlaceLinksGeoIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlaceLinksGeoIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

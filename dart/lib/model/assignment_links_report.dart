@@ -20,8 +20,9 @@ class AssignmentLinksReport {
 
     return AssignmentLinksReport(
       href: json[r'href'],
-      iriTemplate:
-          AssignmentLinksReportIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : AssignmentLinksReportIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

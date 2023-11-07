@@ -41,10 +41,12 @@ class ReportTypeWorkflow {
     return ReportTypeWorkflow(
       createdAt: createdAt,
       description: json[r'description'],
-      end: WorkflowState.fromJson(json[r'end']),
+      end: json[r'end'] is! Map ? null : WorkflowState.fromJson(json[r'end']),
       id: json[r'id'],
       name: json[r'name'],
-      start: WorkflowState.fromJson(json[r'start']),
+      start: json[r'start'] is! Map
+          ? null
+          : WorkflowState.fromJson(json[r'start']),
       states: WorkflowState.listFromJson(json[r'states']),
       transitions: WorkflowTransition.listFromJson(json[r'transitions']),
       type: json[r'type'],

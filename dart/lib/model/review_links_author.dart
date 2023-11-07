@@ -20,7 +20,9 @@ class ReviewLinksAuthor {
 
     return ReviewLinksAuthor(
       href: json[r'href'],
-      iriTemplate: ReviewLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReviewLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

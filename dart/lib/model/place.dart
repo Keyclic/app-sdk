@@ -40,15 +40,22 @@ class Place {
     }
 
     return Place(
-      embedded: PlaceEmbedded.fromJson(json[r'_embedded']),
-      links: PlaceLinks.fromJson(json[r'_links']),
-      address: PlacePostalAddress.fromJson(json[r'address']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : PlaceEmbedded.fromJson(json[r'_embedded']),
+      links:
+          json[r'_links'] is! Map ? null : PlaceLinks.fromJson(json[r'_links']),
+      address: json[r'address'] is! Map
+          ? null
+          : PlacePostalAddress.fromJson(json[r'address']),
       branchCode: json[r'branchCode'],
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
-      preferences: PlacePreferences.fromJson(json[r'preferences']),
+      preferences: json[r'preferences'] is! Map
+          ? null
+          : PlacePreferences.fromJson(json[r'preferences']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );

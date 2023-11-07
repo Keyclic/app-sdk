@@ -20,8 +20,9 @@ class ProcedureLinksCreatedBy {
 
     return ProcedureLinksCreatedBy(
       href: json[r'href'],
-      iriTemplate:
-          ProcedureLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ProcedureLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

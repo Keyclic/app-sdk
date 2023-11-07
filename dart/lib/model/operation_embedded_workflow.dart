@@ -21,7 +21,9 @@ class OperationEmbeddedWorkflow {
 
     return OperationEmbeddedWorkflow(
       metrics: Metric.listFromJson(json[r'metrics']),
-      state: WorkflowState.fromJson(json[r'state']),
+      state: json[r'state'] is! Map
+          ? null
+          : WorkflowState.fromJson(json[r'state']),
       transitions: WorkflowTransition.listFromJson(json[r'transitions']),
     );
   }

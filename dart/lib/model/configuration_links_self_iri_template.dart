@@ -19,8 +19,9 @@ class ConfigurationLinksSelfIriTemplate {
     }
 
     return ConfigurationLinksSelfIriTemplate(
-      mapping:
-          ConfigurationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ConfigurationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

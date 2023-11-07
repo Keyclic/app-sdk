@@ -24,7 +24,9 @@ class Problem {
       type: json[r'type'],
       title: json[r'title'],
       detail: json[r'detail'],
-      embedded: ProblemEmbedded.fromJson(json[r'_embedded']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : ProblemEmbedded.fromJson(json[r'_embedded']),
     );
   }
 

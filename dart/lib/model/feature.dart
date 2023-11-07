@@ -21,7 +21,9 @@ class Feature {
 
     return Feature(
       type: json[r'type'],
-      geometry: FeatureGeometry.fromJson(json[r'geometry']),
+      geometry: json[r'geometry'] is! Map
+          ? null
+          : FeatureGeometry.fromJson(json[r'geometry']),
       properties: json[r'properties'] == null
           ? null
           : List<String>.from(json[r'properties']),

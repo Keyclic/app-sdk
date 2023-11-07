@@ -19,8 +19,12 @@ class PersonLinks {
     }
 
     return PersonLinks(
-      image: PersonLinksImage.fromJson(json[r'image']),
-      self: PersonLinksSelf.fromJson(json[r'self']),
+      image: json[r'image'] is! Map
+          ? null
+          : PersonLinksImage.fromJson(json[r'image']),
+      self: json[r'self'] is! Map
+          ? null
+          : PersonLinksSelf.fromJson(json[r'self']),
     );
   }
 

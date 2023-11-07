@@ -18,7 +18,9 @@ class WorkflowLinks {
     }
 
     return WorkflowLinks(
-      self: WorkflowLinksSelf.fromJson(json[r'self']),
+      self: json[r'self'] is! Map
+          ? null
+          : WorkflowLinksSelf.fromJson(json[r'self']),
     );
   }
 

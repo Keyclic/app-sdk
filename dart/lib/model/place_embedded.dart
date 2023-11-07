@@ -23,10 +23,14 @@ class PlaceEmbedded {
 
     return PlaceEmbedded(
       documentTypes: DocumentType.listFromJson(json[r'documentTypes']),
-      organization: Organization.fromJson(json[r'organization']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : Organization.fromJson(json[r'organization']),
       path: NodePath.listFromJson(json[r'path']),
       targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
-      workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 

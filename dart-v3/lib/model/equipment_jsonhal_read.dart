@@ -57,20 +57,26 @@ class EquipmentJsonhalRead {
     }
 
     return EquipmentJsonhalRead(
-      links: EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
       commissioningDate: commissioningDate,
       lifetime: json[r'lifetime'],
       model: json[r'model'],
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
+      warranty: json[r'warranty'] is! Map
+          ? null
+          : WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
-      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
+      address: json[r'address'] is! Map
+          ? null
+          : PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
 

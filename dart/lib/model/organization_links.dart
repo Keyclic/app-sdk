@@ -23,14 +23,25 @@ class OrganizationLinks {
     }
 
     return OrganizationLinks(
-      application: OrganizationLinksApplication.fromJson(json[r'application']),
-      businessActivity:
-          OrganizationLinksBusinessActivity.fromJson(json[r'businessActivity']),
-      configuration:
-          OrganizationLinksConfiguration.fromJson(json[r'configuration']),
-      dispatcher: OrganizationLinksDispatcher.fromJson(json[r'dispatcher']),
-      logo: OrganizationLinksLogo.fromJson(json[r'logo']),
-      self: OrganizationLinksSelf.fromJson(json[r'self']),
+      application: json[r'application'] is! Map
+          ? null
+          : OrganizationLinksApplication.fromJson(json[r'application']),
+      businessActivity: json[r'businessActivity'] is! Map
+          ? null
+          : OrganizationLinksBusinessActivity.fromJson(
+              json[r'businessActivity']),
+      configuration: json[r'configuration'] is! Map
+          ? null
+          : OrganizationLinksConfiguration.fromJson(json[r'configuration']),
+      dispatcher: json[r'dispatcher'] is! Map
+          ? null
+          : OrganizationLinksDispatcher.fromJson(json[r'dispatcher']),
+      logo: json[r'logo'] is! Map
+          ? null
+          : OrganizationLinksLogo.fromJson(json[r'logo']),
+      self: json[r'self'] is! Map
+          ? null
+          : OrganizationLinksSelf.fromJson(json[r'self']),
     );
   }
 

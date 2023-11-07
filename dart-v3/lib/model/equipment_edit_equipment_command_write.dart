@@ -48,7 +48,9 @@ class EquipmentEditEquipmentCommandWrite {
       serialNumber: json[r'serialNumber'],
       state: json[r'state'],
       type: json[r'type'],
-      warranty: WarrantyWrite.fromJson(json[r'warranty']),
+      warranty: json[r'warranty'] is! Map
+          ? null
+          : WarrantyWrite.fromJson(json[r'warranty']),
     );
   }
 

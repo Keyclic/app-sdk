@@ -19,8 +19,12 @@ class ArticleLinks {
     }
 
     return ArticleLinks(
-      section: ArticleLinksSection.fromJson(json[r'section']),
-      self: ArticleLinksSelf.fromJson(json[r'self']),
+      section: json[r'section'] is! Map
+          ? null
+          : ArticleLinksSection.fromJson(json[r'section']),
+      self: json[r'self'] is! Map
+          ? null
+          : ArticleLinksSelf.fromJson(json[r'self']),
     );
   }
 

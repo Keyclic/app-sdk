@@ -62,15 +62,21 @@ class ContractJsonhalRead {
     }
 
     return ContractJsonhalRead(
-      links: ContractJsonhalReadLinks.fromJson(json[r'_links']),
-      billing: BillingJsonhalRead.fromJson(json[r'billing']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ContractJsonhalReadLinks.fromJson(json[r'_links']),
+      billing: json[r'billing'] is! Map
+          ? null
+          : BillingJsonhalRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      renewal: RenewalJsonhalRead.fromJson(json[r'renewal']),
+      renewal: json[r'renewal'] is! Map
+          ? null
+          : RenewalJsonhalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,

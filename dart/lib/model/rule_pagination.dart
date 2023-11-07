@@ -27,8 +27,12 @@ class RulePagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: RuleCollection.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PaginationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : RuleCollection.fromJson(json[r'_embedded']),
     );
   }
 

@@ -21,9 +21,12 @@ class ExternalServicePatch {
     }
 
     return ExternalServicePatch(
-      address: ExternalServicePatchAddress.fromJson(json[r'address']),
-      contactPoint:
-          ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
+      address: json[r'address'] is! Map
+          ? null
+          : ExternalServicePatchAddress.fromJson(json[r'address']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
       description: json[r'description'],
       name: json[r'name'],
     );

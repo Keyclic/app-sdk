@@ -20,7 +20,7 @@ class FeedbackGeoCoordinates {
 
     return FeedbackGeoCoordinates(
       elevation: json[r'elevation']?.toDouble(),
-      point: Point.fromJson(json[r'point']),
+      point: json[r'point'] is! Map ? null : Point.fromJson(json[r'point']),
     );
   }
 

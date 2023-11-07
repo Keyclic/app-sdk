@@ -20,8 +20,10 @@ class CheckpointLinksOrganization {
 
     return CheckpointLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          CheckpointLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : CheckpointLinksOrganizationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

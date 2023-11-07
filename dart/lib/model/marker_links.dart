@@ -19,8 +19,12 @@ class MarkerLinks {
     }
 
     return MarkerLinks(
-      plan: MarkerLinksPlan.fromJson(json[r'plan']),
-      self: MarkerLinksSelf.fromJson(json[r'self']),
+      plan: json[r'plan'] is! Map
+          ? null
+          : MarkerLinksPlan.fromJson(json[r'plan']),
+      self: json[r'self'] is! Map
+          ? null
+          : MarkerLinksSelf.fromJson(json[r'self']),
     );
   }
 

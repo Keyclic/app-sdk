@@ -20,8 +20,9 @@ class PublicationLinksSelf {
 
     return PublicationLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          PublicationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PublicationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

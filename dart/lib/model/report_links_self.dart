@@ -20,7 +20,9 @@ class ReportLinksSelf {
 
     return ReportLinksSelf(
       href: json[r'href'],
-      iriTemplate: ReportLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReportLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

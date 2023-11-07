@@ -21,7 +21,9 @@ class PostalAddressJsonhalRead {
     }
 
     return PostalAddressJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       locality: json[r'locality'],
       postalCode: json[r'postalCode'],
       streetAddress: json[r'streetAddress'],

@@ -18,7 +18,9 @@ class DeviceLinksSelfIriTemplate {
     }
 
     return DeviceLinksSelfIriTemplate(
-      mapping: DeviceLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : DeviceLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

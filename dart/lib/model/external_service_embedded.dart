@@ -18,7 +18,9 @@ class ExternalServiceEmbedded {
     }
 
     return ExternalServiceEmbedded(
-      provider: Organization.fromJson(json[r'provider']),
+      provider: json[r'provider'] is! Map
+          ? null
+          : Organization.fromJson(json[r'provider']),
     );
   }
 

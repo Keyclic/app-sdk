@@ -18,7 +18,9 @@ class CheckpointLinks {
     }
 
     return CheckpointLinks(
-      organization: CheckpointLinksOrganization.fromJson(json[r'organization']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : CheckpointLinksOrganization.fromJson(json[r'organization']),
     );
   }
 

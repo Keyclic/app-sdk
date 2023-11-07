@@ -20,8 +20,9 @@ class FeedbackLinksCategory {
 
     return FeedbackLinksCategory(
       href: json[r'href'],
-      iriTemplate:
-          FeedbackLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

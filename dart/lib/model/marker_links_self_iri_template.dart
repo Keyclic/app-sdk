@@ -18,7 +18,9 @@ class MarkerLinksSelfIriTemplate {
     }
 
     return MarkerLinksSelfIriTemplate(
-      mapping: MarkerLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : MarkerLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

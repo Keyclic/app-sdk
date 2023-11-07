@@ -20,8 +20,10 @@ class ExternalServiceLinksProvider {
 
     return ExternalServiceLinksProvider(
       href: json[r'href'],
-      iriTemplate: ExternalServiceLinksProviderIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ExternalServiceLinksProviderIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

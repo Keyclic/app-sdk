@@ -21,7 +21,9 @@ class PlacePatch {
     }
 
     return PlacePatch(
-      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+      address: json[r'address'] is! Map
+          ? null
+          : ExternalServicePatchAddress.fromJson(json[r'address']),
       branchCode: json[r'branchCode'],
       description: json[r'description'],
       name: json[r'name'],

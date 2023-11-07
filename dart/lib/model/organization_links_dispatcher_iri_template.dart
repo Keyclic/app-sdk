@@ -19,8 +19,10 @@ class OrganizationLinksDispatcherIriTemplate {
     }
 
     return OrganizationLinksDispatcherIriTemplate(
-      mapping: OrganizationLinksDispatcherIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : OrganizationLinksDispatcherIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

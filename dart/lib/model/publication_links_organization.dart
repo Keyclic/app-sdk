@@ -20,8 +20,10 @@ class PublicationLinksOrganization {
 
     return PublicationLinksOrganization(
       href: json[r'href'],
-      iriTemplate: PublicationLinksOrganizationIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PublicationLinksOrganizationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

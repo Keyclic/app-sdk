@@ -20,8 +20,9 @@ class DocumentLinksCreatedBy {
 
     return DocumentLinksCreatedBy(
       href: json[r'href'],
-      iriTemplate:
-          DocumentLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : DocumentLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

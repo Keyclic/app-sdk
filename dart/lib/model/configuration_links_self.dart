@@ -20,8 +20,9 @@ class ConfigurationLinksSelf {
 
     return ConfigurationLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          ConfigurationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ConfigurationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

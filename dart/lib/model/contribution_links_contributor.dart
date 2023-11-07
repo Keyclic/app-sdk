@@ -20,8 +20,10 @@ class ContributionLinksContributor {
 
     return ContributionLinksContributor(
       href: json[r'href'],
-      iriTemplate: ContributionLinksContributorIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ContributionLinksContributorIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

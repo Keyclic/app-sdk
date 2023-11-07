@@ -18,7 +18,9 @@ class OccupantLinksSelfIriTemplate {
     }
 
     return OccupantLinksSelfIriTemplate(
-      mapping: OccupantLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : OccupantLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

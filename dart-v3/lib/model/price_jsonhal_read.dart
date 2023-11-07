@@ -20,7 +20,9 @@ class PriceJsonhalRead {
     }
 
     return PriceJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       currencyCode:
           PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),

@@ -18,8 +18,9 @@ class OperationLinksImagesIriTemplate {
     }
 
     return OperationLinksImagesIriTemplate(
-      mapping:
-          OperationLinksImagesIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : OperationLinksImagesIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

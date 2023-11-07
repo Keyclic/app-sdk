@@ -20,7 +20,9 @@ class NoteLinksSelf {
 
     return NoteLinksSelf(
       href: json[r'href'],
-      iriTemplate: NoteLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : NoteLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

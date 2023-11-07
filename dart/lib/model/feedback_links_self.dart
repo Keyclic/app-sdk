@@ -20,7 +20,9 @@ class FeedbackLinksSelf {
 
     return FeedbackLinksSelf(
       href: json[r'href'],
-      iriTemplate: FeedbackLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

@@ -20,8 +20,9 @@ class OperationLinksTracking {
 
     return OperationLinksTracking(
       href: json[r'href'],
-      iriTemplate:
-          OperationLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OperationLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

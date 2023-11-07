@@ -20,8 +20,10 @@ class OrganizationLinksDispatcher {
 
     return OrganizationLinksDispatcher(
       href: json[r'href'],
-      iriTemplate:
-          OrganizationLinksDispatcherIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksDispatcherIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

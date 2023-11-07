@@ -40,11 +40,17 @@ class Feedback {
     }
 
     return Feedback(
-      embedded: FeedbackEmbedded.fromJson(json[r'_embedded']),
-      links: FeedbackLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : FeedbackEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : FeedbackLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
-      geoCoordinates: FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
+      geoCoordinates: json[r'geoCoordinates'] is! Map
+          ? null
+          : FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
       id: json[r'id'],
       metadata: json[r'metadata'] == null
           ? null

@@ -37,8 +37,12 @@ class Category {
     }
 
     return Category(
-      embedded: CategoryEmbedded.fromJson(json[r'_embedded']),
-      links: CategoryLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : CategoryEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : CategoryLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],

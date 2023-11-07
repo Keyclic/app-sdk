@@ -23,10 +23,16 @@ class Signer {
     }
 
     return Signer(
-      embedded: InvitationEmbedded.fromJson(json[r'_embedded']),
-      links: SignerLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : InvitationEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : SignerLinks.fromJson(json[r'_links']),
       id: json[r'id'],
-      signature: SignerSignature.fromJson(json[r'signature']),
+      signature: json[r'signature'] is! Map
+          ? null
+          : SignerSignature.fromJson(json[r'signature']),
       state: json[r'state'],
       type: json[r'type'],
     );

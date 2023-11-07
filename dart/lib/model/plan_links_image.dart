@@ -20,7 +20,9 @@ class PlanLinksImage {
 
     return PlanLinksImage(
       href: json[r'href'],
-      iriTemplate: PlanLinksImageIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlanLinksImageIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

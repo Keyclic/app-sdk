@@ -26,7 +26,9 @@ class OperationSignature {
 
     return OperationSignature(
       signedAt: signedAt,
-      signer: SignatureSigner.fromJson(json[r'signer']),
+      signer: json[r'signer'] is! Map
+          ? null
+          : SignatureSigner.fromJson(json[r'signer']),
     );
   }
 

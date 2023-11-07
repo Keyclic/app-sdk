@@ -21,7 +21,9 @@ class GetBrands200Response {
     }
 
     return GetBrands200Response(
-      embedded: GetBrands200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : GetBrands200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,

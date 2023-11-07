@@ -18,7 +18,9 @@ class SectionLinks {
     }
 
     return SectionLinks(
-      self: SectionLinksSelf.fromJson(json[r'self']),
+      self: json[r'self'] is! Map
+          ? null
+          : SectionLinksSelf.fromJson(json[r'self']),
     );
   }
 

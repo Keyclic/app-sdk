@@ -20,7 +20,9 @@ class SectionLinksSelf {
 
     return SectionLinksSelf(
       href: json[r'href'],
-      iriTemplate: SectionLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : SectionLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

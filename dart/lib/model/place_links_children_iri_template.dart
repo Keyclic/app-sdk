@@ -18,7 +18,9 @@ class PlaceLinksChildrenIriTemplate {
     }
 
     return PlaceLinksChildrenIriTemplate(
-      mapping: PlaceLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : PlaceLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

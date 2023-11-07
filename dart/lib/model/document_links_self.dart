@@ -20,7 +20,9 @@ class DocumentLinksSelf {
 
     return DocumentLinksSelf(
       href: json[r'href'],
-      iriTemplate: DocumentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : DocumentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

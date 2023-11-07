@@ -20,9 +20,14 @@ class PlanLinks {
     }
 
     return PlanLinks(
-      image: PlanLinksImage.fromJson(json[r'image']),
-      place: PlanLinksPlace.fromJson(json[r'place']),
-      self: PlanLinksSelf.fromJson(json[r'self']),
+      image: json[r'image'] is! Map
+          ? null
+          : PlanLinksImage.fromJson(json[r'image']),
+      place: json[r'place'] is! Map
+          ? null
+          : PlanLinksPlace.fromJson(json[r'place']),
+      self:
+          json[r'self'] is! Map ? null : PlanLinksSelf.fromJson(json[r'self']),
     );
   }
 

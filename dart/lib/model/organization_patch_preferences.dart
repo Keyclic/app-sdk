@@ -18,8 +18,9 @@ class OrganizationPatchPreferences {
     }
 
     return OrganizationPatchPreferences(
-      reference:
-          OrganizationPatchPreferencesReference.fromJson(json[r'reference']),
+      reference: json[r'reference'] is! Map
+          ? null
+          : OrganizationPatchPreferencesReference.fromJson(json[r'reference']),
     );
   }
 

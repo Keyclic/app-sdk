@@ -20,7 +20,9 @@ class RenewalJsonhalRead {
     }
 
     return RenewalJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       duration: json[r'duration'],
       noticePeriod: json[r'noticePeriod'],
     );

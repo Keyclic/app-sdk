@@ -20,9 +20,12 @@ class GeoShape {
     }
 
     return GeoShape(
-      centroid: GeoShapeCentroid.fromJson(json[r'centroid']),
+      centroid: json[r'centroid'] is! Map
+          ? null
+          : GeoShapeCentroid.fromJson(json[r'centroid']),
       elevation: json[r'elevation'],
-      polygon: Polygon.fromJson(json[r'polygon']),
+      polygon:
+          json[r'polygon'] is! Map ? null : Polygon.fromJson(json[r'polygon']),
     );
   }
 

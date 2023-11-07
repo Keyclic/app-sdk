@@ -20,8 +20,9 @@ class AssignmentLinksSelf {
 
     return AssignmentLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          AssignmentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : AssignmentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

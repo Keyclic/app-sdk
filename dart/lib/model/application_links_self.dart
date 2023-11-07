@@ -20,8 +20,9 @@ class ApplicationLinksSelf {
 
     return ApplicationLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          ApplicationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ApplicationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

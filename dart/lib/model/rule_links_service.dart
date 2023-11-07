@@ -20,7 +20,9 @@ class RuleLinksService {
 
     return RuleLinksService(
       href: json[r'href'],
-      iriTemplate: RuleLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : RuleLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

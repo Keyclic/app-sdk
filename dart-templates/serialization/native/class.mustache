@@ -89,7 +89,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
         {{{name}}}: null, // No support for decoding binary content from JSON
             {{/isBinary}}
             {{^isBinary}}
-        {{{name}}}: {{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+        {{{name}}}: {{^required}}json[r'{{{baseName}}}'] is! Map ? null : {{/required}}{{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
             {{/isBinary}}
         {{/isMap}}
       {{/isArray}}

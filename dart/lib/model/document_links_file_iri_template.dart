@@ -18,7 +18,9 @@ class DocumentLinksFileIriTemplate {
     }
 
     return DocumentLinksFileIriTemplate(
-      mapping: DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

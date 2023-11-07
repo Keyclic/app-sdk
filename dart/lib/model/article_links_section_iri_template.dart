@@ -18,7 +18,9 @@ class ArticleLinksSectionIriTemplate {
     }
 
     return ArticleLinksSectionIriTemplate(
-      mapping: ArticleLinksSectionIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ArticleLinksSectionIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

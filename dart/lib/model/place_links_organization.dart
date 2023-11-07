@@ -20,8 +20,9 @@ class PlaceLinksOrganization {
 
     return PlaceLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          PlaceLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlaceLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

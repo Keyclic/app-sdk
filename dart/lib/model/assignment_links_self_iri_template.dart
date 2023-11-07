@@ -18,7 +18,9 @@ class AssignmentLinksSelfIriTemplate {
     }
 
     return AssignmentLinksSelfIriTemplate(
-      mapping: AssignmentLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

@@ -20,8 +20,9 @@ class BusinessActivityLinksSelf {
 
     return BusinessActivityLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          BusinessActivityLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BusinessActivityLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

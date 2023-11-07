@@ -20,7 +20,9 @@ class PlaceLinksChildren {
 
     return PlaceLinksChildren(
       href: json[r'href'],
-      iriTemplate: PlaceLinksChildrenIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlaceLinksChildrenIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

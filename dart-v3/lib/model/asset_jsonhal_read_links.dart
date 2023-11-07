@@ -21,10 +21,18 @@ class AssetJsonhalReadLinks {
     }
 
     return AssetJsonhalReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
-      parent: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
-      state: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
+      self: json[r'self'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      type: json[r'type'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: json[r'parent'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
+      state: json[r'state'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 

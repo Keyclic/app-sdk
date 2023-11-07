@@ -22,7 +22,8 @@ class Rule {
     }
 
     return Rule(
-      links: RuleLinks.fromJson(json[r'_links']),
+      links:
+          json[r'_links'] is! Map ? null : RuleLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],

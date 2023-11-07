@@ -20,8 +20,9 @@ class OrganizationLinksLogo {
 
     return OrganizationLinksLogo(
       href: json[r'href'],
-      iriTemplate:
-          OrganizationLinksLogoIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksLogoIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

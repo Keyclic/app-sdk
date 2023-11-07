@@ -20,8 +20,9 @@ class ReportLinksOrganization {
 
     return ReportLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          ReportLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReportLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

@@ -18,8 +18,9 @@ class PublicationLinksSelfIriTemplate {
     }
 
     return PublicationLinksSelfIriTemplate(
-      mapping:
-          PublicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : PublicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

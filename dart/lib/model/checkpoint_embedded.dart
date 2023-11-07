@@ -18,7 +18,9 @@ class CheckpointEmbedded {
     }
 
     return CheckpointEmbedded(
-      createdBy: Person.fromJson(json[r'createdBy']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : Person.fromJson(json[r'createdBy']),
     );
   }
 

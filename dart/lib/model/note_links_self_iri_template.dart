@@ -18,7 +18,9 @@ class NoteLinksSelfIriTemplate {
     }
 
     return NoteLinksSelfIriTemplate(
-      mapping: NoteLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : NoteLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

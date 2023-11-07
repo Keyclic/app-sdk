@@ -23,11 +23,21 @@ class GetAssetTypes200ResponseLinks {
     }
 
     return GetAssetTypes200ResponseLinks(
-      self: GetAssetTypes200ResponseLinksSelf.fromJson(json[r'self']),
-      first: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'first']),
-      last: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'last']),
-      next: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'next']),
-      previous: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'previous']),
+      self: json[r'self'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksSelf.fromJson(json[r'self']),
+      first: json[r'first'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'first']),
+      last: json[r'last'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'last']),
+      next: json[r'next'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'next']),
+      previous: json[r'previous'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'previous']),
       item: GetAssetTypes200ResponseLinksFirst.listFromJson(json[r'item']),
     );
   }

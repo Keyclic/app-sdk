@@ -23,12 +23,17 @@ class OperationEmbedded {
     }
 
     return OperationEmbedded(
-      createdBy: Person.fromJson(json[r'createdBy']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : Person.fromJson(json[r'createdBy']),
       documentTypes: DocumentType.listFromJson(json[r'documentTypes']),
       documents: Document.listFromJson(json[r'documents']),
-      operator_: Person.fromJson(json[r'operator']),
+      operator_:
+          json[r'operator'] is! Map ? null : Person.fromJson(json[r'operator']),
       targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
-      workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 

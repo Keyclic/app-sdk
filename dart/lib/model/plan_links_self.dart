@@ -20,7 +20,9 @@ class PlanLinksSelf {
 
     return PlanLinksSelf(
       href: json[r'href'],
-      iriTemplate: PlanLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlanLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

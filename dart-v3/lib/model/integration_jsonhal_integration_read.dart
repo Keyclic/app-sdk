@@ -35,7 +35,9 @@ class IntegrationJsonhalIntegrationRead {
     }
 
     return IntegrationJsonhalIntegrationRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       inputs: json[r'inputs'] == null
           ? null
           : Map<String, Object>.from(json[r'inputs']),

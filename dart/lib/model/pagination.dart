@@ -26,7 +26,9 @@ class Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PaginationLinks.fromJson(json[r'_links']),
     );
   }
 

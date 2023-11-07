@@ -20,7 +20,9 @@ class DocumentLinksFile {
 
     return DocumentLinksFile(
       href: json[r'href'],
-      iriTemplate: DocumentLinksFileIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : DocumentLinksFileIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

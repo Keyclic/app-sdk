@@ -19,8 +19,10 @@ class FeedbackLinksTrackingIriTemplate {
     }
 
     return FeedbackLinksTrackingIriTemplate(
-      mapping: ContributionLinksFeedbackIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ContributionLinksFeedbackIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

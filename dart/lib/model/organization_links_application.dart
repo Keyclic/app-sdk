@@ -20,8 +20,10 @@ class OrganizationLinksApplication {
 
     return OrganizationLinksApplication(
       href: json[r'href'],
-      iriTemplate: OrganizationLinksApplicationIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksApplicationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

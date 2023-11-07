@@ -28,7 +28,9 @@ class Marker {
     }
 
     return Marker(
-      links: MarkerLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : MarkerLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       point: Point.fromJson(json[r'point'])!,

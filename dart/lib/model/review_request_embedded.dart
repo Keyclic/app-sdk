@@ -18,7 +18,7 @@ class ReviewRequestEmbedded {
     }
 
     return ReviewRequestEmbedded(
-      review: Review.fromJson(json[r'review']),
+      review: json[r'review'] is! Map ? null : Review.fromJson(json[r'review']),
     );
   }
 

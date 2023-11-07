@@ -20,7 +20,9 @@ class MemberLinksSelf {
 
     return MemberLinksSelf(
       href: json[r'href'],
-      iriTemplate: MemberLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : MemberLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

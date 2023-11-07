@@ -20,8 +20,9 @@ class CategoryLinksOrganization {
 
     return CategoryLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          CategoryLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : CategoryLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

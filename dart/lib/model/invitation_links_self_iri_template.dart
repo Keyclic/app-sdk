@@ -18,7 +18,9 @@ class InvitationLinksSelfIriTemplate {
     }
 
     return InvitationLinksSelfIriTemplate(
-      mapping: InvitationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : InvitationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

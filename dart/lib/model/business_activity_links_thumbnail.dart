@@ -20,8 +20,10 @@ class BusinessActivityLinksThumbnail {
 
     return BusinessActivityLinksThumbnail(
       href: json[r'href'],
-      iriTemplate: BusinessActivityLinksThumbnailIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BusinessActivityLinksThumbnailIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

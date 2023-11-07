@@ -19,7 +19,9 @@ class FeedbackDataGeo {
     }
 
     return FeedbackDataGeo(
-      point: FeedbackDataGeoPoint.fromJson(json[r'point']),
+      point: json[r'point'] is! Map
+          ? null
+          : FeedbackDataGeoPoint.fromJson(json[r'point']),
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
     );

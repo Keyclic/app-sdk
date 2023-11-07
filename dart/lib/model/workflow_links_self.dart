@@ -20,7 +20,9 @@ class WorkflowLinksSelf {
 
     return WorkflowLinksSelf(
       href: json[r'href'],
-      iriTemplate: WorkflowLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : WorkflowLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

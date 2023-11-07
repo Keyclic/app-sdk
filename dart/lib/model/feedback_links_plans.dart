@@ -20,7 +20,9 @@ class FeedbackLinksPlans {
 
     return FeedbackLinksPlans(
       href: json[r'href'],
-      iriTemplate: FeedbackLinksPlansIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksPlansIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

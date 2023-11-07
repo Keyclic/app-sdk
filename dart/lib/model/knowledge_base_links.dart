@@ -18,7 +18,9 @@ class KnowledgeBaseLinks {
     }
 
     return KnowledgeBaseLinks(
-      self: KnowledgeBaseLinksSelf.fromJson(json[r'self']),
+      self: json[r'self'] is! Map
+          ? null
+          : KnowledgeBaseLinksSelf.fromJson(json[r'self']),
     );
   }
 

@@ -20,8 +20,9 @@ class OrganizationLinksSelf {
 
     return OrganizationLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          OrganizationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

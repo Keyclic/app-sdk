@@ -43,7 +43,9 @@ class ContractEditContractCommandWrite {
     }
 
     return ContractEditContractCommandWrite(
-      billing: BillingWrite.fromJson(json[r'billing']),
+      billing: json[r'billing'] is! Map
+          ? null
+          : BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
@@ -51,7 +53,9 @@ class ContractEditContractCommandWrite {
       number: json[r'number'],
       onCall: json[r'onCall'],
       provider: json[r'provider'],
-      renewal: RenewalWrite.fromJson(json[r'renewal']),
+      renewal: json[r'renewal'] is! Map
+          ? null
+          : RenewalWrite.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: json[r'state'],
       type: json[r'type'],

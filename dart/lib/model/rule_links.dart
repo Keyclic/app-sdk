@@ -21,10 +21,17 @@ class RuleLinks {
     }
 
     return RuleLinks(
-      category: RuleLinksCategory.fromJson(json[r'category']),
-      place: RuleLinksPlace.fromJson(json[r'place']),
-      self: RuleLinksSelf.fromJson(json[r'self']),
-      service: RuleLinksService.fromJson(json[r'service']),
+      category: json[r'category'] is! Map
+          ? null
+          : RuleLinksCategory.fromJson(json[r'category']),
+      place: json[r'place'] is! Map
+          ? null
+          : RuleLinksPlace.fromJson(json[r'place']),
+      self:
+          json[r'self'] is! Map ? null : RuleLinksSelf.fromJson(json[r'self']),
+      service: json[r'service'] is! Map
+          ? null
+          : RuleLinksService.fromJson(json[r'service']),
     );
   }
 

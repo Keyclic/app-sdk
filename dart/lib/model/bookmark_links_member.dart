@@ -20,8 +20,9 @@ class BookmarkLinksMember {
 
     return BookmarkLinksMember(
       href: json[r'href'],
-      iriTemplate:
-          BookmarkLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BookmarkLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

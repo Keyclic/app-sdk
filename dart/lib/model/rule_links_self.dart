@@ -20,7 +20,9 @@ class RuleLinksSelf {
 
     return RuleLinksSelf(
       href: json[r'href'],
-      iriTemplate: RuleLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : RuleLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

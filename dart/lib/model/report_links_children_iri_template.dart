@@ -18,7 +18,9 @@ class ReportLinksChildrenIriTemplate {
     }
 
     return ReportLinksChildrenIriTemplate(
-      mapping: ReportLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ReportLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

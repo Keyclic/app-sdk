@@ -56,17 +56,25 @@ class Operation {
     }
 
     return Operation(
-      embedded: OperationEmbedded.fromJson(json[r'_embedded']),
-      links: OperationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : OperationEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : OperationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
       dueBy: dueBy,
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
-      priority: OperationPriority.fromJson(json[r'priority']),
+      priority: json[r'priority'] is! Map
+          ? null
+          : OperationPriority.fromJson(json[r'priority']),
       scheduledAt: scheduledAt,
-      signature: OperationSignature.fromJson(json[r'signature']),
+      signature: json[r'signature'] is! Map
+          ? null
+          : OperationSignature.fromJson(json[r'signature']),
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       type: json[r'type'],
       updatedAt: updatedAt,

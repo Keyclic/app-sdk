@@ -40,15 +40,25 @@ class InternalService {
     }
 
     return InternalService(
-      embedded: InternalServiceEmbedded.fromJson(json[r'_embedded']),
-      links: InternalServiceLinks.fromJson(json[r'_links']),
-      address: InternalServicePostalAddress.fromJson(json[r'address']),
-      contactPoint: InternalServiceContactPoint.fromJson(json[r'contactPoint']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : InternalServiceEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : InternalServiceLinks.fromJson(json[r'_links']),
+      address: json[r'address'] is! Map
+          ? null
+          : InternalServicePostalAddress.fromJson(json[r'address']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : InternalServiceContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
-      onCall: InternalServiceContactPoint.fromJson(json[r'onCall']),
+      onCall: json[r'onCall'] is! Map
+          ? null
+          : InternalServiceContactPoint.fromJson(json[r'onCall']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );

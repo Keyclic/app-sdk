@@ -38,8 +38,12 @@ class Publication {
     }
 
     return Publication(
-      embedded: PublicationEmbedded.fromJson(json[r'_embedded']),
-      links: PublicationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : PublicationEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PublicationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       message: json[r'message'],

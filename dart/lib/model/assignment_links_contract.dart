@@ -20,8 +20,9 @@ class AssignmentLinksContract {
 
     return AssignmentLinksContract(
       href: json[r'href'],
-      iriTemplate:
-          AssignmentLinksContractIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : AssignmentLinksContractIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

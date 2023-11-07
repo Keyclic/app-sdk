@@ -43,7 +43,9 @@ class TicketJsonhalRead {
     }
 
     return TicketJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       scheduledAt: scheduledAt,
       id: json[r'id'],

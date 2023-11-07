@@ -36,7 +36,9 @@ class Section {
     }
 
     return Section(
-      links: SectionLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : SectionLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],

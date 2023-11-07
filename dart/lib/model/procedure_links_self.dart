@@ -20,7 +20,9 @@ class ProcedureLinksSelf {
 
     return ProcedureLinksSelf(
       href: json[r'href'],
-      iriTemplate: ProcedureLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ProcedureLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

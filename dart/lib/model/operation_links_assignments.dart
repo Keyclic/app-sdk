@@ -20,8 +20,9 @@ class OperationLinksAssignments {
 
     return OperationLinksAssignments(
       href: json[r'href'],
-      iriTemplate:
-          OperationLinksAssignmentsIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OperationLinksAssignmentsIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

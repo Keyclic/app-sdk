@@ -36,8 +36,12 @@ class Assignment {
     }
 
     return Assignment(
-      embedded: AssignmentEmbedded.fromJson(json[r'_embedded']),
-      links: AssignmentLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : AssignmentEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssignmentLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       outOfContract: json[r'outOfContract'],

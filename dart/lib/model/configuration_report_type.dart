@@ -24,7 +24,9 @@ class ConfigurationReportType {
       id: json[r'id'],
       priorities: ReportTypePriority.listFromJson(json[r'priorities']),
       type: json[r'type'],
-      workflow: ReportTypeWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : ReportTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 

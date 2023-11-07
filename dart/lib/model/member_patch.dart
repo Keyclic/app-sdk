@@ -19,7 +19,9 @@ class MemberPatch {
     }
 
     return MemberPatch(
-      contactPoint: MemberPatchContactPoint.fromJson(json[r'contactPoint']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : MemberPatchContactPoint.fromJson(json[r'contactPoint']),
       roles: json[r'roles'] == null ? null : List<String>.from(json[r'roles']),
     );
   }

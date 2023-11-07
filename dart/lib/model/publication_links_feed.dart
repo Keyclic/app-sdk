@@ -20,8 +20,9 @@ class PublicationLinksFeed {
 
     return PublicationLinksFeed(
       href: json[r'href'],
-      iriTemplate:
-          PublicationLinksFeedIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PublicationLinksFeedIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

@@ -20,8 +20,9 @@ class PublicationLinksAuthor {
 
     return PublicationLinksAuthor(
       href: json[r'href'],
-      iriTemplate:
-          PublicationLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PublicationLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

@@ -19,8 +19,12 @@ class DeviceLinks {
     }
 
     return DeviceLinks(
-      person: DeviceLinksPerson.fromJson(json[r'person']),
-      self: DeviceLinksSelf.fromJson(json[r'self']),
+      person: json[r'person'] is! Map
+          ? null
+          : DeviceLinksPerson.fromJson(json[r'person']),
+      self: json[r'self'] is! Map
+          ? null
+          : DeviceLinksSelf.fromJson(json[r'self']),
     );
   }
 

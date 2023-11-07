@@ -20,7 +20,9 @@ class PlanLinksPlace {
 
     return PlanLinksPlace(
       href: json[r'href'],
-      iriTemplate: PlanLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlanLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

@@ -42,7 +42,9 @@ class AssetRead {
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
-      address: PostalAddressRead.fromJson(json[r'address']),
+      address: json[r'address'] is! Map
+          ? null
+          : PostalAddressRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       parent: json[r'parent'],

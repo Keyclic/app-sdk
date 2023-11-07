@@ -18,8 +18,9 @@ class SignerLinksMemberIriTemplate {
     }
 
     return SignerLinksMemberIriTemplate(
-      mapping:
-          AssignmentLinksMemberIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksMemberIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

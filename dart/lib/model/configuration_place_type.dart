@@ -22,7 +22,9 @@ class ConfigurationPlaceType {
     return ConfigurationPlaceType(
       id: json[r'id'],
       type: json[r'type'],
-      workflow: PlaceTypeWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : PlaceTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 

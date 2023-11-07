@@ -22,7 +22,9 @@ class Tracking {
 
     return Tracking(
       checkpoints: Checkpoint.listFromJson(json[r'checkpoints']),
-      progression: TrackingProgression.fromJson(json[r'progression']),
+      progression: json[r'progression'] is! Map
+          ? null
+          : TrackingProgression.fromJson(json[r'progression']),
       state: json[r'state'],
       time: json[r'time'],
     );

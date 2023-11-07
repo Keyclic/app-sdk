@@ -18,7 +18,9 @@ class PlanLinksSelfIriTemplate {
     }
 
     return PlanLinksSelfIriTemplate(
-      mapping: MarkerLinksPlanIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : MarkerLinksPlanIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

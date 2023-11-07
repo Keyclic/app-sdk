@@ -25,14 +25,28 @@ class OperationLinks {
     }
 
     return OperationLinks(
-      assignments: OperationLinksAssignments.fromJson(json[r'assignments']),
-      feedback: OperationLinksFeedback.fromJson(json[r'feedback']),
+      assignments: json[r'assignments'] is! Map
+          ? null
+          : OperationLinksAssignments.fromJson(json[r'assignments']),
+      feedback: json[r'feedback'] is! Map
+          ? null
+          : OperationLinksFeedback.fromJson(json[r'feedback']),
       images: OperationLinksImages.listFromJson(json[r'images']),
-      operator_: OperationLinksOperator.fromJson(json[r'operator']),
-      organization: OperationLinksOrganization.fromJson(json[r'organization']),
-      report: OperationLinksReport.fromJson(json[r'report']),
-      self: OperationLinksSelf.fromJson(json[r'self']),
-      tracking: OperationLinksTracking.fromJson(json[r'tracking']),
+      operator_: json[r'operator'] is! Map
+          ? null
+          : OperationLinksOperator.fromJson(json[r'operator']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : OperationLinksOrganization.fromJson(json[r'organization']),
+      report: json[r'report'] is! Map
+          ? null
+          : OperationLinksReport.fromJson(json[r'report']),
+      self: json[r'self'] is! Map
+          ? null
+          : OperationLinksSelf.fromJson(json[r'self']),
+      tracking: json[r'tracking'] is! Map
+          ? null
+          : OperationLinksTracking.fromJson(json[r'tracking']),
     );
   }
 

@@ -20,8 +20,9 @@ class FeedbackLinksReport {
 
     return FeedbackLinksReport(
       href: json[r'href'],
-      iriTemplate:
-          FeedbackLinksReportIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksReportIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

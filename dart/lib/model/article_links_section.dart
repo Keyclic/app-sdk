@@ -20,8 +20,9 @@ class ArticleLinksSection {
 
     return ArticleLinksSection(
       href: json[r'href'],
-      iriTemplate:
-          ArticleLinksSectionIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ArticleLinksSectionIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

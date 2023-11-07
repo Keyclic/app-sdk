@@ -20,8 +20,9 @@ class OperationLinksFeedback {
 
     return OperationLinksFeedback(
       href: json[r'href'],
-      iriTemplate:
-          OperationLinksFeedbackIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OperationLinksFeedbackIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

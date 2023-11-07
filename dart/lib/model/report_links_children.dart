@@ -20,8 +20,9 @@ class ReportLinksChildren {
 
     return ReportLinksChildren(
       href: json[r'href'],
-      iriTemplate:
-          ReportLinksChildrenIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReportLinksChildrenIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

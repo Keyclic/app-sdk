@@ -25,15 +25,26 @@ class FeedbackLinks {
     }
 
     return FeedbackLinks(
-      businessActivity:
-          FeedbackLinksBusinessActivity.fromJson(json[r'businessActivity']),
-      category: FeedbackLinksCategory.fromJson(json[r'category']),
+      businessActivity: json[r'businessActivity'] is! Map
+          ? null
+          : FeedbackLinksBusinessActivity.fromJson(json[r'businessActivity']),
+      category: json[r'category'] is! Map
+          ? null
+          : FeedbackLinksCategory.fromJson(json[r'category']),
       images: FeedbackLinksImages.listFromJson(json[r'images']),
       plans: FeedbackLinksPlans.listFromJson(json[r'plans']),
-      report: FeedbackLinksReport.fromJson(json[r'report']),
-      reporter: FeedbackLinksReporter.fromJson(json[r'reporter']),
-      self: FeedbackLinksSelf.fromJson(json[r'self']),
-      tracking: FeedbackLinksTracking.fromJson(json[r'tracking']),
+      report: json[r'report'] is! Map
+          ? null
+          : FeedbackLinksReport.fromJson(json[r'report']),
+      reporter: json[r'reporter'] is! Map
+          ? null
+          : FeedbackLinksReporter.fromJson(json[r'reporter']),
+      self: json[r'self'] is! Map
+          ? null
+          : FeedbackLinksSelf.fromJson(json[r'self']),
+      tracking: json[r'tracking'] is! Map
+          ? null
+          : FeedbackLinksTracking.fromJson(json[r'tracking']),
     );
   }
 

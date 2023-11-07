@@ -20,8 +20,9 @@ class MemberLinksOrganization {
 
     return MemberLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          MemberLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : MemberLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

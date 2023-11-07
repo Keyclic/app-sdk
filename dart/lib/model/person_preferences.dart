@@ -18,7 +18,9 @@ class PersonPreferences {
     }
 
     return PersonPreferences(
-      notification: PreferencesNotification.fromJson(json[r'notification']),
+      notification: json[r'notification'] is! Map
+          ? null
+          : PreferencesNotification.fromJson(json[r'notification']),
     );
   }
 

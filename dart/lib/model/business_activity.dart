@@ -37,11 +37,15 @@ class BusinessActivity {
     }
 
     return BusinessActivity(
-      links: BusinessActivityLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : BusinessActivityLinks.fromJson(json[r'_links']),
       alternateName: json[r'alternateName'],
       createdAt: createdAt,
       id: json[r'id'],
-      metadataSchema: BusinessActivitySchema.fromJson(json[r'metadataSchema']),
+      metadataSchema: json[r'metadataSchema'] is! Map
+          ? null
+          : BusinessActivitySchema.fromJson(json[r'metadataSchema']),
       name: json[r'name'],
       type: json[r'type'],
       updatedAt: updatedAt,

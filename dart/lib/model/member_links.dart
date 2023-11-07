@@ -20,9 +20,15 @@ class MemberLinks {
     }
 
     return MemberLinks(
-      organization: MemberLinksOrganization.fromJson(json[r'organization']),
-      person: MemberLinksPerson.fromJson(json[r'person']),
-      self: MemberLinksSelf.fromJson(json[r'self']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : MemberLinksOrganization.fromJson(json[r'organization']),
+      person: json[r'person'] is! Map
+          ? null
+          : MemberLinksPerson.fromJson(json[r'person']),
+      self: json[r'self'] is! Map
+          ? null
+          : MemberLinksSelf.fromJson(json[r'self']),
     );
   }
 

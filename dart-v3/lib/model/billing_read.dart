@@ -26,8 +26,12 @@ class BillingRead {
     }
 
     return BillingRead(
-      adjustedCost: PriceRead.fromJson(json[r'adjustedCost']),
-      initialCost: PriceRead.fromJson(json[r'initialCost']),
+      adjustedCost: json[r'adjustedCost'] is! Map
+          ? null
+          : PriceRead.fromJson(json[r'adjustedCost']),
+      initialCost: json[r'initialCost'] is! Map
+          ? null
+          : PriceRead.fromJson(json[r'initialCost']),
       startDate: startDate,
     );
   }

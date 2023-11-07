@@ -35,7 +35,8 @@ class Note {
     }
 
     return Note(
-      links: NoteLinks.fromJson(json[r'_links']),
+      links:
+          json[r'_links'] is! Map ? null : NoteLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       text: json[r'text'] == null

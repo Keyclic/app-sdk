@@ -36,7 +36,9 @@ class Review {
     }
 
     return Review(
-      links: ReviewLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ReviewLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       reviewBody: json[r'reviewBody'],

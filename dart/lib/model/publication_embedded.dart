@@ -19,8 +19,8 @@ class PublicationEmbedded {
     }
 
     return PublicationEmbedded(
-      author: Person.fromJson(json[r'author']),
-      place: Place.fromJson(json[r'place']),
+      author: json[r'author'] is! Map ? null : Person.fromJson(json[r'author']),
+      place: json[r'place'] is! Map ? null : Place.fromJson(json[r'place']),
     );
   }
 

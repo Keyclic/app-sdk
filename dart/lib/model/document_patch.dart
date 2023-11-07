@@ -25,8 +25,12 @@ class DocumentPatch {
       body: json[r'body'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
-      file: DocumentPatchFile.fromJson(json[r'file']),
-      permission: DocumentPatchPermission.fromJson(json[r'permission']),
+      file: json[r'file'] is! Map
+          ? null
+          : DocumentPatchFile.fromJson(json[r'file']),
+      permission: json[r'permission'] is! Map
+          ? null
+          : DocumentPatchPermission.fromJson(json[r'permission']),
       text: json[r'text'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
     );

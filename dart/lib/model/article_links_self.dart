@@ -20,7 +20,9 @@ class ArticleLinksSelf {
 
     return ArticleLinksSelf(
       href: json[r'href'],
-      iriTemplate: ArticleLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ArticleLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

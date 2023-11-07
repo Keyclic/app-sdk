@@ -18,7 +18,8 @@ class InternalServiceEmbedded {
     }
 
     return InternalServiceEmbedded(
-      manager: Member.fromJson(json[r'manager']),
+      manager:
+          json[r'manager'] is! Map ? null : Member.fromJson(json[r'manager']),
     );
   }
 

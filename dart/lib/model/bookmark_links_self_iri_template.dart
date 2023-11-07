@@ -18,7 +18,9 @@ class BookmarkLinksSelfIriTemplate {
     }
 
     return BookmarkLinksSelfIriTemplate(
-      mapping: BookmarkLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : BookmarkLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

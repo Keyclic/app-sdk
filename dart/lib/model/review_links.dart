@@ -20,9 +20,15 @@ class ReviewLinks {
     }
 
     return ReviewLinks(
-      author: ReviewLinksAuthor.fromJson(json[r'author']),
-      itemReviewed: ReviewLinksItemReviewed.fromJson(json[r'itemReviewed']),
-      self: ReviewLinksSelf.fromJson(json[r'self']),
+      author: json[r'author'] is! Map
+          ? null
+          : ReviewLinksAuthor.fromJson(json[r'author']),
+      itemReviewed: json[r'itemReviewed'] is! Map
+          ? null
+          : ReviewLinksItemReviewed.fromJson(json[r'itemReviewed']),
+      self: json[r'self'] is! Map
+          ? null
+          : ReviewLinksSelf.fromJson(json[r'self']),
     );
   }
 

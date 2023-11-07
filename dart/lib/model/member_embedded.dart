@@ -20,8 +20,10 @@ class MemberEmbedded {
     }
 
     return MemberEmbedded(
-      organization: Organization.fromJson(json[r'organization']),
-      person: Person.fromJson(json[r'person']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : Organization.fromJson(json[r'organization']),
+      person: json[r'person'] is! Map ? null : Person.fromJson(json[r'person']),
       roles: Role.listFromJson(json[r'roles']),
     );
   }

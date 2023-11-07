@@ -20,8 +20,10 @@ class FeedbackLinksBusinessActivity {
 
     return FeedbackLinksBusinessActivity(
       href: json[r'href'],
-      iriTemplate: FeedbackLinksBusinessActivityIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksBusinessActivityIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

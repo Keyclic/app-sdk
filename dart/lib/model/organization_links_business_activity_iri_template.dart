@@ -19,8 +19,10 @@ class OrganizationLinksBusinessActivityIriTemplate {
     }
 
     return OrganizationLinksBusinessActivityIriTemplate(
-      mapping: BusinessActivityLinksImageIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : BusinessActivityLinksImageIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

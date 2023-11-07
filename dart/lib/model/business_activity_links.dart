@@ -21,10 +21,18 @@ class BusinessActivityLinks {
     }
 
     return BusinessActivityLinks(
-      image: BusinessActivityLinksImage.fromJson(json[r'image']),
-      schema: BusinessActivityLinksSchema.fromJson(json[r'schema']),
-      self: BusinessActivityLinksSelf.fromJson(json[r'self']),
-      thumbnail: BusinessActivityLinksThumbnail.fromJson(json[r'thumbnail']),
+      image: json[r'image'] is! Map
+          ? null
+          : BusinessActivityLinksImage.fromJson(json[r'image']),
+      schema: json[r'schema'] is! Map
+          ? null
+          : BusinessActivityLinksSchema.fromJson(json[r'schema']),
+      self: json[r'self'] is! Map
+          ? null
+          : BusinessActivityLinksSelf.fromJson(json[r'self']),
+      thumbnail: json[r'thumbnail'] is! Map
+          ? null
+          : BusinessActivityLinksThumbnail.fromJson(json[r'thumbnail']),
     );
   }
 

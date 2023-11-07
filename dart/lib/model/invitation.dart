@@ -42,8 +42,12 @@ class Invitation {
     }
 
     return Invitation(
-      embedded: InvitationEmbedded.fromJson(json[r'_embedded']),
-      links: InvitationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : InvitationEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : InvitationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       expiredAt: expiredAt,
       id: json[r'id'],

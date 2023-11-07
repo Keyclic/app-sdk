@@ -20,7 +20,9 @@ class MemberLinksPerson {
 
     return MemberLinksPerson(
       href: json[r'href'],
-      iriTemplate: MemberLinksPersonIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : MemberLinksPersonIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

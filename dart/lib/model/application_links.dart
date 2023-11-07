@@ -19,9 +19,12 @@ class ApplicationLinks {
     }
 
     return ApplicationLinks(
-      knowledgeBase:
-          ApplicationLinksKnowledgeBase.fromJson(json[r'knowledgeBase']),
-      self: ApplicationLinksSelf.fromJson(json[r'self']),
+      knowledgeBase: json[r'knowledgeBase'] is! Map
+          ? null
+          : ApplicationLinksKnowledgeBase.fromJson(json[r'knowledgeBase']),
+      self: json[r'self'] is! Map
+          ? null
+          : ApplicationLinksSelf.fromJson(json[r'self']),
     );
   }
 

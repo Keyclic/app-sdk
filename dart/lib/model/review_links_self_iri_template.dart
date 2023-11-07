@@ -18,7 +18,9 @@ class ReviewLinksSelfIriTemplate {
     }
 
     return ReviewLinksSelfIriTemplate(
-      mapping: ReviewLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ReviewLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

@@ -18,7 +18,7 @@ class InvitationEmbedded {
     }
 
     return InvitationEmbedded(
-      member: Member.fromJson(json[r'member']),
+      member: json[r'member'] is! Map ? null : Member.fromJson(json[r'member']),
     );
   }
 

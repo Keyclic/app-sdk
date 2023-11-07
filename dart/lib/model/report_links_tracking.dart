@@ -20,8 +20,9 @@ class ReportLinksTracking {
 
     return ReportLinksTracking(
       href: json[r'href'],
-      iriTemplate:
-          ReportLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReportLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

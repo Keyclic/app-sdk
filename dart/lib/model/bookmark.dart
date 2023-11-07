@@ -35,8 +35,12 @@ class Bookmark {
     }
 
     return Bookmark(
-      embedded: BookmarkEmbedded.fromJson(json[r'_embedded']),
-      links: BookmarkLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : BookmarkEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : BookmarkLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],

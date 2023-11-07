@@ -35,8 +35,12 @@ class ReviewRequest {
     }
 
     return ReviewRequest(
-      embedded: ReviewRequestEmbedded.fromJson(json[r'_embedded']),
-      links: ReviewRequestLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : ReviewRequestEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ReviewRequestLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],

@@ -20,8 +20,10 @@ class OrganizationLinksConfiguration {
 
     return OrganizationLinksConfiguration(
       href: json[r'href'],
-      iriTemplate: OrganizationLinksConfigurationIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksConfigurationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

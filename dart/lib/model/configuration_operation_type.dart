@@ -22,7 +22,9 @@ class ConfigurationOperationType {
     return ConfigurationOperationType(
       id: json[r'id'],
       type: json[r'type'],
-      workflow: OperationTypeWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : OperationTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 

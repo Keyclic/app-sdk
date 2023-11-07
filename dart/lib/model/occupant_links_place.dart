@@ -20,7 +20,9 @@ class OccupantLinksPlace {
 
     return OccupantLinksPlace(
       href: json[r'href'],
-      iriTemplate: OccupantLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OccupantLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

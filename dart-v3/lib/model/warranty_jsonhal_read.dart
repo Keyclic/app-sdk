@@ -33,7 +33,9 @@ class WarrantyJsonhalRead {
     }
 
     return WarrantyJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       duration: json[r'duration'],
       endDate: endDate,
       startDate: startDate,

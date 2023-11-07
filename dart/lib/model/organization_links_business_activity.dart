@@ -21,8 +21,10 @@ class OrganizationLinksBusinessActivity {
 
     return OrganizationLinksBusinessActivity(
       href: json[r'href'],
-      iriTemplate: OrganizationLinksBusinessActivityIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksBusinessActivityIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

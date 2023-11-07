@@ -20,7 +20,9 @@ class Metric {
 
     return Metric(
       name: json[r'name'],
-      duration: Duration.fromJson(json[r'duration']),
+      duration: json[r'duration'] is! Map
+          ? null
+          : Duration.fromJson(json[r'duration']),
     );
   }
 

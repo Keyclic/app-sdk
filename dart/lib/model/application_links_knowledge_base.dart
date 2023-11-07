@@ -20,8 +20,10 @@ class ApplicationLinksKnowledgeBase {
 
     return ApplicationLinksKnowledgeBase(
       href: json[r'href'],
-      iriTemplate: ApplicationLinksKnowledgeBaseIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ApplicationLinksKnowledgeBaseIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 

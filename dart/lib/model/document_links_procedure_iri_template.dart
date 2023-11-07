@@ -19,8 +19,9 @@ class DocumentLinksProcedureIriTemplate {
     }
 
     return DocumentLinksProcedureIriTemplate(
-      mapping:
-          DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

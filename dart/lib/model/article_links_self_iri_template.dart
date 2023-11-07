@@ -18,7 +18,9 @@ class ArticleLinksSelfIriTemplate {
     }
 
     return ArticleLinksSelfIriTemplate(
-      mapping: ArticleLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ArticleLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

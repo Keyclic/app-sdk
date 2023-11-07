@@ -25,12 +25,14 @@ class DocumentEmbedded {
       container: json[r'container'] == null
           ? null
           : Map<String, Object>.from(json[r'container']),
-      createdBy: Person.fromJson(json[r'createdBy']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : Person.fromJson(json[r'createdBy']),
       signers: Signer.listFromJson(json[r'signers']),
       stateTransitions: json[r'stateTransitions'] == null
           ? null
           : List<String>.from(json[r'stateTransitions']),
-      type: DocumentType.fromJson(json[r'type']),
+      type: json[r'type'] is! Map ? null : DocumentType.fromJson(json[r'type']),
     );
   }
 

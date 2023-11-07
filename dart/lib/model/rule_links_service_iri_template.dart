@@ -18,8 +18,9 @@ class RuleLinksServiceIriTemplate {
     }
 
     return RuleLinksServiceIriTemplate(
-      mapping:
-          AssignmentLinksServiceIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksServiceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 

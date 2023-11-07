@@ -20,8 +20,9 @@ class OccupantLinksMember {
 
     return OccupantLinksMember(
       href: json[r'href'],
-      iriTemplate:
-          OccupantLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OccupantLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 

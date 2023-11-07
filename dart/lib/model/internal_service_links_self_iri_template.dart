@@ -19,8 +19,10 @@ class InternalServiceLinksSelfIriTemplate {
     }
 
     return InternalServiceLinksSelfIriTemplate(
-      mapping:
-          InternalServiceLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : InternalServiceLinksSelfIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 

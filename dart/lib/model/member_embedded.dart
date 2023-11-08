@@ -20,13 +20,9 @@ class MemberEmbedded {
     }
 
     return MemberEmbedded(
-      organization: json[r'organization'] is! Map
-          ? null
-          : Organization.fromJson(json[r'organization']),
-      person: json[r'person'] is! Map ? null : Person.fromJson(json[r'person']),
-      roles: json[r'roles'] is! Iterable
-          ? null
-          : Role.listFromJson(json[r'roles']),
+      organization: Organization.fromJson(json[r'organization']),
+      person: Person.fromJson(json[r'person']),
+      roles: Role.listFromJson(json[r'roles']),
     );
   }
 
@@ -55,7 +51,7 @@ class MemberEmbedded {
       (person == null ? 0 : person.hashCode) +
       (roles == null ? 0 : roles.hashCode);
 
-  static List<MemberEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<MemberEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MemberEmbedded>[];
     }

@@ -19,10 +19,8 @@ class DocumentLinksCreatedByIriTemplate {
     }
 
     return DocumentLinksCreatedByIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ContributionLinksContributorIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -43,7 +41,7 @@ class DocumentLinksCreatedByIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<DocumentLinksCreatedByIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksCreatedByIriTemplate>[];
     }

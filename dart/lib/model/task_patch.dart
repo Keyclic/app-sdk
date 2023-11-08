@@ -107,7 +107,7 @@ class TaskPatch {
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (tags == null ? 0 : tags.hashCode);
 
-  static List<TaskPatch> listFromJson(Iterable<dynamic>? json) {
+  static List<TaskPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TaskPatch>[];
     }

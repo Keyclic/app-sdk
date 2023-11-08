@@ -36,9 +36,7 @@ class Review {
     }
 
     return Review(
-      links: json[r'_links'] is! Map
-          ? null
-          : ReviewLinks.fromJson(json[r'_links']),
+      links: ReviewLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       reviewBody: json[r'reviewBody'],
@@ -91,7 +89,7 @@ class Review {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Review> listFromJson(Iterable<dynamic>? json) {
+  static List<Review> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Review>[];
     }

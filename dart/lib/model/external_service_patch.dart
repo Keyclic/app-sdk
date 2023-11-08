@@ -21,12 +21,9 @@ class ExternalServicePatch {
     }
 
     return ExternalServicePatch(
-      address: json[r'address'] is! Map
-          ? null
-          : ExternalServicePatchAddress.fromJson(json[r'address']),
-      contactPoint: json[r'contactPoint'] is! Map
-          ? null
-          : ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+      contactPoint:
+          ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
       description: json[r'description'],
       name: json[r'name'],
     );
@@ -61,7 +58,7 @@ class ExternalServicePatch {
       (description == null ? 0 : description.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<ExternalServicePatch> listFromJson(Iterable<dynamic>? json) {
+  static List<ExternalServicePatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServicePatch>[];
     }

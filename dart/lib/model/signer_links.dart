@@ -20,15 +20,9 @@ class SignerLinks {
     }
 
     return SignerLinks(
-      member: json[r'member'] is! Map
-          ? null
-          : SignerLinksMember.fromJson(json[r'member']),
-      procedure: json[r'procedure'] is! Map
-          ? null
-          : SignerLinksProcedure.fromJson(json[r'procedure']),
-      self: json[r'self'] is! Map
-          ? null
-          : SignerLinksSelf.fromJson(json[r'self']),
+      member: SignerLinksMember.fromJson(json[r'member']),
+      procedure: SignerLinksProcedure.fromJson(json[r'procedure']),
+      self: SignerLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -57,7 +51,7 @@ class SignerLinks {
       (procedure == null ? 0 : procedure.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<SignerLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<SignerLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SignerLinks>[];
     }

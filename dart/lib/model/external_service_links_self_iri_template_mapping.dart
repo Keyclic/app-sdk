@@ -40,7 +40,7 @@ class ExternalServiceLinksSelfIriTemplateMapping {
   int get hashCode => (externalService == null ? 0 : externalService.hashCode);
 
   static List<ExternalServiceLinksSelfIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceLinksSelfIriTemplateMapping>[];
     }

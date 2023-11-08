@@ -34,9 +34,7 @@ class Device {
     }
 
     return Device(
-      links: json[r'_links'] is! Map
-          ? null
-          : DeviceLinks.fromJson(json[r'_links']),
+      links: DeviceLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],
@@ -77,7 +75,7 @@ class Device {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Device> listFromJson(Iterable<dynamic>? json) {
+  static List<Device> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Device>[];
     }

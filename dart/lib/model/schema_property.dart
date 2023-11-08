@@ -29,17 +29,13 @@ class SchemaProperty {
     }
 
     return SchemaProperty(
-      conditions: json[r'conditions'] is! Map
-          ? null
-          : PropertyConditionList.fromJson(json[r'conditions']),
+      conditions: PropertyConditionList.fromJson(json[r'conditions']),
       default_: json[r'default'],
       description: json[r'description'],
       enum_: json[r'enum'] == null ? null : List<String>.from(json[r'enum']),
       format: json[r'format'],
       id: json[r'id'],
-      items: json[r'items'] is! Map
-          ? null
-          : PropertyItems.fromJson(json[r'items']),
+      items: PropertyItems.fromJson(json[r'items']),
       maxItems: json[r'maxItems'],
       minItems: json[r'minItems'],
       propertyOrder: json[r'propertyOrder'],
@@ -109,7 +105,7 @@ class SchemaProperty {
       (title == null ? 0 : title.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<SchemaProperty> listFromJson(Iterable<dynamic>? json) {
+  static List<SchemaProperty> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SchemaProperty>[];
     }

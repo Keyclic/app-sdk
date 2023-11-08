@@ -18,9 +18,8 @@ class PersonPatchPreferences {
     }
 
     return PersonPatchPreferences(
-      notification: json[r'notification'] is! Map
-          ? null
-          : PersonPatchPreferencesNotification.fromJson(json[r'notification']),
+      notification:
+          PersonPatchPreferencesNotification.fromJson(json[r'notification']),
     );
   }
 
@@ -40,7 +39,7 @@ class PersonPatchPreferences {
   @override
   int get hashCode => (notification == null ? 0 : notification.hashCode);
 
-  static List<PersonPatchPreferences> listFromJson(Iterable<dynamic>? json) {
+  static List<PersonPatchPreferences> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PersonPatchPreferences>[];
     }

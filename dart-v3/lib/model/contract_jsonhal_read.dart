@@ -62,21 +62,15 @@ class ContractJsonhalRead {
     }
 
     return ContractJsonhalRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : ContractJsonhalReadLinks.fromJson(json[r'_links']),
-      billing: json[r'billing'] is! Map
-          ? null
-          : BillingJsonhalRead.fromJson(json[r'billing']),
+      links: ContractJsonhalReadLinks.fromJson(json[r'_links']),
+      billing: BillingJsonhalRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      renewal: json[r'renewal'] is! Map
-          ? null
-          : RenewalJsonhalRead.fromJson(json[r'renewal']),
+      renewal: RenewalJsonhalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,
@@ -170,7 +164,7 @@ class ContractJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ContractJsonhalRead> listFromJson(Iterable<dynamic>? json) {
+  static List<ContractJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ContractJsonhalRead>[];
     }

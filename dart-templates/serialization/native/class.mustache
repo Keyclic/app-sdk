@@ -34,42 +34,44 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   {{^isDate}}
     {{#complexType}}
       {{#isArray}}
-        {{{name}}}: {{^required}}json[r'{{{baseName}}}'] is! Iterable ? null : {{/required}}
         {{#items.isArray}}
+        {{{name}}}:
             {{#items.complexType}}
-              {{items.complexType}}.listFromJson(json[r'{{{baseName}}}']),
+                {{items.complexType}}.listFromJson(json[r'{{{baseName}}}']),
             {{/items.complexType}}
             {{^items.complexType}}
-              List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']).map((e) => List<{{items.items.dataType}}>.from(e)).toList(growable: false),
+                json[r'{{{baseName}}}'] == null ? null : List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']).map((e) => List<{{items.items.dataType}}>.from(e)).toList(growable: false),
             {{/items.complexType}}
         {{/items.isArray}}
         {{^items.isArray}}
+        {{{name}}}: 
           {{#items.isFreeFormObject}}
-            List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']),
+          json[r'{{{baseName}}}'] == null ? null : List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']),
           {{/items.isFreeFormObject}}
           {{^items.isFreeFormObject}}
-            {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
+          {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
           {{/items.isFreeFormObject}}
         {{/items.isArray}}
       {{/isArray}}
       {{^isArray}}
         {{#isMap}}
-          {{{name}}}: {{^required}}json[r'{{{baseName}}}'] is! Map ? null : {{/required}}
           {{#items.isArray}}
+        {{{name}}}: 
             {{#items.complexType}}
-              {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
+                {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
             {{/items.complexType}}
             {{^items.complexType}}
-              Map<String, List>.from(json[r'{{{baseName}}}']),
+                Map<String, List>.from(json[r'{{{baseName}}}'] ?? {}),
             {{/items.complexType}}
           {{/items.isArray}}
           {{^items.isArray}}
+            {{{name}}}:
               {{#items.isMap}}
             {{#items.complexType}}
                 {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.complexType}}
             {{^items.complexType}}
-                Map<String, Map>.from(json[r'{{{baseName}}}']),
+                Map<String, Map>.from(json[r'{{{baseName}}}'] ?? {}),
             {{/items.complexType}}
           {{/items.isMap}}
           {{^items.isMap}}
@@ -77,7 +79,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.isModel}}
             {{^items.isModel}}
-              {{{dataType}}}.from(json[r'{{{baseName}}}']),
+              json[r'{{{baseName}}}'] == null ? null : {{{dataType}}}.from(json[r'{{{baseName}}}']),
             {{/items.isModel}}
           {{/items.isMap}}
           {{/items.isArray}}
@@ -87,7 +89,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
         {{{name}}}: null, // No support for decoding binary content from JSON
             {{/isBinary}}
             {{^isBinary}}
-        {{{name}}}: {{^required}}json[r'{{{baseName}}}'] is! Map ? null : {{/required}}{{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+        {{{name}}}: {{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
             {{/isBinary}}
         {{/isMap}}
       {{/isArray}}
@@ -191,7 +193,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{^required}}({{{name}}} == null ? 0 :{{/required}} {{{name}}}.hashCode{{^required}}){{/required}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
   {{/vars}}
 
-  static List<{{{classname}}}> listFromJson(Iterable<dynamic>? json) {
+  static List<{{{classname}}}> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <{{{classname}}}>[];
     }

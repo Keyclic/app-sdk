@@ -37,12 +37,8 @@ class Category {
     }
 
     return Category(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : CategoryEmbedded.fromJson(json[r'_embedded']),
-      links: json[r'_links'] is! Map
-          ? null
-          : CategoryLinks.fromJson(json[r'_links']),
+      embedded: CategoryEmbedded.fromJson(json[r'_embedded']),
+      links: CategoryLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],
@@ -97,7 +93,7 @@ class Category {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Category> listFromJson(Iterable<dynamic>? json) {
+  static List<Category> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Category>[];
     }

@@ -18,9 +18,7 @@ class ServiceCollection {
     }
 
     return ServiceCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Service.listFromJson(json[r'items']),
+      items: Service.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class ServiceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ServiceCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<ServiceCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ServiceCollection>[];
     }

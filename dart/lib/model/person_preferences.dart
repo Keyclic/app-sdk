@@ -18,9 +18,7 @@ class PersonPreferences {
     }
 
     return PersonPreferences(
-      notification: json[r'notification'] is! Map
-          ? null
-          : PreferencesNotification.fromJson(json[r'notification']),
+      notification: PreferencesNotification.fromJson(json[r'notification']),
     );
   }
 
@@ -39,7 +37,7 @@ class PersonPreferences {
   @override
   int get hashCode => (notification == null ? 0 : notification.hashCode);
 
-  static List<PersonPreferences> listFromJson(Iterable<dynamic>? json) {
+  static List<PersonPreferences> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PersonPreferences>[];
     }

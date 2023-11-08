@@ -19,12 +19,8 @@ class ContributionLinks {
     }
 
     return ContributionLinks(
-      contributor: json[r'contributor'] is! Map
-          ? null
-          : ContributionLinksContributor.fromJson(json[r'contributor']),
-      feedback: json[r'feedback'] is! Map
-          ? null
-          : ContributionLinksFeedback.fromJson(json[r'feedback']),
+      contributor: ContributionLinksContributor.fromJson(json[r'contributor']),
+      feedback: ContributionLinksFeedback.fromJson(json[r'feedback']),
     );
   }
 
@@ -49,7 +45,7 @@ class ContributionLinks {
       (contributor == null ? 0 : contributor.hashCode) +
       (feedback == null ? 0 : feedback.hashCode);
 
-  static List<ContributionLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<ContributionLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ContributionLinks>[];
     }

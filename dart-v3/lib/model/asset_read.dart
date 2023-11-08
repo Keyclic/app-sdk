@@ -42,9 +42,7 @@ class AssetRead {
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
-      address: json[r'address'] is! Map
-          ? null
-          : PostalAddressRead.fromJson(json[r'address']),
+      address: PostalAddressRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       parent: json[r'parent'],
@@ -104,7 +102,7 @@ class AssetRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<AssetRead> listFromJson(Iterable<dynamic>? json) {
+  static List<AssetRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssetRead>[];
     }

@@ -27,12 +27,8 @@ class DocumentPagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: json[r'_links'] is! Map
-          ? null
-          : PaginationLinks.fromJson(json[r'_links']),
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : DocumentCollection.fromJson(json[r'_embedded']),
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: DocumentCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -73,7 +69,7 @@ class DocumentPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<DocumentPagination> listFromJson(Iterable<dynamic>? json) {
+  static List<DocumentPagination> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DocumentPagination>[];
     }

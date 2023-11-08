@@ -40,7 +40,7 @@ class GetAssetTypes200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetAssetTypes200ResponseEmbedded> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <GetAssetTypes200ResponseEmbedded>[];
     }

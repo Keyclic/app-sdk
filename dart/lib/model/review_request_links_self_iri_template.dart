@@ -19,9 +19,8 @@ class ReviewRequestLinksSelfIriTemplate {
     }
 
     return ReviewRequestLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ReviewRequestLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping:
+          ReviewRequestLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -42,7 +41,7 @@ class ReviewRequestLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReviewRequestLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReviewRequestLinksSelfIriTemplate>[];
     }

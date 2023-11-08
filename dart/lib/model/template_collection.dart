@@ -18,9 +18,7 @@ class TemplateCollection {
     }
 
     return TemplateCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Template.listFromJson(json[r'items']),
+      items: Template.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class TemplateCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<TemplateCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<TemplateCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TemplateCollection>[];
     }

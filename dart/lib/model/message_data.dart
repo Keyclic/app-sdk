@@ -19,7 +19,7 @@ class MessageData {
     }
 
     return MessageData(
-      text: json[r'text'] is! Iterable
+      text: json[r'text'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'text']),
       task: json[r'task'],
@@ -45,7 +45,7 @@ class MessageData {
   @override
   int get hashCode => (text == null ? 0 : text.hashCode) + task.hashCode;
 
-  static List<MessageData> listFromJson(Iterable<dynamic>? json) {
+  static List<MessageData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MessageData>[];
     }

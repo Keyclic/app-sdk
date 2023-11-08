@@ -63,7 +63,7 @@ class RuleData {
       (position == null ? 0 : position.hashCode) +
       service.hashCode;
 
-  static List<RuleData> listFromJson(Iterable<dynamic>? json) {
+  static List<RuleData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RuleData>[];
     }

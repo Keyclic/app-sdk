@@ -18,9 +18,7 @@ class InvitationLinksSelfIriTemplate {
     }
 
     return InvitationLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : InvitationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: InvitationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -40,7 +38,7 @@ class InvitationLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<InvitationLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <InvitationLinksSelfIriTemplate>[];
     }

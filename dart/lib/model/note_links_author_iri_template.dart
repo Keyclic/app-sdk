@@ -18,10 +18,8 @@ class NoteLinksAuthorIriTemplate {
     }
 
     return NoteLinksAuthorIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ContributionLinksContributorIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -40,8 +38,7 @@ class NoteLinksAuthorIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<NoteLinksAuthorIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<NoteLinksAuthorIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <NoteLinksAuthorIriTemplate>[];
     }

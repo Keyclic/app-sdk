@@ -19,10 +19,8 @@ class ApplicationLinksKnowledgeBaseIriTemplate {
     }
 
     return ApplicationLinksKnowledgeBaseIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ApplicationLinksKnowledgeBaseIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -43,7 +41,7 @@ class ApplicationLinksKnowledgeBaseIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ApplicationLinksKnowledgeBaseIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinksKnowledgeBaseIriTemplate>[];
     }

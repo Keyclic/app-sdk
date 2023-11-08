@@ -18,9 +18,8 @@ class ReportLinksSelfIriTemplate {
     }
 
     return ReportLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping:
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,8 +38,7 @@ class ReportLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReportLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<ReportLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReportLinksSelfIriTemplate>[];
     }

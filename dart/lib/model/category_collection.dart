@@ -18,9 +18,7 @@ class CategoryCollection {
     }
 
     return CategoryCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Category.listFromJson(json[r'items']),
+      items: Category.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class CategoryCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<CategoryCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<CategoryCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <CategoryCollection>[];
     }

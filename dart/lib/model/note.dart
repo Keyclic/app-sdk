@@ -35,11 +35,10 @@ class Note {
     }
 
     return Note(
-      links:
-          json[r'_links'] is! Map ? null : NoteLinks.fromJson(json[r'_links']),
+      links: NoteLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
-      text: json[r'text'] is! Iterable
+      text: json[r'text'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'text']),
       type: json[r'type'],
@@ -84,7 +83,7 @@ class Note {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Note> listFromJson(Iterable<dynamic>? json) {
+  static List<Note> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Note>[];
     }

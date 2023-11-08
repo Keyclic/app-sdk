@@ -18,9 +18,7 @@ class FeedbackCollection {
     }
 
     return FeedbackCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Feedback.listFromJson(json[r'items']),
+      items: Feedback.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class FeedbackCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<FeedbackCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<FeedbackCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <FeedbackCollection>[];
     }

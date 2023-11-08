@@ -36,9 +36,7 @@ class KnowledgeBase {
     }
 
     return KnowledgeBase(
-      links: json[r'_links'] is! Map
-          ? null
-          : KnowledgeBaseLinks.fromJson(json[r'_links']),
+      links: KnowledgeBaseLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
@@ -89,7 +87,7 @@ class KnowledgeBase {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<KnowledgeBase> listFromJson(Iterable<dynamic>? json) {
+  static List<KnowledgeBase> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <KnowledgeBase>[];
     }

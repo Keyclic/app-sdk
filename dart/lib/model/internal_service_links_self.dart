@@ -20,9 +20,8 @@ class InternalServiceLinksSelf {
 
     return InternalServiceLinksSelf(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : InternalServiceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          InternalServiceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class InternalServiceLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<InternalServiceLinksSelf> listFromJson(Iterable<dynamic>? json) {
+  static List<InternalServiceLinksSelf> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <InternalServiceLinksSelf>[];
     }

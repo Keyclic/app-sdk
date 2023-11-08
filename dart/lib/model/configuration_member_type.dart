@@ -21,9 +21,7 @@ class ConfigurationMemberType {
 
     return ConfigurationMemberType(
       id: json[r'id'],
-      roles: json[r'roles'] is! Iterable
-          ? null
-          : MemberTypeRole.listFromJson(json[r'roles']),
+      roles: MemberTypeRole.listFromJson(json[r'roles']),
       type: json[r'type'],
     );
   }
@@ -53,7 +51,7 @@ class ConfigurationMemberType {
       (roles == null ? 0 : roles.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ConfigurationMemberType> listFromJson(Iterable<dynamic>? json) {
+  static List<ConfigurationMemberType> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ConfigurationMemberType>[];
     }

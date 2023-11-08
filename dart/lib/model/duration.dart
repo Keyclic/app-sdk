@@ -51,7 +51,7 @@ class Duration {
       (minutes == null ? 0 : minutes.hashCode) +
       (seconds == null ? 0 : seconds.hashCode);
 
-  static List<Duration> listFromJson(Iterable<dynamic>? json) {
+  static List<Duration> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Duration>[];
     }

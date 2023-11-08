@@ -27,12 +27,8 @@ class SignerPagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: json[r'_links'] is! Map
-          ? null
-          : PaginationLinks.fromJson(json[r'_links']),
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : SignerCollection.fromJson(json[r'_embedded']),
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: SignerCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -73,7 +69,7 @@ class SignerPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<SignerPagination> listFromJson(Iterable<dynamic>? json) {
+  static List<SignerPagination> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SignerPagination>[];
     }

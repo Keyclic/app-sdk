@@ -41,18 +41,12 @@ class OperationTypeWorkflow {
     return OperationTypeWorkflow(
       createdAt: createdAt,
       description: json[r'description'],
-      end: json[r'end'] is! Map ? null : WorkflowState.fromJson(json[r'end']),
+      end: WorkflowState.fromJson(json[r'end']),
       id: json[r'id'],
       name: json[r'name'],
-      start: json[r'start'] is! Map
-          ? null
-          : WorkflowState.fromJson(json[r'start']),
-      states: json[r'states'] is! Iterable
-          ? null
-          : WorkflowState.listFromJson(json[r'states']),
-      transitions: json[r'transitions'] is! Iterable
-          ? null
-          : WorkflowTransition.listFromJson(json[r'transitions']),
+      start: WorkflowState.fromJson(json[r'start']),
+      states: WorkflowState.listFromJson(json[r'states']),
+      transitions: WorkflowTransition.listFromJson(json[r'transitions']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -112,7 +106,7 @@ class OperationTypeWorkflow {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<OperationTypeWorkflow> listFromJson(Iterable<dynamic>? json) {
+  static List<OperationTypeWorkflow> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OperationTypeWorkflow>[];
     }

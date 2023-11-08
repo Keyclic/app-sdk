@@ -20,7 +20,7 @@ class FeedbackGeoCoordinates {
 
     return FeedbackGeoCoordinates(
       elevation: json[r'elevation']?.toDouble(),
-      point: json[r'point'] is! Map ? null : Point.fromJson(json[r'point']),
+      point: Point.fromJson(json[r'point']),
     );
   }
 
@@ -47,7 +47,7 @@ class FeedbackGeoCoordinates {
       (elevation == null ? 0 : elevation.hashCode) +
       (point == null ? 0 : point.hashCode);
 
-  static List<FeedbackGeoCoordinates> listFromJson(Iterable<dynamic>? json) {
+  static List<FeedbackGeoCoordinates> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <FeedbackGeoCoordinates>[];
     }

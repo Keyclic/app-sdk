@@ -20,9 +20,7 @@ class PersonLinksImage {
 
     return PersonLinksImage(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : PersonLinksImageIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: PersonLinksImageIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class PersonLinksImage {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PersonLinksImage> listFromJson(Iterable<dynamic>? json) {
+  static List<PersonLinksImage> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PersonLinksImage>[];
     }

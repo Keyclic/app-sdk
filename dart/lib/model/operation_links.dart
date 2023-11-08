@@ -25,30 +25,14 @@ class OperationLinks {
     }
 
     return OperationLinks(
-      assignments: json[r'assignments'] is! Map
-          ? null
-          : OperationLinksAssignments.fromJson(json[r'assignments']),
-      feedback: json[r'feedback'] is! Map
-          ? null
-          : OperationLinksFeedback.fromJson(json[r'feedback']),
-      images: json[r'images'] is! Iterable
-          ? null
-          : OperationLinksImages.listFromJson(json[r'images']),
-      operator_: json[r'operator'] is! Map
-          ? null
-          : OperationLinksOperator.fromJson(json[r'operator']),
-      organization: json[r'organization'] is! Map
-          ? null
-          : OperationLinksOrganization.fromJson(json[r'organization']),
-      report: json[r'report'] is! Map
-          ? null
-          : OperationLinksReport.fromJson(json[r'report']),
-      self: json[r'self'] is! Map
-          ? null
-          : OperationLinksSelf.fromJson(json[r'self']),
-      tracking: json[r'tracking'] is! Map
-          ? null
-          : OperationLinksTracking.fromJson(json[r'tracking']),
+      assignments: OperationLinksAssignments.fromJson(json[r'assignments']),
+      feedback: OperationLinksFeedback.fromJson(json[r'feedback']),
+      images: OperationLinksImages.listFromJson(json[r'images']),
+      operator_: OperationLinksOperator.fromJson(json[r'operator']),
+      organization: OperationLinksOrganization.fromJson(json[r'organization']),
+      report: OperationLinksReport.fromJson(json[r'report']),
+      self: OperationLinksSelf.fromJson(json[r'self']),
+      tracking: OperationLinksTracking.fromJson(json[r'tracking']),
     );
   }
 
@@ -97,7 +81,7 @@ class OperationLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<OperationLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<OperationLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OperationLinks>[];
     }

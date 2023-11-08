@@ -37,14 +37,14 @@ class Template {
     }
 
     return Template(
-      body: json[r'body'] is! Iterable
+      body: json[r'body'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
       createdAt: createdAt,
-      footer: json[r'footer'] is! Iterable
+      footer: json[r'footer'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'footer']),
-      header: json[r'header'] is! Iterable
+      header: json[r'header'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'header']),
       id: json[r'id'],
@@ -99,7 +99,7 @@ class Template {
       type.hashCode +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Template> listFromJson(Iterable<dynamic>? json) {
+  static List<Template> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Template>[];
     }

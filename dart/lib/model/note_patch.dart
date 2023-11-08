@@ -18,7 +18,7 @@ class NotePatch {
     }
 
     return NotePatch(
-      text: json[r'text'] is! Iterable
+      text: json[r'text'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'text']),
     );
@@ -40,7 +40,7 @@ class NotePatch {
   @override
   int get hashCode => (text == null ? 0 : text.hashCode);
 
-  static List<NotePatch> listFromJson(Iterable<dynamic>? json) {
+  static List<NotePatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <NotePatch>[];
     }

@@ -18,9 +18,7 @@ class DocumentLinksSelfIriTemplate {
     }
 
     return DocumentLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: DocumentLinksFileIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,8 +37,7 @@ class DocumentLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<DocumentLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<DocumentLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksSelfIriTemplate>[];
     }

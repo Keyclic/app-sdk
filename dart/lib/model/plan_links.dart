@@ -20,14 +20,9 @@ class PlanLinks {
     }
 
     return PlanLinks(
-      image: json[r'image'] is! Map
-          ? null
-          : PlanLinksImage.fromJson(json[r'image']),
-      place: json[r'place'] is! Map
-          ? null
-          : PlanLinksPlace.fromJson(json[r'place']),
-      self:
-          json[r'self'] is! Map ? null : PlanLinksSelf.fromJson(json[r'self']),
+      image: PlanLinksImage.fromJson(json[r'image']),
+      place: PlanLinksPlace.fromJson(json[r'place']),
+      self: PlanLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -56,7 +51,7 @@ class PlanLinks {
       (place == null ? 0 : place.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<PlanLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<PlanLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlanLinks>[];
     }

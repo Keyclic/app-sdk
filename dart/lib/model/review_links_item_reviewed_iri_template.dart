@@ -19,9 +19,8 @@ class ReviewLinksItemReviewedIriTemplate {
     }
 
     return ReviewLinksItemReviewedIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping:
+          AssignmentLinksReportIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -42,7 +41,7 @@ class ReviewLinksItemReviewedIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReviewLinksItemReviewedIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReviewLinksItemReviewedIriTemplate>[];
     }

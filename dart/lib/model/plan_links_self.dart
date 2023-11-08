@@ -20,9 +20,7 @@ class PlanLinksSelf {
 
     return PlanLinksSelf(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : PlanLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: PlanLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class PlanLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PlanLinksSelf> listFromJson(Iterable<dynamic>? json) {
+  static List<PlanLinksSelf> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlanLinksSelf>[];
     }

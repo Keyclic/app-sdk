@@ -19,12 +19,8 @@ class DeviceLinks {
     }
 
     return DeviceLinks(
-      person: json[r'person'] is! Map
-          ? null
-          : DeviceLinksPerson.fromJson(json[r'person']),
-      self: json[r'self'] is! Map
-          ? null
-          : DeviceLinksSelf.fromJson(json[r'self']),
+      person: DeviceLinksPerson.fromJson(json[r'person']),
+      self: DeviceLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -47,7 +43,7 @@ class DeviceLinks {
       (person == null ? 0 : person.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<DeviceLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<DeviceLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DeviceLinks>[];
     }

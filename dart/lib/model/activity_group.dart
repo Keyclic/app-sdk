@@ -41,9 +41,7 @@ class ActivityGroup {
     }
 
     return ActivityGroup(
-      activities: json[r'activities'] is! Iterable
-          ? null
-          : Activity.listFromJson(json[r'activities']),
+      activities: Activity.listFromJson(json[r'activities']),
       activityCount: json[r'activity_count'],
       actorCount: json[r'actor_count'],
       createdAt: createdAt,
@@ -110,7 +108,7 @@ class ActivityGroup {
       (isRead == null ? 0 : isRead.hashCode) +
       (isSeen == null ? 0 : isSeen.hashCode);
 
-  static List<ActivityGroup> listFromJson(Iterable<dynamic>? json) {
+  static List<ActivityGroup> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ActivityGroup>[];
     }

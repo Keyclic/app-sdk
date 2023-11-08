@@ -20,9 +20,8 @@ class OperationLinksImages {
 
     return OperationLinksImages(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : OperationLinksImagesIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          OperationLinksImagesIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class OperationLinksImages {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OperationLinksImages> listFromJson(Iterable<dynamic>? json) {
+  static List<OperationLinksImages> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OperationLinksImages>[];
     }

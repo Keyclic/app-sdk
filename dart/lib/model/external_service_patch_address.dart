@@ -51,8 +51,7 @@ class ExternalServicePatchAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<ExternalServicePatchAddress> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<ExternalServicePatchAddress> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServicePatchAddress>[];
     }

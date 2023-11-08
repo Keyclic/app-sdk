@@ -19,9 +19,7 @@ class BusinessActivitySchema {
     }
 
     return BusinessActivitySchema(
-      properties: json[r'properties'] is! Map
-          ? null
-          : SchemaProperty.mapFromJson(json[r'properties']),
+      properties: SchemaProperty.mapFromJson(json[r'properties']),
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),
@@ -50,7 +48,7 @@ class BusinessActivitySchema {
       (properties == null ? 0 : properties.hashCode) +
       (required_ == null ? 0 : required_.hashCode);
 
-  static List<BusinessActivitySchema> listFromJson(Iterable<dynamic>? json) {
+  static List<BusinessActivitySchema> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <BusinessActivitySchema>[];
     }

@@ -57,7 +57,7 @@ class Feed {
       (userId == null ? 0 : userId.hashCode) +
       (userToken == null ? 0 : userToken.hashCode);
 
-  static List<Feed> listFromJson(Iterable<dynamic>? json) {
+  static List<Feed> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Feed>[];
     }

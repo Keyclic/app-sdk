@@ -18,9 +18,7 @@ class KnowledgeBaseLinks {
     }
 
     return KnowledgeBaseLinks(
-      self: json[r'self'] is! Map
-          ? null
-          : KnowledgeBaseLinksSelf.fromJson(json[r'self']),
+      self: KnowledgeBaseLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -39,7 +37,7 @@ class KnowledgeBaseLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<KnowledgeBaseLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<KnowledgeBaseLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <KnowledgeBaseLinks>[];
     }

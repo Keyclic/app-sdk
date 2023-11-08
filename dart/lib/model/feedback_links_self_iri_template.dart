@@ -18,10 +18,8 @@ class FeedbackLinksSelfIriTemplate {
     }
 
     return FeedbackLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ContributionLinksFeedbackIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ContributionLinksFeedbackIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -40,8 +38,7 @@ class FeedbackLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<FeedbackLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<FeedbackLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <FeedbackLinksSelfIriTemplate>[];
     }

@@ -18,9 +18,7 @@ class BusinessActivityCollection {
     }
 
     return BusinessActivityCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : BusinessActivity.listFromJson(json[r'items']),
+      items: BusinessActivity.listFromJson(json[r'items']),
     );
   }
 
@@ -40,8 +38,7 @@ class BusinessActivityCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BusinessActivityCollection> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<BusinessActivityCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityCollection>[];
     }

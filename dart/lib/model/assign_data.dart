@@ -37,7 +37,7 @@ class AssignData {
   @override
   int get hashCode => member.hashCode;
 
-  static List<AssignData> listFromJson(Iterable<dynamic>? json) {
+  static List<AssignData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssignData>[];
     }

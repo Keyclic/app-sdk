@@ -19,12 +19,9 @@ class InternalServiceLinks {
     }
 
     return InternalServiceLinks(
-      organization: json[r'organization'] is! Map
-          ? null
-          : InternalServiceLinksOrganization.fromJson(json[r'organization']),
-      self: json[r'self'] is! Map
-          ? null
-          : InternalServiceLinksSelf.fromJson(json[r'self']),
+      organization:
+          InternalServiceLinksOrganization.fromJson(json[r'organization']),
+      self: InternalServiceLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -49,7 +46,7 @@ class InternalServiceLinks {
       (organization == null ? 0 : organization.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<InternalServiceLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<InternalServiceLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <InternalServiceLinks>[];
     }

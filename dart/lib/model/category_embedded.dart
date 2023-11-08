@@ -19,12 +19,8 @@ class CategoryEmbedded {
     }
 
     return CategoryEmbedded(
-      children: json[r'children'] is! Iterable
-          ? null
-          : Category.listFromJson(json[r'children']),
-      path: json[r'path'] is! Iterable
-          ? null
-          : NodePath.listFromJson(json[r'path']),
+      children: Category.listFromJson(json[r'children']),
+      path: NodePath.listFromJson(json[r'path']),
     );
   }
 
@@ -49,7 +45,7 @@ class CategoryEmbedded {
       (children == null ? 0 : children.hashCode) +
       (path == null ? 0 : path.hashCode);
 
-  static List<CategoryEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<CategoryEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <CategoryEmbedded>[];
     }

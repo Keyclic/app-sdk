@@ -19,12 +19,8 @@ class ArticleLinks {
     }
 
     return ArticleLinks(
-      section: json[r'section'] is! Map
-          ? null
-          : ArticleLinksSection.fromJson(json[r'section']),
-      self: json[r'self'] is! Map
-          ? null
-          : ArticleLinksSelf.fromJson(json[r'self']),
+      section: ArticleLinksSection.fromJson(json[r'section']),
+      self: ArticleLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -49,7 +45,7 @@ class ArticleLinks {
       (section == null ? 0 : section.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ArticleLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<ArticleLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ArticleLinks>[];
     }

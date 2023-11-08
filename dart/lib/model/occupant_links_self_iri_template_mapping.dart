@@ -40,7 +40,7 @@ class OccupantLinksSelfIriTemplateMapping {
   int get hashCode => (occupant == null ? 0 : occupant.hashCode);
 
   static List<OccupantLinksSelfIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <OccupantLinksSelfIriTemplateMapping>[];
     }

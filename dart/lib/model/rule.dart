@@ -22,8 +22,7 @@ class Rule {
     }
 
     return Rule(
-      links:
-          json[r'_links'] is! Map ? null : RuleLinks.fromJson(json[r'_links']),
+      links: RuleLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
@@ -64,7 +63,7 @@ class Rule {
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<Rule> listFromJson(Iterable<dynamic>? json) {
+  static List<Rule> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Rule>[];
     }

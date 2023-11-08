@@ -18,9 +18,7 @@ class OccupantCollection {
     }
 
     return OccupantCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Occupant.listFromJson(json[r'items']),
+      items: Occupant.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class OccupantCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<OccupantCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<OccupantCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OccupantCollection>[];
     }

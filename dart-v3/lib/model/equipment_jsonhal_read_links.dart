@@ -22,21 +22,11 @@ class EquipmentJsonhalReadLinks {
     }
 
     return EquipmentJsonhalReadLinks(
-      self: json[r'self'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      brand: json[r'brand'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'brand']),
-      type: json[r'type'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
-      parent: json[r'parent'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
-      state: json[r'state'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
+      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      brand: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'brand']),
+      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
+      state: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
@@ -73,7 +63,7 @@ class EquipmentJsonhalReadLinks {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<EquipmentJsonhalReadLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<EquipmentJsonhalReadLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <EquipmentJsonhalReadLinks>[];
     }

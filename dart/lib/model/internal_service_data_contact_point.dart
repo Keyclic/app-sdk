@@ -76,7 +76,7 @@ class InternalServiceDataContactPoint {
       (telephone == null ? 0 : telephone.hashCode);
 
   static List<InternalServiceDataContactPoint> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <InternalServiceDataContactPoint>[];
     }

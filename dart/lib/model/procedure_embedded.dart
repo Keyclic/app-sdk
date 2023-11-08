@@ -18,9 +18,7 @@ class ProcedureEmbedded {
     }
 
     return ProcedureEmbedded(
-      document: json[r'document'] is! Map
-          ? null
-          : Document.fromJson(json[r'document']),
+      document: Document.fromJson(json[r'document']),
     );
   }
 
@@ -39,7 +37,7 @@ class ProcedureEmbedded {
   @override
   int get hashCode => (document == null ? 0 : document.hashCode);
 
-  static List<ProcedureEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<ProcedureEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ProcedureEmbedded>[];
     }

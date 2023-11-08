@@ -52,7 +52,7 @@ class FeedbackDataGeoPoint {
       (longitude == null ? 0 : longitude.hashCode) +
       (srid == null ? 0 : srid.hashCode);
 
-  static List<FeedbackDataGeoPoint> listFromJson(Iterable<dynamic>? json) {
+  static List<FeedbackDataGeoPoint> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <FeedbackDataGeoPoint>[];
     }

@@ -26,18 +26,14 @@ class PersonPatch {
     }
 
     return PersonPatch(
-      agreement: json[r'agreement'] is! Map
-          ? null
-          : PersonPatchAgreement.fromJson(json[r'agreement']),
+      agreement: PersonPatchAgreement.fromJson(json[r'agreement']),
       givenName: json[r'givenName'],
       familyName: json[r'familyName'],
       email: json[r'email'],
       jobTitle: json[r'jobTitle'],
       image: json[r'image'],
       optIn: json[r'optIn'],
-      preferences: json[r'preferences'] is! Map
-          ? null
-          : PersonPatchPreferences.fromJson(json[r'preferences']),
+      preferences: PersonPatchPreferences.fromJson(json[r'preferences']),
       telephone: json[r'telephone'],
     );
   }
@@ -91,7 +87,7 @@ class PersonPatch {
       (preferences == null ? 0 : preferences.hashCode) +
       (telephone == null ? 0 : telephone.hashCode);
 
-  static List<PersonPatch> listFromJson(Iterable<dynamic>? json) {
+  static List<PersonPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PersonPatch>[];
     }

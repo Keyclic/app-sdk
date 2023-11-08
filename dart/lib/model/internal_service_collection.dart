@@ -18,9 +18,7 @@ class InternalServiceCollection {
     }
 
     return InternalServiceCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : InternalService.listFromJson(json[r'items']),
+      items: InternalService.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class InternalServiceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<InternalServiceCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<InternalServiceCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <InternalServiceCollection>[];
     }

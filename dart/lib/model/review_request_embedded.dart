@@ -18,7 +18,7 @@ class ReviewRequestEmbedded {
     }
 
     return ReviewRequestEmbedded(
-      review: json[r'review'] is! Map ? null : Review.fromJson(json[r'review']),
+      review: Review.fromJson(json[r'review']),
     );
   }
 
@@ -37,7 +37,7 @@ class ReviewRequestEmbedded {
   @override
   int get hashCode => (review == null ? 0 : review.hashCode);
 
-  static List<ReviewRequestEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<ReviewRequestEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReviewRequestEmbedded>[];
     }

@@ -37,7 +37,7 @@ class PreferencesArchiving {
   @override
   int get hashCode => (enabled == null ? 0 : enabled.hashCode);
 
-  static List<PreferencesArchiving> listFromJson(Iterable<dynamic>? json) {
+  static List<PreferencesArchiving> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PreferencesArchiving>[];
     }

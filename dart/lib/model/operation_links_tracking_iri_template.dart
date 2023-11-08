@@ -19,10 +19,8 @@ class OperationLinksTrackingIriTemplate {
     }
 
     return OperationLinksTrackingIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : OperationLinksAssignmentsIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: OperationLinksAssignmentsIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -43,7 +41,7 @@ class OperationLinksTrackingIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<OperationLinksTrackingIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <OperationLinksTrackingIriTemplate>[];
     }

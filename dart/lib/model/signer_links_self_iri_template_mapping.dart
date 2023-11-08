@@ -39,7 +39,7 @@ class SignerLinksSelfIriTemplateMapping {
   int get hashCode => (signer == null ? 0 : signer.hashCode);
 
   static List<SignerLinksSelfIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <SignerLinksSelfIriTemplateMapping>[];
     }

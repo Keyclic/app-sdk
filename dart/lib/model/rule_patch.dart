@@ -45,7 +45,7 @@ class RulePatch {
       (category == null ? 0 : category.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<RulePatch> listFromJson(Iterable<dynamic>? json) {
+  static List<RulePatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RulePatch>[];
     }

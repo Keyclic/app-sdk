@@ -18,9 +18,7 @@ class SectionLinks {
     }
 
     return SectionLinks(
-      self: json[r'self'] is! Map
-          ? null
-          : SectionLinksSelf.fromJson(json[r'self']),
+      self: SectionLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -39,7 +37,7 @@ class SectionLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<SectionLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<SectionLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SectionLinks>[];
     }

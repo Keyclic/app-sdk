@@ -20,15 +20,9 @@ class ContractJsonhalReadLinks {
     }
 
     return ContractJsonhalReadLinks(
-      self: json[r'self'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      provider: json[r'provider'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'provider']),
-      type: json[r'type'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      provider: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'provider']),
+      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
     );
   }
 
@@ -57,7 +51,7 @@ class ContractJsonhalReadLinks {
       (provider == null ? 0 : provider.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ContractJsonhalReadLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<ContractJsonhalReadLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ContractJsonhalReadLinks>[];
     }

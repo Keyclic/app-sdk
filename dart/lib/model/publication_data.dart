@@ -54,7 +54,7 @@ class PublicationData {
   int get hashCode =>
       message.hashCode + feed.hashCode + title.hashCode + organization.hashCode;
 
-  static List<PublicationData> listFromJson(Iterable<dynamic>? json) {
+  static List<PublicationData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PublicationData>[];
     }

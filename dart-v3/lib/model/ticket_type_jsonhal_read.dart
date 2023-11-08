@@ -35,9 +35,7 @@ class TicketTypeJsonhalRead {
     }
 
     return TicketTypeJsonhalRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
@@ -86,7 +84,7 @@ class TicketTypeJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<TicketTypeJsonhalRead> listFromJson(Iterable<dynamic>? json) {
+  static List<TicketTypeJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TicketTypeJsonhalRead>[];
     }

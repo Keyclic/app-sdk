@@ -57,7 +57,7 @@ class Contract {
       (name == null ? 0 : name.hashCode) +
       (number == null ? 0 : number.hashCode);
 
-  static List<Contract> listFromJson(Iterable<dynamic>? json) {
+  static List<Contract> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Contract>[];
     }

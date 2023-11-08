@@ -18,9 +18,7 @@ class ExternalServiceEmbedded {
     }
 
     return ExternalServiceEmbedded(
-      provider: json[r'provider'] is! Map
-          ? null
-          : Organization.fromJson(json[r'provider']),
+      provider: Organization.fromJson(json[r'provider']),
     );
   }
 
@@ -39,7 +37,7 @@ class ExternalServiceEmbedded {
   @override
   int get hashCode => (provider == null ? 0 : provider.hashCode);
 
-  static List<ExternalServiceEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<ExternalServiceEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceEmbedded>[];
     }

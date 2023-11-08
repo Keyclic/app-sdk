@@ -22,13 +22,9 @@ class ConfigurationReportType {
 
     return ConfigurationReportType(
       id: json[r'id'],
-      priorities: json[r'priorities'] is! Iterable
-          ? null
-          : ReportTypePriority.listFromJson(json[r'priorities']),
+      priorities: ReportTypePriority.listFromJson(json[r'priorities']),
       type: json[r'type'],
-      workflow: json[r'workflow'] is! Map
-          ? null
-          : ReportTypeWorkflow.fromJson(json[r'workflow']),
+      workflow: ReportTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -62,7 +58,7 @@ class ConfigurationReportType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationReportType> listFromJson(Iterable<dynamic>? json) {
+  static List<ConfigurationReportType> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ConfigurationReportType>[];
     }

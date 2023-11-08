@@ -43,7 +43,7 @@ class SignerData {
   @override
   int get hashCode => procedure.hashCode + member.hashCode;
 
-  static List<SignerData> listFromJson(Iterable<dynamic>? json) {
+  static List<SignerData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SignerData>[];
     }

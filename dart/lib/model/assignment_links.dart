@@ -22,21 +22,11 @@ class AssignmentLinks {
     }
 
     return AssignmentLinks(
-      contract: json[r'contract'] is! Map
-          ? null
-          : AssignmentLinksContract.fromJson(json[r'contract']),
-      member: json[r'member'] is! Map
-          ? null
-          : AssignmentLinksMember.fromJson(json[r'member']),
-      report: json[r'report'] is! Map
-          ? null
-          : AssignmentLinksReport.fromJson(json[r'report']),
-      self: json[r'self'] is! Map
-          ? null
-          : AssignmentLinksSelf.fromJson(json[r'self']),
-      service: json[r'service'] is! Map
-          ? null
-          : AssignmentLinksService.fromJson(json[r'service']),
+      contract: AssignmentLinksContract.fromJson(json[r'contract']),
+      member: AssignmentLinksMember.fromJson(json[r'member']),
+      report: AssignmentLinksReport.fromJson(json[r'report']),
+      self: AssignmentLinksSelf.fromJson(json[r'self']),
+      service: AssignmentLinksService.fromJson(json[r'service']),
     );
   }
 
@@ -73,7 +63,7 @@ class AssignmentLinks {
       (self == null ? 0 : self.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<AssignmentLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<AssignmentLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssignmentLinks>[];
     }

@@ -22,13 +22,13 @@ class TemplatePatch {
     }
 
     return TemplatePatch(
-      body: json[r'body'] is! Iterable
+      body: json[r'body'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
-      footer: json[r'footer'] is! Iterable
+      footer: json[r'footer'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'footer']),
-      header: json[r'header'] is! Iterable
+      header: json[r'header'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'header']),
       name: json[r'name'],
@@ -69,7 +69,7 @@ class TemplatePatch {
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<TemplatePatch> listFromJson(Iterable<dynamic>? json) {
+  static List<TemplatePatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TemplatePatch>[];
     }

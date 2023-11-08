@@ -20,9 +20,8 @@ class OperationLinksTracking {
 
     return OperationLinksTracking(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : OperationLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          OperationLinksTrackingIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class OperationLinksTracking {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OperationLinksTracking> listFromJson(Iterable<dynamic>? json) {
+  static List<OperationLinksTracking> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OperationLinksTracking>[];
     }

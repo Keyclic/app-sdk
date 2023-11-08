@@ -40,7 +40,7 @@ class PlaceLinksChildrenIriTemplateMapping {
   int get hashCode => (parent == null ? 0 : parent.hashCode);
 
   static List<PlaceLinksChildrenIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <PlaceLinksChildrenIriTemplateMapping>[];
     }

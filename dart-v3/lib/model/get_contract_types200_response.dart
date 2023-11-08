@@ -21,9 +21,8 @@ class GetContractTypes200Response {
     }
 
     return GetContractTypes200Response(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : GetContractTypes200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded:
+          GetContractTypes200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,
@@ -61,8 +60,7 @@ class GetContractTypes200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetContractTypes200Response> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<GetContractTypes200Response> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <GetContractTypes200Response>[];
     }

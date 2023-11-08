@@ -21,9 +21,7 @@ class PlacePatch {
     }
 
     return PlacePatch(
-      address: json[r'address'] is! Map
-          ? null
-          : ExternalServicePatchAddress.fromJson(json[r'address']),
+      address: ExternalServicePatchAddress.fromJson(json[r'address']),
       branchCode: json[r'branchCode'],
       description: json[r'description'],
       name: json[r'name'],
@@ -59,7 +57,7 @@ class PlacePatch {
       (description == null ? 0 : description.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<PlacePatch> listFromJson(Iterable<dynamic>? json) {
+  static List<PlacePatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlacePatch>[];
     }

@@ -81,8 +81,7 @@ class ExternalServiceContactPoint {
       (name == null ? 0 : name.hashCode) +
       (telephone == null ? 0 : telephone.hashCode);
 
-  static List<ExternalServiceContactPoint> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<ExternalServiceContactPoint> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceContactPoint>[];
     }

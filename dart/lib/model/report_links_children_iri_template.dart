@@ -18,9 +18,7 @@ class ReportLinksChildrenIriTemplate {
     }
 
     return ReportLinksChildrenIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ReportLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: ReportLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -40,7 +38,7 @@ class ReportLinksChildrenIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReportLinksChildrenIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReportLinksChildrenIriTemplate>[];
     }

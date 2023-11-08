@@ -22,21 +22,13 @@ class ReviewRequestLinks {
     }
 
     return ReviewRequestLinks(
-      itemToReview: json[r'itemToReview'] is! Map
-          ? null
-          : ReviewRequestLinksItemToReview.fromJson(json[r'itemToReview']),
-      organization: json[r'organization'] is! Map
-          ? null
-          : ReviewRequestLinksOrganization.fromJson(json[r'organization']),
-      review: json[r'review'] is! Map
-          ? null
-          : ReviewRequestLinksReview.fromJson(json[r'review']),
-      reviewer: json[r'reviewer'] is! Map
-          ? null
-          : ReviewRequestLinksReviewer.fromJson(json[r'reviewer']),
-      self: json[r'self'] is! Map
-          ? null
-          : ReviewRequestLinksSelf.fromJson(json[r'self']),
+      itemToReview:
+          ReviewRequestLinksItemToReview.fromJson(json[r'itemToReview']),
+      organization:
+          ReviewRequestLinksOrganization.fromJson(json[r'organization']),
+      review: ReviewRequestLinksReview.fromJson(json[r'review']),
+      reviewer: ReviewRequestLinksReviewer.fromJson(json[r'reviewer']),
+      self: ReviewRequestLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -73,7 +65,7 @@ class ReviewRequestLinks {
       (reviewer == null ? 0 : reviewer.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ReviewRequestLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<ReviewRequestLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReviewRequestLinks>[];
     }

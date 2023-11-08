@@ -18,9 +18,7 @@ class ArticleLinksSectionIriTemplate {
     }
 
     return ArticleLinksSectionIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ArticleLinksSectionIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: ArticleLinksSectionIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -40,7 +38,7 @@ class ArticleLinksSectionIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ArticleLinksSectionIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ArticleLinksSectionIriTemplate>[];
     }

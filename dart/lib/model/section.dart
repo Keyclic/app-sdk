@@ -36,9 +36,7 @@ class Section {
     }
 
     return Section(
-      links: json[r'_links'] is! Map
-          ? null
-          : SectionLinks.fromJson(json[r'_links']),
+      links: SectionLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
@@ -89,7 +87,7 @@ class Section {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Section> listFromJson(Iterable<dynamic>? json) {
+  static List<Section> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Section>[];
     }

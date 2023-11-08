@@ -18,9 +18,7 @@ class SignerCollection {
     }
 
     return SignerCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Signer.listFromJson(json[r'items']),
+      items: Signer.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class SignerCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<SignerCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<SignerCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SignerCollection>[];
     }

@@ -21,9 +21,8 @@ class MemberData {
     }
 
     return MemberData(
-      contactPoint: json[r'contactPoint'] is! Map
-          ? null
-          : InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
+      contactPoint:
+          InternalServiceDataContactPoint.fromJson(json[r'contactPoint']),
       organization: json[r'organization'],
       person: json[r'person'],
       type: MemberDataTypeEnum.fromJson(json[r'type']),
@@ -59,7 +58,7 @@ class MemberData {
       (person == null ? 0 : person.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<MemberData> listFromJson(Iterable<dynamic>? json) {
+  static List<MemberData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MemberData>[];
     }

@@ -18,10 +18,8 @@ class OperationLinksSelfIriTemplate {
     }
 
     return OperationLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : OperationLinksAssignmentsIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: OperationLinksAssignmentsIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -40,8 +38,7 @@ class OperationLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<OperationLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<OperationLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OperationLinksSelfIriTemplate>[];
     }

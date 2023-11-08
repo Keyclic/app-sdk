@@ -51,7 +51,7 @@ class RegisterDataAgreement {
       (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
       (termsOfService == null ? 0 : termsOfService.hashCode);
 
-  static List<RegisterDataAgreement> listFromJson(Iterable<dynamic>? json) {
+  static List<RegisterDataAgreement> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RegisterDataAgreement>[];
     }

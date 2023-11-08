@@ -51,7 +51,7 @@ class DocumentDataFile {
       (contentType == null ? 0 : contentType.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<DocumentDataFile> listFromJson(Iterable<dynamic>? json) {
+  static List<DocumentDataFile> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DocumentDataFile>[];
     }

@@ -45,7 +45,7 @@ class LegacySignatureDataSigner {
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode);
 
-  static List<LegacySignatureDataSigner> listFromJson(Iterable<dynamic>? json) {
+  static List<LegacySignatureDataSigner> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <LegacySignatureDataSigner>[];
     }

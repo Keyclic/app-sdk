@@ -19,12 +19,8 @@ class ExternalServiceLinks {
     }
 
     return ExternalServiceLinks(
-      provider: json[r'provider'] is! Map
-          ? null
-          : ExternalServiceLinksProvider.fromJson(json[r'provider']),
-      self: json[r'self'] is! Map
-          ? null
-          : ExternalServiceLinksSelf.fromJson(json[r'self']),
+      provider: ExternalServiceLinksProvider.fromJson(json[r'provider']),
+      self: ExternalServiceLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -49,7 +45,7 @@ class ExternalServiceLinks {
       (provider == null ? 0 : provider.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ExternalServiceLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<ExternalServiceLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceLinks>[];
     }

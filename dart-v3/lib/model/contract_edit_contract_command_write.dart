@@ -43,9 +43,7 @@ class ContractEditContractCommandWrite {
     }
 
     return ContractEditContractCommandWrite(
-      billing: json[r'billing'] is! Map
-          ? null
-          : BillingWrite.fromJson(json[r'billing']),
+      billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
@@ -53,9 +51,7 @@ class ContractEditContractCommandWrite {
       number: json[r'number'],
       onCall: json[r'onCall'],
       provider: json[r'provider'],
-      renewal: json[r'renewal'] is! Map
-          ? null
-          : RenewalWrite.fromJson(json[r'renewal']),
+      renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: json[r'state'],
       type: json[r'type'],
@@ -124,7 +120,7 @@ class ContractEditContractCommandWrite {
       (type == null ? 0 : type.hashCode);
 
   static List<ContractEditContractCommandWrite> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ContractEditContractCommandWrite>[];
     }

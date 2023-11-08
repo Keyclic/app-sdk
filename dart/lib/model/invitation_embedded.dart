@@ -18,7 +18,7 @@ class InvitationEmbedded {
     }
 
     return InvitationEmbedded(
-      member: Member.fromJson(json[r'member']),
+      member: json[r'member'] is! Map ? null : Member.fromJson(json[r'member']),
     );
   }
 
@@ -37,7 +37,7 @@ class InvitationEmbedded {
   @override
   int get hashCode => (member == null ? 0 : member.hashCode);
 
-  static List<InvitationEmbedded> listFromJson(List<dynamic>? json) {
+  static List<InvitationEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InvitationEmbedded>[];
     }

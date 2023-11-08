@@ -21,7 +21,9 @@ class WorkflowStateJsonhalRead {
     }
 
     return WorkflowStateJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       color: json[r'color'],
       name: json[r'name'],
       id: json[r'id'],
@@ -58,7 +60,7 @@ class WorkflowStateJsonhalRead {
       name.hashCode +
       (id == null ? 0 : id.hashCode);
 
-  static List<WorkflowStateJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<WorkflowStateJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WorkflowStateJsonhalRead>[];
     }

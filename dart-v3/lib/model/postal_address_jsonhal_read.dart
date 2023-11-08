@@ -21,7 +21,9 @@ class PostalAddressJsonhalRead {
     }
 
     return PostalAddressJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       locality: json[r'locality'],
       postalCode: json[r'postalCode'],
       streetAddress: json[r'streetAddress'],
@@ -57,7 +59,7 @@ class PostalAddressJsonhalRead {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<PostalAddressJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<PostalAddressJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PostalAddressJsonhalRead>[];
     }

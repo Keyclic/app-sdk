@@ -19,8 +19,10 @@ class ExternalServiceLinksSelfIriTemplate {
     }
 
     return ExternalServiceLinksSelfIriTemplate(
-      mapping:
-          ExternalServiceLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ExternalServiceLinksSelfIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 
@@ -41,7 +43,7 @@ class ExternalServiceLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ExternalServiceLinksSelfIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceLinksSelfIriTemplate>[];
     }

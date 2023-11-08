@@ -18,7 +18,9 @@ class RuleLinksSelfIriTemplate {
     }
 
     return RuleLinksSelfIriTemplate(
-      mapping: RuleLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : RuleLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -37,7 +39,7 @@ class RuleLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<RuleLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksSelfIriTemplate> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <RuleLinksSelfIriTemplate>[];
     }

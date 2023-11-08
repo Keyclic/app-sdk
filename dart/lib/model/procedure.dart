@@ -37,8 +37,12 @@ class Procedure {
     }
 
     return Procedure(
-      embedded: ProcedureEmbedded.fromJson(json[r'_embedded']),
-      links: ProcedureLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : ProcedureEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ProcedureLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       mode: json[r'mode'],
@@ -93,7 +97,7 @@ class Procedure {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Procedure> listFromJson(List<dynamic>? json) {
+  static List<Procedure> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Procedure>[];
     }

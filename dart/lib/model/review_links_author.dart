@@ -20,7 +20,9 @@ class ReviewLinksAuthor {
 
     return ReviewLinksAuthor(
       href: json[r'href'],
-      iriTemplate: ReviewLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReviewLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class ReviewLinksAuthor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReviewLinksAuthor> listFromJson(List<dynamic>? json) {
+  static List<ReviewLinksAuthor> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewLinksAuthor>[];
     }

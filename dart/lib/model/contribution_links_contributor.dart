@@ -20,8 +20,10 @@ class ContributionLinksContributor {
 
     return ContributionLinksContributor(
       href: json[r'href'],
-      iriTemplate: ContributionLinksContributorIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ContributionLinksContributorIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +49,8 @@ class ContributionLinksContributor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ContributionLinksContributor> listFromJson(List<dynamic>? json) {
+  static List<ContributionLinksContributor> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ContributionLinksContributor>[];
     }

@@ -20,8 +20,9 @@ class ExternalServiceLinksSelf {
 
     return ExternalServiceLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          ExternalServiceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ExternalServiceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class ExternalServiceLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ExternalServiceLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<ExternalServiceLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceLinksSelf>[];
     }

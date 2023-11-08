@@ -63,7 +63,7 @@ class ReportTypePriority {
       (position == null ? 0 : position.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ReportTypePriority> listFromJson(List<dynamic>? json) {
+  static List<ReportTypePriority> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportTypePriority>[];
     }

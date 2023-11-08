@@ -33,7 +33,9 @@ class WarrantyJsonhalRead {
     }
 
     return WarrantyJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       duration: json[r'duration'],
       endDate: endDate,
       startDate: startDate,
@@ -72,7 +74,7 @@ class WarrantyJsonhalRead {
       (endDate == null ? 0 : endDate.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<WarrantyJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<WarrantyJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WarrantyJsonhalRead>[];
     }

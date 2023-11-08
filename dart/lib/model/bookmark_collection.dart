@@ -18,7 +18,9 @@ class BookmarkCollection {
     }
 
     return BookmarkCollection(
-      items: Bookmark.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Bookmark.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class BookmarkCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BookmarkCollection> listFromJson(List<dynamic>? json) {
+  static List<BookmarkCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BookmarkCollection>[];
     }

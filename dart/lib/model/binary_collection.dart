@@ -18,7 +18,9 @@ class BinaryCollection {
     }
 
     return BinaryCollection(
-      items: Binary.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Binary.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class BinaryCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BinaryCollection> listFromJson(List<dynamic>? json) {
+  static List<BinaryCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BinaryCollection>[];
     }

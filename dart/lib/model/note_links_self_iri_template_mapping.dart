@@ -38,7 +38,7 @@ class NoteLinksSelfIriTemplateMapping {
   int get hashCode => (note == null ? 0 : note.hashCode);
 
   static List<NoteLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <NoteLinksSelfIriTemplateMapping>[];
     }

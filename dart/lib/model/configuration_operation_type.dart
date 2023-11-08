@@ -22,7 +22,9 @@ class ConfigurationOperationType {
     return ConfigurationOperationType(
       id: json[r'id'],
       type: json[r'type'],
-      workflow: OperationTypeWorkflow.fromJson(json[r'workflow']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : OperationTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -51,7 +53,8 @@ class ConfigurationOperationType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationOperationType> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationOperationType> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ConfigurationOperationType>[];
     }

@@ -18,8 +18,10 @@ class ReportLinksAssetIriTemplate {
     }
 
     return ReportLinksAssetIriTemplate(
-      mapping:
-          AssignmentLinksContractIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksContractIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 
@@ -38,7 +40,8 @@ class ReportLinksAssetIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReportLinksAssetIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<ReportLinksAssetIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportLinksAssetIriTemplate>[];
     }

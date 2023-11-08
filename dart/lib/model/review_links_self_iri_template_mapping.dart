@@ -39,7 +39,7 @@ class ReviewLinksSelfIriTemplateMapping {
   int get hashCode => (review == null ? 0 : review.hashCode);
 
   static List<ReviewLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewLinksSelfIriTemplateMapping>[];
     }

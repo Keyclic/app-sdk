@@ -18,7 +18,9 @@ class AssetTypeJsonhalReadLinks {
     }
 
     return AssetTypeJsonhalReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      self: json[r'self'] is! Map
+          ? null
+          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
     );
   }
 
@@ -37,7 +39,7 @@ class AssetTypeJsonhalReadLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<AssetTypeJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<AssetTypeJsonhalReadLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssetTypeJsonhalReadLinks>[];
     }

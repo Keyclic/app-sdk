@@ -18,8 +18,9 @@ class OccupantLinksMemberIriTemplate {
     }
 
     return OccupantLinksMemberIriTemplate(
-      mapping:
-          AssignmentLinksMemberIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksMemberIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,7 +40,7 @@ class OccupantLinksMemberIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<OccupantLinksMemberIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OccupantLinksMemberIriTemplate>[];
     }

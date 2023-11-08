@@ -25,14 +25,28 @@ class ReportEmbedded {
     }
 
     return ReportEmbedded(
-      assignment: Assignment.fromJson(json[r'assignment']),
-      category: Category.fromJson(json[r'category']),
-      children: Operation.listFromJson(json[r'children']),
-      documents: Document.listFromJson(json[r'documents']),
-      feedback: Feedback.fromJson(json[r'feedback']),
-      place: Place.fromJson(json[r'place']),
-      targetGroups: TargetGroup.listFromJson(json[r'targetGroups']),
-      workflow: OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
+      assignment: json[r'assignment'] is! Map
+          ? null
+          : Assignment.fromJson(json[r'assignment']),
+      category: json[r'category'] is! Map
+          ? null
+          : Category.fromJson(json[r'category']),
+      children: json[r'children'] is! Iterable
+          ? null
+          : Operation.listFromJson(json[r'children']),
+      documents: json[r'documents'] is! Iterable
+          ? null
+          : Document.listFromJson(json[r'documents']),
+      feedback: json[r'feedback'] is! Map
+          ? null
+          : Feedback.fromJson(json[r'feedback']),
+      place: json[r'place'] is! Map ? null : Place.fromJson(json[r'place']),
+      targetGroups: json[r'targetGroups'] is! Iterable
+          ? null
+          : TargetGroup.listFromJson(json[r'targetGroups']),
+      workflow: json[r'workflow'] is! Map
+          ? null
+          : OperationEmbeddedWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -82,7 +96,7 @@ class ReportEmbedded {
       (targetGroups == null ? 0 : targetGroups.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ReportEmbedded> listFromJson(List<dynamic>? json) {
+  static List<ReportEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportEmbedded>[];
     }

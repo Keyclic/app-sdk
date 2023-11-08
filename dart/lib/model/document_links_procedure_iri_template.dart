@@ -19,8 +19,9 @@ class DocumentLinksProcedureIriTemplate {
     }
 
     return DocumentLinksProcedureIriTemplate(
-      mapping:
-          DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -41,7 +42,7 @@ class DocumentLinksProcedureIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<DocumentLinksProcedureIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksProcedureIriTemplate>[];
     }

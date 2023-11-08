@@ -21,7 +21,9 @@ class GetTickets200Response {
     }
 
     return GetTickets200Response(
-      embedded: GetTickets200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : GetTickets200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,
@@ -59,7 +61,7 @@ class GetTickets200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetTickets200Response> listFromJson(List<dynamic>? json) {
+  static List<GetTickets200Response> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <GetTickets200Response>[];
     }

@@ -20,7 +20,9 @@ class SectionLinksSelf {
 
     return SectionLinksSelf(
       href: json[r'href'],
-      iriTemplate: SectionLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : SectionLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class SectionLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<SectionLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<SectionLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SectionLinksSelf>[];
     }

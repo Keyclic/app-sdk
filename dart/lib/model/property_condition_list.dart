@@ -18,7 +18,9 @@ class PropertyConditionList {
     }
 
     return PropertyConditionList(
-      allOf: ConditionListCondition.listFromJson(json[r'allOf']),
+      allOf: json[r'allOf'] is! Iterable
+          ? null
+          : ConditionListCondition.listFromJson(json[r'allOf']),
     );
   }
 
@@ -38,7 +40,7 @@ class PropertyConditionList {
   @override
   int get hashCode => (allOf == null ? 0 : allOf.hashCode);
 
-  static List<PropertyConditionList> listFromJson(List<dynamic>? json) {
+  static List<PropertyConditionList> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PropertyConditionList>[];
     }

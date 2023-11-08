@@ -27,8 +27,12 @@ class InternalServicePagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: InternalServiceCollection.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PaginationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : InternalServiceCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -69,7 +73,7 @@ class InternalServicePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<InternalServicePagination> listFromJson(List<dynamic>? json) {
+  static List<InternalServicePagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InternalServicePagination>[];
     }

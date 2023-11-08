@@ -21,7 +21,9 @@ class GetEquipments200Response {
     }
 
     return GetEquipments200Response(
-      embedded: GetEquipments200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : GetEquipments200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,
@@ -59,7 +61,7 @@ class GetEquipments200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetEquipments200Response> listFromJson(List<dynamic>? json) {
+  static List<GetEquipments200Response> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <GetEquipments200Response>[];
     }

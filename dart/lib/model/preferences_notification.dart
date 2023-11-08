@@ -44,7 +44,7 @@ class PreferencesNotification {
   int get hashCode =>
       (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
 
-  static List<PreferencesNotification> listFromJson(List<dynamic>? json) {
+  static List<PreferencesNotification> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PreferencesNotification>[];
     }

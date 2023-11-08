@@ -18,7 +18,9 @@ class PlaceLinksSelfIriTemplate {
     }
 
     return PlaceLinksSelfIriTemplate(
-      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -37,7 +39,7 @@ class PlaceLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlaceLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<PlaceLinksSelfIriTemplate> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlaceLinksSelfIriTemplate>[];
     }

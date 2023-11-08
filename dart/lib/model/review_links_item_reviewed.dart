@@ -20,8 +20,9 @@ class ReviewLinksItemReviewed {
 
     return ReviewLinksItemReviewed(
       href: json[r'href'],
-      iriTemplate:
-          ReviewLinksItemReviewedIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReviewLinksItemReviewedIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class ReviewLinksItemReviewed {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReviewLinksItemReviewed> listFromJson(List<dynamic>? json) {
+  static List<ReviewLinksItemReviewed> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewLinksItemReviewed>[];
     }

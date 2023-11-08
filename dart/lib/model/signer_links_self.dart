@@ -20,7 +20,9 @@ class SignerLinksSelf {
 
     return SignerLinksSelf(
       href: json[r'href'],
-      iriTemplate: SignerLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : SignerLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class SignerLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<SignerLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<SignerLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <SignerLinksSelf>[];
     }

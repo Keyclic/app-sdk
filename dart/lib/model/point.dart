@@ -51,7 +51,7 @@ class Point {
       (longitude == null ? 0 : longitude.hashCode) +
       (srid == null ? 0 : srid.hashCode);
 
-  static List<Point> listFromJson(List<dynamic>? json) {
+  static List<Point> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Point>[];
     }

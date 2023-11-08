@@ -55,8 +55,12 @@ class Organization {
     }
 
     return Organization(
-      links: OrganizationLinks.fromJson(json[r'_links']),
-      address: OrganizationPostalAddress.fromJson(json[r'address']),
+      links: json[r'_links'] is! Map
+          ? null
+          : OrganizationLinks.fromJson(json[r'_links']),
+      address: json[r'address'] is! Map
+          ? null
+          : OrganizationPostalAddress.fromJson(json[r'address']),
       alternateName: json[r'alternateName'],
       archived: json[r'archived'],
       createdAt: createdAt,
@@ -65,7 +69,9 @@ class Organization {
       endDate: endDate,
       id: json[r'id'],
       name: json[r'name'],
-      preferences: OrganizationPreferences.fromJson(json[r'preferences']),
+      preferences: json[r'preferences'] is! Map
+          ? null
+          : OrganizationPreferences.fromJson(json[r'preferences']),
       startDate: startDate,
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -141,7 +147,7 @@ class Organization {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Organization> listFromJson(List<dynamic>? json) {
+  static List<Organization> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Organization>[];
     }

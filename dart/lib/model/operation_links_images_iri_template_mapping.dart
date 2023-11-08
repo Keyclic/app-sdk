@@ -47,7 +47,7 @@ class OperationLinksImagesIriTemplateMapping {
       (image == null ? 0 : image.hashCode);
 
   static List<OperationLinksImagesIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationLinksImagesIriTemplateMapping>[];
     }

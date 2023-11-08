@@ -57,16 +57,24 @@ class Report {
     }
 
     return Report(
-      embedded: ReportEmbedded.fromJson(json[r'_embedded']),
-      links: ReportLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : ReportEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ReportLinks.fromJson(json[r'_links']),
       archived: json[r'archived'],
       createdAt: createdAt,
       description: json[r'description'],
       dueBy: dueBy,
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],
-      phase: WorkflowState.fromJson(json[r'phase']),
-      priority: ReportPriority.fromJson(json[r'priority']),
+      phase: json[r'phase'] is! Map
+          ? null
+          : WorkflowState.fromJson(json[r'phase']),
+      priority: json[r'priority'] is! Map
+          ? null
+          : ReportPriority.fromJson(json[r'priority']),
       reference: json[r'reference'],
       scheduledAt: scheduledAt,
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
@@ -148,7 +156,7 @@ class Report {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Report> listFromJson(List<dynamic>? json) {
+  static List<Report> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Report>[];
     }

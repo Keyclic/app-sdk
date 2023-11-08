@@ -24,11 +24,11 @@ class IntegrationLinkCreateLinkCommandWrite {
     }
 
     return IntegrationLinkCreateLinkCommandWrite(
-      data: json[r'data'] == null
+      data: json[r'data'] is! Map
           ? null
           : Map<String, Object>.from(json[r'data']),
       integration: json[r'integration'],
-      metadata: json[r'metadata'] == null
+      metadata: json[r'metadata'] is! Map
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],
@@ -75,7 +75,7 @@ class IntegrationLinkCreateLinkCommandWrite {
       (target == null ? 0 : target.hashCode);
 
   static List<IntegrationLinkCreateLinkCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationLinkCreateLinkCommandWrite>[];
     }

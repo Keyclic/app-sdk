@@ -18,8 +18,9 @@ class OrganizationPatchPreferences {
     }
 
     return OrganizationPatchPreferences(
-      reference:
-          OrganizationPatchPreferencesReference.fromJson(json[r'reference']),
+      reference: json[r'reference'] is! Map
+          ? null
+          : OrganizationPatchPreferencesReference.fromJson(json[r'reference']),
     );
   }
 
@@ -39,7 +40,8 @@ class OrganizationPatchPreferences {
   @override
   int get hashCode => (reference == null ? 0 : reference.hashCode);
 
-  static List<OrganizationPatchPreferences> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPatchPreferences> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationPatchPreferences>[];
     }

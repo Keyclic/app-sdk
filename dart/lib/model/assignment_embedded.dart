@@ -19,8 +19,12 @@ class AssignmentEmbedded {
     }
 
     return AssignmentEmbedded(
-      createdBy: Person.fromJson(json[r'createdBy']),
-      service: InternalService.fromJson(json[r'service']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : Person.fromJson(json[r'createdBy']),
+      service: json[r'service'] is! Map
+          ? null
+          : InternalService.fromJson(json[r'service']),
     );
   }
 
@@ -45,7 +49,7 @@ class AssignmentEmbedded {
       (createdBy == null ? 0 : createdBy.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<AssignmentEmbedded> listFromJson(List<dynamic>? json) {
+  static List<AssignmentEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssignmentEmbedded>[];
     }

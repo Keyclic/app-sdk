@@ -48,7 +48,9 @@ class EquipmentCreateEquipmentCommandWrite {
       serialNumber: json[r'serialNumber'],
       state: json[r'state'],
       type: json[r'type'],
-      warranty: WarrantyWrite.fromJson(json[r'warranty']),
+      warranty: json[r'warranty'] is! Map
+          ? null
+          : WarrantyWrite.fromJson(json[r'warranty']),
     );
   }
 
@@ -114,7 +116,7 @@ class EquipmentCreateEquipmentCommandWrite {
       (warranty == null ? 0 : warranty.hashCode);
 
   static List<EquipmentCreateEquipmentCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <EquipmentCreateEquipmentCommandWrite>[];
     }

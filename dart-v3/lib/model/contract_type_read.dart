@@ -80,7 +80,7 @@ class ContractTypeRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ContractTypeRead> listFromJson(List<dynamic>? json) {
+  static List<ContractTypeRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ContractTypeRead>[];
     }

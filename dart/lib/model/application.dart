@@ -41,12 +41,21 @@ class Application {
     }
 
     return Application(
-      links: ApplicationLinks.fromJson(json[r'_links']),
-      about: ApplicationAbout.fromJson(json[r'about']),
-      agreement: ApplicationAgreement.fromJson(json[r'agreement']),
-      configuration: ApplicationConfiguration.fromJson(json[r'configuration']),
-      contactPoints:
-          ApplicationContactPoint.listFromJson(json[r'contactPoints']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ApplicationLinks.fromJson(json[r'_links']),
+      about: json[r'about'] is! Map
+          ? null
+          : ApplicationAbout.fromJson(json[r'about']),
+      agreement: json[r'agreement'] is! Map
+          ? null
+          : ApplicationAgreement.fromJson(json[r'agreement']),
+      configuration: json[r'configuration'] is! Map
+          ? null
+          : ApplicationConfiguration.fromJson(json[r'configuration']),
+      contactPoints: json[r'contactPoints'] is! Iterable
+          ? null
+          : ApplicationContactPoint.listFromJson(json[r'contactPoints']),
       createdAt: createdAt,
       id: json[r'id'],
       name: json[r'name'],
@@ -119,7 +128,7 @@ class Application {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (version == null ? 0 : version.hashCode);
 
-  static List<Application> listFromJson(List<dynamic>? json) {
+  static List<Application> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Application>[];
     }

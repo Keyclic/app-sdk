@@ -20,8 +20,9 @@ class OccupantLinksMember {
 
     return OccupantLinksMember(
       href: json[r'href'],
-      iriTemplate:
-          OccupantLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OccupantLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class OccupantLinksMember {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OccupantLinksMember> listFromJson(List<dynamic>? json) {
+  static List<OccupantLinksMember> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OccupantLinksMember>[];
     }

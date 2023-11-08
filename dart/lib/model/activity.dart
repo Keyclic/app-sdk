@@ -35,7 +35,9 @@ class Activity {
       message: json[r'message'],
       object: json[r'object'],
       origin: json[r'origin'],
-      subject: ActivityEntity.fromJson(json[r'subject']),
+      subject: json[r'subject'] is! Map
+          ? null
+          : ActivityEntity.fromJson(json[r'subject']),
       time: time,
       title: json[r'title'],
       verb: json[r'verb'],
@@ -87,7 +89,7 @@ class Activity {
       (title == null ? 0 : title.hashCode) +
       (verb == null ? 0 : verb.hashCode);
 
-  static List<Activity> listFromJson(List<dynamic>? json) {
+  static List<Activity> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Activity>[];
     }

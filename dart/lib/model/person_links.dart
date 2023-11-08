@@ -19,8 +19,12 @@ class PersonLinks {
     }
 
     return PersonLinks(
-      image: PersonLinksImage.fromJson(json[r'image']),
-      self: PersonLinksSelf.fromJson(json[r'self']),
+      image: json[r'image'] is! Map
+          ? null
+          : PersonLinksImage.fromJson(json[r'image']),
+      self: json[r'self'] is! Map
+          ? null
+          : PersonLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -42,7 +46,7 @@ class PersonLinks {
   int get hashCode =>
       (image == null ? 0 : image.hashCode) + (self == null ? 0 : self.hashCode);
 
-  static List<PersonLinks> listFromJson(List<dynamic>? json) {
+  static List<PersonLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PersonLinks>[];
     }

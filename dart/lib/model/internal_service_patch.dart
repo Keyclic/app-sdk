@@ -22,9 +22,12 @@ class InternalServicePatch {
     }
 
     return InternalServicePatch(
-      address: ExternalServicePatchAddress.fromJson(json[r'address']),
-      contactPoint:
-          ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
+      address: json[r'address'] is! Map
+          ? null
+          : ExternalServicePatchAddress.fromJson(json[r'address']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : ExternalServicePatchContactPoint.fromJson(json[r'contactPoint']),
       description: json[r'description'],
       manager: json[r'manager'],
       name: json[r'name'],
@@ -64,7 +67,7 @@ class InternalServicePatch {
       (manager == null ? 0 : manager.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<InternalServicePatch> listFromJson(List<dynamic>? json) {
+  static List<InternalServicePatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InternalServicePatch>[];
     }

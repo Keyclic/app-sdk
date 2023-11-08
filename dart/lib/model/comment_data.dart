@@ -41,7 +41,7 @@ class CommentData {
   @override
   int get hashCode => text.hashCode + (type == null ? 0 : type.hashCode);
 
-  static List<CommentData> listFromJson(List<dynamic>? json) {
+  static List<CommentData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <CommentData>[];
     }

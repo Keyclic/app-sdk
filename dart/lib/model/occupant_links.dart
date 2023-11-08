@@ -20,9 +20,15 @@ class OccupantLinks {
     }
 
     return OccupantLinks(
-      member: OccupantLinksMember.fromJson(json[r'member']),
-      place: OccupantLinksPlace.fromJson(json[r'place']),
-      self: OccupantLinksSelf.fromJson(json[r'self']),
+      member: json[r'member'] is! Map
+          ? null
+          : OccupantLinksMember.fromJson(json[r'member']),
+      place: json[r'place'] is! Map
+          ? null
+          : OccupantLinksPlace.fromJson(json[r'place']),
+      self: json[r'self'] is! Map
+          ? null
+          : OccupantLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -51,7 +57,7 @@ class OccupantLinks {
       (place == null ? 0 : place.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<OccupantLinks> listFromJson(List<dynamic>? json) {
+  static List<OccupantLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OccupantLinks>[];
     }

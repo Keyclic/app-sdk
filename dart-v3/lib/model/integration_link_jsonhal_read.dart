@@ -39,11 +39,13 @@ class IntegrationLinkJsonhalRead {
     }
 
     return IntegrationLinkJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      data: json[r'data'] == null
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      data: json[r'data'] is! Map
           ? null
           : Map<String, Object>.from(json[r'data']),
-      metadata: json[r'metadata'] == null
+      metadata: json[r'metadata'] is! Map
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],
@@ -114,7 +116,8 @@ class IntegrationLinkJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<IntegrationLinkJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<IntegrationLinkJsonhalRead> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationLinkJsonhalRead>[];
     }

@@ -46,7 +46,7 @@ class Chart {
       (data == null ? 0 : data.hashCode) +
       (labels == null ? 0 : labels.hashCode);
 
-  static List<Chart> listFromJson(List<dynamic>? json) {
+  static List<Chart> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Chart>[];
     }

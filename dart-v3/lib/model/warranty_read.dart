@@ -66,7 +66,7 @@ class WarrantyRead {
       (endDate == null ? 0 : endDate.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<WarrantyRead> listFromJson(List<dynamic>? json) {
+  static List<WarrantyRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WarrantyRead>[];
     }

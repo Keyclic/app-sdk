@@ -20,7 +20,9 @@ class RuleLinksSelf {
 
     return RuleLinksSelf(
       href: json[r'href'],
-      iriTemplate: RuleLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : RuleLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class RuleLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<RuleLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <RuleLinksSelf>[];
     }

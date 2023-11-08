@@ -37,7 +37,7 @@ class AgreementPrivacyPolicy {
   @override
   int get hashCode => (content == null ? 0 : content.hashCode);
 
-  static List<AgreementPrivacyPolicy> listFromJson(List<dynamic>? json) {
+  static List<AgreementPrivacyPolicy> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AgreementPrivacyPolicy>[];
     }

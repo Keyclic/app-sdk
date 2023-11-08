@@ -23,8 +23,12 @@ class DocumentData {
 
     return DocumentData(
       container: json[r'container'],
-      file: DocumentDataFile.fromJson(json[r'file']),
-      permission: DocumentDataPermission.fromJson(json[r'permission']),
+      file: json[r'file'] is! Map
+          ? null
+          : DocumentDataFile.fromJson(json[r'file']),
+      permission: json[r'permission'] is! Map
+          ? null
+          : DocumentDataPermission.fromJson(json[r'permission']),
       template: json[r'template'],
       type: json[r'type'],
     );
@@ -63,7 +67,7 @@ class DocumentData {
       (template == null ? 0 : template.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentData> listFromJson(List<dynamic>? json) {
+  static List<DocumentData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentData>[];
     }

@@ -20,8 +20,10 @@ class FeedbackLinksBusinessActivity {
 
     return FeedbackLinksBusinessActivity(
       href: json[r'href'],
-      iriTemplate: FeedbackLinksBusinessActivityIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksBusinessActivityIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +49,8 @@ class FeedbackLinksBusinessActivity {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<FeedbackLinksBusinessActivity> listFromJson(List<dynamic>? json) {
+  static List<FeedbackLinksBusinessActivity> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackLinksBusinessActivity>[];
     }

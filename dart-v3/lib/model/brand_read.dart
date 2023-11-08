@@ -54,7 +54,7 @@ class BrandRead {
       name.hashCode +
       (id == null ? 0 : id.hashCode);
 
-  static List<BrandRead> listFromJson(List<dynamic>? json) {
+  static List<BrandRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BrandRead>[];
     }

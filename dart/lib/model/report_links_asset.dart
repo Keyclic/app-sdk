@@ -20,7 +20,9 @@ class ReportLinksAsset {
 
     return ReportLinksAsset(
       href: json[r'href'],
-      iriTemplate: ReportLinksAssetIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ReportLinksAssetIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class ReportLinksAsset {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReportLinksAsset> listFromJson(List<dynamic>? json) {
+  static List<ReportLinksAsset> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReportLinksAsset>[];
     }

@@ -18,7 +18,9 @@ class DocumentCollection {
     }
 
     return DocumentCollection(
-      items: Document.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Document.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class DocumentCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<DocumentCollection> listFromJson(List<dynamic>? json) {
+  static List<DocumentCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentCollection>[];
     }

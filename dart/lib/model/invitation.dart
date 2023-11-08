@@ -42,8 +42,12 @@ class Invitation {
     }
 
     return Invitation(
-      embedded: InvitationEmbedded.fromJson(json[r'_embedded']),
-      links: InvitationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : InvitationEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : InvitationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       expiredAt: expiredAt,
       id: json[r'id'],
@@ -93,7 +97,7 @@ class Invitation {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Invitation> listFromJson(List<dynamic>? json) {
+  static List<Invitation> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Invitation>[];
     }

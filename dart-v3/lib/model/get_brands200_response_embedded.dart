@@ -38,7 +38,8 @@ class GetBrands200ResponseEmbedded {
   @override
   int get hashCode => item.hashCode;
 
-  static List<GetBrands200ResponseEmbedded> listFromJson(List<dynamic>? json) {
+  static List<GetBrands200ResponseEmbedded> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <GetBrands200ResponseEmbedded>[];
     }

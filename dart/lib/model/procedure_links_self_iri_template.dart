@@ -18,8 +18,9 @@ class ProcedureLinksSelfIriTemplate {
     }
 
     return ProcedureLinksSelfIriTemplate(
-      mapping:
-          DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -38,7 +39,8 @@ class ProcedureLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ProcedureLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinksSelfIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksSelfIriTemplate>[];
     }

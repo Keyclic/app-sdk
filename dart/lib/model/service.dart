@@ -38,13 +38,19 @@ class Service {
     }
 
     return Service(
-      address: ServicePostalAddress.fromJson(json[r'address']),
-      contactPoint: ServiceContactPoint.fromJson(json[r'contactPoint']),
+      address: json[r'address'] is! Map
+          ? null
+          : ServicePostalAddress.fromJson(json[r'address']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : ServiceContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
-      onCall: ServiceContactPoint.fromJson(json[r'onCall']),
+      onCall: json[r'onCall'] is! Map
+          ? null
+          : ServiceContactPoint.fromJson(json[r'onCall']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -99,7 +105,7 @@ class Service {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Service> listFromJson(List<dynamic>? json) {
+  static List<Service> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Service>[];
     }

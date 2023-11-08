@@ -20,7 +20,9 @@ class DeviceLinksPerson {
 
     return DeviceLinksPerson(
       href: json[r'href'],
-      iriTemplate: DeviceLinksPersonIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : DeviceLinksPersonIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class DeviceLinksPerson {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DeviceLinksPerson> listFromJson(List<dynamic>? json) {
+  static List<DeviceLinksPerson> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DeviceLinksPerson>[];
     }

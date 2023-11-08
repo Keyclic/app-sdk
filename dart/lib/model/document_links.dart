@@ -21,10 +21,18 @@ class DocumentLinks {
     }
 
     return DocumentLinks(
-      createdBy: DocumentLinksCreatedBy.fromJson(json[r'createdBy']),
-      file: DocumentLinksFile.fromJson(json[r'file']),
-      procedure: DocumentLinksProcedure.fromJson(json[r'procedure']),
-      self: DocumentLinksSelf.fromJson(json[r'self']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : DocumentLinksCreatedBy.fromJson(json[r'createdBy']),
+      file: json[r'file'] is! Map
+          ? null
+          : DocumentLinksFile.fromJson(json[r'file']),
+      procedure: json[r'procedure'] is! Map
+          ? null
+          : DocumentLinksProcedure.fromJson(json[r'procedure']),
+      self: json[r'self'] is! Map
+          ? null
+          : DocumentLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -57,7 +65,7 @@ class DocumentLinks {
       (procedure == null ? 0 : procedure.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<DocumentLinks> listFromJson(List<dynamic>? json) {
+  static List<DocumentLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentLinks>[];
     }

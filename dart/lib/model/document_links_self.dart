@@ -20,7 +20,9 @@ class DocumentLinksSelf {
 
     return DocumentLinksSelf(
       href: json[r'href'],
-      iriTemplate: DocumentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : DocumentLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class DocumentLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DocumentLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<DocumentLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksSelf>[];
     }

@@ -20,8 +20,9 @@ class AssignmentLinksService {
 
     return AssignmentLinksService(
       href: json[r'href'],
-      iriTemplate:
-          AssignmentLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : AssignmentLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class AssignmentLinksService {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<AssignmentLinksService> listFromJson(List<dynamic>? json) {
+  static List<AssignmentLinksService> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <AssignmentLinksService>[];
     }

@@ -26,7 +26,9 @@ class OperationSignature {
 
     return OperationSignature(
       signedAt: signedAt,
-      signer: SignatureSigner.fromJson(json[r'signer']),
+      signer: json[r'signer'] is! Map
+          ? null
+          : SignatureSigner.fromJson(json[r'signer']),
     );
   }
 
@@ -51,7 +53,7 @@ class OperationSignature {
       (signedAt == null ? 0 : signedAt.hashCode) +
       (signer == null ? 0 : signer.hashCode);
 
-  static List<OperationSignature> listFromJson(List<dynamic>? json) {
+  static List<OperationSignature> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationSignature>[];
     }

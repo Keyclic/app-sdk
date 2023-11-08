@@ -20,8 +20,9 @@ class KnowledgeBaseLinksSelf {
 
     return KnowledgeBaseLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          KnowledgeBaseLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : KnowledgeBaseLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class KnowledgeBaseLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<KnowledgeBaseLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<KnowledgeBaseLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <KnowledgeBaseLinksSelf>[];
     }

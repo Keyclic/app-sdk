@@ -22,9 +22,14 @@ class FeedbackEmbedded {
     }
 
     return FeedbackEmbedded(
-      category: Category.fromJson(json[r'category']),
-      markers: Marker.listFromJson(json[r'markers']),
-      reporter: Person.fromJson(json[r'reporter']),
+      category: json[r'category'] is! Map
+          ? null
+          : Category.fromJson(json[r'category']),
+      markers: json[r'markers'] is! Iterable
+          ? null
+          : Marker.listFromJson(json[r'markers']),
+      reporter:
+          json[r'reporter'] is! Map ? null : Person.fromJson(json[r'reporter']),
       stateTransitions: json[r'stateTransitions'] == null
           ? null
           : List<String>.from(json[r'stateTransitions']),
@@ -66,7 +71,7 @@ class FeedbackEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<FeedbackEmbedded> listFromJson(List<dynamic>? json) {
+  static List<FeedbackEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackEmbedded>[];
     }

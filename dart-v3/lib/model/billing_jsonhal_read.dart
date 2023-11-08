@@ -27,9 +27,15 @@ class BillingJsonhalRead {
     }
 
     return BillingJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      adjustedCost: PriceJsonhalRead.fromJson(json[r'adjustedCost']),
-      initialCost: PriceJsonhalRead.fromJson(json[r'initialCost']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      adjustedCost: json[r'adjustedCost'] is! Map
+          ? null
+          : PriceJsonhalRead.fromJson(json[r'adjustedCost']),
+      initialCost: json[r'initialCost'] is! Map
+          ? null
+          : PriceJsonhalRead.fromJson(json[r'initialCost']),
       startDate: startDate,
     );
   }
@@ -64,7 +70,7 @@ class BillingJsonhalRead {
       (initialCost == null ? 0 : initialCost.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<BillingJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<BillingJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BillingJsonhalRead>[];
     }

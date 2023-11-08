@@ -18,7 +18,9 @@ class PublicationLinksFeedIriTemplate {
     }
 
     return PublicationLinksFeedIriTemplate(
-      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -38,7 +40,7 @@ class PublicationLinksFeedIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<PublicationLinksFeedIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <PublicationLinksFeedIriTemplate>[];
     }

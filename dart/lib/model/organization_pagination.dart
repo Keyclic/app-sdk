@@ -27,8 +27,12 @@ class OrganizationPagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: OrganizationCollection.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PaginationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : OrganizationCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -69,7 +73,7 @@ class OrganizationPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<OrganizationPagination> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationPagination>[];
     }

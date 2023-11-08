@@ -40,7 +40,7 @@ class ContributionLinksFeedbackIriTemplateMapping {
   int get hashCode => (feedback == null ? 0 : feedback.hashCode);
 
   static List<ContributionLinksFeedbackIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ContributionLinksFeedbackIriTemplateMapping>[];
     }

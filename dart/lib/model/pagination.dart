@@ -26,7 +26,9 @@ class Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PaginationLinks.fromJson(json[r'_links']),
     );
   }
 
@@ -63,7 +65,7 @@ class Pagination {
       (total == null ? 0 : total.hashCode) +
       (links == null ? 0 : links.hashCode);
 
-  static List<Pagination> listFromJson(List<dynamic>? json) {
+  static List<Pagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Pagination>[];
     }

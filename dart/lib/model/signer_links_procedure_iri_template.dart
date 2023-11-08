@@ -18,8 +18,9 @@ class SignerLinksProcedureIriTemplate {
     }
 
     return SignerLinksProcedureIriTemplate(
-      mapping:
-          DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : DocumentLinksProcedureIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,7 +40,7 @@ class SignerLinksProcedureIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<SignerLinksProcedureIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <SignerLinksProcedureIriTemplate>[];
     }

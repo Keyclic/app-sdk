@@ -38,8 +38,12 @@ class Publication {
     }
 
     return Publication(
-      embedded: PublicationEmbedded.fromJson(json[r'_embedded']),
-      links: PublicationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : PublicationEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PublicationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       message: json[r'message'],
@@ -99,7 +103,7 @@ class Publication {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Publication> listFromJson(List<dynamic>? json) {
+  static List<Publication> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Publication>[];
     }

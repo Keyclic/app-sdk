@@ -37,7 +37,7 @@ class ApplicationConfiguration {
   @override
   int get hashCode => (public == null ? 0 : public.hashCode);
 
-  static List<ApplicationConfiguration> listFromJson(List<dynamic>? json) {
+  static List<ApplicationConfiguration> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationConfiguration>[];
     }

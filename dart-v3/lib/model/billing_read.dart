@@ -26,8 +26,12 @@ class BillingRead {
     }
 
     return BillingRead(
-      adjustedCost: PriceRead.fromJson(json[r'adjustedCost']),
-      initialCost: PriceRead.fromJson(json[r'initialCost']),
+      adjustedCost: json[r'adjustedCost'] is! Map
+          ? null
+          : PriceRead.fromJson(json[r'adjustedCost']),
+      initialCost: json[r'initialCost'] is! Map
+          ? null
+          : PriceRead.fromJson(json[r'initialCost']),
       startDate: startDate,
     );
   }
@@ -58,7 +62,7 @@ class BillingRead {
       (initialCost == null ? 0 : initialCost.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<BillingRead> listFromJson(List<dynamic>? json) {
+  static List<BillingRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BillingRead>[];
     }

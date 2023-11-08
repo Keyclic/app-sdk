@@ -37,7 +37,7 @@ class DocumentDataPermission {
   @override
   int get hashCode => (targetGroup == null ? 0 : targetGroup.hashCode);
 
-  static List<DocumentDataPermission> listFromJson(List<dynamic>? json) {
+  static List<DocumentDataPermission> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentDataPermission>[];
     }

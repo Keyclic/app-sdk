@@ -20,7 +20,9 @@ class BookmarkLinksPlace {
 
     return BookmarkLinksPlace(
       href: json[r'href'],
-      iriTemplate: BookmarkLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BookmarkLinksPlaceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class BookmarkLinksPlace {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<BookmarkLinksPlace> listFromJson(List<dynamic>? json) {
+  static List<BookmarkLinksPlace> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BookmarkLinksPlace>[];
     }

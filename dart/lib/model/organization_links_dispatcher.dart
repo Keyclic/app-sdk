@@ -20,8 +20,10 @@ class OrganizationLinksDispatcher {
 
     return OrganizationLinksDispatcher(
       href: json[r'href'],
-      iriTemplate:
-          OrganizationLinksDispatcherIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksDispatcherIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +49,8 @@ class OrganizationLinksDispatcher {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OrganizationLinksDispatcher> listFromJson(List<dynamic>? json) {
+  static List<OrganizationLinksDispatcher> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksDispatcher>[];
     }

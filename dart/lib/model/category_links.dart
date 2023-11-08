@@ -19,8 +19,12 @@ class CategoryLinks {
     }
 
     return CategoryLinks(
-      organization: CategoryLinksOrganization.fromJson(json[r'organization']),
-      self: CategoryLinksSelf.fromJson(json[r'self']),
+      organization: json[r'organization'] is! Map
+          ? null
+          : CategoryLinksOrganization.fromJson(json[r'organization']),
+      self: json[r'self'] is! Map
+          ? null
+          : CategoryLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -45,7 +49,7 @@ class CategoryLinks {
       (organization == null ? 0 : organization.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<CategoryLinks> listFromJson(List<dynamic>? json) {
+  static List<CategoryLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <CategoryLinks>[];
     }

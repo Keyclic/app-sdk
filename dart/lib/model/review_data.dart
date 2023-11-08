@@ -53,7 +53,7 @@ class ReviewData {
       reviewRating.hashCode +
       reviewRequest.hashCode;
 
-  static List<ReviewData> listFromJson(List<dynamic>? json) {
+  static List<ReviewData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewData>[];
     }

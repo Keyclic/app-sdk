@@ -19,8 +19,8 @@ class BookmarkEmbedded {
     }
 
     return BookmarkEmbedded(
-      member: Member.fromJson(json[r'member']),
-      place: Place.fromJson(json[r'place']),
+      member: json[r'member'] is! Map ? null : Member.fromJson(json[r'member']),
+      place: json[r'place'] is! Map ? null : Place.fromJson(json[r'place']),
     );
   }
 
@@ -45,7 +45,7 @@ class BookmarkEmbedded {
       (member == null ? 0 : member.hashCode) +
       (place == null ? 0 : place.hashCode);
 
-  static List<BookmarkEmbedded> listFromJson(List<dynamic>? json) {
+  static List<BookmarkEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BookmarkEmbedded>[];
     }

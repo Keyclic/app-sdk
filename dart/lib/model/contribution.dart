@@ -35,8 +35,12 @@ class Contribution {
     }
 
     return Contribution(
-      embedded: CheckpointEmbedded.fromJson(json[r'_embedded']),
-      links: ContributionLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : CheckpointEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ContributionLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],
@@ -81,7 +85,7 @@ class Contribution {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Contribution> listFromJson(List<dynamic>? json) {
+  static List<Contribution> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Contribution>[];
     }

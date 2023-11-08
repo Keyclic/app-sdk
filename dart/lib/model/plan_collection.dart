@@ -18,7 +18,9 @@ class PlanCollection {
     }
 
     return PlanCollection(
-      items: Plan.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Plan.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class PlanCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<PlanCollection> listFromJson(List<dynamic>? json) {
+  static List<PlanCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlanCollection>[];
     }

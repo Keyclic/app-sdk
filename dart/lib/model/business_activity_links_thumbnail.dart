@@ -20,8 +20,10 @@ class BusinessActivityLinksThumbnail {
 
     return BusinessActivityLinksThumbnail(
       href: json[r'href'],
-      iriTemplate: BusinessActivityLinksThumbnailIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : BusinessActivityLinksThumbnailIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +50,7 @@ class BusinessActivityLinksThumbnail {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<BusinessActivityLinksThumbnail> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityLinksThumbnail>[];
     }

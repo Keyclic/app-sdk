@@ -60,7 +60,7 @@ class PreferencesForm {
       (manualDispatch == null ? 0 : manualDispatch.hashCode) +
       (required_ == null ? 0 : required_.hashCode);
 
-  static List<PreferencesForm> listFromJson(List<dynamic>? json) {
+  static List<PreferencesForm> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PreferencesForm>[];
     }

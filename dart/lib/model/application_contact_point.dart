@@ -63,7 +63,7 @@ class ApplicationContactPoint {
       (telephone == null ? 0 : telephone.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ApplicationContactPoint> listFromJson(List<dynamic>? json) {
+  static List<ApplicationContactPoint> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationContactPoint>[];
     }

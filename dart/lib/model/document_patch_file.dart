@@ -37,7 +37,7 @@ class DocumentPatchFile {
   @override
   int get hashCode => (name == null ? 0 : name.hashCode);
 
-  static List<DocumentPatchFile> listFromJson(List<dynamic>? json) {
+  static List<DocumentPatchFile> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentPatchFile>[];
     }

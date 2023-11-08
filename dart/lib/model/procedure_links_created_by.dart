@@ -20,8 +20,9 @@ class ProcedureLinksCreatedBy {
 
     return ProcedureLinksCreatedBy(
       href: json[r'href'],
-      iriTemplate:
-          ProcedureLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ProcedureLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class ProcedureLinksCreatedBy {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksCreatedBy> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinksCreatedBy> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksCreatedBy>[];
     }

@@ -20,7 +20,9 @@ class PlaceLinksSelf {
 
     return PlaceLinksSelf(
       href: json[r'href'],
-      iriTemplate: PlaceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PlaceLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class PlaceLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PlaceLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<PlaceLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PlaceLinksSelf>[];
     }

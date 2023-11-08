@@ -36,8 +36,12 @@ class Assignment {
     }
 
     return Assignment(
-      embedded: AssignmentEmbedded.fromJson(json[r'_embedded']),
-      links: AssignmentLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : AssignmentEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssignmentLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       outOfContract: json[r'outOfContract'],
@@ -87,7 +91,7 @@ class Assignment {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Assignment> listFromJson(List<dynamic>? json) {
+  static List<Assignment> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Assignment>[];
     }

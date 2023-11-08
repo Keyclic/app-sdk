@@ -22,15 +22,19 @@ class DocumentEmbedded {
     }
 
     return DocumentEmbedded(
-      container: json[r'container'] == null
+      container: json[r'container'] is! Map
           ? null
           : Map<String, Object>.from(json[r'container']),
-      createdBy: Person.fromJson(json[r'createdBy']),
-      signers: Signer.listFromJson(json[r'signers']),
+      createdBy: json[r'createdBy'] is! Map
+          ? null
+          : Person.fromJson(json[r'createdBy']),
+      signers: json[r'signers'] is! Iterable
+          ? null
+          : Signer.listFromJson(json[r'signers']),
       stateTransitions: json[r'stateTransitions'] == null
           ? null
           : List<String>.from(json[r'stateTransitions']),
-      type: DocumentType.fromJson(json[r'type']),
+      type: json[r'type'] is! Map ? null : DocumentType.fromJson(json[r'type']),
     );
   }
 
@@ -68,7 +72,7 @@ class DocumentEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentEmbedded> listFromJson(List<dynamic>? json) {
+  static List<DocumentEmbedded> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentEmbedded>[];
     }

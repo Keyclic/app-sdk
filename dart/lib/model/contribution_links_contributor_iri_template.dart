@@ -19,8 +19,10 @@ class ContributionLinksContributorIriTemplate {
     }
 
     return ContributionLinksContributorIriTemplate(
-      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ContributionLinksContributorIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 
@@ -41,7 +43,7 @@ class ContributionLinksContributorIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ContributionLinksContributorIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ContributionLinksContributorIriTemplate>[];
     }

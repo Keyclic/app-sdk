@@ -20,7 +20,9 @@ class ProcedureLinksSelf {
 
     return ProcedureLinksSelf(
       href: json[r'href'],
-      iriTemplate: ProcedureLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ProcedureLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class ProcedureLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksSelf>[];
     }

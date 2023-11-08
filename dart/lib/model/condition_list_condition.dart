@@ -63,7 +63,7 @@ class ConditionListCondition {
       (type == null ? 0 : type.hashCode) +
       (value == null ? 0 : value.hashCode);
 
-  static List<ConditionListCondition> listFromJson(List<dynamic>? json) {
+  static List<ConditionListCondition> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ConditionListCondition>[];
     }

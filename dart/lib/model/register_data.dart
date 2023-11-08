@@ -21,7 +21,9 @@ class RegisterData {
     }
 
     return RegisterData(
-      agreement: RegisterDataAgreement.fromJson(json[r'agreement']),
+      agreement: json[r'agreement'] is! Map
+          ? null
+          : RegisterDataAgreement.fromJson(json[r'agreement']),
       email: json[r'email'],
       invitation: json[r'invitation'],
       password: json[r'password'],
@@ -57,7 +59,7 @@ class RegisterData {
       (invitation == null ? 0 : invitation.hashCode) +
       password.hashCode;
 
-  static List<RegisterData> listFromJson(List<dynamic>? json) {
+  static List<RegisterData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <RegisterData>[];
     }

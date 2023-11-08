@@ -36,9 +36,15 @@ class Member {
     }
 
     return Member(
-      embedded: MemberEmbedded.fromJson(json[r'_embedded']),
-      links: MemberLinks.fromJson(json[r'_links']),
-      contactPoint: MemberContactPoint.fromJson(json[r'contactPoint']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : MemberEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : MemberLinks.fromJson(json[r'_links']),
+      contactPoint: json[r'contactPoint'] is! Map
+          ? null
+          : MemberContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],
@@ -87,7 +93,7 @@ class Member {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Member> listFromJson(List<dynamic>? json) {
+  static List<Member> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Member>[];
     }

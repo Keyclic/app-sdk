@@ -20,7 +20,9 @@ class Polygon {
 
     return Polygon(
       type: json[r'type'],
-      features: Feature.listFromJson(json[r'features']),
+      features: json[r'features'] is! Iterable
+          ? null
+          : Feature.listFromJson(json[r'features']),
     );
   }
 
@@ -45,7 +47,7 @@ class Polygon {
       (type == null ? 0 : type.hashCode) +
       (features == null ? 0 : features.hashCode);
 
-  static List<Polygon> listFromJson(List<dynamic>? json) {
+  static List<Polygon> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Polygon>[];
     }

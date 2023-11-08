@@ -51,7 +51,7 @@ class CategoryData {
       organization.hashCode +
       (parent == null ? 0 : parent.hashCode);
 
-  static List<CategoryData> listFromJson(List<dynamic>? json) {
+  static List<CategoryData> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <CategoryData>[];
     }

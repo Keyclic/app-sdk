@@ -23,10 +23,10 @@ class IntegrationLinkEditLinkCommandWrite {
     }
 
     return IntegrationLinkEditLinkCommandWrite(
-      data: json[r'data'] == null
+      data: json[r'data'] is! Map
           ? null
           : Map<String, Object>.from(json[r'data']),
-      metadata: json[r'metadata'] == null
+      metadata: json[r'metadata'] is! Map
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       name: json[r'name'],
@@ -70,7 +70,7 @@ class IntegrationLinkEditLinkCommandWrite {
       (target == null ? 0 : target.hashCode);
 
   static List<IntegrationLinkEditLinkCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <IntegrationLinkEditLinkCommandWrite>[];
     }

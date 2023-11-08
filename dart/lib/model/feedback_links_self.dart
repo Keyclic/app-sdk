@@ -20,7 +20,9 @@ class FeedbackLinksSelf {
 
     return FeedbackLinksSelf(
       href: json[r'href'],
-      iriTemplate: FeedbackLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class FeedbackLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<FeedbackLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<FeedbackLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackLinksSelf>[];
     }

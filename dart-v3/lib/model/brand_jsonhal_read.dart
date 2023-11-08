@@ -21,7 +21,9 @@ class BrandJsonhalRead {
     }
 
     return BrandJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: json[r'_links'] is! Map
+          ? null
+          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
@@ -60,7 +62,7 @@ class BrandJsonhalRead {
       name.hashCode +
       (id == null ? 0 : id.hashCode);
 
-  static List<BrandJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<BrandJsonhalRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <BrandJsonhalRead>[];
     }

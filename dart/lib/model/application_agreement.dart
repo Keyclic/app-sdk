@@ -20,9 +20,15 @@ class ApplicationAgreement {
     }
 
     return ApplicationAgreement(
-      olderThan: AgreementOlderThan.fromJson(json[r'olderThan']),
-      privacyPolicy: AgreementPrivacyPolicy.fromJson(json[r'privacyPolicy']),
-      termsOfService: AgreementTermsOfService.fromJson(json[r'termsOfService']),
+      olderThan: json[r'olderThan'] is! Map
+          ? null
+          : AgreementOlderThan.fromJson(json[r'olderThan']),
+      privacyPolicy: json[r'privacyPolicy'] is! Map
+          ? null
+          : AgreementPrivacyPolicy.fromJson(json[r'privacyPolicy']),
+      termsOfService: json[r'termsOfService'] is! Map
+          ? null
+          : AgreementTermsOfService.fromJson(json[r'termsOfService']),
     );
   }
 
@@ -51,7 +57,7 @@ class ApplicationAgreement {
       (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
       (termsOfService == null ? 0 : termsOfService.hashCode);
 
-  static List<ApplicationAgreement> listFromJson(List<dynamic>? json) {
+  static List<ApplicationAgreement> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationAgreement>[];
     }

@@ -27,8 +27,12 @@ class ServicePagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: ServiceCollection.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PaginationLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : ServiceCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -69,7 +73,7 @@ class ServicePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<ServicePagination> listFromJson(List<dynamic>? json) {
+  static List<ServicePagination> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ServicePagination>[];
     }

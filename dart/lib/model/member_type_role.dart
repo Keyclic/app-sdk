@@ -90,7 +90,7 @@ class MemberTypeRole {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<MemberTypeRole> listFromJson(List<dynamic>? json) {
+  static List<MemberTypeRole> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <MemberTypeRole>[];
     }

@@ -20,7 +20,9 @@ class NoteLinksAbout {
 
     return NoteLinksAbout(
       href: json[r'href'],
-      iriTemplate: NoteLinksAboutIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : NoteLinksAboutIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -46,7 +48,7 @@ class NoteLinksAbout {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<NoteLinksAbout> listFromJson(List<dynamic>? json) {
+  static List<NoteLinksAbout> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <NoteLinksAbout>[];
     }

@@ -20,8 +20,9 @@ class MemberLinksOrganization {
 
     return MemberLinksOrganization(
       href: json[r'href'],
-      iriTemplate:
-          MemberLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : MemberLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class MemberLinksOrganization {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<MemberLinksOrganization> listFromJson(List<dynamic>? json) {
+  static List<MemberLinksOrganization> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <MemberLinksOrganization>[];
     }

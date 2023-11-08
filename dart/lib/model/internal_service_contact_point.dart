@@ -81,7 +81,8 @@ class InternalServiceContactPoint {
       (name == null ? 0 : name.hashCode) +
       (telephone == null ? 0 : telephone.hashCode);
 
-  static List<InternalServiceContactPoint> listFromJson(List<dynamic>? json) {
+  static List<InternalServiceContactPoint> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <InternalServiceContactPoint>[];
     }

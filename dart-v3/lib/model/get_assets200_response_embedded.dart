@@ -38,7 +38,8 @@ class GetAssets200ResponseEmbedded {
   @override
   int get hashCode => item.hashCode;
 
-  static List<GetAssets200ResponseEmbedded> listFromJson(List<dynamic>? json) {
+  static List<GetAssets200ResponseEmbedded> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <GetAssets200ResponseEmbedded>[];
     }

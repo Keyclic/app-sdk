@@ -20,8 +20,9 @@ class PublicationLinksFeed {
 
     return PublicationLinksFeed(
       href: json[r'href'],
-      iriTemplate:
-          PublicationLinksFeedIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : PublicationLinksFeedIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class PublicationLinksFeed {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PublicationLinksFeed> listFromJson(List<dynamic>? json) {
+  static List<PublicationLinksFeed> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <PublicationLinksFeed>[];
     }

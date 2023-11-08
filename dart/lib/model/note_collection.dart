@@ -18,7 +18,9 @@ class NoteCollection {
     }
 
     return NoteCollection(
-      items: Note.listFromJson(json[r'items']),
+      items: json[r'items'] is! Iterable
+          ? null
+          : Note.listFromJson(json[r'items']),
     );
   }
 
@@ -38,7 +40,7 @@ class NoteCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<NoteCollection> listFromJson(List<dynamic>? json) {
+  static List<NoteCollection> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <NoteCollection>[];
     }

@@ -22,11 +22,15 @@ class DocumentPatch {
     }
 
     return DocumentPatch(
-      body: json[r'body'] == null
+      body: json[r'body'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
-      file: DocumentPatchFile.fromJson(json[r'file']),
-      permission: DocumentPatchPermission.fromJson(json[r'permission']),
+      file: json[r'file'] is! Map
+          ? null
+          : DocumentPatchFile.fromJson(json[r'file']),
+      permission: json[r'permission'] is! Map
+          ? null
+          : DocumentPatchPermission.fromJson(json[r'permission']),
       text: json[r'text'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
     );
@@ -65,7 +69,7 @@ class DocumentPatch {
       (text == null ? 0 : text.hashCode) +
       (tags == null ? 0 : tags.hashCode);
 
-  static List<DocumentPatch> listFromJson(List<dynamic>? json) {
+  static List<DocumentPatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <DocumentPatch>[];
     }

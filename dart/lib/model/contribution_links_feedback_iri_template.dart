@@ -19,8 +19,10 @@ class ContributionLinksFeedbackIriTemplate {
     }
 
     return ContributionLinksFeedbackIriTemplate(
-      mapping: ContributionLinksFeedbackIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : ContributionLinksFeedbackIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 
@@ -41,7 +43,7 @@ class ContributionLinksFeedbackIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ContributionLinksFeedbackIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <ContributionLinksFeedbackIriTemplate>[];
     }

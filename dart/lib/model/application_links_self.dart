@@ -20,8 +20,9 @@ class ApplicationLinksSelf {
 
     return ApplicationLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          ApplicationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : ApplicationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class ApplicationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ApplicationLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<ApplicationLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinksSelf>[];
     }

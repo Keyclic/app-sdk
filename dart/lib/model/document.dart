@@ -41,15 +41,21 @@ class Document {
     }
 
     return Document(
-      embedded: DocumentEmbedded.fromJson(json[r'_embedded']),
-      links: DocumentLinks.fromJson(json[r'_links']),
-      body: json[r'body'] == null
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : DocumentEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : DocumentLinks.fromJson(json[r'_links']),
+      body: json[r'body'] is! Iterable
           ? null
           : List<Map<String, Object>>.from(json[r'body']),
       createdAt: createdAt,
-      file: DocumentFile.fromJson(json[r'file']),
+      file: json[r'file'] is! Map ? null : DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],
-      permission: DocumentPermission.fromJson(json[r'permission']),
+      permission: json[r'permission'] is! Map
+          ? null
+          : DocumentPermission.fromJson(json[r'permission']),
       state: DocumentStateEnum.fromJson(json[r'state'])!,
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       text: json[r'text'],
@@ -119,7 +125,7 @@ class Document {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Document> listFromJson(List<dynamic>? json) {
+  static List<Document> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Document>[];
     }

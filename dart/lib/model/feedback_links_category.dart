@@ -20,8 +20,9 @@ class FeedbackLinksCategory {
 
     return FeedbackLinksCategory(
       href: json[r'href'],
-      iriTemplate:
-          FeedbackLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : FeedbackLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class FeedbackLinksCategory {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<FeedbackLinksCategory> listFromJson(List<dynamic>? json) {
+  static List<FeedbackLinksCategory> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <FeedbackLinksCategory>[];
     }

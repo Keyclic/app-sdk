@@ -44,8 +44,12 @@ class Person {
     }
 
     return Person(
-      links: PersonLinks.fromJson(json[r'_links']),
-      agreement: PersonAgreement.fromJson(json[r'agreement']),
+      links: json[r'_links'] is! Map
+          ? null
+          : PersonLinks.fromJson(json[r'_links']),
+      agreement: json[r'agreement'] is! Map
+          ? null
+          : PersonAgreement.fromJson(json[r'agreement']),
       createdAt: createdAt,
       email: json[r'email'],
       enabled: json[r'enabled'],
@@ -54,7 +58,9 @@ class Person {
       id: json[r'id'],
       jobTitle: json[r'jobTitle'],
       optIn: json[r'optIn'],
-      preferences: PersonPreferences.fromJson(json[r'preferences']),
+      preferences: json[r'preferences'] is! Map
+          ? null
+          : PersonPreferences.fromJson(json[r'preferences']),
       telephone: json[r'telephone'],
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -135,7 +141,7 @@ class Person {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (username == null ? 0 : username.hashCode);
 
-  static List<Person> listFromJson(List<dynamic>? json) {
+  static List<Person> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <Person>[];
     }

@@ -19,8 +19,12 @@ class InvitationLinks {
     }
 
     return InvitationLinks(
-      member: InvitationLinksMember.fromJson(json[r'member']),
-      self: InvitationLinksSelf.fromJson(json[r'self']),
+      member: json[r'member'] is! Map
+          ? null
+          : InvitationLinksMember.fromJson(json[r'member']),
+      self: json[r'self'] is! Map
+          ? null
+          : InvitationLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -45,7 +49,7 @@ class InvitationLinks {
       (member == null ? 0 : member.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<InvitationLinks> listFromJson(List<dynamic>? json) {
+  static List<InvitationLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InvitationLinks>[];
     }

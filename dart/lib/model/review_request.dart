@@ -35,8 +35,12 @@ class ReviewRequest {
     }
 
     return ReviewRequest(
-      embedded: ReviewRequestEmbedded.fromJson(json[r'_embedded']),
-      links: ReviewRequestLinks.fromJson(json[r'_links']),
+      embedded: json[r'_embedded'] is! Map
+          ? null
+          : ReviewRequestEmbedded.fromJson(json[r'_embedded']),
+      links: json[r'_links'] is! Map
+          ? null
+          : ReviewRequestLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],
@@ -81,7 +85,7 @@ class ReviewRequest {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ReviewRequest> listFromJson(List<dynamic>? json) {
+  static List<ReviewRequest> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewRequest>[];
     }

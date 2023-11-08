@@ -20,8 +20,9 @@ class InvitationLinksSelf {
 
     return InvitationLinksSelf(
       href: json[r'href'],
-      iriTemplate:
-          InvitationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : InvitationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +48,7 @@ class InvitationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<InvitationLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<InvitationLinksSelf> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <InvitationLinksSelf>[];
     }

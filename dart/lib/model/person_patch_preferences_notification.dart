@@ -46,7 +46,7 @@ class PersonPatchPreferencesNotification {
       (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
 
   static List<PersonPatchPreferencesNotification> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <PersonPatchPreferencesNotification>[];
     }

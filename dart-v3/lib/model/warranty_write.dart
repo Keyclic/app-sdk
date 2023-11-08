@@ -53,7 +53,7 @@ class WarrantyWrite {
       (duration == null ? 0 : duration.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<WarrantyWrite> listFromJson(List<dynamic>? json) {
+  static List<WarrantyWrite> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <WarrantyWrite>[];
     }

@@ -18,8 +18,9 @@ class RuleLinksServiceIriTemplate {
     }
 
     return RuleLinksServiceIriTemplate(
-      mapping:
-          AssignmentLinksServiceIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : AssignmentLinksServiceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -38,7 +39,8 @@ class RuleLinksServiceIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<RuleLinksServiceIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksServiceIriTemplate> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <RuleLinksServiceIriTemplate>[];
     }

@@ -20,8 +20,10 @@ class OrganizationLinksApplication {
 
     return OrganizationLinksApplication(
       href: json[r'href'],
-      iriTemplate: OrganizationLinksApplicationIriTemplate.fromJson(
-          json[r'iriTemplate']),
+      iriTemplate: json[r'iriTemplate'] is! Map
+          ? null
+          : OrganizationLinksApplicationIriTemplate.fromJson(
+              json[r'iriTemplate']),
     );
   }
 
@@ -47,7 +49,8 @@ class OrganizationLinksApplication {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OrganizationLinksApplication> listFromJson(List<dynamic>? json) {
+  static List<OrganizationLinksApplication> listFromJson(
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksApplication>[];
     }

@@ -63,7 +63,9 @@ class ContractRead {
     }
 
     return ContractRead(
-      billing: BillingRead.fromJson(json[r'billing']),
+      billing: json[r'billing'] is! Map
+          ? null
+          : BillingRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: effectiveDate,
@@ -71,7 +73,9 @@ class ContractRead {
       number: json[r'number'],
       onCall: json[r'onCall'],
       provider: json[r'provider'],
-      renewal: RenewalRead.fromJson(json[r'renewal']),
+      renewal: json[r'renewal'] is! Map
+          ? null
+          : RenewalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,
@@ -172,7 +176,7 @@ class ContractRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ContractRead> listFromJson(List<dynamic>? json) {
+  static List<ContractRead> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ContractRead>[];
     }

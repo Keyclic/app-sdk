@@ -19,8 +19,10 @@ class OperationLinksAssignmentsIriTemplate {
     }
 
     return OperationLinksAssignmentsIriTemplate(
-      mapping: OperationLinksAssignmentsIriTemplateMapping.fromJson(
-          json[r'mapping']),
+      mapping: json[r'mapping'] is! Map
+          ? null
+          : OperationLinksAssignmentsIriTemplateMapping.fromJson(
+              json[r'mapping']),
     );
   }
 
@@ -41,7 +43,7 @@ class OperationLinksAssignmentsIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<OperationLinksAssignmentsIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable<dynamic>? json) {
     if (json == null) {
       return <OperationLinksAssignmentsIriTemplate>[];
     }

@@ -45,14 +45,18 @@ class OrganizationPatch {
     }
 
     return OrganizationPatch(
-      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+      address: json[r'address'] is! Map
+          ? null
+          : ExternalServicePatchAddress.fromJson(json[r'address']),
       alternateName: json[r'alternateName'],
       archivedAt: archivedAt,
       description: json[r'description'],
       endDate: endDate,
       logo: json[r'logo'],
       name: json[r'name'],
-      preferences: OrganizationPatchPreferences.fromJson(json[r'preferences']),
+      preferences: json[r'preferences'] is! Map
+          ? null
+          : OrganizationPatchPreferences.fromJson(json[r'preferences']),
       startDate: startDate,
     );
   }
@@ -106,7 +110,7 @@ class OrganizationPatch {
       (preferences == null ? 0 : preferences.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<OrganizationPatch> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPatch> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <OrganizationPatch>[];
     }

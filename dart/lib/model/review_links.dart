@@ -20,9 +20,15 @@ class ReviewLinks {
     }
 
     return ReviewLinks(
-      author: ReviewLinksAuthor.fromJson(json[r'author']),
-      itemReviewed: ReviewLinksItemReviewed.fromJson(json[r'itemReviewed']),
-      self: ReviewLinksSelf.fromJson(json[r'self']),
+      author: json[r'author'] is! Map
+          ? null
+          : ReviewLinksAuthor.fromJson(json[r'author']),
+      itemReviewed: json[r'itemReviewed'] is! Map
+          ? null
+          : ReviewLinksItemReviewed.fromJson(json[r'itemReviewed']),
+      self: json[r'self'] is! Map
+          ? null
+          : ReviewLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -51,7 +57,7 @@ class ReviewLinks {
       (itemReviewed == null ? 0 : itemReviewed.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ReviewLinks> listFromJson(List<dynamic>? json) {
+  static List<ReviewLinks> listFromJson(Iterable<dynamic>? json) {
     if (json == null) {
       return <ReviewLinks>[];
     }

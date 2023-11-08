@@ -40,10 +40,6 @@ sleep 3
 # Prepare and build package for dart
 cd "${CURRENT_DIR}"/dart || { echo -e "Cannot find dart directory"; exit 1; }
 
-# fix list of object
-sed -i 's/Object.listFromJson(\(.*\))/\1 is Iterable ? List<Map<String, dynamic>>.from(\1) : []/g' lib/model/*.dart
-sed -i 's/List<Object>/List<Map<String, dynamic>>/g' lib/model/*.dart
-
 # fix List.listFromJson
 sed -i 's/List.listFromJson(\(.*\))/List.from(\1 ?? []).map<List<List<num>>>((ring) {return List.from(ring).map<List<num>>((point) {return List<num>.from(point, growable: false);}).toList(growable: false);}).toList(growable: false)/g' lib/model/feature_geometry.dart
 

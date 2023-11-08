@@ -47,8 +47,6 @@ sed -i 's/List<Object>/List<Map<String, dynamic>>/g' lib/model/*.dart
 # fix List.listFromJson
 sed -i 's/List.listFromJson(\(.*\))/List.from(\1 ?? []).map<List<List<num>>>((ring) {return List.from(ring).map<List<num>>((point) {return List<num>.from(point, growable: false);}).toList(growable: false);}).toList(growable: false)/g' lib/model/feature_geometry.dart
 
-# fix PATCH empty array
-sed -i 's/ = const \[\]//g' lib/model/*_patch.dart
 
 # change some files to match requirements of pubspec.yaml specifications
 cp ../LICENSE .

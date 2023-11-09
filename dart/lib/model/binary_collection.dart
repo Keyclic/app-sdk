@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class BinaryCollection {
   /// Returns a new [BinaryCollection] instance.
   BinaryCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [BinaryCollection] instance and imports its values from

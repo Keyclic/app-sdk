@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class CategoryEmbedded {
   /// Returns a new [CategoryEmbedded] instance.
   CategoryEmbedded({
-    this.children = const [],
-    this.path = const [],
+    this.children,
+    this.path,
   });
 
   /// Returns a new [CategoryEmbedded] instance and imports its values from

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class PublicationCollection {
   /// Returns a new [PublicationCollection] instance.
   PublicationCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [PublicationCollection] instance and imports its values from

@@ -7,9 +7,9 @@ part of keyclic_sdk_api;
 class TemplateData {
   /// Returns a new [TemplateData] instance.
   TemplateData({
-    this.body = const [],
-    this.footer = const [],
-    this.header = const [],
+    this.body,
+    this.footer,
+    this.header,
     required this.name,
     required this.organization,
     required this.type,

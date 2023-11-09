@@ -9,7 +9,7 @@ class MemberEmbedded {
   MemberEmbedded({
     this.organization,
     this.person,
-    this.roles = const [],
+    this.roles,
   });
 
   /// Returns a new [MemberEmbedded] instance and imports its values from

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ContributionCollection {
   /// Returns a new [ContributionCollection] instance.
   ContributionCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [ContributionCollection] instance and imports its values from

@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class Chart {
   /// Returns a new [Chart] instance.
   Chart({
-    this.data = const [],
-    this.labels = const [],
+    this.data,
+    this.labels,
   });
 
   /// Returns a new [Chart] instance and imports its values from

@@ -7,9 +7,9 @@ part of keyclic_sdk_api;
 class OperationEmbeddedWorkflow {
   /// Returns a new [OperationEmbeddedWorkflow] instance.
   OperationEmbeddedWorkflow({
-    this.metrics = const [],
+    this.metrics,
     this.state,
-    this.transitions = const [],
+    this.transitions,
   });
 
   /// Returns a new [OperationEmbeddedWorkflow] instance and imports its values from

@@ -9,7 +9,7 @@ class OperationLinks {
   OperationLinks({
     this.assignments,
     this.feedback,
-    this.images = const [],
+    this.images,
     this.operator_,
     this.organization,
     this.report,

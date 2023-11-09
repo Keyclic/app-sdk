@@ -11,7 +11,7 @@ class Role {
     this.description,
     this.id,
     required this.name,
-    this.permissions = const [],
+    this.permissions,
     this.type,
     this.updatedAt,
   });

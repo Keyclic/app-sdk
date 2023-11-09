@@ -10,7 +10,7 @@ class Note {
     this.links,
     this.createdAt,
     this.id,
-    this.text = const [],
+    this.text,
     this.type,
     this.updatedAt,
   });

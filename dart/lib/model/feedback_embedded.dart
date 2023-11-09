@@ -8,9 +8,9 @@ class FeedbackEmbedded {
   /// Returns a new [FeedbackEmbedded] instance.
   FeedbackEmbedded({
     this.category,
-    this.markers = const [],
+    this.markers,
     this.reporter,
-    this.stateTransitions = const [],
+    this.stateTransitions,
     this.tracking,
   });
 

@@ -8,7 +8,7 @@ class ConfigurationReportType {
   /// Returns a new [ConfigurationReportType] instance.
   ConfigurationReportType({
     this.id,
-    this.priorities = const [],
+    this.priorities,
     this.type,
     this.workflow,
   });

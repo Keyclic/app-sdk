@@ -11,7 +11,7 @@ class DocumentType {
     this.code,
     this.description,
     this.name,
-    this.permissions = const [],
+    this.permissions,
     this.signed,
     this.type,
   });

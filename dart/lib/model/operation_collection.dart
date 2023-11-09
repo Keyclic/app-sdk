@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class OperationCollection {
   /// Returns a new [OperationCollection] instance.
   OperationCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [OperationCollection] instance and imports its values from

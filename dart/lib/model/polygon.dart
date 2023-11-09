@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class Polygon {
   /// Returns a new [Polygon] instance.
   Polygon({
-    this.type = 'FeatureCollection',
-    this.features = const [],
+    this.type,
+    this.features,
   });
 
   /// Returns a new [Polygon] instance and imports its values from

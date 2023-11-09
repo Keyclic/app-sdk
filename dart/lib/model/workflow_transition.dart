@@ -7,12 +7,12 @@ part of keyclic_sdk_api;
 class WorkflowTransition {
   /// Returns a new [WorkflowTransition] instance.
   WorkflowTransition({
-    this.fields = const [],
+    this.fields,
     this.description,
     this.from,
     this.id,
     this.name,
-    this.required_ = const [],
+    this.required_,
     this.to,
     this.type,
   });

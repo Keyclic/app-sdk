@@ -7,9 +7,9 @@ part of keyclic_sdk_api;
 class Feature {
   /// Returns a new [Feature] instance.
   Feature({
-    this.type = 'Feature',
+    this.type,
     this.geometry,
-    this.properties = const [],
+    this.properties,
   });
 
   /// Returns a new [Feature] instance and imports its values from

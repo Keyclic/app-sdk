@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class PlanCollection {
   /// Returns a new [PlanCollection] instance.
   PlanCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [PlanCollection] instance and imports its values from

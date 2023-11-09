@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class OccupantCollection {
   /// Returns a new [OccupantCollection] instance.
   OccupantCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [OccupantCollection] instance and imports its values from

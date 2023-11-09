@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class AssignmentCollection {
   /// Returns a new [AssignmentCollection] instance.
   AssignmentCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [AssignmentCollection] instance and imports its values from

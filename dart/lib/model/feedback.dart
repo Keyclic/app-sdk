@@ -13,7 +13,7 @@ class Feedback {
     this.description,
     this.geoCoordinates,
     this.id,
-    this.metadata = const {},
+    this.metadata,
     this.public,
     this.type,
     this.updatedAt,

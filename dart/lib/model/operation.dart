@@ -18,7 +18,7 @@ class Operation {
     this.priority,
     this.scheduledAt,
     this.signature,
-    this.tags = const [],
+    this.tags,
     this.type,
     this.updatedAt,
   });

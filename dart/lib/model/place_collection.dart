@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class PlaceCollection {
   /// Returns a new [PlaceCollection] instance.
   PlaceCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [PlaceCollection] instance and imports its values from

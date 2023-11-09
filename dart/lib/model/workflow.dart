@@ -14,8 +14,8 @@ class Workflow {
     this.id,
     required this.name,
     this.start,
-    this.states = const [],
-    this.transitions = const [],
+    this.states,
+    this.transitions,
     this.type,
     this.updatedAt,
   });

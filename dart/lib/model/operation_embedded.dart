@@ -8,10 +8,10 @@ class OperationEmbedded {
   /// Returns a new [OperationEmbedded] instance.
   OperationEmbedded({
     this.createdBy,
-    this.documentTypes = const [],
-    this.documents = const [],
+    this.documentTypes,
+    this.documents,
     this.operator_,
-    this.targetGroups = const [],
+    this.targetGroups,
     this.workflow,
   });
 

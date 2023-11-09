@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ProblemEmbedded {
   /// Returns a new [ProblemEmbedded] instance.
   ProblemEmbedded({
-    this.errors = const [],
+    this.errors,
   });
 
   /// Returns a new [ProblemEmbedded] instance and imports its values from

@@ -9,7 +9,7 @@ class Checkpoint {
   Checkpoint({
     this.createdAt,
     this.data,
-    this.state = const [],
+    this.state,
     this.links,
     this.embedded,
   });

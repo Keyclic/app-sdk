@@ -9,7 +9,7 @@ class SuccessLogin {
   SuccessLogin({
     this.accessToken,
     this.credentials,
-    this.tokenType = 'Bearer',
+    this.tokenType,
   });
 
   /// Returns a new [SuccessLogin] instance and imports its values from

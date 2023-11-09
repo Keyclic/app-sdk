@@ -8,7 +8,7 @@ class ConfigurationMemberType {
   /// Returns a new [ConfigurationMemberType] instance.
   ConfigurationMemberType({
     this.id,
-    this.roles = const [],
+    this.roles,
     this.type,
   });
 

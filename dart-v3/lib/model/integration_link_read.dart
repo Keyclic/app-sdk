@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class IntegrationLinkRead {
   /// Returns a new [IntegrationLinkRead] instance.
   IntegrationLinkRead({
-    this.data = const {},
-    this.metadata = const {},
+    this.data,
+    this.metadata,
     this.name,
     required this.source_,
-    this.state = const IntegrationLinkReadStateEnum._('INACTIVE'),
+    this.state,
     this.target,
     this.id,
     this.createdAt,

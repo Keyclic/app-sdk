@@ -9,11 +9,11 @@ class ReportEmbedded {
   ReportEmbedded({
     this.assignment,
     this.category,
-    this.children = const [],
-    this.documents = const [],
+    this.children,
+    this.documents,
     this.feedback,
     this.place,
-    this.targetGroups = const [],
+    this.targetGroups,
     this.workflow,
   });
 

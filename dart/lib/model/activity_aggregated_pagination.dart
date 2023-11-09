@@ -11,7 +11,7 @@ class ActivityAggregatedPagination {
     this.next,
     this.unseen,
     this.unread,
-    this.results = const [],
+    this.results,
   });
 
   /// Returns a new [ActivityAggregatedPagination] instance and imports its values from

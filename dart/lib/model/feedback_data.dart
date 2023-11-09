@@ -12,7 +12,7 @@ class FeedbackData {
     this.category,
     this.description,
     required this.geo,
-    this.metadata = const {},
+    this.metadata,
     required this.place,
     this.priority,
     this.reporter,

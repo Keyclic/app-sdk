@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class SignerCollection {
   /// Returns a new [SignerCollection] instance.
   SignerCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [SignerCollection] instance and imports its values from

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class Tracking {
   /// Returns a new [Tracking] instance.
   Tracking({
-    this.checkpoints = const [],
+    this.checkpoints,
     this.progression,
     this.state,
     this.time,

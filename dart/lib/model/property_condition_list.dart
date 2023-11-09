@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class PropertyConditionList {
   /// Returns a new [PropertyConditionList] instance.
   PropertyConditionList({
-    this.allOf = const [],
+    this.allOf,
   });
 
   /// Returns a new [PropertyConditionList] instance and imports its values from

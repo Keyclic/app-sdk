@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class PropertyItems {
   /// Returns a new [PropertyItems] instance.
   PropertyItems({
-    this.oneOf = const [],
+    this.oneOf,
   });
 
   /// Returns a new [PropertyItems] instance and imports its values from

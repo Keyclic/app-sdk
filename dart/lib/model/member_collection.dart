@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class MemberCollection {
   /// Returns a new [MemberCollection] instance.
   MemberCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [MemberCollection] instance and imports its values from

@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ServiceCollection {
   /// Returns a new [ServiceCollection] instance.
   ServiceCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [ServiceCollection] instance and imports its values from

@@ -12,7 +12,7 @@ class GetAssetTypes200ResponseLinks {
     this.last,
     this.next,
     this.previous,
-    this.item = const [],
+    this.item,
   });
 
   /// Returns a new [GetAssetTypes200ResponseLinks] instance and imports its values from

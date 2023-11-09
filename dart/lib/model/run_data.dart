@@ -7,9 +7,9 @@ part of keyclic_sdk_api;
 class RunData {
   /// Returns a new [RunData] instance.
   RunData({
-    this.event = const [],
-    this.inputs = const [],
-    this.outputs = const [],
+    this.event,
+    this.inputs,
+    this.outputs,
     this.verbose,
   });
 

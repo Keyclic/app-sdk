@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class FeedbackCollection {
   /// Returns a new [FeedbackCollection] instance.
   FeedbackCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [FeedbackCollection] instance and imports its values from

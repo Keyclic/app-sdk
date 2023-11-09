@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class IntegrationIntegrationRead {
   /// Returns a new [IntegrationIntegrationRead] instance.
   IntegrationIntegrationRead({
-    this.inputs = const {},
+    this.inputs,
     this.id,
     this.createdAt,
     this.updatedAt,

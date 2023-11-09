@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class ReviewCollection {
   /// Returns a new [ReviewCollection] instance.
   ReviewCollection({
-    this.items = const [],
+    this.items,
   });
 
   /// Returns a new [ReviewCollection] instance and imports its values from

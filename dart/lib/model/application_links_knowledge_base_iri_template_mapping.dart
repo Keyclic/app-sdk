@@ -40,7 +40,7 @@ class ApplicationLinksKnowledgeBaseIriTemplateMapping {
   int get hashCode => (knowledgeBase == null ? 0 : knowledgeBase.hashCode);
 
   static List<ApplicationLinksKnowledgeBaseIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinksKnowledgeBaseIriTemplateMapping>[];
     }

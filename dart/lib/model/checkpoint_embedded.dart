@@ -18,9 +18,7 @@ class CheckpointEmbedded {
     }
 
     return CheckpointEmbedded(
-      createdBy: json[r'createdBy'] is! Map
-          ? null
-          : Person.fromJson(json[r'createdBy']),
+      createdBy: Person.fromJson(json[r'createdBy']),
     );
   }
 
@@ -39,7 +37,7 @@ class CheckpointEmbedded {
   @override
   int get hashCode => (createdBy == null ? 0 : createdBy.hashCode);
 
-  static List<CheckpointEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<CheckpointEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <CheckpointEmbedded>[];
     }

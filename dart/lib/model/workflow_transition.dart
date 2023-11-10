@@ -28,14 +28,13 @@ class WorkflowTransition {
       fields:
           json[r'fields'] == null ? null : List<String>.from(json[r'fields']),
       description: json[r'description'],
-      from:
-          json[r'from'] is! Map ? null : WorkflowState.fromJson(json[r'from']),
+      from: WorkflowState.fromJson(json[r'from']),
       id: json[r'id'],
       name: json[r'name'],
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),
-      to: json[r'to'] is! Map ? null : WorkflowState.fromJson(json[r'to']),
+      to: WorkflowState.fromJson(json[r'to']),
       type: json[r'type'],
     );
   }
@@ -85,7 +84,7 @@ class WorkflowTransition {
       (to == null ? 0 : to.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<WorkflowTransition> listFromJson(Iterable<dynamic>? json) {
+  static List<WorkflowTransition> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <WorkflowTransition>[];
     }

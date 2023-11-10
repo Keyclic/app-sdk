@@ -20,10 +20,8 @@ class BusinessActivityLinksImage {
 
     return BusinessActivityLinksImage(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : BusinessActivityLinksImageIriTemplate.fromJson(
-              json[r'iriTemplate']),
+      iriTemplate:
+          BusinessActivityLinksImageIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -49,8 +47,7 @@ class BusinessActivityLinksImage {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<BusinessActivityLinksImage> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<BusinessActivityLinksImage> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityLinksImage>[];
     }

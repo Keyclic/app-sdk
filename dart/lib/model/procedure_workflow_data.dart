@@ -38,7 +38,7 @@ class ProcedureWorkflowData {
   @override
   int get hashCode => transition.hashCode;
 
-  static List<ProcedureWorkflowData> listFromJson(Iterable<dynamic>? json) {
+  static List<ProcedureWorkflowData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ProcedureWorkflowData>[];
     }

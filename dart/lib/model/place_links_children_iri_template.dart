@@ -18,9 +18,7 @@ class PlaceLinksChildrenIriTemplate {
     }
 
     return PlaceLinksChildrenIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : PlaceLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: PlaceLinksChildrenIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,8 +37,7 @@ class PlaceLinksChildrenIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlaceLinksChildrenIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<PlaceLinksChildrenIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlaceLinksChildrenIriTemplate>[];
     }

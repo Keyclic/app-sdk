@@ -20,9 +20,7 @@ class Metric {
 
     return Metric(
       name: json[r'name'],
-      duration: json[r'duration'] is! Map
-          ? null
-          : Duration.fromJson(json[r'duration']),
+      duration: Duration.fromJson(json[r'duration']),
     );
   }
 
@@ -45,7 +43,7 @@ class Metric {
       (name == null ? 0 : name.hashCode) +
       (duration == null ? 0 : duration.hashCode);
 
-  static List<Metric> listFromJson(Iterable<dynamic>? json) {
+  static List<Metric> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Metric>[];
     }

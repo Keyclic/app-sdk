@@ -43,7 +43,7 @@ class OccupantData {
   @override
   int get hashCode => member.hashCode + place.hashCode;
 
-  static List<OccupantData> listFromJson(Iterable<dynamic>? json) {
+  static List<OccupantData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OccupantData>[];
     }

@@ -18,9 +18,8 @@ class ApplicationLinksSelfIriTemplate {
     }
 
     return ApplicationLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ApplicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping:
+          ApplicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -40,7 +39,7 @@ class ApplicationLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ApplicationLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ApplicationLinksSelfIriTemplate>[];
     }

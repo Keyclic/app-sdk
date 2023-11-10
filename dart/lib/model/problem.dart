@@ -24,9 +24,7 @@ class Problem {
       type: json[r'type'],
       title: json[r'title'],
       detail: json[r'detail'],
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : ProblemEmbedded.fromJson(json[r'_embedded']),
+      embedded: ProblemEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -59,7 +57,7 @@ class Problem {
       (detail == null ? 0 : detail.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<Problem> listFromJson(Iterable<dynamic>? json) {
+  static List<Problem> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Problem>[];
     }

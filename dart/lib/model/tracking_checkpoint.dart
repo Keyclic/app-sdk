@@ -29,16 +29,10 @@ class TrackingCheckpoint {
 
     return TrackingCheckpoint(
       createdAt: createdAt,
-      data: json[r'data'] is! Map
-          ? null
-          : CheckpointState.fromJson(json[r'data']),
+      data: CheckpointState.fromJson(json[r'data']),
       state: json[r'state'] == null ? null : List<String>.from(json[r'state']),
-      links: json[r'_links'] is! Map
-          ? null
-          : CheckpointLinks.fromJson(json[r'_links']),
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : CheckpointEmbedded.fromJson(json[r'_embedded']),
+      links: CheckpointLinks.fromJson(json[r'_links']),
+      embedded: CheckpointEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -75,7 +69,7 @@ class TrackingCheckpoint {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<TrackingCheckpoint> listFromJson(Iterable<dynamic>? json) {
+  static List<TrackingCheckpoint> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TrackingCheckpoint>[];
     }

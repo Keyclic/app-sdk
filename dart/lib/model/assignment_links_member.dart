@@ -20,9 +20,8 @@ class AssignmentLinksMember {
 
     return AssignmentLinksMember(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : AssignmentLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          AssignmentLinksMemberIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class AssignmentLinksMember {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<AssignmentLinksMember> listFromJson(Iterable<dynamic>? json) {
+  static List<AssignmentLinksMember> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssignmentLinksMember>[];
     }

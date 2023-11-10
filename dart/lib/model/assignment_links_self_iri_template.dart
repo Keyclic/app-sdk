@@ -18,9 +18,7 @@ class AssignmentLinksSelfIriTemplate {
     }
 
     return AssignmentLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : AssignmentLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: AssignmentLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -40,7 +38,7 @@ class AssignmentLinksSelfIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<AssignmentLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <AssignmentLinksSelfIriTemplate>[];
     }

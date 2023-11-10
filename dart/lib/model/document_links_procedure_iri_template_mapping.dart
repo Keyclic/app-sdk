@@ -40,7 +40,7 @@ class DocumentLinksProcedureIriTemplateMapping {
   int get hashCode => (procedure == null ? 0 : procedure.hashCode);
 
   static List<DocumentLinksProcedureIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksProcedureIriTemplateMapping>[];
     }

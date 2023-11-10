@@ -36,9 +36,7 @@ class Article {
     }
 
     return Article(
-      links: json[r'_links'] is! Map
-          ? null
-          : ArticleLinks.fromJson(json[r'_links']),
+      links: ArticleLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       name: json[r'name'],
@@ -89,7 +87,7 @@ class Article {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Article> listFromJson(Iterable<dynamic>? json) {
+  static List<Article> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Article>[];
     }

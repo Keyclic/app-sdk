@@ -21,9 +21,7 @@ class GetIntegrations200Response {
     }
 
     return GetIntegrations200Response(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : GetIntegrations200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded: GetIntegrations200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,
@@ -61,8 +59,7 @@ class GetIntegrations200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetIntegrations200Response> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<GetIntegrations200Response> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <GetIntegrations200Response>[];
     }

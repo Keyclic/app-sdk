@@ -21,13 +21,13 @@ class RunData {
     }
 
     return RunData(
-      event: json[r'event'] is! Iterable
+      event: json[r'event'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'event']),
-      inputs: json[r'inputs'] is! Iterable
+      inputs: json[r'inputs'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'inputs']),
-      outputs: json[r'outputs'] is! Iterable
+      outputs: json[r'outputs'] == null
           ? null
           : List<Map<String, Object>>.from(json[r'outputs']),
       verbose: json[r'verbose'],
@@ -63,7 +63,7 @@ class RunData {
       (outputs == null ? 0 : outputs.hashCode) +
       (verbose == null ? 0 : verbose.hashCode);
 
-  static List<RunData> listFromJson(Iterable<dynamic>? json) {
+  static List<RunData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RunData>[];
     }

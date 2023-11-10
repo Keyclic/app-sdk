@@ -35,9 +35,7 @@ class ItemsChoice {
       id: json[r'id'],
       maxItems: json[r'maxItems'],
       minItems: json[r'minItems'],
-      oneOf: json[r'oneOf'] is! Iterable
-          ? null
-          : ItemsChoice.listFromJson(json[r'oneOf']),
+      oneOf: ItemsChoice.listFromJson(json[r'oneOf']),
       propertyOrder: json[r'propertyOrder'],
       title: json[r'title'],
       type: json[r'type'],
@@ -101,7 +99,7 @@ class ItemsChoice {
       (title == null ? 0 : title.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ItemsChoice> listFromJson(Iterable<dynamic>? json) {
+  static List<ItemsChoice> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ItemsChoice>[];
     }

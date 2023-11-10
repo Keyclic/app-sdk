@@ -40,25 +40,15 @@ class ExternalService {
     }
 
     return ExternalService(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : ExternalServiceEmbedded.fromJson(json[r'_embedded']),
-      links: json[r'_links'] is! Map
-          ? null
-          : ExternalServiceLinks.fromJson(json[r'_links']),
-      address: json[r'address'] is! Map
-          ? null
-          : ExternalServicePostalAddress.fromJson(json[r'address']),
-      contactPoint: json[r'contactPoint'] is! Map
-          ? null
-          : ExternalServiceContactPoint.fromJson(json[r'contactPoint']),
+      embedded: ExternalServiceEmbedded.fromJson(json[r'_embedded']),
+      links: ExternalServiceLinks.fromJson(json[r'_links']),
+      address: ExternalServicePostalAddress.fromJson(json[r'address']),
+      contactPoint: ExternalServiceContactPoint.fromJson(json[r'contactPoint']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
-      onCall: json[r'onCall'] is! Map
-          ? null
-          : ExternalServiceContactPoint.fromJson(json[r'onCall']),
+      onCall: ExternalServiceContactPoint.fromJson(json[r'onCall']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -121,7 +111,7 @@ class ExternalService {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ExternalService> listFromJson(Iterable<dynamic>? json) {
+  static List<ExternalService> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalService>[];
     }

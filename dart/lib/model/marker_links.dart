@@ -19,12 +19,8 @@ class MarkerLinks {
     }
 
     return MarkerLinks(
-      plan: json[r'plan'] is! Map
-          ? null
-          : MarkerLinksPlan.fromJson(json[r'plan']),
-      self: json[r'self'] is! Map
-          ? null
-          : MarkerLinksSelf.fromJson(json[r'self']),
+      plan: MarkerLinksPlan.fromJson(json[r'plan']),
+      self: MarkerLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -46,7 +42,7 @@ class MarkerLinks {
   int get hashCode =>
       (plan == null ? 0 : plan.hashCode) + (self == null ? 0 : self.hashCode);
 
-  static List<MarkerLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<MarkerLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MarkerLinks>[];
     }

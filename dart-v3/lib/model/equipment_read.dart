@@ -67,18 +67,14 @@ class EquipmentRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: json[r'warranty'] is! Map
-          ? null
-          : WarrantyRead.fromJson(json[r'warranty']),
+      warranty: WarrantyRead.fromJson(json[r'warranty']),
       type: json[r'type'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
-      address: json[r'address'] is! Map
-          ? null
-          : PostalAddressRead.fromJson(json[r'address']),
+      address: PostalAddressRead.fromJson(json[r'address']),
       parent: json[r'parent'],
       state: json[r'state'],
     );
@@ -175,7 +171,7 @@ class EquipmentRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<EquipmentRead> listFromJson(Iterable<dynamic>? json) {
+  static List<EquipmentRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <EquipmentRead>[];
     }

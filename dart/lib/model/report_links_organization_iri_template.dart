@@ -19,10 +19,8 @@ class ReportLinksOrganizationIriTemplate {
     }
 
     return ReportLinksOrganizationIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : CategoryLinksOrganizationIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: CategoryLinksOrganizationIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -43,7 +41,7 @@ class ReportLinksOrganizationIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReportLinksOrganizationIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReportLinksOrganizationIriTemplate>[];
     }

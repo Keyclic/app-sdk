@@ -20,9 +20,8 @@ class ConfigurationLinksSelf {
 
     return ConfigurationLinksSelf(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : ConfigurationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          ConfigurationLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class ConfigurationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ConfigurationLinksSelf> listFromJson(Iterable<dynamic>? json) {
+  static List<ConfigurationLinksSelf> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ConfigurationLinksSelf>[];
     }

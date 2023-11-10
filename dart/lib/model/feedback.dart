@@ -40,19 +40,13 @@ class Feedback {
     }
 
     return Feedback(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : FeedbackEmbedded.fromJson(json[r'_embedded']),
-      links: json[r'_links'] is! Map
-          ? null
-          : FeedbackLinks.fromJson(json[r'_links']),
+      embedded: FeedbackEmbedded.fromJson(json[r'_embedded']),
+      links: FeedbackLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
-      geoCoordinates: json[r'geoCoordinates'] is! Map
-          ? null
-          : FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
+      geoCoordinates: FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
       id: json[r'id'],
-      metadata: json[r'metadata'] is! Map
+      metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object>.from(json[r'metadata']),
       public: json[r'public'],
@@ -119,7 +113,7 @@ class Feedback {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
-  static List<Feedback> listFromJson(Iterable<dynamic>? json) {
+  static List<Feedback> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Feedback>[];
     }

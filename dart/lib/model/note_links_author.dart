@@ -20,9 +20,7 @@ class NoteLinksAuthor {
 
     return NoteLinksAuthor(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : NoteLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: NoteLinksAuthorIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class NoteLinksAuthor {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<NoteLinksAuthor> listFromJson(Iterable<dynamic>? json) {
+  static List<NoteLinksAuthor> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <NoteLinksAuthor>[];
     }

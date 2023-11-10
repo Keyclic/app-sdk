@@ -47,7 +47,7 @@ class ReportLinksChildrenIriTemplateMapping {
       (parent == null ? 0 : parent.hashCode);
 
   static List<ReportLinksChildrenIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReportLinksChildrenIriTemplateMapping>[];
     }

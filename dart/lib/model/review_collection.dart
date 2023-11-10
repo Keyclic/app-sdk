@@ -18,9 +18,7 @@ class ReviewCollection {
     }
 
     return ReviewCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Review.listFromJson(json[r'items']),
+      items: Review.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class ReviewCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ReviewCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<ReviewCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReviewCollection>[];
     }

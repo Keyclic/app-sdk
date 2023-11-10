@@ -19,10 +19,8 @@ class ProcedureLinksCreatedByIriTemplate {
     }
 
     return ProcedureLinksCreatedByIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ContributionLinksContributorIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -43,7 +41,7 @@ class ProcedureLinksCreatedByIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ProcedureLinksCreatedByIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksCreatedByIriTemplate>[];
     }

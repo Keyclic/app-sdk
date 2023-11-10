@@ -20,9 +20,8 @@ class ReportLinksCategory {
 
     return ReportLinksCategory(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : ReportLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          ReportLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class ReportLinksCategory {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReportLinksCategory> listFromJson(Iterable<dynamic>? json) {
+  static List<ReportLinksCategory> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReportLinksCategory>[];
     }

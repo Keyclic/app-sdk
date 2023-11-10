@@ -47,7 +47,7 @@ class ReviewRequestLinksItemToReviewIriTemplateMapping {
       (task == null ? 0 : task.hashCode);
 
   static List<ReviewRequestLinksItemToReviewIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReviewRequestLinksItemToReviewIriTemplateMapping>[];
     }

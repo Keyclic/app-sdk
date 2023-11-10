@@ -21,18 +21,10 @@ class AssetJsonhalReadLinks {
     }
 
     return AssetJsonhalReadLinks(
-      self: json[r'self'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      type: json[r'type'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
-      parent: json[r'parent'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
-      state: json[r'state'] is! Map
-          ? null
-          : GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
+      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'parent']),
+      state: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
@@ -65,7 +57,7 @@ class AssetJsonhalReadLinks {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<AssetJsonhalReadLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<AssetJsonhalReadLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssetJsonhalReadLinks>[];
     }

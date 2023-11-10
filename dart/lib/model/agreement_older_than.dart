@@ -37,7 +37,7 @@ class AgreementOlderThan {
   @override
   int get hashCode => (content == null ? 0 : content.hashCode);
 
-  static List<AgreementOlderThan> listFromJson(Iterable<dynamic>? json) {
+  static List<AgreementOlderThan> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AgreementOlderThan>[];
     }

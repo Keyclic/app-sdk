@@ -20,12 +20,9 @@ class GeoShape {
     }
 
     return GeoShape(
-      centroid: json[r'centroid'] is! Map
-          ? null
-          : GeoShapeCentroid.fromJson(json[r'centroid']),
+      centroid: GeoShapeCentroid.fromJson(json[r'centroid']),
       elevation: json[r'elevation'],
-      polygon:
-          json[r'polygon'] is! Map ? null : Polygon.fromJson(json[r'polygon']),
+      polygon: Polygon.fromJson(json[r'polygon']),
     );
   }
 
@@ -54,7 +51,7 @@ class GeoShape {
       (elevation == null ? 0 : elevation.hashCode) +
       (polygon == null ? 0 : polygon.hashCode);
 
-  static List<GeoShape> listFromJson(Iterable<dynamic>? json) {
+  static List<GeoShape> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <GeoShape>[];
     }

@@ -37,15 +37,11 @@ class BusinessActivity {
     }
 
     return BusinessActivity(
-      links: json[r'_links'] is! Map
-          ? null
-          : BusinessActivityLinks.fromJson(json[r'_links']),
+      links: BusinessActivityLinks.fromJson(json[r'_links']),
       alternateName: json[r'alternateName'],
       createdAt: createdAt,
       id: json[r'id'],
-      metadataSchema: json[r'metadataSchema'] is! Map
-          ? null
-          : BusinessActivitySchema.fromJson(json[r'metadataSchema']),
+      metadataSchema: BusinessActivitySchema.fromJson(json[r'metadataSchema']),
       name: json[r'name'],
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -97,7 +93,7 @@ class BusinessActivity {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<BusinessActivity> listFromJson(Iterable<dynamic>? json) {
+  static List<BusinessActivity> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <BusinessActivity>[];
     }

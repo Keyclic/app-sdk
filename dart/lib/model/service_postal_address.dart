@@ -51,7 +51,7 @@ class ServicePostalAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<ServicePostalAddress> listFromJson(Iterable<dynamic>? json) {
+  static List<ServicePostalAddress> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ServicePostalAddress>[];
     }

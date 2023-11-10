@@ -35,12 +35,8 @@ class Occupant {
     }
 
     return Occupant(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : BookmarkEmbedded.fromJson(json[r'_embedded']),
-      links: json[r'_links'] is! Map
-          ? null
-          : OccupantLinks.fromJson(json[r'_links']),
+      embedded: BookmarkEmbedded.fromJson(json[r'_embedded']),
+      links: OccupantLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],
@@ -85,7 +81,7 @@ class Occupant {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Occupant> listFromJson(Iterable<dynamic>? json) {
+  static List<Occupant> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Occupant>[];
     }

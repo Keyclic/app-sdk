@@ -20,9 +20,7 @@ class PriceJsonhalRead {
     }
 
     return PriceJsonhalRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       currencyCode:
           PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),
@@ -56,7 +54,7 @@ class PriceJsonhalRead {
       (currencyCode == null ? 0 : currencyCode.hashCode) +
       (value == null ? 0 : value.hashCode);
 
-  static List<PriceJsonhalRead> listFromJson(Iterable<dynamic>? json) {
+  static List<PriceJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PriceJsonhalRead>[];
     }

@@ -27,12 +27,8 @@ class TemplatePagination implements Pagination {
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
-      links: json[r'_links'] is! Map
-          ? null
-          : PaginationLinks.fromJson(json[r'_links']),
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : TemplateCollection.fromJson(json[r'_embedded']),
+      links: PaginationLinks.fromJson(json[r'_links']),
+      embedded: TemplateCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -73,7 +69,7 @@ class TemplatePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<TemplatePagination> listFromJson(Iterable<dynamic>? json) {
+  static List<TemplatePagination> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TemplatePagination>[];
     }

@@ -51,7 +51,7 @@ class WorkflowData {
       (datetime == null ? 0 : datetime.hashCode) +
       transition.hashCode;
 
-  static List<WorkflowData> listFromJson(Iterable<dynamic>? json) {
+  static List<WorkflowData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <WorkflowData>[];
     }

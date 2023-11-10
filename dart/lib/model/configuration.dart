@@ -40,25 +40,16 @@ class Configuration {
     }
 
     return Configuration(
-      links: json[r'_links'] is! Map
-          ? null
-          : ConfigurationLinks.fromJson(json[r'_links']),
+      links: ConfigurationLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       description: json[r'description'],
       id: json[r'id'],
-      memberType: json[r'memberType'] is! Map
-          ? null
-          : ConfigurationMemberType.fromJson(json[r'memberType']),
+      memberType: ConfigurationMemberType.fromJson(json[r'memberType']),
       name: json[r'name'],
-      operationType: json[r'operationType'] is! Map
-          ? null
-          : ConfigurationOperationType.fromJson(json[r'operationType']),
-      placeType: json[r'placeType'] is! Map
-          ? null
-          : ConfigurationPlaceType.fromJson(json[r'placeType']),
-      reportType: json[r'reportType'] is! Map
-          ? null
-          : ConfigurationReportType.fromJson(json[r'reportType']),
+      operationType:
+          ConfigurationOperationType.fromJson(json[r'operationType']),
+      placeType: ConfigurationPlaceType.fromJson(json[r'placeType']),
+      reportType: ConfigurationReportType.fromJson(json[r'reportType']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -121,7 +112,7 @@ class Configuration {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Configuration> listFromJson(Iterable<dynamic>? json) {
+  static List<Configuration> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Configuration>[];
     }

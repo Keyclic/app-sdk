@@ -20,10 +20,8 @@ class ReviewRequestLinksOrganization {
 
     return ReviewRequestLinksOrganization(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : ReviewRequestLinksOrganizationIriTemplate.fromJson(
-              json[r'iriTemplate']),
+      iriTemplate: ReviewRequestLinksOrganizationIriTemplate.fromJson(
+          json[r'iriTemplate']),
     );
   }
 
@@ -50,7 +48,7 @@ class ReviewRequestLinksOrganization {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<ReviewRequestLinksOrganization> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ReviewRequestLinksOrganization>[];
     }

@@ -40,7 +40,7 @@ class BookmarkLinksPlaceIriTemplateMapping {
   int get hashCode => (place == null ? 0 : place.hashCode);
 
   static List<BookmarkLinksPlaceIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <BookmarkLinksPlaceIriTemplateMapping>[];
     }

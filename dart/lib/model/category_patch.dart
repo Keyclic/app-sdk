@@ -45,7 +45,7 @@ class CategoryPatch {
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<CategoryPatch> listFromJson(Iterable<dynamic>? json) {
+  static List<CategoryPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <CategoryPatch>[];
     }

@@ -20,9 +20,8 @@ class ProcedureLinksDocument {
 
     return ProcedureLinksDocument(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : ProcedureLinksDocumentIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          ProcedureLinksDocumentIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class ProcedureLinksDocument {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksDocument> listFromJson(Iterable<dynamic>? json) {
+  static List<ProcedureLinksDocument> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ProcedureLinksDocument>[];
     }

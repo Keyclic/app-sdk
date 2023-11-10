@@ -19,9 +19,7 @@ class MemberPatch {
     }
 
     return MemberPatch(
-      contactPoint: json[r'contactPoint'] is! Map
-          ? null
-          : MemberPatchContactPoint.fromJson(json[r'contactPoint']),
+      contactPoint: MemberPatchContactPoint.fromJson(json[r'contactPoint']),
       roles: json[r'roles'] == null ? null : List<String>.from(json[r'roles']),
     );
   }
@@ -47,7 +45,7 @@ class MemberPatch {
       (contactPoint == null ? 0 : contactPoint.hashCode) +
       (roles == null ? 0 : roles.hashCode);
 
-  static List<MemberPatch> listFromJson(Iterable<dynamic>? json) {
+  static List<MemberPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MemberPatch>[];
     }

@@ -39,7 +39,7 @@ class GetAssetTypes200ResponseLinksSelf {
   int get hashCode => (href == null ? 0 : href.hashCode);
 
   static List<GetAssetTypes200ResponseLinksSelf> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <GetAssetTypes200ResponseLinksSelf>[];
     }

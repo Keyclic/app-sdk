@@ -18,9 +18,7 @@ class SectionCollection {
     }
 
     return SectionCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Section.listFromJson(json[r'items']),
+      items: Section.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class SectionCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<SectionCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<SectionCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SectionCollection>[];
     }

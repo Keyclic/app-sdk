@@ -20,9 +20,7 @@ class RuleLinksService {
 
     return RuleLinksService(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : RuleLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: RuleLinksServiceIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class RuleLinksService {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<RuleLinksService> listFromJson(Iterable<dynamic>? json) {
+  static List<RuleLinksService> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RuleLinksService>[];
     }

@@ -57,7 +57,7 @@ class ExternalServiceData {
       (description == null ? 0 : description.hashCode) +
       provider.hashCode;
 
-  static List<ExternalServiceData> listFromJson(Iterable<dynamic>? json) {
+  static List<ExternalServiceData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceData>[];
     }

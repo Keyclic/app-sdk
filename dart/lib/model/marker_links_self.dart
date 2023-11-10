@@ -20,9 +20,7 @@ class MarkerLinksSelf {
 
     return MarkerLinksSelf(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : MarkerLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: MarkerLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class MarkerLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<MarkerLinksSelf> listFromJson(Iterable<dynamic>? json) {
+  static List<MarkerLinksSelf> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MarkerLinksSelf>[];
     }

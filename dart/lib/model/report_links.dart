@@ -27,36 +27,16 @@ class ReportLinks {
     }
 
     return ReportLinks(
-      asset: json[r'asset'] is! Map
-          ? null
-          : ReportLinksAsset.fromJson(json[r'asset']),
-      category: json[r'category'] is! Map
-          ? null
-          : ReportLinksCategory.fromJson(json[r'category']),
-      children: json[r'children'] is! Map
-          ? null
-          : ReportLinksChildren.fromJson(json[r'children']),
-      equipment: json[r'equipment'] is! Map
-          ? null
-          : ReportLinksEquipment.fromJson(json[r'equipment']),
-      feedback: json[r'feedback'] is! Map
-          ? null
-          : ReportLinksFeedback.fromJson(json[r'feedback']),
-      operations: json[r'operations'] is! Map
-          ? null
-          : ReportLinksOperations.fromJson(json[r'operations']),
-      organization: json[r'organization'] is! Map
-          ? null
-          : ReportLinksOrganization.fromJson(json[r'organization']),
-      place: json[r'place'] is! Map
-          ? null
-          : ReportLinksPlace.fromJson(json[r'place']),
-      self: json[r'self'] is! Map
-          ? null
-          : ReportLinksSelf.fromJson(json[r'self']),
-      tracking: json[r'tracking'] is! Map
-          ? null
-          : ReportLinksTracking.fromJson(json[r'tracking']),
+      asset: ReportLinksAsset.fromJson(json[r'asset']),
+      category: ReportLinksCategory.fromJson(json[r'category']),
+      children: ReportLinksChildren.fromJson(json[r'children']),
+      equipment: ReportLinksEquipment.fromJson(json[r'equipment']),
+      feedback: ReportLinksFeedback.fromJson(json[r'feedback']),
+      operations: ReportLinksOperations.fromJson(json[r'operations']),
+      organization: ReportLinksOrganization.fromJson(json[r'organization']),
+      place: ReportLinksPlace.fromJson(json[r'place']),
+      self: ReportLinksSelf.fromJson(json[r'self']),
+      tracking: ReportLinksTracking.fromJson(json[r'tracking']),
     );
   }
 
@@ -113,7 +93,7 @@ class ReportLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<ReportLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<ReportLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReportLinks>[];
     }

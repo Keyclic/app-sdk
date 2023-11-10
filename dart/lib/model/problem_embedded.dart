@@ -18,9 +18,7 @@ class ProblemEmbedded {
     }
 
     return ProblemEmbedded(
-      errors: json[r'errors'] is! Iterable
-          ? null
-          : Problem.listFromJson(json[r'errors']),
+      errors: Problem.listFromJson(json[r'errors']),
     );
   }
 
@@ -40,7 +38,7 @@ class ProblemEmbedded {
   @override
   int get hashCode => (errors == null ? 0 : errors.hashCode);
 
-  static List<ProblemEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<ProblemEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ProblemEmbedded>[];
     }

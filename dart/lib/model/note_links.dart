@@ -20,14 +20,9 @@ class NoteLinks {
     }
 
     return NoteLinks(
-      about: json[r'about'] is! Map
-          ? null
-          : NoteLinksAbout.fromJson(json[r'about']),
-      author: json[r'author'] is! Map
-          ? null
-          : NoteLinksAuthor.fromJson(json[r'author']),
-      self:
-          json[r'self'] is! Map ? null : NoteLinksSelf.fromJson(json[r'self']),
+      about: NoteLinksAbout.fromJson(json[r'about']),
+      author: NoteLinksAuthor.fromJson(json[r'author']),
+      self: NoteLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -56,7 +51,7 @@ class NoteLinks {
       (author == null ? 0 : author.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<NoteLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<NoteLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <NoteLinks>[];
     }

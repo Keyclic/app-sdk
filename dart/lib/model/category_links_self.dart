@@ -20,9 +20,7 @@ class CategoryLinksSelf {
 
     return CategoryLinksSelf(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : CategoryLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: CategoryLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class CategoryLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<CategoryLinksSelf> listFromJson(Iterable<dynamic>? json) {
+  static List<CategoryLinksSelf> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <CategoryLinksSelf>[];
     }

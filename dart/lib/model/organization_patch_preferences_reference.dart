@@ -40,7 +40,7 @@ class OrganizationPatchPreferencesReference {
   int get hashCode => (prefix == null ? 0 : prefix.hashCode);
 
   static List<OrganizationPatchPreferencesReference> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <OrganizationPatchPreferencesReference>[];
     }

@@ -63,7 +63,7 @@ class PlaceData {
       (polygon == null ? 0 : polygon.hashCode) +
       organization.hashCode;
 
-  static List<PlaceData> listFromJson(Iterable<dynamic>? json) {
+  static List<PlaceData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlaceData>[];
     }

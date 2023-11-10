@@ -21,15 +21,10 @@ class PaginationLinks {
     }
 
     return PaginationLinks(
-      first: json[r'first'] is! Map
-          ? null
-          : PaginationLink.fromJson(json[r'first']),
-      last:
-          json[r'last'] is! Map ? null : PaginationLink.fromJson(json[r'last']),
-      next:
-          json[r'next'] is! Map ? null : PaginationLink.fromJson(json[r'next']),
-      self:
-          json[r'self'] is! Map ? null : PaginationLink.fromJson(json[r'self']),
+      first: PaginationLink.fromJson(json[r'first']),
+      last: PaginationLink.fromJson(json[r'last']),
+      next: PaginationLink.fromJson(json[r'next']),
+      self: PaginationLink.fromJson(json[r'self']),
     );
   }
 
@@ -62,7 +57,7 @@ class PaginationLinks {
       (next == null ? 0 : next.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<PaginationLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<PaginationLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PaginationLinks>[];
     }

@@ -49,7 +49,7 @@ class PlanData {
   int get hashCode =>
       file.hashCode + (name == null ? 0 : name.hashCode) + place.hashCode;
 
-  static List<PlanData> listFromJson(Iterable<dynamic>? json) {
+  static List<PlanData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlanData>[];
     }

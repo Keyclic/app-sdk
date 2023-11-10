@@ -91,7 +91,7 @@ class TicketRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<TicketRead> listFromJson(Iterable<dynamic>? json) {
+  static List<TicketRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <TicketRead>[];
     }

@@ -18,9 +18,7 @@ class RuleCollection {
     }
 
     return RuleCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Rule.listFromJson(json[r'items']),
+      items: Rule.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class RuleCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<RuleCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<RuleCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RuleCollection>[];
     }

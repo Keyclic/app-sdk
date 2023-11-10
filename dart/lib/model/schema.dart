@@ -19,9 +19,7 @@ class Schema {
     }
 
     return Schema(
-      properties: json[r'properties'] is! Map
-          ? null
-          : SchemaProperty.mapFromJson(json[r'properties']),
+      properties: SchemaProperty.mapFromJson(json[r'properties']),
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),
@@ -50,7 +48,7 @@ class Schema {
       (properties == null ? 0 : properties.hashCode) +
       (required_ == null ? 0 : required_.hashCode);
 
-  static List<Schema> listFromJson(Iterable<dynamic>? json) {
+  static List<Schema> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Schema>[];
     }

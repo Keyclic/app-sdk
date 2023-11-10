@@ -20,9 +20,8 @@ class DocumentLinksCreatedBy {
 
     return DocumentLinksCreatedBy(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : DocumentLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate:
+          DocumentLinksCreatedByIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +47,7 @@ class DocumentLinksCreatedBy {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DocumentLinksCreatedBy> listFromJson(Iterable<dynamic>? json) {
+  static List<DocumentLinksCreatedBy> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksCreatedBy>[];
     }

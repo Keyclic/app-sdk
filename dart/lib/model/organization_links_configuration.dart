@@ -20,10 +20,8 @@ class OrganizationLinksConfiguration {
 
     return OrganizationLinksConfiguration(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : OrganizationLinksConfigurationIriTemplate.fromJson(
-              json[r'iriTemplate']),
+      iriTemplate: OrganizationLinksConfigurationIriTemplate.fromJson(
+          json[r'iriTemplate']),
     );
   }
 
@@ -50,7 +48,7 @@ class OrganizationLinksConfiguration {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<OrganizationLinksConfiguration> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksConfiguration>[];
     }

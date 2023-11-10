@@ -20,9 +20,7 @@ class OccupantLinksSelf {
 
     return OccupantLinksSelf(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : OccupantLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: OccupantLinksSelfIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class OccupantLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OccupantLinksSelf> listFromJson(Iterable<dynamic>? json) {
+  static List<OccupantLinksSelf> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OccupantLinksSelf>[];
     }

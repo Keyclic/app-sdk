@@ -37,7 +37,7 @@ class AgreementTermsOfService {
   @override
   int get hashCode => (content == null ? 0 : content.hashCode);
 
-  static List<AgreementTermsOfService> listFromJson(Iterable<dynamic>? json) {
+  static List<AgreementTermsOfService> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AgreementTermsOfService>[];
     }

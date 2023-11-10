@@ -44,7 +44,7 @@ class SuccessLoginCredentials {
   int get hashCode =>
       (id == null ? 0 : id.hashCode) + (login == null ? 0 : login.hashCode);
 
-  static List<SuccessLoginCredentials> listFromJson(Iterable<dynamic>? json) {
+  static List<SuccessLoginCredentials> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SuccessLoginCredentials>[];
     }

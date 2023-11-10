@@ -25,9 +25,7 @@ class BillingWrite {
     }
 
     return BillingWrite(
-      initialCost: json[r'initialCost'] is! Map
-          ? null
-          : PriceWrite.fromJson(json[r'initialCost']),
+      initialCost: PriceWrite.fromJson(json[r'initialCost']),
       startDate: startDate,
     );
   }
@@ -54,7 +52,7 @@ class BillingWrite {
       (initialCost == null ? 0 : initialCost.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<BillingWrite> listFromJson(Iterable<dynamic>? json) {
+  static List<BillingWrite> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <BillingWrite>[];
     }

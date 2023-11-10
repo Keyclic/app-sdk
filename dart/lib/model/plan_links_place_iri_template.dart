@@ -18,9 +18,7 @@ class PlanLinksPlaceIriTemplate {
     }
 
     return PlanLinksPlaceIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: BookmarkLinksPlaceIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,7 +37,7 @@ class PlanLinksPlaceIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlanLinksPlaceIriTemplate> listFromJson(Iterable<dynamic>? json) {
+  static List<PlanLinksPlaceIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlanLinksPlaceIriTemplate>[];
     }

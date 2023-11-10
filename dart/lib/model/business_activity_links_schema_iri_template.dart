@@ -19,10 +19,8 @@ class BusinessActivityLinksSchemaIriTemplate {
     }
 
     return BusinessActivityLinksSchemaIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : BusinessActivityLinksImageIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: BusinessActivityLinksImageIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -43,7 +41,7 @@ class BusinessActivityLinksSchemaIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<BusinessActivityLinksSchemaIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <BusinessActivityLinksSchemaIriTemplate>[];
     }

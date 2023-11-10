@@ -35,8 +35,7 @@ class Plan {
     }
 
     return Plan(
-      links:
-          json[r'_links'] is! Map ? null : PlanLinks.fromJson(json[r'_links']),
+      links: PlanLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       name: json[r'name'],
@@ -82,7 +81,7 @@ class Plan {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Plan> listFromJson(Iterable<dynamic>? json) {
+  static List<Plan> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Plan>[];
     }

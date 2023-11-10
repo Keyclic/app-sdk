@@ -18,9 +18,7 @@ class PlanLinksImageIriTemplate {
     }
 
     return PlanLinksImageIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : MarkerLinksPlanIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: MarkerLinksPlanIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
@@ -39,7 +37,7 @@ class PlanLinksImageIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlanLinksImageIriTemplate> listFromJson(Iterable<dynamic>? json) {
+  static List<PlanLinksImageIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlanLinksImageIriTemplate>[];
     }

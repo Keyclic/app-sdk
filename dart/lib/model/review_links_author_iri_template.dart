@@ -18,10 +18,8 @@ class ReviewLinksAuthorIriTemplate {
     }
 
     return ReviewLinksAuthorIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ContributionLinksContributorIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -40,8 +38,7 @@ class ReviewLinksAuthorIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReviewLinksAuthorIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<ReviewLinksAuthorIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ReviewLinksAuthorIriTemplate>[];
     }

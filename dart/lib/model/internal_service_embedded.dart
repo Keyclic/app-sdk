@@ -18,8 +18,7 @@ class InternalServiceEmbedded {
     }
 
     return InternalServiceEmbedded(
-      manager:
-          json[r'manager'] is! Map ? null : Member.fromJson(json[r'manager']),
+      manager: Member.fromJson(json[r'manager']),
     );
   }
 
@@ -38,7 +37,7 @@ class InternalServiceEmbedded {
   @override
   int get hashCode => (manager == null ? 0 : manager.hashCode);
 
-  static List<InternalServiceEmbedded> listFromJson(Iterable<dynamic>? json) {
+  static List<InternalServiceEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <InternalServiceEmbedded>[];
     }

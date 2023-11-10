@@ -21,9 +21,7 @@ class SuccessLogin {
 
     return SuccessLogin(
       accessToken: json[r'accessToken'],
-      credentials: json[r'credentials'] is! Map
-          ? null
-          : SuccessLoginCredentials.fromJson(json[r'credentials']),
+      credentials: SuccessLoginCredentials.fromJson(json[r'credentials']),
       tokenType: json[r'tokenType'],
     );
   }
@@ -53,7 +51,7 @@ class SuccessLogin {
       (credentials == null ? 0 : credentials.hashCode) +
       (tokenType == null ? 0 : tokenType.hashCode);
 
-  static List<SuccessLogin> listFromJson(Iterable<dynamic>? json) {
+  static List<SuccessLogin> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <SuccessLogin>[];
     }

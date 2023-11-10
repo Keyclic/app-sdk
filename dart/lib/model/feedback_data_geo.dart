@@ -19,9 +19,7 @@ class FeedbackDataGeo {
     }
 
     return FeedbackDataGeo(
-      point: json[r'point'] is! Map
-          ? null
-          : FeedbackDataGeoPoint.fromJson(json[r'point']),
+      point: FeedbackDataGeoPoint.fromJson(json[r'point']),
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
     );
@@ -48,7 +46,7 @@ class FeedbackDataGeo {
       (point == null ? 0 : point.hashCode) +
       (elevation == null ? 0 : elevation.hashCode);
 
-  static List<FeedbackDataGeo> listFromJson(Iterable<dynamic>? json) {
+  static List<FeedbackDataGeo> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <FeedbackDataGeo>[];
     }

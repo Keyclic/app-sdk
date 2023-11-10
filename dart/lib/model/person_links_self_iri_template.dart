@@ -18,10 +18,8 @@ class PersonLinksSelfIriTemplate {
     }
 
     return PersonLinksSelfIriTemplate(
-      mapping: json[r'mapping'] is! Map
-          ? null
-          : ContributionLinksContributorIriTemplateMapping.fromJson(
-              json[r'mapping']),
+      mapping: ContributionLinksContributorIriTemplateMapping.fromJson(
+          json[r'mapping']),
     );
   }
 
@@ -40,8 +38,7 @@ class PersonLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PersonLinksSelfIriTemplate> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<PersonLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PersonLinksSelfIriTemplate>[];
     }

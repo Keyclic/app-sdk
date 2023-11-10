@@ -40,7 +40,7 @@ class ContributionLinksContributorIriTemplateMapping {
   int get hashCode => (person == null ? 0 : person.hashCode);
 
   static List<ContributionLinksContributorIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <ContributionLinksContributorIriTemplateMapping>[];
     }

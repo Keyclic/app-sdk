@@ -40,7 +40,7 @@ class PublicationLinksSelfIriTemplateMapping {
   int get hashCode => (publication == null ? 0 : publication.hashCode);
 
   static List<PublicationLinksSelfIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <PublicationLinksSelfIriTemplateMapping>[];
     }

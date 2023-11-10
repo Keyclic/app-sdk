@@ -40,7 +40,7 @@ class InvitationLinksSelfIriTemplateMapping {
   int get hashCode => (invitation == null ? 0 : invitation.hashCode);
 
   static List<InvitationLinksSelfIriTemplateMapping> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <InvitationLinksSelfIriTemplateMapping>[];
     }

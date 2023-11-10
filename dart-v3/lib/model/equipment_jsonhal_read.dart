@@ -57,26 +57,20 @@ class EquipmentJsonhalRead {
     }
 
     return EquipmentJsonhalRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
+      links: EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
       commissioningDate: commissioningDate,
       lifetime: json[r'lifetime'],
       model: json[r'model'],
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: json[r'warranty'] is! Map
-          ? null
-          : WarrantyJsonhalRead.fromJson(json[r'warranty']),
+      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
-      address: json[r'address'] is! Map
-          ? null
-          : PostalAddressJsonhalRead.fromJson(json[r'address']),
+      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
 
@@ -158,7 +152,7 @@ class EquipmentJsonhalRead {
       name.hashCode +
       (address == null ? 0 : address.hashCode);
 
-  static List<EquipmentJsonhalRead> listFromJson(Iterable<dynamic>? json) {
+  static List<EquipmentJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <EquipmentJsonhalRead>[];
     }

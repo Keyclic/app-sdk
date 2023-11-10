@@ -18,9 +18,7 @@ class ExternalServiceCollection {
     }
 
     return ExternalServiceCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : ExternalService.listFromJson(json[r'items']),
+      items: ExternalService.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class ExternalServiceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ExternalServiceCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<ExternalServiceCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ExternalServiceCollection>[];
     }

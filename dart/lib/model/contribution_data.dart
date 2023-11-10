@@ -37,7 +37,7 @@ class ContributionData {
   @override
   int get hashCode => feedback.hashCode;
 
-  static List<ContributionData> listFromJson(Iterable<dynamic>? json) {
+  static List<ContributionData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ContributionData>[];
     }

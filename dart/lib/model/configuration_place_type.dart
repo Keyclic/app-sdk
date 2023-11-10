@@ -22,9 +22,7 @@ class ConfigurationPlaceType {
     return ConfigurationPlaceType(
       id: json[r'id'],
       type: json[r'type'],
-      workflow: json[r'workflow'] is! Map
-          ? null
-          : PlaceTypeWorkflow.fromJson(json[r'workflow']),
+      workflow: PlaceTypeWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -53,7 +51,7 @@ class ConfigurationPlaceType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationPlaceType> listFromJson(Iterable<dynamic>? json) {
+  static List<ConfigurationPlaceType> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ConfigurationPlaceType>[];
     }

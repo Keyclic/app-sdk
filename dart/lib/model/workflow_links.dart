@@ -18,9 +18,7 @@ class WorkflowLinks {
     }
 
     return WorkflowLinks(
-      self: json[r'self'] is! Map
-          ? null
-          : WorkflowLinksSelf.fromJson(json[r'self']),
+      self: WorkflowLinksSelf.fromJson(json[r'self']),
     );
   }
 
@@ -39,7 +37,7 @@ class WorkflowLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<WorkflowLinks> listFromJson(Iterable<dynamic>? json) {
+  static List<WorkflowLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <WorkflowLinks>[];
     }

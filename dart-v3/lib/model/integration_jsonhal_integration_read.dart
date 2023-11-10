@@ -35,10 +35,8 @@ class IntegrationJsonhalIntegrationRead {
     }
 
     return IntegrationJsonhalIntegrationRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      inputs: json[r'inputs'] is! Map
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      inputs: json[r'inputs'] == null
           ? null
           : Map<String, Object>.from(json[r'inputs']),
       id: json[r'id'],
@@ -84,7 +82,7 @@ class IntegrationJsonhalIntegrationRead {
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<IntegrationJsonhalIntegrationRead> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <IntegrationJsonhalIntegrationRead>[];
     }

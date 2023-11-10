@@ -36,15 +36,11 @@ class AssetJsonhalRead {
     }
 
     return AssetJsonhalRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
-      address: json[r'address'] is! Map
-          ? null
-          : PostalAddressJsonhalRead.fromJson(json[r'address']),
+      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -94,7 +90,7 @@ class AssetJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<AssetJsonhalRead> listFromJson(Iterable<dynamic>? json) {
+  static List<AssetJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssetJsonhalRead>[];
     }

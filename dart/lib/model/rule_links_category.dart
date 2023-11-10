@@ -20,9 +20,7 @@ class RuleLinksCategory {
 
     return RuleLinksCategory(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : RuleLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: RuleLinksCategoryIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class RuleLinksCategory {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<RuleLinksCategory> listFromJson(Iterable<dynamic>? json) {
+  static List<RuleLinksCategory> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RuleLinksCategory>[];
     }

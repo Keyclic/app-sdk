@@ -20,15 +20,9 @@ class OperationEmbeddedWorkflow {
     }
 
     return OperationEmbeddedWorkflow(
-      metrics: json[r'metrics'] is! Iterable
-          ? null
-          : Metric.listFromJson(json[r'metrics']),
-      state: json[r'state'] is! Map
-          ? null
-          : WorkflowState.fromJson(json[r'state']),
-      transitions: json[r'transitions'] is! Iterable
-          ? null
-          : WorkflowTransition.listFromJson(json[r'transitions']),
+      metrics: Metric.listFromJson(json[r'metrics']),
+      state: WorkflowState.fromJson(json[r'state']),
+      transitions: WorkflowTransition.listFromJson(json[r'transitions']),
     );
   }
 
@@ -58,7 +52,7 @@ class OperationEmbeddedWorkflow {
       (state == null ? 0 : state.hashCode) +
       (transitions == null ? 0 : transitions.hashCode);
 
-  static List<OperationEmbeddedWorkflow> listFromJson(Iterable<dynamic>? json) {
+  static List<OperationEmbeddedWorkflow> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OperationEmbeddedWorkflow>[];
     }

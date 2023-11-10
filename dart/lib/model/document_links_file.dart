@@ -20,9 +20,7 @@ class DocumentLinksFile {
 
     return DocumentLinksFile(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : DocumentLinksFileIriTemplate.fromJson(json[r'iriTemplate']),
+      iriTemplate: DocumentLinksFileIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -48,7 +46,7 @@ class DocumentLinksFile {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<DocumentLinksFile> listFromJson(Iterable<dynamic>? json) {
+  static List<DocumentLinksFile> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DocumentLinksFile>[];
     }

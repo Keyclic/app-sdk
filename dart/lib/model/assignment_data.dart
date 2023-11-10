@@ -63,7 +63,7 @@ class AssignmentData {
       report.hashCode +
       service.hashCode;
 
-  static List<AssignmentData> listFromJson(Iterable<dynamic>? json) {
+  static List<AssignmentData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <AssignmentData>[];
     }

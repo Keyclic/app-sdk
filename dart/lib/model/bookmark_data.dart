@@ -43,7 +43,7 @@ class BookmarkData {
   @override
   int get hashCode => member.hashCode + place.hashCode;
 
-  static List<BookmarkData> listFromJson(Iterable<dynamic>? json) {
+  static List<BookmarkData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <BookmarkData>[];
     }

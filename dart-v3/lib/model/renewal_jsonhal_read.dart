@@ -20,9 +20,7 @@ class RenewalJsonhalRead {
     }
 
     return RenewalJsonhalRead(
-      links: json[r'_links'] is! Map
-          ? null
-          : AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       duration: json[r'duration'],
       noticePeriod: json[r'noticePeriod'],
     );
@@ -55,7 +53,7 @@ class RenewalJsonhalRead {
       (duration == null ? 0 : duration.hashCode) +
       (noticePeriod == null ? 0 : noticePeriod.hashCode);
 
-  static List<RenewalJsonhalRead> listFromJson(Iterable<dynamic>? json) {
+  static List<RenewalJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <RenewalJsonhalRead>[];
     }

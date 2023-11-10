@@ -38,7 +38,7 @@ class DocumentWorkflowData {
   @override
   int get hashCode => transition.hashCode;
 
-  static List<DocumentWorkflowData> listFromJson(Iterable<dynamic>? json) {
+  static List<DocumentWorkflowData> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <DocumentWorkflowData>[];
     }

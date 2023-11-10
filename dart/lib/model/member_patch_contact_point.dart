@@ -75,7 +75,7 @@ class MemberPatchContactPoint {
       (telephone == null ? 0 : telephone.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<MemberPatchContactPoint> listFromJson(Iterable<dynamic>? json) {
+  static List<MemberPatchContactPoint> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <MemberPatchContactPoint>[];
     }

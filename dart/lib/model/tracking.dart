@@ -21,12 +21,8 @@ class Tracking {
     }
 
     return Tracking(
-      checkpoints: json[r'checkpoints'] is! Iterable
-          ? null
-          : Checkpoint.listFromJson(json[r'checkpoints']),
-      progression: json[r'progression'] is! Map
-          ? null
-          : TrackingProgression.fromJson(json[r'progression']),
+      checkpoints: Checkpoint.listFromJson(json[r'checkpoints']),
+      progression: TrackingProgression.fromJson(json[r'progression']),
       state: json[r'state'],
       time: json[r'time'],
     );
@@ -62,7 +58,7 @@ class Tracking {
       (state == null ? 0 : state.hashCode) +
       (time == null ? 0 : time.hashCode);
 
-  static List<Tracking> listFromJson(Iterable<dynamic>? json) {
+  static List<Tracking> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Tracking>[];
     }

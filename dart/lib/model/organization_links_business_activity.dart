@@ -21,10 +21,8 @@ class OrganizationLinksBusinessActivity {
 
     return OrganizationLinksBusinessActivity(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : OrganizationLinksBusinessActivityIriTemplate.fromJson(
-              json[r'iriTemplate']),
+      iriTemplate: OrganizationLinksBusinessActivityIriTemplate.fromJson(
+          json[r'iriTemplate']),
     );
   }
 
@@ -51,7 +49,7 @@ class OrganizationLinksBusinessActivity {
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
   static List<OrganizationLinksBusinessActivity> listFromJson(
-      Iterable<dynamic>? json) {
+      List<dynamic>? json) {
     if (json == null) {
       return <OrganizationLinksBusinessActivity>[];
     }

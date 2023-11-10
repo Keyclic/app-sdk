@@ -20,10 +20,8 @@ class CheckpointLinksOrganization {
 
     return CheckpointLinksOrganization(
       href: json[r'href'],
-      iriTemplate: json[r'iriTemplate'] is! Map
-          ? null
-          : CheckpointLinksOrganizationIriTemplate.fromJson(
-              json[r'iriTemplate']),
+      iriTemplate:
+          CheckpointLinksOrganizationIriTemplate.fromJson(json[r'iriTemplate']),
     );
   }
 
@@ -49,8 +47,7 @@ class CheckpointLinksOrganization {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<CheckpointLinksOrganization> listFromJson(
-      Iterable<dynamic>? json) {
+  static List<CheckpointLinksOrganization> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <CheckpointLinksOrganization>[];
     }

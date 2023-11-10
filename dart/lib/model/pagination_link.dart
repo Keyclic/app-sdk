@@ -37,7 +37,7 @@ class PaginationLink {
   @override
   int get hashCode => (href == null ? 0 : href.hashCode);
 
-  static List<PaginationLink> listFromJson(Iterable<dynamic>? json) {
+  static List<PaginationLink> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PaginationLink>[];
     }

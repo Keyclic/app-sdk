@@ -29,29 +29,17 @@ class OrganizationPreferences {
     }
 
     return OrganizationPreferences(
-      archiving: json[r'archiving'] is! Map
-          ? null
-          : PreferencesArchiving.fromJson(json[r'archiving']),
+      archiving: PreferencesArchiving.fromJson(json[r'archiving']),
       categoryRequired: json[r'categoryRequired'],
-      contract: json[r'contract'] is! Map
-          ? null
-          : PreferencesContract.fromJson(json[r'contract']),
-      electronicSignature: json[r'electronicSignature'] is! Map
-          ? null
-          : PreferencesElectronicSignature.fromJson(
-              json[r'electronicSignature']),
-      equipment: json[r'equipment'] is! Map
-          ? null
-          : PreferencesEquipment.fromJson(json[r'equipment']),
+      contract: PreferencesContract.fromJson(json[r'contract']),
+      electronicSignature:
+          PreferencesElectronicSignature.fromJson(json[r'electronicSignature']),
+      equipment: PreferencesEquipment.fromJson(json[r'equipment']),
       feedbackParentPlace: json[r'feedbackParentPlace'],
-      form: json[r'form'] is! Map
-          ? null
-          : PreferencesForm.fromJson(json[r'form']),
+      form: PreferencesForm.fromJson(json[r'form']),
       offline: json[r'offline'],
       public: json[r'public'],
-      reference: json[r'reference'] is! Map
-          ? null
-          : PreferencesReference.fromJson(json[r'reference']),
+      reference: PreferencesReference.fromJson(json[r'reference']),
       reverseGeocoding: json[r'reverseGeocoding'],
       reviewEnabled: json[r'reviewEnabled'],
     );
@@ -118,7 +106,7 @@ class OrganizationPreferences {
       (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
       (reviewEnabled == null ? 0 : reviewEnabled.hashCode);
 
-  static List<OrganizationPreferences> listFromJson(Iterable<dynamic>? json) {
+  static List<OrganizationPreferences> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <OrganizationPreferences>[];
     }

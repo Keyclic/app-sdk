@@ -35,12 +35,8 @@ class Bookmark {
     }
 
     return Bookmark(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : BookmarkEmbedded.fromJson(json[r'_embedded']),
-      links: json[r'_links'] is! Map
-          ? null
-          : BookmarkLinks.fromJson(json[r'_links']),
+      embedded: BookmarkEmbedded.fromJson(json[r'_embedded']),
+      links: BookmarkLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
       type: json[r'type'],
@@ -85,7 +81,7 @@ class Bookmark {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Bookmark> listFromJson(Iterable<dynamic>? json) {
+  static List<Bookmark> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <Bookmark>[];
     }

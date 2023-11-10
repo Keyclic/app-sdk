@@ -21,9 +21,7 @@ class GetAssetTypes200Response {
     }
 
     return GetAssetTypes200Response(
-      embedded: json[r'_embedded'] is! Map
-          ? null
-          : GetAssetTypes200ResponseEmbedded.fromJson(json[r'_embedded']),
+      embedded: GetAssetTypes200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetAssetTypes200ResponseLinks.fromJson(json[r'_links'])!,
@@ -61,7 +59,7 @@ class GetAssetTypes200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetAssetTypes200Response> listFromJson(Iterable<dynamic>? json) {
+  static List<GetAssetTypes200Response> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <GetAssetTypes200Response>[];
     }

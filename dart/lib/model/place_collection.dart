@@ -18,9 +18,7 @@ class PlaceCollection {
     }
 
     return PlaceCollection(
-      items: json[r'items'] is! Iterable
-          ? null
-          : Place.listFromJson(json[r'items']),
+      items: Place.listFromJson(json[r'items']),
     );
   }
 
@@ -40,7 +38,7 @@ class PlaceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<PlaceCollection> listFromJson(Iterable<dynamic>? json) {
+  static List<PlaceCollection> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <PlaceCollection>[];
     }

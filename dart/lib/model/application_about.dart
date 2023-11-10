@@ -44,7 +44,7 @@ class ApplicationAbout {
   int get hashCode =>
       (name == null ? 0 : name.hashCode) + (text == null ? 0 : text.hashCode);
 
-  static List<ApplicationAbout> listFromJson(Iterable<dynamic>? json) {
+  static List<ApplicationAbout> listFromJson(List<dynamic>? json) {
     if (json == null) {
       return <ApplicationAbout>[];
     }

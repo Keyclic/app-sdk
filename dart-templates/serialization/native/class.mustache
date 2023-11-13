@@ -251,7 +251,14 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     return <String, dynamic>{
   {{#vars}}
     {{^required}}
-    if ((keys == null && {{{name}}} != null) || (keys?.contains(r'{{{name}}}') ?? false))
+    if ((keys == null && {{{name}}} != null) || (keys?.
+    {{#isModel}}
+    any((key) => RegExp(r'^{{{name}}}.').hasMatch(key))
+    {{/isModel}}
+    {{^isModel}}
+    contains(r'{{{name}}}')
+    {{/isModel}}
+    ?? false))
     {{/required}}
     {{#isDateTime}}
       {{#pattern}}

@@ -35,14 +35,14 @@ class IntegrationIntegrationRead {
     return IntegrationIntegrationRead(
       inputs: json[r'inputs'] == null
           ? null
-          : Map<String, Object>.from(json[r'inputs']),
+          : Map<String, Object?>.from(json[r'inputs']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
   }
 
-  Map<String, Object>? inputs;
+  Map<String, Object?>? inputs;
 
   /// The resource identifier.
   final String? id;

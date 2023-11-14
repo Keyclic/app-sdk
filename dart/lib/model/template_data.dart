@@ -25,24 +25,24 @@ class TemplateData {
     return TemplateData(
       body: json[r'body'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'body']),
+          : List<Map<String, Object?>>.from(json[r'body']),
       footer: json[r'footer'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'footer']),
+          : List<Map<String, Object?>>.from(json[r'footer']),
       header: json[r'header'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'header']),
+          : List<Map<String, Object?>>.from(json[r'header']),
       name: json[r'name'],
       organization: json[r'organization'],
       type: json[r'type'],
     );
   }
 
-  List<Map<String, Object>>? body;
+  List<Map<String, Object?>>? body;
 
-  List<Map<String, Object>>? footer;
+  List<Map<String, Object?>>? footer;
 
-  List<Map<String, Object>>? header;
+  List<Map<String, Object?>>? header;
 
   String name;
 

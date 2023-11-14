@@ -165,7 +165,17 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{#isReadOnly}}final {{/isReadOnly}}Map<String, Object?>{{^required}}?{{/required}} {{{name}}};
   {{/isFreeFormObject}}
   {{^isFreeFormObject}}
-    {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+    {{#isArray}}
+      {{#items.isFreeFormObject}}
+        {{#isReadOnly}}final {{/isReadOnly}}List<Map<String, Object?>>{{^required}}?{{/required}} {{{name}}};
+      {{/items.isFreeFormObject}}
+      {{^items.isFreeFormObject}}
+        {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+      {{/items.isFreeFormObject}}
+    {{/isArray}}
+    {{^isArray}}
+      {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+    {{/isArray}}
   {{/isFreeFormObject}}
 
   {{/vars}}

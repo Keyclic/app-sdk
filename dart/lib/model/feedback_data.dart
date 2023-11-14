@@ -35,7 +35,7 @@ class FeedbackData {
       geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
       metadata: json[r'metadata'] == null
           ? null
-          : Map<String, Object>.from(json[r'metadata']),
+          : Map<String, Object?>.from(json[r'metadata']),
       priority: json[r'priority'],
       reporter: json[r'reporter'],
       visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility'])!,
@@ -54,7 +54,7 @@ class FeedbackData {
 
   FeedbackDataGeo geo;
 
-  Map<String, Object>? metadata;
+  Map<String, Object?>? metadata;
 
   String? priority;
 

@@ -24,7 +24,7 @@ class DocumentPatch {
     return DocumentPatch(
       body: json[r'body'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'body']),
+          : List<Map<String, Object?>>.from(json[r'body']),
       file: DocumentPatchFile.fromJson(json[r'file']),
       permission: DocumentPatchPermission.fromJson(json[r'permission']),
       text: json[r'text'],
@@ -32,7 +32,7 @@ class DocumentPatch {
     );
   }
 
-  List<Map<String, Object>>? body;
+  List<Map<String, Object?>>? body;
 
   DocumentPatchFile? file;
 

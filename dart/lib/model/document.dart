@@ -45,7 +45,7 @@ class Document {
       links: DocumentLinks.fromJson(json[r'_links']),
       body: json[r'body'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'body']),
+          : List<Map<String, Object?>>.from(json[r'body']),
       createdAt: createdAt,
       file: DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],
@@ -62,7 +62,7 @@ class Document {
 
   DocumentLinks? links;
 
-  List<Map<String, Object>>? body;
+  List<Map<String, Object?>>? body;
 
   final DateTime? createdAt;
 

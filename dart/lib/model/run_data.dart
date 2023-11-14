@@ -23,22 +23,22 @@ class RunData {
     return RunData(
       event: json[r'event'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'event']),
+          : List<Map<String, Object?>>.from(json[r'event']),
       inputs: json[r'inputs'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'inputs']),
+          : List<Map<String, Object?>>.from(json[r'inputs']),
       outputs: json[r'outputs'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'outputs']),
+          : List<Map<String, Object?>>.from(json[r'outputs']),
       verbose: json[r'verbose'],
     );
   }
 
-  List<Map<String, Object>>? event;
+  List<Map<String, Object?>>? event;
 
-  List<Map<String, Object>>? inputs;
+  List<Map<String, Object?>>? inputs;
 
-  List<Map<String, Object>>? outputs;
+  List<Map<String, Object?>>? outputs;
 
   bool? verbose;
 

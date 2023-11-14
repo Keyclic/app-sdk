@@ -20,11 +20,11 @@ class NotePatch {
     return NotePatch(
       text: json[r'text'] == null
           ? null
-          : List<Map<String, Object>>.from(json[r'text']),
+          : List<Map<String, Object?>>.from(json[r'text']),
     );
   }
 
-  List<Map<String, Object>>? text;
+  List<Map<String, Object?>>? text;
 
   @override
   bool operator ==(Object other) {

@@ -8,13 +8,13 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**asset** | **String** |  | 
 **batch** | **String** |  | [optional] 
 **businessActivity** | **String** |  | [optional] 
 **category** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
-**place** | **String** |  | 
 **priority** | **String** |  | [optional] 
 **reporter** | **String** |  | [optional] 
 **visibility** | **String** |  | 

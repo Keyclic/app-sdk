@@ -10,10 +10,10 @@ void main() {
   // final instance = BookmarkData();
 
   group('test BookmarkData', () {
+    // String asset
+    test('to test the property `asset`', () async {});
+
     // String member
     test('to test the property `member`', () async {});
-
-    // String place
-    test('to test the property `place`', () async {});
   });
 }

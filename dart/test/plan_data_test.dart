@@ -10,13 +10,13 @@ void main() {
   // final instance = PlanData();
 
   group('test PlanData', () {
+    // String asset
+    test('to test the property `asset`', () async {});
+
     // String file
     test('to test the property `file`', () async {});
 
     // String name
     test('to test the property `name`', () async {});
-
-    // String place
-    test('to test the property `place`', () async {});
   });
 }

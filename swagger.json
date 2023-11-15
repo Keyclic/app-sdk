@@ -18105,16 +18105,16 @@
         "BookmarkData": {
             "type": "object",
             "properties": {
-                "member": {
+                "asset": {
                     "type": "string"
                 },
-                "place": {
+                "member": {
                     "type": "string"
                 }
             },
             "required": [
-                "member",
-                "place"
+                "asset",
+                "member"
             ]
         },
         "BookmarkLinksMember": {
@@ -20154,6 +20154,9 @@
         "FeedbackData": {
             "type": "object",
             "properties": {
+                "asset": {
+                    "type": "string"
+                },
                 "batch": {
                     "type": "string"
                 },
@@ -20192,9 +20195,6 @@
                     "type": "object",
                     "additionalProperties": true
                 },
-                "place": {
-                    "type": "string"
-                },
                 "priority": {
                     "type": "string"
                 },
@@ -20212,8 +20212,8 @@
                 }
             },
             "required": [
+                "asset",
                 "geo",
-                "place",
                 "visibility"
             ]
         },
@@ -21847,16 +21847,16 @@
         "OccupantData": {
             "type": "object",
             "properties": {
-                "member": {
+                "asset": {
                     "type": "string"
                 },
-                "place": {
+                "member": {
                     "type": "string"
                 }
             },
             "required": [
-                "member",
-                "place"
+                "asset",
+                "member"
             ]
         },
         "OccupantLinksMember": {
@@ -23652,19 +23652,19 @@
         "PlanData": {
             "type": "object",
             "properties": {
+                "asset": {
+                    "type": "string"
+                },
                 "file": {
                     "type": "string"
                 },
                 "name": {
                     "type": "string"
-                },
-                "place": {
-                    "type": "string"
                 }
             },
             "required": [
-                "file",
-                "place"
+                "asset",
+                "file"
             ]
         },
         "PlanLinksImage": {

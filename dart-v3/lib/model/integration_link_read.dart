@@ -40,10 +40,10 @@ class IntegrationLinkRead {
     return IntegrationLinkRead(
       data: json[r'data'] == null
           ? null
-          : Map<String, Object>.from(json[r'data']),
+          : Map<String, Object?>.from(json[r'data']),
       metadata: json[r'metadata'] == null
           ? null
-          : Map<String, Object>.from(json[r'metadata']),
+          : Map<String, Object?>.from(json[r'metadata']),
       name: json[r'name'],
       source_: json[r'source'],
       state: IntegrationLinkReadStateEnum.fromJson(json[r'state']),
@@ -54,9 +54,9 @@ class IntegrationLinkRead {
     );
   }
 
-  Map<String, Object>? data;
+  Map<String, Object?>? data;
 
-  Map<String, Object>? metadata;
+  Map<String, Object?>? metadata;
 
   String? name;
 

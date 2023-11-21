@@ -37,7 +37,7 @@ class {{classname}} {
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isHeaderParam}}{{#isBodyParam}}
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isBodyParam}}{{#isFormParam}}
     {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isFormParam}}{{/allParams}}
-    {{#hasConsumes}}{{#hasBodyParam}}List<String>? bodyParameters,{{/hasBodyParam}}{{/hasConsumes}}
+    {{#hasConsumes}}{{#hasBodyParam}}Iterable<String>? bodyParameters,{{/hasBodyParam}}{{/hasConsumes}}
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

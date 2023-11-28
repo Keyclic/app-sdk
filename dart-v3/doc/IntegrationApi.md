@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIntegrations**
-> GetIntegrations200Response getIntegrations(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage)
+> GetIntegrations200Response getIntegrations(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage)
 
 Retrieves the collection of Integration resources.
 
@@ -89,6 +89,7 @@ final updatedAtLeftSquareBracketBeforeRightSquareBracket = updatedAtLeftSquareBr
 final updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket = updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket_example; // String | 
 final updatedAtLeftSquareBracketAfterRightSquareBracket = updatedAtLeftSquareBracketAfterRightSquareBracket_example; // String | 
 final updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket = updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket_example; // String | 
+final jsonInputs = []; // List<String> | 
 final orderLeftSquareBracketCreatedAtRightSquareBracket = orderLeftSquareBracketCreatedAtRightSquareBracket_example; // String | 
 final orderLeftSquareBracketUpdatedAtRightSquareBracket = orderLeftSquareBracketUpdatedAtRightSquareBracket_example; // String | 
 final connectorPeriodIdentifier = connectorPeriodIdentifier_example; // String | 
@@ -98,7 +99,7 @@ final organizationPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // L
 final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    final result = api_instance.getIntegrations(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage);
+    final result = api_instance.getIntegrations(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {
     print('Exception when calling IntegrationApi->getIntegrations: $e\n');
@@ -120,6 +121,7 @@ Name | Type | Description  | Notes
  **updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket** | **String**|  | [optional] 
  **updatedAtLeftSquareBracketAfterRightSquareBracket** | **String**|  | [optional] 
  **updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket** | **String**|  | [optional] 
+ **jsonInputs** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **orderLeftSquareBracketCreatedAtRightSquareBracket** | **String**|  | [optional] 
  **orderLeftSquareBracketUpdatedAtRightSquareBracket** | **String**|  | [optional] 
  **connectorPeriodIdentifier** | **String**|  | [optional] 

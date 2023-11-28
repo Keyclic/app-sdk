@@ -5922,6 +5922,23 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "json_inputs",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "deepObject",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "order[createdAt]",
                         "in": "query",
                         "description": "",

@@ -8086,15 +8086,13 @@
                         "minLength": 1,
                         "maxLength": 255,
                         "description": "Name of the contract.",
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "number": {
                         "minLength": 1,
                         "maxLength": 255,
                         "description": "Number assigned to the contract by the organization. Each contract must have a unique contract number to ensure that contracts can be easily identified and tracked.",
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "onCall": {
                         "description": "The onCall property represents whether a staff member is currently available for on-call duties.",
@@ -8373,15 +8371,13 @@
                         "minLength": 1,
                         "maxLength": 255,
                         "description": "Name of the contract.",
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "number": {
                         "minLength": 1,
                         "maxLength": 255,
                         "description": "Number assigned to the contract by the organization. Each contract must have a unique contract number to ensure that contracts can be easily identified and tracked.",
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "onCall": {
                         "description": "The onCall property represents whether a staff member is currently available for on-call duties.",

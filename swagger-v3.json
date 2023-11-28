@@ -1547,6 +1547,76 @@
             },
             "parameters": []
         },
+        "/connectors/{identifier}": {
+            "get": {
+                "operationId": "getConnector",
+                "tags": [
+                    "Connector"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Connector resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Connector.jsonhal-connector.read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Connector-connector.read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Connector resource.",
+                "description": "Retrieves a Connector resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Connector identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
         "/contract-types": {
             "get": {
                 "operationId": "getContractTypes",
@@ -8114,6 +8184,80 @@
                     "name"
                 ]
             },
+            "Connector-connector.read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Connector.jsonhal-connector.read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
             "Contract-Read": {
                 "type": "object",
                 "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
@@ -8981,6 +9125,10 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "connector": {
+                        "type": "string",
+                        "format": "iri-reference"
+                    },
                     "inputs": {
                         "type": "object",
                         "additionalProperties": true
@@ -9022,6 +9170,15 @@
                         "type": "object",
                         "properties": {
                             "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "connector": {
                                 "type": "object",
                                 "properties": {
                                     "href": {

@@ -8,6 +8,7 @@ class IntegrationJsonhalIntegrationReadLinks {
   /// Returns a new [IntegrationJsonhalIntegrationReadLinks] instance.
   IntegrationJsonhalIntegrationReadLinks({
     this.self,
+    this.connector,
     this.organization,
   });
 
@@ -21,12 +22,16 @@ class IntegrationJsonhalIntegrationReadLinks {
 
     return IntegrationJsonhalIntegrationReadLinks(
       self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      connector:
+          GetAssetTypes200ResponseLinksFirst.fromJson(json[r'connector']),
       organization:
           GetAssetTypes200ResponseLinksFirst.fromJson(json[r'organization']),
     );
   }
 
   GetAssetTypes200ResponseLinksFirst? self;
+
+  GetAssetTypes200ResponseLinksFirst? connector;
 
   GetAssetTypes200ResponseLinksFirst? organization;
 
@@ -39,12 +44,14 @@ class IntegrationJsonhalIntegrationReadLinks {
 
     return other is IntegrationJsonhalIntegrationReadLinks &&
         other.self == self &&
+        other.connector == connector &&
         other.organization == organization;
   }
 
   @override
   int get hashCode =>
       (self == null ? 0 : self.hashCode) +
+      (connector == null ? 0 : connector.hashCode) +
       (organization == null ? 0 : organization.hashCode);
 
   static List<IntegrationJsonhalIntegrationReadLinks> listFromJson(
@@ -99,12 +106,15 @@ class IntegrationJsonhalIntegrationReadLinks {
 
   @override
   String toString() =>
-      'IntegrationJsonhalIntegrationReadLinks[self=$self, organization=$organization]';
+      'IntegrationJsonhalIntegrationReadLinks[self=$self, connector=$connector, organization=$organization]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
         r'self': self?.toJson(),
+      if ((keys == null && connector != null) ||
+          (keys?.contains(r'connector') ?? false))
+        r'connector': connector?.toJson(),
       if ((keys == null && organization != null) ||
           (keys?.contains(r'organization') ?? false))
         r'organization': organization?.toJson(),

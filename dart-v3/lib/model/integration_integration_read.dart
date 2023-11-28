@@ -7,6 +7,7 @@ part of keyclic_sdk_api_platform;
 class IntegrationIntegrationRead {
   /// Returns a new [IntegrationIntegrationRead] instance.
   IntegrationIntegrationRead({
+    this.connector,
     this.inputs,
     this.organization,
     this.id,
@@ -35,6 +36,7 @@ class IntegrationIntegrationRead {
     }
 
     return IntegrationIntegrationRead(
+      connector: json[r'connector'],
       inputs: json[r'inputs'] == null
           ? null
           : Map<String, Object?>.from(json[r'inputs']),
@@ -45,6 +47,8 @@ class IntegrationIntegrationRead {
       name: json[r'name'],
     );
   }
+
+  String? connector;
 
   Map<String, Object?>? inputs;
 
@@ -69,6 +73,7 @@ class IntegrationIntegrationRead {
     }
 
     return other is IntegrationIntegrationRead &&
+        other.connector == connector &&
         DeepCollectionEquality.unordered().equals(inputs, other.inputs) &&
         other.organization == organization &&
         other.id == id &&
@@ -79,6 +84,7 @@ class IntegrationIntegrationRead {
 
   @override
   int get hashCode =>
+      (connector == null ? 0 : connector.hashCode) +
       (inputs == null ? 0 : inputs.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
       (id == null ? 0 : id.hashCode) +
@@ -136,10 +142,13 @@ class IntegrationIntegrationRead {
 
   @override
   String toString() =>
-      'IntegrationIntegrationRead[inputs=$inputs, organization=$organization, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
+      'IntegrationIntegrationRead[connector=$connector, inputs=$inputs, organization=$organization, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
+      if ((keys == null && connector != null) ||
+          (keys?.contains(r'connector') ?? false))
+        r'connector': connector,
       if ((keys == null && inputs != null) ||
           (keys?.contains(r'inputs') ?? false))
         r'inputs': inputs,

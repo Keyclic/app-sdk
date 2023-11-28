@@ -79,6 +79,11 @@ class ApiPlatformClient {
     return BrandApi(this);
   }
 
+  /// Get ConnectorApi instance
+  ConnectorApi getConnectorApi() {
+    return ConnectorApi(this);
+  }
+
   /// Get ContractApi instance
   ContractApi getContractApi() {
     return ContractApi(this);
@@ -196,6 +201,10 @@ class ApiPlatformClient {
           return BrandJsonhalRead.fromJson(value);
         case 'BrandRead':
           return BrandRead.fromJson(value);
+        case 'ConnectorConnectorRead':
+          return ConnectorConnectorRead.fromJson(value);
+        case 'ConnectorJsonhalConnectorRead':
+          return ConnectorJsonhalConnectorRead.fromJson(value);
         case 'ContractCreateContractCommandWrite':
           return ContractCreateContractCommandWrite.fromJson(value);
         case 'ContractEditContractCommandWrite':

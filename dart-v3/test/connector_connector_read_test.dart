@@ -5,19 +5,13 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for IntegrationIntegrationRead
+// tests for ConnectorConnectorRead
 void main() {
-  // final instance = IntegrationIntegrationRead();
+  // final instance = ConnectorConnectorRead();
 
-  group('test IntegrationIntegrationRead', () {
-    // String connector
-    test('to test the property `connector`', () async {});
-
-    // Map<String, dynamic> inputs (default value: const {})
-    test('to test the property `inputs`', () async {});
-
-    // String organization
-    test('to test the property `organization`', () async {});
+  group('test ConnectorConnectorRead', () {
+    // String name
+    test('to test the property `name`', () async {});
 
     // The resource identifier.
     // String id
@@ -30,8 +24,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // String name
-    test('to test the property `name`', () async {});
   });
 }

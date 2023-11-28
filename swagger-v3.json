@@ -9005,6 +9005,11 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "name": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
                     }
                 }
             },
@@ -9056,6 +9061,11 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "name": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
                     }
                 }
             },

@@ -12,6 +12,7 @@ class IntegrationIntegrationRead {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.name,
   });
 
   /// Returns a new [IntegrationIntegrationRead] instance and imports its values from
@@ -41,6 +42,7 @@ class IntegrationIntegrationRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      name: json[r'name'],
     );
   }
 
@@ -57,6 +59,8 @@ class IntegrationIntegrationRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  final String? name;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -69,7 +73,8 @@ class IntegrationIntegrationRead {
         other.organization == organization &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.name == name;
   }
 
   @override
@@ -78,7 +83,8 @@ class IntegrationIntegrationRead {
       (organization == null ? 0 : organization.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<IntegrationIntegrationRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -130,7 +136,7 @@ class IntegrationIntegrationRead {
 
   @override
   String toString() =>
-      'IntegrationIntegrationRead[inputs=$inputs, organization=$organization, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'IntegrationIntegrationRead[inputs=$inputs, organization=$organization, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -148,6 +154,8 @@ class IntegrationIntegrationRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

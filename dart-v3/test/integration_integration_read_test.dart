@@ -27,5 +27,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // String name
+    test('to test the property `name`', () async {});
   });
 }

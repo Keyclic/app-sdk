@@ -107,6 +107,7 @@ class IntegrationApi {
   /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [jsonInputs] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
   /// * [connectorPeriodIdentifier] -
@@ -135,6 +136,7 @@ class IntegrationApi {
     String? updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
+    List<String>? jsonInputs,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
     String? connectorPeriodIdentifier,
@@ -200,6 +202,9 @@ class IntegrationApi {
       if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'updatedAt[strictly_after]': encodeQueryParameter(
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (jsonInputs != null)
+        r'json_inputs':
+            encodeCollectionQueryParameter(jsonInputs, format: ListFormat.csv),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),

@@ -12,6 +12,7 @@ class IntegrationJsonhalIntegrationRead {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.name,
   });
 
   /// Returns a new [IntegrationJsonhalIntegrationRead] instance and imports its values from
@@ -42,6 +43,7 @@ class IntegrationJsonhalIntegrationRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      name: json[r'name'],
     );
   }
 
@@ -58,6 +60,8 @@ class IntegrationJsonhalIntegrationRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  final String? name;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -70,7 +74,8 @@ class IntegrationJsonhalIntegrationRead {
         DeepCollectionEquality.unordered().equals(inputs, other.inputs) &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.name == name;
   }
 
   @override
@@ -79,7 +84,8 @@ class IntegrationJsonhalIntegrationRead {
       (inputs == null ? 0 : inputs.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<IntegrationJsonhalIntegrationRead> listFromJson(
       List<dynamic>? json) {
@@ -133,7 +139,7 @@ class IntegrationJsonhalIntegrationRead {
 
   @override
   String toString() =>
-      'IntegrationJsonhalIntegrationRead[links=$links, inputs=$inputs, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'IntegrationJsonhalIntegrationRead[links=$links, inputs=$inputs, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -151,6 +157,8 @@ class IntegrationJsonhalIntegrationRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
+        r'name': name,
     };
   }
 }

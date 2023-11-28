@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIntegrationLinks**
-> GetIntegrationLinks200Response getIntegrationLinks(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage)
+> GetIntegrationLinks200Response getIntegrationLinks(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage)
 
 Retrieves the collection of IntegrationLink resources.
 
@@ -135,6 +135,8 @@ final pagination = true; // bool | Enable or disable pagination
 final existsLeftSquareBracketTargetRightSquareBracket = true; // bool | 
 final jsonData = []; // List<String> | 
 final jsonMetadata = []; // List<String> | 
+final integration = integration_example; // String | 
+final integrationLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final source_ = source__example; // String | 
 final sourceLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final state = state_example; // String | 
@@ -144,7 +146,7 @@ final targetLeftSquareBracketRightSquareBracket = []; // List<String> |
 final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    final result = api_instance.getIntegrationLinks(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage);
+    final result = api_instance.getIntegrationLinks(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {
     print('Exception when calling IntegrationLinkApi->getIntegrationLinks: $e\n');
@@ -161,6 +163,8 @@ Name | Type | Description  | Notes
  **existsLeftSquareBracketTargetRightSquareBracket** | **bool**|  | [optional] 
  **jsonData** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **jsonMetadata** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **integration** | **String**|  | [optional] 
+ **integrationLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **source_** | **String**|  | [optional] 
  **sourceLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **state** | **String**|  | [optional] 

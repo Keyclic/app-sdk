@@ -159,6 +159,8 @@ class IntegrationLinkApi {
   /// * [existsLeftSquareBracketTargetRightSquareBracket] -
   /// * [jsonData] -
   /// * [jsonMetadata] -
+  /// * [integration] -
+  /// * [integrationLeftSquareBracketRightSquareBracket] -
   /// * [source_] -
   /// * [sourceLeftSquareBracketRightSquareBracket] -
   /// * [state] -
@@ -182,6 +184,8 @@ class IntegrationLinkApi {
     bool? existsLeftSquareBracketTargetRightSquareBracket,
     List<String>? jsonData,
     List<String>? jsonMetadata,
+    String? integration,
+    List<String>? integrationLeftSquareBracketRightSquareBracket,
     String? source_,
     List<String>? sourceLeftSquareBracketRightSquareBracket,
     String? state,
@@ -231,6 +235,12 @@ class IntegrationLinkApi {
       if (jsonMetadata != null)
         r'json_metadata': encodeCollectionQueryParameter(jsonMetadata,
             format: ListFormat.csv),
+      if (integration != null)
+        r'integration': encodeQueryParameter(integration),
+      if (integrationLeftSquareBracketRightSquareBracket != null)
+        r'integration[]': encodeCollectionQueryParameter(
+            integrationLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (source_ != null) r'source': encodeQueryParameter(source_),
       if (sourceLeftSquareBracketRightSquareBracket != null)
         r'source[]': encodeCollectionQueryParameter(

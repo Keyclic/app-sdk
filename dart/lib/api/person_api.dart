@@ -160,6 +160,7 @@ class PersonApi {
   /// * [xKeyclicAppVersion]
   /// * [orderLeftSquareBracketRightSquareBracket]
   /// * [archived]
+  /// * [contactPointEmail]
   /// * [after]
   /// * [before]
   /// * [organization]
@@ -191,6 +192,7 @@ class PersonApi {
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
     String? archived,
+    String? contactPointEmail,
     DateTime? after,
     DateTime? before,
     String? organization,
@@ -244,6 +246,8 @@ class PersonApi {
             orderLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (archived != null) r'archived': encodeQueryParameter(archived),
+      if (contactPointEmail != null)
+        r'contact_point_email': encodeQueryParameter(contactPointEmail),
       if (after != null) r'after': encodeQueryParameter(after),
       if (before != null) r'before': encodeQueryParameter(before),
       if (organization != null)

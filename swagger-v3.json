@@ -5245,6 +5245,37 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "integration",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "integration[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "source",
                         "in": "query",
                         "description": "",
@@ -8954,6 +8985,10 @@
                         "type": "object",
                         "additionalProperties": true
                     },
+                    "organization": {
+                        "type": "string",
+                        "format": "iri-reference"
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -8982,6 +9017,15 @@
                         "type": "object",
                         "properties": {
                             "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "organization": {
                                 "type": "object",
                                 "properties": {
                                     "href": {

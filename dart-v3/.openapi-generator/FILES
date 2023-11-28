@@ -57,6 +57,7 @@ doc/GetTickets200ResponseEmbedded.md
 doc/IntegrationApi.md
 doc/IntegrationIntegrationRead.md
 doc/IntegrationJsonhalIntegrationRead.md
+doc/IntegrationJsonhalIntegrationReadLinks.md
 doc/IntegrationLinkApi.md
 doc/IntegrationLinkCreateLinkCommandWrite.md
 doc/IntegrationLinkEditLinkCommandWrite.md
@@ -151,6 +152,7 @@ lib/model/get_tickets200_response.dart
 lib/model/get_tickets200_response_embedded.dart
 lib/model/integration_integration_read.dart
 lib/model/integration_jsonhal_integration_read.dart
+lib/model/integration_jsonhal_integration_read_links.dart
 lib/model/integration_link_create_link_command_write.dart
 lib/model/integration_link_edit_link_command_write.dart
 lib/model/integration_link_jsonhal_read.dart
@@ -227,6 +229,7 @@ test/get_tickets200_response_embedded_test.dart
 test/get_tickets200_response_test.dart
 test/integration_api_test.dart
 test/integration_integration_read_test.dart
+test/integration_jsonhal_integration_read_links_test.dart
 test/integration_jsonhal_integration_read_test.dart
 test/integration_link_api_test.dart
 test/integration_link_create_link_command_write_test.dart

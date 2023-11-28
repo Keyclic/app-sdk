@@ -25,6 +25,9 @@ void main() {
     // String source_
     test('to test the property `source_`', () async {});
 
+    // String state
+    test('to test the property `state`', () async {});
+
     // String target
     test('to test the property `target`', () async {});
   });

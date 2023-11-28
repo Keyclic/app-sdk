@@ -12,6 +12,7 @@ class IntegrationLinkCreateLinkCommandWrite {
     this.metadata,
     this.name,
     required this.source_,
+    this.state,
     this.target,
   });
 
@@ -33,6 +34,8 @@ class IntegrationLinkCreateLinkCommandWrite {
           : Map<String, Object?>.from(json[r'metadata']),
       name: json[r'name'],
       source_: json[r'source'],
+      state: IntegrationLinkCreateLinkCommandWriteStateEnum.fromJson(
+          json[r'state']),
       target: json[r'target'],
     );
   }
@@ -46,6 +49,8 @@ class IntegrationLinkCreateLinkCommandWrite {
   String? name;
 
   String source_;
+
+  IntegrationLinkCreateLinkCommandWriteStateEnum? state;
 
   String? target;
 
@@ -62,6 +67,7 @@ class IntegrationLinkCreateLinkCommandWrite {
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.name == name &&
         other.source_ == source_ &&
+        other.state == state &&
         other.target == target;
   }
 
@@ -72,6 +78,7 @@ class IntegrationLinkCreateLinkCommandWrite {
       (metadata == null ? 0 : metadata.hashCode) +
       (name == null ? 0 : name.hashCode) +
       source_.hashCode +
+      (state == null ? 0 : state.hashCode) +
       (target == null ? 0 : target.hashCode);
 
   static List<IntegrationLinkCreateLinkCommandWrite> listFromJson(
@@ -126,7 +133,7 @@ class IntegrationLinkCreateLinkCommandWrite {
 
   @override
   String toString() =>
-      'IntegrationLinkCreateLinkCommandWrite[data=$data, integration=$integration, metadata=$metadata, name=$name, source_=$source_, target=$target]';
+      'IntegrationLinkCreateLinkCommandWrite[data=$data, integration=$integration, metadata=$metadata, name=$name, source_=$source_, state=$state, target=$target]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -139,9 +146,91 @@ class IntegrationLinkCreateLinkCommandWrite {
       if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
         r'name': name,
       r'source': source_,
+      if ((keys == null && state != null) ||
+          (keys?.contains(r'state') ?? false))
+        r'state': state,
       if ((keys == null && target != null) ||
           (keys?.contains(r'target') ?? false))
         r'target': target,
     };
   }
+}
+
+class IntegrationLinkCreateLinkCommandWriteStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const IntegrationLinkCreateLinkCommandWriteStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const ACTIVE =
+      IntegrationLinkCreateLinkCommandWriteStateEnum._(r'ACTIVE');
+  static const INACTIVE =
+      IntegrationLinkCreateLinkCommandWriteStateEnum._(r'INACTIVE');
+
+  /// List of all possible values in this [enum][IntegrationLinkCreateLinkCommandWriteStateEnum].
+  static const values = <IntegrationLinkCreateLinkCommandWriteStateEnum>[
+    ACTIVE,
+    INACTIVE,
+  ];
+
+  static IntegrationLinkCreateLinkCommandWriteStateEnum? fromJson(
+          dynamic value) =>
+      IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer()
+          .decode(value);
+
+  static List<IntegrationLinkCreateLinkCommandWriteStateEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return IntegrationLinkCreateLinkCommandWriteStateEnum.fromJson(value);
+        })
+        .whereType<IntegrationLinkCreateLinkCommandWriteStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [IntegrationLinkCreateLinkCommandWriteStateEnum] to String,
+/// and [decode] dynamic data back to [IntegrationLinkCreateLinkCommandWriteStateEnum].
+class IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer {
+  const IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer._();
+
+  factory IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer() =>
+      _instance ??=
+          IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer._();
+
+  String encode(IntegrationLinkCreateLinkCommandWriteStateEnum data) =>
+      data.value;
+
+  /// Decodes a [dynamic value][data] to a IntegrationLinkCreateLinkCommandWriteStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  IntegrationLinkCreateLinkCommandWriteStateEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'ACTIVE':
+        return IntegrationLinkCreateLinkCommandWriteStateEnum.ACTIVE;
+      case r'INACTIVE':
+        return IntegrationLinkCreateLinkCommandWriteStateEnum.INACTIVE;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer] instance.
+  static IntegrationLinkCreateLinkCommandWriteStateEnumTypeTransformer?
+      _instance;
 }

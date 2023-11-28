@@ -13,6 +13,7 @@ class TicketRead {
     this.tags,
     this.createdAt,
     this.updatedAt,
+    this.archived,
   });
 
   /// Returns a new [TicketRead] instance and imports its values from
@@ -48,6 +49,7 @@ class TicketRead {
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       createdAt: createdAt,
       updatedAt: updatedAt,
+      archived: json[r'archived'],
     );
   }
 
@@ -66,6 +68,8 @@ class TicketRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  final bool? archived;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -79,7 +83,8 @@ class TicketRead {
         other.id == id &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.archived == archived;
   }
 
   @override
@@ -89,7 +94,8 @@ class TicketRead {
       (id == null ? 0 : id.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (archived == null ? 0 : archived.hashCode);
 
   static List<TicketRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -137,7 +143,7 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[description=$description, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'TicketRead[description=$description, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -157,6 +163,9 @@ class TicketRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && archived != null) ||
+          (keys?.contains(r'archived') ?? false))
+        r'archived': archived,
     };
   }
 }

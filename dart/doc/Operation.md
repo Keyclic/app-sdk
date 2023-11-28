@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **embedded** | [**OperationEmbedded**](OperationEmbedded.md) |  | [optional] 
 **links** | [**OperationLinks**](OperationLinks.md) |  | [optional] 
+**archived** | **bool** |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **description** | **String** |  | [optional] 
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] 

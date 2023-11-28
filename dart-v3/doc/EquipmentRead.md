@@ -15,16 +15,16 @@ Name | Type | Description | Notes
 **mpn** | **String** | The Manufacturer Part Number (MPN) is a unique identifier assigned by the manufacturer to a specific part or component of an asset. | [optional] 
 **retirementDate** | [**DateTime**](DateTime.md) | The date when an asset is expected to reach the end of its operational life based on the commissioning date and the estimated lifetime. | [optional] [readonly] 
 **serialNumber** | **String** | The unique identifier assigned to an individual asset, allowing for easy identification and tracking. | [optional] 
-**warranty** | [**WarrantyRead**](WarrantyRead.md) |  | [optional] 
 **type** | **String** |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
+**warranty** | [**WarrantyRead**](WarrantyRead.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
-**address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 
 **parent** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
+**address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

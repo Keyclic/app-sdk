@@ -15,13 +15,13 @@ class ContractJsonhalRead {
     required this.name,
     required this.number,
     this.onCall,
-    this.renewal,
     this.signedAt,
     this.state = const ContractJsonhalReadStateEnum._('DRAFT'),
     this.terminationDate,
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.renewal,
   });
 
   /// Returns a new [ContractJsonhalRead] instance and imports its values from
@@ -70,13 +70,13 @@ class ContractJsonhalRead {
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      renewal: RenewalJsonhalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      renewal: RenewalJsonhalRead.fromJson(json[r'renewal']),
     );
   }
 
@@ -102,8 +102,6 @@ class ContractJsonhalRead {
   /// The onCall property represents whether a staff member is currently available for on-call duties.
   bool? onCall;
 
-  RenewalJsonhalRead? renewal;
-
   DateTime? signedAt;
 
   /// Current state of the contract.
@@ -121,6 +119,8 @@ class ContractJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  RenewalJsonhalRead? renewal;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -137,13 +137,13 @@ class ContractJsonhalRead {
         other.name == name &&
         other.number == number &&
         other.onCall == onCall &&
-        other.renewal == renewal &&
         other.signedAt == signedAt &&
         other.state == state &&
         other.terminationDate == terminationDate &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.renewal == renewal;
   }
 
   @override
@@ -156,13 +156,13 @@ class ContractJsonhalRead {
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
-      (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (renewal == null ? 0 : renewal.hashCode);
 
   static List<ContractJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -213,7 +213,7 @@ class ContractJsonhalRead {
 
   @override
   String toString() =>
-      'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, renewal=$renewal]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -235,9 +235,6 @@ class ContractJsonhalRead {
       if ((keys == null && onCall != null) ||
           (keys?.contains(r'onCall') ?? false))
         r'onCall': onCall,
-      if ((keys == null && renewal != null) ||
-          (keys?.contains(r'renewal') ?? false))
-        r'renewal': renewal?.toJson(),
       if ((keys == null && signedAt != null) ||
           (keys?.contains(r'signedAt') ?? false))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
@@ -253,6 +250,9 @@ class ContractJsonhalRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && renewal != null) ||
+          (keys?.contains(r'renewal') ?? false))
+        r'renewal': renewal?.toJson(),
     };
   }
 }

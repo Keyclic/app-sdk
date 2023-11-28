@@ -38,9 +38,6 @@ void main() {
     // String serialNumber
     test('to test the property `serialNumber`', () async {});
 
-    // WarrantyRead warranty
-    test('to test the property `warranty`', () async {});
-
     // String type
     test('to test the property `type`', () async {});
 
@@ -56,19 +53,22 @@ void main() {
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
 
+    // WarrantyRead warranty
+    test('to test the property `warranty`', () async {});
+
     // String description
     test('to test the property `description`', () async {});
 
     // String name
     test('to test the property `name`', () async {});
 
-    // PostalAddressRead address
-    test('to test the property `address`', () async {});
-
     // String parent
     test('to test the property `parent`', () async {});
 
     // String state
     test('to test the property `state`', () async {});
+
+    // PostalAddressRead address
+    test('to test the property `address`', () async {});
   });
 }

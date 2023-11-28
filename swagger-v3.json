@@ -8104,9 +8104,6 @@
                         "format": "iri-reference",
                         "nullable": true
                     },
-                    "renewal": {
-                        "$ref": "#/components/schemas/Renewal-Read"
-                    },
                     "signedAt": {
                         "type": "string",
                         "format": "date-time",
@@ -8153,6 +8150,15 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "renewal": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal-Read"
+                            }
+                        ],
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -8383,9 +8389,6 @@
                         "description": "The onCall property represents whether a staff member is currently available for on-call duties.",
                         "type": "boolean"
                     },
-                    "renewal": {
-                        "$ref": "#/components/schemas/Renewal.jsonhal-Read"
-                    },
                     "signedAt": {
                         "type": "string",
                         "format": "date-time",
@@ -8426,6 +8429,15 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "renewal": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
                     }
                 },
                 "required": [
@@ -8570,10 +8582,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "warranty": {
-                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
-                        "$ref": "#/components/schemas/Warranty-Read"
-                    },
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
@@ -8596,15 +8604,21 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "warranty": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Warranty-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "description": {
                         "type": "string",
                         "nullable": true
                     },
                     "name": {
                         "type": "string"
-                    },
-                    "address": {
-                        "$ref": "#/components/schemas/PostalAddress-Read"
                     },
                     "parent": {
                         "type": "string",
@@ -8614,6 +8628,15 @@
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "address": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress-Read"
+                            }
+                        ],
                         "nullable": true
                     }
                 },
@@ -8846,10 +8869,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "warranty": {
-                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
-                        "$ref": "#/components/schemas/Warranty.jsonhal-Read"
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -8867,6 +8886,15 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "warranty": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Warranty.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "description": {
                         "type": "string",
                         "nullable": true
@@ -8875,7 +8903,13 @@
                         "type": "string"
                     },
                     "address": {
-                        "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
                     }
                 },
                 "required": [

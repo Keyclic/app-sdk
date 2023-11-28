@@ -5,16 +5,16 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for ReportLinksAssignment
+// tests for ReportLinksCreatedBy
 void main() {
-  // final instance = ReportLinksAssignment();
+  // final instance = ReportLinksCreatedBy();
 
-  group('test ReportLinksAssignment', () {
-    // The URI of the assignment associated to the given report.
+  group('test ReportLinksCreatedBy', () {
+    // The URI of the createdBy associated to the given report.
     // String href
     test('to test the property `href`', () async {});
 
-    // ReportLinksAssignmentIriTemplate iriTemplate
+    // ReportLinksCreatedByIriTemplate iriTemplate
     test('to test the property `iriTemplate`', () async {});
   });
 }

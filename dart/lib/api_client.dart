@@ -1233,10 +1233,6 @@ class ApiClient {
           return ReportLinksAsset.fromJson(value);
         case 'ReportLinksAssetIriTemplate':
           return ReportLinksAssetIriTemplate.fromJson(value);
-        case 'ReportLinksAssignment':
-          return ReportLinksAssignment.fromJson(value);
-        case 'ReportLinksAssignmentIriTemplate':
-          return ReportLinksAssignmentIriTemplate.fromJson(value);
         case 'ReportLinksCategory':
           return ReportLinksCategory.fromJson(value);
         case 'ReportLinksCategoryIriTemplate':
@@ -1247,6 +1243,10 @@ class ApiClient {
           return ReportLinksChildrenIriTemplate.fromJson(value);
         case 'ReportLinksChildrenIriTemplateMapping':
           return ReportLinksChildrenIriTemplateMapping.fromJson(value);
+        case 'ReportLinksCreatedBy':
+          return ReportLinksCreatedBy.fromJson(value);
+        case 'ReportLinksCreatedByIriTemplate':
+          return ReportLinksCreatedByIriTemplate.fromJson(value);
         case 'ReportLinksEquipment':
           return ReportLinksEquipment.fromJson(value);
         case 'ReportLinksEquipmentIriTemplate':

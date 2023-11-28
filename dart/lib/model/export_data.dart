@@ -23,7 +23,7 @@ class ExportData {
     return ExportData(
       contentType: ExportDataContentTypeEnum.fromJson(json[r'contentType']),
       dataSource: ExportDataDataSourceEnum.fromJson(json[r'dataSource'])!,
-      groupBy: json[r'groupBy'],
+      groupBy: ExportDataGroupByEnum.fromJson(json[r'groupBy']),
       organization: json[r'organization'],
     );
   }
@@ -32,7 +32,7 @@ class ExportData {
 
   ExportDataDataSourceEnum dataSource;
 
-  String? groupBy;
+  ExportDataGroupByEnum? groupBy;
 
   String? organization;
 
@@ -262,4 +262,70 @@ class ExportDataDataSourceEnumTypeTransformer {
 
   /// Singleton [ExportDataDataSourceEnumTypeTransformer] instance.
   static ExportDataDataSourceEnumTypeTransformer? _instance;
+}
+
+class ExportDataGroupByEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ExportDataGroupByEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const asset = ExportDataGroupByEnum._(r'asset');
+
+  /// List of all possible values in this [enum][ExportDataGroupByEnum].
+  static const values = <ExportDataGroupByEnum>[
+    asset,
+  ];
+
+  static ExportDataGroupByEnum? fromJson(dynamic value) =>
+      ExportDataGroupByEnumTypeTransformer().decode(value);
+
+  static List<ExportDataGroupByEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return ExportDataGroupByEnum.fromJson(value);
+        })
+        .whereType<ExportDataGroupByEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ExportDataGroupByEnum] to String,
+/// and [decode] dynamic data back to [ExportDataGroupByEnum].
+class ExportDataGroupByEnumTypeTransformer {
+  const ExportDataGroupByEnumTypeTransformer._();
+
+  factory ExportDataGroupByEnumTypeTransformer() =>
+      _instance ??= ExportDataGroupByEnumTypeTransformer._();
+
+  String encode(ExportDataGroupByEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ExportDataGroupByEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ExportDataGroupByEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'asset':
+        return ExportDataGroupByEnum.asset;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ExportDataGroupByEnumTypeTransformer] instance.
+  static ExportDataGroupByEnumTypeTransformer? _instance;
 }

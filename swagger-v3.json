@@ -9035,6 +9035,14 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "state": {
+                        "enum": [
+                            "ACTIVE",
+                            "INACTIVE"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
                     "target": {
                         "type": "string",
                         "nullable": true

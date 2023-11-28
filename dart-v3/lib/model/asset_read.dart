@@ -11,11 +11,11 @@ class AssetRead {
     this.description,
     required this.name,
     this.id,
-    this.address,
     this.createdAt,
     this.updatedAt,
     this.parent,
     this.state,
+    this.address,
   });
 
   /// Returns a new [AssetRead] instance and imports its values from
@@ -42,11 +42,11 @@ class AssetRead {
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
-      address: PostalAddressRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       parent: json[r'parent'],
       state: json[r'state'],
+      address: PostalAddressRead.fromJson(json[r'address']),
     );
   }
 
@@ -59,8 +59,6 @@ class AssetRead {
   /// The resource identifier.
   final String? id;
 
-  PostalAddressRead? address;
-
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
 
@@ -70,6 +68,8 @@ class AssetRead {
   String? parent;
 
   String? state;
+
+  PostalAddressRead? address;
 
   @override
   bool operator ==(Object other) {
@@ -83,11 +83,11 @@ class AssetRead {
         other.description == description &&
         other.name == name &&
         other.id == id &&
-        other.address == address &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
         other.parent == parent &&
-        other.state == state;
+        other.state == state &&
+        other.address == address;
   }
 
   @override
@@ -96,11 +96,11 @@ class AssetRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
-      (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode);
+      (state == null ? 0 : state.hashCode) +
+      (address == null ? 0 : address.hashCode);
 
   static List<AssetRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -148,7 +148,7 @@ class AssetRead {
 
   @override
   String toString() =>
-      'AssetRead[type=$type, description=$description, name=$name, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
+      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, address=$address]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -160,9 +160,6 @@ class AssetRead {
       r'name': name,
       if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
         r'id': id,
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
       if ((keys == null && createdAt != null) ||
           (keys?.contains(r'createdAt') ?? false))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
@@ -175,6 +172,9 @@ class AssetRead {
       if ((keys == null && state != null) ||
           (keys?.contains(r'state') ?? false))
         r'state': state,
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
     };
   }
 }

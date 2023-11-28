@@ -23,9 +23,6 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
-    // PostalAddressJsonhalRead address
-    test('to test the property `address`', () async {});
-
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
@@ -33,5 +30,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // PostalAddressJsonhalRead address
+    test('to test the property `address`', () async {});
   });
 }

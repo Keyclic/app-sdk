@@ -11,9 +11,9 @@ class AssetJsonhalRead {
     this.description,
     required this.name,
     this.id,
-    this.address,
     this.createdAt,
     this.updatedAt,
+    this.address,
   });
 
   /// Returns a new [AssetJsonhalRead] instance and imports its values from
@@ -40,9 +40,9 @@ class AssetJsonhalRead {
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
-      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
+      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
 
@@ -55,13 +55,13 @@ class AssetJsonhalRead {
   /// The resource identifier.
   final String? id;
 
-  PostalAddressJsonhalRead? address;
-
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
+
+  PostalAddressJsonhalRead? address;
 
   @override
   bool operator ==(Object other) {
@@ -75,9 +75,9 @@ class AssetJsonhalRead {
         other.description == description &&
         other.name == name &&
         other.id == id &&
-        other.address == address &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.address == address;
   }
 
   @override
@@ -86,9 +86,9 @@ class AssetJsonhalRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
-      (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (address == null ? 0 : address.hashCode);
 
   static List<AssetJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -137,7 +137,7 @@ class AssetJsonhalRead {
 
   @override
   String toString() =>
-      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, address=$address]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -150,15 +150,15 @@ class AssetJsonhalRead {
       r'name': name,
       if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
         r'id': id,
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
       if ((keys == null && createdAt != null) ||
           (keys?.contains(r'createdAt') ?? false))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
     };
   }
 }

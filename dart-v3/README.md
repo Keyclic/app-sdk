@@ -73,6 +73,8 @@ Class | Method | HTTP request | Description
 *AssetApi* | [**getAssets**](doc//AssetApi.md#getassets) | **GET** /assets | Retrieves the collection of Asset resources.
 *AssetTypeApi* | [**getAssetType**](doc//AssetTypeApi.md#getassettype) | **GET** /asset-types/{identifier} | Retrieves a AssetType resource.
 *AssetTypeApi* | [**getAssetTypes**](doc//AssetTypeApi.md#getassettypes) | **GET** /asset-types | Retrieves the collection of AssetType resources.
+*AuthApi* | [**getAuthToken**](doc//AuthApi.md#getauthtoken) | **POST** /auth/token | Retrieve an access token and ID token.
+*AuthApi* | [**postAuthProfile**](doc//AuthApi.md#postauthprofile) | **POST** /auth/profile | Creates a Profile resource.
 *BrandApi* | [**getBrand**](doc//BrandApi.md#getbrand) | **GET** /brands/{identifier} | Retrieves a Brand resource.
 *BrandApi* | [**getBrands**](doc//BrandApi.md#getbrands) | **GET** /brands | Retrieves the collection of Brand resources.
 *ConnectorApi* | [**getConnector**](doc//ConnectorApi.md#getconnector) | **GET** /connectors/{identifier} | Retrieves a Connector resource.
@@ -115,6 +117,8 @@ Class | Method | HTTP request | Description
  - [BillingWrite](doc//BillingWrite.md)
  - [BrandJsonhalRead](doc//BrandJsonhalRead.md)
  - [BrandRead](doc//BrandRead.md)
+ - [ConnectionAuthProfileRead](doc//ConnectionAuthProfileRead.md)
+ - [ConnectionJsonhalAuthProfileRead](doc//ConnectionJsonhalAuthProfileRead.md)
  - [ConnectorConnectorRead](doc//ConnectorConnectorRead.md)
  - [ConnectorJsonhalConnectorRead](doc//ConnectorJsonhalConnectorRead.md)
  - [ContractCreateContractCommandWrite](doc//ContractCreateContractCommandWrite.md)
@@ -136,6 +140,8 @@ Class | Method | HTTP request | Description
  - [GetAssetTypes200ResponseLinksSelf](doc//GetAssetTypes200ResponseLinksSelf.md)
  - [GetAssets200Response](doc//GetAssets200Response.md)
  - [GetAssets200ResponseEmbedded](doc//GetAssets200ResponseEmbedded.md)
+ - [GetAuthToken200Response](doc//GetAuthToken200Response.md)
+ - [GetAuthTokenRequest](doc//GetAuthTokenRequest.md)
  - [GetBrands200Response](doc//GetBrands200Response.md)
  - [GetBrands200ResponseEmbedded](doc//GetBrands200ResponseEmbedded.md)
  - [GetContractTypes200Response](doc//GetContractTypes200Response.md)
@@ -164,6 +170,9 @@ Class | Method | HTTP request | Description
  - [PriceJsonhalRead](doc//PriceJsonhalRead.md)
  - [PriceRead](doc//PriceRead.md)
  - [PriceWrite](doc//PriceWrite.md)
+ - [ProfileAuthProfileRead](doc//ProfileAuthProfileRead.md)
+ - [ProfileJsonhalAuthProfileRead](doc//ProfileJsonhalAuthProfileRead.md)
+ - [ProfileProfileInput](doc//ProfileProfileInput.md)
  - [RenewalJsonhalRead](doc//RenewalJsonhalRead.md)
  - [RenewalRead](doc//RenewalRead.md)
  - [RenewalWrite](doc//RenewalWrite.md)

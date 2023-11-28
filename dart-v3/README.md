@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
 *AssetTypeApi* | [**getAssetTypes**](doc//AssetTypeApi.md#getassettypes) | **GET** /asset-types | Retrieves the collection of AssetType resources.
 *BrandApi* | [**getBrand**](doc//BrandApi.md#getbrand) | **GET** /brands/{identifier} | Retrieves a Brand resource.
 *BrandApi* | [**getBrands**](doc//BrandApi.md#getbrands) | **GET** /brands | Retrieves the collection of Brand resources.
+*ConnectorApi* | [**getConnector**](doc//ConnectorApi.md#getconnector) | **GET** /connectors/{identifier} | Retrieves a Connector resource.
 *ContractApi* | [**deleteContract**](doc//ContractApi.md#deletecontract) | **DELETE** /contracts/{identifier} | Removes the Contract resource.
 *ContractApi* | [**getContract**](doc//ContractApi.md#getcontract) | **GET** /contracts/{identifier} | Retrieves a Contract resource.
 *ContractApi* | [**getContracts**](doc//ContractApi.md#getcontracts) | **GET** /contracts | Retrieves the collection of Contract resources.
@@ -114,6 +115,8 @@ Class | Method | HTTP request | Description
  - [BillingWrite](doc//BillingWrite.md)
  - [BrandJsonhalRead](doc//BrandJsonhalRead.md)
  - [BrandRead](doc//BrandRead.md)
+ - [ConnectorConnectorRead](doc//ConnectorConnectorRead.md)
+ - [ConnectorJsonhalConnectorRead](doc//ConnectorJsonhalConnectorRead.md)
  - [ContractCreateContractCommandWrite](doc//ContractCreateContractCommandWrite.md)
  - [ContractEditContractCommandWrite](doc//ContractEditContractCommandWrite.md)
  - [ContractJsonhalRead](doc//ContractJsonhalRead.md)

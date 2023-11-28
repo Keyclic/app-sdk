@@ -16,6 +16,9 @@ doc/BillingWrite.md
 doc/BrandApi.md
 doc/BrandJsonhalRead.md
 doc/BrandRead.md
+doc/ConnectorApi.md
+doc/ConnectorConnectorRead.md
+doc/ConnectorJsonhalConnectorRead.md
 doc/ContractApi.md
 doc/ContractCreateContractCommandWrite.md
 doc/ContractEditContractCommandWrite.md
@@ -88,6 +91,7 @@ lib/api.dart
 lib/api/asset_api.dart
 lib/api/asset_type_api.dart
 lib/api/brand_api.dart
+lib/api/connector_api.dart
 lib/api/contract_api.dart
 lib/api/contract_type_api.dart
 lib/api/equipment_api.dart
@@ -115,6 +119,8 @@ lib/model/billing_read.dart
 lib/model/billing_write.dart
 lib/model/brand_jsonhal_read.dart
 lib/model/brand_read.dart
+lib/model/connector_connector_read.dart
+lib/model/connector_jsonhal_connector_read.dart
 lib/model/contract_create_contract_command_write.dart
 lib/model/contract_edit_contract_command_write.dart
 lib/model/contract_jsonhal_read.dart
@@ -189,6 +195,9 @@ test/billing_write_test.dart
 test/brand_api_test.dart
 test/brand_jsonhal_read_test.dart
 test/brand_read_test.dart
+test/connector_api_test.dart
+test/connector_connector_read_test.dart
+test/connector_jsonhal_connector_read_test.dart
 test/contract_api_test.dart
 test/contract_create_contract_command_write_test.dart
 test/contract_edit_contract_command_write_test.dart

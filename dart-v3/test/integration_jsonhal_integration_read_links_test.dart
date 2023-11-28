@@ -13,6 +13,9 @@ void main() {
     // GetAssetTypes200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
+    // GetAssetTypes200ResponseLinksFirst connector
+    test('to test the property `connector`', () async {});
+
     // GetAssetTypes200ResponseLinksFirst organization
     test('to test the property `organization`', () async {});
   });

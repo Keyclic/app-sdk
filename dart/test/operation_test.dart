@@ -16,6 +16,9 @@ void main() {
     // OperationLinks links
     test('to test the property `links`', () async {});
 
+    // bool archived
+    test('to test the property `archived`', () async {});
+
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
 

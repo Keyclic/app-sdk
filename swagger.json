@@ -22048,6 +22048,9 @@
                         }
                     }
                 },
+                "archived": {
+                    "type": "boolean"
+                },
                 "createdAt": {
                     "format": "date-time",
                     "readOnly": true,

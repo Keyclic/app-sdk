@@ -9,6 +9,7 @@ class Operation {
   Operation({
     this.embedded,
     this.links,
+    this.archived,
     this.createdAt,
     this.description,
     this.dueBy,
@@ -58,6 +59,7 @@ class Operation {
     return Operation(
       embedded: OperationEmbedded.fromJson(json[r'_embedded']),
       links: OperationLinks.fromJson(json[r'_links']),
+      archived: json[r'archived'],
       createdAt: createdAt,
       description: json[r'description'],
       dueBy: dueBy,
@@ -76,6 +78,8 @@ class Operation {
   OperationEmbedded? embedded;
 
   OperationLinks? links;
+
+  bool? archived;
 
   final DateTime? createdAt;
 
@@ -111,6 +115,7 @@ class Operation {
     return other is Operation &&
         other.embedded == embedded &&
         other.links == links &&
+        other.archived == archived &&
         other.createdAt == createdAt &&
         other.description == description &&
         other.dueBy == dueBy &&
@@ -129,6 +134,7 @@ class Operation {
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
       (links == null ? 0 : links.hashCode) +
+      (archived == null ? 0 : archived.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
@@ -188,7 +194,7 @@ class Operation {
 
   @override
   String toString() =>
-      'Operation[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, signature=$signature, tags=$tags, type=$type, updatedAt=$updatedAt]';
+      'Operation[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, signature=$signature, tags=$tags, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -198,6 +204,9 @@ class Operation {
       if ((keys == null && links != null) ||
           (keys?.contains(r'links') ?? false))
         r'_links': links?.toJson(),
+      if ((keys == null && archived != null) ||
+          (keys?.contains(r'archived') ?? false))
+        r'archived': archived,
       if ((keys == null && createdAt != null) ||
           (keys?.contains(r'createdAt') ?? false))
         r'createdAt': createdAt?.toUtc().toIso8601String(),

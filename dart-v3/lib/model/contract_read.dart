@@ -19,7 +19,7 @@ class ContractRead {
     this.signedAt,
     this.state = const ContractReadStateEnum._('DRAFT'),
     this.terminationDate,
-    this.type,
+    required this.type,
     this.id,
     this.createdAt,
     this.updatedAt,
@@ -90,7 +90,7 @@ class ContractRead {
   /// Duration of the contract in ISO 8601 duration format.
   String? duration;
 
-  /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must be in the future and must not be earlier than the billing start date.
+  /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
   DateTime effectiveDate;
 
   /// Name of the contract.
@@ -116,7 +116,7 @@ class ContractRead {
   final DateTime? terminationDate;
 
   /// The type of the contract defined by the organization.
-  String? type;
+  String type;
 
   /// The resource identifier.
   final String? id;
@@ -167,7 +167,7 @@ class ContractRead {
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
-      (type == null ? 0 : type.hashCode) +
+      type.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -249,8 +249,7 @@ class ContractRead {
       if ((keys == null && terminationDate != null) ||
           (keys?.contains(r'terminationDate') ?? false))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      r'type': type,
       if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
         r'id': id,
       if ((keys == null && createdAt != null) ||

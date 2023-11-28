@@ -90,7 +90,7 @@ class ContractJsonhalRead {
   /// Duration of the contract in ISO 8601 duration format.
   String? duration;
 
-  /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must be in the future and must not be earlier than the billing start date.
+  /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
   DateTime effectiveDate;
 
   /// Name of the contract.

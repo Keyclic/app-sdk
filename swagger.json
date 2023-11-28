@@ -19697,7 +19697,10 @@
                     ]
                 },
                 "groupBy": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "asset"
+                    ]
                 },
                 "organization": {
                     "type": "string"

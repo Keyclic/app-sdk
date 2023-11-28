@@ -14,16 +14,16 @@ class EquipmentRead {
     this.mpn,
     this.retirementDate,
     this.serialNumber,
-    this.warranty,
     this.type,
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.warranty,
     this.description,
     required this.name,
-    this.address,
     this.parent,
     this.state,
+    this.address,
   });
 
   /// Returns a new [EquipmentRead] instance and imports its values from
@@ -67,16 +67,16 @@ class EquipmentRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: WarrantyRead.fromJson(json[r'warranty']),
       type: json[r'type'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      warranty: WarrantyRead.fromJson(json[r'warranty']),
       description: json[r'description'],
       name: json[r'name'],
-      address: PostalAddressRead.fromJson(json[r'address']),
       parent: json[r'parent'],
       state: json[r'state'],
+      address: PostalAddressRead.fromJson(json[r'address']),
     );
   }
 
@@ -101,8 +101,6 @@ class EquipmentRead {
   /// The unique identifier assigned to an individual asset, allowing for easy identification and tracking.
   String? serialNumber;
 
-  WarrantyRead? warranty;
-
   String? type;
 
   /// The resource identifier.
@@ -114,15 +112,17 @@ class EquipmentRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  WarrantyRead? warranty;
+
   String? description;
 
   String name;
 
-  PostalAddressRead? address;
-
   String? parent;
 
   String? state;
+
+  PostalAddressRead? address;
 
   @override
   bool operator ==(Object other) {
@@ -139,16 +139,16 @@ class EquipmentRead {
         other.mpn == mpn &&
         other.retirementDate == retirementDate &&
         other.serialNumber == serialNumber &&
-        other.warranty == warranty &&
         other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
+        other.warranty == warranty &&
         other.description == description &&
         other.name == name &&
-        other.address == address &&
         other.parent == parent &&
-        other.state == state;
+        other.state == state &&
+        other.address == address;
   }
 
   @override
@@ -160,16 +160,16 @@ class EquipmentRead {
       (mpn == null ? 0 : mpn.hashCode) +
       (retirementDate == null ? 0 : retirementDate.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
-      (warranty == null ? 0 : warranty.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (warranty == null ? 0 : warranty.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (address == null ? 0 : address.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode);
+      (state == null ? 0 : state.hashCode) +
+      (address == null ? 0 : address.hashCode);
 
   static List<EquipmentRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -218,7 +218,7 @@ class EquipmentRead {
 
   @override
   String toString() =>
-      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, address=$address, parent=$parent, state=$state]';
+      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, parent=$parent, state=$state, address=$address]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -242,9 +242,6 @@ class EquipmentRead {
       if ((keys == null && serialNumber != null) ||
           (keys?.contains(r'serialNumber') ?? false))
         r'serialNumber': serialNumber,
-      if ((keys == null && warranty != null) ||
-          (keys?.contains(r'warranty') ?? false))
-        r'warranty': warranty?.toJson(),
       if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
         r'type': type,
       if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
@@ -255,19 +252,22 @@ class EquipmentRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && warranty != null) ||
+          (keys?.contains(r'warranty') ?? false))
+        r'warranty': warranty?.toJson(),
       if ((keys == null && description != null) ||
           (keys?.contains(r'description') ?? false))
         r'description': description,
       r'name': name,
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
       if ((keys == null && parent != null) ||
           (keys?.contains(r'parent') ?? false))
         r'parent': parent,
       if ((keys == null && state != null) ||
           (keys?.contains(r'state') ?? false))
         r'state': state,
+      if ((keys == null && address != null) ||
+          (keys?.contains(r'address') ?? false))
+        r'address': address?.toJson(),
     };
   }
 }

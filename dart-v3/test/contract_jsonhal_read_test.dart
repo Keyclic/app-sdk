@@ -40,9 +40,6 @@ void main() {
     // bool onCall
     test('to test the property `onCall`', () async {});
 
-    // RenewalJsonhalRead renewal
-    test('to test the property `renewal`', () async {});
-
     // DateTime signedAt
     test('to test the property `signedAt`', () async {});
 
@@ -65,5 +62,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // RenewalJsonhalRead renewal
+    test('to test the property `renewal`', () async {});
   });
 }

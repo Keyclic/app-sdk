@@ -15,7 +15,6 @@ class ContractRead {
     required this.number,
     this.onCall,
     required this.provider,
-    this.renewal,
     this.signedAt,
     this.state = const ContractReadStateEnum._('DRAFT'),
     this.terminationDate,
@@ -23,6 +22,7 @@ class ContractRead {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.renewal,
   });
 
   /// Returns a new [ContractRead] instance and imports its values from
@@ -71,7 +71,6 @@ class ContractRead {
       number: json[r'number'],
       onCall: json[r'onCall'],
       provider: json[r'provider'],
-      renewal: RenewalRead.fromJson(json[r'renewal']),
       signedAt: signedAt,
       state: ContractReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: terminationDate,
@@ -79,6 +78,7 @@ class ContractRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      renewal: RenewalRead.fromJson(json[r'renewal']),
     );
   }
 
@@ -105,8 +105,6 @@ class ContractRead {
   /// Organization responsible for the contract.
   String provider;
 
-  RenewalRead? renewal;
-
   DateTime? signedAt;
 
   /// Current state of the contract.
@@ -127,6 +125,8 @@ class ContractRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  RenewalRead? renewal;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -143,14 +143,14 @@ class ContractRead {
         other.number == number &&
         other.onCall == onCall &&
         other.provider == provider &&
-        other.renewal == renewal &&
         other.signedAt == signedAt &&
         other.state == state &&
         other.terminationDate == terminationDate &&
         other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.renewal == renewal;
   }
 
   @override
@@ -163,14 +163,14 @@ class ContractRead {
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
       provider.hashCode +
-      (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       type.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (renewal == null ? 0 : renewal.hashCode);
 
   static List<ContractRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -219,7 +219,7 @@ class ContractRead {
 
   @override
   String toString() =>
-      'ContractRead[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractRead[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, renewal=$renewal]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -239,9 +239,6 @@ class ContractRead {
           (keys?.contains(r'onCall') ?? false))
         r'onCall': onCall,
       r'provider': provider,
-      if ((keys == null && renewal != null) ||
-          (keys?.contains(r'renewal') ?? false))
-        r'renewal': renewal?.toJson(),
       if ((keys == null && signedAt != null) ||
           (keys?.contains(r'signedAt') ?? false))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
@@ -258,6 +255,9 @@ class ContractRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && renewal != null) ||
+          (keys?.contains(r'renewal') ?? false))
+        r'renewal': renewal?.toJson(),
     };
   }
 }

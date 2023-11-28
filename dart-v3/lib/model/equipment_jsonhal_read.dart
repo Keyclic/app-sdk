@@ -14,10 +14,10 @@ class EquipmentJsonhalRead {
     this.mpn,
     this.retirementDate,
     this.serialNumber,
-    this.warranty,
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.warranty,
     this.description,
     required this.name,
     this.address,
@@ -64,10 +64,10 @@ class EquipmentJsonhalRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
-      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       description: json[r'description'],
       name: json[r'name'],
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
@@ -94,8 +94,6 @@ class EquipmentJsonhalRead {
   /// The unique identifier assigned to an individual asset, allowing for easy identification and tracking.
   String? serialNumber;
 
-  WarrantyJsonhalRead? warranty;
-
   /// The resource identifier.
   final String? id;
 
@@ -104,6 +102,8 @@ class EquipmentJsonhalRead {
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
+
+  WarrantyJsonhalRead? warranty;
 
   String? description;
 
@@ -126,10 +126,10 @@ class EquipmentJsonhalRead {
         other.mpn == mpn &&
         other.retirementDate == retirementDate &&
         other.serialNumber == serialNumber &&
-        other.warranty == warranty &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
+        other.warranty == warranty &&
         other.description == description &&
         other.name == name &&
         other.address == address;
@@ -144,10 +144,10 @@ class EquipmentJsonhalRead {
       (mpn == null ? 0 : mpn.hashCode) +
       (retirementDate == null ? 0 : retirementDate.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
-      (warranty == null ? 0 : warranty.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (warranty == null ? 0 : warranty.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (address == null ? 0 : address.hashCode);
@@ -202,7 +202,7 @@ class EquipmentJsonhalRead {
 
   @override
   String toString() =>
-      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, address=$address]';
+      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, address=$address]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -226,9 +226,6 @@ class EquipmentJsonhalRead {
       if ((keys == null && serialNumber != null) ||
           (keys?.contains(r'serialNumber') ?? false))
         r'serialNumber': serialNumber,
-      if ((keys == null && warranty != null) ||
-          (keys?.contains(r'warranty') ?? false))
-        r'warranty': warranty?.toJson(),
       if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
         r'id': id,
       if ((keys == null && createdAt != null) ||
@@ -237,6 +234,9 @@ class EquipmentJsonhalRead {
       if ((keys == null && updatedAt != null) ||
           (keys?.contains(r'updatedAt') ?? false))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if ((keys == null && warranty != null) ||
+          (keys?.contains(r'warranty') ?? false))
+        r'warranty': warranty?.toJson(),
       if ((keys == null && description != null) ||
           (keys?.contains(r'description') ?? false))
         r'description': description,

@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetMembershipsByPerson**
-> MemberPagination cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
+> MemberPagination cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, contactPointEmail, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
 
 Retrieve all Membership resources.
 
@@ -114,6 +114,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final archived = archived_example; // String | 
+final contactPointEmail = contactPointEmail_example; // String | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
 final organization = organization_example; // String | 
@@ -127,7 +128,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
+    final result = api_instance.cgetMembershipsByPerson(xKeyclicApp, person, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, contactPointEmail, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling PersonApi->cgetMembershipsByPerson: $e\n');
@@ -146,6 +147,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **archived** | **String**|  | [optional] 
+ **contactPointEmail** | **String**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **organization** | **String**|  | [optional] 

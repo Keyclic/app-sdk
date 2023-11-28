@@ -4712,6 +4712,9 @@
                         "$ref": "#\/parameters\/archived"
                     },
                     {
+                        "$ref": "#\/parameters\/contact_point_email"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
@@ -9229,6 +9232,9 @@
                         "$ref": "#\/parameters\/archived"
                     },
                     {
+                        "$ref": "#\/parameters\/contact_point_email"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
                     },
                     {
@@ -11401,6 +11407,9 @@
                     },
                     {
                         "$ref": "#\/parameters\/archived"
+                    },
+                    {
+                        "$ref": "#\/parameters\/contact_point_email"
                     },
                     {
                         "$ref": "#\/parameters\/after"
@@ -27421,6 +27430,12 @@
                 "$ref": "#\/definitions\/FeedbackWorkflowTransitionData"
             },
             "required": true
+        },
+        "contact_point_email": {
+            "in": "query",
+            "name": "contact_point_email",
+            "pattern": ".*",
+            "type": "string"
         },
         "permission": {
             "in": "query",

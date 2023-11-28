@@ -17,7 +17,7 @@ void main() {
 
     // Retrieve all Membership resources.
     //
-    //Future<MemberPagination> cgetMembershipsByPerson(String xKeyclicApp, String person, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String archived, DateTime after, DateTime before, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String permission, String query, String role, List<String> rolesLeftSquareBracketRightSquareBracket, String type, int page, int limit }) async
+    //Future<MemberPagination> cgetMembershipsByPerson(String xKeyclicApp, String person, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String archived, String contactPointEmail, DateTime after, DateTime before, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String permission, String query, String role, List<String> rolesLeftSquareBracketRightSquareBracket, String type, int page, int limit }) async
     test('test cgetMembershipsByPerson', () async {});
 
     // Retrieve all Operation resources.

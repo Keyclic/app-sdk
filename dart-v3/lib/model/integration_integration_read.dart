@@ -8,6 +8,7 @@ class IntegrationIntegrationRead {
   /// Returns a new [IntegrationIntegrationRead] instance.
   IntegrationIntegrationRead({
     this.inputs,
+    this.organization,
     this.id,
     this.createdAt,
     this.updatedAt,
@@ -36,6 +37,7 @@ class IntegrationIntegrationRead {
       inputs: json[r'inputs'] == null
           ? null
           : Map<String, Object?>.from(json[r'inputs']),
+      organization: json[r'organization'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
@@ -43,6 +45,8 @@ class IntegrationIntegrationRead {
   }
 
   Map<String, Object?>? inputs;
+
+  String? organization;
 
   /// The resource identifier.
   final String? id;
@@ -62,6 +66,7 @@ class IntegrationIntegrationRead {
 
     return other is IntegrationIntegrationRead &&
         DeepCollectionEquality.unordered().equals(inputs, other.inputs) &&
+        other.organization == organization &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt;
@@ -70,6 +75,7 @@ class IntegrationIntegrationRead {
   @override
   int get hashCode =>
       (inputs == null ? 0 : inputs.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -124,13 +130,16 @@ class IntegrationIntegrationRead {
 
   @override
   String toString() =>
-      'IntegrationIntegrationRead[inputs=$inputs, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'IntegrationIntegrationRead[inputs=$inputs, organization=$organization, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
       if ((keys == null && inputs != null) ||
           (keys?.contains(r'inputs') ?? false))
         r'inputs': inputs,
+      if ((keys == null && organization != null) ||
+          (keys?.contains(r'organization') ?? false))
+        r'organization': organization,
       if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
         r'id': id,
       if ((keys == null && createdAt != null) ||

@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
  - [GetTickets200ResponseEmbedded](doc//GetTickets200ResponseEmbedded.md)
  - [IntegrationIntegrationRead](doc//IntegrationIntegrationRead.md)
  - [IntegrationJsonhalIntegrationRead](doc//IntegrationJsonhalIntegrationRead.md)
+ - [IntegrationJsonhalIntegrationReadLinks](doc//IntegrationJsonhalIntegrationReadLinks.md)
  - [IntegrationLinkCreateLinkCommandWrite](doc//IntegrationLinkCreateLinkCommandWrite.md)
  - [IntegrationLinkEditLinkCommandWrite](doc//IntegrationLinkEditLinkCommandWrite.md)
  - [IntegrationLinkJsonhalRead](doc//IntegrationLinkJsonhalRead.md)

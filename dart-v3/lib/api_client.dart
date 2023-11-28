@@ -270,6 +270,8 @@ class ApiPlatformClient {
           return IntegrationIntegrationRead.fromJson(value);
         case 'IntegrationJsonhalIntegrationRead':
           return IntegrationJsonhalIntegrationRead.fromJson(value);
+        case 'IntegrationJsonhalIntegrationReadLinks':
+          return IntegrationJsonhalIntegrationReadLinks.fromJson(value);
         case 'IntegrationLinkCreateLinkCommandWrite':
           return IntegrationLinkCreateLinkCommandWrite.fromJson(value);
         case 'IntegrationLinkEditLinkCommandWrite':

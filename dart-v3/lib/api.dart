@@ -79,6 +79,7 @@ part 'model/get_tickets200_response.dart';
 part 'model/get_tickets200_response_embedded.dart';
 part 'model/integration_integration_read.dart';
 part 'model/integration_jsonhal_integration_read.dart';
+part 'model/integration_jsonhal_integration_read_links.dart';
 part 'model/integration_link_create_link_command_write.dart';
 part 'model/integration_link_edit_link_command_write.dart';
 part 'model/integration_link_jsonhal_read.dart';

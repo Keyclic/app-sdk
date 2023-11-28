@@ -13,6 +13,9 @@ void main() {
     // Map<String, dynamic> inputs (default value: const {})
     test('to test the property `inputs`', () async {});
 
+    // String organization
+    test('to test the property `organization`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});

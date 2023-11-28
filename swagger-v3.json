@@ -7705,9 +7705,6 @@
                         "description": "The resource identifier.",
                         "type": "string"
                     },
-                    "address": {
-                        "$ref": "#/components/schemas/PostalAddress-Read"
-                    },
                     "createdAt": {
                         "readOnly": true,
                         "description": "The date and time when the resource was created, in UTC format.",
@@ -7728,6 +7725,15 @@
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
+                        "nullable": true
+                    },
+                    "address": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress-Read"
+                            }
+                        ],
                         "nullable": true
                     }
                 },
@@ -7793,9 +7799,6 @@
                         "description": "The resource identifier.",
                         "type": "string"
                     },
-                    "address": {
-                        "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
-                    },
                     "createdAt": {
                         "readOnly": true,
                         "description": "The date and time when the resource was created, in UTC format.",
@@ -7807,6 +7810,15 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "address": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
                     }
                 },
                 "required": [

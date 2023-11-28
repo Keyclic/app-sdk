@@ -21,7 +21,7 @@ void main() {
     // String duration
     test('to test the property `duration`', () async {});
 
-    // The date and time the contract becomes effective, in ISO 8601 format. The effective date must be in the future and must not be earlier than the billing start date.
+    // The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
     // DateTime effectiveDate
     test('to test the property `effectiveDate`', () async {});
 

@@ -8077,7 +8077,7 @@
                         "nullable": true
                     },
                     "effectiveDate": {
-                        "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must be in the future and must not be earlier than the billing start date.",
+                        "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.",
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
@@ -8162,7 +8162,8 @@
                     "name",
                     "number",
                     "provider",
-                    "state"
+                    "state",
+                    "type"
                 ]
             },
             "Contract.CreateContractCommand-Write": {
@@ -8233,6 +8234,7 @@
                     }
                 },
                 "required": [
+                    "effectiveDate",
                     "name",
                     "number",
                     "provider",
@@ -8362,7 +8364,7 @@
                         "nullable": true
                     },
                     "effectiveDate": {
-                        "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must be in the future and must not be earlier than the billing start date.",
+                        "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.",
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
@@ -8435,7 +8437,8 @@
                     "name",
                     "number",
                     "provider",
-                    "state"
+                    "state",
+                    "type"
                 ]
             },
             "ContractType-Read": {

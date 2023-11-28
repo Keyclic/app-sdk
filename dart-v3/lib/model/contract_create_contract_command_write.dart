@@ -10,7 +10,7 @@ class ContractCreateContractCommandWrite {
     this.billing,
     this.description,
     this.duration,
-    this.effectiveDate,
+    required this.effectiveDate,
     required this.name,
     required this.number,
     this.onCall,
@@ -29,10 +29,8 @@ class ContractCreateContractCommandWrite {
       return null;
     }
 
-    DateTime? effectiveDate = json[r'effectiveDate'] == null
-        ? null
-        : DateTime.parse(json[r'effectiveDate']);
-    if (effectiveDate != null && effectiveDate.isUtc == false) {
+    DateTime effectiveDate = DateTime.parse(json[r'effectiveDate']);
+    if (effectiveDate.isUtc == false) {
       effectiveDate = DateTime.parse('${json[r'effectiveDate']}Z');
     }
 
@@ -64,7 +62,7 @@ class ContractCreateContractCommandWrite {
 
   String? duration;
 
-  DateTime? effectiveDate;
+  DateTime effectiveDate;
 
   String name;
 
@@ -109,7 +107,7 @@ class ContractCreateContractCommandWrite {
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
-      (effectiveDate == null ? 0 : effectiveDate.hashCode) +
+      effectiveDate.hashCode +
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
@@ -184,9 +182,7 @@ class ContractCreateContractCommandWrite {
       if ((keys == null && duration != null) ||
           (keys?.contains(r'duration') ?? false))
         r'duration': duration,
-      if ((keys == null && effectiveDate != null) ||
-          (keys?.contains(r'effectiveDate') ?? false))
-        r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
+      r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
       if ((keys == null && onCall != null) ||

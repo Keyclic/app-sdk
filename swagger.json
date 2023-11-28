@@ -24442,6 +24442,9 @@
                         "children": {
                             "$ref": "#\/definitions\/ReportLinksChildren"
                         },
+                        "createdBy": {
+                            "$ref": "#\/definitions\/ReportLinksCreatedBy"
+                        },
                         "equipment": {
                             "$ref": "#\/definitions\/ReportLinksEquipment"
                         },
@@ -24560,32 +24563,6 @@
                 }
             }
         },
-        "ReportLinksAssignment": {
-            "type": "object",
-            "properties": {
-                "href": {
-                    "description": "The URI of the assignment associated to the given report.",
-                    "type": "string",
-                    "format": "string"
-                },
-                "iriTemplate": {
-                    "$ref": "#\/definitions\/ReportLinksAssignmentIriTemplate"
-                }
-            }
-        },
-        "ReportLinksAssignmentIriTemplate": {
-            "type": "object",
-            "properties": {
-                "mapping": {
-                    "type": "object",
-                    "properties": {
-                        "assignment": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
         "ReportLinksCategory": {
             "type": "object",
             "properties": {
@@ -24635,6 +24612,32 @@
                             "type": "string"
                         },
                         "parent": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "ReportLinksCreatedBy": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the createdBy associated to the given report.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/ReportLinksCreatedByIriTemplate"
+                }
+            }
+        },
+        "ReportLinksCreatedByIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "person": {
                             "type": "string"
                         }
                     }

@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.ReportLinksAssignmentIriTemplate
+# keyclic_sdk_api.model.ReportLinksCreatedBy
 
 ## Load the model package
 ```dart
@@ -8,7 +8,8 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mapping** | [**AssignmentLinksSelfIriTemplateMapping**](AssignmentLinksSelfIriTemplateMapping.md) |  | [optional] 
+**href** | **String** | The URI of the createdBy associated to the given report. | [optional] 
+**iriTemplate** | [**ReportLinksCreatedByIriTemplate**](ReportLinksCreatedByIriTemplate.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

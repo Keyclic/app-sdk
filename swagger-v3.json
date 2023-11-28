@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.47.2-dev.2d6f7fd1c"
+        "version": "2.49.5-dev.g5f7d76560"
     },
     "servers": [
         {
@@ -9658,6 +9658,10 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "archived": {
+                        "readOnly": true,
+                        "type": "boolean"
                     }
                 }
             },
@@ -9712,6 +9716,10 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "archived": {
+                        "readOnly": true,
+                        "type": "boolean"
                     }
                 }
             },

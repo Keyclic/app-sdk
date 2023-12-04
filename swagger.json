@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.49.0-dev.233c950bb"
+        "version": "2.49.5-dev.g5f7d76560"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -19651,12 +19651,35 @@
             "type": "object",
             "properties": {
                 "contentType": {
+                    "enum": [
+                        "text\/csv",
+                        "application\/msword",
+                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        "image\/jpeg",
+                        "image\/jpg",
+                        "application\/json",
+                        "application\/octet-stream",
+                        "application\/pdf",
+                        "image\/png",
+                        "text\/plain",
+                        "application\/vnd.ms-excel",
+                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "application\/zip"
+                    ],
                     "format": "string",
                     "type": "string"
                 },
                 "createdAt": {
                     "format": "date-time",
                     "readOnly": true,
+                    "type": "string"
+                },
+                "groupBy": {
+                    "enum": [
+                        "asset",
+                        "category"
+                    ],
+                    "format": "string",
                     "type": "string"
                 },
                 "id": {
@@ -19699,7 +19722,8 @@
                 "groupBy": {
                     "type": "string",
                     "enum": [
-                        "asset"
+                        "asset",
+                        "category"
                     ]
                 },
                 "organization": {
@@ -19707,7 +19731,8 @@
                 }
             },
             "required": [
-                "dataSource"
+                "dataSource",
+                "organization"
             ]
         },
         "ExternalService": {

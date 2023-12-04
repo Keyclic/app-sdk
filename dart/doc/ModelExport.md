@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contentType** | **String** |  | 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**groupBy** | **String** |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 

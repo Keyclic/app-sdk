@@ -10,7 +10,7 @@ class ExportData {
     this.contentType,
     required this.dataSource,
     this.groupBy,
-    this.organization,
+    required this.organization,
   });
 
   /// Returns a new [ExportData] instance and imports its values from
@@ -34,7 +34,7 @@ class ExportData {
 
   ExportDataGroupByEnum? groupBy;
 
-  String? organization;
+  String organization;
 
   @override
   bool operator ==(Object other) {
@@ -55,7 +55,7 @@ class ExportData {
       (contentType == null ? 0 : contentType.hashCode) +
       dataSource.hashCode +
       (groupBy == null ? 0 : groupBy.hashCode) +
-      (organization == null ? 0 : organization.hashCode);
+      organization.hashCode;
 
   static List<ExportData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -114,9 +114,7 @@ class ExportData {
       if ((keys == null && groupBy != null) ||
           (keys?.contains(r'groupBy') ?? false))
         r'groupBy': groupBy,
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
-        r'organization': organization,
+      r'organization': organization,
     };
   }
 }
@@ -277,10 +275,12 @@ class ExportDataGroupByEnum {
   String toJson() => value;
 
   static const asset = ExportDataGroupByEnum._(r'asset');
+  static const category = ExportDataGroupByEnum._(r'category');
 
   /// List of all possible values in this [enum][ExportDataGroupByEnum].
   static const values = <ExportDataGroupByEnum>[
     asset,
+    category,
   ];
 
   static ExportDataGroupByEnum? fromJson(dynamic value) =>
@@ -318,6 +318,8 @@ class ExportDataGroupByEnumTypeTransformer {
     switch (data) {
       case r'asset':
         return ExportDataGroupByEnum.asset;
+      case r'category':
+        return ExportDataGroupByEnum.category;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

@@ -216,16 +216,16 @@ class DocumentStateEnum {
   static const DRAFT = DocumentStateEnum._(r'DRAFT');
   static const PENDING_REVIEW = DocumentStateEnum._(r'PENDING_REVIEW');
   static const PUBLISHED = DocumentStateEnum._(r'PUBLISHED');
-  static const PUBLISHING_FAILED = DocumentStateEnum._(r'PUBLISHING_FAILED');
   static const PUBLISHING = DocumentStateEnum._(r'PUBLISHING');
+  static const PUBLISHING_FAILED = DocumentStateEnum._(r'PUBLISHING_FAILED');
 
   /// List of all possible values in this [enum][DocumentStateEnum].
   static const values = <DocumentStateEnum>[
     DRAFT,
     PENDING_REVIEW,
     PUBLISHED,
-    PUBLISHING_FAILED,
     PUBLISHING,
+    PUBLISHING_FAILED,
   ];
 
   static DocumentStateEnum? fromJson(dynamic value) =>
@@ -267,10 +267,10 @@ class DocumentStateEnumTypeTransformer {
         return DocumentStateEnum.PENDING_REVIEW;
       case r'PUBLISHED':
         return DocumentStateEnum.PUBLISHED;
-      case r'PUBLISHING_FAILED':
-        return DocumentStateEnum.PUBLISHING_FAILED;
       case r'PUBLISHING':
         return DocumentStateEnum.PUBLISHING;
+      case r'PUBLISHING_FAILED':
+        return DocumentStateEnum.PUBLISHING_FAILED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

@@ -19306,8 +19306,8 @@
                         "DRAFT",
                         "PENDING_REVIEW",
                         "PUBLISHED",
-                        "PUBLISHING_FAILED",
-                        "PUBLISHING"
+                        "PUBLISHING",
+                        "PUBLISHING_FAILED"
                     ],
                     "format": "string",
                     "maxLength": 18,

@@ -74,6 +74,11 @@ class ApiPlatformClient {
     return AssetTypeApi(this);
   }
 
+  /// Get AuthApi instance
+  AuthApi getAuthApi() {
+    return AuthApi(this);
+  }
+
   /// Get BrandApi instance
   BrandApi getBrandApi() {
     return BrandApi(this);
@@ -201,6 +206,10 @@ class ApiPlatformClient {
           return BrandJsonhalRead.fromJson(value);
         case 'BrandRead':
           return BrandRead.fromJson(value);
+        case 'ConnectionAuthProfileRead':
+          return ConnectionAuthProfileRead.fromJson(value);
+        case 'ConnectionJsonhalAuthProfileRead':
+          return ConnectionJsonhalAuthProfileRead.fromJson(value);
         case 'ConnectorConnectorRead':
           return ConnectorConnectorRead.fromJson(value);
         case 'ConnectorJsonhalConnectorRead':
@@ -243,6 +252,10 @@ class ApiPlatformClient {
           return GetAssets200Response.fromJson(value);
         case 'GetAssets200ResponseEmbedded':
           return GetAssets200ResponseEmbedded.fromJson(value);
+        case 'GetAuthToken200Response':
+          return GetAuthToken200Response.fromJson(value);
+        case 'GetAuthTokenRequest':
+          return GetAuthTokenRequest.fromJson(value);
         case 'GetBrands200Response':
           return GetBrands200Response.fromJson(value);
         case 'GetBrands200ResponseEmbedded':
@@ -299,6 +312,12 @@ class ApiPlatformClient {
           return PriceRead.fromJson(value);
         case 'PriceWrite':
           return PriceWrite.fromJson(value);
+        case 'ProfileAuthProfileRead':
+          return ProfileAuthProfileRead.fromJson(value);
+        case 'ProfileJsonhalAuthProfileRead':
+          return ProfileJsonhalAuthProfileRead.fromJson(value);
+        case 'ProfileProfileInput':
+          return ProfileProfileInput.fromJson(value);
         case 'RenewalJsonhalRead':
           return RenewalJsonhalRead.fromJson(value);
         case 'RenewalRead':

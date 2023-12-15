@@ -10,12 +10,15 @@ doc/AssetTypeApi.md
 doc/AssetTypeJsonhalRead.md
 doc/AssetTypeJsonhalReadLinks.md
 doc/AssetTypeRead.md
+doc/AuthApi.md
 doc/BillingJsonhalRead.md
 doc/BillingRead.md
 doc/BillingWrite.md
 doc/BrandApi.md
 doc/BrandJsonhalRead.md
 doc/BrandRead.md
+doc/ConnectionAuthProfileRead.md
+doc/ConnectionJsonhalAuthProfileRead.md
 doc/ConnectorApi.md
 doc/ConnectorConnectorRead.md
 doc/ConnectorJsonhalConnectorRead.md
@@ -41,6 +44,8 @@ doc/GetAssetTypes200ResponseLinksFirst.md
 doc/GetAssetTypes200ResponseLinksSelf.md
 doc/GetAssets200Response.md
 doc/GetAssets200ResponseEmbedded.md
+doc/GetAuthToken200Response.md
+doc/GetAuthTokenRequest.md
 doc/GetBrands200Response.md
 doc/GetBrands200ResponseEmbedded.md
 doc/GetContractTypes200Response.md
@@ -71,6 +76,9 @@ doc/PostalAddressRead.md
 doc/PriceJsonhalRead.md
 doc/PriceRead.md
 doc/PriceWrite.md
+doc/ProfileAuthProfileRead.md
+doc/ProfileJsonhalAuthProfileRead.md
+doc/ProfileProfileInput.md
 doc/RenewalJsonhalRead.md
 doc/RenewalRead.md
 doc/RenewalWrite.md
@@ -90,6 +98,7 @@ git_push.sh
 lib/api.dart
 lib/api/asset_api.dart
 lib/api/asset_type_api.dart
+lib/api/auth_api.dart
 lib/api/brand_api.dart
 lib/api/connector_api.dart
 lib/api/contract_api.dart
@@ -119,6 +128,8 @@ lib/model/billing_read.dart
 lib/model/billing_write.dart
 lib/model/brand_jsonhal_read.dart
 lib/model/brand_read.dart
+lib/model/connection_auth_profile_read.dart
+lib/model/connection_jsonhal_auth_profile_read.dart
 lib/model/connector_connector_read.dart
 lib/model/connector_jsonhal_connector_read.dart
 lib/model/contract_create_contract_command_write.dart
@@ -140,6 +151,8 @@ lib/model/get_asset_types200_response_links_first.dart
 lib/model/get_asset_types200_response_links_self.dart
 lib/model/get_assets200_response.dart
 lib/model/get_assets200_response_embedded.dart
+lib/model/get_auth_token200_response.dart
+lib/model/get_auth_token_request.dart
 lib/model/get_brands200_response.dart
 lib/model/get_brands200_response_embedded.dart
 lib/model/get_contract_types200_response.dart
@@ -168,6 +181,9 @@ lib/model/postal_address_read.dart
 lib/model/price_jsonhal_read.dart
 lib/model/price_read.dart
 lib/model/price_write.dart
+lib/model/profile_auth_profile_read.dart
+lib/model/profile_jsonhal_auth_profile_read.dart
+lib/model/profile_profile_input.dart
 lib/model/renewal_jsonhal_read.dart
 lib/model/renewal_read.dart
 lib/model/renewal_write.dart
@@ -189,12 +205,15 @@ test/asset_type_api_test.dart
 test/asset_type_jsonhal_read_links_test.dart
 test/asset_type_jsonhal_read_test.dart
 test/asset_type_read_test.dart
+test/auth_api_test.dart
 test/billing_jsonhal_read_test.dart
 test/billing_read_test.dart
 test/billing_write_test.dart
 test/brand_api_test.dart
 test/brand_jsonhal_read_test.dart
 test/brand_read_test.dart
+test/connection_auth_profile_read_test.dart
+test/connection_jsonhal_auth_profile_read_test.dart
 test/connector_api_test.dart
 test/connector_connector_read_test.dart
 test/connector_jsonhal_connector_read_test.dart
@@ -220,6 +239,8 @@ test/get_asset_types200_response_links_test.dart
 test/get_asset_types200_response_test.dart
 test/get_assets200_response_embedded_test.dart
 test/get_assets200_response_test.dart
+test/get_auth_token200_response_test.dart
+test/get_auth_token_request_test.dart
 test/get_brands200_response_embedded_test.dart
 test/get_brands200_response_test.dart
 test/get_contract_types200_response_embedded_test.dart
@@ -250,6 +271,9 @@ test/postal_address_read_test.dart
 test/price_jsonhal_read_test.dart
 test/price_read_test.dart
 test/price_write_test.dart
+test/profile_auth_profile_read_test.dart
+test/profile_jsonhal_auth_profile_read_test.dart
+test/profile_profile_input_test.dart
 test/renewal_jsonhal_read_test.dart
 test/renewal_read_test.dart
 test/renewal_write_test.dart

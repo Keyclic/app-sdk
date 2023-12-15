@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.49.5-dev.g5f7d76560"
+        "version": "2.51.1"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -16867,62 +16867,6 @@
                 ]
             }
         },
-        "\/webhooks\/incoming": {
-            "post": {
-                "tags": [
-                    "Webhook"
-                ],
-                "summary": "Create one Incoming resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postIncoming",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ]
-            }
-        },
         "\/workflows\/{workflow}": {
             "get": {
                 "tags": [
@@ -20567,8 +20511,8 @@
                     ]
                 },
                 "elevation": {
-                    "format": "int32",
-                    "type": "integer"
+                    "format": "float",
+                    "type": "number"
                 },
                 "polygon": {
                     "$ref": "#\/definitions\/Polygon"

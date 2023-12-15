@@ -13,7 +13,7 @@ void main() {
     // GeoShapeCentroid centroid
     test('to test the property `centroid`', () async {});
 
-    // int elevation
+    // double elevation
     test('to test the property `elevation`', () async {});
 
     // Polygon polygon

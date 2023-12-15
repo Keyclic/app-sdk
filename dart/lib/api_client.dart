@@ -274,11 +274,6 @@ class ApiClient {
     return TemplateApi(this);
   }
 
-  /// Get WebhookApi instance
-  WebhookApi getWebhookApi() {
-    return WebhookApi(this);
-  }
-
   /// Get WorkflowApi instance
   WorkflowApi getWorkflowApi() {
     return WorkflowApi(this);

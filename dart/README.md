@@ -239,7 +239,6 @@ Class | Method | HTTP request | Description
 *TemplateApi* | [**getTemplate**](doc//TemplateApi.md#gettemplate) | **GET** /templates/{template} | Retrieve one Template resource.
 *TemplateApi* | [**patchTemplate**](doc//TemplateApi.md#patchtemplate) | **PATCH** /templates/{template} | Edit one Template resource.
 *TemplateApi* | [**postTemplate**](doc//TemplateApi.md#posttemplate) | **POST** /templates | Create one Template resource.
-*WebhookApi* | [**postIncoming**](doc//WebhookApi.md#postincoming) | **POST** /webhooks/incoming | Create one Incoming resource.
 *WorkflowApi* | [**getWorkflow**](doc//WorkflowApi.md#getworkflow) | **GET** /workflows/{workflow} | Retrieve one Workflow resource.
 
 

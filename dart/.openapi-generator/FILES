@@ -606,7 +606,6 @@ doc/Tracking.md
 doc/TrackingCheckpoint.md
 doc/TrackingProgression.md
 doc/TransitionState.md
-doc/WebhookApi.md
 doc/Workflow.md
 doc/WorkflowApi.md
 doc/WorkflowData.md
@@ -660,7 +659,6 @@ lib/api/security_api.dart
 lib/api/service_api.dart
 lib/api/signer_api.dart
 lib/api/template_api.dart
-lib/api/webhook_api.dart
 lib/api/workflow_api.dart
 lib/api_client.dart
 lib/api_exception.dart
@@ -1845,7 +1843,6 @@ test/tracking_checkpoint_test.dart
 test/tracking_progression_test.dart
 test/tracking_test.dart
 test/transition_state_test.dart
-test/webhook_api_test.dart
 test/workflow_api_test.dart
 test/workflow_data_test.dart
 test/workflow_links_self_iri_template_mapping_test.dart

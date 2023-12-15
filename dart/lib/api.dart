@@ -61,7 +61,6 @@ part 'api/security_api.dart';
 part 'api/service_api.dart';
 part 'api/signer_api.dart';
 part 'api/template_api.dart';
-part 'api/webhook_api.dart';
 part 'api/workflow_api.dart';
 
 part 'model/activity.dart';

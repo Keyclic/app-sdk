@@ -21,14 +21,14 @@ class GeoShape {
 
     return GeoShape(
       centroid: GeoShapeCentroid.fromJson(json[r'centroid']),
-      elevation: json[r'elevation'],
+      elevation: json[r'elevation']?.toDouble(),
       polygon: Polygon.fromJson(json[r'polygon']),
     );
   }
 
   GeoShapeCentroid? centroid;
 
-  int? elevation;
+  double? elevation;
 
   Polygon? polygon;
 

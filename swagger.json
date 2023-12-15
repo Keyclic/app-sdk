@@ -20511,8 +20511,8 @@
                     ]
                 },
                 "elevation": {
-                    "format": "int32",
-                    "type": "integer"
+                    "format": "float",
+                    "type": "number"
                 },
                 "polygon": {
                     "$ref": "#\/definitions\/Polygon"

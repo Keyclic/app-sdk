@@ -3142,12 +3142,6 @@
                         "$ref": "#\/parameters\/assets__"
                     },
                     {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
-                    },
-                    {
                         "$ref": "#\/parameters\/batch"
                     },
                     {
@@ -9493,12 +9487,6 @@
                         "$ref": "#\/parameters\/assets__"
                     },
                     {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
-                    },
-                    {
                         "$ref": "#\/parameters\/batch"
                     },
                     {
@@ -9980,12 +9968,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/assets__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
                     },
                     {
                         "$ref": "#\/parameters\/batch"
@@ -10931,12 +10913,6 @@
                         "$ref": "#\/parameters\/assets__"
                     },
                     {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
-                    },
-                    {
                         "$ref": "#\/parameters\/category"
                     },
                     {
@@ -11545,12 +11521,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/assets__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
                     },
                     {
                         "$ref": "#\/parameters\/batch"
@@ -14418,12 +14388,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/assets__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/assigned_tos__"
                     },
                     {
                         "$ref": "#\/parameters\/batch"
@@ -27098,22 +27062,6 @@
                 "type": "string"
             },
             "name": "assets[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "assigned_to": {
-            "in": "query",
-            "name": "assigned_to",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "assigned_tos__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "assigned_tos[]",
             "pattern": ".*",
             "type": "array"
         },

@@ -402,8 +402,6 @@ class ReportApi {
   /// * [archived]
   /// * [asset]
   /// * [assetsLeftSquareBracketRightSquareBracket]
-  /// * [assignedTo]
-  /// * [assignedTosLeftSquareBracketRightSquareBracket]
   /// * [batch]
   /// * [batchesLeftSquareBracketRightSquareBracket]
   /// * [category]
@@ -468,8 +466,6 @@ class ReportApi {
     String? archived,
     String? asset,
     List<String>? assetsLeftSquareBracketRightSquareBracket,
-    String? assignedTo,
-    List<String>? assignedTosLeftSquareBracketRightSquareBracket,
     String? batch,
     List<String>? batchesLeftSquareBracketRightSquareBracket,
     String? category,
@@ -558,11 +554,6 @@ class ReportApi {
       if (assetsLeftSquareBracketRightSquareBracket != null)
         r'assets[]': encodeCollectionQueryParameter(
             assetsLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (assignedTo != null) r'assigned_to': encodeQueryParameter(assignedTo),
-      if (assignedTosLeftSquareBracketRightSquareBracket != null)
-        r'assigned_tos[]': encodeCollectionQueryParameter(
-            assignedTosLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (batch != null) r'batch': encodeQueryParameter(batch),
       if (batchesLeftSquareBracketRightSquareBracket != null)

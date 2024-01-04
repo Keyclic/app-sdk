@@ -20060,6 +20060,9 @@
                     "type": "object",
                     "additionalProperties": true
                 },
+                "priority": {
+                    "$ref": "#\/definitions\/FeedbackPriority"
+                },
                 "public": {
                     "type": "boolean"
                 },
@@ -20404,6 +20407,34 @@
                     }
                 }
             ]
+        },
+        "FeedbackPriority": {
+            "type": "object",
+            "properties": {
+                "color": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "id": {
+                    "format": "uuid",
+                    "pattern": "^\\[0-9A-Fa-f]{8}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{4}[-]?[0-9A-Fa-f]{12}",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "name": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "type": "string"
+                },
+                "position": {
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "type": {
+                    "format": "string",
+                    "type": "string"
+                }
+            }
         },
         "FeedbackWorkflowTransitionData": {
             "type": "object",

@@ -14,6 +14,7 @@ class Feedback {
     this.geoCoordinates,
     this.id,
     this.metadata,
+    this.priority,
     this.public,
     this.type,
     this.updatedAt,
@@ -49,6 +50,7 @@ class Feedback {
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
+      priority: FeedbackPriority.fromJson(json[r'priority']),
       public: json[r'public'],
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -69,6 +71,8 @@ class Feedback {
   final String? id;
 
   Map<String, Object?>? metadata;
+
+  FeedbackPriority? priority;
 
   bool? public;
 
@@ -93,6 +97,7 @@ class Feedback {
         other.geoCoordinates == geoCoordinates &&
         other.id == id &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
+        other.priority == priority &&
         other.public == public &&
         other.type == type &&
         other.updatedAt == updatedAt &&
@@ -108,6 +113,7 @@ class Feedback {
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
+      (priority == null ? 0 : priority.hashCode) +
       (public == null ? 0 : public.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
@@ -159,7 +165,7 @@ class Feedback {
 
   @override
   String toString() =>
-      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, public=$public, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
+      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, priority=$priority, public=$public, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -183,6 +189,9 @@ class Feedback {
       if ((keys == null && metadata != null) ||
           (keys?.contains(r'metadata') ?? false))
         r'metadata': metadata,
+      if ((keys == null && priority != null) ||
+          (keys?.contains(r'priority') ?? false))
+        r'priority': priority?.toJson(),
       if ((keys == null && public != null) ||
           (keys?.contains(r'public') ?? false))
         r'public': public,

@@ -31,6 +31,9 @@ void main() {
     // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
+    // FeedbackPriority priority
+    test('to test the property `priority`', () async {});
+
     // bool public
     test('to test the property `public`', () async {});
 

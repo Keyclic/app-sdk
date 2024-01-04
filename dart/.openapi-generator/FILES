@@ -227,6 +227,7 @@ doc/FeedbackLinksSelfIriTemplate.md
 doc/FeedbackLinksTracking.md
 doc/FeedbackLinksTrackingIriTemplate.md
 doc/FeedbackPagination.md
+doc/FeedbackPriority.md
 doc/FeedbackWorkflowTransitionData.md
 doc/FileData.md
 doc/GeoShape.md
@@ -876,6 +877,7 @@ lib/model/feedback_links_self_iri_template.dart
 lib/model/feedback_links_tracking.dart
 lib/model/feedback_links_tracking_iri_template.dart
 lib/model/feedback_pagination.dart
+lib/model/feedback_priority.dart
 lib/model/feedback_workflow_transition_data.dart
 lib/model/file_data.dart
 lib/model/geo_shape.dart
@@ -1463,6 +1465,7 @@ test/feedback_links_test.dart
 test/feedback_links_tracking_iri_template_test.dart
 test/feedback_links_tracking_test.dart
 test/feedback_pagination_test.dart
+test/feedback_priority_test.dart
 test/feedback_test.dart
 test/feedback_workflow_transition_data_test.dart
 test/file_data_test.dart

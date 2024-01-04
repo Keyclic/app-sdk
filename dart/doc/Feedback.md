@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **geoCoordinates** | [**FeedbackGeoCoordinates**](FeedbackGeoCoordinates.md) |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
+**priority** | [**FeedbackPriority**](FeedbackPriority.md) |  | [optional] 
 **public** | **bool** |  | [optional] 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 

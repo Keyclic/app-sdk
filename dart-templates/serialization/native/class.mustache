@@ -253,7 +253,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{^required}}
     if (keys == null || keys.
     {{#isModel}}
-    any((key) => RegExp(r'^{{{name}}}.').hasMatch(key))
+    any((key) => RegExp(r'^{{{name}}}\.').hasMatch(key))
     {{/isModel}}
     {{^isModel}}
     contains(r'{{{name}}}')
@@ -289,8 +289,8 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
           {{/isContainer}}
           {{^isContainer}}
             {{name}}{{^required}}?{{/required}}.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
-              if (element.startsWith(r'{{{name}}}.')) {
-                previousValue.add(element.split(r'{{{name}}}.').last);
+              if (element.contains(RegExp(r'^{{{name}}}\.'))) {
+                previousValue.add(element.split(RegExp(r'^{{{name}}}\.')).last);
               }
 
               return previousValue;

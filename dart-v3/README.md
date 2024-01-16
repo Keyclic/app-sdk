@@ -70,37 +70,39 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AssetApi* | [**getAsset**](doc//AssetApi.md#getasset) | **GET** /assets/{identifier} | Retrieves a Asset resource.
-*AssetApi* | [**getAssets**](doc//AssetApi.md#getassets) | **GET** /assets | Retrieves the collection of Asset resources.
+*AssetApi* | [**getAssetCollection**](doc//AssetApi.md#getassetcollection) | **GET** /assets | Retrieves the collection of Asset resources.
 *AssetTypeApi* | [**getAssetType**](doc//AssetTypeApi.md#getassettype) | **GET** /asset-types/{identifier} | Retrieves a AssetType resource.
-*AssetTypeApi* | [**getAssetTypes**](doc//AssetTypeApi.md#getassettypes) | **GET** /asset-types | Retrieves the collection of AssetType resources.
+*AssetTypeApi* | [**getAssetTypeCollection**](doc//AssetTypeApi.md#getassettypecollection) | **GET** /asset-types | Retrieves the collection of AssetType resources.
 *AuthApi* | [**getAuthToken**](doc//AuthApi.md#getauthtoken) | **POST** /auth/token | Retrieve an access token and ID token.
 *AuthApi* | [**postAuthProfile**](doc//AuthApi.md#postauthprofile) | **POST** /auth/profile | Creates a Profile resource.
 *BrandApi* | [**getBrand**](doc//BrandApi.md#getbrand) | **GET** /brands/{identifier} | Retrieves a Brand resource.
-*BrandApi* | [**getBrands**](doc//BrandApi.md#getbrands) | **GET** /brands | Retrieves the collection of Brand resources.
+*BrandApi* | [**getBrandCollection**](doc//BrandApi.md#getbrandcollection) | **GET** /brands | Retrieves the collection of Brand resources.
+*BusinessHoursApi* | [**getBusinessHours**](doc//BusinessHoursApi.md#getbusinesshours) | **GET** /business-hours/{identifier} | Retrieves a BusinessHours resource.
+*BusinessHoursApi* | [**getBusinessHoursCollection**](doc//BusinessHoursApi.md#getbusinesshourscollection) | **GET** /business-hours | Retrieves the collection of BusinessHours resources.
 *ConnectorApi* | [**getConnector**](doc//ConnectorApi.md#getconnector) | **GET** /connectors/{identifier} | Retrieves a Connector resource.
 *ContractApi* | [**deleteContract**](doc//ContractApi.md#deletecontract) | **DELETE** /contracts/{identifier} | Removes the Contract resource.
 *ContractApi* | [**getContract**](doc//ContractApi.md#getcontract) | **GET** /contracts/{identifier} | Retrieves a Contract resource.
-*ContractApi* | [**getContracts**](doc//ContractApi.md#getcontracts) | **GET** /contracts | Retrieves the collection of Contract resources.
+*ContractApi* | [**getContractCollection**](doc//ContractApi.md#getcontractcollection) | **GET** /contracts | Retrieves the collection of Contract resources.
 *ContractApi* | [**patchContract**](doc//ContractApi.md#patchcontract) | **PATCH** /contracts/{identifier} | Updates the Contract resource.
 *ContractApi* | [**postContract**](doc//ContractApi.md#postcontract) | **POST** /contracts | Creates a Contract resource.
 *ContractTypeApi* | [**getContractType**](doc//ContractTypeApi.md#getcontracttype) | **GET** /contract-types/{identifier} | Retrieves a ContractType resource.
-*ContractTypeApi* | [**getContractTypes**](doc//ContractTypeApi.md#getcontracttypes) | **GET** /contract-types | Retrieves the collection of ContractType resources.
+*ContractTypeApi* | [**getContractTypeCollection**](doc//ContractTypeApi.md#getcontracttypecollection) | **GET** /contract-types | Retrieves the collection of ContractType resources.
 *EquipmentApi* | [**deleteEquipment**](doc//EquipmentApi.md#deleteequipment) | **DELETE** /equipments/{identifier} | Removes the Equipment resource.
 *EquipmentApi* | [**getEquipment**](doc//EquipmentApi.md#getequipment) | **GET** /equipments/{identifier} | Retrieves a Equipment resource.
-*EquipmentApi* | [**getEquipments**](doc//EquipmentApi.md#getequipments) | **GET** /equipments | Retrieves the collection of Equipment resources.
+*EquipmentApi* | [**getEquipmentCollection**](doc//EquipmentApi.md#getequipmentcollection) | **GET** /equipments | Retrieves the collection of Equipment resources.
 *EquipmentApi* | [**patchEquipment**](doc//EquipmentApi.md#patchequipment) | **PATCH** /equipments/{identifier} | Updates the Equipment resource.
 *EquipmentApi* | [**postEquipment**](doc//EquipmentApi.md#postequipment) | **POST** /equipments | Creates a Equipment resource.
 *IntegrationApi* | [**getIntegration**](doc//IntegrationApi.md#getintegration) | **GET** /integrations/{identifier} | Retrieves a Integration resource.
-*IntegrationApi* | [**getIntegrations**](doc//IntegrationApi.md#getintegrations) | **GET** /integrations | Retrieves the collection of Integration resources.
+*IntegrationApi* | [**getIntegrationCollection**](doc//IntegrationApi.md#getintegrationcollection) | **GET** /integrations | Retrieves the collection of Integration resources.
 *IntegrationLinkApi* | [**deleteIntegrationLink**](doc//IntegrationLinkApi.md#deleteintegrationlink) | **DELETE** /integration-links/{identifier} | Removes the IntegrationLink resource.
 *IntegrationLinkApi* | [**getIntegrationLink**](doc//IntegrationLinkApi.md#getintegrationlink) | **GET** /integration-links/{identifier} | Retrieves a IntegrationLink resource.
-*IntegrationLinkApi* | [**getIntegrationLinks**](doc//IntegrationLinkApi.md#getintegrationlinks) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
+*IntegrationLinkApi* | [**getIntegrationLinkCollection**](doc//IntegrationLinkApi.md#getintegrationlinkcollection) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
 *IntegrationLinkApi* | [**patchIntegrationLink**](doc//IntegrationLinkApi.md#patchintegrationlink) | **PATCH** /integration-links/{identifier} | Updates the IntegrationLink resource.
 *IntegrationLinkApi* | [**postIntegrationLink**](doc//IntegrationLinkApi.md#postintegrationlink) | **POST** /integration-links | Creates a IntegrationLink resource.
 *TicketApi* | [**getTicket**](doc//TicketApi.md#getticket) | **GET** /tickets/{identifier} | Retrieves a Ticket resource.
-*TicketApi* | [**getTickets**](doc//TicketApi.md#gettickets) | **GET** /tickets | Retrieves the collection of Ticket resources.
+*TicketApi* | [**getTicketCollection**](doc//TicketApi.md#getticketcollection) | **GET** /tickets | Retrieves the collection of Ticket resources.
 *TicketTypeApi* | [**getTicketType**](doc//TicketTypeApi.md#gettickettype) | **GET** /ticket-types/{identifier} | Retrieves a TicketType resource.
-*TicketTypeApi* | [**getTicketTypes**](doc//TicketTypeApi.md#gettickettypes) | **GET** /ticket-types | Retrieves the collection of TicketType resources.
+*TicketTypeApi* | [**getTicketTypeCollection**](doc//TicketTypeApi.md#gettickettypecollection) | **GET** /ticket-types | Retrieves the collection of TicketType resources.
 *WorkflowStateApi* | [**getState**](doc//WorkflowStateApi.md#getstate) | **GET** /workflow-states/{identifier} | Retrieves a WorkflowState resource.
 
 
@@ -117,6 +119,8 @@ Class | Method | HTTP request | Description
  - [BillingWrite](doc//BillingWrite.md)
  - [BrandJsonhalRead](doc//BrandJsonhalRead.md)
  - [BrandRead](doc//BrandRead.md)
+ - [BusinessHoursBusinessHoursRead](doc//BusinessHoursBusinessHoursRead.md)
+ - [BusinessHoursJsonhalBusinessHoursRead](doc//BusinessHoursJsonhalBusinessHoursRead.md)
  - [ConnectionAuthProfileRead](doc//ConnectionAuthProfileRead.md)
  - [ConnectionJsonhalAuthProfileRead](doc//ConnectionJsonhalAuthProfileRead.md)
  - [ConnectorConnectorRead](doc//ConnectorConnectorRead.md)
@@ -133,31 +137,33 @@ Class | Method | HTTP request | Description
  - [EquipmentJsonhalRead](doc//EquipmentJsonhalRead.md)
  - [EquipmentJsonhalReadLinks](doc//EquipmentJsonhalReadLinks.md)
  - [EquipmentRead](doc//EquipmentRead.md)
- - [GetAssetTypes200Response](doc//GetAssetTypes200Response.md)
- - [GetAssetTypes200ResponseEmbedded](doc//GetAssetTypes200ResponseEmbedded.md)
- - [GetAssetTypes200ResponseLinks](doc//GetAssetTypes200ResponseLinks.md)
- - [GetAssetTypes200ResponseLinksFirst](doc//GetAssetTypes200ResponseLinksFirst.md)
- - [GetAssetTypes200ResponseLinksSelf](doc//GetAssetTypes200ResponseLinksSelf.md)
- - [GetAssets200Response](doc//GetAssets200Response.md)
- - [GetAssets200ResponseEmbedded](doc//GetAssets200ResponseEmbedded.md)
+ - [GetAssetCollection200Response](doc//GetAssetCollection200Response.md)
+ - [GetAssetCollection200ResponseEmbedded](doc//GetAssetCollection200ResponseEmbedded.md)
+ - [GetAssetTypeCollection200Response](doc//GetAssetTypeCollection200Response.md)
+ - [GetAssetTypeCollection200ResponseEmbedded](doc//GetAssetTypeCollection200ResponseEmbedded.md)
+ - [GetAssetTypeCollection200ResponseLinks](doc//GetAssetTypeCollection200ResponseLinks.md)
+ - [GetAssetTypeCollection200ResponseLinksFirst](doc//GetAssetTypeCollection200ResponseLinksFirst.md)
+ - [GetAssetTypeCollection200ResponseLinksSelf](doc//GetAssetTypeCollection200ResponseLinksSelf.md)
  - [GetAuthToken200Response](doc//GetAuthToken200Response.md)
  - [GetAuthTokenRequest](doc//GetAuthTokenRequest.md)
- - [GetBrands200Response](doc//GetBrands200Response.md)
- - [GetBrands200ResponseEmbedded](doc//GetBrands200ResponseEmbedded.md)
- - [GetContractTypes200Response](doc//GetContractTypes200Response.md)
- - [GetContractTypes200ResponseEmbedded](doc//GetContractTypes200ResponseEmbedded.md)
- - [GetContracts200Response](doc//GetContracts200Response.md)
- - [GetContracts200ResponseEmbedded](doc//GetContracts200ResponseEmbedded.md)
- - [GetEquipments200Response](doc//GetEquipments200Response.md)
- - [GetEquipments200ResponseEmbedded](doc//GetEquipments200ResponseEmbedded.md)
- - [GetIntegrationLinks200Response](doc//GetIntegrationLinks200Response.md)
- - [GetIntegrationLinks200ResponseEmbedded](doc//GetIntegrationLinks200ResponseEmbedded.md)
- - [GetIntegrations200Response](doc//GetIntegrations200Response.md)
- - [GetIntegrations200ResponseEmbedded](doc//GetIntegrations200ResponseEmbedded.md)
- - [GetTicketTypes200Response](doc//GetTicketTypes200Response.md)
- - [GetTicketTypes200ResponseEmbedded](doc//GetTicketTypes200ResponseEmbedded.md)
- - [GetTickets200Response](doc//GetTickets200Response.md)
- - [GetTickets200ResponseEmbedded](doc//GetTickets200ResponseEmbedded.md)
+ - [GetBrandCollection200Response](doc//GetBrandCollection200Response.md)
+ - [GetBrandCollection200ResponseEmbedded](doc//GetBrandCollection200ResponseEmbedded.md)
+ - [GetBusinessHoursCollection200Response](doc//GetBusinessHoursCollection200Response.md)
+ - [GetBusinessHoursCollection200ResponseEmbedded](doc//GetBusinessHoursCollection200ResponseEmbedded.md)
+ - [GetContractCollection200Response](doc//GetContractCollection200Response.md)
+ - [GetContractCollection200ResponseEmbedded](doc//GetContractCollection200ResponseEmbedded.md)
+ - [GetContractTypeCollection200Response](doc//GetContractTypeCollection200Response.md)
+ - [GetContractTypeCollection200ResponseEmbedded](doc//GetContractTypeCollection200ResponseEmbedded.md)
+ - [GetEquipmentCollection200Response](doc//GetEquipmentCollection200Response.md)
+ - [GetEquipmentCollection200ResponseEmbedded](doc//GetEquipmentCollection200ResponseEmbedded.md)
+ - [GetIntegrationCollection200Response](doc//GetIntegrationCollection200Response.md)
+ - [GetIntegrationCollection200ResponseEmbedded](doc//GetIntegrationCollection200ResponseEmbedded.md)
+ - [GetIntegrationLinkCollection200Response](doc//GetIntegrationLinkCollection200Response.md)
+ - [GetIntegrationLinkCollection200ResponseEmbedded](doc//GetIntegrationLinkCollection200ResponseEmbedded.md)
+ - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
+ - [GetTicketCollection200ResponseEmbedded](doc//GetTicketCollection200ResponseEmbedded.md)
+ - [GetTicketTypeCollection200Response](doc//GetTicketTypeCollection200Response.md)
+ - [GetTicketTypeCollection200ResponseEmbedded](doc//GetTicketTypeCollection200ResponseEmbedded.md)
  - [IntegrationIntegrationRead](doc//IntegrationIntegrationRead.md)
  - [IntegrationJsonhalIntegrationRead](doc//IntegrationJsonhalIntegrationRead.md)
  - [IntegrationJsonhalIntegrationReadLinks](doc//IntegrationJsonhalIntegrationReadLinks.md)

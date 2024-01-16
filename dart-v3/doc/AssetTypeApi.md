@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAssetType**](AssetTypeApi.md#getassettype) | **GET** /asset-types/{identifier} | Retrieves a AssetType resource.
-[**getAssetTypes**](AssetTypeApi.md#getassettypes) | **GET** /asset-types | Retrieves the collection of AssetType resources.
+[**getAssetTypeCollection**](AssetTypeApi.md#getassettypecollection) | **GET** /asset-types | Retrieves the collection of AssetType resources.
 
 
 # **getAssetType**
@@ -72,8 +72,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getAssetTypes**
-> GetAssetTypes200Response getAssetTypes(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+# **getAssetTypeCollection**
+> GetAssetTypeCollection200Response getAssetTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of AssetType resources.
 
@@ -99,10 +99,10 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getAssetTypes(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getAssetTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print('Exception when calling AssetTypeApi->getAssetTypes: $e\n');
+    print('Exception when calling AssetTypeApi->getAssetTypeCollection: $e\n');
 }
 ```
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAssetTypes200Response**](GetAssetTypes200Response.md)
+[**GetAssetTypeCollection200Response**](GetAssetTypeCollection200Response.md)
 
 ### Authorization
 

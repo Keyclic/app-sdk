@@ -28,8 +28,8 @@ void main() {
     //
     // Retrieves the collection of IntegrationLink resources.
     //
-    //Future<GetIntegrationLinks200Response> getIntegrationLinks({ int page, int limit, bool pagination, bool existsLeftSquareBracketTargetRightSquareBracket, List<String> jsonData, List<String> jsonMetadata, String integration, List<String> integrationLeftSquareBracketRightSquareBracket, String source_, List<String> sourceLeftSquareBracketRightSquareBracket, String state, List<String> stateLeftSquareBracketRightSquareBracket, String target, List<String> targetLeftSquareBracketRightSquareBracket, String acceptLanguage }) async
-    test('test getIntegrationLinks', () async {});
+    //Future<GetIntegrationLinkCollection200Response> getIntegrationLinkCollection({ int page, int limit, bool pagination, bool existsLeftSquareBracketTargetRightSquareBracket, List<String> jsonData, List<String> jsonMetadata, String integration, List<String> integrationLeftSquareBracketRightSquareBracket, String source_, List<String> sourceLeftSquareBracketRightSquareBracket, String state, List<String> stateLeftSquareBracketRightSquareBracket, String target, List<String> targetLeftSquareBracketRightSquareBracket, String acceptLanguage }) async
+    test('test getIntegrationLinkCollection', () async {});
 
     // Updates the IntegrationLink resource.
     //

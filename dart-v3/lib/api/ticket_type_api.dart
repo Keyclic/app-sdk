@@ -128,9 +128,9 @@ class TicketTypeApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetTicketTypes200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetTicketTypeCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetTicketTypes200Response>> getTicketTypes({
+  Future<Response<GetTicketTypeCollection200Response>> getTicketTypeCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -191,12 +191,12 @@ class TicketTypeApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetTicketTypes200Response responseData;
+    GetTicketTypeCollection200Response responseData;
 
     try {
       responseData =
-          await _apiClient.deserializeAsync<GetTicketTypes200Response>(
-              response.data!, 'GetTicketTypes200Response');
+          await _apiClient.deserializeAsync<GetTicketTypeCollection200Response>(
+              response.data!, 'GetTicketTypeCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -206,7 +206,7 @@ class TicketTypeApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetTicketTypes200Response>(
+    return Response<GetTicketTypeCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

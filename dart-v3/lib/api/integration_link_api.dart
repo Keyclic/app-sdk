@@ -175,9 +175,10 @@ class IntegrationLinkApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetIntegrationLinks200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetIntegrationLinkCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetIntegrationLinks200Response>> getIntegrationLinks({
+  Future<Response<GetIntegrationLinkCollection200Response>>
+      getIntegrationLinkCollection({
     int? page,
     int? limit,
     bool? pagination,
@@ -267,12 +268,12 @@ class IntegrationLinkApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetIntegrationLinks200Response responseData;
+    GetIntegrationLinkCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetIntegrationLinks200Response>(
-              response.data!, 'GetIntegrationLinks200Response');
+      responseData = await _apiClient
+          .deserializeAsync<GetIntegrationLinkCollection200Response>(
+              response.data!, 'GetIntegrationLinkCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -282,7 +283,7 @@ class IntegrationLinkApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetIntegrationLinks200Response>(
+    return Response<GetIntegrationLinkCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

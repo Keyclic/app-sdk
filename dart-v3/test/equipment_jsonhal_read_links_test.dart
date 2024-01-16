@@ -10,19 +10,19 @@ void main() {
   // final instance = EquipmentJsonhalReadLinks();
 
   group('test EquipmentJsonhalReadLinks', () {
-    // GetAssetTypes200ResponseLinksFirst self
+    // GetAssetTypeCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypes200ResponseLinksFirst brand
+    // GetAssetTypeCollection200ResponseLinksFirst brand
     test('to test the property `brand`', () async {});
 
-    // GetAssetTypes200ResponseLinksFirst type
+    // GetAssetTypeCollection200ResponseLinksFirst type
     test('to test the property `type`', () async {});
 
-    // GetAssetTypes200ResponseLinksFirst parent
+    // GetAssetTypeCollection200ResponseLinksFirst parent
     test('to test the property `parent`', () async {});
 
-    // GetAssetTypes200ResponseLinksFirst state
+    // GetAssetTypeCollection200ResponseLinksFirst state
     test('to test the property `state`', () async {});
   });
 }

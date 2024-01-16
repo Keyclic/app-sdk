@@ -128,9 +128,10 @@ class ContractTypeApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetContractTypes200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetContractTypeCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetContractTypes200Response>> getContractTypes({
+  Future<Response<GetContractTypeCollection200Response>>
+      getContractTypeCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -191,12 +192,12 @@ class ContractTypeApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetContractTypes200Response responseData;
+    GetContractTypeCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetContractTypes200Response>(
-              response.data!, 'GetContractTypes200Response');
+      responseData = await _apiClient
+          .deserializeAsync<GetContractTypeCollection200Response>(
+              response.data!, 'GetContractTypeCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -206,7 +207,7 @@ class ContractTypeApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetContractTypes200Response>(
+    return Response<GetContractTypeCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

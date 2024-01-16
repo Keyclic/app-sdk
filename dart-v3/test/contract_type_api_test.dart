@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of ContractType resources.
     //
-    //Future<GetContractTypes200Response> getContractTypes(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getContractTypes', () async {});
+    //Future<GetContractTypeCollection200Response> getContractTypeCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    test('test getContractTypeCollection', () async {});
   });
 }

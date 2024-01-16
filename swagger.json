@@ -22894,6 +22894,7 @@
                 "asset-equipment:read",
                 "asset-equipment:write",
                 "asset-type:read",
+                "business-hours:read",
                 "connector:read",
                 "contract:billing:read",
                 "contract:read",

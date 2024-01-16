@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getContractType**](ContractTypeApi.md#getcontracttype) | **GET** /contract-types/{identifier} | Retrieves a ContractType resource.
-[**getContractTypes**](ContractTypeApi.md#getcontracttypes) | **GET** /contract-types | Retrieves the collection of ContractType resources.
+[**getContractTypeCollection**](ContractTypeApi.md#getcontracttypecollection) | **GET** /contract-types | Retrieves the collection of ContractType resources.
 
 
 # **getContractType**
@@ -72,8 +72,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getContractTypes**
-> GetContractTypes200Response getContractTypes(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+# **getContractTypeCollection**
+> GetContractTypeCollection200Response getContractTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of ContractType resources.
 
@@ -99,10 +99,10 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getContractTypes(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getContractTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print('Exception when calling ContractTypeApi->getContractTypes: $e\n');
+    print('Exception when calling ContractTypeApi->getContractTypeCollection: $e\n');
 }
 ```
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetContractTypes200Response**](GetContractTypes200Response.md)
+[**GetContractTypeCollection200Response**](GetContractTypeCollection200Response.md)
 
 ### Authorization
 

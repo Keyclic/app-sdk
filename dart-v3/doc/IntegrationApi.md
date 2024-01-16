@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getIntegration**](IntegrationApi.md#getintegration) | **GET** /integrations/{identifier} | Retrieves a Integration resource.
-[**getIntegrations**](IntegrationApi.md#getintegrations) | **GET** /integrations | Retrieves the collection of Integration resources.
+[**getIntegrationCollection**](IntegrationApi.md#getintegrationcollection) | **GET** /integrations | Retrieves the collection of Integration resources.
 
 
 # **getIntegration**
@@ -62,8 +62,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getIntegrations**
-> GetIntegrations200Response getIntegrations(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage)
+# **getIntegrationCollection**
+> GetIntegrationCollection200Response getIntegrationCollection(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage)
 
 Retrieves the collection of Integration resources.
 
@@ -99,10 +99,10 @@ final organizationPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // L
 final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    final result = api_instance.getIntegrations(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage);
+    final result = api_instance.getIntegrationCollection(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {
-    print('Exception when calling IntegrationApi->getIntegrations: $e\n');
+    print('Exception when calling IntegrationApi->getIntegrationCollection: $e\n');
 }
 ```
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetIntegrations200Response**](GetIntegrations200Response.md)
+[**GetIntegrationCollection200Response**](GetIntegrationCollection200Response.md)
 
 ### Authorization
 

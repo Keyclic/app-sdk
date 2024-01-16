@@ -147,9 +147,9 @@ class AssetApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetAssets200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetAssetCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetAssets200Response>> getAssets({
+  Future<Response<GetAssetCollection200Response>> getAssetCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -283,11 +283,12 @@ class AssetApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetAssets200Response responseData;
+    GetAssetCollection200Response responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<GetAssets200Response>(
-          response.data!, 'GetAssets200Response');
+      responseData =
+          await _apiClient.deserializeAsync<GetAssetCollection200Response>(
+              response.data!, 'GetAssetCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -297,7 +298,7 @@ class AssetApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetAssets200Response>(
+    return Response<GetAssetCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

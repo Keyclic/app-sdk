@@ -10,13 +10,13 @@ void main() {
   // final instance = IntegrationJsonhalIntegrationReadLinks();
 
   group('test IntegrationJsonhalIntegrationReadLinks', () {
-    // GetAssetTypes200ResponseLinksFirst self
+    // GetAssetTypeCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypes200ResponseLinksFirst connector
+    // GetAssetTypeCollection200ResponseLinksFirst connector
     test('to test the property `connector`', () async {});
 
-    // GetAssetTypes200ResponseLinksFirst organization
+    // GetAssetTypeCollection200ResponseLinksFirst organization
     test('to test the property `organization`', () async {});
   });
 }

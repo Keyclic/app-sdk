@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getBrand**](BrandApi.md#getbrand) | **GET** /brands/{identifier} | Retrieves a Brand resource.
-[**getBrands**](BrandApi.md#getbrands) | **GET** /brands | Retrieves the collection of Brand resources.
+[**getBrandCollection**](BrandApi.md#getbrandcollection) | **GET** /brands | Retrieves the collection of Brand resources.
 
 
 # **getBrand**
@@ -72,8 +72,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getBrands**
-> GetBrands200Response getBrands(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+# **getBrandCollection**
+> GetBrandCollection200Response getBrandCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Brand resources.
 
@@ -99,10 +99,10 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getBrands(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getBrandCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print('Exception when calling BrandApi->getBrands: $e\n');
+    print('Exception when calling BrandApi->getBrandCollection: $e\n');
 }
 ```
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBrands200Response**](GetBrands200Response.md)
+[**GetBrandCollection200Response**](GetBrandCollection200Response.md)
 
 ### Authorization
 

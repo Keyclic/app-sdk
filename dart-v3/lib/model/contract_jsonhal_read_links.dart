@@ -20,17 +20,18 @@ class ContractJsonhalReadLinks {
     }
 
     return ContractJsonhalReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      provider: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'provider']),
-      type: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'type']),
+      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      provider: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
+          json[r'provider']),
+      type: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'type']),
     );
   }
 
-  GetAssetTypes200ResponseLinksFirst? self;
+  GetAssetTypeCollection200ResponseLinksFirst? self;
 
-  GetAssetTypes200ResponseLinksFirst? provider;
+  GetAssetTypeCollection200ResponseLinksFirst? provider;
 
-  GetAssetTypes200ResponseLinksFirst? type;
+  GetAssetTypeCollection200ResponseLinksFirst? type;
 
   @override
   bool operator ==(Object other) {

@@ -1154,6 +1154,8 @@ class ApiClient {
           return PreferencesNotification.fromJson(value);
         case 'PreferencesReference':
           return PreferencesReference.fromJson(value);
+        case 'PreferencesReview':
+          return PreferencesReview.fromJson(value);
         case 'Problem':
           return Problem.fromJson(value);
         case 'ProblemEmbedded':

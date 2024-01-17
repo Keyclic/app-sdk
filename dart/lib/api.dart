@@ -472,6 +472,7 @@ part 'model/preferences_equipment.dart';
 part 'model/preferences_form.dart';
 part 'model/preferences_notification.dart';
 part 'model/preferences_reference.dart';
+part 'model/preferences_review.dart';
 part 'model/problem.dart';
 part 'model/problem_embedded.dart';
 part 'model/procedure.dart';

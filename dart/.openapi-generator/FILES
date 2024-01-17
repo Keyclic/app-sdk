@@ -441,6 +441,7 @@ doc/PreferencesEquipment.md
 doc/PreferencesForm.md
 doc/PreferencesNotification.md
 doc/PreferencesReference.md
+doc/PreferencesReview.md
 doc/Problem.md
 doc/ProblemEmbedded.md
 doc/Procedure.md
@@ -1078,6 +1079,7 @@ lib/model/preferences_equipment.dart
 lib/model/preferences_form.dart
 lib/model/preferences_notification.dart
 lib/model/preferences_reference.dart
+lib/model/preferences_review.dart
 lib/model/problem.dart
 lib/model/problem_embedded.dart
 lib/model/procedure.dart
@@ -1680,6 +1682,7 @@ test/preferences_equipment_test.dart
 test/preferences_form_test.dart
 test/preferences_notification_test.dart
 test/preferences_reference_test.dart
+test/preferences_review_test.dart
 test/problem_embedded_test.dart
 test/problem_test.dart
 test/procedure_api_test.dart

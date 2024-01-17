@@ -20079,7 +20079,6 @@
                     "enum": [
                         "VISIBILITY_PRIVATE",
                         "VISIBILITY_PUBLIC",
-                        "VISIBILITY_RESTRICTED",
                         "VISIBILITY_SHARED"
                     ],
                     "format": "string",
@@ -20154,7 +20153,6 @@
                     "enum": [
                         "VISIBILITY_PRIVATE",
                         "VISIBILITY_PUBLIC",
-                        "VISIBILITY_RESTRICTED",
                         "VISIBILITY_SHARED"
                     ]
                 }
@@ -27321,13 +27319,12 @@
                 "enum": [
                     "VISIBILITY_PRIVATE",
                     "VISIBILITY_PUBLIC",
-                    "VISIBILITY_RESTRICTED",
                     "VISIBILITY_SHARED"
                 ],
                 "type": "string"
             },
             "name": "visibility[]",
-            "pattern": "VISIBILITY_PRIVATE|VISIBILITY_PUBLIC|VISIBILITY_RESTRICTED|VISIBILITY_SHARED",
+            "pattern": "VISIBILITY_PRIVATE|VISIBILITY_PUBLIC|VISIBILITY_SHARED",
             "type": "array"
         },
         "ExternalServicePatch": {

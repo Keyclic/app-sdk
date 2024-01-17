@@ -188,15 +188,12 @@ class FeedbackDataVisibilityEnum {
 
   static const PRIVATE = FeedbackDataVisibilityEnum._(r'VISIBILITY_PRIVATE');
   static const PUBLIC = FeedbackDataVisibilityEnum._(r'VISIBILITY_PUBLIC');
-  static const RESTRICTED =
-      FeedbackDataVisibilityEnum._(r'VISIBILITY_RESTRICTED');
   static const SHARED = FeedbackDataVisibilityEnum._(r'VISIBILITY_SHARED');
 
   /// List of all possible values in this [enum][FeedbackDataVisibilityEnum].
   static const values = <FeedbackDataVisibilityEnum>[
     PRIVATE,
     PUBLIC,
-    RESTRICTED,
     SHARED,
   ];
 
@@ -237,8 +234,6 @@ class FeedbackDataVisibilityEnumTypeTransformer {
         return FeedbackDataVisibilityEnum.PRIVATE;
       case r'VISIBILITY_PUBLIC':
         return FeedbackDataVisibilityEnum.PUBLIC;
-      case r'VISIBILITY_RESTRICTED':
-        return FeedbackDataVisibilityEnum.RESTRICTED;
       case r'VISIBILITY_SHARED':
         return FeedbackDataVisibilityEnum.SHARED;
       default:

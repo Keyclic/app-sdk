@@ -18,7 +18,6 @@ class Operation {
     this.name,
     this.priority,
     this.scheduledAt,
-    this.signature,
     this.tags,
     this.type,
     this.updatedAt,
@@ -68,7 +67,6 @@ class Operation {
       name: json[r'name'],
       priority: OperationPriority.fromJson(json[r'priority']),
       scheduledAt: scheduledAt,
-      signature: OperationSignature.fromJson(json[r'signature']),
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       type: json[r'type'],
       updatedAt: updatedAt,
@@ -97,8 +95,6 @@ class Operation {
 
   DateTime? scheduledAt;
 
-  OperationSignature? signature;
-
   List<String>? tags;
 
   String? type;
@@ -124,7 +120,6 @@ class Operation {
         other.name == name &&
         other.priority == priority &&
         other.scheduledAt == scheduledAt &&
-        other.signature == signature &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.type == type &&
         other.updatedAt == updatedAt;
@@ -143,7 +138,6 @@ class Operation {
       (name == null ? 0 : name.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
-      (signature == null ? 0 : signature.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -194,7 +188,7 @@ class Operation {
 
   @override
   String toString() =>
-      'Operation[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, signature=$signature, tags=$tags, type=$type, updatedAt=$updatedAt]';
+      'Operation[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -240,16 +234,6 @@ class Operation {
         })),
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^signature\.').hasMatch(key)))
-        r'signature': signature?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^signature\.'))) {
-            previousValue.add(element.split(RegExp(r'^signature\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'tags')) r'tags': tags,
       if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'updatedAt'))

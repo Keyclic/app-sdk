@@ -823,10 +823,6 @@ class ApiClient {
           return KnowledgeBaseLinksSelf.fromJson(value);
         case 'KnowledgeBaseLinksSelfIriTemplate':
           return KnowledgeBaseLinksSelfIriTemplate.fromJson(value);
-        case 'LegacySignatureData':
-          return LegacySignatureData.fromJson(value);
-        case 'LegacySignatureDataSigner':
-          return LegacySignatureDataSigner.fromJson(value);
         case 'LoginData':
           return LoginData.fromJson(value);
         case 'Marker':
@@ -989,8 +985,6 @@ class ApiClient {
           return OperationPagination.fromJson(value);
         case 'OperationPriority':
           return OperationPriority.fromJson(value);
-        case 'OperationSignature':
-          return OperationSignature.fromJson(value);
         case 'OperationTypeWorkflow':
           return OperationTypeWorkflow.fromJson(value);
         case 'Organization':
@@ -1415,8 +1409,6 @@ class ApiClient {
           return ServicePostalAddress.fromJson(value);
         case 'SignatureData':
           return SignatureData.fromJson(value);
-        case 'SignatureSigner':
-          return SignatureSigner.fromJson(value);
         case 'Signer':
           return Signer.fromJson(value);
         case 'SignerCollection':

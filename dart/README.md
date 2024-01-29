@@ -156,7 +156,6 @@ Class | Method | HTTP request | Description
 *OperationApi* | [**postCommentByOperation**](doc//OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
 *OperationApi* | [**postDocumentByOperation**](doc//OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 *OperationApi* | [**postOperation**](doc//OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
-*OperationApi* | [**postSignByOperation**](doc//OperationApi.md#postsignbyoperation) | **POST** /operations/{operation}/sign | Create one Sign resource.
 *OperationApi* | [**postWorkflowByOperation**](doc//OperationApi.md#postworkflowbyoperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
 *OrganizationApi* | [**cgetCategoriesByOrganization**](doc//OrganizationApi.md#cgetcategoriesbyorganization) | **GET** /organizations/{organization}/categories | Retrieve all Category resources.
 *OrganizationApi* | [**cgetDispatchServicesByOrganization**](doc//OrganizationApi.md#cgetdispatchservicesbyorganization) | **GET** /organizations/{organization}/dispatch-services | Retrieve all DispatchService resources.
@@ -488,8 +487,6 @@ Class | Method | HTTP request | Description
  - [KnowledgeBaseLinks](doc//KnowledgeBaseLinks.md)
  - [KnowledgeBaseLinksSelf](doc//KnowledgeBaseLinksSelf.md)
  - [KnowledgeBaseLinksSelfIriTemplate](doc//KnowledgeBaseLinksSelfIriTemplate.md)
- - [LegacySignatureData](doc//LegacySignatureData.md)
- - [LegacySignatureDataSigner](doc//LegacySignatureDataSigner.md)
  - [LoginData](doc//LoginData.md)
  - [Marker](doc//Marker.md)
  - [MarkerData](doc//MarkerData.md)
@@ -571,7 +568,6 @@ Class | Method | HTTP request | Description
  - [OperationLinksTrackingIriTemplate](doc//OperationLinksTrackingIriTemplate.md)
  - [OperationPagination](doc//OperationPagination.md)
  - [OperationPriority](doc//OperationPriority.md)
- - [OperationSignature](doc//OperationSignature.md)
  - [OperationTypeWorkflow](doc//OperationTypeWorkflow.md)
  - [Organization](doc//Organization.md)
  - [OrganizationCollection](doc//OrganizationCollection.md)
@@ -783,7 +779,6 @@ Class | Method | HTTP request | Description
  - [ServicePagination](doc//ServicePagination.md)
  - [ServicePostalAddress](doc//ServicePostalAddress.md)
  - [SignatureData](doc//SignatureData.md)
- - [SignatureSigner](doc//SignatureSigner.md)
  - [Signer](doc//Signer.md)
  - [SignerCollection](doc//SignerCollection.md)
  - [SignerData](doc//SignerData.md)

@@ -43,9 +43,6 @@ void main() {
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
 
-    // OperationSignature signature
-    test('to test the property `signature`', () async {});
-
     // List<String> tags (default value: const [])
     test('to test the property `tags`', () async {});
 

@@ -266,8 +266,6 @@ doc/KnowledgeBaseApi.md
 doc/KnowledgeBaseLinks.md
 doc/KnowledgeBaseLinksSelf.md
 doc/KnowledgeBaseLinksSelfIriTemplate.md
-doc/LegacySignatureData.md
-doc/LegacySignatureDataSigner.md
 doc/LoginData.md
 doc/Marker.md
 doc/MarkerApi.md
@@ -354,7 +352,6 @@ doc/OperationLinksTracking.md
 doc/OperationLinksTrackingIriTemplate.md
 doc/OperationPagination.md
 doc/OperationPriority.md
-doc/OperationSignature.md
 doc/OperationTypeWorkflow.md
 doc/Organization.md
 doc/OrganizationApi.md
@@ -581,7 +578,6 @@ doc/ServiceMemberData.md
 doc/ServicePagination.md
 doc/ServicePostalAddress.md
 doc/SignatureData.md
-doc/SignatureSigner.md
 doc/Signer.md
 doc/SignerApi.md
 doc/SignerCollection.md
@@ -917,8 +913,6 @@ lib/model/knowledge_base.dart
 lib/model/knowledge_base_links.dart
 lib/model/knowledge_base_links_self.dart
 lib/model/knowledge_base_links_self_iri_template.dart
-lib/model/legacy_signature_data.dart
-lib/model/legacy_signature_data_signer.dart
 lib/model/login_data.dart
 lib/model/marker.dart
 lib/model/marker_data.dart
@@ -1000,7 +994,6 @@ lib/model/operation_links_tracking.dart
 lib/model/operation_links_tracking_iri_template.dart
 lib/model/operation_pagination.dart
 lib/model/operation_priority.dart
-lib/model/operation_signature.dart
 lib/model/operation_type_workflow.dart
 lib/model/organization.dart
 lib/model/organization_collection.dart
@@ -1212,7 +1205,6 @@ lib/model/service_member_data.dart
 lib/model/service_pagination.dart
 lib/model/service_postal_address.dart
 lib/model/signature_data.dart
-lib/model/signature_signer.dart
 lib/model/signer.dart
 lib/model/signer_collection.dart
 lib/model/signer_data.dart
@@ -1513,8 +1505,6 @@ test/knowledge_base_links_self_iri_template_test.dart
 test/knowledge_base_links_self_test.dart
 test/knowledge_base_links_test.dart
 test/knowledge_base_test.dart
-test/legacy_signature_data_signer_test.dart
-test/legacy_signature_data_test.dart
 test/login_data_test.dart
 test/marker_api_test.dart
 test/marker_data_point_test.dart
@@ -1600,7 +1590,6 @@ test/operation_links_tracking_iri_template_test.dart
 test/operation_links_tracking_test.dart
 test/operation_pagination_test.dart
 test/operation_priority_test.dart
-test/operation_signature_test.dart
 test/operation_test.dart
 test/operation_type_workflow_test.dart
 test/organization_api_test.dart
@@ -1828,7 +1817,6 @@ test/service_pagination_test.dart
 test/service_postal_address_test.dart
 test/service_test.dart
 test/signature_data_test.dart
-test/signature_signer_test.dart
 test/signer_api_test.dart
 test/signer_collection_test.dart
 test/signer_data_test.dart

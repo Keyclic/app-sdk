@@ -84,6 +84,11 @@ class ApiPlatformClient {
     return BrandApi(this);
   }
 
+  /// Get BusinessHoursApi instance
+  BusinessHoursApi getBusinessHoursApi() {
+    return BusinessHoursApi(this);
+  }
+
   /// Get ConnectorApi instance
   ConnectorApi getConnectorApi() {
     return ConnectorApi(this);
@@ -206,6 +211,10 @@ class ApiPlatformClient {
           return BrandJsonhalRead.fromJson(value);
         case 'BrandRead':
           return BrandRead.fromJson(value);
+        case 'BusinessHoursBusinessHoursRead':
+          return BusinessHoursBusinessHoursRead.fromJson(value);
+        case 'BusinessHoursJsonhalBusinessHoursRead':
+          return BusinessHoursJsonhalBusinessHoursRead.fromJson(value);
         case 'ConnectionAuthProfileRead':
           return ConnectionAuthProfileRead.fromJson(value);
         case 'ConnectionJsonhalAuthProfileRead':
@@ -238,56 +247,61 @@ class ApiPlatformClient {
           return EquipmentJsonhalReadLinks.fromJson(value);
         case 'EquipmentRead':
           return EquipmentRead.fromJson(value);
-        case 'GetAssetTypes200Response':
-          return GetAssetTypes200Response.fromJson(value);
-        case 'GetAssetTypes200ResponseEmbedded':
-          return GetAssetTypes200ResponseEmbedded.fromJson(value);
-        case 'GetAssetTypes200ResponseLinks':
-          return GetAssetTypes200ResponseLinks.fromJson(value);
-        case 'GetAssetTypes200ResponseLinksFirst':
-          return GetAssetTypes200ResponseLinksFirst.fromJson(value);
-        case 'GetAssetTypes200ResponseLinksSelf':
-          return GetAssetTypes200ResponseLinksSelf.fromJson(value);
-        case 'GetAssets200Response':
-          return GetAssets200Response.fromJson(value);
-        case 'GetAssets200ResponseEmbedded':
-          return GetAssets200ResponseEmbedded.fromJson(value);
+        case 'GetAssetCollection200Response':
+          return GetAssetCollection200Response.fromJson(value);
+        case 'GetAssetCollection200ResponseEmbedded':
+          return GetAssetCollection200ResponseEmbedded.fromJson(value);
+        case 'GetAssetTypeCollection200Response':
+          return GetAssetTypeCollection200Response.fromJson(value);
+        case 'GetAssetTypeCollection200ResponseEmbedded':
+          return GetAssetTypeCollection200ResponseEmbedded.fromJson(value);
+        case 'GetAssetTypeCollection200ResponseLinks':
+          return GetAssetTypeCollection200ResponseLinks.fromJson(value);
+        case 'GetAssetTypeCollection200ResponseLinksFirst':
+          return GetAssetTypeCollection200ResponseLinksFirst.fromJson(value);
+        case 'GetAssetTypeCollection200ResponseLinksSelf':
+          return GetAssetTypeCollection200ResponseLinksSelf.fromJson(value);
         case 'GetAuthToken200Response':
           return GetAuthToken200Response.fromJson(value);
         case 'GetAuthTokenRequest':
           return GetAuthTokenRequest.fromJson(value);
-        case 'GetBrands200Response':
-          return GetBrands200Response.fromJson(value);
-        case 'GetBrands200ResponseEmbedded':
-          return GetBrands200ResponseEmbedded.fromJson(value);
-        case 'GetContractTypes200Response':
-          return GetContractTypes200Response.fromJson(value);
-        case 'GetContractTypes200ResponseEmbedded':
-          return GetContractTypes200ResponseEmbedded.fromJson(value);
-        case 'GetContracts200Response':
-          return GetContracts200Response.fromJson(value);
-        case 'GetContracts200ResponseEmbedded':
-          return GetContracts200ResponseEmbedded.fromJson(value);
-        case 'GetEquipments200Response':
-          return GetEquipments200Response.fromJson(value);
-        case 'GetEquipments200ResponseEmbedded':
-          return GetEquipments200ResponseEmbedded.fromJson(value);
-        case 'GetIntegrationLinks200Response':
-          return GetIntegrationLinks200Response.fromJson(value);
-        case 'GetIntegrationLinks200ResponseEmbedded':
-          return GetIntegrationLinks200ResponseEmbedded.fromJson(value);
-        case 'GetIntegrations200Response':
-          return GetIntegrations200Response.fromJson(value);
-        case 'GetIntegrations200ResponseEmbedded':
-          return GetIntegrations200ResponseEmbedded.fromJson(value);
-        case 'GetTicketTypes200Response':
-          return GetTicketTypes200Response.fromJson(value);
-        case 'GetTicketTypes200ResponseEmbedded':
-          return GetTicketTypes200ResponseEmbedded.fromJson(value);
-        case 'GetTickets200Response':
-          return GetTickets200Response.fromJson(value);
-        case 'GetTickets200ResponseEmbedded':
-          return GetTickets200ResponseEmbedded.fromJson(value);
+        case 'GetBrandCollection200Response':
+          return GetBrandCollection200Response.fromJson(value);
+        case 'GetBrandCollection200ResponseEmbedded':
+          return GetBrandCollection200ResponseEmbedded.fromJson(value);
+        case 'GetBusinessHoursCollection200Response':
+          return GetBusinessHoursCollection200Response.fromJson(value);
+        case 'GetBusinessHoursCollection200ResponseEmbedded':
+          return GetBusinessHoursCollection200ResponseEmbedded.fromJson(value);
+        case 'GetContractCollection200Response':
+          return GetContractCollection200Response.fromJson(value);
+        case 'GetContractCollection200ResponseEmbedded':
+          return GetContractCollection200ResponseEmbedded.fromJson(value);
+        case 'GetContractTypeCollection200Response':
+          return GetContractTypeCollection200Response.fromJson(value);
+        case 'GetContractTypeCollection200ResponseEmbedded':
+          return GetContractTypeCollection200ResponseEmbedded.fromJson(value);
+        case 'GetEquipmentCollection200Response':
+          return GetEquipmentCollection200Response.fromJson(value);
+        case 'GetEquipmentCollection200ResponseEmbedded':
+          return GetEquipmentCollection200ResponseEmbedded.fromJson(value);
+        case 'GetIntegrationCollection200Response':
+          return GetIntegrationCollection200Response.fromJson(value);
+        case 'GetIntegrationCollection200ResponseEmbedded':
+          return GetIntegrationCollection200ResponseEmbedded.fromJson(value);
+        case 'GetIntegrationLinkCollection200Response':
+          return GetIntegrationLinkCollection200Response.fromJson(value);
+        case 'GetIntegrationLinkCollection200ResponseEmbedded':
+          return GetIntegrationLinkCollection200ResponseEmbedded.fromJson(
+              value);
+        case 'GetTicketCollection200Response':
+          return GetTicketCollection200Response.fromJson(value);
+        case 'GetTicketCollection200ResponseEmbedded':
+          return GetTicketCollection200ResponseEmbedded.fromJson(value);
+        case 'GetTicketTypeCollection200Response':
+          return GetTicketTypeCollection200Response.fromJson(value);
+        case 'GetTicketTypeCollection200ResponseEmbedded':
+          return GetTicketTypeCollection200ResponseEmbedded.fromJson(value);
         case 'IntegrationIntegrationRead':
           return IntegrationIntegrationRead.fromJson(value);
         case 'IntegrationJsonhalIntegrationRead':

@@ -128,9 +128,9 @@ class BrandApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetBrands200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetBrandCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetBrands200Response>> getBrands({
+  Future<Response<GetBrandCollection200Response>> getBrandCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -191,11 +191,12 @@ class BrandApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetBrands200Response responseData;
+    GetBrandCollection200Response responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<GetBrands200Response>(
-          response.data!, 'GetBrands200Response');
+      responseData =
+          await _apiClient.deserializeAsync<GetBrandCollection200Response>(
+              response.data!, 'GetBrandCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -205,7 +206,7 @@ class BrandApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetBrands200Response>(
+    return Response<GetBrandCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

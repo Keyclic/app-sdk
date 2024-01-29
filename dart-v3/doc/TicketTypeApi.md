@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getTicketType**](TicketTypeApi.md#gettickettype) | **GET** /ticket-types/{identifier} | Retrieves a TicketType resource.
-[**getTicketTypes**](TicketTypeApi.md#gettickettypes) | **GET** /ticket-types | Retrieves the collection of TicketType resources.
+[**getTicketTypeCollection**](TicketTypeApi.md#gettickettypecollection) | **GET** /ticket-types | Retrieves the collection of TicketType resources.
 
 
 # **getTicketType**
@@ -72,8 +72,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getTicketTypes**
-> GetTicketTypes200Response getTicketTypes(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+# **getTicketTypeCollection**
+> GetTicketTypeCollection200Response getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of TicketType resources.
 
@@ -99,10 +99,10 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getTicketTypes(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
-    print('Exception when calling TicketTypeApi->getTicketTypes: $e\n');
+    print('Exception when calling TicketTypeApi->getTicketTypeCollection: $e\n');
 }
 ```
 
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTicketTypes200Response**](GetTicketTypes200Response.md)
+[**GetTicketTypeCollection200Response**](GetTicketTypeCollection200Response.md)
 
 ### Authorization
 

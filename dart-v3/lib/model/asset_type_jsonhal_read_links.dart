@@ -18,11 +18,11 @@ class AssetTypeJsonhalReadLinks {
     }
 
     return AssetTypeJsonhalReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
     );
   }
 
-  GetAssetTypes200ResponseLinksFirst? self;
+  GetAssetTypeCollection200ResponseLinksFirst? self;
 
   @override
   bool operator ==(Object other) {

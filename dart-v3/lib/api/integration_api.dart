@@ -122,9 +122,10 @@ class IntegrationApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetIntegrations200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetIntegrationCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetIntegrations200Response>> getIntegrations({
+  Future<Response<GetIntegrationCollection200Response>>
+      getIntegrationCollection({
     int? page,
     int? limit,
     bool? pagination,
@@ -237,12 +238,12 @@ class IntegrationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetIntegrations200Response responseData;
+    GetIntegrationCollection200Response responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<GetIntegrations200Response>(
-              response.data!, 'GetIntegrations200Response');
+      responseData = await _apiClient
+          .deserializeAsync<GetIntegrationCollection200Response>(
+              response.data!, 'GetIntegrationCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -252,7 +253,7 @@ class IntegrationApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetIntegrations200Response>(
+    return Response<GetIntegrationCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

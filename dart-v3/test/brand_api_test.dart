@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of Brand resources.
     //
-    //Future<GetBrands200Response> getBrands(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getBrands', () async {});
+    //Future<GetBrandCollection200Response> getBrandCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    test('test getBrandCollection', () async {});
   });
 }

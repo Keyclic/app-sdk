@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of TicketType resources.
     //
-    //Future<GetTicketTypes200Response> getTicketTypes(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getTicketTypes', () async {});
+    //Future<GetTicketTypeCollection200Response> getTicketTypeCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    test('test getTicketTypeCollection', () async {});
   });
 }

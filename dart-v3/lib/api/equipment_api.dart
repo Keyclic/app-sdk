@@ -253,9 +253,9 @@ class EquipmentApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [GetEquipments200Response] as data
+  /// Returns a [Future] containing a [Response] with a [GetEquipmentCollection200Response] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<GetEquipments200Response>> getEquipments({
+  Future<Response<GetEquipmentCollection200Response>> getEquipmentCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
     int? page,
@@ -528,12 +528,12 @@ class EquipmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GetEquipments200Response responseData;
+    GetEquipmentCollection200Response responseData;
 
     try {
       responseData =
-          await _apiClient.deserializeAsync<GetEquipments200Response>(
-              response.data!, 'GetEquipments200Response');
+          await _apiClient.deserializeAsync<GetEquipmentCollection200Response>(
+              response.data!, 'GetEquipmentCollection200Response');
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: response.requestOptions,
@@ -543,7 +543,7 @@ class EquipmentApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<GetEquipments200Response>(
+    return Response<GetEquipmentCollection200Response>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

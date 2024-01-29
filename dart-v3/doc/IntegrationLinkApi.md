@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteIntegrationLink**](IntegrationLinkApi.md#deleteintegrationlink) | **DELETE** /integration-links/{identifier} | Removes the IntegrationLink resource.
 [**getIntegrationLink**](IntegrationLinkApi.md#getintegrationlink) | **GET** /integration-links/{identifier} | Retrieves a IntegrationLink resource.
-[**getIntegrationLinks**](IntegrationLinkApi.md#getintegrationlinks) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
+[**getIntegrationLinkCollection**](IntegrationLinkApi.md#getintegrationlinkcollection) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
 [**patchIntegrationLink**](IntegrationLinkApi.md#patchintegrationlink) | **PATCH** /integration-links/{identifier} | Updates the IntegrationLink resource.
 [**postIntegrationLink**](IntegrationLinkApi.md#postintegrationlink) | **POST** /integration-links | Creates a IntegrationLink resource.
 
@@ -113,8 +113,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getIntegrationLinks**
-> GetIntegrationLinks200Response getIntegrationLinks(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage)
+# **getIntegrationLinkCollection**
+> GetIntegrationLinkCollection200Response getIntegrationLinkCollection(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage)
 
 Retrieves the collection of IntegrationLink resources.
 
@@ -146,10 +146,10 @@ final targetLeftSquareBracketRightSquareBracket = []; // List<String> |
 final acceptLanguage = acceptLanguage_example; // String | 
 
 try { 
-    final result = api_instance.getIntegrationLinks(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage);
+    final result = api_instance.getIntegrationLinkCollection(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {
-    print('Exception when calling IntegrationLinkApi->getIntegrationLinks: $e\n');
+    print('Exception when calling IntegrationLinkApi->getIntegrationLinkCollection: $e\n');
 }
 ```
 
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetIntegrationLinks200Response**](GetIntegrationLinks200Response.md)
+[**GetIntegrationLinkCollection200Response**](GetIntegrationLinkCollection200Response.md)
 
 ### Authorization
 

@@ -21,19 +21,19 @@ class IntegrationJsonhalIntegrationReadLinks {
     }
 
     return IntegrationJsonhalIntegrationReadLinks(
-      self: GetAssetTypes200ResponseLinksFirst.fromJson(json[r'self']),
-      connector:
-          GetAssetTypes200ResponseLinksFirst.fromJson(json[r'connector']),
-      organization:
-          GetAssetTypes200ResponseLinksFirst.fromJson(json[r'organization']),
+      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      connector: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
+          json[r'connector']),
+      organization: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
+          json[r'organization']),
     );
   }
 
-  GetAssetTypes200ResponseLinksFirst? self;
+  GetAssetTypeCollection200ResponseLinksFirst? self;
 
-  GetAssetTypes200ResponseLinksFirst? connector;
+  GetAssetTypeCollection200ResponseLinksFirst? connector;
 
-  GetAssetTypes200ResponseLinksFirst? organization;
+  GetAssetTypeCollection200ResponseLinksFirst? organization;
 
   @override
   bool operator ==(Object other) {

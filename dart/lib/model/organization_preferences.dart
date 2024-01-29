@@ -18,6 +18,7 @@ class OrganizationPreferences {
     this.public,
     this.reference,
     this.reverseGeocoding,
+    this.review,
     this.reviewEnabled,
   });
 
@@ -41,6 +42,7 @@ class OrganizationPreferences {
       public: json[r'public'],
       reference: PreferencesReference.fromJson(json[r'reference']),
       reverseGeocoding: json[r'reverseGeocoding'],
+      review: PreferencesReview.fromJson(json[r'review']),
       reviewEnabled: json[r'reviewEnabled'],
     );
   }
@@ -67,6 +69,8 @@ class OrganizationPreferences {
 
   bool? reverseGeocoding;
 
+  PreferencesReview? review;
+
   bool? reviewEnabled;
 
   @override
@@ -88,6 +92,7 @@ class OrganizationPreferences {
         other.public == public &&
         other.reference == reference &&
         other.reverseGeocoding == reverseGeocoding &&
+        other.review == review &&
         other.reviewEnabled == reviewEnabled;
   }
 
@@ -104,6 +109,7 @@ class OrganizationPreferences {
       (public == null ? 0 : public.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
       (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
+      (review == null ? 0 : review.hashCode) +
       (reviewEnabled == null ? 0 : reviewEnabled.hashCode);
 
   static List<OrganizationPreferences> listFromJson(List<dynamic>? json) {
@@ -156,7 +162,7 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, reviewEnabled=$reviewEnabled]';
+      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled]';
 
   Map<String, dynamic> toJson([List<String>? keys]) {
     return <String, dynamic>{
@@ -192,6 +198,9 @@ class OrganizationPreferences {
       if ((keys == null && reverseGeocoding != null) ||
           (keys?.contains(r'reverseGeocoding') ?? false))
         r'reverseGeocoding': reverseGeocoding,
+      if ((keys == null && review != null) ||
+          (keys?.contains(r'review') ?? false))
+        r'review': review?.toJson(),
       if ((keys == null && reviewEnabled != null) ||
           (keys?.contains(r'reviewEnabled') ?? false))
         r'reviewEnabled': reviewEnabled,

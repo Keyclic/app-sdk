@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **public** | **bool** |  | [optional] 
 **reference** | [**PreferencesReference**](PreferencesReference.md) |  | [optional] 
 **reverseGeocoding** | **bool** |  | [optional] 
+**review** | [**PreferencesReview**](PreferencesReview.md) |  | [optional] 
 **reviewEnabled** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

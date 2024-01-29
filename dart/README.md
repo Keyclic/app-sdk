@@ -653,6 +653,7 @@ Class | Method | HTTP request | Description
  - [PreferencesForm](doc//PreferencesForm.md)
  - [PreferencesNotification](doc//PreferencesNotification.md)
  - [PreferencesReference](doc//PreferencesReference.md)
+ - [PreferencesReview](doc//PreferencesReview.md)
  - [Problem](doc//Problem.md)
  - [ProblemEmbedded](doc//ProblemEmbedded.md)
  - [Procedure](doc//Procedure.md)

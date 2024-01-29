@@ -43,6 +43,9 @@ void main() {
     // bool reverseGeocoding
     test('to test the property `reverseGeocoding`', () async {});
 
+    // PreferencesReview review
+    test('to test the property `review`', () async {});
+
     // bool reviewEnabled
     test('to test the property `reviewEnabled`', () async {});
   });

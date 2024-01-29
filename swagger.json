@@ -22819,6 +22819,9 @@
                 "reverseGeocoding": {
                     "type": "boolean"
                 },
+                "review": {
+                    "$ref": "#\/definitions\/PreferencesReview"
+                },
                 "reviewEnabled": {
                     "type": "boolean"
                 }
@@ -23851,6 +23854,14 @@
                 "prefix": {
                     "format": "string",
                     "type": "string"
+                }
+            }
+        },
+        "PreferencesReview": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
                 }
             }
         },

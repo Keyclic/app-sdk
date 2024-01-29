@@ -100,14 +100,11 @@ class ReportLinksChildrenIriTemplateMapping {
   String toString() =>
       'ReportLinksChildrenIriTemplateMapping[organization=$organization, parent=$parent]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
+      if (keys == null || keys.contains(r'organization'))
         r'organization': organization,
-      if ((keys == null && parent != null) ||
-          (keys?.contains(r'parent') ?? false))
-        r'parent': parent,
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
     };
   }
 }

@@ -118,21 +118,53 @@ class EquipmentJsonhalReadLinks {
   String toString() =>
       'EquipmentJsonhalReadLinks[self=$self, brand=$brand, type=$type, parent=$parent, state=$state]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
-      if ((keys == null && brand != null) ||
-          (keys?.contains(r'brand') ?? false))
-        r'brand': brand?.toJson(),
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type?.toJson(),
-      if ((keys == null && parent != null) ||
-          (keys?.contains(r'parent') ?? false))
-        r'parent': parent?.toJson(),
-      if ((keys == null && state != null) ||
-          (keys?.contains(r'state') ?? false))
-        r'state': state?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^brand\.').hasMatch(key)))
+        r'brand': brand?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^brand\.'))) {
+            previousValue.add(element.split(RegExp(r'^brand\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
+        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^type\.'))) {
+            previousValue.add(element.split(RegExp(r'^type\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
+        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^parent\.'))) {
+            previousValue.add(element.split(RegExp(r'^parent\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
+        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^state\.'))) {
+            previousValue.add(element.split(RegExp(r'^state\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

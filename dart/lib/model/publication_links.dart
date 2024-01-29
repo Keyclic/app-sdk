@@ -107,18 +107,45 @@ class PublicationLinks {
   String toString() =>
       'PublicationLinks[author=$author, feed=$feed, organization=$organization, self=$self]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && author != null) ||
-          (keys?.contains(r'author') ?? false))
-        r'author': author?.toJson(),
-      if ((keys == null && feed != null) || (keys?.contains(r'feed') ?? false))
-        r'feed': feed?.toJson(),
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
-        r'organization': organization?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^author\.').hasMatch(key)))
+        r'author': author?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^author\.'))) {
+            previousValue.add(element.split(RegExp(r'^author\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^feed\.').hasMatch(key)))
+        r'feed': feed?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^feed\.'))) {
+            previousValue.add(element.split(RegExp(r'^feed\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
+        r'organization': organization?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^organization\.'))) {
+            previousValue.add(element.split(RegExp(r'^organization\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -121,20 +121,31 @@ class InternalServiceData {
   String toString() =>
       'InternalServiceData[address=$address, contactPoint=$contactPoint, description=$description, manager=$manager, name=$name, organization=$organization]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
-      if ((keys == null && contactPoint != null) ||
-          (keys?.contains(r'contactPoint') ?? false))
-        r'contactPoint': contactPoint?.toJson(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
+        r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^address\.'))) {
+            previousValue.add(element.split(RegExp(r'^address\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
+        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^contactPoint\.'))) {
+            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && manager != null) ||
-          (keys?.contains(r'manager') ?? false))
-        r'manager': manager,
+      if (keys == null || keys.contains(r'manager')) r'manager': manager,
       r'name': name,
       r'organization': organization,
     };

@@ -157,32 +157,39 @@ class OrganizationPatch {
   String toString() =>
       'OrganizationPatch[address=$address, alternateName=$alternateName, archivedAt=$archivedAt, description=$description, endDate=$endDate, logo=$logo, name=$name, preferences=$preferences, startDate=$startDate]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
-      if ((keys == null && alternateName != null) ||
-          (keys?.contains(r'alternateName') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
+        r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^address\.'))) {
+            previousValue.add(element.split(RegExp(r'^address\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'alternateName'))
         r'alternateName': alternateName,
-      if ((keys == null && archivedAt != null) ||
-          (keys?.contains(r'archivedAt') ?? false))
+      if (keys == null || keys.contains(r'archivedAt'))
         r'archivedAt': archivedAt?.toUtc().toIso8601String(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && endDate != null) ||
-          (keys?.contains(r'endDate') ?? false))
+      if (keys == null || keys.contains(r'endDate'))
         r'endDate': endDate?.toUtc().toIso8601String(),
-      if ((keys == null && logo != null) || (keys?.contains(r'logo') ?? false))
-        r'logo': logo,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && preferences != null) ||
-          (keys?.contains(r'preferences') ?? false))
-        r'preferences': preferences?.toJson(),
-      if ((keys == null && startDate != null) ||
-          (keys?.contains(r'startDate') ?? false))
+      if (keys == null || keys.contains(r'logo')) r'logo': logo,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'startDate'))
         r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }

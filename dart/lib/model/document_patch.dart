@@ -114,19 +114,30 @@ class DocumentPatch {
   String toString() =>
       'DocumentPatch[body=$body, file=$file, permission=$permission, text=$text, tags=$tags]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && body != null) || (keys?.contains(r'body') ?? false))
-        r'body': body,
-      if ((keys == null && file != null) || (keys?.contains(r'file') ?? false))
-        r'file': file?.toJson(),
-      if ((keys == null && permission != null) ||
-          (keys?.contains(r'permission') ?? false))
-        r'permission': permission?.toJson(),
-      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
-        r'text': text,
-      if ((keys == null && tags != null) || (keys?.contains(r'tags') ?? false))
-        r'tags': tags,
+      if (keys == null || keys.contains(r'body')) r'body': body,
+      if (keys == null || keys.any((key) => RegExp(r'^file\.').hasMatch(key)))
+        r'file': file?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^file\.'))) {
+            previousValue.add(element.split(RegExp(r'^file\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^permission\.').hasMatch(key)))
+        r'permission': permission?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^permission\.'))) {
+            previousValue.add(element.split(RegExp(r'^permission\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'text')) r'text': text,
+      if (keys == null || keys.contains(r'tags')) r'tags': tags,
     };
   }
 }

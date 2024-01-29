@@ -247,11 +247,18 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   @override
   String toString() => '{{{classname}}}[{{#vars}}{{{name}}}=${{{name}}}{{^-last}}, {{/-last}}{{/vars}}]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
   {{#vars}}
     {{^required}}
-    if ((keys == null && {{{name}}} != null) || (keys?.contains(r'{{{name}}}') ?? false))
+    if (keys == null || keys.
+    {{#isModel}}
+    any((key) => RegExp(r'^{{{name}}}\.').hasMatch(key))
+    {{/isModel}}
+    {{^isModel}}
+    contains(r'{{{name}}}')
+    {{/isModel}}
+    )
     {{/required}}
     {{#isDateTime}}
       {{#pattern}}
@@ -281,7 +288,13 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
             {{name}},
           {{/isContainer}}
           {{^isContainer}}
-            {{name}}{{^required}}?{{/required}}.toJson(),
+            {{name}}{{^required}}?{{/required}}.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^{{{name}}}\.'))) {
+                previousValue.add(element.split(RegExp(r'^{{{name}}}\.')).last);
+              }
+
+              return previousValue;
+            })),
           {{/isContainer}}
         {{/complexType}}
         {{^complexType}}

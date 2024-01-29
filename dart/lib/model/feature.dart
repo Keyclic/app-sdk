@@ -100,15 +100,20 @@ class Feature {
   String toString() =>
       'Feature[type=$type, geometry=$geometry, properties=$properties]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && geometry != null) ||
-          (keys?.contains(r'geometry') ?? false))
-        r'geometry': geometry?.toJson(),
-      if ((keys == null && properties != null) ||
-          (keys?.contains(r'properties') ?? false))
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^geometry\.').hasMatch(key)))
+        r'geometry': geometry?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^geometry\.'))) {
+            previousValue.add(element.split(RegExp(r'^geometry\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'properties'))
         r'properties': properties,
     };
   }

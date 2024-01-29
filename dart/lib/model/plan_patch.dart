@@ -84,10 +84,9 @@ class PlanPatch {
   @override
   String toString() => 'PlanPatch[name=$name]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
+      if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }
 }

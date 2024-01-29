@@ -93,14 +93,19 @@ class MemberPatch {
   @override
   String toString() => 'MemberPatch[contactPoint=$contactPoint, roles=$roles]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contactPoint != null) ||
-          (keys?.contains(r'contactPoint') ?? false))
-        r'contactPoint': contactPoint?.toJson(),
-      if ((keys == null && roles != null) ||
-          (keys?.contains(r'roles') ?? false))
-        r'roles': roles,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
+        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^contactPoint\.'))) {
+            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'roles')) r'roles': roles,
     };
   }
 }

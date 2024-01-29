@@ -147,25 +147,17 @@ class Template {
   String toString() =>
       'Template[body=$body, createdAt=$createdAt, footer=$footer, header=$header, id=$id, name=$name, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && body != null) || (keys?.contains(r'body') ?? false))
-        r'body': body,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'body')) r'body': body,
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && footer != null) ||
-          (keys?.contains(r'footer') ?? false))
-        r'footer': footer,
-      if ((keys == null && header != null) ||
-          (keys?.contains(r'header') ?? false))
-        r'header': header,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
+      if (keys == null || keys.contains(r'footer')) r'footer': footer,
+      if (keys == null || keys.contains(r'header')) r'header': header,
+      if (keys == null || keys.contains(r'id')) r'id': id,
       r'name': name,
       r'type': type,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }

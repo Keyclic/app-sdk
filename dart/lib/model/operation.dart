@@ -196,48 +196,63 @@ class Operation {
   String toString() =>
       'Operation[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, signature=$signature, tags=$tags, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && embedded != null) ||
-          (keys?.contains(r'embedded') ?? false))
-        r'_embedded': embedded?.toJson(),
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && archived != null) ||
-          (keys?.contains(r'archived') ?? false))
-        r'archived': archived,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'archived')) r'archived': archived,
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && dueBy != null) ||
-          (keys?.contains(r'dueBy') ?? false))
+      if (keys == null || keys.contains(r'dueBy'))
         r'dueBy': dueBy?.toUtc().toIso8601String(),
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && identificationNumber != null) ||
-          (keys?.contains(r'identificationNumber') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && priority != null) ||
-          (keys?.contains(r'priority') ?? false))
-        r'priority': priority?.toJson(),
-      if ((keys == null && scheduledAt != null) ||
-          (keys?.contains(r'scheduledAt') ?? false))
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^priority\.').hasMatch(key)))
+        r'priority': priority?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^priority\.'))) {
+            previousValue.add(element.split(RegExp(r'^priority\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
-      if ((keys == null && signature != null) ||
-          (keys?.contains(r'signature') ?? false))
-        r'signature': signature?.toJson(),
-      if ((keys == null && tags != null) || (keys?.contains(r'tags') ?? false))
-        r'tags': tags,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^signature\.').hasMatch(key)))
+        r'signature': signature?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^signature\.'))) {
+            previousValue.add(element.split(RegExp(r'^signature\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'tags')) r'tags': tags,
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }

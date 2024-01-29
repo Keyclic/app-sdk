@@ -92,7 +92,7 @@ class GeoShapeCentroid {
   String toString() =>
       'GeoShapeCentroid[latitude=$latitude, longitude=$longitude]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'latitude': latitude,
       r'longitude': longitude,

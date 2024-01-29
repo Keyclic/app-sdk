@@ -215,44 +215,54 @@ class ContractJsonhalRead {
   String toString() =>
       'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, renewal=$renewal]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && billing != null) ||
-          (keys?.contains(r'billing') ?? false))
-        r'billing': billing?.toJson(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^billing\.').hasMatch(key)))
+        r'billing': billing?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^billing\.'))) {
+            previousValue.add(element.split(RegExp(r'^billing\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && duration != null) ||
-          (keys?.contains(r'duration') ?? false))
-        r'duration': duration,
+      if (keys == null || keys.contains(r'duration')) r'duration': duration,
       r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
-      if ((keys == null && onCall != null) ||
-          (keys?.contains(r'onCall') ?? false))
-        r'onCall': onCall,
-      if ((keys == null && signedAt != null) ||
-          (keys?.contains(r'signedAt') ?? false))
+      if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
+      if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
       r'state': state,
-      if ((keys == null && terminationDate != null) ||
-          (keys?.contains(r'terminationDate') ?? false))
+      if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && renewal != null) ||
-          (keys?.contains(r'renewal') ?? false))
-        r'renewal': renewal?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^renewal\.').hasMatch(key)))
+        r'renewal': renewal?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^renewal\.'))) {
+            previousValue.add(element.split(RegExp(r'^renewal\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

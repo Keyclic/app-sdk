@@ -92,11 +92,9 @@ class BookmarkLinksPlaceIriTemplateMapping {
   @override
   String toString() => 'BookmarkLinksPlaceIriTemplateMapping[place=$place]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && place != null) ||
-          (keys?.contains(r'place') ?? false))
-        r'place': place,
+      if (keys == null || keys.contains(r'place')) r'place': place,
     };
   }
 }

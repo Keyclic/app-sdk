@@ -95,14 +95,10 @@ class TrackingProgression {
   @override
   String toString() => 'TrackingProgression[resolved=$resolved, total=$total]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && resolved != null) ||
-          (keys?.contains(r'resolved') ?? false))
-        r'resolved': resolved,
-      if ((keys == null && total != null) ||
-          (keys?.contains(r'total') ?? false))
-        r'total': total,
+      if (keys == null || keys.contains(r'resolved')) r'resolved': resolved,
+      if (keys == null || keys.contains(r'total')) r'total': total,
     };
   }
 }

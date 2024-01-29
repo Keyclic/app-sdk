@@ -105,15 +105,12 @@ class ExportData {
   String toString() =>
       'ExportData[contentType=$contentType, dataSource=$dataSource, groupBy=$groupBy, organization=$organization]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contentType != null) ||
-          (keys?.contains(r'contentType') ?? false))
+      if (keys == null || keys.contains(r'contentType'))
         r'contentType': contentType,
       r'dataSource': dataSource,
-      if ((keys == null && groupBy != null) ||
-          (keys?.contains(r'groupBy') ?? false))
-        r'groupBy': groupBy,
+      if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
       r'organization': organization,
     };
   }

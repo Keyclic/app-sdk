@@ -100,14 +100,10 @@ class FeedbackLinksImagesIriTemplateMapping {
   String toString() =>
       'FeedbackLinksImagesIriTemplateMapping[feedback=$feedback, image=$image]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && feedback != null) ||
-          (keys?.contains(r'feedback') ?? false))
-        r'feedback': feedback,
-      if ((keys == null && image != null) ||
-          (keys?.contains(r'image') ?? false))
-        r'image': image,
+      if (keys == null || keys.contains(r'feedback')) r'feedback': feedback,
+      if (keys == null || keys.contains(r'image')) r'image': image,
     };
   }
 }

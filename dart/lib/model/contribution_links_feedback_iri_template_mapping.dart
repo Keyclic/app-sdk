@@ -96,11 +96,9 @@ class ContributionLinksFeedbackIriTemplateMapping {
   String toString() =>
       'ContributionLinksFeedbackIriTemplateMapping[feedback=$feedback]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && feedback != null) ||
-          (keys?.contains(r'feedback') ?? false))
-        r'feedback': feedback,
+      if (keys == null || keys.contains(r'feedback')) r'feedback': feedback,
     };
   }
 }

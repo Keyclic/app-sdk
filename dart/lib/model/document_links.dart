@@ -106,18 +106,46 @@ class DocumentLinks {
   String toString() =>
       'DocumentLinks[createdBy=$createdBy, file=$file, procedure=$procedure, self=$self]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && createdBy != null) ||
-          (keys?.contains(r'createdBy') ?? false))
-        r'createdBy': createdBy?.toJson(),
-      if ((keys == null && file != null) || (keys?.contains(r'file') ?? false))
-        r'file': file?.toJson(),
-      if ((keys == null && procedure != null) ||
-          (keys?.contains(r'procedure') ?? false))
-        r'procedure': procedure?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^createdBy\.').hasMatch(key)))
+        r'createdBy': createdBy?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^createdBy\.'))) {
+            previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^file\.').hasMatch(key)))
+        r'file': file?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^file\.'))) {
+            previousValue.add(element.split(RegExp(r'^file\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^procedure\.').hasMatch(key)))
+        r'procedure': procedure?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^procedure\.'))) {
+            previousValue.add(element.split(RegExp(r'^procedure\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

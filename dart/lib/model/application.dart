@@ -168,38 +168,57 @@ class Application {
   String toString() =>
       'Application[links=$links, about=$about, agreement=$agreement, configuration=$configuration, contactPoints=$contactPoints, createdAt=$createdAt, id=$id, name=$name, token=$token, type=$type, updatedAt=$updatedAt, version=$version]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && about != null) ||
-          (keys?.contains(r'about') ?? false))
-        r'about': about?.toJson(),
-      if ((keys == null && agreement != null) ||
-          (keys?.contains(r'agreement') ?? false))
-        r'agreement': agreement?.toJson(),
-      if ((keys == null && configuration != null) ||
-          (keys?.contains(r'configuration') ?? false))
-        r'configuration': configuration?.toJson(),
-      if ((keys == null && contactPoints != null) ||
-          (keys?.contains(r'contactPoints') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^about\.').hasMatch(key)))
+        r'about': about?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^about\.'))) {
+            previousValue.add(element.split(RegExp(r'^about\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^agreement\.').hasMatch(key)))
+        r'agreement': agreement?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^agreement\.'))) {
+            previousValue.add(element.split(RegExp(r'^agreement\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^configuration\.').hasMatch(key)))
+        r'configuration': configuration?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^configuration\.'))) {
+            previousValue.add(element.split(RegExp(r'^configuration\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'contactPoints'))
         r'contactPoints': contactPoints,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
+      if (keys == null || keys.contains(r'id')) r'id': id,
       r'name': name,
       r'token': token,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && version != null) ||
-          (keys?.contains(r'version') ?? false))
-        r'version': version,
+      if (keys == null || keys.contains(r'version')) r'version': version,
     };
   }
 }

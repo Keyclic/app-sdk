@@ -103,7 +103,7 @@ class PublicationData {
   String toString() =>
       'PublicationData[message=$message, feed=$feed, title=$title, organization=$organization]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'message': message,
       r'feed': feed,

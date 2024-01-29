@@ -85,7 +85,7 @@ class InvitationData {
   @override
   String toString() => 'InvitationData[member=$member]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'member': member,
     };

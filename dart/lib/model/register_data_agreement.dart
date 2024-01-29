@@ -103,16 +103,12 @@ class RegisterDataAgreement {
   String toString() =>
       'RegisterDataAgreement[olderThan=$olderThan, privacyPolicy=$privacyPolicy, termsOfService=$termsOfService]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && olderThan != null) ||
-          (keys?.contains(r'olderThan') ?? false))
-        r'olderThan': olderThan,
-      if ((keys == null && privacyPolicy != null) ||
-          (keys?.contains(r'privacyPolicy') ?? false))
+      if (keys == null || keys.contains(r'olderThan')) r'olderThan': olderThan,
+      if (keys == null || keys.contains(r'privacyPolicy'))
         r'privacyPolicy': privacyPolicy,
-      if ((keys == null && termsOfService != null) ||
-          (keys?.contains(r'termsOfService') ?? false))
+      if (keys == null || keys.contains(r'termsOfService'))
         r'termsOfService': termsOfService,
     };
   }

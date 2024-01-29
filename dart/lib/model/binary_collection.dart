@@ -86,11 +86,9 @@ class BinaryCollection {
   @override
   String toString() => 'BinaryCollection[items=$items]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && items != null) ||
-          (keys?.contains(r'items') ?? false))
-        r'items': items,
+      if (keys == null || keys.contains(r'items')) r'items': items,
     };
   }
 }

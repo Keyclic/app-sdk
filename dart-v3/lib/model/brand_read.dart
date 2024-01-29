@@ -102,14 +102,12 @@ class BrandRead {
   String toString() =>
       'BrandRead[description=$description, name=$name, id=$id]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
+      if (keys == null || keys.contains(r'id')) r'id': id,
     };
   }
 }

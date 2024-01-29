@@ -100,14 +100,10 @@ class OperationLinksImagesIriTemplateMapping {
   String toString() =>
       'OperationLinksImagesIriTemplateMapping[operation=$operation, image=$image]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && operation != null) ||
-          (keys?.contains(r'operation') ?? false))
-        r'operation': operation,
-      if ((keys == null && image != null) ||
-          (keys?.contains(r'image') ?? false))
-        r'image': image,
+      if (keys == null || keys.contains(r'operation')) r'operation': operation,
+      if (keys == null || keys.contains(r'image')) r'image': image,
     };
   }
 }

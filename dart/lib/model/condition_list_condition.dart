@@ -115,20 +115,13 @@ class ConditionListCondition {
   String toString() =>
       'ConditionListCondition[id=$id, operator_=$operator_, path=$path, type=$type, value=$value]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && operator_ != null) ||
-          (keys?.contains(r'operator_') ?? false))
-        r'operator': operator_,
-      if ((keys == null && path != null) || (keys?.contains(r'path') ?? false))
-        r'path': path,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && value != null) ||
-          (keys?.contains(r'value') ?? false))
-        r'value': value,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'operator_')) r'operator': operator_,
+      if (keys == null || keys.contains(r'path')) r'path': path,
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'value')) r'value': value,
     };
   }
 }

@@ -98,11 +98,10 @@ class ProcedureData {
   String toString() =>
       'ProcedureData[document=$document, mode=$mode, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'document': document,
-      if ((keys == null && mode != null) || (keys?.contains(r'mode') ?? false))
-        r'mode': mode,
+      if (keys == null || keys.contains(r'mode')) r'mode': mode,
       r'type': type,
     };
   }

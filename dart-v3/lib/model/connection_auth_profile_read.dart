@@ -109,18 +109,13 @@ class ConnectionAuthProfileRead {
   String toString() =>
       'ConnectionAuthProfileRead[image=$image, text=$text, authorizationUrl=$authorizationUrl, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && image != null) ||
-          (keys?.contains(r'image') ?? false))
-        r'image': image,
-      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
-        r'text': text,
-      if ((keys == null && authorizationUrl != null) ||
-          (keys?.contains(r'authorizationUrl') ?? false))
+      if (keys == null || keys.contains(r'image')) r'image': image,
+      if (keys == null || keys.contains(r'text')) r'text': text,
+      if (keys == null || keys.contains(r'authorizationUrl'))
         r'authorizationUrl': authorizationUrl,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

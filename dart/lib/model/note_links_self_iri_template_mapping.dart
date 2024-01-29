@@ -89,10 +89,9 @@ class NoteLinksSelfIriTemplateMapping {
   @override
   String toString() => 'NoteLinksSelfIriTemplateMapping[note=$note]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && note != null) || (keys?.contains(r'note') ?? false))
-        r'note': note,
+      if (keys == null || keys.contains(r'note')) r'note': note,
     };
   }
 }

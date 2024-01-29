@@ -167,41 +167,32 @@ class EquipmentCreateEquipmentCommandWrite {
   String toString() =>
       'EquipmentCreateEquipmentCommandWrite[brand=$brand, commissioningDate=$commissioningDate, description=$description, lifetime=$lifetime, model=$model, mpn=$mpn, name=$name, parent=$parent, serialNumber=$serialNumber, state=$state, type=$type, warranty=$warranty]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && brand != null) ||
-          (keys?.contains(r'brand') ?? false))
-        r'brand': brand,
-      if ((keys == null && commissioningDate != null) ||
-          (keys?.contains(r'commissioningDate') ?? false))
+      if (keys == null || keys.contains(r'brand')) r'brand': brand,
+      if (keys == null || keys.contains(r'commissioningDate'))
         r'commissioningDate': commissioningDate?.toUtc().toIso8601String(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && lifetime != null) ||
-          (keys?.contains(r'lifetime') ?? false))
-        r'lifetime': lifetime,
-      if ((keys == null && model != null) ||
-          (keys?.contains(r'model') ?? false))
-        r'model': model,
-      if ((keys == null && mpn != null) || (keys?.contains(r'mpn') ?? false))
-        r'mpn': mpn,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && parent != null) ||
-          (keys?.contains(r'parent') ?? false))
-        r'parent': parent,
-      if ((keys == null && serialNumber != null) ||
-          (keys?.contains(r'serialNumber') ?? false))
+      if (keys == null || keys.contains(r'lifetime')) r'lifetime': lifetime,
+      if (keys == null || keys.contains(r'model')) r'model': model,
+      if (keys == null || keys.contains(r'mpn')) r'mpn': mpn,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'serialNumber'))
         r'serialNumber': serialNumber,
-      if ((keys == null && state != null) ||
-          (keys?.contains(r'state') ?? false))
-        r'state': state,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && warranty != null) ||
-          (keys?.contains(r'warranty') ?? false))
-        r'warranty': warranty?.toJson(),
+      if (keys == null || keys.contains(r'state')) r'state': state,
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^warranty\.').hasMatch(key)))
+        r'warranty': warranty?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^warranty\.'))) {
+            previousValue.add(element.split(RegExp(r'^warranty\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

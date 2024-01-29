@@ -106,17 +106,44 @@ class PaginationLinks {
   String toString() =>
       'PaginationLinks[first=$first, last=$last, next=$next, self=$self]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && first != null) ||
-          (keys?.contains(r'first') ?? false))
-        r'first': first?.toJson(),
-      if ((keys == null && last != null) || (keys?.contains(r'last') ?? false))
-        r'last': last?.toJson(),
-      if ((keys == null && next != null) || (keys?.contains(r'next') ?? false))
-        r'next': next?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^first\.').hasMatch(key)))
+        r'first': first?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^first\.'))) {
+            previousValue.add(element.split(RegExp(r'^first\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^last\.').hasMatch(key)))
+        r'last': last?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^last\.'))) {
+            previousValue.add(element.split(RegExp(r'^last\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^next\.').hasMatch(key)))
+        r'next': next?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^next\.'))) {
+            previousValue.add(element.split(RegExp(r'^next\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

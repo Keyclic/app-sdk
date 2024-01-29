@@ -91,10 +91,9 @@ class MarkerLinksPlanIriTemplateMapping {
   @override
   String toString() => 'MarkerLinksPlanIriTemplateMapping[plan=$plan]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && plan != null) || (keys?.contains(r'plan') ?? false))
-        r'plan': plan,
+      if (keys == null || keys.contains(r'plan')) r'plan': plan,
     };
   }
 }

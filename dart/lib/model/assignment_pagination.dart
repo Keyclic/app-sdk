@@ -121,25 +121,31 @@ class AssignmentPagination implements Pagination {
   String toString() =>
       'AssignmentPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && limit != null) ||
-          (keys?.contains(r'limit') ?? false))
-        r'limit': limit,
-      if ((keys == null && page != null) || (keys?.contains(r'page') ?? false))
-        r'page': page,
-      if ((keys == null && pages != null) ||
-          (keys?.contains(r'pages') ?? false))
-        r'pages': pages,
-      if ((keys == null && total != null) ||
-          (keys?.contains(r'total') ?? false))
-        r'total': total,
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && embedded != null) ||
-          (keys?.contains(r'embedded') ?? false))
-        r'_embedded': embedded?.toJson(),
+      if (keys == null || keys.contains(r'limit')) r'limit': limit,
+      if (keys == null || keys.contains(r'page')) r'page': page,
+      if (keys == null || keys.contains(r'pages')) r'pages': pages,
+      if (keys == null || keys.contains(r'total')) r'total': total,
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -91,7 +91,7 @@ class OccupantData {
   @override
   String toString() => 'OccupantData[asset=$asset, member=$member]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'asset': asset,
       r'member': member,

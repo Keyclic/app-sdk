@@ -94,14 +94,11 @@ class SignatureSigner {
   String toString() =>
       'SignatureSigner[familyName=$familyName, givenName=$givenName]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && familyName != null) ||
-          (keys?.contains(r'familyName') ?? false))
+      if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
-      if ((keys == null && givenName != null) ||
-          (keys?.contains(r'givenName') ?? false))
-        r'givenName': givenName,
+      if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
     };
   }
 }

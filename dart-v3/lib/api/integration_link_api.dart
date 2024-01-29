@@ -316,7 +316,7 @@ class IntegrationLinkApi {
     required IntegrationLinkEditLinkCommandWrite
         integrationLinkEditLinkCommandWrite,
     String? acceptLanguage,
-    List<String>? bodyParameters,
+    Iterable<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -418,7 +418,7 @@ class IntegrationLinkApi {
     required IntegrationLinkCreateLinkCommandWrite
         integrationLinkCreateLinkCommandWrite,
     String? acceptLanguage,
-    List<String>? bodyParameters,
+    Iterable<String>? bodyParameters,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,

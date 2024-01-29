@@ -106,19 +106,22 @@ class Tracking {
   String toString() =>
       'Tracking[checkpoints=$checkpoints, progression=$progression, state=$state, time=$time]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && checkpoints != null) ||
-          (keys?.contains(r'checkpoints') ?? false))
+      if (keys == null || keys.contains(r'checkpoints'))
         r'checkpoints': checkpoints,
-      if ((keys == null && progression != null) ||
-          (keys?.contains(r'progression') ?? false))
-        r'progression': progression?.toJson(),
-      if ((keys == null && state != null) ||
-          (keys?.contains(r'state') ?? false))
-        r'state': state,
-      if ((keys == null && time != null) || (keys?.contains(r'time') ?? false))
-        r'time': time,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^progression\.').hasMatch(key)))
+        r'progression': progression?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^progression\.'))) {
+            previousValue.add(element.split(RegExp(r'^progression\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'state')) r'state': state,
+      if (keys == null || keys.contains(r'time')) r'time': time,
     };
   }
 }

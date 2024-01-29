@@ -96,7 +96,7 @@ class DeviceData {
   String toString() =>
       'DeviceData[token=$token, platform=$platform, person=$person]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'token': token,
       r'platform': platform,

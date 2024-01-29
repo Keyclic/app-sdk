@@ -85,11 +85,9 @@ class PriceWrite {
   @override
   String toString() => 'PriceWrite[value=$value]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && value != null) ||
-          (keys?.contains(r'value') ?? false))
-        r'value': value,
+      if (keys == null || keys.contains(r'value')) r'value': value,
     };
   }
 }

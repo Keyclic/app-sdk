@@ -86,11 +86,9 @@ class ProblemEmbedded {
   @override
   String toString() => 'ProblemEmbedded[errors=$errors]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && errors != null) ||
-          (keys?.contains(r'errors') ?? false))
-        r'errors': errors,
+      if (keys == null || keys.contains(r'errors')) r'errors': errors,
     };
   }
 }

@@ -95,14 +95,26 @@ class PublicationEmbedded {
   @override
   String toString() => 'PublicationEmbedded[author=$author, place=$place]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && author != null) ||
-          (keys?.contains(r'author') ?? false))
-        r'author': author?.toJson(),
-      if ((keys == null && place != null) ||
-          (keys?.contains(r'place') ?? false))
-        r'place': place?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^author\.').hasMatch(key)))
+        r'author': author?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^author\.'))) {
+            previousValue.add(element.split(RegExp(r'^author\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
+        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^place\.'))) {
+            previousValue.add(element.split(RegExp(r'^place\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

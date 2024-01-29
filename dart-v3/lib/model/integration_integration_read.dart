@@ -144,27 +144,18 @@ class IntegrationIntegrationRead {
   String toString() =>
       'IntegrationIntegrationRead[connector=$connector, inputs=$inputs, organization=$organization, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && connector != null) ||
-          (keys?.contains(r'connector') ?? false))
-        r'connector': connector,
-      if ((keys == null && inputs != null) ||
-          (keys?.contains(r'inputs') ?? false))
-        r'inputs': inputs,
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
+      if (keys == null || keys.contains(r'connector')) r'connector': connector,
+      if (keys == null || keys.contains(r'inputs')) r'inputs': inputs,
+      if (keys == null || keys.contains(r'organization'))
         r'organization': organization,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
+      if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }
 }

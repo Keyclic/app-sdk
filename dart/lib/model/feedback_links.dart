@@ -131,31 +131,69 @@ class FeedbackLinks {
   String toString() =>
       'FeedbackLinks[businessActivity=$businessActivity, category=$category, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && businessActivity != null) ||
-          (keys?.contains(r'businessActivity') ?? false))
-        r'businessActivity': businessActivity?.toJson(),
-      if ((keys == null && category != null) ||
-          (keys?.contains(r'category') ?? false))
-        r'category': category?.toJson(),
-      if ((keys == null && images != null) ||
-          (keys?.contains(r'images') ?? false))
-        r'images': images,
-      if ((keys == null && plans != null) ||
-          (keys?.contains(r'plans') ?? false))
-        r'plans': plans,
-      if ((keys == null && report != null) ||
-          (keys?.contains(r'report') ?? false))
-        r'report': report?.toJson(),
-      if ((keys == null && reporter != null) ||
-          (keys?.contains(r'reporter') ?? false))
-        r'reporter': reporter?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
-      if ((keys == null && tracking != null) ||
-          (keys?.contains(r'tracking') ?? false))
-        r'tracking': tracking?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^businessActivity\.').hasMatch(key)))
+        r'businessActivity': businessActivity?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^businessActivity\.'))) {
+            previousValue
+                .add(element.split(RegExp(r'^businessActivity\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^category\.').hasMatch(key)))
+        r'category': category?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^category\.'))) {
+            previousValue.add(element.split(RegExp(r'^category\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'images')) r'images': images,
+      if (keys == null || keys.contains(r'plans')) r'plans': plans,
+      if (keys == null || keys.any((key) => RegExp(r'^report\.').hasMatch(key)))
+        r'report': report?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^report\.'))) {
+            previousValue.add(element.split(RegExp(r'^report\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^reporter\.').hasMatch(key)))
+        r'reporter': reporter?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^reporter\.'))) {
+            previousValue.add(element.split(RegExp(r'^reporter\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^tracking\.').hasMatch(key)))
+        r'tracking': tracking?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^tracking\.'))) {
+            previousValue.add(element.split(RegExp(r'^tracking\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -96,10 +96,9 @@ class GetAssetTypeCollection200ResponseLinksFirst {
   String toString() =>
       'GetAssetTypeCollection200ResponseLinksFirst[href=$href]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && href != null) || (keys?.contains(r'href') ?? false))
-        r'href': href,
+      if (keys == null || keys.contains(r'href')) r'href': href,
     };
   }
 }

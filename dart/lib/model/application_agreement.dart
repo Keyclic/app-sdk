@@ -103,17 +103,38 @@ class ApplicationAgreement {
   String toString() =>
       'ApplicationAgreement[olderThan=$olderThan, privacyPolicy=$privacyPolicy, termsOfService=$termsOfService]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && olderThan != null) ||
-          (keys?.contains(r'olderThan') ?? false))
-        r'olderThan': olderThan?.toJson(),
-      if ((keys == null && privacyPolicy != null) ||
-          (keys?.contains(r'privacyPolicy') ?? false))
-        r'privacyPolicy': privacyPolicy?.toJson(),
-      if ((keys == null && termsOfService != null) ||
-          (keys?.contains(r'termsOfService') ?? false))
-        r'termsOfService': termsOfService?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^olderThan\.').hasMatch(key)))
+        r'olderThan': olderThan?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^olderThan\.'))) {
+            previousValue.add(element.split(RegExp(r'^olderThan\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^privacyPolicy\.').hasMatch(key)))
+        r'privacyPolicy': privacyPolicy?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^privacyPolicy\.'))) {
+            previousValue.add(element.split(RegExp(r'^privacyPolicy\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^termsOfService\.').hasMatch(key)))
+        r'termsOfService': termsOfService?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^termsOfService\.'))) {
+            previousValue.add(element.split(RegExp(r'^termsOfService\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

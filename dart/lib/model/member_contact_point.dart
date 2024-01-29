@@ -132,31 +132,18 @@ class MemberContactPoint {
   String toString() =>
       'MemberContactPoint[description=$description, email=$email, familyName=$familyName, faxNumber=$faxNumber, givenName=$givenName, isOpen=$isOpen, name=$name, telephone=$telephone]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && email != null) ||
-          (keys?.contains(r'email') ?? false))
-        r'email': email,
-      if ((keys == null && familyName != null) ||
-          (keys?.contains(r'familyName') ?? false))
+      if (keys == null || keys.contains(r'email')) r'email': email,
+      if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
-      if ((keys == null && faxNumber != null) ||
-          (keys?.contains(r'faxNumber') ?? false))
-        r'faxNumber': faxNumber,
-      if ((keys == null && givenName != null) ||
-          (keys?.contains(r'givenName') ?? false))
-        r'givenName': givenName,
-      if ((keys == null && isOpen != null) ||
-          (keys?.contains(r'isOpen') ?? false))
-        r'isOpen': isOpen,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && telephone != null) ||
-          (keys?.contains(r'telephone') ?? false))
-        r'telephone': telephone,
+      if (keys == null || keys.contains(r'faxNumber')) r'faxNumber': faxNumber,
+      if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
+      if (keys == null || keys.contains(r'isOpen')) r'isOpen': isOpen,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
     };
   }
 }

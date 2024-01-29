@@ -122,24 +122,67 @@ class OrganizationLinks {
   String toString() =>
       'OrganizationLinks[application=$application, businessActivity=$businessActivity, configuration=$configuration, dispatcher=$dispatcher, logo=$logo, self=$self]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && application != null) ||
-          (keys?.contains(r'application') ?? false))
-        r'application': application?.toJson(),
-      if ((keys == null && businessActivity != null) ||
-          (keys?.contains(r'businessActivity') ?? false))
-        r'businessActivity': businessActivity?.toJson(),
-      if ((keys == null && configuration != null) ||
-          (keys?.contains(r'configuration') ?? false))
-        r'configuration': configuration?.toJson(),
-      if ((keys == null && dispatcher != null) ||
-          (keys?.contains(r'dispatcher') ?? false))
-        r'dispatcher': dispatcher?.toJson(),
-      if ((keys == null && logo != null) || (keys?.contains(r'logo') ?? false))
-        r'logo': logo?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^application\.').hasMatch(key)))
+        r'application': application?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^application\.'))) {
+            previousValue.add(element.split(RegExp(r'^application\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^businessActivity\.').hasMatch(key)))
+        r'businessActivity': businessActivity?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^businessActivity\.'))) {
+            previousValue
+                .add(element.split(RegExp(r'^businessActivity\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^configuration\.').hasMatch(key)))
+        r'configuration': configuration?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^configuration\.'))) {
+            previousValue.add(element.split(RegExp(r'^configuration\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^dispatcher\.').hasMatch(key)))
+        r'dispatcher': dispatcher?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^dispatcher\.'))) {
+            previousValue.add(element.split(RegExp(r'^dispatcher\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^logo\.').hasMatch(key)))
+        r'logo': logo?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^logo\.'))) {
+            previousValue.add(element.split(RegExp(r'^logo\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

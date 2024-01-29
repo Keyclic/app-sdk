@@ -96,13 +96,10 @@ class RenewalWrite {
   String toString() =>
       'RenewalWrite[duration=$duration, noticePeriod=$noticePeriod]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && duration != null) ||
-          (keys?.contains(r'duration') ?? false))
-        r'duration': duration,
-      if ((keys == null && noticePeriod != null) ||
-          (keys?.contains(r'noticePeriod') ?? false))
+      if (keys == null || keys.contains(r'duration')) r'duration': duration,
+      if (keys == null || keys.contains(r'noticePeriod'))
         r'noticePeriod': noticePeriod,
     };
   }

@@ -115,22 +115,13 @@ class ActivityAggregatedPagination {
   String toString() =>
       'ActivityAggregatedPagination[duration=$duration, next=$next, unseen=$unseen, unread=$unread, results=$results]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && duration != null) ||
-          (keys?.contains(r'duration') ?? false))
-        r'duration': duration,
-      if ((keys == null && next != null) || (keys?.contains(r'next') ?? false))
-        r'next': next,
-      if ((keys == null && unseen != null) ||
-          (keys?.contains(r'unseen') ?? false))
-        r'unseen': unseen,
-      if ((keys == null && unread != null) ||
-          (keys?.contains(r'unread') ?? false))
-        r'unread': unread,
-      if ((keys == null && results != null) ||
-          (keys?.contains(r'results') ?? false))
-        r'results': results,
+      if (keys == null || keys.contains(r'duration')) r'duration': duration,
+      if (keys == null || keys.contains(r'next')) r'next': next,
+      if (keys == null || keys.contains(r'unseen')) r'unseen': unseen,
+      if (keys == null || keys.contains(r'unread')) r'unread': unread,
+      if (keys == null || keys.contains(r'results')) r'results': results,
     };
   }
 }

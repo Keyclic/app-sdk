@@ -103,17 +103,12 @@ class GetAuthToken200Response {
   String toString() =>
       'GetAuthToken200Response[accessToken=$accessToken, idToken=$idToken, tokenType=$tokenType]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && accessToken != null) ||
-          (keys?.contains(r'accessToken') ?? false))
+      if (keys == null || keys.contains(r'accessToken'))
         r'accessToken': accessToken,
-      if ((keys == null && idToken != null) ||
-          (keys?.contains(r'idToken') ?? false))
-        r'idToken': idToken,
-      if ((keys == null && tokenType != null) ||
-          (keys?.contains(r'tokenType') ?? false))
-        r'tokenType': tokenType,
+      if (keys == null || keys.contains(r'idToken')) r'idToken': idToken,
+      if (keys == null || keys.contains(r'tokenType')) r'tokenType': tokenType,
     };
   }
 }

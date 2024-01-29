@@ -99,17 +99,29 @@ class GeoShape {
   String toString() =>
       'GeoShape[centroid=$centroid, elevation=$elevation, polygon=$polygon]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && centroid != null) ||
-          (keys?.contains(r'centroid') ?? false))
-        r'centroid': centroid?.toJson(),
-      if ((keys == null && elevation != null) ||
-          (keys?.contains(r'elevation') ?? false))
-        r'elevation': elevation,
-      if ((keys == null && polygon != null) ||
-          (keys?.contains(r'polygon') ?? false))
-        r'polygon': polygon?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^centroid\.').hasMatch(key)))
+        r'centroid': centroid?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^centroid\.'))) {
+            previousValue.add(element.split(RegExp(r'^centroid\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^polygon\.').hasMatch(key)))
+        r'polygon': polygon?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^polygon\.'))) {
+            previousValue.add(element.split(RegExp(r'^polygon\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -150,31 +150,29 @@ class AssetRead {
   String toString() =>
       'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, address=$address]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && parent != null) ||
-          (keys?.contains(r'parent') ?? false))
-        r'parent': parent,
-      if ((keys == null && state != null) ||
-          (keys?.contains(r'state') ?? false))
-        r'state': state,
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'state')) r'state': state,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
+        r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^address\.'))) {
+            previousValue.add(element.split(RegExp(r'^address\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

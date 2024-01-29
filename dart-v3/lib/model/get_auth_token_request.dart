@@ -96,14 +96,10 @@ class GetAuthTokenRequest {
   String toString() =>
       'GetAuthTokenRequest[grantType=$grantType, idToken=$idToken]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && grantType != null) ||
-          (keys?.contains(r'grantType') ?? false))
-        r'grantType': grantType,
-      if ((keys == null && idToken != null) ||
-          (keys?.contains(r'idToken') ?? false))
-        r'idToken': idToken,
+      if (keys == null || keys.contains(r'grantType')) r'grantType': grantType,
+      if (keys == null || keys.contains(r'idToken')) r'idToken': idToken,
     };
   }
 }

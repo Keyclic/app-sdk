@@ -99,14 +99,18 @@ class FeedbackGeoCoordinates {
   String toString() =>
       'FeedbackGeoCoordinates[elevation=$elevation, point=$point]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && elevation != null) ||
-          (keys?.contains(r'elevation') ?? false))
-        r'elevation': elevation,
-      if ((keys == null && point != null) ||
-          (keys?.contains(r'point') ?? false))
-        r'point': point?.toJson(),
+      if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
+      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
+        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^point\.'))) {
+            previousValue.add(element.split(RegExp(r'^point\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

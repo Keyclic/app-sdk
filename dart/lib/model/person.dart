@@ -181,49 +181,52 @@ class Person {
   String toString() =>
       'Person[links=$links, agreement=$agreement, createdAt=$createdAt, email=$email, enabled=$enabled, familyName=$familyName, givenName=$givenName, id=$id, jobTitle=$jobTitle, optIn=$optIn, preferences=$preferences, telephone=$telephone, type=$type, updatedAt=$updatedAt, username=$username]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && agreement != null) ||
-          (keys?.contains(r'agreement') ?? false))
-        r'agreement': agreement?.toJson(),
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^agreement\.').hasMatch(key)))
+        r'agreement': agreement?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^agreement\.'))) {
+            previousValue.add(element.split(RegExp(r'^agreement\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && email != null) ||
-          (keys?.contains(r'email') ?? false))
-        r'email': email,
-      if ((keys == null && enabled != null) ||
-          (keys?.contains(r'enabled') ?? false))
-        r'enabled': enabled,
-      if ((keys == null && familyName != null) ||
-          (keys?.contains(r'familyName') ?? false))
+      if (keys == null || keys.contains(r'email')) r'email': email,
+      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+      if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
-      if ((keys == null && givenName != null) ||
-          (keys?.contains(r'givenName') ?? false))
-        r'givenName': givenName,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && jobTitle != null) ||
-          (keys?.contains(r'jobTitle') ?? false))
-        r'jobTitle': jobTitle,
+      if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'jobTitle')) r'jobTitle': jobTitle,
       r'optIn': optIn,
-      if ((keys == null && preferences != null) ||
-          (keys?.contains(r'preferences') ?? false))
-        r'preferences': preferences?.toJson(),
-      if ((keys == null && telephone != null) ||
-          (keys?.contains(r'telephone') ?? false))
-        r'telephone': telephone,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && username != null) ||
-          (keys?.contains(r'username') ?? false))
-        r'username': username,
+      if (keys == null || keys.contains(r'username')) r'username': username,
     };
   }
 }

@@ -91,13 +91,10 @@ class Polygon {
   @override
   String toString() => 'Polygon[type=$type, features=$features]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && features != null) ||
-          (keys?.contains(r'features') ?? false))
-        r'features': features,
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'features')) r'features': features,
     };
   }
 }

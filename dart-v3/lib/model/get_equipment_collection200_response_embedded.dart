@@ -94,7 +94,7 @@ class GetEquipmentCollection200ResponseEmbedded {
   @override
   String toString() => 'GetEquipmentCollection200ResponseEmbedded[item=$item]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'item': item,
     };

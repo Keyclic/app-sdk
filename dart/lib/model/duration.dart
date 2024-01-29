@@ -99,17 +99,11 @@ class Duration {
   String toString() =>
       'Duration[hours=$hours, minutes=$minutes, seconds=$seconds]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && hours != null) ||
-          (keys?.contains(r'hours') ?? false))
-        r'hours': hours,
-      if ((keys == null && minutes != null) ||
-          (keys?.contains(r'minutes') ?? false))
-        r'minutes': minutes,
-      if ((keys == null && seconds != null) ||
-          (keys?.contains(r'seconds') ?? false))
-        r'seconds': seconds,
+      if (keys == null || keys.contains(r'hours')) r'hours': hours,
+      if (keys == null || keys.contains(r'minutes')) r'minutes': minutes,
+      if (keys == null || keys.contains(r'seconds')) r'seconds': seconds,
     };
   }
 }

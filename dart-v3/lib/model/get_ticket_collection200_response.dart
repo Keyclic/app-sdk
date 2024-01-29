@@ -113,18 +113,30 @@ class GetTicketCollection200Response {
   String toString() =>
       'GetTicketCollection200Response[embedded=$embedded, totalItems=$totalItems, itemsPerPage=$itemsPerPage, links=$links]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && embedded != null) ||
-          (keys?.contains(r'embedded') ?? false))
-        r'_embedded': embedded?.toJson(),
-      if ((keys == null && totalItems != null) ||
-          (keys?.contains(r'totalItems') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'totalItems'))
         r'totalItems': totalItems,
-      if ((keys == null && itemsPerPage != null) ||
-          (keys?.contains(r'itemsPerPage') ?? false))
+      if (keys == null || keys.contains(r'itemsPerPage'))
         r'itemsPerPage': itemsPerPage,
-      r'_links': links.toJson(),
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
+
+        return previousValue;
+      })),
     };
   }
 }

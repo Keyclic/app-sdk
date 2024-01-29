@@ -100,14 +100,11 @@ class TargetGroup {
   String toString() =>
       'TargetGroup[id=$id, name=$name, description=$description]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
     };
   }

@@ -88,13 +88,19 @@ class Metric {
   @override
   String toString() => 'Metric[name=$name, duration=$duration]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && duration != null) ||
-          (keys?.contains(r'duration') ?? false))
-        r'duration': duration?.toJson(),
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^duration\.').hasMatch(key)))
+        r'duration': duration?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^duration\.'))) {
+            previousValue.add(element.split(RegExp(r'^duration\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -164,45 +164,87 @@ class OrganizationPreferences {
   String toString() =>
       'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && archiving != null) ||
-          (keys?.contains(r'archiving') ?? false))
-        r'archiving': archiving?.toJson(),
-      if ((keys == null && categoryRequired != null) ||
-          (keys?.contains(r'categoryRequired') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^archiving\.').hasMatch(key)))
+        r'archiving': archiving?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^archiving\.'))) {
+            previousValue.add(element.split(RegExp(r'^archiving\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'categoryRequired'))
         r'categoryRequired': categoryRequired,
-      if ((keys == null && contract != null) ||
-          (keys?.contains(r'contract') ?? false))
-        r'contract': contract?.toJson(),
-      if ((keys == null && electronicSignature != null) ||
-          (keys?.contains(r'electronicSignature') ?? false))
-        r'electronicSignature': electronicSignature?.toJson(),
-      if ((keys == null && equipment != null) ||
-          (keys?.contains(r'equipment') ?? false))
-        r'equipment': equipment?.toJson(),
-      if ((keys == null && feedbackParentPlace != null) ||
-          (keys?.contains(r'feedbackParentPlace') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^contract\.').hasMatch(key)))
+        r'contract': contract?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^contract\.'))) {
+            previousValue.add(element.split(RegExp(r'^contract\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^electronicSignature\.').hasMatch(key)))
+        r'electronicSignature': electronicSignature?.toJson(keys
+            ?.fold<List<String>>(<String>[],
+                (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^electronicSignature\.'))) {
+            previousValue
+                .add(element.split(RegExp(r'^electronicSignature\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^equipment\.').hasMatch(key)))
+        r'equipment': equipment?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^equipment\.'))) {
+            previousValue.add(element.split(RegExp(r'^equipment\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'feedbackParentPlace'))
         r'feedbackParentPlace': feedbackParentPlace,
-      if ((keys == null && form != null) || (keys?.contains(r'form') ?? false))
-        r'form': form?.toJson(),
-      if ((keys == null && offline != null) ||
-          (keys?.contains(r'offline') ?? false))
-        r'offline': offline,
-      if ((keys == null && public != null) ||
-          (keys?.contains(r'public') ?? false))
-        r'public': public,
-      if ((keys == null && reference != null) ||
-          (keys?.contains(r'reference') ?? false))
-        r'reference': reference?.toJson(),
-      if ((keys == null && reverseGeocoding != null) ||
-          (keys?.contains(r'reverseGeocoding') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^form\.').hasMatch(key)))
+        r'form': form?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^form\.'))) {
+            previousValue.add(element.split(RegExp(r'^form\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'offline')) r'offline': offline,
+      if (keys == null || keys.contains(r'public')) r'public': public,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^reference\.').hasMatch(key)))
+        r'reference': reference?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^reference\.'))) {
+            previousValue.add(element.split(RegExp(r'^reference\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'reverseGeocoding'))
         r'reverseGeocoding': reverseGeocoding,
-      if ((keys == null && review != null) ||
-          (keys?.contains(r'review') ?? false))
-        r'review': review?.toJson(),
-      if ((keys == null && reviewEnabled != null) ||
-          (keys?.contains(r'reviewEnabled') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^review\.').hasMatch(key)))
+        r'review': review?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^review\.'))) {
+            previousValue.add(element.split(RegExp(r'^review\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'reviewEnabled'))
         r'reviewEnabled': reviewEnabled,
     };
   }

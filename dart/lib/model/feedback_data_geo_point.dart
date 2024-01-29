@@ -104,16 +104,11 @@ class FeedbackDataGeoPoint {
   String toString() =>
       'FeedbackDataGeoPoint[latitude=$latitude, longitude=$longitude, srid=$srid]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && latitude != null) ||
-          (keys?.contains(r'latitude') ?? false))
-        r'latitude': latitude,
-      if ((keys == null && longitude != null) ||
-          (keys?.contains(r'longitude') ?? false))
-        r'longitude': longitude,
-      if ((keys == null && srid != null) || (keys?.contains(r'srid') ?? false))
-        r'srid': srid,
+      if (keys == null || keys.contains(r'latitude')) r'latitude': latitude,
+      if (keys == null || keys.contains(r'longitude')) r'longitude': longitude,
+      if (keys == null || keys.contains(r'srid')) r'srid': srid,
     };
   }
 }

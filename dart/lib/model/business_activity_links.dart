@@ -109,19 +109,45 @@ class BusinessActivityLinks {
   String toString() =>
       'BusinessActivityLinks[image=$image, schema=$schema, self=$self, thumbnail=$thumbnail]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && image != null) ||
-          (keys?.contains(r'image') ?? false))
-        r'image': image?.toJson(),
-      if ((keys == null && schema != null) ||
-          (keys?.contains(r'schema') ?? false))
-        r'schema': schema?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
-      if ((keys == null && thumbnail != null) ||
-          (keys?.contains(r'thumbnail') ?? false))
-        r'thumbnail': thumbnail?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^image\.').hasMatch(key)))
+        r'image': image?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^image\.'))) {
+            previousValue.add(element.split(RegExp(r'^image\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^schema\.').hasMatch(key)))
+        r'schema': schema?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^schema\.'))) {
+            previousValue.add(element.split(RegExp(r'^schema\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^thumbnail\.').hasMatch(key)))
+        r'thumbnail': thumbnail?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^thumbnail\.'))) {
+            previousValue.add(element.split(RegExp(r'^thumbnail\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

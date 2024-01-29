@@ -106,17 +106,21 @@ class MemberData {
   String toString() =>
       'MemberData[contactPoint=$contactPoint, organization=$organization, person=$person, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contactPoint != null) ||
-          (keys?.contains(r'contactPoint') ?? false))
-        r'contactPoint': contactPoint?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
+        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^contactPoint\.'))) {
+            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+          }
+
+          return previousValue;
+        })),
       r'organization': organization,
-      if ((keys == null && person != null) ||
-          (keys?.contains(r'person') ?? false))
-        r'person': person,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'person')) r'person': person,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

@@ -144,31 +144,26 @@ class FeedbackData {
   String toString() =>
       'FeedbackData[asset=$asset, batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, priority=$priority, reporter=$reporter, visibility=$visibility]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'asset': asset,
-      if ((keys == null && batch != null) ||
-          (keys?.contains(r'batch') ?? false))
-        r'batch': batch,
-      if ((keys == null && businessActivity != null) ||
-          (keys?.contains(r'businessActivity') ?? false))
+      if (keys == null || keys.contains(r'batch')) r'batch': batch,
+      if (keys == null || keys.contains(r'businessActivity'))
         r'businessActivity': businessActivity,
-      if ((keys == null && category != null) ||
-          (keys?.contains(r'category') ?? false))
-        r'category': category,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'category')) r'category': category,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      r'geo': geo.toJson(),
-      if ((keys == null && metadata != null) ||
-          (keys?.contains(r'metadata') ?? false))
-        r'metadata': metadata,
-      if ((keys == null && priority != null) ||
-          (keys?.contains(r'priority') ?? false))
-        r'priority': priority,
-      if ((keys == null && reporter != null) ||
-          (keys?.contains(r'reporter') ?? false))
-        r'reporter': reporter,
+      r'geo': geo.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^geo\.'))) {
+          previousValue.add(element.split(RegExp(r'^geo\.')).last);
+        }
+
+        return previousValue;
+      })),
+      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
+      if (keys == null || keys.contains(r'priority')) r'priority': priority,
+      if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       r'visibility': visibility,
     };
   }

@@ -96,11 +96,18 @@ class MarkerData {
   String toString() =>
       'MarkerData[feedback=$feedback, plan=$plan, point=$point]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'feedback': feedback,
       r'plan': plan,
-      r'point': point.toJson(),
+      r'point': point.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^point\.'))) {
+          previousValue.add(element.split(RegExp(r'^point\.')).last);
+        }
+
+        return previousValue;
+      })),
     };
   }
 }

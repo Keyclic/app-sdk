@@ -104,19 +104,21 @@ class Problem {
   String toString() =>
       'Problem[type=$type, title=$title, detail=$detail, embedded=$embedded]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && title != null) ||
-          (keys?.contains(r'title') ?? false))
-        r'title': title,
-      if ((keys == null && detail != null) ||
-          (keys?.contains(r'detail') ?? false))
-        r'detail': detail,
-      if ((keys == null && embedded != null) ||
-          (keys?.contains(r'embedded') ?? false))
-        r'_embedded': embedded?.toJson(),
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'title')) r'title': title,
+      if (keys == null || keys.contains(r'detail')) r'detail': detail,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

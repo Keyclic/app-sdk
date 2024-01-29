@@ -88,11 +88,17 @@ class ReviewRequestEmbedded {
   @override
   String toString() => 'ReviewRequestEmbedded[review=$review]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && review != null) ||
-          (keys?.contains(r'review') ?? false))
-        r'review': review?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^review\.').hasMatch(key)))
+        r'review': review?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^review\.'))) {
+            previousValue.add(element.split(RegExp(r'^review\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

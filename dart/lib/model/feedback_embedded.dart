@@ -115,23 +115,32 @@ class FeedbackEmbedded {
   String toString() =>
       'FeedbackEmbedded[category=$category, markers=$markers, reporter=$reporter, stateTransitions=$stateTransitions, tracking=$tracking]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && category != null) ||
-          (keys?.contains(r'category') ?? false))
-        r'category': category?.toJson(),
-      if ((keys == null && markers != null) ||
-          (keys?.contains(r'markers') ?? false))
-        r'markers': markers,
-      if ((keys == null && reporter != null) ||
-          (keys?.contains(r'reporter') ?? false))
-        r'reporter': reporter?.toJson(),
-      if ((keys == null && stateTransitions != null) ||
-          (keys?.contains(r'stateTransitions') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^category\.').hasMatch(key)))
+        r'category': category?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^category\.'))) {
+            previousValue.add(element.split(RegExp(r'^category\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^reporter\.').hasMatch(key)))
+        r'reporter': reporter?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^reporter\.'))) {
+            previousValue.add(element.split(RegExp(r'^reporter\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'stateTransitions'))
         r'stateTransitions': stateTransitions,
-      if ((keys == null && tracking != null) ||
-          (keys?.contains(r'tracking') ?? false))
-        r'tracking': tracking,
+      if (keys == null || keys.contains(r'tracking')) r'tracking': tracking,
     };
   }
 }

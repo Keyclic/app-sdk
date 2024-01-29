@@ -112,22 +112,55 @@ class AssignmentLinks {
   String toString() =>
       'AssignmentLinks[contract=$contract, member=$member, report=$report, self=$self, service=$service]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contract != null) ||
-          (keys?.contains(r'contract') ?? false))
-        r'contract': contract?.toJson(),
-      if ((keys == null && member != null) ||
-          (keys?.contains(r'member') ?? false))
-        r'member': member?.toJson(),
-      if ((keys == null && report != null) ||
-          (keys?.contains(r'report') ?? false))
-        r'report': report?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
-      if ((keys == null && service != null) ||
-          (keys?.contains(r'service') ?? false))
-        r'service': service?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^contract\.').hasMatch(key)))
+        r'contract': contract?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^contract\.'))) {
+            previousValue.add(element.split(RegExp(r'^contract\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
+        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^member\.'))) {
+            previousValue.add(element.split(RegExp(r'^member\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^report\.').hasMatch(key)))
+        r'report': report?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^report\.'))) {
+            previousValue.add(element.split(RegExp(r'^report\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^service\.').hasMatch(key)))
+        r'service': service?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^service\.'))) {
+            previousValue.add(element.split(RegExp(r'^service\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

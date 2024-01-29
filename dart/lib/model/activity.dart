@@ -135,30 +135,26 @@ class Activity {
   String toString() =>
       'Activity[actor=$actor, message=$message, object=$object, origin=$origin, subject=$subject, time=$time, title=$title, verb=$verb]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && actor != null) ||
-          (keys?.contains(r'actor') ?? false))
-        r'actor': actor,
-      if ((keys == null && message != null) ||
-          (keys?.contains(r'message') ?? false))
-        r'message': message,
-      if ((keys == null && object != null) ||
-          (keys?.contains(r'object') ?? false))
-        r'object': object,
-      if ((keys == null && origin != null) ||
-          (keys?.contains(r'origin') ?? false))
-        r'origin': origin,
-      if ((keys == null && subject != null) ||
-          (keys?.contains(r'subject') ?? false))
-        r'subject': subject?.toJson(),
-      if ((keys == null && time != null) || (keys?.contains(r'time') ?? false))
+      if (keys == null || keys.contains(r'actor')) r'actor': actor,
+      if (keys == null || keys.contains(r'message')) r'message': message,
+      if (keys == null || keys.contains(r'object')) r'object': object,
+      if (keys == null || keys.contains(r'origin')) r'origin': origin,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^subject\.').hasMatch(key)))
+        r'subject': subject?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^subject\.'))) {
+            previousValue.add(element.split(RegExp(r'^subject\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'time'))
         r'time': time?.toUtc().toIso8601String(),
-      if ((keys == null && title != null) ||
-          (keys?.contains(r'title') ?? false))
-        r'title': title,
-      if ((keys == null && verb != null) || (keys?.contains(r'verb') ?? false))
-        r'verb': verb,
+      if (keys == null || keys.contains(r'title')) r'title': title,
+      if (keys == null || keys.contains(r'verb')) r'verb': verb,
     };
   }
 }

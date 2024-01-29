@@ -93,11 +93,9 @@ class OccupantLinksSelfIriTemplateMapping {
   String toString() =>
       'OccupantLinksSelfIriTemplateMapping[occupant=$occupant]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && occupant != null) ||
-          (keys?.contains(r'occupant') ?? false))
-        r'occupant': occupant,
+      if (keys == null || keys.contains(r'occupant')) r'occupant': occupant,
     };
   }
 }

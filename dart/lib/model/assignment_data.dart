@@ -112,16 +112,12 @@ class AssignmentData {
   String toString() =>
       'AssignmentData[contract=$contract, description=$description, outOfContract=$outOfContract, report=$report, service=$service]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contract != null) ||
-          (keys?.contains(r'contract') ?? false))
-        r'contract': contract,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'contract')) r'contract': contract,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && outOfContract != null) ||
-          (keys?.contains(r'outOfContract') ?? false))
+      if (keys == null || keys.contains(r'outOfContract'))
         r'outOfContract': outOfContract,
       r'report': report,
       r'service': service,

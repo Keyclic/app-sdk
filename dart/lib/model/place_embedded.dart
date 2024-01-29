@@ -114,22 +114,33 @@ class PlaceEmbedded {
   String toString() =>
       'PlaceEmbedded[documentTypes=$documentTypes, organization=$organization, path=$path, targetGroups=$targetGroups, workflow=$workflow]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && documentTypes != null) ||
-          (keys?.contains(r'documentTypes') ?? false))
+      if (keys == null || keys.contains(r'documentTypes'))
         r'documentTypes': documentTypes,
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
-        r'organization': organization?.toJson(),
-      if ((keys == null && path != null) || (keys?.contains(r'path') ?? false))
-        r'path': path,
-      if ((keys == null && targetGroups != null) ||
-          (keys?.contains(r'targetGroups') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
+        r'organization': organization?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^organization\.'))) {
+            previousValue.add(element.split(RegExp(r'^organization\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'path')) r'path': path,
+      if (keys == null || keys.contains(r'targetGroups'))
         r'targetGroups': targetGroups,
-      if ((keys == null && workflow != null) ||
-          (keys?.contains(r'workflow') ?? false))
-        r'workflow': workflow?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^workflow\.').hasMatch(key)))
+        r'workflow': workflow?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^workflow\.'))) {
+            previousValue.add(element.split(RegExp(r'^workflow\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

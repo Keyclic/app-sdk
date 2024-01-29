@@ -104,16 +104,19 @@ class OperationEmbeddedWorkflow {
   String toString() =>
       'OperationEmbeddedWorkflow[metrics=$metrics, state=$state, transitions=$transitions]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && metrics != null) ||
-          (keys?.contains(r'metrics') ?? false))
-        r'metrics': metrics,
-      if ((keys == null && state != null) ||
-          (keys?.contains(r'state') ?? false))
-        r'state': state?.toJson(),
-      if ((keys == null && transitions != null) ||
-          (keys?.contains(r'transitions') ?? false))
+      if (keys == null || keys.contains(r'metrics')) r'metrics': metrics,
+      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
+        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^state\.'))) {
+            previousValue.add(element.split(RegExp(r'^state\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'transitions'))
         r'transitions': transitions,
     };
   }

@@ -105,13 +105,10 @@ class ReviewRequestLinksItemToReviewIriTemplateMapping {
   String toString() =>
       'ReviewRequestLinksItemToReviewIriTemplateMapping[feedback=$feedback, task=$task]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && feedback != null) ||
-          (keys?.contains(r'feedback') ?? false))
-        r'feedback': feedback,
-      if ((keys == null && task != null) || (keys?.contains(r'task') ?? false))
-        r'task': task,
+      if (keys == null || keys.contains(r'feedback')) r'feedback': feedback,
+      if (keys == null || keys.contains(r'task')) r'task': task,
     };
   }
 }

@@ -94,13 +94,11 @@ class CategoryPatch {
   String toString() =>
       'CategoryPatch[identificationNumber=$identificationNumber, name=$name]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && identificationNumber != null) ||
-          (keys?.contains(r'identificationNumber') ?? false))
+      if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
+      if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }
 }

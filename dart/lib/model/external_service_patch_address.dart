@@ -103,16 +103,12 @@ class ExternalServicePatchAddress {
   String toString() =>
       'ExternalServicePatchAddress[locality=$locality, postalCode=$postalCode, streetAddress=$streetAddress]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && locality != null) ||
-          (keys?.contains(r'locality') ?? false))
-        r'locality': locality,
-      if ((keys == null && postalCode != null) ||
-          (keys?.contains(r'postalCode') ?? false))
+      if (keys == null || keys.contains(r'locality')) r'locality': locality,
+      if (keys == null || keys.contains(r'postalCode'))
         r'postalCode': postalCode,
-      if ((keys == null && streetAddress != null) ||
-          (keys?.contains(r'streetAddress') ?? false))
+      if (keys == null || keys.contains(r'streetAddress'))
         r'streetAddress': streetAddress,
     };
   }

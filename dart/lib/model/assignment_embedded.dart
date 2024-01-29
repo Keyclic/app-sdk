@@ -96,14 +96,28 @@ class AssignmentEmbedded {
   String toString() =>
       'AssignmentEmbedded[createdBy=$createdBy, service=$service]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && createdBy != null) ||
-          (keys?.contains(r'createdBy') ?? false))
-        r'createdBy': createdBy?.toJson(),
-      if ((keys == null && service != null) ||
-          (keys?.contains(r'service') ?? false))
-        r'service': service?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^createdBy\.').hasMatch(key)))
+        r'createdBy': createdBy?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^createdBy\.'))) {
+            previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^service\.').hasMatch(key)))
+        r'service': service?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^service\.'))) {
+            previousValue.add(element.split(RegExp(r'^service\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

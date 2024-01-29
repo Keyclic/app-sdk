@@ -127,25 +127,17 @@ class DocumentType {
   String toString() =>
       'DocumentType[id=$id, code=$code, description=$description, name=$name, permissions=$permissions, signed=$signed, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && code != null) || (keys?.contains(r'code') ?? false))
-        r'code': code,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'code')) r'code': code,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && permissions != null) ||
-          (keys?.contains(r'permissions') ?? false))
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'permissions'))
         r'permissions': permissions,
-      if ((keys == null && signed != null) ||
-          (keys?.contains(r'signed') ?? false))
-        r'signed': signed,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'signed')) r'signed': signed,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

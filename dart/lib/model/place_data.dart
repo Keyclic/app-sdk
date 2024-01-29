@@ -111,18 +111,13 @@ class PlaceData {
   String toString() =>
       'PlaceData[name=$name, branchCode=$branchCode, parent=$parent, polygon=$polygon, organization=$organization]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'name': name,
-      if ((keys == null && branchCode != null) ||
-          (keys?.contains(r'branchCode') ?? false))
+      if (keys == null || keys.contains(r'branchCode'))
         r'branchCode': branchCode,
-      if ((keys == null && parent != null) ||
-          (keys?.contains(r'parent') ?? false))
-        r'parent': parent,
-      if ((keys == null && polygon != null) ||
-          (keys?.contains(r'polygon') ?? false))
-        r'polygon': polygon,
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'polygon')) r'polygon': polygon,
       r'organization': organization,
     };
   }

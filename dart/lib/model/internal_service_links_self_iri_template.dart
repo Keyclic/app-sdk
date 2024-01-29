@@ -93,11 +93,18 @@ class InternalServiceLinksSelfIriTemplate {
   @override
   String toString() => 'InternalServiceLinksSelfIriTemplate[mapping=$mapping]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && mapping != null) ||
-          (keys?.contains(r'mapping') ?? false))
-        r'mapping': mapping?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^mapping\.').hasMatch(key)))
+        r'mapping': mapping?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^mapping\.'))) {
+            previousValue.add(element.split(RegExp(r'^mapping\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

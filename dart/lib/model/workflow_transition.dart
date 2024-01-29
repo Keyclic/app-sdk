@@ -135,27 +135,33 @@ class WorkflowTransition {
   String toString() =>
       'WorkflowTransition[fields=$fields, description=$description, from=$from, id=$id, name=$name, required_=$required_, to=$to, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && fields != null) ||
-          (keys?.contains(r'fields') ?? false))
-        r'fields': fields,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'fields')) r'fields': fields,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && from != null) || (keys?.contains(r'from') ?? false))
-        r'from': from?.toJson(),
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && required_ != null) ||
-          (keys?.contains(r'required_') ?? false))
-        r'required': required_,
-      if ((keys == null && to != null) || (keys?.contains(r'to') ?? false))
-        r'to': to?.toJson(),
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.any((key) => RegExp(r'^from\.').hasMatch(key)))
+        r'from': from?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^from\.'))) {
+            previousValue.add(element.split(RegExp(r'^from\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'required_')) r'required': required_,
+      if (keys == null || keys.any((key) => RegExp(r'^to\.').hasMatch(key)))
+        r'to': to?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^to\.'))) {
+            previousValue.add(element.split(RegExp(r'^to\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

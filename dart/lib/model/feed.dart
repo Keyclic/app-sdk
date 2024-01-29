@@ -103,20 +103,12 @@ class Feed {
   String toString() =>
       'Feed[apiKey=$apiKey, appId=$appId, userId=$userId, userToken=$userToken]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && apiKey != null) ||
-          (keys?.contains(r'apiKey') ?? false))
-        r'apiKey': apiKey,
-      if ((keys == null && appId != null) ||
-          (keys?.contains(r'appId') ?? false))
-        r'appId': appId,
-      if ((keys == null && userId != null) ||
-          (keys?.contains(r'userId') ?? false))
-        r'userId': userId,
-      if ((keys == null && userToken != null) ||
-          (keys?.contains(r'userToken') ?? false))
-        r'userToken': userToken,
+      if (keys == null || keys.contains(r'apiKey')) r'apiKey': apiKey,
+      if (keys == null || keys.contains(r'appId')) r'appId': appId,
+      if (keys == null || keys.contains(r'userId')) r'userId': userId,
+      if (keys == null || keys.contains(r'userToken')) r'userToken': userToken,
     };
   }
 }

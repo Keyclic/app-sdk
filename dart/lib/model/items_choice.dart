@@ -148,39 +148,21 @@ class ItemsChoice {
   String toString() =>
       'ItemsChoice[default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, maxItems=$maxItems, minItems=$minItems, oneOf=$oneOf, propertyOrder=$propertyOrder, title=$title, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && default_ != null) ||
-          (keys?.contains(r'default_') ?? false))
-        r'default': default_,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'default_')) r'default': default_,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && enum_ != null) ||
-          (keys?.contains(r'enum_') ?? false))
-        r'enum': enum_,
-      if ((keys == null && format != null) ||
-          (keys?.contains(r'format') ?? false))
-        r'format': format,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && maxItems != null) ||
-          (keys?.contains(r'maxItems') ?? false))
-        r'maxItems': maxItems,
-      if ((keys == null && minItems != null) ||
-          (keys?.contains(r'minItems') ?? false))
-        r'minItems': minItems,
-      if ((keys == null && oneOf != null) ||
-          (keys?.contains(r'oneOf') ?? false))
-        r'oneOf': oneOf,
-      if ((keys == null && propertyOrder != null) ||
-          (keys?.contains(r'propertyOrder') ?? false))
+      if (keys == null || keys.contains(r'enum_')) r'enum': enum_,
+      if (keys == null || keys.contains(r'format')) r'format': format,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'maxItems')) r'maxItems': maxItems,
+      if (keys == null || keys.contains(r'minItems')) r'minItems': minItems,
+      if (keys == null || keys.contains(r'oneOf')) r'oneOf': oneOf,
+      if (keys == null || keys.contains(r'propertyOrder'))
         r'propertyOrder': propertyOrder,
-      if ((keys == null && title != null) ||
-          (keys?.contains(r'title') ?? false))
-        r'title': title,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'title')) r'title': title,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

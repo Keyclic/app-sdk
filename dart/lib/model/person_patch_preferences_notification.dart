@@ -99,12 +99,10 @@ class PersonPatchPreferencesNotification {
   String toString() =>
       'PersonPatchPreferencesNotification[mail=$mail, push=$push]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && mail != null) || (keys?.contains(r'mail') ?? false))
-        r'mail': mail,
-      if ((keys == null && push != null) || (keys?.contains(r'push') ?? false))
-        r'push': push,
+      if (keys == null || keys.contains(r'mail')) r'mail': mail,
+      if (keys == null || keys.contains(r'push')) r'push': push,
     };
   }
 }

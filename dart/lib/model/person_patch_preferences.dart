@@ -90,11 +90,18 @@ class PersonPatchPreferences {
   @override
   String toString() => 'PersonPatchPreferences[notification=$notification]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && notification != null) ||
-          (keys?.contains(r'notification') ?? false))
-        r'notification': notification?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^notification\.').hasMatch(key)))
+        r'notification': notification?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^notification\.'))) {
+            previousValue.add(element.split(RegExp(r'^notification\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

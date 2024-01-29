@@ -124,25 +124,18 @@ class OperationData {
   String toString() =>
       'OperationData[description=$description, identificationNumber=$identificationNumber, report=$report, member=$member, name=$name, organization=$organization, scheduledAt=$scheduledAt]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && identificationNumber != null) ||
-          (keys?.contains(r'identificationNumber') ?? false))
+      if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
       r'report': report,
-      if ((keys == null && member != null) ||
-          (keys?.contains(r'member') ?? false))
-        r'member': member,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
+      if (keys == null || keys.contains(r'member')) r'member': member,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'organization'))
         r'organization': organization,
-      if ((keys == null && scheduledAt != null) ||
-          (keys?.contains(r'scheduledAt') ?? false))
+      if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt,
     };
   }

@@ -109,20 +109,13 @@ class PreferencesForm {
   String toString() =>
       'PreferencesForm[contract=$contract, hidden=$hidden, manualDispatch=$manualDispatch, required_=$required_]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contract != null) ||
-          (keys?.contains(r'contract') ?? false))
-        r'contract': contract,
-      if ((keys == null && hidden != null) ||
-          (keys?.contains(r'hidden') ?? false))
-        r'hidden': hidden,
-      if ((keys == null && manualDispatch != null) ||
-          (keys?.contains(r'manualDispatch') ?? false))
+      if (keys == null || keys.contains(r'contract')) r'contract': contract,
+      if (keys == null || keys.contains(r'hidden')) r'hidden': hidden,
+      if (keys == null || keys.contains(r'manualDispatch'))
         r'manualDispatch': manualDispatch,
-      if ((keys == null && required_ != null) ||
-          (keys?.contains(r'required_') ?? false))
-        r'required': required_,
+      if (keys == null || keys.contains(r'required_')) r'required': required_,
     };
   }
 }

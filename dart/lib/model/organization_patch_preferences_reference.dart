@@ -92,11 +92,9 @@ class OrganizationPatchPreferencesReference {
   @override
   String toString() => 'OrganizationPatchPreferencesReference[prefix=$prefix]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && prefix != null) ||
-          (keys?.contains(r'prefix') ?? false))
-        r'prefix': prefix,
+      if (keys == null || keys.contains(r'prefix')) r'prefix': prefix,
     };
   }
 }

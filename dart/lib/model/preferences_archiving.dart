@@ -88,11 +88,9 @@ class PreferencesArchiving {
   @override
   String toString() => 'PreferencesArchiving[enabled=$enabled]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && enabled != null) ||
-          (keys?.contains(r'enabled') ?? false))
-        r'enabled': enabled,
+      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
     };
   }
 }

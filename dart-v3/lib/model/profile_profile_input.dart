@@ -87,7 +87,7 @@ class ProfileProfileInput {
   @override
   String toString() => 'ProfileProfileInput[username=$username]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'username': username,
     };

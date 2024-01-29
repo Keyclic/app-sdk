@@ -93,10 +93,9 @@ class ApplicationLinksSelfIriTemplateMapping {
   String toString() =>
       'ApplicationLinksSelfIriTemplateMapping[application=$application]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && application != null) ||
-          (keys?.contains(r'application') ?? false))
+      if (keys == null || keys.contains(r'application'))
         r'application': application,
     };
   }

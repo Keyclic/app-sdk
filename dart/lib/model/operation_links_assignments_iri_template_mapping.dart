@@ -96,11 +96,9 @@ class OperationLinksAssignmentsIriTemplateMapping {
   String toString() =>
       'OperationLinksAssignmentsIriTemplateMapping[operation=$operation]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && operation != null) ||
-          (keys?.contains(r'operation') ?? false))
-        r'operation': operation,
+      if (keys == null || keys.contains(r'operation')) r'operation': operation,
     };
   }
 }

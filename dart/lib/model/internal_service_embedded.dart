@@ -88,11 +88,18 @@ class InternalServiceEmbedded {
   @override
   String toString() => 'InternalServiceEmbedded[manager=$manager]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && manager != null) ||
-          (keys?.contains(r'manager') ?? false))
-        r'manager': manager?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^manager\.').hasMatch(key)))
+        r'manager': manager?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^manager\.'))) {
+            previousValue.add(element.split(RegExp(r'^manager\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

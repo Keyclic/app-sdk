@@ -154,39 +154,24 @@ class WorkflowState {
   String toString() =>
       'WorkflowState[allowAdd=$allowAdd, allowDispatch=$allowDispatch, backgroundColor=$backgroundColor, color=$color, description=$description, end=$end, id=$id, key=$key, name=$name, progression=$progression, reference=$reference, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && allowAdd != null) ||
-          (keys?.contains(r'allowAdd') ?? false))
-        r'allowAdd': allowAdd,
-      if ((keys == null && allowDispatch != null) ||
-          (keys?.contains(r'allowDispatch') ?? false))
+      if (keys == null || keys.contains(r'allowAdd')) r'allowAdd': allowAdd,
+      if (keys == null || keys.contains(r'allowDispatch'))
         r'allowDispatch': allowDispatch,
-      if ((keys == null && backgroundColor != null) ||
-          (keys?.contains(r'backgroundColor') ?? false))
+      if (keys == null || keys.contains(r'backgroundColor'))
         r'backgroundColor': backgroundColor,
-      if ((keys == null && color != null) ||
-          (keys?.contains(r'color') ?? false))
-        r'color': color,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'color')) r'color': color,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && end != null) || (keys?.contains(r'end') ?? false))
-        r'end': end,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && key != null) || (keys?.contains(r'key') ?? false))
-        r'key': key,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && progression != null) ||
-          (keys?.contains(r'progression') ?? false))
+      if (keys == null || keys.contains(r'end')) r'end': end,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'key')) r'key': key,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'progression'))
         r'progression': progression,
-      if ((keys == null && reference != null) ||
-          (keys?.contains(r'reference') ?? false))
-        r'reference': reference,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'reference')) r'reference': reference,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

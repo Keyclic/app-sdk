@@ -91,13 +91,10 @@ class Chart {
   @override
   String toString() => 'Chart[data=$data, labels=$labels]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && data != null) || (keys?.contains(r'data') ?? false))
-        r'data': data,
-      if ((keys == null && labels != null) ||
-          (keys?.contains(r'labels') ?? false))
-        r'labels': labels,
+      if (keys == null || keys.contains(r'data')) r'data': data,
+      if (keys == null || keys.contains(r'labels')) r'labels': labels,
     };
   }
 }

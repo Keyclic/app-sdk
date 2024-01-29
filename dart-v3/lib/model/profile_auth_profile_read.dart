@@ -106,16 +106,12 @@ class ProfileAuthProfileRead {
   String toString() =>
       'ProfileAuthProfileRead[types=$types, connections=$connections, firstConnection=$firstConnection]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && types != null) ||
-          (keys?.contains(r'types') ?? false))
-        r'types': types,
-      if ((keys == null && connections != null) ||
-          (keys?.contains(r'connections') ?? false))
+      if (keys == null || keys.contains(r'types')) r'types': types,
+      if (keys == null || keys.contains(r'connections'))
         r'connections': connections,
-      if ((keys == null && firstConnection != null) ||
-          (keys?.contains(r'firstConnection') ?? false))
+      if (keys == null || keys.contains(r'firstConnection'))
         r'firstConnection': firstConnection,
     };
   }

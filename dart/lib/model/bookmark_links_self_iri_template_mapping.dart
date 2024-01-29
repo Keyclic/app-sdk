@@ -93,11 +93,9 @@ class BookmarkLinksSelfIriTemplateMapping {
   String toString() =>
       'BookmarkLinksSelfIriTemplateMapping[bookmark=$bookmark]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && bookmark != null) ||
-          (keys?.contains(r'bookmark') ?? false))
-        r'bookmark': bookmark,
+      if (keys == null || keys.contains(r'bookmark')) r'bookmark': bookmark,
     };
   }
 }

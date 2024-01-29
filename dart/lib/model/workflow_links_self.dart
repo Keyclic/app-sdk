@@ -97,13 +97,19 @@ class WorkflowLinksSelf {
   String toString() =>
       'WorkflowLinksSelf[href=$href, iriTemplate=$iriTemplate]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && href != null) || (keys?.contains(r'href') ?? false))
-        r'href': href,
-      if ((keys == null && iriTemplate != null) ||
-          (keys?.contains(r'iriTemplate') ?? false))
-        r'iriTemplate': iriTemplate?.toJson(),
+      if (keys == null || keys.contains(r'href')) r'href': href,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^iriTemplate\.').hasMatch(key)))
+        r'iriTemplate': iriTemplate?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^iriTemplate\.'))) {
+            previousValue.add(element.split(RegExp(r'^iriTemplate\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

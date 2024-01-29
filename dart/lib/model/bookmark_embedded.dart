@@ -93,14 +93,26 @@ class BookmarkEmbedded {
   @override
   String toString() => 'BookmarkEmbedded[member=$member, place=$place]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && member != null) ||
-          (keys?.contains(r'member') ?? false))
-        r'member': member?.toJson(),
-      if ((keys == null && place != null) ||
-          (keys?.contains(r'place') ?? false))
-        r'place': place?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
+        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^member\.'))) {
+            previousValue.add(element.split(RegExp(r'^member\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
+        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^place\.'))) {
+            previousValue.add(element.split(RegExp(r'^place\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -89,11 +89,10 @@ class CommentData {
   @override
   String toString() => 'CommentData[text=$text, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'text': text,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

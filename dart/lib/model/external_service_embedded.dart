@@ -88,11 +88,18 @@ class ExternalServiceEmbedded {
   @override
   String toString() => 'ExternalServiceEmbedded[provider=$provider]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && provider != null) ||
-          (keys?.contains(r'provider') ?? false))
-        r'provider': provider?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^provider\.').hasMatch(key)))
+        r'provider': provider?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^provider\.'))) {
+            previousValue.add(element.split(RegExp(r'^provider\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

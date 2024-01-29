@@ -123,19 +123,21 @@ class WarrantyJsonhalRead {
   String toString() =>
       'WarrantyJsonhalRead[links=$links, duration=$duration, endDate=$endDate, startDate=$startDate]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && duration != null) ||
-          (keys?.contains(r'duration') ?? false))
-        r'duration': duration,
-      if ((keys == null && endDate != null) ||
-          (keys?.contains(r'endDate') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'duration')) r'duration': duration,
+      if (keys == null || keys.contains(r'endDate'))
         r'endDate': endDate?.toUtc().toIso8601String(),
-      if ((keys == null && startDate != null) ||
-          (keys?.contains(r'startDate') ?? false))
+      if (keys == null || keys.contains(r'startDate'))
         r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }

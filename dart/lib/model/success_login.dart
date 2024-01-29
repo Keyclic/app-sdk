@@ -100,17 +100,21 @@ class SuccessLogin {
   String toString() =>
       'SuccessLogin[accessToken=$accessToken, credentials=$credentials, tokenType=$tokenType]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && accessToken != null) ||
-          (keys?.contains(r'accessToken') ?? false))
+      if (keys == null || keys.contains(r'accessToken'))
         r'accessToken': accessToken,
-      if ((keys == null && credentials != null) ||
-          (keys?.contains(r'credentials') ?? false))
-        r'credentials': credentials?.toJson(),
-      if ((keys == null && tokenType != null) ||
-          (keys?.contains(r'tokenType') ?? false))
-        r'tokenType': tokenType,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^credentials\.').hasMatch(key)))
+        r'credentials': credentials?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^credentials\.'))) {
+            previousValue.add(element.split(RegExp(r'^credentials\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'tokenType')) r'tokenType': tokenType,
     };
   }
 }

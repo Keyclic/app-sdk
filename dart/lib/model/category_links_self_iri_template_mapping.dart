@@ -93,11 +93,9 @@ class CategoryLinksSelfIriTemplateMapping {
   String toString() =>
       'CategoryLinksSelfIriTemplateMapping[category=$category]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && category != null) ||
-          (keys?.contains(r'category') ?? false))
-        r'category': category,
+      if (keys == null || keys.contains(r'category')) r'category': category,
     };
   }
 }

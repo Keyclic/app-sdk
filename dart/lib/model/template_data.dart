@@ -124,16 +124,11 @@ class TemplateData {
   String toString() =>
       'TemplateData[body=$body, footer=$footer, header=$header, name=$name, organization=$organization, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && body != null) || (keys?.contains(r'body') ?? false))
-        r'body': body,
-      if ((keys == null && footer != null) ||
-          (keys?.contains(r'footer') ?? false))
-        r'footer': footer,
-      if ((keys == null && header != null) ||
-          (keys?.contains(r'header') ?? false))
-        r'header': header,
+      if (keys == null || keys.contains(r'body')) r'body': body,
+      if (keys == null || keys.contains(r'footer')) r'footer': footer,
+      if (keys == null || keys.contains(r'header')) r'header': header,
       r'name': name,
       r'organization': organization,
       r'type': type,

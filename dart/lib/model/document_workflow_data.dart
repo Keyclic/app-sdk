@@ -89,7 +89,7 @@ class DocumentWorkflowData {
   @override
   String toString() => 'DocumentWorkflowData[transition=$transition]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'transition': transition,
     };

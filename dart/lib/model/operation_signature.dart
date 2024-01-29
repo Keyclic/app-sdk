@@ -101,14 +101,19 @@ class OperationSignature {
   @override
   String toString() => 'OperationSignature[signedAt=$signedAt, signer=$signer]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && signedAt != null) ||
-          (keys?.contains(r'signedAt') ?? false))
+      if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
-      if ((keys == null && signer != null) ||
-          (keys?.contains(r'signer') ?? false))
-        r'signer': signer?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^signer\.').hasMatch(key)))
+        r'signer': signer?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^signer\.'))) {
+            previousValue.add(element.split(RegExp(r'^signer\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -96,14 +96,28 @@ class ContributionLinks {
   String toString() =>
       'ContributionLinks[contributor=$contributor, feedback=$feedback]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && contributor != null) ||
-          (keys?.contains(r'contributor') ?? false))
-        r'contributor': contributor?.toJson(),
-      if ((keys == null && feedback != null) ||
-          (keys?.contains(r'feedback') ?? false))
-        r'feedback': feedback?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^contributor\.').hasMatch(key)))
+        r'contributor': contributor?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^contributor\.'))) {
+            previousValue.add(element.split(RegExp(r'^contributor\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^feedback\.').hasMatch(key)))
+        r'feedback': feedback?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^feedback\.'))) {
+            previousValue.add(element.split(RegExp(r'^feedback\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

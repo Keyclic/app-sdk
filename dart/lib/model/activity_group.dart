@@ -157,36 +157,23 @@ class ActivityGroup {
   String toString() =>
       'ActivityGroup[activities=$activities, activityCount=$activityCount, actorCount=$actorCount, createdAt=$createdAt, group=$group, id=$id, updatedAt=$updatedAt, verb=$verb, isRead=$isRead, isSeen=$isSeen]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && activities != null) ||
-          (keys?.contains(r'activities') ?? false))
+      if (keys == null || keys.contains(r'activities'))
         r'activities': activities,
-      if ((keys == null && activityCount != null) ||
-          (keys?.contains(r'activityCount') ?? false))
+      if (keys == null || keys.contains(r'activityCount'))
         r'activity_count': activityCount,
-      if ((keys == null && actorCount != null) ||
-          (keys?.contains(r'actorCount') ?? false))
+      if (keys == null || keys.contains(r'actorCount'))
         r'actor_count': actorCount,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'createdAt'))
         r'created_at': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && group != null) ||
-          (keys?.contains(r'group') ?? false))
-        r'group': group,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'group')) r'group': group,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updated_at': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && verb != null) || (keys?.contains(r'verb') ?? false))
-        r'verb': verb,
-      if ((keys == null && isRead != null) ||
-          (keys?.contains(r'isRead') ?? false))
-        r'is_read': isRead,
-      if ((keys == null && isSeen != null) ||
-          (keys?.contains(r'isSeen') ?? false))
-        r'is_seen': isSeen,
+      if (keys == null || keys.contains(r'verb')) r'verb': verb,
+      if (keys == null || keys.contains(r'isRead')) r'is_read': isRead,
+      if (keys == null || keys.contains(r'isSeen')) r'is_seen': isSeen,
     };
   }
 }

@@ -136,35 +136,36 @@ class PersonPatch {
   String toString() =>
       'PersonPatch[agreement=$agreement, givenName=$givenName, familyName=$familyName, email=$email, jobTitle=$jobTitle, image=$image, optIn=$optIn, preferences=$preferences, telephone=$telephone]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && agreement != null) ||
-          (keys?.contains(r'agreement') ?? false))
-        r'agreement': agreement?.toJson(),
-      if ((keys == null && givenName != null) ||
-          (keys?.contains(r'givenName') ?? false))
-        r'givenName': givenName,
-      if ((keys == null && familyName != null) ||
-          (keys?.contains(r'familyName') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^agreement\.').hasMatch(key)))
+        r'agreement': agreement?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^agreement\.'))) {
+            previousValue.add(element.split(RegExp(r'^agreement\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
+      if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
-      if ((keys == null && email != null) ||
-          (keys?.contains(r'email') ?? false))
-        r'email': email,
-      if ((keys == null && jobTitle != null) ||
-          (keys?.contains(r'jobTitle') ?? false))
-        r'jobTitle': jobTitle,
-      if ((keys == null && image != null) ||
-          (keys?.contains(r'image') ?? false))
-        r'image': image,
-      if ((keys == null && optIn != null) ||
-          (keys?.contains(r'optIn') ?? false))
-        r'optIn': optIn,
-      if ((keys == null && preferences != null) ||
-          (keys?.contains(r'preferences') ?? false))
-        r'preferences': preferences?.toJson(),
-      if ((keys == null && telephone != null) ||
-          (keys?.contains(r'telephone') ?? false))
-        r'telephone': telephone,
+      if (keys == null || keys.contains(r'email')) r'email': email,
+      if (keys == null || keys.contains(r'jobTitle')) r'jobTitle': jobTitle,
+      if (keys == null || keys.contains(r'image')) r'image': image,
+      if (keys == null || keys.contains(r'optIn')) r'optIn': optIn,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
     };
   }
 }

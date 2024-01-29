@@ -154,42 +154,39 @@ class SchemaProperty {
   String toString() =>
       'SchemaProperty[conditions=$conditions, default_=$default_, description=$description, enum_=$enum_, format=$format, id=$id, items=$items, maxItems=$maxItems, minItems=$minItems, propertyOrder=$propertyOrder, title=$title, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && conditions != null) ||
-          (keys?.contains(r'conditions') ?? false))
-        r'conditions': conditions?.toJson(),
-      if ((keys == null && default_ != null) ||
-          (keys?.contains(r'default_') ?? false))
-        r'default': default_,
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^conditions\.').hasMatch(key)))
+        r'conditions': conditions?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^conditions\.'))) {
+            previousValue.add(element.split(RegExp(r'^conditions\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'default_')) r'default': default_,
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && enum_ != null) ||
-          (keys?.contains(r'enum_') ?? false))
-        r'enum': enum_,
-      if ((keys == null && format != null) ||
-          (keys?.contains(r'format') ?? false))
-        r'format': format,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && items != null) ||
-          (keys?.contains(r'items') ?? false))
-        r'items': items?.toJson(),
-      if ((keys == null && maxItems != null) ||
-          (keys?.contains(r'maxItems') ?? false))
-        r'maxItems': maxItems,
-      if ((keys == null && minItems != null) ||
-          (keys?.contains(r'minItems') ?? false))
-        r'minItems': minItems,
-      if ((keys == null && propertyOrder != null) ||
-          (keys?.contains(r'propertyOrder') ?? false))
+      if (keys == null || keys.contains(r'enum_')) r'enum': enum_,
+      if (keys == null || keys.contains(r'format')) r'format': format,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.any((key) => RegExp(r'^items\.').hasMatch(key)))
+        r'items': items?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^items\.'))) {
+            previousValue.add(element.split(RegExp(r'^items\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'maxItems')) r'maxItems': maxItems,
+      if (keys == null || keys.contains(r'minItems')) r'minItems': minItems,
+      if (keys == null || keys.contains(r'propertyOrder'))
         r'propertyOrder': propertyOrder,
-      if ((keys == null && title != null) ||
-          (keys?.contains(r'title') ?? false))
-        r'title': title,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'title')) r'title': title,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

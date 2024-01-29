@@ -94,11 +94,9 @@ class AssignmentLinksReportIriTemplateMapping {
   String toString() =>
       'AssignmentLinksReportIriTemplateMapping[report=$report]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && report != null) ||
-          (keys?.contains(r'report') ?? false))
-        r'report': report,
+      if (keys == null || keys.contains(r'report')) r'report': report,
     };
   }
 }

@@ -148,40 +148,115 @@ class ReportLinks {
   String toString() =>
       'ReportLinks[asset=$asset, category=$category, children=$children, createdBy=$createdBy, equipment=$equipment, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && asset != null) ||
-          (keys?.contains(r'asset') ?? false))
-        r'asset': asset?.toJson(),
-      if ((keys == null && category != null) ||
-          (keys?.contains(r'category') ?? false))
-        r'category': category?.toJson(),
-      if ((keys == null && children != null) ||
-          (keys?.contains(r'children') ?? false))
-        r'children': children?.toJson(),
-      if ((keys == null && createdBy != null) ||
-          (keys?.contains(r'createdBy') ?? false))
-        r'createdBy': createdBy?.toJson(),
-      if ((keys == null && equipment != null) ||
-          (keys?.contains(r'equipment') ?? false))
-        r'equipment': equipment?.toJson(),
-      if ((keys == null && feedback != null) ||
-          (keys?.contains(r'feedback') ?? false))
-        r'feedback': feedback?.toJson(),
-      if ((keys == null && operations != null) ||
-          (keys?.contains(r'operations') ?? false))
-        r'operations': operations?.toJson(),
-      if ((keys == null && organization != null) ||
-          (keys?.contains(r'organization') ?? false))
-        r'organization': organization?.toJson(),
-      if ((keys == null && place != null) ||
-          (keys?.contains(r'place') ?? false))
-        r'place': place?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
-      if ((keys == null && tracking != null) ||
-          (keys?.contains(r'tracking') ?? false))
-        r'tracking': tracking?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^asset\.').hasMatch(key)))
+        r'asset': asset?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^asset\.'))) {
+            previousValue.add(element.split(RegExp(r'^asset\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^category\.').hasMatch(key)))
+        r'category': category?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^category\.'))) {
+            previousValue.add(element.split(RegExp(r'^category\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^children\.').hasMatch(key)))
+        r'children': children?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^children\.'))) {
+            previousValue.add(element.split(RegExp(r'^children\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^createdBy\.').hasMatch(key)))
+        r'createdBy': createdBy?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^createdBy\.'))) {
+            previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^equipment\.').hasMatch(key)))
+        r'equipment': equipment?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^equipment\.'))) {
+            previousValue.add(element.split(RegExp(r'^equipment\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^feedback\.').hasMatch(key)))
+        r'feedback': feedback?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^feedback\.'))) {
+            previousValue.add(element.split(RegExp(r'^feedback\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^operations\.').hasMatch(key)))
+        r'operations': operations?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^operations\.'))) {
+            previousValue.add(element.split(RegExp(r'^operations\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
+        r'organization': organization?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^organization\.'))) {
+            previousValue.add(element.split(RegExp(r'^organization\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
+        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^place\.'))) {
+            previousValue.add(element.split(RegExp(r'^place\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^tracking\.').hasMatch(key)))
+        r'tracking': tracking?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^tracking\.'))) {
+            previousValue.add(element.split(RegExp(r'^tracking\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

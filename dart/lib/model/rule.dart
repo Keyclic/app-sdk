@@ -109,20 +109,22 @@ class Rule {
   String toString() =>
       'Rule[links=$links, description=$description, id=$id, name=$name, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

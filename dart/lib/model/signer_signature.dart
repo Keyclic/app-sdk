@@ -99,13 +99,11 @@ class SignerSignature {
   @override
   String toString() => 'SignerSignature[signedAt=$signedAt, text=$text]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && signedAt != null) ||
-          (keys?.contains(r'signedAt') ?? false))
+      if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
-      if ((keys == null && text != null) || (keys?.contains(r'text') ?? false))
-        r'text': text,
+      if (keys == null || keys.contains(r'text')) r'text': text,
     };
   }
 }

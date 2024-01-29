@@ -101,13 +101,19 @@ class BillingWrite {
   String toString() =>
       'BillingWrite[initialCost=$initialCost, startDate=$startDate]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && initialCost != null) ||
-          (keys?.contains(r'initialCost') ?? false))
-        r'initialCost': initialCost?.toJson(),
-      if ((keys == null && startDate != null) ||
-          (keys?.contains(r'startDate') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^initialCost\.').hasMatch(key)))
+        r'initialCost': initialCost?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^initialCost\.'))) {
+            previousValue.add(element.split(RegExp(r'^initialCost\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'startDate'))
         r'startDate': startDate?.toUtc().toIso8601String(),
     };
   }

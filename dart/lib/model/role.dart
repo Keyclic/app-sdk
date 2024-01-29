@@ -136,24 +136,18 @@ class Role {
   String toString() =>
       'Role[createdAt=$createdAt, description=$description, id=$id, name=$name, permissions=$permissions, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
+      if (keys == null || keys.contains(r'id')) r'id': id,
       r'name': name,
-      if ((keys == null && permissions != null) ||
-          (keys?.contains(r'permissions') ?? false))
+      if (keys == null || keys.contains(r'permissions'))
         r'permissions': permissions,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }

@@ -98,10 +98,9 @@ class BusinessActivityLinksImageIriTemplateMapping {
   String toString() =>
       'BusinessActivityLinksImageIriTemplateMapping[businessActivity=$businessActivity]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && businessActivity != null) ||
-          (keys?.contains(r'businessActivity') ?? false))
+      if (keys == null || keys.contains(r'businessActivity'))
         r'businessActivity': businessActivity,
     };
   }

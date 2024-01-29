@@ -122,26 +122,43 @@ class OperationEmbedded {
   String toString() =>
       'OperationEmbedded[createdBy=$createdBy, documentTypes=$documentTypes, documents=$documents, operator_=$operator_, targetGroups=$targetGroups, workflow=$workflow]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && createdBy != null) ||
-          (keys?.contains(r'createdBy') ?? false))
-        r'createdBy': createdBy?.toJson(),
-      if ((keys == null && documentTypes != null) ||
-          (keys?.contains(r'documentTypes') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^createdBy\.').hasMatch(key)))
+        r'createdBy': createdBy?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^createdBy\.'))) {
+            previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'documentTypes'))
         r'documentTypes': documentTypes,
-      if ((keys == null && documents != null) ||
-          (keys?.contains(r'documents') ?? false))
-        r'documents': documents,
-      if ((keys == null && operator_ != null) ||
-          (keys?.contains(r'operator_') ?? false))
-        r'operator': operator_?.toJson(),
-      if ((keys == null && targetGroups != null) ||
-          (keys?.contains(r'targetGroups') ?? false))
+      if (keys == null || keys.contains(r'documents')) r'documents': documents,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^operator_\.').hasMatch(key)))
+        r'operator': operator_?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^operator_\.'))) {
+            previousValue.add(element.split(RegExp(r'^operator_\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'targetGroups'))
         r'targetGroups': targetGroups,
-      if ((keys == null && workflow != null) ||
-          (keys?.contains(r'workflow') ?? false))
-        r'workflow': workflow?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^workflow\.').hasMatch(key)))
+        r'workflow': workflow?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^workflow\.'))) {
+            previousValue.add(element.split(RegExp(r'^workflow\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

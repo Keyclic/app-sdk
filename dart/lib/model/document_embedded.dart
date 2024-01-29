@@ -117,22 +117,31 @@ class DocumentEmbedded {
   String toString() =>
       'DocumentEmbedded[container=$container, createdBy=$createdBy, signers=$signers, stateTransitions=$stateTransitions, type=$type]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && container != null) ||
-          (keys?.contains(r'container') ?? false))
-        r'container': container,
-      if ((keys == null && createdBy != null) ||
-          (keys?.contains(r'createdBy') ?? false))
-        r'createdBy': createdBy?.toJson(),
-      if ((keys == null && signers != null) ||
-          (keys?.contains(r'signers') ?? false))
-        r'signers': signers,
-      if ((keys == null && stateTransitions != null) ||
-          (keys?.contains(r'stateTransitions') ?? false))
+      if (keys == null || keys.contains(r'container')) r'container': container,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^createdBy\.').hasMatch(key)))
+        r'createdBy': createdBy?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^createdBy\.'))) {
+            previousValue.add(element.split(RegExp(r'^createdBy\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'signers')) r'signers': signers,
+      if (keys == null || keys.contains(r'stateTransitions'))
         r'stateTransitions': stateTransitions,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
+        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^type\.'))) {
+            previousValue.add(element.split(RegExp(r'^type\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

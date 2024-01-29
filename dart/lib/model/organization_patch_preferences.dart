@@ -90,11 +90,18 @@ class OrganizationPatchPreferences {
   @override
   String toString() => 'OrganizationPatchPreferences[reference=$reference]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && reference != null) ||
-          (keys?.contains(r'reference') ?? false))
-        r'reference': reference?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^reference\.').hasMatch(key)))
+        r'reference': reference?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^reference\.'))) {
+            previousValue.add(element.split(RegExp(r'^reference\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -90,12 +90,26 @@ class MarkerLinks {
   @override
   String toString() => 'MarkerLinks[plan=$plan, self=$self]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && plan != null) || (keys?.contains(r'plan') ?? false))
-        r'plan': plan?.toJson(),
-      if ((keys == null && self != null) || (keys?.contains(r'self') ?? false))
-        r'self': self?.toJson(),
+      if (keys == null || keys.any((key) => RegExp(r'^plan\.').hasMatch(key)))
+        r'plan': plan?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^plan\.'))) {
+            previousValue.add(element.split(RegExp(r'^plan\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
+        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^self\.'))) {
+            previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

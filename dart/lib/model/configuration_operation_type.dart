@@ -103,15 +103,20 @@ class ConfigurationOperationType {
   String toString() =>
       'ConfigurationOperationType[id=$id, type=$type, workflow=$workflow]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && workflow != null) ||
-          (keys?.contains(r'workflow') ?? false))
-        r'workflow': workflow?.toJson(),
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^workflow\.').hasMatch(key)))
+        r'workflow': workflow?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^workflow\.'))) {
+            previousValue.add(element.split(RegExp(r'^workflow\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

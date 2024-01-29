@@ -91,11 +91,9 @@ class DeviceLinksSelfIriTemplateMapping {
   @override
   String toString() => 'DeviceLinksSelfIriTemplateMapping[device=$device]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && device != null) ||
-          (keys?.contains(r'device') ?? false))
-        r'device': device,
+      if (keys == null || keys.contains(r'device')) r'device': device,
     };
   }
 }

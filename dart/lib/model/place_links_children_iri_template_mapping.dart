@@ -92,11 +92,9 @@ class PlaceLinksChildrenIriTemplateMapping {
   @override
   String toString() => 'PlaceLinksChildrenIriTemplateMapping[parent=$parent]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && parent != null) ||
-          (keys?.contains(r'parent') ?? false))
-        r'parent': parent,
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
     };
   }
 }

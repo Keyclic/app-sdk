@@ -157,33 +157,37 @@ class PlaceTypeWorkflow {
   String toString() =>
       'PlaceTypeWorkflow[createdAt=$createdAt, description=$description, end=$end, id=$id, name=$name, start=$start, states=$states, transitions=$transitions, type=$type, updatedAt=$updatedAt]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if ((keys == null && end != null) || (keys?.contains(r'end') ?? false))
-        r'end': end?.toJson(),
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && name != null) || (keys?.contains(r'name') ?? false))
-        r'name': name,
-      if ((keys == null && start != null) ||
-          (keys?.contains(r'start') ?? false))
-        r'start': start?.toJson(),
-      if ((keys == null && states != null) ||
-          (keys?.contains(r'states') ?? false))
-        r'states': states,
-      if ((keys == null && transitions != null) ||
-          (keys?.contains(r'transitions') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^end\.').hasMatch(key)))
+        r'end': end?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^end\.'))) {
+            previousValue.add(element.split(RegExp(r'^end\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.any((key) => RegExp(r'^start\.').hasMatch(key)))
+        r'start': start?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^start\.'))) {
+            previousValue.add(element.split(RegExp(r'^start\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'states')) r'states': states,
+      if (keys == null || keys.contains(r'transitions'))
         r'transitions': transitions,
-      if ((keys == null && type != null) || (keys?.contains(r'type') ?? false))
-        r'type': type,
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }

@@ -91,11 +91,9 @@ class MarkerLinksSelfIriTemplateMapping {
   @override
   String toString() => 'MarkerLinksSelfIriTemplateMapping[marker=$marker]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && marker != null) ||
-          (keys?.contains(r'marker') ?? false))
-        r'marker': marker,
+      if (keys == null || keys.contains(r'marker')) r'marker': marker,
     };
   }
 }

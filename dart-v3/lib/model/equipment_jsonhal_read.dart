@@ -204,46 +204,54 @@ class EquipmentJsonhalRead {
   String toString() =>
       'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, address=$address]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && links != null) ||
-          (keys?.contains(r'links') ?? false))
-        r'_links': links?.toJson(),
-      if ((keys == null && commissioningDate != null) ||
-          (keys?.contains(r'commissioningDate') ?? false))
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'commissioningDate'))
         r'commissioningDate': commissioningDate?.toUtc().toIso8601String(),
-      if ((keys == null && lifetime != null) ||
-          (keys?.contains(r'lifetime') ?? false))
-        r'lifetime': lifetime,
-      if ((keys == null && model != null) ||
-          (keys?.contains(r'model') ?? false))
-        r'model': model,
-      if ((keys == null && mpn != null) || (keys?.contains(r'mpn') ?? false))
-        r'mpn': mpn,
-      if ((keys == null && retirementDate != null) ||
-          (keys?.contains(r'retirementDate') ?? false))
+      if (keys == null || keys.contains(r'lifetime')) r'lifetime': lifetime,
+      if (keys == null || keys.contains(r'model')) r'model': model,
+      if (keys == null || keys.contains(r'mpn')) r'mpn': mpn,
+      if (keys == null || keys.contains(r'retirementDate'))
         r'retirementDate': retirementDate?.toUtc().toIso8601String(),
-      if ((keys == null && serialNumber != null) ||
-          (keys?.contains(r'serialNumber') ?? false))
+      if (keys == null || keys.contains(r'serialNumber'))
         r'serialNumber': serialNumber,
-      if ((keys == null && id != null) || (keys?.contains(r'id') ?? false))
-        r'id': id,
-      if ((keys == null && createdAt != null) ||
-          (keys?.contains(r'createdAt') ?? false))
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if ((keys == null && updatedAt != null) ||
-          (keys?.contains(r'updatedAt') ?? false))
+      if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if ((keys == null && warranty != null) ||
-          (keys?.contains(r'warranty') ?? false))
-        r'warranty': warranty?.toJson(),
-      if ((keys == null && description != null) ||
-          (keys?.contains(r'description') ?? false))
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^warranty\.').hasMatch(key)))
+        r'warranty': warranty?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^warranty\.'))) {
+            previousValue.add(element.split(RegExp(r'^warranty\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if ((keys == null && address != null) ||
-          (keys?.contains(r'address') ?? false))
-        r'address': address?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
+        r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^address\.'))) {
+            previousValue.add(element.split(RegExp(r'^address\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

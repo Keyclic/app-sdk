@@ -106,14 +106,20 @@ class RegisterData {
   String toString() =>
       'RegisterData[agreement=$agreement, email=$email, invitation=$invitation, password=$password]';
 
-  Map<String, dynamic> toJson([List<String>? keys]) {
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if ((keys == null && agreement != null) ||
-          (keys?.contains(r'agreement') ?? false))
-        r'agreement': agreement?.toJson(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^agreement\.').hasMatch(key)))
+        r'agreement': agreement?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^agreement\.'))) {
+            previousValue.add(element.split(RegExp(r'^agreement\.')).last);
+          }
+
+          return previousValue;
+        })),
       r'email': email,
-      if ((keys == null && invitation != null) ||
-          (keys?.contains(r'invitation') ?? false))
+      if (keys == null || keys.contains(r'invitation'))
         r'invitation': invitation,
       r'password': password,
     };

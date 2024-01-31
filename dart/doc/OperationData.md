@@ -11,9 +11,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **identificationNumber** | **String** |  | [optional] 
 **report** | **String** |  | 
-**member** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
-**organization** | **String** |  | [optional] 
 **scheduledAt** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -10,9 +10,7 @@ class OperationData {
     this.description,
     this.identificationNumber,
     required this.report,
-    this.member,
     this.name,
-    this.organization,
     this.scheduledAt,
   });
 
@@ -27,9 +25,7 @@ class OperationData {
       description: json[r'description'],
       identificationNumber: json[r'identificationNumber'],
       report: json[r'report'],
-      member: json[r'member'],
       name: json[r'name'],
-      organization: json[r'organization'],
       scheduledAt: json[r'scheduledAt'],
     );
   }
@@ -40,11 +36,7 @@ class OperationData {
 
   String report;
 
-  String? member;
-
   String? name;
-
-  String? organization;
 
   String? scheduledAt;
 
@@ -59,9 +51,7 @@ class OperationData {
         other.description == description &&
         other.identificationNumber == identificationNumber &&
         other.report == report &&
-        other.member == member &&
         other.name == name &&
-        other.organization == organization &&
         other.scheduledAt == scheduledAt;
   }
 
@@ -70,9 +60,7 @@ class OperationData {
       (description == null ? 0 : description.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       report.hashCode +
-      (member == null ? 0 : member.hashCode) +
       (name == null ? 0 : name.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode);
 
   static List<OperationData> listFromJson(List<dynamic>? json) {
@@ -122,7 +110,7 @@ class OperationData {
 
   @override
   String toString() =>
-      'OperationData[description=$description, identificationNumber=$identificationNumber, report=$report, member=$member, name=$name, organization=$organization, scheduledAt=$scheduledAt]';
+      'OperationData[description=$description, identificationNumber=$identificationNumber, report=$report, name=$name, scheduledAt=$scheduledAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -131,10 +119,7 @@ class OperationData {
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
       r'report': report,
-      if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'organization'))
-        r'organization': organization,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt,
     };

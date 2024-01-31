@@ -22113,13 +22113,7 @@
                 "report": {
                     "type": "string"
                 },
-                "member": {
-                    "type": "string"
-                },
                 "name": {
-                    "type": "string"
-                },
-                "organization": {
                     "type": "string"
                 },
                 "scheduledAt": {

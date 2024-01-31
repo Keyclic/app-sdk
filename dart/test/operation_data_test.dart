@@ -19,14 +19,8 @@ void main() {
     // String report
     test('to test the property `report`', () async {});
 
-    // String member
-    test('to test the property `member`', () async {});
-
     // String name
     test('to test the property `name`', () async {});
-
-    // String organization
-    test('to test the property `organization`', () async {});
 
     // String scheduledAt
     test('to test the property `scheduledAt`', () async {});

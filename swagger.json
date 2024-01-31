@@ -23306,6 +23306,19 @@
                 },
                 "organization": {
                     "type": "string"
+                },
+                "preferences": {
+                    "type": "object",
+                    "properties": {
+                        "visibility": {
+                            "type": "string",
+                            "enum": [
+                                "VISIBILITY_PRIVATE",
+                                "VISIBILITY_PUBLIC",
+                                "VISIBILITY_SHARED"
+                            ]
+                        }
+                    }
                 }
             },
             "required": [
@@ -23491,6 +23504,15 @@
                     "format": "string",
                     "maxLength": 255,
                     "type": "string"
+                },
+                "preferences": {
+                    "type": "object",
+                    "properties": {
+                        "visibility": {
+                            "format": "string",
+                            "type": "string"
+                        }
+                    }
                 }
             }
         },

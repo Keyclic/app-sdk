@@ -401,6 +401,7 @@ doc/Place.md
 doc/PlaceApi.md
 doc/PlaceCollection.md
 doc/PlaceData.md
+doc/PlaceDataPreferences.md
 doc/PlaceEmbedded.md
 doc/PlaceLinks.md
 doc/PlaceLinksChildren.md
@@ -416,6 +417,7 @@ doc/PlaceLinksSelf.md
 doc/PlaceLinksSelfIriTemplate.md
 doc/PlacePagination.md
 doc/PlacePatch.md
+doc/PlacePatchPreferences.md
 doc/PlacePostalAddress.md
 doc/PlacePreferences.md
 doc/PlaceTypeWorkflow.md
@@ -1040,6 +1042,7 @@ lib/model/person_preferences.dart
 lib/model/place.dart
 lib/model/place_collection.dart
 lib/model/place_data.dart
+lib/model/place_data_preferences.dart
 lib/model/place_embedded.dart
 lib/model/place_links.dart
 lib/model/place_links_children.dart
@@ -1055,6 +1058,7 @@ lib/model/place_links_self.dart
 lib/model/place_links_self_iri_template.dart
 lib/model/place_pagination.dart
 lib/model/place_patch.dart
+lib/model/place_patch_preferences.dart
 lib/model/place_postal_address.dart
 lib/model/place_preferences.dart
 lib/model/place_type_workflow.dart
@@ -1640,6 +1644,7 @@ test/person_preferences_test.dart
 test/person_test.dart
 test/place_api_test.dart
 test/place_collection_test.dart
+test/place_data_preferences_test.dart
 test/place_data_test.dart
 test/place_embedded_test.dart
 test/place_links_children_iri_template_mapping_test.dart
@@ -1655,6 +1660,7 @@ test/place_links_self_iri_template_test.dart
 test/place_links_self_test.dart
 test/place_links_test.dart
 test/place_pagination_test.dart
+test/place_patch_preferences_test.dart
 test/place_patch_test.dart
 test/place_postal_address_test.dart
 test/place_preferences_test.dart

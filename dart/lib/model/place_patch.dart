@@ -11,6 +11,7 @@ class PlacePatch {
     this.branchCode,
     this.description,
     this.name,
+    this.preferences,
   });
 
   /// Returns a new [PlacePatch] instance and imports its values from
@@ -25,6 +26,7 @@ class PlacePatch {
       branchCode: json[r'branchCode'],
       description: json[r'description'],
       name: json[r'name'],
+      preferences: PlacePatchPreferences.fromJson(json[r'preferences']),
     );
   }
 
@@ -35,6 +37,8 @@ class PlacePatch {
   String? description;
 
   String? name;
+
+  PlacePatchPreferences? preferences;
 
   @override
   bool operator ==(Object other) {
@@ -47,7 +51,8 @@ class PlacePatch {
         other.address == address &&
         other.branchCode == branchCode &&
         other.description == description &&
-        other.name == name;
+        other.name == name &&
+        other.preferences == preferences;
   }
 
   @override
@@ -55,7 +60,8 @@ class PlacePatch {
       (address == null ? 0 : address.hashCode) +
       (branchCode == null ? 0 : branchCode.hashCode) +
       (description == null ? 0 : description.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      (name == null ? 0 : name.hashCode) +
+      (preferences == null ? 0 : preferences.hashCode);
 
   static List<PlacePatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -103,7 +109,7 @@ class PlacePatch {
 
   @override
   String toString() =>
-      'PlacePatch[address=$address, branchCode=$branchCode, description=$description, name=$name]';
+      'PlacePatch[address=$address, branchCode=$branchCode, description=$description, name=$name, preferences=$preferences]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -122,6 +128,16 @@ class PlacePatch {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

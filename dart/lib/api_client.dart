@@ -1076,6 +1076,8 @@ class ApiClient {
           return PlaceCollection.fromJson(value);
         case 'PlaceData':
           return PlaceData.fromJson(value);
+        case 'PlaceDataPreferences':
+          return PlaceDataPreferences.fromJson(value);
         case 'PlaceEmbedded':
           return PlaceEmbedded.fromJson(value);
         case 'PlaceLinks':
@@ -1106,6 +1108,8 @@ class ApiClient {
           return PlacePagination.fromJson(value);
         case 'PlacePatch':
           return PlacePatch.fromJson(value);
+        case 'PlacePatchPreferences':
+          return PlacePatchPreferences.fromJson(value);
         case 'PlacePostalAddress':
           return PlacePostalAddress.fromJson(value);
         case 'PlacePreferences':

@@ -18,5 +18,8 @@ void main() {
 
     // String parent
     test('to test the property `parent`', () async {});
+
+    // String type
+    test('to test the property `type`', () async {});
   });
 }

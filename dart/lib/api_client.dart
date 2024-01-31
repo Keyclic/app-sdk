@@ -509,6 +509,8 @@ class ApiClient {
           return CategoryData.fromJson(value);
         case 'CategoryEmbedded':
           return CategoryEmbedded.fromJson(value);
+        case 'CategoryEmbeddedType':
+          return CategoryEmbeddedType.fromJson(value);
         case 'CategoryLinks':
           return CategoryLinks.fromJson(value);
         case 'CategoryLinksOrganization':

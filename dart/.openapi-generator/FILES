@@ -95,6 +95,7 @@ doc/CategoryApi.md
 doc/CategoryCollection.md
 doc/CategoryData.md
 doc/CategoryEmbedded.md
+doc/CategoryEmbeddedType.md
 doc/CategoryLinks.md
 doc/CategoryLinksOrganization.md
 doc/CategoryLinksOrganizationIriTemplate.md
@@ -759,6 +760,7 @@ lib/model/category.dart
 lib/model/category_collection.dart
 lib/model/category_data.dart
 lib/model/category_embedded.dart
+lib/model/category_embedded_type.dart
 lib/model/category_links.dart
 lib/model/category_links_organization.dart
 lib/model/category_links_organization_iri_template.dart
@@ -1339,6 +1341,7 @@ test/category_api_test.dart
 test/category_collection_test.dart
 test/category_data_test.dart
 test/category_embedded_test.dart
+test/category_embedded_type_test.dart
 test/category_links_organization_iri_template_mapping_test.dart
 test/category_links_organization_iri_template_test.dart
 test/category_links_organization_test.dart

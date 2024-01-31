@@ -10,6 +10,7 @@ class CategoryData {
     required this.name,
     required this.organization,
     this.parent,
+    this.type,
   });
 
   /// Returns a new [CategoryData] instance and imports its values from
@@ -23,6 +24,7 @@ class CategoryData {
       name: json[r'name'],
       organization: json[r'organization'],
       parent: json[r'parent'],
+      type: json[r'type'],
     );
   }
 
@@ -31,6 +33,8 @@ class CategoryData {
   String organization;
 
   String? parent;
+
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -42,14 +46,16 @@ class CategoryData {
     return other is CategoryData &&
         other.name == name &&
         other.organization == organization &&
-        other.parent == parent;
+        other.parent == parent &&
+        other.type == type;
   }
 
   @override
   int get hashCode =>
       name.hashCode +
       organization.hashCode +
-      (parent == null ? 0 : parent.hashCode);
+      (parent == null ? 0 : parent.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<CategoryData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -98,13 +104,14 @@ class CategoryData {
 
   @override
   String toString() =>
-      'CategoryData[name=$name, organization=$organization, parent=$parent]';
+      'CategoryData[name=$name, organization=$organization, parent=$parent, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'name': name,
       r'organization': organization,
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

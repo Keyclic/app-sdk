@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.51.1"
+        "version": "2.54.0-dev.gbfb45825f"
     },
     "servers": [
         {
@@ -2129,6 +2129,420 @@
                         "name": "identifier",
                         "in": "path",
                         "description": "BusinessHours identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/category-types": {
+            "get": {
+                "operationId": "getCategoryTypeCollection",
+                "tags": [
+                    "CategoryType"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "CategoryType collection",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_embedded": {
+                                            "type": "object",
+                                            "properties": {
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/CategoryType.jsonhal-Read"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "item"
+                                            ]
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "itemsPerPage": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "_links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    },
+                                                    "nullable": false
+                                                },
+                                                "first": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "last": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "next": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "previous": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string",
+                                                                "format": "iri-reference"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "_links"
+                                    ]
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/CategoryType-Read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of CategoryType resources.",
+                "description": "Retrieves the collection of CategoryType resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 0,
+                            "maximum": 50
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/category-types/{identifier}": {
+            "get": {
+                "operationId": "getCategoryType",
+                "tags": [
+                    "CategoryType"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "CategoryType resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategoryType.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategoryType-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a CategoryType resource.",
+                "description": "Retrieves a CategoryType resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Type identifier",
                         "required": true,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -8972,6 +9386,96 @@
                 "required": [
                     "name",
                     "openingHours"
+                ]
+            },
+            "CategoryType-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "CategoryType.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name"
                 ]
             },
             "Connection-auth-profile.read": {

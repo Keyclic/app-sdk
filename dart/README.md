@@ -331,6 +331,7 @@ Class | Method | HTTP request | Description
  - [CategoryCollection](doc//CategoryCollection.md)
  - [CategoryData](doc//CategoryData.md)
  - [CategoryEmbedded](doc//CategoryEmbedded.md)
+ - [CategoryEmbeddedType](doc//CategoryEmbeddedType.md)
  - [CategoryLinks](doc//CategoryLinks.md)
  - [CategoryLinksOrganization](doc//CategoryLinksOrganization.md)
  - [CategoryLinksOrganizationIriTemplate](doc//CategoryLinksOrganizationIriTemplate.md)

@@ -75,11 +75,6 @@ void main() {
     //Future<Operation> postOperation(String xKeyclicApp, OperationData operationData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test postOperation', () async {});
 
-    // Create one Sign resource.
-    //
-    //Future<Operation> postSignByOperation(String xKeyclicApp, String operation, LegacySignatureData legacySignatureData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test postSignByOperation', () async {});
-
     // Create one Workflow resource.
     //
     //Future<Operation> postWorkflowByOperation(String xKeyclicApp, String operation, WorkflowData workflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

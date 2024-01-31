@@ -19,7 +19,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **priority** | [**OperationPriority**](OperationPriority.md) |  | [optional] 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
-**signature** | [**OperationSignature**](OperationSignature.md) |  | [optional] 
 **tags** | **List<String>** |  | [optional] [default to const []]
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 

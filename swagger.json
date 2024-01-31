@@ -8306,99 +8306,6 @@
                 ]
             }
         },
-        "\/operations\/{operation}\/sign": {
-            "post": {
-                "tags": [
-                    "Operation"
-                ],
-                "summary": "Create one Sign resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postSignByOperation",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/LegacySignatureData"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "operation",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Operation"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/operations\/{operation}\/workflow": {
             "post": {
                 "tags": [
@@ -21082,28 +20989,6 @@
                 }
             }
         },
-        "LegacySignatureData": {
-            "type": "object",
-            "properties": {
-                "signer": {
-                    "type": "object",
-                    "properties": {
-                        "familyName": {
-                            "type": "string"
-                        },
-                        "givenName": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "image": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "image"
-            ]
-        },
         "LoginData": {
             "type": "object",
             "properties": {
@@ -22069,9 +21954,6 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "signature": {
-                    "$ref": "#\/definitions\/OperationSignature"
-                },
                 "tags": {
                     "items": {
                         "type": "string"
@@ -22375,18 +22257,6 @@
                 "type": {
                     "format": "string",
                     "type": "string"
-                }
-            }
-        },
-        "OperationSignature": {
-            "type": "object",
-            "properties": {
-                "signedAt": {
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "signer": {
-                    "$ref": "#\/definitions\/SignatureSigner"
                 }
             }
         },
@@ -25999,19 +25869,6 @@
                 "image"
             ]
         },
-        "SignatureSigner": {
-            "type": "object",
-            "properties": {
-                "familyName": {
-                    "format": "string",
-                    "type": "string"
-                },
-                "givenName": {
-                    "format": "string",
-                    "type": "string"
-                }
-            }
-        },
         "Signer": {
             "type": "object",
             "properties": {
@@ -27588,14 +27445,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/AssignData"
-            },
-            "required": true
-        },
-        "LegacySignatureData": {
-            "name": "LegacySignatureData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/LegacySignatureData"
             },
             "required": true
         },

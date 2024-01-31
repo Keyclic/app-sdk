@@ -10,12 +10,6 @@ void main() {
   // final instance = TicketTypeRead();
 
   group('test TicketTypeRead', () {
-    // String description
-    test('to test the property `description`', () async {});
-
-    // String name
-    test('to test the property `name`', () async {});
-
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
@@ -27,5 +21,11 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // String name
+    test('to test the property `name`', () async {});
+
+    // String description
+    test('to test the property `description`', () async {});
   });
 }

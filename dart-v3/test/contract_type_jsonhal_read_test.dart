@@ -13,14 +13,6 @@ void main() {
     // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
-    // Detailed description of the contract type.
-    // String description
-    test('to test the property `description`', () async {});
-
-    // Name of the contract type by the organization.
-    // String name
-    test('to test the property `name`', () async {});
-
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
@@ -32,5 +24,11 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // String name
+    test('to test the property `name`', () async {});
+
+    // String description
+    test('to test the property `description`', () async {});
   });
 }

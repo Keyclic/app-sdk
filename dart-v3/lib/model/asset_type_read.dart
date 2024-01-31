@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class AssetTypeRead {
   /// Returns a new [AssetTypeRead] instance.
   AssetTypeRead({
-    this.description,
-    required this.name,
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.description,
+    required this.name,
   });
 
   /// Returns a new [AssetTypeRead] instance and imports its values from
@@ -34,19 +34,13 @@ class AssetTypeRead {
     }
 
     return AssetTypeRead(
-      description: json[r'description'],
-      name: json[r'name'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      description: json[r'description'],
+      name: json[r'name'],
     );
   }
-
-  /// Detailed description of the asset type.
-  String? description;
-
-  /// Name of the asset type.
-  String name;
 
   /// The resource identifier.
   final String? id;
@@ -57,6 +51,10 @@ class AssetTypeRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  String? description;
+
+  String name;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -65,20 +63,20 @@ class AssetTypeRead {
     }
 
     return other is AssetTypeRead &&
-        other.description == description &&
-        other.name == name &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.description == description &&
+        other.name == name;
   }
 
   @override
   int get hashCode =>
-      (description == null ? 0 : description.hashCode) +
-      name.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (description == null ? 0 : description.hashCode) +
+      name.hashCode;
 
   static List<AssetTypeRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -127,18 +125,18 @@ class AssetTypeRead {
 
   @override
   String toString() =>
-      'AssetTypeRead[description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'AssetTypeRead[id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'description'))
+        r'description': description,
+      r'name': name,
     };
   }
 }

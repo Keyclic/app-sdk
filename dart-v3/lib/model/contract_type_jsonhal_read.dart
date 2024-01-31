@@ -8,11 +8,11 @@ class ContractTypeJsonhalRead {
   /// Returns a new [ContractTypeJsonhalRead] instance.
   ContractTypeJsonhalRead({
     this.links,
-    this.description,
-    this.name,
     this.id,
     this.createdAt,
     this.updatedAt,
+    required this.name,
+    this.description,
   });
 
   /// Returns a new [ContractTypeJsonhalRead] instance and imports its values from
@@ -36,21 +36,15 @@ class ContractTypeJsonhalRead {
 
     return ContractTypeJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      description: json[r'description'],
-      name: json[r'name'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      name: json[r'name'],
+      description: json[r'description'],
     );
   }
 
   AssetTypeJsonhalReadLinks? links;
-
-  /// Detailed description of the contract type.
-  String? description;
-
-  /// Name of the contract type by the organization.
-  String? name;
 
   /// The resource identifier.
   final String? id;
@@ -61,6 +55,10 @@ class ContractTypeJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  String name;
+
+  String? description;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -70,21 +68,21 @@ class ContractTypeJsonhalRead {
 
     return other is ContractTypeJsonhalRead &&
         other.links == links &&
-        other.description == description &&
-        other.name == name &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.name == name &&
+        other.description == description;
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (name == null ? 0 : name.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      name.hashCode +
+      (description == null ? 0 : description.hashCode);
 
   static List<ContractTypeJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -136,7 +134,7 @@ class ContractTypeJsonhalRead {
 
   @override
   String toString() =>
-      'ContractTypeJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractTypeJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name, description=$description]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -149,14 +147,14 @@ class ContractTypeJsonhalRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'name': name,
+      if (keys == null || keys.contains(r'description'))
+        r'description': description,
     };
   }
 }

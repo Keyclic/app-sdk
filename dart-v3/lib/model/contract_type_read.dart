@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class ContractTypeRead {
   /// Returns a new [ContractTypeRead] instance.
   ContractTypeRead({
-    this.description,
-    this.name,
     this.id,
     this.createdAt,
     this.updatedAt,
+    required this.name,
+    this.description,
   });
 
   /// Returns a new [ContractTypeRead] instance and imports its values from
@@ -34,19 +34,13 @@ class ContractTypeRead {
     }
 
     return ContractTypeRead(
-      description: json[r'description'],
-      name: json[r'name'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      name: json[r'name'],
+      description: json[r'description'],
     );
   }
-
-  /// Detailed description of the contract type.
-  String? description;
-
-  /// Name of the contract type by the organization.
-  String? name;
 
   /// The resource identifier.
   final String? id;
@@ -57,6 +51,10 @@ class ContractTypeRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  String name;
+
+  String? description;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -65,20 +63,20 @@ class ContractTypeRead {
     }
 
     return other is ContractTypeRead &&
-        other.description == description &&
-        other.name == name &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.name == name &&
+        other.description == description;
   }
 
   @override
   int get hashCode =>
-      (description == null ? 0 : description.hashCode) +
-      (name == null ? 0 : name.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      name.hashCode +
+      (description == null ? 0 : description.hashCode);
 
   static List<ContractTypeRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -127,18 +125,18 @@ class ContractTypeRead {
 
   @override
   String toString() =>
-      'ContractTypeRead[description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractTypeRead[id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name, description=$description]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'name': name,
+      if (keys == null || keys.contains(r'description'))
+        r'description': description,
     };
   }
 }

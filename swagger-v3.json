@@ -8642,20 +8642,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Detailed description of the asset type.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Name of the asset type.",
-                        "type": "string",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -8672,6 +8658,17 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
                     }
                 },
                 "required": [
@@ -8697,20 +8694,6 @@
                             }
                         }
                     },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Detailed description of the asset type.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Name of the asset type.",
-                        "type": "string",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -8727,6 +8710,17 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
                     }
                 },
                 "required": [
@@ -9510,16 +9504,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "description": {
-                        "description": "Detailed description of the contract type.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "description": "Name of the contract type by the organization.",
-                        "type": "string",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -9536,8 +9520,22 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "ContractType.jsonhal-Read": {
                 "type": "object",
@@ -9558,16 +9556,6 @@
                             }
                         }
                     },
-                    "description": {
-                        "description": "Detailed description of the contract type.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "description": "Name of the contract type by the organization.",
-                        "type": "string",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -9584,8 +9572,22 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "Equipment-Read": {
                 "type": "object",
@@ -10659,14 +10661,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -10683,8 +10677,22 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "TicketType.jsonhal-Read": {
                 "type": "object",
@@ -10705,14 +10713,6 @@
                             }
                         }
                     },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string",
-                        "nullable": true
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -10729,8 +10729,22 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "description": {
+                        "minLength": 1,
+                        "maxLength": 500,
+                        "type": "string",
+                        "nullable": true
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "Warranty-Read": {
                 "type": "object",

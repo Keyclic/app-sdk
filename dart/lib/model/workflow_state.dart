@@ -14,7 +14,6 @@ class WorkflowState {
     this.description,
     this.end,
     this.id,
-    this.key,
     this.name,
     this.progression,
     this.reference,
@@ -36,7 +35,6 @@ class WorkflowState {
       description: json[r'description'],
       end: json[r'end'],
       id: json[r'id'],
-      key: json[r'key'],
       name: json[r'name'],
       progression: json[r'progression']?.toDouble(),
       reference: json[r'reference'],
@@ -57,8 +55,6 @@ class WorkflowState {
   bool? end;
 
   final String? id;
-
-  String? key;
 
   String? name;
 
@@ -83,7 +79,6 @@ class WorkflowState {
         other.description == description &&
         other.end == end &&
         other.id == id &&
-        other.key == key &&
         other.name == name &&
         other.progression == progression &&
         other.reference == reference &&
@@ -99,7 +94,6 @@ class WorkflowState {
       (description == null ? 0 : description.hashCode) +
       (end == null ? 0 : end.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (key == null ? 0 : key.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (progression == null ? 0 : progression.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
@@ -152,7 +146,7 @@ class WorkflowState {
 
   @override
   String toString() =>
-      'WorkflowState[allowAdd=$allowAdd, allowDispatch=$allowDispatch, backgroundColor=$backgroundColor, color=$color, description=$description, end=$end, id=$id, key=$key, name=$name, progression=$progression, reference=$reference, type=$type]';
+      'WorkflowState[allowAdd=$allowAdd, allowDispatch=$allowDispatch, backgroundColor=$backgroundColor, color=$color, description=$description, end=$end, id=$id, name=$name, progression=$progression, reference=$reference, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -166,7 +160,6 @@ class WorkflowState {
         r'description': description,
       if (keys == null || keys.contains(r'end')) r'end': end,
       if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'key')) r'key': key,
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'progression'))
         r'progression': progression,

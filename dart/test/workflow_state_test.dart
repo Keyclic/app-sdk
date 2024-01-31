@@ -31,9 +31,6 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
-    // String key
-    test('to test the property `key`', () async {});
-
     // String name
     test('to test the property `name`', () async {});
 

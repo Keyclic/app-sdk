@@ -89,6 +89,11 @@ class ApiPlatformClient {
     return BusinessHoursApi(this);
   }
 
+  /// Get CategoryTypeApi instance
+  CategoryTypeApi getCategoryTypeApi() {
+    return CategoryTypeApi(this);
+  }
+
   /// Get ConnectorApi instance
   ConnectorApi getConnectorApi() {
     return ConnectorApi(this);
@@ -215,6 +220,10 @@ class ApiPlatformClient {
           return BusinessHoursBusinessHoursRead.fromJson(value);
         case 'BusinessHoursJsonhalBusinessHoursRead':
           return BusinessHoursJsonhalBusinessHoursRead.fromJson(value);
+        case 'CategoryTypeJsonhalRead':
+          return CategoryTypeJsonhalRead.fromJson(value);
+        case 'CategoryTypeRead':
+          return CategoryTypeRead.fromJson(value);
         case 'ConnectionAuthProfileRead':
           return ConnectionAuthProfileRead.fromJson(value);
         case 'ConnectionJsonhalAuthProfileRead':
@@ -273,6 +282,10 @@ class ApiPlatformClient {
           return GetBusinessHoursCollection200Response.fromJson(value);
         case 'GetBusinessHoursCollection200ResponseEmbedded':
           return GetBusinessHoursCollection200ResponseEmbedded.fromJson(value);
+        case 'GetCategoryTypeCollection200Response':
+          return GetCategoryTypeCollection200Response.fromJson(value);
+        case 'GetCategoryTypeCollection200ResponseEmbedded':
+          return GetCategoryTypeCollection200ResponseEmbedded.fromJson(value);
         case 'GetContractCollection200Response':
           return GetContractCollection200Response.fromJson(value);
         case 'GetContractCollection200ResponseEmbedded':

@@ -9,6 +9,7 @@ class CategoryPatch {
   CategoryPatch({
     this.identificationNumber,
     this.name,
+    this.type,
   });
 
   /// Returns a new [CategoryPatch] instance and imports its values from
@@ -21,12 +22,15 @@ class CategoryPatch {
     return CategoryPatch(
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
+      type: json[r'type'],
     );
   }
 
   String? identificationNumber;
 
   String? name;
+
+  String? type;
 
   @override
   bool operator ==(Object other) {
@@ -37,13 +41,15 @@ class CategoryPatch {
 
     return other is CategoryPatch &&
         other.identificationNumber == identificationNumber &&
-        other.name == name;
+        other.name == name &&
+        other.type == type;
   }
 
   @override
   int get hashCode =>
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      (name == null ? 0 : name.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<CategoryPatch> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -92,13 +98,14 @@ class CategoryPatch {
 
   @override
   String toString() =>
-      'CategoryPatch[identificationNumber=$identificationNumber, name=$name]';
+      'CategoryPatch[identificationNumber=$identificationNumber, name=$name, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
       if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

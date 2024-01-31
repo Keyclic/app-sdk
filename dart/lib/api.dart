@@ -150,6 +150,7 @@ part 'model/category.dart';
 part 'model/category_collection.dart';
 part 'model/category_data.dart';
 part 'model/category_embedded.dart';
+part 'model/category_embedded_type.dart';
 part 'model/category_links.dart';
 part 'model/category_links_organization.dart';
 part 'model/category_links_organization_iri_template.dart';

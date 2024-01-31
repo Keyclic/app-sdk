@@ -18351,6 +18351,19 @@
                             "items": {
                                 "$ref": "#\/definitions\/NodePath"
                             }
+                        },
+                        "type": {
+                            "type": "object",
+                            "properties": {
+                                "description": {
+                                    "type": "string",
+                                    "format": "string"
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "format": "string"
+                                }
+                            }
                         }
                     }
                 },
@@ -18426,6 +18439,9 @@
                     "type": "string"
                 },
                 "parent": {
+                    "type": "string"
+                },
+                "type": {
                     "type": "string"
                 }
             },
@@ -18514,6 +18530,10 @@
                     "format": "string",
                     "maxLength": 255,
                     "minLength": 1,
+                    "type": "string"
+                },
+                "type": {
+                    "format": "string",
                     "type": "string"
                 }
             }

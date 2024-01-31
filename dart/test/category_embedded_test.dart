@@ -15,5 +15,8 @@ void main() {
 
     // List<NodePath> path (default value: const [])
     test('to test the property `path`', () async {});
+
+    // CategoryEmbeddedType type
+    test('to test the property `type`', () async {});
   });
 }

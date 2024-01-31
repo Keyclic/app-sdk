@@ -9,6 +9,7 @@ class CategoryEmbedded {
   CategoryEmbedded({
     this.children,
     this.path,
+    this.type,
   });
 
   /// Returns a new [CategoryEmbedded] instance and imports its values from
@@ -21,12 +22,15 @@ class CategoryEmbedded {
     return CategoryEmbedded(
       children: Category.listFromJson(json[r'children']),
       path: NodePath.listFromJson(json[r'path']),
+      type: CategoryEmbeddedType.fromJson(json[r'type']),
     );
   }
 
   List<Category>? children;
 
   List<NodePath>? path;
+
+  CategoryEmbeddedType? type;
 
   @override
   bool operator ==(Object other) {
@@ -37,13 +41,15 @@ class CategoryEmbedded {
 
     return other is CategoryEmbedded &&
         DeepCollectionEquality.unordered().equals(children, other.children) &&
-        DeepCollectionEquality.unordered().equals(path, other.path);
+        DeepCollectionEquality.unordered().equals(path, other.path) &&
+        other.type == type;
   }
 
   @override
   int get hashCode =>
       (children == null ? 0 : children.hashCode) +
-      (path == null ? 0 : path.hashCode);
+      (path == null ? 0 : path.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<CategoryEmbedded> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -91,12 +97,22 @@ class CategoryEmbedded {
   }
 
   @override
-  String toString() => 'CategoryEmbedded[children=$children, path=$path]';
+  String toString() =>
+      'CategoryEmbedded[children=$children, path=$path, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'children')) r'children': children,
       if (keys == null || keys.contains(r'path')) r'path': path,
+      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
+        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^type\.'))) {
+            previousValue.add(element.split(RegExp(r'^type\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

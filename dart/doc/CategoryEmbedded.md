@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **children** | [**List<Category>**](Category.md) |  | [optional] [default to const []]
 **path** | [**List<NodePath>**](NodePath.md) |  | [optional] [default to const []]
+**type** | [**CategoryEmbeddedType**](CategoryEmbeddedType.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

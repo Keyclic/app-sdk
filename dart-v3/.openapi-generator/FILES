@@ -20,6 +20,9 @@ doc/BrandRead.md
 doc/BusinessHoursApi.md
 doc/BusinessHoursBusinessHoursRead.md
 doc/BusinessHoursJsonhalBusinessHoursRead.md
+doc/CategoryTypeApi.md
+doc/CategoryTypeJsonhalRead.md
+doc/CategoryTypeRead.md
 doc/ConnectionAuthProfileRead.md
 doc/ConnectionJsonhalAuthProfileRead.md
 doc/ConnectorApi.md
@@ -53,6 +56,8 @@ doc/GetBrandCollection200Response.md
 doc/GetBrandCollection200ResponseEmbedded.md
 doc/GetBusinessHoursCollection200Response.md
 doc/GetBusinessHoursCollection200ResponseEmbedded.md
+doc/GetCategoryTypeCollection200Response.md
+doc/GetCategoryTypeCollection200ResponseEmbedded.md
 doc/GetContractCollection200Response.md
 doc/GetContractCollection200ResponseEmbedded.md
 doc/GetContractTypeCollection200Response.md
@@ -106,6 +111,7 @@ lib/api/asset_type_api.dart
 lib/api/auth_api.dart
 lib/api/brand_api.dart
 lib/api/business_hours_api.dart
+lib/api/category_type_api.dart
 lib/api/connector_api.dart
 lib/api/contract_api.dart
 lib/api/contract_type_api.dart
@@ -136,6 +142,8 @@ lib/model/brand_jsonhal_read.dart
 lib/model/brand_read.dart
 lib/model/business_hours_business_hours_read.dart
 lib/model/business_hours_jsonhal_business_hours_read.dart
+lib/model/category_type_jsonhal_read.dart
+lib/model/category_type_read.dart
 lib/model/connection_auth_profile_read.dart
 lib/model/connection_jsonhal_auth_profile_read.dart
 lib/model/connector_connector_read.dart
@@ -165,6 +173,8 @@ lib/model/get_brand_collection200_response.dart
 lib/model/get_brand_collection200_response_embedded.dart
 lib/model/get_business_hours_collection200_response.dart
 lib/model/get_business_hours_collection200_response_embedded.dart
+lib/model/get_category_type_collection200_response.dart
+lib/model/get_category_type_collection200_response_embedded.dart
 lib/model/get_contract_collection200_response.dart
 lib/model/get_contract_collection200_response_embedded.dart
 lib/model/get_contract_type_collection200_response.dart
@@ -225,6 +235,9 @@ test/brand_read_test.dart
 test/business_hours_api_test.dart
 test/business_hours_business_hours_read_test.dart
 test/business_hours_jsonhal_business_hours_read_test.dart
+test/category_type_api_test.dart
+test/category_type_jsonhal_read_test.dart
+test/category_type_read_test.dart
 test/connection_auth_profile_read_test.dart
 test/connection_jsonhal_auth_profile_read_test.dart
 test/connector_api_test.dart
@@ -258,6 +271,8 @@ test/get_brand_collection200_response_embedded_test.dart
 test/get_brand_collection200_response_test.dart
 test/get_business_hours_collection200_response_embedded_test.dart
 test/get_business_hours_collection200_response_test.dart
+test/get_category_type_collection200_response_embedded_test.dart
+test/get_category_type_collection200_response_test.dart
 test/get_contract_collection200_response_embedded_test.dart
 test/get_contract_collection200_response_test.dart
 test/get_contract_type_collection200_response_embedded_test.dart

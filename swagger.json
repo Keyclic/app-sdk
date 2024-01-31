@@ -25573,6 +25573,10 @@
                     "type": "string",
                     "format": "string"
                 },
+                "place": {
+                    "type": "string",
+                    "format": "string"
+                },
                 "service": {
                     "type": "string",
                     "format": "string"

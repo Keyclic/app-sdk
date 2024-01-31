@@ -12,6 +12,7 @@ class PlaceData {
     this.parent,
     this.polygon,
     required this.organization,
+    this.preferences,
   });
 
   /// Returns a new [PlaceData] instance and imports its values from
@@ -27,6 +28,7 @@ class PlaceData {
       parent: json[r'parent'],
       polygon: json[r'polygon'],
       organization: json[r'organization'],
+      preferences: PlaceDataPreferences.fromJson(json[r'preferences']),
     );
   }
 
@@ -40,6 +42,8 @@ class PlaceData {
 
   String organization;
 
+  PlaceDataPreferences? preferences;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -52,7 +56,8 @@ class PlaceData {
         other.branchCode == branchCode &&
         other.parent == parent &&
         other.polygon == polygon &&
-        other.organization == organization;
+        other.organization == organization &&
+        other.preferences == preferences;
   }
 
   @override
@@ -61,7 +66,8 @@ class PlaceData {
       (branchCode == null ? 0 : branchCode.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (polygon == null ? 0 : polygon.hashCode) +
-      organization.hashCode;
+      organization.hashCode +
+      (preferences == null ? 0 : preferences.hashCode);
 
   static List<PlaceData> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -109,7 +115,7 @@ class PlaceData {
 
   @override
   String toString() =>
-      'PlaceData[name=$name, branchCode=$branchCode, parent=$parent, polygon=$polygon, organization=$organization]';
+      'PlaceData[name=$name, branchCode=$branchCode, parent=$parent, polygon=$polygon, organization=$organization, preferences=$preferences]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -119,6 +125,16 @@ class PlaceData {
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
       if (keys == null || keys.contains(r'polygon')) r'polygon': polygon,
       r'organization': organization,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

@@ -24,5 +24,8 @@ void main() {
 
     // String organization
     test('to test the property `organization`', () async {});
+
+    // PlaceDataPreferences preferences
+    test('to test the property `preferences`', () async {});
   });
 }

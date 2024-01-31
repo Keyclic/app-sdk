@@ -13,6 +13,9 @@ void main() {
     // String category
     test('to test the property `category`', () async {});
 
+    // String place
+    test('to test the property `place`', () async {});
+
     // String service
     test('to test the property `service`', () async {});
   });

@@ -11882,10 +11882,8 @@
                         }
                     },
                     "metadata": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object",
+                        "additionalProperties": true
                     },
                     "reporter": {
                         "type": "string",
@@ -11961,10 +11959,8 @@
                         "$ref": "#/components/schemas/GeoCoordinates.jsonhal-Read"
                     },
                     "metadata": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object",
+                        "additionalProperties": true
                     },
                     "visibility": {
                         "enum": [

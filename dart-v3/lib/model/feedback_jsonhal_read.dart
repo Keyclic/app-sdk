@@ -44,7 +44,7 @@ class FeedbackJsonhalRead {
           GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates'])!,
       metadata: json[r'metadata'] == null
           ? null
-          : List<String>.from(json[r'metadata']),
+          : Map<String, Object?>.from(json[r'metadata']),
       visibility:
           FeedbackJsonhalReadVisibilityEnum.fromJson(json[r'visibility'])!,
       id: json[r'id'],
@@ -60,7 +60,7 @@ class FeedbackJsonhalRead {
 
   GeoCoordinatesJsonhalRead geoCoordinates;
 
-  List<String>? metadata;
+  Map<String, Object?>? metadata;
 
   FeedbackJsonhalReadVisibilityEnum visibility;
 

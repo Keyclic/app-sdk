@@ -19,7 +19,7 @@ void main() {
     // GeoCoordinatesJsonhalRead geoCoordinates
     test('to test the property `geoCoordinates`', () async {});
 
-    // List<String> metadata (default value: const [])
+    // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
     // String visibility

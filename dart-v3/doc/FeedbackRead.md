@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **geoCoordinates** | [**GeoCoordinatesRead**](GeoCoordinatesRead.md) |  | 
 **markers** | [**List<MarkerRead>**](MarkerRead.md) |  | [optional] [readonly] [default to const []]
-**metadata** | **List<String>** |  | [optional] [default to const []]
+**metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **reporter** | **String** |  | [optional] 
 **visibility** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 

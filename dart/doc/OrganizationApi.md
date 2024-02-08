@@ -1359,7 +1359,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAnalyticByOrganization**
-> Chart getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket)
+> Chart getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket)
 
 Retrieve one Analytic resource.
 
@@ -1385,7 +1385,9 @@ final category = category_example; // String |
 final categoriesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final createdBy = createdBy_example; // String | 
 final createdBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final afterDueBy = 2013-10-20T19:20:30+01:00; // DateTime | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
+final beforeDueBy = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
 final deep = deep_example; // String | 
 final delegatedTo = delegatedTo_example; // String | 
@@ -1393,6 +1395,8 @@ final delegatedTosLeftSquareBracketRightSquareBracket = []; // List<String> |
 final hasDocuments = hasDocuments_example; // String | 
 final managedBy = managedBy_example; // String | 
 final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final member = member_example; // String | 
+final membersLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final operationStateAll = operationStateAll_example; // String | 
 final operationState = operationState_example; // String | 
 final operationStatesLeftSquareBracketRightSquareBracket = []; // List<String> | 
@@ -1403,13 +1407,15 @@ final placesLeftSquareBracketRightSquareBracket = []; // List<String> |
 final priority = priority_example; // String | 
 final prioritiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final ratingLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final scheduledAtAfter = 2013-10-20T19:20:30+01:00; // DateTime | 
+final scheduledAtBefore = 2013-10-20T19:20:30+01:00; // DateTime | 
 final state = state_example; // String | 
 final statesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final optionsLeftSquareBracketPropertyRightSquareBracket = optionsLeftSquareBracketPropertyRightSquareBracket_example; // String | 
 final optionsLeftSquareBracketSortRightSquareBracket = optionsLeftSquareBracketSortRightSquareBracket_example; // String | 
 
 try { 
-    final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, after, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
+    final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->getAnalyticByOrganization: $e\n');
@@ -1433,7 +1439,9 @@ Name | Type | Description  | Notes
  **categoriesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **createdBy** | **String**|  | [optional] 
  **createdBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **afterDueBy** | **DateTime**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
+ **beforeDueBy** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
  **deep** | **String**|  | [optional] 
  **delegatedTo** | **String**|  | [optional] 
@@ -1441,6 +1449,8 @@ Name | Type | Description  | Notes
  **hasDocuments** | **String**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **member** | **String**|  | [optional] 
+ **membersLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **operationStateAll** | **String**|  | [optional] 
  **operationState** | **String**|  | [optional] 
  **operationStatesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
@@ -1451,6 +1461,8 @@ Name | Type | Description  | Notes
  **priority** | **String**|  | [optional] 
  **prioritiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **ratingLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **scheduledAtAfter** | **DateTime**|  | [optional] 
+ **scheduledAtBefore** | **DateTime**|  | [optional] 
  **state** | **String**|  | [optional] 
  **statesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **optionsLeftSquareBracketPropertyRightSquareBracket** | **String**|  | [optional] 

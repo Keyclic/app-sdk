@@ -2553,7 +2553,9 @@ class OrganizationApi {
   /// * [categoriesLeftSquareBracketRightSquareBracket]
   /// * [createdBy]
   /// * [createdBiesLeftSquareBracketRightSquareBracket]
+  /// * [afterDueBy]
   /// * [after]
+  /// * [beforeDueBy]
   /// * [before]
   /// * [deep]
   /// * [delegatedTo]
@@ -2561,6 +2563,8 @@ class OrganizationApi {
   /// * [hasDocuments]
   /// * [managedBy]
   /// * [managedBiesLeftSquareBracketRightSquareBracket]
+  /// * [member]
+  /// * [membersLeftSquareBracketRightSquareBracket]
   /// * [operationStateAll]
   /// * [operationState]
   /// * [operationStatesLeftSquareBracketRightSquareBracket]
@@ -2571,6 +2575,8 @@ class OrganizationApi {
   /// * [priority]
   /// * [prioritiesLeftSquareBracketRightSquareBracket]
   /// * [ratingLeftSquareBracketRightSquareBracket]
+  /// * [scheduledAtAfter]
+  /// * [scheduledAtBefore]
   /// * [state]
   /// * [statesLeftSquareBracketRightSquareBracket]
   /// * [optionsLeftSquareBracketPropertyRightSquareBracket]
@@ -2600,7 +2606,9 @@ class OrganizationApi {
     List<String>? categoriesLeftSquareBracketRightSquareBracket,
     String? createdBy,
     List<String>? createdBiesLeftSquareBracketRightSquareBracket,
+    DateTime? afterDueBy,
     DateTime? after,
+    DateTime? beforeDueBy,
     DateTime? before,
     String? deep,
     String? delegatedTo,
@@ -2608,6 +2616,8 @@ class OrganizationApi {
     String? hasDocuments,
     String? managedBy,
     List<String>? managedBiesLeftSquareBracketRightSquareBracket,
+    String? member,
+    List<String>? membersLeftSquareBracketRightSquareBracket,
     String? operationStateAll,
     String? operationState,
     List<String>? operationStatesLeftSquareBracketRightSquareBracket,
@@ -2618,6 +2628,8 @@ class OrganizationApi {
     String? priority,
     List<String>? prioritiesLeftSquareBracketRightSquareBracket,
     List<String>? ratingLeftSquareBracketRightSquareBracket,
+    DateTime? scheduledAtAfter,
+    DateTime? scheduledAtBefore,
     String? state,
     List<String>? statesLeftSquareBracketRightSquareBracket,
     String? optionsLeftSquareBracketPropertyRightSquareBracket,
@@ -2675,7 +2687,10 @@ class OrganizationApi {
         r'created_bies[]': encodeCollectionQueryParameter(
             createdBiesLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (afterDueBy != null) r'afterDueBy': encodeQueryParameter(afterDueBy),
       if (after != null) r'after': encodeQueryParameter(after),
+      if (beforeDueBy != null)
+        r'beforeDueBy': encodeQueryParameter(beforeDueBy),
       if (before != null) r'before': encodeQueryParameter(before),
       if (deep != null) r'deep': encodeQueryParameter(deep),
       if (delegatedTo != null)
@@ -2690,6 +2705,11 @@ class OrganizationApi {
       if (managedBiesLeftSquareBracketRightSquareBracket != null)
         r'managed_bies[]': encodeCollectionQueryParameter(
             managedBiesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (member != null) r'member': encodeQueryParameter(member),
+      if (membersLeftSquareBracketRightSquareBracket != null)
+        r'members[]': encodeCollectionQueryParameter(
+            membersLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (operationStateAll != null)
         r'operation_state_all': encodeQueryParameter(operationStateAll),
@@ -2718,6 +2738,10 @@ class OrganizationApi {
         r'rating[]': encodeCollectionQueryParameter(
             ratingLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (scheduledAtAfter != null)
+        r'scheduled_at_after': encodeQueryParameter(scheduledAtAfter),
+      if (scheduledAtBefore != null)
+        r'scheduled_at_before': encodeQueryParameter(scheduledAtBefore),
       if (state != null) r'state': encodeQueryParameter(state),
       if (statesLeftSquareBracketRightSquareBracket != null)
         r'states[]': encodeCollectionQueryParameter(

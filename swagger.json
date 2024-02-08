@@ -10832,7 +10832,13 @@
                         "$ref": "#\/parameters\/created_bies__"
                     },
                     {
+                        "$ref": "#\/parameters\/afterDueBy"
+                    },
+                    {
                         "$ref": "#\/parameters\/after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/beforeDueBy"
                     },
                     {
                         "$ref": "#\/parameters\/before"
@@ -10854,6 +10860,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/managed_bies__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/operation_state_all"
@@ -10884,6 +10896,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_after"
+                    },
+                    {
+                        "$ref": "#\/parameters\/scheduled_at_before"
                     },
                     {
                         "in": "query",

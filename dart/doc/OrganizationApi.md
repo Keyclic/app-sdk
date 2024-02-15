@@ -60,7 +60,7 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final query = query_example; // String | 
 final page = 56; // int | Page of the overview.
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **query** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
@@ -590,7 +590,7 @@ final hasDocuments = hasDocuments_example; // String |
 final isEmpty = isEmpty_example; // String | 
 final isNull = isNull_example; // String | 
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final managedBy = managedBy_example; // String | 
 final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final member = member_example; // String | 
@@ -654,7 +654,7 @@ Name | Type | Description  | Notes
  **isEmpty** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **member** | **String**|  | [optional] 
@@ -806,7 +806,7 @@ final geoHashLeftSquareBracketRightSquareBracket = []; // List<String> |
 final geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final parent = parent_example; // String | 
 final parentsLeftSquareBracketRightSquareBracket = []; // List<String> | 
@@ -843,7 +843,7 @@ Name | Type | Description  | Notes
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parent** | **String**|  | [optional] 
  **parentsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
@@ -976,7 +976,7 @@ final hasDocuments = hasDocuments_example; // String |
 final isEmpty = isEmpty_example; // String | 
 final isNull = isNull_example; // String | 
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final managedBy = managedBy_example; // String | 
 final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final member = member_example; // String | 
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
  **isEmpty** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **member** | **String**|  | [optional] 

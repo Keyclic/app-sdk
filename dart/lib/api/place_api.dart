@@ -204,7 +204,7 @@ class PlaceApi {
     String? geoPoint,
     String? geoCoordinates,
     String? leaf,
-    String? level,
+    int? level,
     String? organization,
     List<String>? organizationsLeftSquareBracketRightSquareBracket,
     String? parent,

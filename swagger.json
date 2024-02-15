@@ -26812,10 +26812,10 @@
             "type": "string"
         },
         "level": {
+            "format": "int32",
             "in": "query",
             "name": "level",
-            "pattern": "[-+]?\\d+",
-            "type": "string"
+            "type": "integer"
         },
         "query": {
             "in": "query",

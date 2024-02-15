@@ -43,7 +43,7 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final organization = organization_example; // String | 
 final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final query = query_example; // String | 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **organization** | **String**|  | [optional] 
  **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **query** | **String**|  | [optional] 

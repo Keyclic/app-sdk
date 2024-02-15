@@ -208,7 +208,7 @@ class ExportApi {
     String? isEmpty,
     String? isNull,
     String? leaf,
-    String? level,
+    int? level,
     String? managedBy,
     List<String>? managedBiesLeftSquareBracketRightSquareBracket,
     String? member,

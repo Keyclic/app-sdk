@@ -123,7 +123,7 @@ final geoHashLeftSquareBracketRightSquareBracket = []; // List<String> |
 final geoPoint = geoPoint_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final geoCoordinates = geoCoordinates_example; // String | One latitude and one longitude serialized and separated by a plus or a minus sign.
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final organization = organization_example; // String | 
 final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final parent = parent_example; // String | 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
  **geoPoint** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **geoCoordinates** | **String**| One latitude and one longitude serialized and separated by a plus or a minus sign. | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **organization** | **String**|  | [optional] 
  **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parent** | **String**|  | [optional] 

@@ -216,7 +216,7 @@ final hasDocuments = hasDocuments_example; // String |
 final isEmpty = isEmpty_example; // String | 
 final isNull = isNull_example; // String | 
 final leaf = leaf_example; // String | 
-final level = level_example; // String | 
+final level = 56; // int | 
 final managedBy = managedBy_example; // String | 
 final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final member = member_example; // String | 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
  **isEmpty** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
  **leaf** | **String**|  | [optional] 
- **level** | **String**|  | [optional] 
+ **level** | **int**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **member** | **String**|  | [optional] 

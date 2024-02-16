@@ -23,9 +23,7 @@ class ConditionJsonhalSlaPolicyRead {
     return ConditionJsonhalSlaPolicyRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       propertyPath: json[r'propertyPath'],
-      values: json[r'values'] == null
-          ? null
-          : Map<String, String>.from(json[r'values']),
+      values: Map<String, String>.from(json[r'values']),
       operator_: ConditionJsonhalSlaPolicyReadOperator_Enum.fromJson(
           json[r'operator']),
     );

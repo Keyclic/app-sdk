@@ -110,8 +110,11 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
       {{/isArray}}
       {{^isArray}}
         {{#isMap}}
-        {{{name}}}: json[r'{{{baseName}}}'] == null ?
-          null :
+        {{{name}}}:
+          {{^required}}
+            json[r'{{{baseName}}}'] == null ?
+              null :
+          {{/required}}
           Map<String, {{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
         {{/isMap}}
         {{^isMap}}

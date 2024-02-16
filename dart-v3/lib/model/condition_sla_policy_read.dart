@@ -21,9 +21,7 @@ class ConditionSlaPolicyRead {
 
     return ConditionSlaPolicyRead(
       propertyPath: json[r'propertyPath'],
-      values: json[r'values'] == null
-          ? null
-          : Map<String, String>.from(json[r'values']),
+      values: Map<String, String>.from(json[r'values']),
       operator_:
           ConditionSlaPolicyReadOperator_Enum.fromJson(json[r'operator']),
     );

@@ -17,7 +17,7 @@ void main() {
 
     // Retrieve all Place resources.
     //
-    //Future<PlacePagination> cgetPlaces(String xKeyclicApp, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String branchCode, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoElevation, List<String> geoHashLeftSquareBracketRightSquareBracket, String geoPoint, String geoCoordinates, String leaf, String level, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String parent, List<String> parentsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
+    //Future<PlacePagination> cgetPlaces(String xKeyclicApp, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String branchCode, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoElevation, List<String> geoHashLeftSquareBracketRightSquareBracket, String geoPoint, String geoCoordinates, String leaf, int level, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String parent, List<String> parentsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
     test('test cgetPlaces', () async {});
 
     // Retrieve all Plan resources.

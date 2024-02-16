@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.54.0-dev.gbfb45825f"
+        "version": "2.55.1-dev.g21ebcadaa"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -22722,6 +22722,9 @@
                 },
                 "reviewEnabled": {
                     "type": "boolean"
+                },
+                "sla": {
+                    "$ref": "#\/definitions\/PreferencesSla"
                 }
             }
         },
@@ -22824,6 +22827,7 @@
                 "SERVICE:ALL",
                 "NOTE_READ",
                 "NOTE_WRITE",
+                "sla-policy:read",
                 "ticket:archiving:write",
                 "ticket:read"
             ]
@@ -23779,6 +23783,14 @@
             }
         },
         "PreferencesReview": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "PreferencesSla": {
             "type": "object",
             "properties": {
                 "enabled": {

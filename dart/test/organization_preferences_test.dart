@@ -48,5 +48,8 @@ void main() {
 
     // bool reviewEnabled
     test('to test the property `reviewEnabled`', () async {});
+
+    // PreferencesSla sla
+    test('to test the property `sla`', () async {});
   });
 }

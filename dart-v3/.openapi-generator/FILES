@@ -23,6 +23,8 @@ doc/BusinessHoursJsonhalBusinessHoursRead.md
 doc/CategoryTypeApi.md
 doc/CategoryTypeJsonhalRead.md
 doc/CategoryTypeRead.md
+doc/ConditionJsonhalSlaPolicyRead.md
+doc/ConditionSlaPolicyRead.md
 doc/ConnectionAuthProfileRead.md
 doc/ConnectionJsonhalAuthProfileRead.md
 doc/ConnectorApi.md
@@ -68,6 +70,8 @@ doc/GetIntegrationCollection200Response.md
 doc/GetIntegrationCollection200ResponseEmbedded.md
 doc/GetIntegrationLinkCollection200Response.md
 doc/GetIntegrationLinkCollection200ResponseEmbedded.md
+doc/GetSlaPolicyCollection200Response.md
+doc/GetSlaPolicyCollection200ResponseEmbedded.md
 doc/GetTicketCollection200Response.md
 doc/GetTicketCollection200ResponseEmbedded.md
 doc/GetTicketTypeCollection200Response.md
@@ -92,6 +96,9 @@ doc/ProfileProfileInput.md
 doc/RenewalJsonhalRead.md
 doc/RenewalRead.md
 doc/RenewalWrite.md
+doc/SlaPolicyApi.md
+doc/SlaPolicyJsonhalSlaPolicyRead.md
+doc/SlaPolicySlaPolicyRead.md
 doc/TicketApi.md
 doc/TicketJsonhalRead.md
 doc/TicketRead.md
@@ -118,6 +125,7 @@ lib/api/contract_type_api.dart
 lib/api/equipment_api.dart
 lib/api/integration_api.dart
 lib/api/integration_link_api.dart
+lib/api/sla_policy_api.dart
 lib/api/ticket_api.dart
 lib/api/ticket_type_api.dart
 lib/api/workflow_state_api.dart
@@ -144,6 +152,8 @@ lib/model/business_hours_business_hours_read.dart
 lib/model/business_hours_jsonhal_business_hours_read.dart
 lib/model/category_type_jsonhal_read.dart
 lib/model/category_type_read.dart
+lib/model/condition_jsonhal_sla_policy_read.dart
+lib/model/condition_sla_policy_read.dart
 lib/model/connection_auth_profile_read.dart
 lib/model/connection_jsonhal_auth_profile_read.dart
 lib/model/connector_connector_read.dart
@@ -185,6 +195,8 @@ lib/model/get_integration_collection200_response.dart
 lib/model/get_integration_collection200_response_embedded.dart
 lib/model/get_integration_link_collection200_response.dart
 lib/model/get_integration_link_collection200_response_embedded.dart
+lib/model/get_sla_policy_collection200_response.dart
+lib/model/get_sla_policy_collection200_response_embedded.dart
 lib/model/get_ticket_collection200_response.dart
 lib/model/get_ticket_collection200_response_embedded.dart
 lib/model/get_ticket_type_collection200_response.dart
@@ -207,6 +219,8 @@ lib/model/profile_profile_input.dart
 lib/model/renewal_jsonhal_read.dart
 lib/model/renewal_read.dart
 lib/model/renewal_write.dart
+lib/model/sla_policy_jsonhal_sla_policy_read.dart
+lib/model/sla_policy_sla_policy_read.dart
 lib/model/ticket_jsonhal_read.dart
 lib/model/ticket_read.dart
 lib/model/ticket_type_jsonhal_read.dart
@@ -238,6 +252,8 @@ test/business_hours_jsonhal_business_hours_read_test.dart
 test/category_type_api_test.dart
 test/category_type_jsonhal_read_test.dart
 test/category_type_read_test.dart
+test/condition_jsonhal_sla_policy_read_test.dart
+test/condition_sla_policy_read_test.dart
 test/connection_auth_profile_read_test.dart
 test/connection_jsonhal_auth_profile_read_test.dart
 test/connector_api_test.dart
@@ -283,6 +299,8 @@ test/get_integration_collection200_response_embedded_test.dart
 test/get_integration_collection200_response_test.dart
 test/get_integration_link_collection200_response_embedded_test.dart
 test/get_integration_link_collection200_response_test.dart
+test/get_sla_policy_collection200_response_embedded_test.dart
+test/get_sla_policy_collection200_response_test.dart
 test/get_ticket_collection200_response_embedded_test.dart
 test/get_ticket_collection200_response_test.dart
 test/get_ticket_type_collection200_response_embedded_test.dart
@@ -307,6 +325,9 @@ test/profile_profile_input_test.dart
 test/renewal_jsonhal_read_test.dart
 test/renewal_read_test.dart
 test/renewal_write_test.dart
+test/sla_policy_api_test.dart
+test/sla_policy_jsonhal_sla_policy_read_test.dart
+test/sla_policy_sla_policy_read_test.dart
 test/ticket_api_test.dart
 test/ticket_jsonhal_read_test.dart
 test/ticket_read_test.dart

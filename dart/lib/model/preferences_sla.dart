@@ -1,0 +1,93 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+
+part of keyclic_sdk_api;
+
+class PreferencesSla {
+  /// Returns a new [PreferencesSla] instance.
+  PreferencesSla({
+    this.enabled,
+  });
+
+  /// Returns a new [PreferencesSla] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static PreferencesSla? fromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return null;
+    }
+
+    return PreferencesSla(
+      enabled: json[r'enabled'],
+    );
+  }
+
+  bool? enabled;
+
+  @override
+  bool operator ==(Object other) {
+    // Same reference
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is PreferencesSla && other.enabled == enabled;
+  }
+
+  @override
+  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+
+  static List<PreferencesSla> listFromJson(List<dynamic>? json) {
+    if (json == null) {
+      return <PreferencesSla>[];
+    }
+
+    return json.fold(<PreferencesSla>[],
+        (List<PreferencesSla> previousValue, element) {
+      final PreferencesSla? object = PreferencesSla.fromJson(element);
+      if (object is PreferencesSla) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
+  }
+
+  static Map<String, PreferencesSla> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, PreferencesSla>{};
+    }
+
+    return json.entries.fold(<String, PreferencesSla>{},
+        (Map<String, PreferencesSla> previousValue, element) {
+      final PreferencesSla? object = PreferencesSla.fromJson(element.value);
+      if (object is PreferencesSla) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
+  }
+
+  // maps a json object with a list of PreferencesSla-objects as value to a dart map
+  static Map<String, List<PreferencesSla>> mapListFromJson(
+      Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<PreferencesSla>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<PreferencesSla>>(
+          key, PreferencesSla.listFromJson(value));
+    });
+  }
+
+  @override
+  String toString() => 'PreferencesSla[enabled=$enabled]';
+
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
+    return <String, dynamic>{
+      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+    };
+  }
+}

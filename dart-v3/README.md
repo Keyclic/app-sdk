@@ -101,6 +101,8 @@ Class | Method | HTTP request | Description
 *IntegrationLinkApi* | [**getIntegrationLinkCollection**](doc//IntegrationLinkApi.md#getintegrationlinkcollection) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
 *IntegrationLinkApi* | [**patchIntegrationLink**](doc//IntegrationLinkApi.md#patchintegrationlink) | **PATCH** /integration-links/{identifier} | Updates the IntegrationLink resource.
 *IntegrationLinkApi* | [**postIntegrationLink**](doc//IntegrationLinkApi.md#postintegrationlink) | **POST** /integration-links | Creates a IntegrationLink resource.
+*SlaPolicyApi* | [**getSlaPolicy**](doc//SlaPolicyApi.md#getslapolicy) | **GET** /sla-policies/{identifier} | Retrieves a SlaPolicy resource.
+*SlaPolicyApi* | [**getSlaPolicyCollection**](doc//SlaPolicyApi.md#getslapolicycollection) | **GET** /sla-policies | Retrieves the collection of SlaPolicy resources.
 *TicketApi* | [**getTicket**](doc//TicketApi.md#getticket) | **GET** /tickets/{identifier} | Retrieves a Ticket resource.
 *TicketApi* | [**getTicketCollection**](doc//TicketApi.md#getticketcollection) | **GET** /tickets | Retrieves the collection of Ticket resources.
 *TicketTypeApi* | [**getTicketType**](doc//TicketTypeApi.md#gettickettype) | **GET** /ticket-types/{identifier} | Retrieves a TicketType resource.
@@ -125,6 +127,8 @@ Class | Method | HTTP request | Description
  - [BusinessHoursJsonhalBusinessHoursRead](doc//BusinessHoursJsonhalBusinessHoursRead.md)
  - [CategoryTypeJsonhalRead](doc//CategoryTypeJsonhalRead.md)
  - [CategoryTypeRead](doc//CategoryTypeRead.md)
+ - [ConditionJsonhalSlaPolicyRead](doc//ConditionJsonhalSlaPolicyRead.md)
+ - [ConditionSlaPolicyRead](doc//ConditionSlaPolicyRead.md)
  - [ConnectionAuthProfileRead](doc//ConnectionAuthProfileRead.md)
  - [ConnectionJsonhalAuthProfileRead](doc//ConnectionJsonhalAuthProfileRead.md)
  - [ConnectorConnectorRead](doc//ConnectorConnectorRead.md)
@@ -166,6 +170,8 @@ Class | Method | HTTP request | Description
  - [GetIntegrationCollection200ResponseEmbedded](doc//GetIntegrationCollection200ResponseEmbedded.md)
  - [GetIntegrationLinkCollection200Response](doc//GetIntegrationLinkCollection200Response.md)
  - [GetIntegrationLinkCollection200ResponseEmbedded](doc//GetIntegrationLinkCollection200ResponseEmbedded.md)
+ - [GetSlaPolicyCollection200Response](doc//GetSlaPolicyCollection200Response.md)
+ - [GetSlaPolicyCollection200ResponseEmbedded](doc//GetSlaPolicyCollection200ResponseEmbedded.md)
  - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
  - [GetTicketCollection200ResponseEmbedded](doc//GetTicketCollection200ResponseEmbedded.md)
  - [GetTicketTypeCollection200Response](doc//GetTicketTypeCollection200Response.md)
@@ -188,6 +194,8 @@ Class | Method | HTTP request | Description
  - [RenewalJsonhalRead](doc//RenewalJsonhalRead.md)
  - [RenewalRead](doc//RenewalRead.md)
  - [RenewalWrite](doc//RenewalWrite.md)
+ - [SlaPolicyJsonhalSlaPolicyRead](doc//SlaPolicyJsonhalSlaPolicyRead.md)
+ - [SlaPolicySlaPolicyRead](doc//SlaPolicySlaPolicyRead.md)
  - [TicketJsonhalRead](doc//TicketJsonhalRead.md)
  - [TicketRead](doc//TicketRead.md)
  - [TicketTypeJsonhalRead](doc//TicketTypeJsonhalRead.md)

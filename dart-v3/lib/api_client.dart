@@ -124,6 +124,11 @@ class ApiPlatformClient {
     return IntegrationLinkApi(this);
   }
 
+  /// Get SlaPolicyApi instance
+  SlaPolicyApi getSlaPolicyApi() {
+    return SlaPolicyApi(this);
+  }
+
   /// Get TicketApi instance
   TicketApi getTicketApi() {
     return TicketApi(this);
@@ -224,6 +229,10 @@ class ApiPlatformClient {
           return CategoryTypeJsonhalRead.fromJson(value);
         case 'CategoryTypeRead':
           return CategoryTypeRead.fromJson(value);
+        case 'ConditionJsonhalSlaPolicyRead':
+          return ConditionJsonhalSlaPolicyRead.fromJson(value);
+        case 'ConditionSlaPolicyRead':
+          return ConditionSlaPolicyRead.fromJson(value);
         case 'ConnectionAuthProfileRead':
           return ConnectionAuthProfileRead.fromJson(value);
         case 'ConnectionJsonhalAuthProfileRead':
@@ -307,6 +316,10 @@ class ApiPlatformClient {
         case 'GetIntegrationLinkCollection200ResponseEmbedded':
           return GetIntegrationLinkCollection200ResponseEmbedded.fromJson(
               value);
+        case 'GetSlaPolicyCollection200Response':
+          return GetSlaPolicyCollection200Response.fromJson(value);
+        case 'GetSlaPolicyCollection200ResponseEmbedded':
+          return GetSlaPolicyCollection200ResponseEmbedded.fromJson(value);
         case 'GetTicketCollection200Response':
           return GetTicketCollection200Response.fromJson(value);
         case 'GetTicketCollection200ResponseEmbedded':
@@ -351,6 +364,10 @@ class ApiPlatformClient {
           return RenewalRead.fromJson(value);
         case 'RenewalWrite':
           return RenewalWrite.fromJson(value);
+        case 'SlaPolicyJsonhalSlaPolicyRead':
+          return SlaPolicyJsonhalSlaPolicyRead.fromJson(value);
+        case 'SlaPolicySlaPolicyRead':
+          return SlaPolicySlaPolicyRead.fromJson(value);
         case 'TicketJsonhalRead':
           return TicketJsonhalRead.fromJson(value);
         case 'TicketRead':

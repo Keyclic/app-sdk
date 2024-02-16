@@ -57,6 +57,7 @@ class Permission {
   static const sERVICEColonALL = Permission._(r'SERVICE:ALL');
   static const NOTE_READ = Permission._(r'NOTE_READ');
   static const NOTE_WRITE = Permission._(r'NOTE_WRITE');
+  static const slaPolicyColonRead = Permission._(r'sla-policy:read');
   static const ticketColonArchivingColonWrite =
       Permission._(r'ticket:archiving:write');
   static const ticketColonRead = Permission._(r'ticket:read');
@@ -98,6 +99,7 @@ class Permission {
     sERVICEColonALL,
     NOTE_READ,
     NOTE_WRITE,
+    slaPolicyColonRead,
     ticketColonArchivingColonWrite,
     ticketColonRead,
   ];
@@ -205,6 +207,8 @@ class PermissionTypeTransformer {
         return Permission.NOTE_READ;
       case r'NOTE_WRITE':
         return Permission.NOTE_WRITE;
+      case r'sla-policy:read':
+        return Permission.slaPolicyColonRead;
       case r'ticket:archiving:write':
         return Permission.ticketColonArchivingColonWrite;
       case r'ticket:read':

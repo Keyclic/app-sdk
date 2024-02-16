@@ -20,6 +20,7 @@ class OrganizationPreferences {
     this.reverseGeocoding,
     this.review,
     this.reviewEnabled,
+    this.sla,
   });
 
   /// Returns a new [OrganizationPreferences] instance and imports its values from
@@ -44,6 +45,7 @@ class OrganizationPreferences {
       reverseGeocoding: json[r'reverseGeocoding'],
       review: PreferencesReview.fromJson(json[r'review']),
       reviewEnabled: json[r'reviewEnabled'],
+      sla: PreferencesSla.fromJson(json[r'sla']),
     );
   }
 
@@ -73,6 +75,8 @@ class OrganizationPreferences {
 
   bool? reviewEnabled;
 
+  PreferencesSla? sla;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -93,7 +97,8 @@ class OrganizationPreferences {
         other.reference == reference &&
         other.reverseGeocoding == reverseGeocoding &&
         other.review == review &&
-        other.reviewEnabled == reviewEnabled;
+        other.reviewEnabled == reviewEnabled &&
+        other.sla == sla;
   }
 
   @override
@@ -110,7 +115,8 @@ class OrganizationPreferences {
       (reference == null ? 0 : reference.hashCode) +
       (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
       (review == null ? 0 : review.hashCode) +
-      (reviewEnabled == null ? 0 : reviewEnabled.hashCode);
+      (reviewEnabled == null ? 0 : reviewEnabled.hashCode) +
+      (sla == null ? 0 : sla.hashCode);
 
   static List<OrganizationPreferences> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -162,7 +168,7 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled]';
+      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled, sla=$sla]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -246,6 +252,15 @@ class OrganizationPreferences {
         })),
       if (keys == null || keys.contains(r'reviewEnabled'))
         r'reviewEnabled': reviewEnabled,
+      if (keys == null || keys.any((key) => RegExp(r'^sla\.').hasMatch(key)))
+        r'sla': sla?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^sla\.'))) {
+            previousValue.add(element.split(RegExp(r'^sla\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

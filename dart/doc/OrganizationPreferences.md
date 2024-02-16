@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **reverseGeocoding** | **bool** |  | [optional] 
 **review** | [**PreferencesReview**](PreferencesReview.md) |  | [optional] 
 **reviewEnabled** | **bool** |  | [optional] 
+**sla** | [**PreferencesSla**](PreferencesSla.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

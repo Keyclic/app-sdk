@@ -15,7 +15,6 @@ class Feedback {
     this.id,
     this.metadata,
     this.priority,
-    this.public,
     this.type,
     this.updatedAt,
     this.visibility,
@@ -51,7 +50,6 @@ class Feedback {
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
       priority: FeedbackPriority.fromJson(json[r'priority']),
-      public: json[r'public'],
       type: json[r'type'],
       updatedAt: updatedAt,
       visibility: FeedbackVisibilityEnum.fromJson(json[r'visibility']),
@@ -73,8 +71,6 @@ class Feedback {
   Map<String, Object?>? metadata;
 
   FeedbackPriority? priority;
-
-  bool? public;
 
   String? type;
 
@@ -98,7 +94,6 @@ class Feedback {
         other.id == id &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.priority == priority &&
-        other.public == public &&
         other.type == type &&
         other.updatedAt == updatedAt &&
         other.visibility == visibility;
@@ -114,7 +109,6 @@ class Feedback {
       (id == null ? 0 : id.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
-      (public == null ? 0 : public.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
@@ -165,7 +159,7 @@ class Feedback {
 
   @override
   String toString() =>
-      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, priority=$priority, public=$public, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
+      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, priority=$priority, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -214,7 +208,6 @@ class Feedback {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'public')) r'public': public,
       if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),

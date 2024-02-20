@@ -34,9 +34,6 @@ void main() {
     // FeedbackPriority priority
     test('to test the property `priority`', () async {});
 
-    // bool public
-    test('to test the property `public`', () async {});
-
     // String type
     test('to test the property `type`', () async {});
 

@@ -20004,9 +20004,6 @@
                 "priority": {
                     "$ref": "#\/definitions\/FeedbackPriority"
                 },
-                "public": {
-                    "type": "boolean"
-                },
                 "type": {
                     "format": "string",
                     "type": "string"
@@ -23412,6 +23409,11 @@
                     "type": "object",
                     "properties": {
                         "visibility": {
+                            "enum": [
+                                "VISIBILITY_PRIVATE",
+                                "VISIBILITY_PUBLIC",
+                                "VISIBILITY_SHARED"
+                            ],
                             "format": "string",
                             "type": "string"
                         }
@@ -23439,10 +23441,12 @@
         "PlacePreferences": {
             "type": "object",
             "properties": {
-                "public": {
-                    "type": "boolean"
-                },
                 "visibility": {
+                    "enum": [
+                        "VISIBILITY_PRIVATE",
+                        "VISIBILITY_PUBLIC",
+                        "VISIBILITY_SHARED"
+                    ],
                     "format": "string",
                     "type": "string"
                 }

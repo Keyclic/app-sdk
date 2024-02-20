@@ -21,6 +21,8 @@ class Permission {
       Permission._(r'asset-equipment:write');
   static const assetTypeColonRead = Permission._(r'asset-type:read');
   static const businessHoursColonRead = Permission._(r'business-hours:read');
+  static const categoryColonRead = Permission._(r'category:read');
+  static const categoryColonWrite = Permission._(r'category:write');
   static const connectorColonRead = Permission._(r'connector:read');
   static const contractColonBillingColonRead =
       Permission._(r'contract:billing:read');
@@ -41,7 +43,6 @@ class Permission {
       Permission._(r'ORGANIZATION:OPERATOR');
   static const ALL = Permission._(r'ALL');
   static const aNALYTICSColonALL = Permission._(r'ANALYTICS:ALL');
-  static const cATEGORYColonALL = Permission._(r'CATEGORY:ALL');
   static const dOCUMENTColonALL = Permission._(r'DOCUMENT:ALL');
   static const eXPORTColonALL = Permission._(r'EXPORT:ALL');
   static const mEMBERCOLLABORATORColonALL =
@@ -68,6 +69,8 @@ class Permission {
     assetEquipmentColonWrite,
     assetTypeColonRead,
     businessHoursColonRead,
+    categoryColonRead,
+    categoryColonWrite,
     connectorColonRead,
     contractColonBillingColonRead,
     contractColonRead,
@@ -84,7 +87,6 @@ class Permission {
     oRGANIZATIONColonOPERATOR,
     ALL,
     aNALYTICSColonALL,
-    cATEGORYColonALL,
     dOCUMENTColonALL,
     eXPORTColonALL,
     mEMBERCOLLABORATORColonALL,
@@ -145,6 +147,10 @@ class PermissionTypeTransformer {
         return Permission.assetTypeColonRead;
       case r'business-hours:read':
         return Permission.businessHoursColonRead;
+      case r'category:read':
+        return Permission.categoryColonRead;
+      case r'category:write':
+        return Permission.categoryColonWrite;
       case r'connector:read':
         return Permission.connectorColonRead;
       case r'contract:billing:read':
@@ -177,8 +183,6 @@ class PermissionTypeTransformer {
         return Permission.ALL;
       case r'ANALYTICS:ALL':
         return Permission.aNALYTICSColonALL;
-      case r'CATEGORY:ALL':
-        return Permission.cATEGORYColonALL;
       case r'DOCUMENT:ALL':
         return Permission.dOCUMENTColonALL;
       case r'EXPORT:ALL':

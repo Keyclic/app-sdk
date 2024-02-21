@@ -7,7 +7,10 @@ part of keyclic_sdk_api_platform;
 class TicketRead {
   /// Returns a new [TicketRead] instance.
   TicketRead({
+    this.category,
     this.description,
+    this.dueBy,
+    this.priority,
     this.scheduledAt,
     this.id,
     this.tags,
@@ -21,6 +24,12 @@ class TicketRead {
   static TicketRead? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
+    }
+
+    DateTime? dueBy =
+        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
+    if (dueBy != null && dueBy.isUtc == false) {
+      dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
     DateTime? scheduledAt = json[r'scheduledAt'] == null
@@ -43,7 +52,10 @@ class TicketRead {
     }
 
     return TicketRead(
+      category: json[r'category'],
       description: json[r'description'],
+      dueBy: dueBy,
+      priority: TicketPriorityRead.fromJson(json[r'priority']),
       scheduledAt: scheduledAt,
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
@@ -53,7 +65,13 @@ class TicketRead {
     );
   }
 
+  String? category;
+
   String? description;
+
+  DateTime? dueBy;
+
+  TicketPriorityRead? priority;
 
   DateTime? scheduledAt;
 
@@ -78,7 +96,10 @@ class TicketRead {
     }
 
     return other is TicketRead &&
+        other.category == category &&
         other.description == description &&
+        other.dueBy == dueBy &&
+        other.priority == priority &&
         other.scheduledAt == scheduledAt &&
         other.id == id &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
@@ -89,7 +110,10 @@ class TicketRead {
 
   @override
   int get hashCode =>
+      (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (dueBy == null ? 0 : dueBy.hashCode) +
+      (priority == null ? 0 : priority.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
@@ -143,12 +167,25 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[description=$description, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived]';
+      'TicketRead[category=$category, description=$description, dueBy=$dueBy, priority=$priority, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'category')) r'category': category,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'dueBy'))
+        r'dueBy': dueBy?.toUtc().toIso8601String(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^priority\.').hasMatch(key)))
+        r'priority': priority?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^priority\.'))) {
+            previousValue.add(element.split(RegExp(r'^priority\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'id')) r'id': id,

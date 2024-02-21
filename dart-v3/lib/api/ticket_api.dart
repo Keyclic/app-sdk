@@ -117,10 +117,15 @@ class TicketApi {
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
+  /// * [search] -
   /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [createdAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [dueByLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [dueByLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [dueByLeftSquareBracketAfterRightSquareBracket] -
+  /// * [dueByLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [scheduledAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [scheduledAtLeftSquareBracketAfterRightSquareBracket] -
@@ -129,25 +134,38 @@ class TicketApi {
   /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [existsLeftSquareBracketArchivedAtRightSquareBracket] -
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
+  /// * [orderLeftSquareBracketDueByRightSquareBracket] -
+  /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
   /// * [orderLeftSquareBracketScheduledAtRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
+  /// * [asset] -
+  /// * [assetLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodService] -
   /// * [assignmentsPeriodServiceLeftSquareBracketRightSquareBracket] -
+  /// * [assignmentsPeriodServicePeriodManager] -
+  /// * [assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket] -
   /// * [category] -
   /// * [categoryLeftSquareBracketRightSquareBracket] -
+  /// * [categoryPeriodType] -
+  /// * [categoryPeriodTypeLeftSquareBracketRightSquareBracket] -
   /// * [childrenPeriodAssignmentsPeriodMember] -
   /// * [childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [childrenPeriodState] -
   /// * [childrenPeriodStateLeftSquareBracketRightSquareBracket] -
   /// * [createdBy] -
   /// * [createdByLeftSquareBracketRightSquareBracket] -
+  /// * [feedbackPeriodBatch] -
+  /// * [feedbackPeriodBatchLeftSquareBracketRightSquareBracket] -
+  /// * [feedbackPeriodVisibility] -
+  /// * [feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket] -
   /// * [level] -
   /// * [levelLeftSquareBracketRightSquareBracket] -
-  /// * [organization] -
-  /// * [organizationLeftSquareBracketRightSquareBracket] -
+  /// * [parent] -
+  /// * [parentLeftSquareBracketRightSquareBracket] -
   /// * [phase] -
   /// * [phaseLeftSquareBracketRightSquareBracket] -
   /// * [priority] -
@@ -175,10 +193,15 @@ class TicketApi {
     int? page,
     int? limit,
     bool? pagination,
+    String? search,
     String? createdAtLeftSquareBracketBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketAfterRightSquareBracket,
     String? createdAtLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? dueByLeftSquareBracketBeforeRightSquareBracket,
+    String? dueByLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? dueByLeftSquareBracketAfterRightSquareBracket,
+    String? dueByLeftSquareBracketStrictlyAfterRightSquareBracket,
     String? scheduledAtLeftSquareBracketBeforeRightSquareBracket,
     String? scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? scheduledAtLeftSquareBracketAfterRightSquareBracket,
@@ -187,15 +210,25 @@ class TicketApi {
     String? updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
+    bool? existsLeftSquareBracketArchivedAtRightSquareBracket,
     bool? existsLeftSquareBracketAssignmentsRightSquareBracket,
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
+    String? orderLeftSquareBracketDueByRightSquareBracket,
+    String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
     String? orderLeftSquareBracketScheduledAtRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
+    String? asset,
+    List<String>? assetLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodService,
     List<String>? assignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
+    String? assignmentsPeriodServicePeriodManager,
+    List<String>?
+        assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket,
     String? category,
     List<String>? categoryLeftSquareBracketRightSquareBracket,
+    String? categoryPeriodType,
+    List<String>? categoryPeriodTypeLeftSquareBracketRightSquareBracket,
     String? childrenPeriodAssignmentsPeriodMember,
     List<String>?
         childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
@@ -203,10 +236,14 @@ class TicketApi {
     List<String>? childrenPeriodStateLeftSquareBracketRightSquareBracket,
     String? createdBy,
     List<String>? createdByLeftSquareBracketRightSquareBracket,
+    String? feedbackPeriodBatch,
+    List<String>? feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
+    String? feedbackPeriodVisibility,
+    List<String>? feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket,
     int? level,
     List<int>? levelLeftSquareBracketRightSquareBracket,
-    String? organization,
-    List<String>? organizationLeftSquareBracketRightSquareBracket,
+    String? parent,
+    List<String>? parentLeftSquareBracketRightSquareBracket,
     String? phase,
     List<String>? phaseLeftSquareBracketRightSquareBracket,
     String? priority,
@@ -259,6 +296,7 @@ class TicketApi {
       if (page != null) r'page': encodeQueryParameter(page),
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (search != null) r'search': encodeQueryParameter(search),
       if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'createdAt[before]': encodeQueryParameter(
             createdAtLeftSquareBracketBeforeRightSquareBracket),
@@ -271,6 +309,18 @@ class TicketApi {
       if (createdAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'createdAt[strictly_after]': encodeQueryParameter(
             createdAtLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (dueByLeftSquareBracketBeforeRightSquareBracket != null)
+        r'dueBy[before]': encodeQueryParameter(
+            dueByLeftSquareBracketBeforeRightSquareBracket),
+      if (dueByLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
+        r'dueBy[strictly_before]': encodeQueryParameter(
+            dueByLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (dueByLeftSquareBracketAfterRightSquareBracket != null)
+        r'dueBy[after]':
+            encodeQueryParameter(dueByLeftSquareBracketAfterRightSquareBracket),
+      if (dueByLeftSquareBracketStrictlyAfterRightSquareBracket != null)
+        r'dueBy[strictly_after]': encodeQueryParameter(
+            dueByLeftSquareBracketStrictlyAfterRightSquareBracket),
       if (scheduledAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'scheduledAt[before]': encodeQueryParameter(
             scheduledAtLeftSquareBracketBeforeRightSquareBracket),
@@ -295,6 +345,9 @@ class TicketApi {
       if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'updatedAt[strictly_after]': encodeQueryParameter(
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (existsLeftSquareBracketArchivedAtRightSquareBracket != null)
+        r'exists[archivedAt]': encodeQueryParameter(
+            existsLeftSquareBracketArchivedAtRightSquareBracket),
       if (existsLeftSquareBracketAssignmentsRightSquareBracket != null)
         r'exists[assignments]': encodeQueryParameter(
             existsLeftSquareBracketAssignmentsRightSquareBracket),
@@ -304,22 +357,48 @@ class TicketApi {
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),
+      if (orderLeftSquareBracketDueByRightSquareBracket != null)
+        r'order[dueBy]':
+            encodeQueryParameter(orderLeftSquareBracketDueByRightSquareBracket),
+      if (orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket !=
+          null)
+        r'order[priority.position]': encodeQueryParameter(
+            orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket),
       if (orderLeftSquareBracketScheduledAtRightSquareBracket != null)
         r'order[scheduledAt]': encodeQueryParameter(
             orderLeftSquareBracketScheduledAtRightSquareBracket),
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),
+      if (asset != null) r'asset': encodeQueryParameter(asset),
+      if (assetLeftSquareBracketRightSquareBracket != null)
+        r'asset[]': encodeCollectionQueryParameter(
+            assetLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (assignmentsPeriodService != null)
         r'assignments.service': encodeQueryParameter(assignmentsPeriodService),
       if (assignmentsPeriodServiceLeftSquareBracketRightSquareBracket != null)
         r'assignments.service[]': encodeCollectionQueryParameter(
             assignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (assignmentsPeriodServicePeriodManager != null)
+        r'assignments.service.manager':
+            encodeQueryParameter(assignmentsPeriodServicePeriodManager),
+      if (assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket !=
+          null)
+        r'assignments.service.manager[]': encodeCollectionQueryParameter(
+            assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (category != null) r'category': encodeQueryParameter(category),
       if (categoryLeftSquareBracketRightSquareBracket != null)
         r'category[]': encodeCollectionQueryParameter(
             categoryLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (categoryPeriodType != null)
+        r'category.type': encodeQueryParameter(categoryPeriodType),
+      if (categoryPeriodTypeLeftSquareBracketRightSquareBracket != null)
+        r'category.type[]': encodeCollectionQueryParameter(
+            categoryPeriodTypeLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (childrenPeriodAssignmentsPeriodMember != null)
         r'children.assignments.member':
@@ -340,16 +419,27 @@ class TicketApi {
         r'createdBy[]': encodeCollectionQueryParameter(
             createdByLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (feedbackPeriodBatch != null)
+        r'feedback.batch': encodeQueryParameter(feedbackPeriodBatch),
+      if (feedbackPeriodBatchLeftSquareBracketRightSquareBracket != null)
+        r'feedback.batch[]': encodeCollectionQueryParameter(
+            feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (feedbackPeriodVisibility != null)
+        r'feedback.visibility': encodeQueryParameter(feedbackPeriodVisibility),
+      if (feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket != null)
+        r'feedback.visibility[]': encodeCollectionQueryParameter(
+            feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (level != null) r'level': encodeQueryParameter(level),
       if (levelLeftSquareBracketRightSquareBracket != null)
         r'level[]': encodeCollectionQueryParameter(
             levelLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (organization != null)
-        r'organization': encodeQueryParameter(organization),
-      if (organizationLeftSquareBracketRightSquareBracket != null)
-        r'organization[]': encodeCollectionQueryParameter(
-            organizationLeftSquareBracketRightSquareBracket,
+      if (parent != null) r'parent': encodeQueryParameter(parent),
+      if (parentLeftSquareBracketRightSquareBracket != null)
+        r'parent[]': encodeCollectionQueryParameter(
+            parentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (phase != null) r'phase': encodeQueryParameter(phase),
       if (phaseLeftSquareBracketRightSquareBracket != null)

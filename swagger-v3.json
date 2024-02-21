@@ -8352,6 +8352,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "createdAt[before]",
                         "in": "query",
                         "description": "",
@@ -8395,6 +8409,62 @@
                     },
                     {
                         "name": "createdAt[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "dueBy[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "dueBy[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "dueBy[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "dueBy[strictly_after]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -8520,6 +8590,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "exists[archivedAt]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "exists[assignments]",
                         "in": "query",
                         "description": "",
@@ -8549,6 +8633,42 @@
                     },
                     {
                         "name": "order[createdAt]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[dueBy]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[priority.position]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -8602,6 +8722,37 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "asset",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "asset[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "assignments.service",
                         "in": "query",
                         "description": "",
@@ -8633,6 +8784,37 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "assignments.service.manager",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "assignments.service.manager[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "category",
                         "in": "query",
                         "description": "",
@@ -8648,6 +8830,37 @@
                     },
                     {
                         "name": "category[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "category.type",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "category.type[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -8757,6 +8970,68 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "feedback.batch",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "feedback.batch[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "feedback.visibility",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "feedback.visibility[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "level",
                         "in": "query",
                         "description": "",
@@ -8788,7 +9063,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "organization",
+                        "name": "parent",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -8802,7 +9077,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "organization[]",
+                        "name": "parent[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -11697,8 +11972,26 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "category": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "nullable": true
+                    },
                     "description": {
                         "type": "string",
+                        "nullable": true
+                    },
+                    "dueBy": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "priority": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TicketPriority-Read"
+                            }
+                        ],
                         "nullable": true
                     },
                     "scheduledAt": {
@@ -11752,11 +12045,33 @@
                                         "format": "iri-reference"
                                     }
                                 }
+                            },
+                            "category": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
                             }
                         }
                     },
                     "description": {
                         "type": "string",
+                        "nullable": true
+                    },
+                    "dueBy": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "priority": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/TicketPriority.jsonhal-Read"
+                            }
+                        ],
                         "nullable": true
                     },
                     "scheduledAt": {
@@ -11791,6 +12106,50 @@
                     "archived": {
                         "readOnly": true,
                         "type": "boolean"
+                    }
+                }
+            },
+            "TicketPriority-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "position": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "TicketPriority.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "position": {
+                        "type": "integer"
                     }
                 }
             },

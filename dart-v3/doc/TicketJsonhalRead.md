@@ -8,8 +8,10 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
+**links** | [**TicketJsonhalReadLinks**](TicketJsonhalReadLinks.md) |  | [optional] 
 **description** | **String** |  | [optional] 
+**dueBy** | [**DateTime**](DateTime.md) |  | [optional] 
+**priority** | [**TicketPriorityJsonhalRead**](TicketPriorityJsonhalRead.md) |  | [optional] 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **tags** | **List<String>** |  | [optional] [default to const []]

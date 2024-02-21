@@ -10,8 +10,17 @@ void main() {
   // final instance = TicketRead();
 
   group('test TicketRead', () {
+    // String category
+    test('to test the property `category`', () async {});
+
     // String description
     test('to test the property `description`', () async {});
+
+    // DateTime dueBy
+    test('to test the property `dueBy`', () async {});
+
+    // TicketPriorityRead priority
+    test('to test the property `priority`', () async {});
 
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});

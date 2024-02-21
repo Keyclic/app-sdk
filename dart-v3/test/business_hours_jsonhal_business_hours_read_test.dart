@@ -13,7 +13,7 @@ void main() {
     // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
-    // int hoursPerDay (default value: 7)
+    // String hoursPerDay
     test('to test the property `hoursPerDay`', () async {});
 
     // String name

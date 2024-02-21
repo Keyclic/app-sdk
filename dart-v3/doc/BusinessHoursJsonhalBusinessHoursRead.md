@@ -9,7 +9,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
-**hoursPerDay** | **int** |  | [optional] [default to 7]
+**hoursPerDay** | **String** |  | 
 **name** | **String** |  | 
 **openingHours** | **List<String>** |  | [default to const []]
 **id** | **String** | The resource identifier. | [optional] [readonly] 

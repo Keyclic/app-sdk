@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hoursPerDay** | **int** |  | [optional] [default to 7]
+**hoursPerDay** | **String** |  | 
 **name** | **String** |  | 
 **openingHours** | **List<String>** |  | [default to const []]
 **id** | **String** | The resource identifier. | [optional] [readonly] 

@@ -10,7 +10,7 @@ void main() {
   // final instance = BusinessHoursBusinessHoursRead();
 
   group('test BusinessHoursBusinessHoursRead', () {
-    // int hoursPerDay (default value: 7)
+    // String hoursPerDay
     test('to test the property `hoursPerDay`', () async {});
 
     // String name

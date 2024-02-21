@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class BusinessHoursBusinessHoursRead {
   /// Returns a new [BusinessHoursBusinessHoursRead] instance.
   BusinessHoursBusinessHoursRead({
-    this.hoursPerDay,
+    required this.hoursPerDay,
     required this.name,
     this.openingHours = const [],
     this.id,
@@ -44,9 +44,7 @@ class BusinessHoursBusinessHoursRead {
     );
   }
 
-  // minimum: 1
-  // maximum: 24
-  int? hoursPerDay;
+  String hoursPerDay;
 
   String name;
 
@@ -80,7 +78,7 @@ class BusinessHoursBusinessHoursRead {
 
   @override
   int get hashCode =>
-      (hoursPerDay == null ? 0 : hoursPerDay.hashCode) +
+      hoursPerDay.hashCode +
       name.hashCode +
       openingHours.hashCode +
       (id == null ? 0 : id.hashCode) +
@@ -142,8 +140,7 @@ class BusinessHoursBusinessHoursRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'hoursPerDay'))
-        r'hoursPerDay': hoursPerDay,
+      r'hoursPerDay': hoursPerDay,
       r'name': name,
       r'openingHours': openingHours,
       if (keys == null || keys.contains(r'id')) r'id': id,

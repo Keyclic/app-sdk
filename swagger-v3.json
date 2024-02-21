@@ -9718,13 +9718,15 @@
                 "type": "object",
                 "description": "",
                 "deprecated": false,
+                "required": [
+                    "hoursPerDay",
+                    "name",
+                    "openingHours"
+                ],
                 "properties": {
                     "hoursPerDay": {
-                        "minimum": 1,
-                        "maximum": 24,
-                        "default": 7,
-                        "example": 7,
-                        "type": "integer"
+                        "type": "string",
+                        "format": "duration"
                     },
                     "name": {
                         "type": "string"
@@ -9752,16 +9754,17 @@
                         "type": "string",
                         "format": "date-time"
                     }
-                },
-                "required": [
-                    "name",
-                    "openingHours"
-                ]
+                }
             },
             "BusinessHours.jsonhal-business-hours.read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
+                "required": [
+                    "hoursPerDay",
+                    "name",
+                    "openingHours"
+                ],
                 "properties": {
                     "_links": {
                         "type": "object",
@@ -9778,11 +9781,8 @@
                         }
                     },
                     "hoursPerDay": {
-                        "minimum": 1,
-                        "maximum": 24,
-                        "default": 7,
-                        "example": 7,
-                        "type": "integer"
+                        "type": "string",
+                        "format": "duration"
                     },
                     "name": {
                         "type": "string"
@@ -9810,11 +9810,7 @@
                         "type": "string",
                         "format": "date-time"
                     }
-                },
-                "required": [
-                    "name",
-                    "openingHours"
-                ]
+                }
             },
             "CategoryType-Read": {
                 "type": "object",

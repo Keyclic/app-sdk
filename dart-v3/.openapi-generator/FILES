@@ -101,6 +101,9 @@ doc/SlaPolicyJsonhalSlaPolicyRead.md
 doc/SlaPolicySlaPolicyRead.md
 doc/TicketApi.md
 doc/TicketJsonhalRead.md
+doc/TicketJsonhalReadLinks.md
+doc/TicketPriorityJsonhalRead.md
+doc/TicketPriorityRead.md
 doc/TicketRead.md
 doc/TicketTypeApi.md
 doc/TicketTypeJsonhalRead.md
@@ -222,6 +225,9 @@ lib/model/renewal_write.dart
 lib/model/sla_policy_jsonhal_sla_policy_read.dart
 lib/model/sla_policy_sla_policy_read.dart
 lib/model/ticket_jsonhal_read.dart
+lib/model/ticket_jsonhal_read_links.dart
+lib/model/ticket_priority_jsonhal_read.dart
+lib/model/ticket_priority_read.dart
 lib/model/ticket_read.dart
 lib/model/ticket_type_jsonhal_read.dart
 lib/model/ticket_type_read.dart
@@ -329,7 +335,10 @@ test/sla_policy_api_test.dart
 test/sla_policy_jsonhal_sla_policy_read_test.dart
 test/sla_policy_sla_policy_read_test.dart
 test/ticket_api_test.dart
+test/ticket_jsonhal_read_links_test.dart
 test/ticket_jsonhal_read_test.dart
+test/ticket_priority_jsonhal_read_test.dart
+test/ticket_priority_read_test.dart
 test/ticket_read_test.dart
 test/ticket_type_api_test.dart
 test/ticket_type_jsonhal_read_test.dart

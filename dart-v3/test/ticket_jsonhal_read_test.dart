@@ -10,11 +10,17 @@ void main() {
   // final instance = TicketJsonhalRead();
 
   group('test TicketJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // TicketJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // String description
     test('to test the property `description`', () async {});
+
+    // DateTime dueBy
+    test('to test the property `dueBy`', () async {});
+
+    // TicketPriorityJsonhalRead priority
+    test('to test the property `priority`', () async {});
 
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});

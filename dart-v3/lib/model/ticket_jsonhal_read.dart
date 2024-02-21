@@ -9,6 +9,8 @@ class TicketJsonhalRead {
   TicketJsonhalRead({
     this.links,
     this.description,
+    this.dueBy,
+    this.priority,
     this.scheduledAt,
     this.id,
     this.tags,
@@ -22,6 +24,12 @@ class TicketJsonhalRead {
   static TicketJsonhalRead? fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return null;
+    }
+
+    DateTime? dueBy =
+        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
+    if (dueBy != null && dueBy.isUtc == false) {
+      dueBy = DateTime.parse('${json[r'dueBy']}Z');
     }
 
     DateTime? scheduledAt = json[r'scheduledAt'] == null
@@ -44,8 +52,10 @@ class TicketJsonhalRead {
     }
 
     return TicketJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: TicketJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
+      dueBy: dueBy,
+      priority: TicketPriorityJsonhalRead.fromJson(json[r'priority']),
       scheduledAt: scheduledAt,
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
@@ -55,9 +65,13 @@ class TicketJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  TicketJsonhalReadLinks? links;
 
   String? description;
+
+  DateTime? dueBy;
+
+  TicketPriorityJsonhalRead? priority;
 
   DateTime? scheduledAt;
 
@@ -84,6 +98,8 @@ class TicketJsonhalRead {
     return other is TicketJsonhalRead &&
         other.links == links &&
         other.description == description &&
+        other.dueBy == dueBy &&
+        other.priority == priority &&
         other.scheduledAt == scheduledAt &&
         other.id == id &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
@@ -96,6 +112,8 @@ class TicketJsonhalRead {
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (dueBy == null ? 0 : dueBy.hashCode) +
+      (priority == null ? 0 : priority.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
@@ -152,7 +170,7 @@ class TicketJsonhalRead {
 
   @override
   String toString() =>
-      'TicketJsonhalRead[links=$links, description=$description, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived]';
+      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, priority=$priority, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -167,6 +185,18 @@ class TicketJsonhalRead {
         })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'dueBy'))
+        r'dueBy': dueBy?.toUtc().toIso8601String(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^priority\.').hasMatch(key)))
+        r'priority': priority?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^priority\.'))) {
+            previousValue.add(element.split(RegExp(r'^priority\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'id')) r'id': id,

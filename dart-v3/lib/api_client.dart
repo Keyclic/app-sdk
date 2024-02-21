@@ -370,6 +370,12 @@ class ApiPlatformClient {
           return SlaPolicySlaPolicyRead.fromJson(value);
         case 'TicketJsonhalRead':
           return TicketJsonhalRead.fromJson(value);
+        case 'TicketJsonhalReadLinks':
+          return TicketJsonhalReadLinks.fromJson(value);
+        case 'TicketPriorityJsonhalRead':
+          return TicketPriorityJsonhalRead.fromJson(value);
+        case 'TicketPriorityRead':
+          return TicketPriorityRead.fromJson(value);
         case 'TicketRead':
           return TicketRead.fromJson(value);
         case 'TicketTypeJsonhalRead':

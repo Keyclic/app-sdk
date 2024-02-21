@@ -7,7 +7,6 @@ part of keyclic_sdk_api;
 class PlacePreferences {
   /// Returns a new [PlacePreferences] instance.
   PlacePreferences({
-    this.public,
     this.visibility,
   });
 
@@ -19,14 +18,11 @@ class PlacePreferences {
     }
 
     return PlacePreferences(
-      public: json[r'public'],
-      visibility: json[r'visibility'],
+      visibility: PlacePreferencesVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
 
-  bool? public;
-
-  String? visibility;
+  PlacePreferencesVisibilityEnum? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -35,15 +31,11 @@ class PlacePreferences {
       return true;
     }
 
-    return other is PlacePreferences &&
-        other.public == public &&
-        other.visibility == visibility;
+    return other is PlacePreferences && other.visibility == visibility;
   }
 
   @override
-  int get hashCode =>
-      (public == null ? 0 : public.hashCode) +
-      (visibility == null ? 0 : visibility.hashCode);
+  int get hashCode => (visibility == null ? 0 : visibility.hashCode);
 
   static List<PlacePreferences> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -91,14 +83,88 @@ class PlacePreferences {
   }
 
   @override
-  String toString() =>
-      'PlacePreferences[public=$public, visibility=$visibility]';
+  String toString() => 'PlacePreferences[visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'public')) r'public': public,
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
     };
   }
+}
+
+class PlacePreferencesVisibilityEnum {
+  /// Instantiate a new enum with the provided [value].
+  const PlacePreferencesVisibilityEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const PRIVATE =
+      PlacePreferencesVisibilityEnum._(r'VISIBILITY_PRIVATE');
+  static const PUBLIC = PlacePreferencesVisibilityEnum._(r'VISIBILITY_PUBLIC');
+  static const SHARED = PlacePreferencesVisibilityEnum._(r'VISIBILITY_SHARED');
+
+  /// List of all possible values in this [enum][PlacePreferencesVisibilityEnum].
+  static const values = <PlacePreferencesVisibilityEnum>[
+    PRIVATE,
+    PUBLIC,
+    SHARED,
+  ];
+
+  static PlacePreferencesVisibilityEnum? fromJson(dynamic value) =>
+      PlacePreferencesVisibilityEnumTypeTransformer().decode(value);
+
+  static List<PlacePreferencesVisibilityEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return PlacePreferencesVisibilityEnum.fromJson(value);
+        })
+        .whereType<PlacePreferencesVisibilityEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [PlacePreferencesVisibilityEnum] to String,
+/// and [decode] dynamic data back to [PlacePreferencesVisibilityEnum].
+class PlacePreferencesVisibilityEnumTypeTransformer {
+  const PlacePreferencesVisibilityEnumTypeTransformer._();
+
+  factory PlacePreferencesVisibilityEnumTypeTransformer() =>
+      _instance ??= PlacePreferencesVisibilityEnumTypeTransformer._();
+
+  String encode(PlacePreferencesVisibilityEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a PlacePreferencesVisibilityEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  PlacePreferencesVisibilityEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'VISIBILITY_PRIVATE':
+        return PlacePreferencesVisibilityEnum.PRIVATE;
+      case r'VISIBILITY_PUBLIC':
+        return PlacePreferencesVisibilityEnum.PUBLIC;
+      case r'VISIBILITY_SHARED':
+        return PlacePreferencesVisibilityEnum.SHARED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [PlacePreferencesVisibilityEnumTypeTransformer] instance.
+  static PlacePreferencesVisibilityEnumTypeTransformer? _instance;
 }

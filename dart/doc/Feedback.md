@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] [readonly] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **priority** | [**FeedbackPriority**](FeedbackPriority.md) |  | [optional] 
-**public** | **bool** |  | [optional] 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **visibility** | **String** |  | [optional] 

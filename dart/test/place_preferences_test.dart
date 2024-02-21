@@ -10,9 +10,6 @@ void main() {
   // final instance = PlacePreferences();
 
   group('test PlacePreferences', () {
-    // bool public
-    test('to test the property `public`', () async {});
-
     // String visibility
     test('to test the property `visibility`', () async {});
   });

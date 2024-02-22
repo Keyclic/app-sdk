@@ -23,7 +23,7 @@ class ConnectorApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ConnectorJsonhalConnectorRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<ConnectorJsonhalConnectorRead>> getConnector({
     required String identifier,
     String? acceptLanguage,
@@ -72,12 +72,13 @@ class ConnectorApi {
           await _apiClient.deserializeAsync<ConnectorJsonhalConnectorRead>(
               response.data!, 'ConnectorJsonhalConnectorRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ConnectorJsonhalConnectorRead>(

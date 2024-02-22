@@ -27,7 +27,7 @@ class PublicationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Publication resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deletePublication({
@@ -100,7 +100,7 @@ class PublicationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Publication] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Publication resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Publication>> getPublication({
@@ -160,12 +160,13 @@ class PublicationApi {
       responseData = await _apiClient.deserializeAsync<Publication>(
           response.data!, 'Publication');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Publication>(
@@ -198,7 +199,7 @@ class PublicationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Publication] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Publication resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Publication>> postPublication({
@@ -250,14 +251,15 @@ class PublicationApi {
     try {
       bodyData = publicationData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -275,12 +277,13 @@ class PublicationApi {
       responseData = await _apiClient.deserializeAsync<Publication>(
           response.data!, 'Publication');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Publication>(

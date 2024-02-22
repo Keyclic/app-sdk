@@ -32,7 +32,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [AssignmentPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Assignment resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<AssignmentPagination>> cgetAssignmentsByReport({
@@ -109,12 +109,13 @@ class ReportApi {
       responseData = await _apiClient.deserializeAsync<AssignmentPagination>(
           response.data!, 'AssignmentPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<AssignmentPagination>(
@@ -156,7 +157,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DocumentPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Document resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<DocumentPagination>> cgetDocumentsByReport({
@@ -248,12 +249,13 @@ class ReportApi {
       responseData = await _apiClient.deserializeAsync<DocumentPagination>(
           response.data!, 'DocumentPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<DocumentPagination>(
@@ -291,7 +293,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [NotePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Note resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<NotePagination>> cgetNotesByTask({
@@ -368,12 +370,13 @@ class ReportApi {
       responseData = await _apiClient.deserializeAsync<NotePagination>(
           response.data!, 'NotePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<NotePagination>(
@@ -452,7 +455,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [OperationPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Operation resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<OperationPagination>> cgetOperationsByReport({
@@ -664,12 +667,13 @@ class ReportApi {
       responseData = await _apiClient.deserializeAsync<OperationPagination>(
           response.data!, 'OperationPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<OperationPagination>(
@@ -702,7 +706,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Report] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Report resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Report>> getReport({
@@ -762,12 +766,13 @@ class ReportApi {
       responseData =
           await _apiClient.deserializeAsync<Report>(response.data!, 'Report');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Report>(
@@ -800,7 +805,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Tracking] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Tracking resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Tracking>> getTrackingByReport({
@@ -860,12 +865,13 @@ class ReportApi {
       responseData = await _apiClient.deserializeAsync<Tracking>(
           response.data!, 'Tracking');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Tracking>(
@@ -900,7 +906,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Report] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one Report resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Report>> patchReport({
@@ -956,14 +962,15 @@ class ReportApi {
     try {
       bodyData = taskPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -981,12 +988,13 @@ class ReportApi {
       responseData =
           await _apiClient.deserializeAsync<Report>(response.data!, 'Report');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Report>(
@@ -1020,7 +1028,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Document] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Document resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Document>> postDocumentByReport({
@@ -1074,14 +1082,15 @@ class ReportApi {
     try {
       bodyData = documentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -1099,12 +1108,13 @@ class ReportApi {
       responseData = await _apiClient.deserializeAsync<Document>(
           response.data!, 'Document');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Document>(
@@ -1139,7 +1149,7 @@ class ReportApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Report] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Workflow resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Report>> postWorkflowByReport({
@@ -1195,14 +1205,15 @@ class ReportApi {
     try {
       bodyData = workflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -1220,12 +1231,13 @@ class ReportApi {
       responseData =
           await _apiClient.deserializeAsync<Report>(response.data!, 'Report');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Report>(

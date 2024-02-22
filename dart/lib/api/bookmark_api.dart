@@ -33,7 +33,7 @@ class BookmarkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BookmarkPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Bookmark resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<BookmarkPagination>> cgetBookmarks({
@@ -116,12 +116,13 @@ class BookmarkApi {
       responseData = await _apiClient.deserializeAsync<BookmarkPagination>(
           response.data!, 'BookmarkPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<BookmarkPagination>(
@@ -154,7 +155,7 @@ class BookmarkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Bookmark resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteBookmark({
@@ -227,7 +228,7 @@ class BookmarkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Bookmark] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Bookmark resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Bookmark>> getBookmark({
@@ -287,12 +288,13 @@ class BookmarkApi {
       responseData = await _apiClient.deserializeAsync<Bookmark>(
           response.data!, 'Bookmark');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Bookmark>(
@@ -325,7 +327,7 @@ class BookmarkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Bookmark] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Bookmark resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Bookmark>> postBookmark({
@@ -377,14 +379,15 @@ class BookmarkApi {
     try {
       bodyData = bookmarkData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -402,12 +405,13 @@ class BookmarkApi {
       responseData = await _apiClient.deserializeAsync<Bookmark>(
           response.data!, 'Bookmark');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Bookmark>(

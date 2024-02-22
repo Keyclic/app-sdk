@@ -27,7 +27,7 @@ class ExternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one ExternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteExternalService({
@@ -100,7 +100,7 @@ class ExternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ExternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one ExternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ExternalService>> getExternalService({
@@ -160,12 +160,13 @@ class ExternalServiceApi {
       responseData = await _apiClient.deserializeAsync<ExternalService>(
           response.data!, 'ExternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ExternalService>(
@@ -199,7 +200,7 @@ class ExternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ExternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one ExternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ExternalService>> patchExternalService({
@@ -253,14 +254,15 @@ class ExternalServiceApi {
     try {
       bodyData = externalServicePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -278,12 +280,13 @@ class ExternalServiceApi {
       responseData = await _apiClient.deserializeAsync<ExternalService>(
           response.data!, 'ExternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ExternalService>(
@@ -316,7 +319,7 @@ class ExternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ExternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one ExternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ExternalService>> postExternalService({
@@ -368,14 +371,15 @@ class ExternalServiceApi {
     try {
       bodyData = externalServiceData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -393,12 +397,13 @@ class ExternalServiceApi {
       responseData = await _apiClient.deserializeAsync<ExternalService>(
           response.data!, 'ExternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ExternalService>(

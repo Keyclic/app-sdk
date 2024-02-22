@@ -34,7 +34,7 @@ class KnowledgeBaseApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ArticlePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Article resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ArticlePagination>> cgetArticlesByKnowledgeBase({
@@ -118,12 +118,13 @@ class KnowledgeBaseApi {
       responseData = await _apiClient.deserializeAsync<ArticlePagination>(
           response.data!, 'ArticlePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ArticlePagination>(
@@ -161,7 +162,7 @@ class KnowledgeBaseApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SectionPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Section resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<SectionPagination>> cgetSectionsByKnowledgeBase({
@@ -238,12 +239,13 @@ class KnowledgeBaseApi {
       responseData = await _apiClient.deserializeAsync<SectionPagination>(
           response.data!, 'SectionPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<SectionPagination>(
@@ -276,7 +278,7 @@ class KnowledgeBaseApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [KnowledgeBase] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one KnowledgeBase resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<KnowledgeBase>> getKnowledgeBase({
@@ -336,12 +338,13 @@ class KnowledgeBaseApi {
       responseData = await _apiClient.deserializeAsync<KnowledgeBase>(
           response.data!, 'KnowledgeBase');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<KnowledgeBase>(

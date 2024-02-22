@@ -27,7 +27,7 @@ class TemplateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Template resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteTemplate({
@@ -100,7 +100,7 @@ class TemplateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Template] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Template resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Template>> getTemplate({
@@ -160,12 +160,13 @@ class TemplateApi {
       responseData = await _apiClient.deserializeAsync<Template>(
           response.data!, 'Template');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Template>(
@@ -199,7 +200,7 @@ class TemplateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Template] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one Template resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Template>> patchTemplate({
@@ -253,14 +254,15 @@ class TemplateApi {
     try {
       bodyData = templatePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -278,12 +280,13 @@ class TemplateApi {
       responseData = await _apiClient.deserializeAsync<Template>(
           response.data!, 'Template');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Template>(
@@ -316,7 +319,7 @@ class TemplateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Template] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Template resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Template>> postTemplate({
@@ -368,14 +371,15 @@ class TemplateApi {
     try {
       bodyData = templateData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -393,12 +397,13 @@ class TemplateApi {
       responseData = await _apiClient.deserializeAsync<Template>(
           response.data!, 'Template');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Template>(

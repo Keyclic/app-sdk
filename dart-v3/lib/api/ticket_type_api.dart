@@ -28,7 +28,7 @@ class TicketTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TicketTypeJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<TicketTypeJsonhalRead>> getTicketType({
     required String identifier,
     required String xKeyclicApp,
@@ -88,12 +88,13 @@ class TicketTypeApi {
       responseData = await _apiClient.deserializeAsync<TicketTypeJsonhalRead>(
           response.data!, 'TicketTypeJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<TicketTypeJsonhalRead>(
@@ -129,7 +130,7 @@ class TicketTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetTicketTypeCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetTicketTypeCollection200Response>> getTicketTypeCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -198,12 +199,13 @@ class TicketTypeApi {
           await _apiClient.deserializeAsync<GetTicketTypeCollection200Response>(
               response.data!, 'GetTicketTypeCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetTicketTypeCollection200Response>(

@@ -27,7 +27,7 @@ class RoleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Role] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Role resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Role>> getRole({
@@ -87,12 +87,13 @@ class RoleApi {
       responseData =
           await _apiClient.deserializeAsync<Role>(response.data!, 'Role');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Role>(

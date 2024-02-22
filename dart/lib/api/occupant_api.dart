@@ -27,7 +27,7 @@ class OccupantApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Occupant resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteOccupant({
@@ -100,7 +100,7 @@ class OccupantApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Occupant] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Occupant resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Occupant>> getOccupant({
@@ -160,12 +160,13 @@ class OccupantApi {
       responseData = await _apiClient.deserializeAsync<Occupant>(
           response.data!, 'Occupant');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Occupant>(
@@ -198,7 +199,7 @@ class OccupantApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Occupant] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Occupant resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Occupant>> postOccupant({
@@ -250,14 +251,15 @@ class OccupantApi {
     try {
       bodyData = occupantData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -275,12 +277,13 @@ class OccupantApi {
       responseData = await _apiClient.deserializeAsync<Occupant>(
           response.data!, 'Occupant');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Occupant>(

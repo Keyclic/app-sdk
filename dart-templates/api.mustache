@@ -23,7 +23,7 @@ class {{classname}} {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]{{#returnType}} containing a [Response] with a [{{{returnType}}}] as data{{/returnType}}
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   {{#externalDocs}}
   /// {{description}}
   /// Also see [{{summary}} Documentation]({{url}})
@@ -126,17 +126,18 @@ class {{classname}} {
         {{/isPrimitiveType}}
       {{/bodyParam}}
     } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: options.compose(
+      throw DioException(
+        error: error,
+        requestOptions: options.compose(
           _apiClient.dio.options,
           path,
           {{#hasQueryParams}}
           queryParameters: queryParameters,
           {{/hasQueryParams}}
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
     {{/hasBodyOrFormParams}}
 
@@ -175,12 +176,13 @@ class {{classname}} {
         {{/returnSimpleType}}
       {{/isResponseFile}}
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<{{{returnType}}}>(

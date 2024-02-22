@@ -29,7 +29,7 @@ class FeedApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ActivityAggregatedPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Activity resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ActivityAggregatedPagination>> cgetActivitiesByFeed({
@@ -98,12 +98,13 @@ class FeedApi {
           await _apiClient.deserializeAsync<ActivityAggregatedPagination>(
               response.data!, 'ActivityAggregatedPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ActivityAggregatedPagination>(
@@ -137,7 +138,7 @@ class FeedApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Read resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> postReadByFeedAndGroup({

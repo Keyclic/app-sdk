@@ -37,7 +37,7 @@ class DigitalDocumentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [FeedbackPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Feedback resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<FeedbackPagination>> cgetFeedbackByDigitalDocument({
@@ -134,12 +134,13 @@ class DigitalDocumentApi {
       responseData = await _apiClient.deserializeAsync<FeedbackPagination>(
           response.data!, 'FeedbackPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<FeedbackPagination>(
@@ -172,7 +173,7 @@ class DigitalDocumentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one DigitalDocument resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteDigitalDocument({
@@ -245,7 +246,7 @@ class DigitalDocumentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Document] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one DigitalDocument resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Document>> getDigitalDocument({
@@ -305,12 +306,13 @@ class DigitalDocumentApi {
       responseData = await _apiClient.deserializeAsync<Document>(
           response.data!, 'Document');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Document>(
@@ -344,7 +346,7 @@ class DigitalDocumentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Document] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one DigitalDocument resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Document>> patchDigitalDocument({
@@ -398,14 +400,15 @@ class DigitalDocumentApi {
     try {
       bodyData = documentPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -423,12 +426,13 @@ class DigitalDocumentApi {
       responseData = await _apiClient.deserializeAsync<Document>(
           response.data!, 'Document');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Document>(
@@ -461,7 +465,7 @@ class DigitalDocumentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Document] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one DigitalDocument resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Document>> postDigitalDocument({
@@ -513,14 +517,15 @@ class DigitalDocumentApi {
     try {
       bodyData = documentData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -538,12 +543,13 @@ class DigitalDocumentApi {
       responseData = await _apiClient.deserializeAsync<Document>(
           response.data!, 'Document');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Document>(

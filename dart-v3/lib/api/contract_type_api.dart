@@ -28,7 +28,7 @@ class ContractTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ContractTypeJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<ContractTypeJsonhalRead>> getContractType({
     required String identifier,
     required String xKeyclicApp,
@@ -88,12 +88,13 @@ class ContractTypeApi {
       responseData = await _apiClient.deserializeAsync<ContractTypeJsonhalRead>(
           response.data!, 'ContractTypeJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ContractTypeJsonhalRead>(
@@ -129,7 +130,7 @@ class ContractTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetContractTypeCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetContractTypeCollection200Response>>
       getContractTypeCollection({
     required String xKeyclicApp,
@@ -199,12 +200,13 @@ class ContractTypeApi {
           .deserializeAsync<GetContractTypeCollection200Response>(
               response.data!, 'GetContractTypeCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetContractTypeCollection200Response>(

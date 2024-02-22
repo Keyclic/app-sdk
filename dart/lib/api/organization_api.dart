@@ -40,7 +40,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CategoryPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Category resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<CategoryPagination>> cgetCategoriesByOrganization({
@@ -141,12 +141,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<CategoryPagination>(
           response.data!, 'CategoryPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<CategoryPagination>(
@@ -187,7 +188,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ServicePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all DispatchService resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ServicePagination>> cgetDispatchServicesByOrganization({
@@ -270,12 +271,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<ServicePagination>(
           response.data!, 'ServicePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ServicePagination>(
@@ -316,7 +318,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DocumentPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Document resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<DocumentPagination>> cgetDocumentsByOrganization({
@@ -405,12 +407,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<DocumentPagination>(
           response.data!, 'DocumentPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<DocumentPagination>(
@@ -449,7 +452,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ExternalServicePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all ExternalService resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ExternalServicePagination>>
@@ -530,12 +533,13 @@ class OrganizationApi {
           await _apiClient.deserializeAsync<ExternalServicePagination>(
               response.data!, 'ExternalServicePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ExternalServicePagination>(
@@ -574,7 +578,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [InternalServicePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all InternalService resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<InternalServicePagination>>
@@ -655,12 +659,13 @@ class OrganizationApi {
           await _apiClient.deserializeAsync<InternalServicePagination>(
               response.data!, 'InternalServicePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<InternalServicePagination>(
@@ -706,7 +711,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MemberPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Member resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<MemberPagination>> cgetMembersByOrganization({
@@ -806,12 +811,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<MemberPagination>(
           response.data!, 'MemberPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<MemberPagination>(
@@ -856,7 +862,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [OccupantPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Occupant resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<OccupantPagination>> cgetOccupantsByOrganization({
@@ -956,12 +962,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<OccupantPagination>(
           response.data!, 'OccupantPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<OccupantPagination>(
@@ -1039,7 +1046,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [OperationPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Operation resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<OperationPagination>> cgetOperationsByOrganization({
@@ -1248,12 +1255,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<OperationPagination>(
           response.data!, 'OperationPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<OperationPagination>(
@@ -1299,7 +1307,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [OrganizationPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Organization resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<OrganizationPagination>> cgetOrganizations({
@@ -1401,12 +1409,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<OrganizationPagination>(
           response.data!, 'OrganizationPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<OrganizationPagination>(
@@ -1457,7 +1466,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [PlacePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Place resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<PlacePagination>> cgetPlacesByOrganization({
@@ -1575,12 +1584,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<PlacePagination>(
           response.data!, 'PlacePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<PlacePagination>(
@@ -1620,7 +1630,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [PublicationPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Publication resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<PublicationPagination>> cgetPublicationsByOrganization({
@@ -1704,12 +1714,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<PublicationPagination>(
           response.data!, 'PublicationPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<PublicationPagination>(
@@ -1787,7 +1798,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ReportPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Report resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ReportPagination>> cgetReportsByOrganization({
@@ -1996,12 +2007,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<ReportPagination>(
           response.data!, 'ReportPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ReportPagination>(
@@ -2040,7 +2052,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ReviewRequestPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all ReviewRequest resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ReviewRequestPagination>> cgetReviewRequestsByOrganization({
@@ -2119,12 +2131,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<ReviewRequestPagination>(
           response.data!, 'ReviewRequestPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ReviewRequestPagination>(
@@ -2169,7 +2182,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ReviewPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Review resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ReviewPagination>> cgetReviewsByOrganization({
@@ -2273,12 +2286,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<ReviewPagination>(
           response.data!, 'ReviewPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ReviewPagination>(
@@ -2317,7 +2331,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ServicePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Service resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ServicePagination>> cgetServicesByOrganization({
@@ -2396,12 +2410,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<ServicePagination>(
           response.data!, 'ServicePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ServicePagination>(
@@ -2439,7 +2454,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TemplatePagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Template resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<TemplatePagination>> cgetTemplatesByOrganization({
@@ -2516,12 +2531,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<TemplatePagination>(
           response.data!, 'TemplatePagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<TemplatePagination>(
@@ -2589,7 +2605,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Chart] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Analytic resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Chart>> getAnalyticByOrganization({
@@ -2770,12 +2786,13 @@ class OrganizationApi {
       responseData =
           await _apiClient.deserializeAsync<Chart>(response.data!, 'Chart');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Chart>(
@@ -2808,7 +2825,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Configuration] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Configuration resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Configuration>> getConfigurationByOrganization({
@@ -2868,12 +2885,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<Configuration>(
           response.data!, 'Configuration');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Configuration>(
@@ -2906,7 +2924,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Schema] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Form resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Schema>> getFormByOrganization({
@@ -2966,12 +2984,13 @@ class OrganizationApi {
       responseData =
           await _apiClient.deserializeAsync<Schema>(response.data!, 'Schema');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Schema>(
@@ -3004,7 +3023,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Organization] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Organization resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Organization>> getOrganization({
@@ -3064,12 +3083,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<Organization>(
           response.data!, 'Organization');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Organization>(
@@ -3103,7 +3123,7 @@ class OrganizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Organization] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one Organization resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Organization>> patchOrganization({
@@ -3157,14 +3177,15 @@ class OrganizationApi {
     try {
       bodyData = organizationPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -3182,12 +3203,13 @@ class OrganizationApi {
       responseData = await _apiClient.deserializeAsync<Organization>(
           response.data!, 'Organization');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Organization>(

@@ -27,7 +27,7 @@ class AuthApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetAuthToken200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetAuthToken200Response>> getAuthToken({
     required String xKeyclicApp,
     required GetAuthTokenRequest getAuthTokenRequest,
@@ -77,14 +77,15 @@ class AuthApi {
     try {
       bodyData = getAuthTokenRequest.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -102,12 +103,13 @@ class AuthApi {
       responseData = await _apiClient.deserializeAsync<GetAuthToken200Response>(
           response.data!, 'GetAuthToken200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetAuthToken200Response>(
@@ -140,7 +142,7 @@ class AuthApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ProfileJsonhalAuthProfileRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<ProfileJsonhalAuthProfileRead>> postAuthProfile({
     required String xKeyclicApp,
     required ProfileProfileInput profileProfileInput,
@@ -190,14 +192,15 @@ class AuthApi {
     try {
       bodyData = profileProfileInput.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -216,12 +219,13 @@ class AuthApi {
           await _apiClient.deserializeAsync<ProfileJsonhalAuthProfileRead>(
               response.data!, 'ProfileJsonhalAuthProfileRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ProfileJsonhalAuthProfileRead>(

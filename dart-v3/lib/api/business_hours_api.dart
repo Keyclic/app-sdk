@@ -28,7 +28,7 @@ class BusinessHoursApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BusinessHoursJsonhalBusinessHoursRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BusinessHoursJsonhalBusinessHoursRead>> getBusinessHours({
     required String identifier,
     required String xKeyclicApp,
@@ -89,12 +89,13 @@ class BusinessHoursApi {
           .deserializeAsync<BusinessHoursJsonhalBusinessHoursRead>(
               response.data!, 'BusinessHoursJsonhalBusinessHoursRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<BusinessHoursJsonhalBusinessHoursRead>(
@@ -130,7 +131,7 @@ class BusinessHoursApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetBusinessHoursCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetBusinessHoursCollection200Response>>
       getBusinessHoursCollection({
     required String xKeyclicApp,
@@ -200,12 +201,13 @@ class BusinessHoursApi {
           .deserializeAsync<GetBusinessHoursCollection200Response>(
               response.data!, 'GetBusinessHoursCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetBusinessHoursCollection200Response>(

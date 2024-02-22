@@ -28,7 +28,7 @@ class EquipmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> deleteEquipment({
     required String identifier,
     required String xKeyclicApp,
@@ -102,7 +102,7 @@ class EquipmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [EquipmentJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<EquipmentJsonhalRead>> getEquipment({
     required String identifier,
     required String xKeyclicApp,
@@ -162,12 +162,13 @@ class EquipmentApi {
       responseData = await _apiClient.deserializeAsync<EquipmentJsonhalRead>(
           response.data!, 'EquipmentJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<EquipmentJsonhalRead>(
@@ -254,7 +255,7 @@ class EquipmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetEquipmentCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetEquipmentCollection200Response>> getEquipmentCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -535,12 +536,13 @@ class EquipmentApi {
           await _apiClient.deserializeAsync<GetEquipmentCollection200Response>(
               response.data!, 'GetEquipmentCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetEquipmentCollection200Response>(
@@ -575,7 +577,7 @@ class EquipmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [EquipmentJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<EquipmentJsonhalRead>> patchEquipment({
     required String identifier,
     required String xKeyclicApp,
@@ -630,14 +632,15 @@ class EquipmentApi {
     try {
       bodyData = equipmentEditEquipmentCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -655,12 +658,13 @@ class EquipmentApi {
       responseData = await _apiClient.deserializeAsync<EquipmentJsonhalRead>(
           response.data!, 'EquipmentJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<EquipmentJsonhalRead>(
@@ -694,7 +698,7 @@ class EquipmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [EquipmentJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<EquipmentJsonhalRead>> postEquipment({
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -747,14 +751,15 @@ class EquipmentApi {
     try {
       bodyData = equipmentCreateEquipmentCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -772,12 +777,13 @@ class EquipmentApi {
       responseData = await _apiClient.deserializeAsync<EquipmentJsonhalRead>(
           response.data!, 'EquipmentJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<EquipmentJsonhalRead>(

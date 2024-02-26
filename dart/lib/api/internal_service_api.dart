@@ -52,7 +52,7 @@ class InternalServiceApi {
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
     List<String>? orderLeftSquareBracketRightSquareBracket,
-    String? archived,
+    bool? archived,
     String? contactPointEmail,
     DateTime? after,
     DateTime? before,

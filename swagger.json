@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.55.1-dev.g21ebcadaa"
+        "version": "2.58.0-dev.ge9754b52a"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -26825,8 +26825,7 @@
         "leaf": {
             "in": "query",
             "name": "leaf",
-            "pattern": ".*",
-            "type": "string"
+            "type": "boolean"
         },
         "level": {
             "format": "int32",
@@ -27007,8 +27006,7 @@
         "archived": {
             "in": "query",
             "name": "archived",
-            "pattern": ".*",
-            "type": "string"
+            "type": "boolean"
         },
         "asset": {
             "in": "query",
@@ -27065,8 +27063,7 @@
         "deep": {
             "in": "query",
             "name": "deep",
-            "pattern": ".*",
-            "type": "string"
+            "type": "boolean"
         },
         "delegated_to": {
             "in": "query",
@@ -27087,8 +27084,7 @@
         "has_documents": {
             "in": "query",
             "name": "has_documents",
-            "pattern": ".*",
-            "type": "string"
+            "type": "boolean"
         },
         "is_empty": {
             "in": "query",
@@ -27552,8 +27548,7 @@
         "has_review": {
             "in": "query",
             "name": "has_review",
-            "pattern": ".*",
-            "type": "string"
+            "type": "boolean"
         },
         "options_property_": {
             "in": "query",

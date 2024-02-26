@@ -203,7 +203,7 @@ class PlaceApi {
     List<String>? geoHashLeftSquareBracketRightSquareBracket,
     String? geoPoint,
     String? geoCoordinates,
-    String? leaf,
+    bool? leaf,
     int? level,
     String? organization,
     List<String>? organizationsLeftSquareBracketRightSquareBracket,

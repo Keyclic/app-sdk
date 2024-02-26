@@ -244,7 +244,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final archived = archived_example; // String | 
+final archived = true; // bool | 
 final asset = asset_example; // String | 
 final assetsLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final batch = batch_example; // String | 
@@ -257,13 +257,13 @@ final afterDueBy = 2013-10-20T19:20:30+01:00; // DateTime |
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
 final beforeDueBy = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
-final deep = deep_example; // String | 
+final deep = true; // bool | 
 final delegatedTo = delegatedTo_example; // String | 
 final delegatedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final hasDocuments = hasDocuments_example; // String | 
+final hasDocuments = true; // bool | 
 final isEmpty = isEmpty_example; // String | 
 final isNull = isNull_example; // String | 
-final leaf = leaf_example; // String | 
+final leaf = true; // bool | 
 final level = 56; // int | 
 final managedBy = managedBy_example; // String | 
 final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **archived** | **String**|  | [optional] 
+ **archived** | **bool**|  | [optional] 
  **asset** | **String**|  | [optional] 
  **assetsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **batch** | **String**|  | [optional] 
@@ -322,13 +322,13 @@ Name | Type | Description  | Notes
  **after** | **DateTime**|  | [optional] 
  **beforeDueBy** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 
- **deep** | **String**|  | [optional] 
+ **deep** | **bool**|  | [optional] 
  **delegatedTo** | **String**|  | [optional] 
  **delegatedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **hasDocuments** | **String**|  | [optional] 
+ **hasDocuments** | **bool**|  | [optional] 
  **isEmpty** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
- **leaf** | **String**|  | [optional] 
+ **leaf** | **bool**|  | [optional] 
  **level** | **int**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]

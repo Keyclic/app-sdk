@@ -23,7 +23,7 @@ class IntegrationLinkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> deleteIntegrationLink({
     required String identifier,
     String? acceptLanguage,
@@ -80,7 +80,7 @@ class IntegrationLinkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> getIntegrationLink({
     required String identifier,
     String? acceptLanguage,
@@ -129,12 +129,13 @@ class IntegrationLinkApi {
           await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(
               response.data!, 'IntegrationLinkJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<IntegrationLinkJsonhalRead>(
@@ -176,7 +177,7 @@ class IntegrationLinkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetIntegrationLinkCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetIntegrationLinkCollection200Response>>
       getIntegrationLinkCollection({
     int? page,
@@ -275,12 +276,13 @@ class IntegrationLinkApi {
           .deserializeAsync<GetIntegrationLinkCollection200Response>(
               response.data!, 'GetIntegrationLinkCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetIntegrationLinkCollection200Response>(
@@ -310,7 +312,7 @@ class IntegrationLinkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> patchIntegrationLink({
     required String identifier,
     required IntegrationLinkEditLinkCommandWrite
@@ -353,14 +355,15 @@ class IntegrationLinkApi {
     try {
       bodyData = integrationLinkEditLinkCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -379,12 +382,13 @@ class IntegrationLinkApi {
           await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(
               response.data!, 'IntegrationLinkJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<IntegrationLinkJsonhalRead>(
@@ -413,7 +417,7 @@ class IntegrationLinkApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationLinkJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<IntegrationLinkJsonhalRead>> postIntegrationLink({
     required IntegrationLinkCreateLinkCommandWrite
         integrationLinkCreateLinkCommandWrite,
@@ -454,14 +458,15 @@ class IntegrationLinkApi {
     try {
       bodyData = integrationLinkCreateLinkCommandWrite.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -480,12 +485,13 @@ class IntegrationLinkApi {
           await _apiClient.deserializeAsync<IntegrationLinkJsonhalRead>(
               response.data!, 'IntegrationLinkJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<IntegrationLinkJsonhalRead>(

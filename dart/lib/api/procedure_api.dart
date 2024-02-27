@@ -32,7 +32,7 @@ class ProcedureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SignerPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Signer resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<SignerPagination>> cgetSignersByProcedure({
@@ -109,12 +109,13 @@ class ProcedureApi {
       responseData = await _apiClient.deserializeAsync<SignerPagination>(
           response.data!, 'SignerPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<SignerPagination>(
@@ -147,7 +148,7 @@ class ProcedureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Procedure] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Procedure resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Procedure>> getProcedure({
@@ -207,12 +208,13 @@ class ProcedureApi {
       responseData = await _apiClient.deserializeAsync<Procedure>(
           response.data!, 'Procedure');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Procedure>(
@@ -245,7 +247,7 @@ class ProcedureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Procedure] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Procedure resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Procedure>> postProcedure({
@@ -297,14 +299,15 @@ class ProcedureApi {
     try {
       bodyData = procedureData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -322,12 +325,13 @@ class ProcedureApi {
       responseData = await _apiClient.deserializeAsync<Procedure>(
           response.data!, 'Procedure');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Procedure>(
@@ -361,7 +365,7 @@ class ProcedureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Procedure] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Workflow resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Procedure>> postWorkflowByProcedure({
@@ -415,14 +419,15 @@ class ProcedureApi {
     try {
       bodyData = procedureWorkflowData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -440,12 +445,13 @@ class ProcedureApi {
       responseData = await _apiClient.deserializeAsync<Procedure>(
           response.data!, 'Procedure');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Procedure>(

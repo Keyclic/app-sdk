@@ -35,7 +35,7 @@ class BusinessActivityApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BusinessActivityPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all BusinessActivity resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<BusinessActivityPagination>> cgetBusinessActivities({
@@ -124,12 +124,13 @@ class BusinessActivityApi {
           await _apiClient.deserializeAsync<BusinessActivityPagination>(
               response.data!, 'BusinessActivityPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<BusinessActivityPagination>(
@@ -162,7 +163,7 @@ class BusinessActivityApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BusinessActivity] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one BusinessActivity resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<BusinessActivity>> getBusinessActivity({
@@ -222,12 +223,13 @@ class BusinessActivityApi {
       responseData = await _apiClient.deserializeAsync<BusinessActivity>(
           response.data!, 'BusinessActivity');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<BusinessActivity>(
@@ -260,7 +262,7 @@ class BusinessActivityApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Schema] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Schema resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Schema>> getSchemaByBusinessActivity({
@@ -320,12 +322,13 @@ class BusinessActivityApi {
       responseData =
           await _apiClient.deserializeAsync<Schema>(response.data!, 'Schema');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Schema>(

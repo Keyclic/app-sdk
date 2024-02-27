@@ -36,7 +36,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DocumentPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Document resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<DocumentPagination>> cgetDocumentsByPerson({
@@ -128,12 +128,13 @@ class PersonApi {
       responseData = await _apiClient.deserializeAsync<DocumentPagination>(
           response.data!, 'DocumentPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<DocumentPagination>(
@@ -180,7 +181,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MemberPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Membership resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<MemberPagination>> cgetMembershipsByPerson({
@@ -283,12 +284,13 @@ class PersonApi {
       responseData = await _apiClient.deserializeAsync<MemberPagination>(
           response.data!, 'MemberPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<MemberPagination>(
@@ -367,7 +369,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [OperationPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Operation resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<OperationPagination>> cgetOperationsByPerson({
@@ -579,12 +581,13 @@ class PersonApi {
       responseData = await _apiClient.deserializeAsync<OperationPagination>(
           response.data!, 'OperationPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<OperationPagination>(
@@ -623,7 +626,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ReviewRequestPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all ReviewRequest resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ReviewRequestPagination>> cgetReviewRequestsByPerson({
@@ -702,12 +705,13 @@ class PersonApi {
       responseData = await _apiClient.deserializeAsync<ReviewRequestPagination>(
           response.data!, 'ReviewRequestPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ReviewRequestPagination>(
@@ -740,7 +744,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Person resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deletePerson({
@@ -813,7 +817,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Feed] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Feed resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Feed>> getFeedByPerson({
@@ -873,12 +877,13 @@ class PersonApi {
       responseData =
           await _apiClient.deserializeAsync<Feed>(response.data!, 'Feed');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Feed>(
@@ -911,7 +916,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Person] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Person resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Person>> getPerson({
@@ -971,12 +976,13 @@ class PersonApi {
       responseData =
           await _apiClient.deserializeAsync<Person>(response.data!, 'Person');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Person>(
@@ -1010,7 +1016,7 @@ class PersonApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Person] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one Person resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Person>> patchPerson({
@@ -1064,14 +1070,15 @@ class PersonApi {
     try {
       bodyData = personPatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -1089,12 +1096,13 @@ class PersonApi {
       responseData =
           await _apiClient.deserializeAsync<Person>(response.data!, 'Person');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Person>(

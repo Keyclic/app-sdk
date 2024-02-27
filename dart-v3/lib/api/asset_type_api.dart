@@ -28,7 +28,7 @@ class AssetTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [AssetTypeJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<AssetTypeJsonhalRead>> getAssetType({
     required String identifier,
     required String xKeyclicApp,
@@ -88,12 +88,13 @@ class AssetTypeApi {
       responseData = await _apiClient.deserializeAsync<AssetTypeJsonhalRead>(
           response.data!, 'AssetTypeJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<AssetTypeJsonhalRead>(
@@ -129,7 +130,7 @@ class AssetTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetAssetTypeCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetAssetTypeCollection200Response>> getAssetTypeCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -198,12 +199,13 @@ class AssetTypeApi {
           await _apiClient.deserializeAsync<GetAssetTypeCollection200Response>(
               response.data!, 'GetAssetTypeCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetAssetTypeCollection200Response>(

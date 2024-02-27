@@ -23,7 +23,7 @@ class IntegrationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [IntegrationJsonhalIntegrationRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<IntegrationJsonhalIntegrationRead>> getIntegration({
     required String identifier,
     String? acceptLanguage,
@@ -72,12 +72,13 @@ class IntegrationApi {
           await _apiClient.deserializeAsync<IntegrationJsonhalIntegrationRead>(
               response.data!, 'IntegrationJsonhalIntegrationRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<IntegrationJsonhalIntegrationRead>(
@@ -123,7 +124,7 @@ class IntegrationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetIntegrationCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetIntegrationCollection200Response>>
       getIntegrationCollection({
     int? page,
@@ -245,12 +246,13 @@ class IntegrationApi {
           .deserializeAsync<GetIntegrationCollection200Response>(
               response.data!, 'GetIntegrationCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetIntegrationCollection200Response>(

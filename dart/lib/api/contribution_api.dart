@@ -33,7 +33,7 @@ class ContributionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ContributionPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Contribution resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<ContributionPagination>> cgetContributions({
@@ -115,12 +115,13 @@ class ContributionApi {
       responseData = await _apiClient.deserializeAsync<ContributionPagination>(
           response.data!, 'ContributionPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<ContributionPagination>(
@@ -153,7 +154,7 @@ class ContributionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Contribution] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Contribution resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Contribution>> getContribution({
@@ -213,12 +214,13 @@ class ContributionApi {
       responseData = await _apiClient.deserializeAsync<Contribution>(
           response.data!, 'Contribution');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Contribution>(
@@ -251,7 +253,7 @@ class ContributionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Contribution] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Contribution resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Contribution>> postContribution({
@@ -303,14 +305,15 @@ class ContributionApi {
     try {
       bodyData = contributionData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -328,12 +331,13 @@ class ContributionApi {
       responseData = await _apiClient.deserializeAsync<Contribution>(
           response.data!, 'Contribution');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Contribution>(

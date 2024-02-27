@@ -27,7 +27,7 @@ class ArticleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Article] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Article resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Article>> getArticle({
@@ -87,12 +87,13 @@ class ArticleApi {
       responseData =
           await _apiClient.deserializeAsync<Article>(response.data!, 'Article');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Article>(

@@ -41,7 +41,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MemberPagination] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Member resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<MemberPagination>> cgetMembersByInternalService({
@@ -144,12 +144,13 @@ class InternalServiceApi {
       responseData = await _apiClient.deserializeAsync<MemberPagination>(
           response.data!, 'MemberPagination');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<MemberPagination>(
@@ -182,7 +183,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteInternalService({
@@ -256,7 +257,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteMemberByInternalServiceAndMember({
@@ -331,7 +332,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [InternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<InternalService>> getInternalService({
@@ -391,12 +392,13 @@ class InternalServiceApi {
       responseData = await _apiClient.deserializeAsync<InternalService>(
           response.data!, 'InternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<InternalService>(
@@ -430,7 +432,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [InternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Edit one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<InternalService>> patchInternalService({
@@ -484,14 +486,15 @@ class InternalServiceApi {
     try {
       bodyData = internalServicePatch.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -509,12 +512,13 @@ class InternalServiceApi {
       responseData = await _apiClient.deserializeAsync<InternalService>(
           response.data!, 'InternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<InternalService>(
@@ -547,7 +551,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [InternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one InternalService resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<InternalService>> postInternalService({
@@ -599,14 +603,15 @@ class InternalServiceApi {
     try {
       bodyData = internalServiceData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -624,12 +629,13 @@ class InternalServiceApi {
       responseData = await _apiClient.deserializeAsync<InternalService>(
           response.data!, 'InternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<InternalService>(
@@ -663,7 +669,7 @@ class InternalServiceApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [InternalService] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Member resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<InternalService>> postMemberByInternalService({
@@ -717,14 +723,15 @@ class InternalServiceApi {
     try {
       bodyData = serviceMemberData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -742,12 +749,13 @@ class InternalServiceApi {
       responseData = await _apiClient.deserializeAsync<InternalService>(
           response.data!, 'InternalService');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<InternalService>(

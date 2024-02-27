@@ -28,7 +28,7 @@ class TicketApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TicketJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<TicketJsonhalRead>> getTicket({
     required String identifier,
     required String xKeyclicApp,
@@ -88,12 +88,13 @@ class TicketApi {
       responseData = await _apiClient.deserializeAsync<TicketJsonhalRead>(
           response.data!, 'TicketJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<TicketJsonhalRead>(
@@ -186,7 +187,7 @@ class TicketApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetTicketCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetTicketCollection200Response>> getTicketCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -481,12 +482,13 @@ class TicketApi {
           await _apiClient.deserializeAsync<GetTicketCollection200Response>(
               response.data!, 'GetTicketCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetTicketCollection200Response>(

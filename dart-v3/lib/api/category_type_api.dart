@@ -28,7 +28,7 @@ class CategoryTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CategoryTypeJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<CategoryTypeJsonhalRead>> getCategoryType({
     required String identifier,
     required String xKeyclicApp,
@@ -88,12 +88,13 @@ class CategoryTypeApi {
       responseData = await _apiClient.deserializeAsync<CategoryTypeJsonhalRead>(
           response.data!, 'CategoryTypeJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<CategoryTypeJsonhalRead>(
@@ -129,7 +130,7 @@ class CategoryTypeApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetCategoryTypeCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetCategoryTypeCollection200Response>>
       getCategoryTypeCollection({
     required String xKeyclicApp,
@@ -199,12 +200,13 @@ class CategoryTypeApi {
           .deserializeAsync<GetCategoryTypeCollection200Response>(
               response.data!, 'GetCategoryTypeCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetCategoryTypeCollection200Response>(

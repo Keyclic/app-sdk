@@ -28,7 +28,7 @@ class BrandApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BrandJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BrandJsonhalRead>> getBrand({
     required String identifier,
     required String xKeyclicApp,
@@ -88,12 +88,13 @@ class BrandApi {
       responseData = await _apiClient.deserializeAsync<BrandJsonhalRead>(
           response.data!, 'BrandJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<BrandJsonhalRead>(
@@ -129,7 +130,7 @@ class BrandApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GetBrandCollection200Response] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<GetBrandCollection200Response>> getBrandCollection({
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -198,12 +199,13 @@ class BrandApi {
           await _apiClient.deserializeAsync<GetBrandCollection200Response>(
               response.data!, 'GetBrandCollection200Response');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<GetBrandCollection200Response>(

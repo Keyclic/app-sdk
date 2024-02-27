@@ -28,7 +28,7 @@ class WorkflowStateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [WorkflowStateJsonhalRead] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<WorkflowStateJsonhalRead>> getState({
     required String identifier,
     required String xKeyclicApp,
@@ -89,12 +89,13 @@ class WorkflowStateApi {
           await _apiClient.deserializeAsync<WorkflowStateJsonhalRead>(
               response.data!, 'WorkflowStateJsonhalRead');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<WorkflowStateJsonhalRead>(

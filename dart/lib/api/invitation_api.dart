@@ -27,7 +27,7 @@ class InvitationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Remove one Invitation resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<void>> deleteInvitation({
@@ -100,7 +100,7 @@ class InvitationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Invitation] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve one Invitation resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Invitation>> getInvitation({
@@ -160,12 +160,13 @@ class InvitationApi {
       responseData = await _apiClient.deserializeAsync<Invitation>(
           response.data!, 'Invitation');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Invitation>(
@@ -198,7 +199,7 @@ class InvitationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Invitation] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Create one Invitation resource. Documentation](https://docs.keyclic.com/fr/master/overview.html)
   Future<Response<Invitation>> postInvitation({
@@ -250,14 +251,15 @@ class InvitationApi {
     try {
       bodyData = invitationData.toJson(bodyParameters);
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: options.compose(
           _apiClient.dio.options,
           path,
         ),
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     final response = await _apiClient.dio.request<Object>(
@@ -275,12 +277,13 @@ class InvitationApi {
       responseData = await _apiClient.deserializeAsync<Invitation>(
           response.data!, 'Invitation');
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
+        error: error,
         requestOptions: response.requestOptions,
         response: response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
     }
 
     return Response<Invitation>(

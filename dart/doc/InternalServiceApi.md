@@ -39,7 +39,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final archived = archived_example; // String | 
+final archived = true; // bool | 
 final contactPointEmail = contactPointEmail_example; // String | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **archived** | **String**|  | [optional] 
+ **archived** | **bool**|  | [optional] 
  **contactPointEmail** | **String**|  | [optional] 
  **after** | **DateTime**|  | [optional] 
  **before** | **DateTime**|  | [optional] 

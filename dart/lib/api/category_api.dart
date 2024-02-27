@@ -56,7 +56,7 @@ class CategoryApi {
     DateTime? before,
     String? geoPoint,
     String? geoCoordinates,
-    String? leaf,
+    bool? leaf,
     int? level,
     String? organization,
     List<String>? organizationsLeftSquareBracketRightSquareBracket,

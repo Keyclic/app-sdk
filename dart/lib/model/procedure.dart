@@ -41,8 +41,8 @@ class Procedure {
       links: ProcedureLinks.fromJson(json[r'_links']),
       createdAt: createdAt,
       id: json[r'id'],
-      mode: json[r'mode'],
-      state: json[r'state'],
+      mode: ProcedureModeEnum.fromJson(json[r'mode'])!,
+      state: ProcedureStateEnum.fromJson(json[r'state']),
       type: json[r'type'],
       updatedAt: updatedAt,
     );
@@ -56,9 +56,9 @@ class Procedure {
 
   final String? id;
 
-  String mode;
+  ProcedureModeEnum mode;
 
-  String? state;
+  ProcedureStateEnum? state;
 
   String? type;
 
@@ -172,4 +172,156 @@ class Procedure {
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
+}
+
+class ProcedureModeEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ProcedureModeEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const onSite = ProcedureModeEnum._(r'on_site');
+  static const remote = ProcedureModeEnum._(r'remote');
+
+  /// List of all possible values in this [enum][ProcedureModeEnum].
+  static const values = <ProcedureModeEnum>[
+    onSite,
+    remote,
+  ];
+
+  static ProcedureModeEnum? fromJson(dynamic value) =>
+      ProcedureModeEnumTypeTransformer().decode(value);
+
+  static List<ProcedureModeEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return ProcedureModeEnum.fromJson(value);
+        })
+        .whereType<ProcedureModeEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ProcedureModeEnum] to String,
+/// and [decode] dynamic data back to [ProcedureModeEnum].
+class ProcedureModeEnumTypeTransformer {
+  const ProcedureModeEnumTypeTransformer._();
+
+  factory ProcedureModeEnumTypeTransformer() =>
+      _instance ??= ProcedureModeEnumTypeTransformer._();
+
+  String encode(ProcedureModeEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ProcedureModeEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ProcedureModeEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'on_site':
+        return ProcedureModeEnum.onSite;
+      case r'remote':
+        return ProcedureModeEnum.remote;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ProcedureModeEnumTypeTransformer] instance.
+  static ProcedureModeEnumTypeTransformer? _instance;
+}
+
+class ProcedureStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ProcedureStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const ACTIVE = ProcedureStateEnum._(r'ACTIVE');
+  static const DRAFT = ProcedureStateEnum._(r'DRAFT');
+  static const EXPIRED = ProcedureStateEnum._(r'EXPIRED');
+  static const FINISHED = ProcedureStateEnum._(r'FINISHED');
+  static const REFUSED = ProcedureStateEnum._(r'REFUSED');
+
+  /// List of all possible values in this [enum][ProcedureStateEnum].
+  static const values = <ProcedureStateEnum>[
+    ACTIVE,
+    DRAFT,
+    EXPIRED,
+    FINISHED,
+    REFUSED,
+  ];
+
+  static ProcedureStateEnum? fromJson(dynamic value) =>
+      ProcedureStateEnumTypeTransformer().decode(value);
+
+  static List<ProcedureStateEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return ProcedureStateEnum.fromJson(value);
+        })
+        .whereType<ProcedureStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ProcedureStateEnum] to String,
+/// and [decode] dynamic data back to [ProcedureStateEnum].
+class ProcedureStateEnumTypeTransformer {
+  const ProcedureStateEnumTypeTransformer._();
+
+  factory ProcedureStateEnumTypeTransformer() =>
+      _instance ??= ProcedureStateEnumTypeTransformer._();
+
+  String encode(ProcedureStateEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ProcedureStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ProcedureStateEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'ACTIVE':
+        return ProcedureStateEnum.ACTIVE;
+      case r'DRAFT':
+        return ProcedureStateEnum.DRAFT;
+      case r'EXPIRED':
+        return ProcedureStateEnum.EXPIRED;
+      case r'FINISHED':
+        return ProcedureStateEnum.FINISHED;
+      case r'REFUSED':
+        return ProcedureStateEnum.REFUSED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ProcedureStateEnumTypeTransformer] instance.
+  static ProcedureStateEnumTypeTransformer? _instance;
 }

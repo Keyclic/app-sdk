@@ -10,8 +10,8 @@ class CategoryTypeRead {
     this.id,
     this.createdAt,
     this.updatedAt,
-    required this.name,
     this.description,
+    required this.name,
   });
 
   /// Returns a new [CategoryTypeRead] instance and imports its values from
@@ -37,8 +37,8 @@ class CategoryTypeRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
-      name: json[r'name'],
       description: json[r'description'],
+      name: json[r'name'],
     );
   }
 
@@ -51,9 +51,9 @@ class CategoryTypeRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  String name;
-
   String? description;
+
+  String name;
 
   @override
   bool operator ==(Object other) {
@@ -66,8 +66,8 @@ class CategoryTypeRead {
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
-        other.name == name &&
-        other.description == description;
+        other.description == description &&
+        other.name == name;
   }
 
   @override
@@ -75,8 +75,8 @@ class CategoryTypeRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      name.hashCode +
-      (description == null ? 0 : description.hashCode);
+      (description == null ? 0 : description.hashCode) +
+      name.hashCode;
 
   static List<CategoryTypeRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -125,7 +125,7 @@ class CategoryTypeRead {
 
   @override
   String toString() =>
-      'CategoryTypeRead[id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name, description=$description]';
+      'CategoryTypeRead[id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -134,9 +134,9 @@ class CategoryTypeRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      r'name': name,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      r'name': name,
     };
   }
 }

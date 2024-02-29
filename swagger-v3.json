@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.54.0-dev.gbfb45825f"
+        "version": "2.58.0-dev.ge9754b52a"
     },
     "servers": [
         {
@@ -10109,16 +10109,16 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
                     "description": {
                         "minLength": 1,
                         "maxLength": 500,
                         "type": "string",
                         "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
                     }
                 },
                 "required": [
@@ -10161,16 +10161,16 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
                     "description": {
                         "minLength": 1,
                         "maxLength": 500,
                         "type": "string",
                         "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
                     }
                 },
                 "required": [

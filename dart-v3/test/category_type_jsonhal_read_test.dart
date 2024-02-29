@@ -25,10 +25,10 @@ void main() {
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
 
-    // String name
-    test('to test the property `name`', () async {});
-
     // String description
     test('to test the property `description`', () async {});
+
+    // String name
+    test('to test the property `name`', () async {});
   });
 }

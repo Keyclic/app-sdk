@@ -11,8 +11,8 @@ class CategoryTypeJsonhalRead {
     this.id,
     this.createdAt,
     this.updatedAt,
-    required this.name,
     this.description,
+    required this.name,
   });
 
   /// Returns a new [CategoryTypeJsonhalRead] instance and imports its values from
@@ -39,8 +39,8 @@ class CategoryTypeJsonhalRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
-      name: json[r'name'],
       description: json[r'description'],
+      name: json[r'name'],
     );
   }
 
@@ -55,9 +55,9 @@ class CategoryTypeJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  String name;
-
   String? description;
+
+  String name;
 
   @override
   bool operator ==(Object other) {
@@ -71,8 +71,8 @@ class CategoryTypeJsonhalRead {
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
-        other.name == name &&
-        other.description == description;
+        other.description == description &&
+        other.name == name;
   }
 
   @override
@@ -81,8 +81,8 @@ class CategoryTypeJsonhalRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      name.hashCode +
-      (description == null ? 0 : description.hashCode);
+      (description == null ? 0 : description.hashCode) +
+      name.hashCode;
 
   static List<CategoryTypeJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -134,7 +134,7 @@ class CategoryTypeJsonhalRead {
 
   @override
   String toString() =>
-      'CategoryTypeJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, name=$name, description=$description]';
+      'CategoryTypeJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -152,9 +152,9 @@ class CategoryTypeJsonhalRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      r'name': name,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      r'name': name,
     };
   }
 }

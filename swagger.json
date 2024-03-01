@@ -21950,6 +21950,8 @@
                 },
                 "identificationNumber": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "name": {
@@ -23868,10 +23870,21 @@
                     "type": "string"
                 },
                 "mode": {
+                    "enum": [
+                        "on_site",
+                        "remote"
+                    ],
                     "format": "string",
                     "type": "string"
                 },
                 "state": {
+                    "enum": [
+                        "ACTIVE",
+                        "DRAFT",
+                        "EXPIRED",
+                        "FINISHED",
+                        "REFUSED"
+                    ],
                     "format": "string",
                     "maxLength": 18,
                     "type": "string"
@@ -24409,6 +24422,8 @@
                 },
                 "identificationNumber": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "phase": {
@@ -25935,6 +25950,11 @@
                     "$ref": "#\/definitions\/SignerSignature"
                 },
                 "state": {
+                    "enum": [
+                        "DONE",
+                        "PENDING",
+                        "REFUSED"
+                    ],
                     "format": "string",
                     "maxLength": 18,
                     "type": "string"
@@ -26137,6 +26157,8 @@
                 },
                 "identificationNumber": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "name": {

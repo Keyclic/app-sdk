@@ -27,7 +27,7 @@ class Signer {
       links: SignerLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       signature: SignerSignature.fromJson(json[r'signature']),
-      state: json[r'state'],
+      state: SignerStateEnum.fromJson(json[r'state']),
       type: json[r'type'],
     );
   }
@@ -40,7 +40,7 @@ class Signer {
 
   SignerSignature? signature;
 
-  String? state;
+  SignerStateEnum? state;
 
   String? type;
 
@@ -151,4 +151,78 @@ class Signer {
       if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
+}
+
+class SignerStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const SignerStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const DONE = SignerStateEnum._(r'DONE');
+  static const PENDING = SignerStateEnum._(r'PENDING');
+  static const REFUSED = SignerStateEnum._(r'REFUSED');
+
+  /// List of all possible values in this [enum][SignerStateEnum].
+  static const values = <SignerStateEnum>[
+    DONE,
+    PENDING,
+    REFUSED,
+  ];
+
+  static SignerStateEnum? fromJson(dynamic value) =>
+      SignerStateEnumTypeTransformer().decode(value);
+
+  static List<SignerStateEnum> listFromJson(List<dynamic> json) {
+    return json
+        .map((value) {
+          return SignerStateEnum.fromJson(value);
+        })
+        .whereType<SignerStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [SignerStateEnum] to String,
+/// and [decode] dynamic data back to [SignerStateEnum].
+class SignerStateEnumTypeTransformer {
+  const SignerStateEnumTypeTransformer._();
+
+  factory SignerStateEnumTypeTransformer() =>
+      _instance ??= SignerStateEnumTypeTransformer._();
+
+  String encode(SignerStateEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a SignerStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  SignerStateEnum? decode(dynamic data, {bool allowNull = true}) {
+    switch (data) {
+      case r'DONE':
+        return SignerStateEnum.DONE;
+      case r'PENDING':
+        return SignerStateEnum.PENDING;
+      case r'REFUSED':
+        return SignerStateEnum.REFUSED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [SignerStateEnumTypeTransformer] instance.
+  static SignerStateEnumTypeTransformer? _instance;
 }

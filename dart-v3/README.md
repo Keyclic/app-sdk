@@ -105,6 +105,8 @@ Class | Method | HTTP request | Description
 *SlaPolicyApi* | [**getSlaPolicyCollection**](doc//SlaPolicyApi.md#getslapolicycollection) | **GET** /sla-policies | Retrieves the collection of SlaPolicy resources.
 *TicketApi* | [**getTicket**](doc//TicketApi.md#getticket) | **GET** /tickets/{identifier} | Retrieves a Ticket resource.
 *TicketApi* | [**getTicketCollection**](doc//TicketApi.md#getticketcollection) | **GET** /tickets | Retrieves the collection of Ticket resources.
+*TicketApi* | [**patchTicket**](doc//TicketApi.md#patchticket) | **PATCH** /tickets/{identifier} | Updates the Ticket resource.
+*TicketApi* | [**postTicket**](doc//TicketApi.md#postticket) | **POST** /tickets | Creates a Ticket resource.
 *TicketTypeApi* | [**getTicketType**](doc//TicketTypeApi.md#gettickettype) | **GET** /ticket-types/{identifier} | Retrieves a TicketType resource.
 *TicketTypeApi* | [**getTicketTypeCollection**](doc//TicketTypeApi.md#gettickettypecollection) | **GET** /ticket-types | Retrieves the collection of TicketType resources.
 *WorkflowStateApi* | [**getState**](doc//WorkflowStateApi.md#getstate) | **GET** /workflow-states/{identifier} | Retrieves a WorkflowState resource.
@@ -118,6 +120,9 @@ Class | Method | HTTP request | Description
  - [AssetTypeJsonhalRead](doc//AssetTypeJsonhalRead.md)
  - [AssetTypeJsonhalReadLinks](doc//AssetTypeJsonhalReadLinks.md)
  - [AssetTypeRead](doc//AssetTypeRead.md)
+ - [AssignmentJsonhalRead](doc//AssignmentJsonhalRead.md)
+ - [AssignmentJsonhalReadLinks](doc//AssignmentJsonhalReadLinks.md)
+ - [AssignmentRead](doc//AssignmentRead.md)
  - [BillingJsonhalRead](doc//BillingJsonhalRead.md)
  - [BillingRead](doc//BillingRead.md)
  - [BillingWrite](doc//BillingWrite.md)
@@ -125,6 +130,8 @@ Class | Method | HTTP request | Description
  - [BrandRead](doc//BrandRead.md)
  - [BusinessHoursBusinessHoursRead](doc//BusinessHoursBusinessHoursRead.md)
  - [BusinessHoursJsonhalBusinessHoursRead](doc//BusinessHoursJsonhalBusinessHoursRead.md)
+ - [CategoryJsonhalRead](doc//CategoryJsonhalRead.md)
+ - [CategoryRead](doc//CategoryRead.md)
  - [CategoryTypeJsonhalRead](doc//CategoryTypeJsonhalRead.md)
  - [CategoryTypeRead](doc//CategoryTypeRead.md)
  - [ConditionJsonhalSlaPolicyRead](doc//ConditionJsonhalSlaPolicyRead.md)
@@ -145,6 +152,12 @@ Class | Method | HTTP request | Description
  - [EquipmentJsonhalRead](doc//EquipmentJsonhalRead.md)
  - [EquipmentJsonhalReadLinks](doc//EquipmentJsonhalReadLinks.md)
  - [EquipmentRead](doc//EquipmentRead.md)
+ - [FeedbackJsonhalRead](doc//FeedbackJsonhalRead.md)
+ - [FeedbackJsonhalReadEmbedded](doc//FeedbackJsonhalReadEmbedded.md)
+ - [FeedbackJsonhalReadLinks](doc//FeedbackJsonhalReadLinks.md)
+ - [FeedbackRead](doc//FeedbackRead.md)
+ - [GeoCoordinatesJsonhalRead](doc//GeoCoordinatesJsonhalRead.md)
+ - [GeoCoordinatesRead](doc//GeoCoordinatesRead.md)
  - [GetAssetCollection200Response](doc//GetAssetCollection200Response.md)
  - [GetAssetCollection200ResponseEmbedded](doc//GetAssetCollection200ResponseEmbedded.md)
  - [GetAssetTypeCollection200Response](doc//GetAssetTypeCollection200Response.md)
@@ -183,8 +196,18 @@ Class | Method | HTTP request | Description
  - [IntegrationLinkEditLinkCommandWrite](doc//IntegrationLinkEditLinkCommandWrite.md)
  - [IntegrationLinkJsonhalRead](doc//IntegrationLinkJsonhalRead.md)
  - [IntegrationLinkRead](doc//IntegrationLinkRead.md)
+ - [MarkerJsonhalRead](doc//MarkerJsonhalRead.md)
+ - [MarkerRead](doc//MarkerRead.md)
+ - [PlaceJsonhalRead](doc//PlaceJsonhalRead.md)
+ - [PlaceJsonhalReadEmbedded](doc//PlaceJsonhalReadEmbedded.md)
+ - [PlaceJsonhalReadLinks](doc//PlaceJsonhalReadLinks.md)
+ - [PlaceRead](doc//PlaceRead.md)
+ - [PointJsonhalRead](doc//PointJsonhalRead.md)
+ - [PointRead](doc//PointRead.md)
  - [PostalAddressJsonhalRead](doc//PostalAddressJsonhalRead.md)
  - [PostalAddressRead](doc//PostalAddressRead.md)
+ - [PreferencesJsonhalRead](doc//PreferencesJsonhalRead.md)
+ - [PreferencesRead](doc//PreferencesRead.md)
  - [PriceJsonhalRead](doc//PriceJsonhalRead.md)
  - [PriceRead](doc//PriceRead.md)
  - [PriceWrite](doc//PriceWrite.md)
@@ -195,8 +218,12 @@ Class | Method | HTTP request | Description
  - [RenewalRead](doc//RenewalRead.md)
  - [RenewalWrite](doc//RenewalWrite.md)
  - [SlaPolicyJsonhalSlaPolicyRead](doc//SlaPolicyJsonhalSlaPolicyRead.md)
+ - [SlaPolicyJsonhalSlaPolicyReadEmbedded](doc//SlaPolicyJsonhalSlaPolicyReadEmbedded.md)
  - [SlaPolicySlaPolicyRead](doc//SlaPolicySlaPolicyRead.md)
+ - [TicketCreateTicketCommandWrite](doc//TicketCreateTicketCommandWrite.md)
+ - [TicketEditTicketCommandWrite](doc//TicketEditTicketCommandWrite.md)
  - [TicketJsonhalRead](doc//TicketJsonhalRead.md)
+ - [TicketJsonhalReadEmbedded](doc//TicketJsonhalReadEmbedded.md)
  - [TicketJsonhalReadLinks](doc//TicketJsonhalReadLinks.md)
  - [TicketPriorityJsonhalRead](doc//TicketPriorityJsonhalRead.md)
  - [TicketPriorityRead](doc//TicketPriorityRead.md)

@@ -7,6 +7,8 @@ part of keyclic_sdk_api_platform;
 class TicketPriorityRead {
   /// Returns a new [TicketPriorityRead] instance.
   TicketPriorityRead({
+    this.color,
+    this.name,
     this.id,
     this.position,
   });
@@ -19,10 +21,16 @@ class TicketPriorityRead {
     }
 
     return TicketPriorityRead(
+      color: json[r'color'],
+      name: json[r'name'],
       id: json[r'id'],
       position: json[r'position'],
     );
   }
+
+  String? color;
+
+  String? name;
 
   /// The resource identifier.
   final String? id;
@@ -37,12 +45,16 @@ class TicketPriorityRead {
     }
 
     return other is TicketPriorityRead &&
+        other.color == color &&
+        other.name == name &&
         other.id == id &&
         other.position == position;
   }
 
   @override
   int get hashCode =>
+      (color == null ? 0 : color.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (position == null ? 0 : position.hashCode);
 
@@ -94,10 +106,13 @@ class TicketPriorityRead {
   }
 
   @override
-  String toString() => 'TicketPriorityRead[id=$id, position=$position]';
+  String toString() =>
+      'TicketPriorityRead[color=$color, name=$name, id=$id, position=$position]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'color')) r'color': color,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'position')) r'position': position,
     };

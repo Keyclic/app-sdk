@@ -11,10 +11,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getTicket**](TicketApi.md#getticket) | **GET** /tickets/{identifier} | Retrieves a Ticket resource.
 [**getTicketCollection**](TicketApi.md#getticketcollection) | **GET** /tickets | Retrieves the collection of Ticket resources.
+[**patchTicket**](TicketApi.md#patchticket) | **PATCH** /tickets/{identifier} | Updates the Ticket resource.
+[**postTicket**](TicketApi.md#postticket) | **POST** /tickets | Creates a Ticket resource.
 
 
 # **getTicket**
-> TicketJsonhalRead getTicket(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> TicketJsonhalRead getTicket(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
 
 Retrieves a Ticket resource.
 
@@ -36,9 +38,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = xEnableDispatch_example; // bool | 
 
 try { 
-    final result = api_instance.getTicket(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTicket(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
     print('Exception when calling TicketApi->getTicket: $e\n');
@@ -56,6 +59,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -73,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTicketCollection**
-> GetTicketCollection200Response getTicketCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, dueByLeftSquareBracketBeforeRightSquareBracket, dueByLeftSquareBracketStrictlyBeforeRightSquareBracket, dueByLeftSquareBracketAfterRightSquareBracket, dueByLeftSquareBracketStrictlyAfterRightSquareBracket, scheduledAtLeftSquareBracketBeforeRightSquareBracket, scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket, scheduledAtLeftSquareBracketAfterRightSquareBracket, scheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, existsLeftSquareBracketArchivedAtRightSquareBracket, existsLeftSquareBracketAssignmentsRightSquareBracket, existsLeftSquareBracketDocumentsRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketDueByRightSquareBracket, orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket, orderLeftSquareBracketScheduledAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, assignmentsPeriodService, assignmentsPeriodServiceLeftSquareBracketRightSquareBracket, assignmentsPeriodServicePeriodManager, assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket, category, categoryLeftSquareBracketRightSquareBracket, categoryPeriodType, categoryPeriodTypeLeftSquareBracketRightSquareBracket, childrenPeriodAssignmentsPeriodMember, childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket, childrenPeriodState, childrenPeriodStateLeftSquareBracketRightSquareBracket, createdBy, createdByLeftSquareBracketRightSquareBracket, equipments, equipmentsLeftSquareBracketRightSquareBracket, feedbackPeriodBatch, feedbackPeriodBatchLeftSquareBracketRightSquareBracket, feedbackPeriodVisibility, feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, phase, phaseLeftSquareBracketRightSquareBracket, place, placeLeftSquareBracketRightSquareBracket, priority, priorityLeftSquareBracketRightSquareBracket, reviewsPeriodReviewRating, reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetTicketCollection200Response getTicketCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, dueByLeftSquareBracketBeforeRightSquareBracket, dueByLeftSquareBracketStrictlyBeforeRightSquareBracket, dueByLeftSquareBracketAfterRightSquareBracket, dueByLeftSquareBracketStrictlyAfterRightSquareBracket, scheduledAtLeftSquareBracketBeforeRightSquareBracket, scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket, scheduledAtLeftSquareBracketAfterRightSquareBracket, scheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, existsLeftSquareBracketArchivedAtRightSquareBracket, existsLeftSquareBracketAssignmentsRightSquareBracket, existsLeftSquareBracketDocumentsRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketDueByRightSquareBracket, orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket, orderLeftSquareBracketScheduledAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, assignmentsPeriodService, assignmentsPeriodServiceLeftSquareBracketRightSquareBracket, assignmentsPeriodServicePeriodManager, assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket, category, categoryLeftSquareBracketRightSquareBracket, categoryPeriodType, categoryPeriodTypeLeftSquareBracketRightSquareBracket, childrenPeriodAssignmentsPeriodMember, childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket, childrenPeriodState, childrenPeriodStateLeftSquareBracketRightSquareBracket, createdBy, createdByLeftSquareBracketRightSquareBracket, equipments, equipmentsLeftSquareBracketRightSquareBracket, feedbackPeriodBatch, feedbackPeriodBatchLeftSquareBracketRightSquareBracket, feedbackPeriodVisibility, feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, phase, phaseLeftSquareBracketRightSquareBracket, place, placeLeftSquareBracketRightSquareBracket, priority, priorityLeftSquareBracketRightSquareBracket, reviewsPeriodReviewRating, reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
 
 Retrieves the collection of Ticket resources.
 
@@ -156,9 +160,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = xEnableDispatch_example; // bool | 
 
 try { 
-    final result = api_instance.getTicketCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, dueByLeftSquareBracketBeforeRightSquareBracket, dueByLeftSquareBracketStrictlyBeforeRightSquareBracket, dueByLeftSquareBracketAfterRightSquareBracket, dueByLeftSquareBracketStrictlyAfterRightSquareBracket, scheduledAtLeftSquareBracketBeforeRightSquareBracket, scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket, scheduledAtLeftSquareBracketAfterRightSquareBracket, scheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, existsLeftSquareBracketArchivedAtRightSquareBracket, existsLeftSquareBracketAssignmentsRightSquareBracket, existsLeftSquareBracketDocumentsRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketDueByRightSquareBracket, orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket, orderLeftSquareBracketScheduledAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, assignmentsPeriodService, assignmentsPeriodServiceLeftSquareBracketRightSquareBracket, assignmentsPeriodServicePeriodManager, assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket, category, categoryLeftSquareBracketRightSquareBracket, categoryPeriodType, categoryPeriodTypeLeftSquareBracketRightSquareBracket, childrenPeriodAssignmentsPeriodMember, childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket, childrenPeriodState, childrenPeriodStateLeftSquareBracketRightSquareBracket, createdBy, createdByLeftSquareBracketRightSquareBracket, equipments, equipmentsLeftSquareBracketRightSquareBracket, feedbackPeriodBatch, feedbackPeriodBatchLeftSquareBracketRightSquareBracket, feedbackPeriodVisibility, feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, phase, phaseLeftSquareBracketRightSquareBracket, place, placeLeftSquareBracketRightSquareBracket, priority, priorityLeftSquareBracketRightSquareBracket, reviewsPeriodReviewRating, reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTicketCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, dueByLeftSquareBracketBeforeRightSquareBracket, dueByLeftSquareBracketStrictlyBeforeRightSquareBracket, dueByLeftSquareBracketAfterRightSquareBracket, dueByLeftSquareBracketStrictlyAfterRightSquareBracket, scheduledAtLeftSquareBracketBeforeRightSquareBracket, scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket, scheduledAtLeftSquareBracketAfterRightSquareBracket, scheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, existsLeftSquareBracketArchivedAtRightSquareBracket, existsLeftSquareBracketAssignmentsRightSquareBracket, existsLeftSquareBracketDocumentsRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketDueByRightSquareBracket, orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket, orderLeftSquareBracketScheduledAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, assignmentsPeriodService, assignmentsPeriodServiceLeftSquareBracketRightSquareBracket, assignmentsPeriodServicePeriodManager, assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket, category, categoryLeftSquareBracketRightSquareBracket, categoryPeriodType, categoryPeriodTypeLeftSquareBracketRightSquareBracket, childrenPeriodAssignmentsPeriodMember, childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket, childrenPeriodState, childrenPeriodStateLeftSquareBracketRightSquareBracket, createdBy, createdByLeftSquareBracketRightSquareBracket, equipments, equipmentsLeftSquareBracketRightSquareBracket, feedbackPeriodBatch, feedbackPeriodBatchLeftSquareBracketRightSquareBracket, feedbackPeriodVisibility, feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, phase, phaseLeftSquareBracketRightSquareBracket, place, placeLeftSquareBracketRightSquareBracket, priority, priorityLeftSquareBracketRightSquareBracket, reviewsPeriodReviewRating, reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
     print('Exception when calling TicketApi->getTicketCollection: $e\n');
@@ -237,6 +242,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -249,6 +255,130 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **patchTicket**
+> TicketJsonhalRead patchTicket(identifier, xKeyclicApp, xOrganizationId, ticketEditTicketCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
+
+Updates the Ticket resource.
+
+Updates the Ticket resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = TicketApi();
+final identifier = identifier_example; // String | Task identifier
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final ticketEditTicketCommandWrite = TicketEditTicketCommandWrite(); // TicketEditTicketCommandWrite | The updated Ticket resource
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = xEnableDispatch_example; // bool | 
+
+try { 
+    final result = api_instance.patchTicket(identifier, xKeyclicApp, xOrganizationId, ticketEditTicketCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
+    print(result);
+} catch (e) {
+    print('Exception when calling TicketApi->patchTicket: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifier** | **String**| Task identifier | 
+ **xKeyclicApp** | **String**|  | 
+ **xOrganizationId** | **String**|  | 
+ **ticketEditTicketCommandWrite** | [**TicketEditTicketCommandWrite**](TicketEditTicketCommandWrite.md)| The updated Ticket resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
+
+### Return type
+
+[**TicketJsonhalRead**](TicketJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postTicket**
+> TicketJsonhalRead postTicket(xKeyclicApp, xOrganizationId, ticketCreateTicketCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
+
+Creates a Ticket resource.
+
+Creates a Ticket resource.
+
+### Example 
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = TicketApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
+final ticketCreateTicketCommandWrite = TicketCreateTicketCommandWrite(); // TicketCreateTicketCommandWrite | The new Ticket resource
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = xEnableDispatch_example; // bool | 
+
+try { 
+    final result = api_instance.postTicket(xKeyclicApp, xOrganizationId, ticketCreateTicketCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
+    print(result);
+} catch (e) {
+    print('Exception when calling TicketApi->postTicket: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | 
+ **xOrganizationId** | **String**|  | 
+ **ticketCreateTicketCommandWrite** | [**TicketCreateTicketCommandWrite**](TicketCreateTicketCommandWrite.md)| The new Ticket resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
+
+### Return type
+
+[**TicketJsonhalRead**](TicketJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/hal+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

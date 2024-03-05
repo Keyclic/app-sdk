@@ -10,6 +10,12 @@ void main() {
   // final instance = TicketPriorityRead();
 
   group('test TicketPriorityRead', () {
+    // String color
+    test('to test the property `color`', () async {});
+
+    // String name
+    test('to test the property `name`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});

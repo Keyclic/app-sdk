@@ -58,6 +58,9 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
+    // PreferencesJsonhalRead preferences
+    test('to test the property `preferences`', () async {});
+
     // PostalAddressJsonhalRead address
     test('to test the property `address`', () async {});
   });

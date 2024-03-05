@@ -20,6 +20,7 @@ class TicketApi {
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
   /// * [xKeyclicAppVersion] -
+  /// * [xEnableDispatch] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -37,6 +38,7 @@ class TicketApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -57,6 +59,7 @@ class TicketApi {
           r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'X-Enable-Dispatch': xEnableDispatch,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -181,6 +184,7 @@ class TicketApi {
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
   /// * [xKeyclicAppVersion] -
+  /// * [xEnableDispatch] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -261,6 +265,7 @@ class TicketApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -280,6 +285,7 @@ class TicketApi {
           r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'X-Enable-Dispatch': xEnableDispatch,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
@@ -501,6 +507,251 @@ class TicketApi {
     }
 
     return Response<GetTicketCollection200Response>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+  }
+
+  /// Updates the Ticket resource.
+  /// Updates the Ticket resource.
+  ///
+  /// Parameters:
+  /// * [identifier] - Task identifier
+  /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
+  /// * [ticketEditTicketCommandWrite] - The updated Ticket resource
+  /// * [acceptLanguage] -
+  /// * [xDateTime] -
+  /// * [xKeyclicAppPlatform] -
+  /// * [xKeyclicAppVersion] -
+  /// * [xEnableDispatch] -
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [TicketJsonhalRead] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TicketJsonhalRead>> patchTicket({
+    required String identifier,
+    required String xKeyclicApp,
+    required String xOrganizationId,
+    required TicketEditTicketCommandWrite ticketEditTicketCommandWrite,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
+    Iterable<String>? bodyParameters,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/tickets/{identifier}'
+        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final options = Options(
+      method: r'PATCH',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        if (xDateTime != null) r'X-Date-Time': xDateTime,
+        r'X-Keyclic-App': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'X-Enable-Dispatch': xEnableDispatch,
+        r'X-Organization-Id': xOrganizationId,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/merge-patch+json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic bodyData;
+
+    try {
+      bodyData = ticketEditTicketCommandWrite.toJson(bodyParameters);
+    } catch (error, stackTrace) {
+      throw DioException(
+        error: error,
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
+    }
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    TicketJsonhalRead responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<TicketJsonhalRead>(
+          response.data!, 'TicketJsonhalRead');
+    } catch (error, stackTrace) {
+      throw DioException(
+        error: error,
+        requestOptions: response.requestOptions,
+        response: response,
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
+    }
+
+    return Response<TicketJsonhalRead>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+  }
+
+  /// Creates a Ticket resource.
+  /// Creates a Ticket resource.
+  ///
+  /// Parameters:
+  /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
+  /// * [ticketCreateTicketCommandWrite] - The new Ticket resource
+  /// * [acceptLanguage] -
+  /// * [xDateTime] -
+  /// * [xKeyclicAppPlatform] -
+  /// * [xKeyclicAppVersion] -
+  /// * [xEnableDispatch] -
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [TicketJsonhalRead] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TicketJsonhalRead>> postTicket({
+    required String xKeyclicApp,
+    required String xOrganizationId,
+    required TicketCreateTicketCommandWrite ticketCreateTicketCommandWrite,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    bool? xEnableDispatch,
+    Iterable<String>? bodyParameters,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/tickets';
+    final options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        if (xDateTime != null) r'X-Date-Time': xDateTime,
+        r'X-Keyclic-App': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        if (xEnableDispatch != null) r'X-Enable-Dispatch': xEnableDispatch,
+        r'X-Organization-Id': xOrganizationId,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic bodyData;
+
+    try {
+      bodyData = ticketCreateTicketCommandWrite.toJson(bodyParameters);
+    } catch (error, stackTrace) {
+      throw DioException(
+        error: error,
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+        ),
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
+    }
+
+    final response = await _apiClient.dio.request<Object>(
+      path,
+      data: bodyData,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    TicketJsonhalRead responseData;
+
+    try {
+      responseData = await _apiClient.deserializeAsync<TicketJsonhalRead>(
+          response.data!, 'TicketJsonhalRead');
+    } catch (error, stackTrace) {
+      throw DioException(
+        error: error,
+        requestOptions: response.requestOptions,
+        response: response,
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
+    }
+
+    return Response<TicketJsonhalRead>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

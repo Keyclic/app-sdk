@@ -9,6 +9,7 @@ class Feedback {
   Feedback({
     this.embedded,
     this.links,
+    this.address,
     this.createdAt,
     this.description,
     this.geoCoordinates,
@@ -42,6 +43,7 @@ class Feedback {
     return Feedback(
       embedded: FeedbackEmbedded.fromJson(json[r'_embedded']),
       links: FeedbackLinks.fromJson(json[r'_links']),
+      address: FeedbackPostalAddress.fromJson(json[r'address']),
       createdAt: createdAt,
       description: json[r'description'],
       geoCoordinates: FeedbackGeoCoordinates.fromJson(json[r'geoCoordinates']),
@@ -59,6 +61,8 @@ class Feedback {
   FeedbackEmbedded? embedded;
 
   FeedbackLinks? links;
+
+  FeedbackPostalAddress? address;
 
   final DateTime? createdAt;
 
@@ -88,6 +92,7 @@ class Feedback {
     return other is Feedback &&
         other.embedded == embedded &&
         other.links == links &&
+        other.address == address &&
         other.createdAt == createdAt &&
         other.description == description &&
         other.geoCoordinates == geoCoordinates &&
@@ -103,6 +108,7 @@ class Feedback {
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
       (links == null ? 0 : links.hashCode) +
+      (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
@@ -159,7 +165,7 @@ class Feedback {
 
   @override
   String toString() =>
-      'Feedback[embedded=$embedded, links=$links, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, priority=$priority, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
+      'Feedback[embedded=$embedded, links=$links, address=$address, createdAt=$createdAt, description=$description, geoCoordinates=$geoCoordinates, id=$id, metadata=$metadata, priority=$priority, type=$type, updatedAt=$updatedAt, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -178,6 +184,16 @@ class Feedback {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^links\.'))) {
             previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
+        r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^address\.'))) {
+            previousValue.add(element.split(RegExp(r'^address\.')).last);
           }
 
           return previousValue;

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **embedded** | [**FeedbackEmbedded**](FeedbackEmbedded.md) |  | [optional] 
 **links** | [**FeedbackLinks**](FeedbackLinks.md) |  | [optional] 
+**address** | [**FeedbackPostalAddress**](FeedbackPostalAddress.md) |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **description** | **String** |  | [optional] 
 **geoCoordinates** | [**FeedbackGeoCoordinates**](FeedbackGeoCoordinates.md) |  | [optional] 

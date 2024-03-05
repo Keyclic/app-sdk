@@ -19979,6 +19979,9 @@
                         }
                     }
                 },
+                "address": {
+                    "$ref": "#\/definitions\/FeedbackPostalAddress"
+                },
                 "createdAt": {
                     "format": "date-time",
                     "readOnly": true,
@@ -20343,6 +20346,23 @@
                     }
                 }
             ]
+        },
+        "FeedbackPostalAddress": {
+            "type": "object",
+            "properties": {
+                "locality": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "postalCode": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "streetAddress": {
+                    "format": "string",
+                    "type": "string"
+                }
+            }
         },
         "FeedbackPriority": {
             "type": "object",

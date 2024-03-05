@@ -753,6 +753,8 @@ class ApiClient {
           return FeedbackLinksTrackingIriTemplate.fromJson(value);
         case 'FeedbackPagination':
           return FeedbackPagination.fromJson(value);
+        case 'FeedbackPostalAddress':
+          return FeedbackPostalAddress.fromJson(value);
         case 'FeedbackPriority':
           return FeedbackPriority.fromJson(value);
         case 'FeedbackWorkflowTransitionData':

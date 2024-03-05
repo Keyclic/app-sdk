@@ -272,6 +272,7 @@ part 'model/feedback_links_self_iri_template.dart';
 part 'model/feedback_links_tracking.dart';
 part 'model/feedback_links_tracking_iri_template.dart';
 part 'model/feedback_pagination.dart';
+part 'model/feedback_postal_address.dart';
 part 'model/feedback_priority.dart';
 part 'model/feedback_workflow_transition_data.dart';
 part 'model/file_data.dart';

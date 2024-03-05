@@ -452,6 +452,7 @@ Class | Method | HTTP request | Description
  - [FeedbackLinksTracking](doc//FeedbackLinksTracking.md)
  - [FeedbackLinksTrackingIriTemplate](doc//FeedbackLinksTrackingIriTemplate.md)
  - [FeedbackPagination](doc//FeedbackPagination.md)
+ - [FeedbackPostalAddress](doc//FeedbackPostalAddress.md)
  - [FeedbackPriority](doc//FeedbackPriority.md)
  - [FeedbackWorkflowTransitionData](doc//FeedbackWorkflowTransitionData.md)
  - [FileData](doc//FileData.md)

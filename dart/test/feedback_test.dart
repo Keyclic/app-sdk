@@ -16,6 +16,9 @@ void main() {
     // FeedbackLinks links
     test('to test the property `links`', () async {});
 
+    // FeedbackPostalAddress address
+    test('to test the property `address`', () async {});
+
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
 

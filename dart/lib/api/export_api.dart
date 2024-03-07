@@ -134,6 +134,8 @@ class ExportApi {
   /// * [batchesLeftSquareBracketRightSquareBracket]
   /// * [category]
   /// * [categoriesLeftSquareBracketRightSquareBracket]
+  /// * [categoryType]
+  /// * [categoryTypesLeftSquareBracketRightSquareBracket]
   /// * [createdBy]
   /// * [createdBiesLeftSquareBracketRightSquareBracket]
   /// * [afterDueBy]
@@ -196,6 +198,8 @@ class ExportApi {
     List<String>? batchesLeftSquareBracketRightSquareBracket,
     String? category,
     List<String>? categoriesLeftSquareBracketRightSquareBracket,
+    String? categoryType,
+    List<String>? categoryTypesLeftSquareBracketRightSquareBracket,
     String? createdBy,
     List<String>? createdBiesLeftSquareBracketRightSquareBracket,
     DateTime? afterDueBy,
@@ -286,6 +290,12 @@ class ExportApi {
       if (categoriesLeftSquareBracketRightSquareBracket != null)
         r'categories[]': encodeCollectionQueryParameter(
             categoriesLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (categoryType != null)
+        r'category_type': encodeQueryParameter(categoryType),
+      if (categoryTypesLeftSquareBracketRightSquareBracket != null)
+        r'category_types[]': encodeCollectionQueryParameter(
+            categoryTypesLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (createdBy != null) r'created_by': encodeQueryParameter(createdBy),
       if (createdBiesLeftSquareBracketRightSquareBracket != null)

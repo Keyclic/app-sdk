@@ -143,8 +143,6 @@ class TicketApi {
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
   /// * [orderLeftSquareBracketScheduledAtRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [asset] -
-  /// * [assetLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodService] -
   /// * [assignmentsPeriodServiceLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodServicePeriodManager] -
@@ -159,6 +157,8 @@ class TicketApi {
   /// * [childrenPeriodStateLeftSquareBracketRightSquareBracket] -
   /// * [createdBy] -
   /// * [createdByLeftSquareBracketRightSquareBracket] -
+  /// * [equipments] -
+  /// * [equipmentsLeftSquareBracketRightSquareBracket] -
   /// * [feedbackPeriodBatch] -
   /// * [feedbackPeriodBatchLeftSquareBracketRightSquareBracket] -
   /// * [feedbackPeriodVisibility] -
@@ -169,6 +169,8 @@ class TicketApi {
   /// * [parentLeftSquareBracketRightSquareBracket] -
   /// * [phase] -
   /// * [phaseLeftSquareBracketRightSquareBracket] -
+  /// * [place] -
+  /// * [placeLeftSquareBracketRightSquareBracket] -
   /// * [priority] -
   /// * [priorityLeftSquareBracketRightSquareBracket] -
   /// * [reviewsPeriodReviewRating] -
@@ -219,8 +221,6 @@ class TicketApi {
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
     String? orderLeftSquareBracketScheduledAtRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
-    String? asset,
-    List<String>? assetLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodService,
     List<String>? assignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodServicePeriodManager,
@@ -237,6 +237,8 @@ class TicketApi {
     List<String>? childrenPeriodStateLeftSquareBracketRightSquareBracket,
     String? createdBy,
     List<String>? createdByLeftSquareBracketRightSquareBracket,
+    String? equipments,
+    List<String>? equipmentsLeftSquareBracketRightSquareBracket,
     String? feedbackPeriodBatch,
     List<String>? feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
     String? feedbackPeriodVisibility,
@@ -247,6 +249,8 @@ class TicketApi {
     List<String>? parentLeftSquareBracketRightSquareBracket,
     String? phase,
     List<String>? phaseLeftSquareBracketRightSquareBracket,
+    String? place,
+    List<String>? placeLeftSquareBracketRightSquareBracket,
     String? priority,
     List<String>? priorityLeftSquareBracketRightSquareBracket,
     int? reviewsPeriodReviewRating,
@@ -371,11 +375,6 @@ class TicketApi {
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (asset != null) r'asset': encodeQueryParameter(asset),
-      if (assetLeftSquareBracketRightSquareBracket != null)
-        r'asset[]': encodeCollectionQueryParameter(
-            assetLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
       if (assignmentsPeriodService != null)
         r'assignments.service': encodeQueryParameter(assignmentsPeriodService),
       if (assignmentsPeriodServiceLeftSquareBracketRightSquareBracket != null)
@@ -420,6 +419,11 @@ class TicketApi {
         r'createdBy[]': encodeCollectionQueryParameter(
             createdByLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (equipments != null) r'equipments': encodeQueryParameter(equipments),
+      if (equipmentsLeftSquareBracketRightSquareBracket != null)
+        r'equipments[]': encodeCollectionQueryParameter(
+            equipmentsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (feedbackPeriodBatch != null)
         r'feedback.batch': encodeQueryParameter(feedbackPeriodBatch),
       if (feedbackPeriodBatchLeftSquareBracketRightSquareBracket != null)
@@ -446,6 +450,11 @@ class TicketApi {
       if (phaseLeftSquareBracketRightSquareBracket != null)
         r'phase[]': encodeCollectionQueryParameter(
             phaseLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (place != null) r'place': encodeQueryParameter(place),
+      if (placeLeftSquareBracketRightSquareBracket != null)
+        r'place[]': encodeCollectionQueryParameter(
+            placeLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (priority != null) r'priority': encodeQueryParameter(priority),
       if (priorityLeftSquareBracketRightSquareBracket != null)

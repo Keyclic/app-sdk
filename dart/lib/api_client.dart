@@ -1250,10 +1250,10 @@ class ApiClient {
           return ReportLinksCreatedBy.fromJson(value);
         case 'ReportLinksCreatedByIriTemplate':
           return ReportLinksCreatedByIriTemplate.fromJson(value);
-        case 'ReportLinksEquipment':
-          return ReportLinksEquipment.fromJson(value);
-        case 'ReportLinksEquipmentIriTemplate':
-          return ReportLinksEquipmentIriTemplate.fromJson(value);
+        case 'ReportLinksEquipments':
+          return ReportLinksEquipments.fromJson(value);
+        case 'ReportLinksEquipmentsIriTemplate':
+          return ReportLinksEquipmentsIriTemplate.fromJson(value);
         case 'ReportLinksFeedback':
           return ReportLinksFeedback.fromJson(value);
         case 'ReportLinksFeedbackIriTemplate':

@@ -3154,6 +3154,12 @@
                         "$ref": "#\/parameters\/categories__"
                     },
                     {
+                        "$ref": "#\/parameters\/category_type"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_types__"
+                    },
+                    {
                         "$ref": "#\/parameters\/created_by"
                     },
                     {
@@ -9406,6 +9412,12 @@
                         "$ref": "#\/parameters\/categories__"
                     },
                     {
+                        "$ref": "#\/parameters\/category_type"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_types__"
+                    },
+                    {
                         "$ref": "#\/parameters\/created_by"
                     },
                     {
@@ -9887,6 +9899,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_type"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_types__"
                     },
                     {
                         "$ref": "#\/parameters\/created_by"
@@ -10826,6 +10844,12 @@
                         "$ref": "#\/parameters\/categories__"
                     },
                     {
+                        "$ref": "#\/parameters\/category_type"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_types__"
+                    },
+                    {
                         "$ref": "#\/parameters\/created_by"
                     },
                     {
@@ -11458,6 +11482,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_type"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_types__"
                     },
                     {
                         "$ref": "#\/parameters\/created_by"
@@ -14325,6 +14355,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/categories__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_type"
+                    },
+                    {
+                        "$ref": "#\/parameters\/category_types__"
                     },
                     {
                         "$ref": "#\/parameters\/created_by"
@@ -27063,6 +27099,22 @@
                 "type": "string"
             },
             "name": "assets[]",
+            "pattern": ".*",
+            "type": "array"
+        },
+        "category_type": {
+            "in": "query",
+            "name": "category_type",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "category_types__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "category_types[]",
             "pattern": ".*",
             "type": "array"
         },

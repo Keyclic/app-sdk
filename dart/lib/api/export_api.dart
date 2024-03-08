@@ -145,6 +145,7 @@ class ExportApi {
   /// * [deep]
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
+  /// * [equipmentLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
   /// * [isEmpty]
   /// * [isNull]
@@ -209,6 +210,7 @@ class ExportApi {
     bool? deep,
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
+    List<String>? equipmentLeftSquareBracketRightSquareBracket,
     bool? hasDocuments,
     String? isEmpty,
     String? isNull,
@@ -313,6 +315,10 @@ class ExportApi {
       if (delegatedTosLeftSquareBracketRightSquareBracket != null)
         r'delegated_tos[]': encodeCollectionQueryParameter(
             delegatedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (equipmentLeftSquareBracketRightSquareBracket != null)
+        r'equipment[]': encodeCollectionQueryParameter(
+            equipmentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),

@@ -7,13 +7,14 @@ part of keyclic_sdk_api;
 class FeedbackData {
   /// Returns a new [FeedbackData] instance.
   FeedbackData({
-    required this.asset,
     this.batch,
     this.businessActivity,
     this.category,
     this.description,
+    this.equipments,
     required this.geo,
     this.metadata,
+    required this.place,
     this.priority,
     this.reporter,
     required this.visibility,
@@ -27,22 +28,23 @@ class FeedbackData {
     }
 
     return FeedbackData(
-      asset: json[r'asset'],
       batch: json[r'batch'],
       businessActivity: json[r'businessActivity'],
       category: json[r'category'],
       description: json[r'description'],
+      equipments: json[r'equipments'] == null
+          ? null
+          : List<String>.from(json[r'equipments']),
       geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
+      place: json[r'place'],
       priority: json[r'priority'],
       reporter: json[r'reporter'],
       visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility'])!,
     );
   }
-
-  String asset;
 
   String? batch;
 
@@ -52,9 +54,13 @@ class FeedbackData {
 
   String? description;
 
+  List<String>? equipments;
+
   FeedbackDataGeo geo;
 
   Map<String, Object?>? metadata;
+
+  String place;
 
   String? priority;
 
@@ -70,13 +76,15 @@ class FeedbackData {
     }
 
     return other is FeedbackData &&
-        other.asset == asset &&
         other.batch == batch &&
         other.businessActivity == businessActivity &&
         other.category == category &&
         other.description == description &&
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
         other.geo == geo &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
+        other.place == place &&
         other.priority == priority &&
         other.reporter == reporter &&
         other.visibility == visibility;
@@ -84,13 +92,14 @@ class FeedbackData {
 
   @override
   int get hashCode =>
-      asset.hashCode +
       (batch == null ? 0 : batch.hashCode) +
       (businessActivity == null ? 0 : businessActivity.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode) +
       geo.hashCode +
       (metadata == null ? 0 : metadata.hashCode) +
+      place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       visibility.hashCode;
@@ -142,17 +151,18 @@ class FeedbackData {
 
   @override
   String toString() =>
-      'FeedbackData[asset=$asset, batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, geo=$geo, metadata=$metadata, priority=$priority, reporter=$reporter, visibility=$visibility]';
+      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'asset': asset,
       if (keys == null || keys.contains(r'batch')) r'batch': batch,
       if (keys == null || keys.contains(r'businessActivity'))
         r'businessActivity': businessActivity,
       if (keys == null || keys.contains(r'category')) r'category': category,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
       r'geo': geo.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^geo\.'))) {
@@ -162,6 +172,7 @@ class FeedbackData {
         return previousValue;
       })),
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
+      r'place': place,
       if (keys == null || keys.contains(r'priority')) r'priority': priority,
       if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       r'visibility': visibility,

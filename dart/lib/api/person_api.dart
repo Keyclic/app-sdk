@@ -334,6 +334,7 @@ class PersonApi {
   /// * [deep]
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
+  /// * [equipmentLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
   /// * [isEmpty]
   /// * [isNull]
@@ -400,6 +401,7 @@ class PersonApi {
     bool? deep,
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
+    List<String>? equipmentLeftSquareBracketRightSquareBracket,
     bool? hasDocuments,
     String? isEmpty,
     String? isNull,
@@ -508,6 +510,10 @@ class PersonApi {
       if (delegatedTosLeftSquareBracketRightSquareBracket != null)
         r'delegated_tos[]': encodeCollectionQueryParameter(
             delegatedTosLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (equipmentLeftSquareBracketRightSquareBracket != null)
+        r'equipment[]': encodeCollectionQueryParameter(
+            equipmentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),

@@ -22,8 +22,8 @@ void main() {
     // ReportLinksCreatedBy createdBy
     test('to test the property `createdBy`', () async {});
 
-    // ReportLinksEquipment equipment
-    test('to test the property `equipment`', () async {});
+    // List<ReportLinksEquipments> equipments (default value: const [])
+    test('to test the property `equipments`', () async {});
 
     // ReportLinksFeedback feedback
     test('to test the property `feedback`', () async {});

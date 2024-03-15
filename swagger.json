@@ -3187,9 +3187,6 @@
                         "$ref": "#\/parameters\/delegated_tos__"
                     },
                     {
-                        "$ref": "#\/parameters\/equipment__"
-                    },
-                    {
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
@@ -8698,9 +8695,6 @@
                         "$ref": "#\/parameters\/page"
                     },
                     {
-                        "$ref": "#\/parameters\/place"
-                    },
-                    {
                         "$ref": "#\/parameters\/limit"
                     },
                     {
@@ -9451,9 +9445,6 @@
                         "$ref": "#\/parameters\/delegated_tos__"
                     },
                     {
-                        "$ref": "#\/parameters\/equipment__"
-                    },
-                    {
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
@@ -9941,9 +9932,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/delegated_tos__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/equipment__"
                     },
                     {
                         "$ref": "#\/parameters\/has_documents"
@@ -10889,9 +10877,6 @@
                         "$ref": "#\/parameters\/delegated_tos__"
                     },
                     {
-                        "$ref": "#\/parameters\/equipment__"
-                    },
-                    {
                         "$ref": "#\/parameters\/has_documents"
                     },
                     {
@@ -11530,9 +11515,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/delegated_tos__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/equipment__"
                     },
                     {
                         "$ref": "#\/parameters\/has_documents"
@@ -14406,9 +14388,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/delegated_tos__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/equipment__"
                     },
                     {
                         "$ref": "#\/parameters\/has_documents"
@@ -19582,8 +19561,8 @@
                 },
                 "groupBy": {
                     "enum": [
-                        "category",
-                        "place"
+                        "asset",
+                        "category"
                     ],
                     "format": "string",
                     "type": "string"
@@ -19628,8 +19607,8 @@
                 "groupBy": {
                     "type": "string",
                     "enum": [
-                        "category",
-                        "place"
+                        "asset",
+                        "category"
                     ]
                 },
                 "organization": {
@@ -20099,6 +20078,9 @@
         "FeedbackData": {
             "type": "object",
             "properties": {
+                "asset": {
+                    "type": "string"
+                },
                 "batch": {
                     "type": "string"
                 },
@@ -20110,13 +20092,6 @@
                 },
                 "description": {
                     "type": "string"
-                },
-                "equipments": {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "additionalProperties": true
-                    }
                 },
                 "geo": {
                     "type": "object",
@@ -20144,9 +20119,6 @@
                     "type": "object",
                     "additionalProperties": true
                 },
-                "place": {
-                    "type": "string"
-                },
                 "priority": {
                     "type": "string"
                 },
@@ -20163,8 +20135,8 @@
                 }
             },
             "required": [
+                "asset",
                 "geo",
-                "place",
                 "visibility"
             ]
         },
@@ -24459,11 +24431,8 @@
                         "createdBy": {
                             "$ref": "#\/definitions\/ReportLinksCreatedBy"
                         },
-                        "equipments": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#\/definitions\/ReportLinksEquipments"
-                            }
+                        "equipment": {
+                            "$ref": "#\/definitions\/ReportLinksEquipment"
                         },
                         "feedback": {
                             "$ref": "#\/definitions\/ReportLinksFeedback"
@@ -24663,20 +24632,20 @@
                 }
             }
         },
-        "ReportLinksEquipments": {
+        "ReportLinksEquipment": {
             "type": "object",
             "properties": {
                 "href": {
-                    "description": "The URI of the equipments associated to the given report.",
+                    "description": "The URI of the equipment associated to the given report.",
                     "type": "string",
                     "format": "string"
                 },
                 "iriTemplate": {
-                    "$ref": "#\/definitions\/ReportLinksEquipmentsIriTemplate"
+                    "$ref": "#\/definitions\/ReportLinksEquipmentIriTemplate"
                 }
             }
         },
-        "ReportLinksEquipmentsIriTemplate": {
+        "ReportLinksEquipmentIriTemplate": {
             "type": "object",
             "properties": {
                 "mapping": {
@@ -27203,16 +27172,6 @@
                 "type": "string"
             },
             "name": "delegated_tos[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "equipment__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "equipment[]",
             "pattern": ".*",
             "type": "array"
         },

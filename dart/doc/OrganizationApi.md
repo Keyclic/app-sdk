@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetDispatchServicesByOrganization**
-> ServicePagination cgetDispatchServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, category, page, place, limit, orderLeftSquareBracketRightSquareBracket, after, before, query)
+> ServicePagination cgetDispatchServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, category, page, limit, orderLeftSquareBracketRightSquareBracket, after, before, query)
 
 Retrieve all DispatchService resources.
 
@@ -136,7 +136,6 @@ final xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 final asset = asset_example; // String | 
 final category = category_example; // String | 
 final page = 56; // int | Page of the overview.
-final place = place_example; // String | 
 final limit = 56; // int | Page of the overview.
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final after = 2013-10-20T19:20:30+01:00; // DateTime | 
@@ -144,7 +143,7 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final query = query_example; // String | 
 
 try { 
-    final result = api_instance.cgetDispatchServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, category, page, place, limit, orderLeftSquareBracketRightSquareBracket, after, before, query);
+    final result = api_instance.cgetDispatchServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, category, page, limit, orderLeftSquareBracketRightSquareBracket, after, before, query);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->cgetDispatchServicesByOrganization: $e\n');
@@ -164,7 +163,6 @@ Name | Type | Description  | Notes
  **asset** | **String**|  | [optional] 
  **category** | **String**|  | [optional] 
  **page** | **int**| Page of the overview. | [optional] [default to 1]
- **place** | **String**|  | [optional] 
  **limit** | **int**| Page of the overview. | [optional] [default to 10]
  **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **after** | **DateTime**|  | [optional] 
@@ -552,7 +550,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetOperationsByOrganization**
-> OperationPagination cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit)
+> OperationPagination cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit)
 
 Retrieve all Operation resources.
 
@@ -590,7 +588,6 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final deep = true; // bool | 
 final delegatedTo = delegatedTo_example; // String | 
 final delegatedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final equipmentLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final hasDocuments = true; // bool | 
 final isEmpty = isEmpty_example; // String | 
 final isNull = isNull_example; // String | 
@@ -621,7 +618,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit);
+    final result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->cgetOperationsByOrganization: $e\n');
@@ -657,7 +654,6 @@ Name | Type | Description  | Notes
  **deep** | **bool**|  | [optional] 
  **delegatedTo** | **String**|  | [optional] 
  **delegatedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **equipmentLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **hasDocuments** | **bool**|  | [optional] 
  **isEmpty** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
@@ -944,7 +940,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **cgetReportsByOrganization**
-> ReportPagination cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit)
+> ReportPagination cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit)
 
 Retrieve all Report resources.
 
@@ -982,7 +978,6 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final deep = true; // bool | 
 final delegatedTo = delegatedTo_example; // String | 
 final delegatedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final equipmentLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final hasDocuments = true; // bool | 
 final isEmpty = isEmpty_example; // String | 
 final isNull = isNull_example; // String | 
@@ -1013,7 +1008,7 @@ final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
 try { 
-    final result = api_instance.cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit);
+    final result = api_instance.cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->cgetReportsByOrganization: $e\n');
@@ -1049,7 +1044,6 @@ Name | Type | Description  | Notes
  **deep** | **bool**|  | [optional] 
  **delegatedTo** | **String**|  | [optional] 
  **delegatedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **equipmentLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **hasDocuments** | **bool**|  | [optional] 
  **isEmpty** | **String**|  | [optional] 
  **isNull** | **String**|  | [optional] 
@@ -1373,7 +1367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAnalyticByOrganization**
-> Chart getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket)
+> Chart getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket)
 
 Retrieve one Analytic resource.
 
@@ -1408,7 +1402,6 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final deep = true; // bool | 
 final delegatedTo = delegatedTo_example; // String | 
 final delegatedTosLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final equipmentLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final hasDocuments = true; // bool | 
 final managedBy = managedBy_example; // String | 
 final managedBiesLeftSquareBracketRightSquareBracket = []; // List<String> | 
@@ -1432,7 +1425,7 @@ final optionsLeftSquareBracketPropertyRightSquareBracket = optionsLeftSquareBrac
 final optionsLeftSquareBracketSortRightSquareBracket = optionsLeftSquareBracketSortRightSquareBracket_example; // String | 
 
 try { 
-    final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
+    final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
     print(result);
 } catch (e) {
     print('Exception when calling OrganizationApi->getAnalyticByOrganization: $e\n');
@@ -1465,7 +1458,6 @@ Name | Type | Description  | Notes
  **deep** | **bool**|  | [optional] 
  **delegatedTo** | **String**|  | [optional] 
  **delegatedTosLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **equipmentLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **hasDocuments** | **bool**|  | [optional] 
  **managedBy** | **String**|  | [optional] 
  **managedBiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]

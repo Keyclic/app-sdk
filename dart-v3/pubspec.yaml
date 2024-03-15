@@ -3,7 +3,7 @@
 #
 
 name: 'keyclic_sdk_api_platform'
-version: '3.11.0-beta1'
+version: '3.10.0'
 description: 'The keyclic_sdk_api package is an implementation of the Keyclic API.'
 homepage: 'https://keyclic.com'
 environment:

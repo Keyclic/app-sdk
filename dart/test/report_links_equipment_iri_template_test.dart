@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for ReportLinksEquipmentsIriTemplate
+// tests for ReportLinksEquipmentIriTemplate
 void main() {
-  // final instance = ReportLinksEquipmentsIriTemplate();
+  // final instance = ReportLinksEquipmentIriTemplate();
 
-  group('test ReportLinksEquipmentsIriTemplate', () {
+  group('test ReportLinksEquipmentIriTemplate', () {
     // AssignmentLinksContractIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });

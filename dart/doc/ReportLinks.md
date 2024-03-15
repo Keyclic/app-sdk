@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **category** | [**ReportLinksCategory**](ReportLinksCategory.md) |  | [optional] 
 **children** | [**ReportLinksChildren**](ReportLinksChildren.md) |  | [optional] 
 **createdBy** | [**ReportLinksCreatedBy**](ReportLinksCreatedBy.md) |  | [optional] 
-**equipments** | [**List<ReportLinksEquipments>**](ReportLinksEquipments.md) |  | [optional] [default to const []]
+**equipment** | [**ReportLinksEquipment**](ReportLinksEquipment.md) |  | [optional] 
 **feedback** | [**ReportLinksFeedback**](ReportLinksFeedback.md) |  | [optional] 
 **operations** | [**ReportLinksOperations**](ReportLinksOperations.md) |  | [optional] 
 **organization** | [**ReportLinksOrganization**](ReportLinksOrganization.md) |  | [optional] 

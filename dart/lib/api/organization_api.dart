@@ -175,7 +175,6 @@ class OrganizationApi {
   /// * [asset]
   /// * [category]
   /// * [page] - Page of the overview.
-  /// * [place]
   /// * [limit] - Page of the overview.
   /// * [orderLeftSquareBracketRightSquareBracket]
   /// * [after]
@@ -202,7 +201,6 @@ class OrganizationApi {
     String? asset,
     String? category,
     int? page,
-    String? place,
     int? limit,
     List<String>? orderLeftSquareBracketRightSquareBracket,
     DateTime? after,
@@ -248,7 +246,6 @@ class OrganizationApi {
       if (asset != null) r'asset': encodeQueryParameter(asset),
       if (category != null) r'category': encodeQueryParameter(category),
       if (page != null) r'page': encodeQueryParameter(page),
-      if (place != null) r'place': encodeQueryParameter(place),
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (orderLeftSquareBracketRightSquareBracket != null)
         r'order[]': encodeCollectionQueryParameter(
@@ -1015,7 +1012,6 @@ class OrganizationApi {
   /// * [deep]
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
-  /// * [equipmentLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
   /// * [isEmpty]
   /// * [isNull]
@@ -1081,7 +1077,6 @@ class OrganizationApi {
     bool? deep,
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
-    List<String>? equipmentLeftSquareBracketRightSquareBracket,
     bool? hasDocuments,
     String? isEmpty,
     String? isNull,
@@ -1189,10 +1184,6 @@ class OrganizationApi {
       if (delegatedTosLeftSquareBracketRightSquareBracket != null)
         r'delegated_tos[]': encodeCollectionQueryParameter(
             delegatedTosLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (equipmentLeftSquareBracketRightSquareBracket != null)
-        r'equipment[]': encodeCollectionQueryParameter(
-            equipmentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),
@@ -1783,7 +1774,6 @@ class OrganizationApi {
   /// * [deep]
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
-  /// * [equipmentLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
   /// * [isEmpty]
   /// * [isNull]
@@ -1849,7 +1839,6 @@ class OrganizationApi {
     bool? deep,
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
-    List<String>? equipmentLeftSquareBracketRightSquareBracket,
     bool? hasDocuments,
     String? isEmpty,
     String? isNull,
@@ -1957,10 +1946,6 @@ class OrganizationApi {
       if (delegatedTosLeftSquareBracketRightSquareBracket != null)
         r'delegated_tos[]': encodeCollectionQueryParameter(
             delegatedTosLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (equipmentLeftSquareBracketRightSquareBracket != null)
-        r'equipment[]': encodeCollectionQueryParameter(
-            equipmentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),
@@ -2613,7 +2598,6 @@ class OrganizationApi {
   /// * [deep]
   /// * [delegatedTo]
   /// * [delegatedTosLeftSquareBracketRightSquareBracket]
-  /// * [equipmentLeftSquareBracketRightSquareBracket]
   /// * [hasDocuments]
   /// * [managedBy]
   /// * [managedBiesLeftSquareBracketRightSquareBracket]
@@ -2669,7 +2653,6 @@ class OrganizationApi {
     bool? deep,
     String? delegatedTo,
     List<String>? delegatedTosLeftSquareBracketRightSquareBracket,
-    List<String>? equipmentLeftSquareBracketRightSquareBracket,
     bool? hasDocuments,
     String? managedBy,
     List<String>? managedBiesLeftSquareBracketRightSquareBracket,
@@ -2761,10 +2744,6 @@ class OrganizationApi {
       if (delegatedTosLeftSquareBracketRightSquareBracket != null)
         r'delegated_tos[]': encodeCollectionQueryParameter(
             delegatedTosLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (equipmentLeftSquareBracketRightSquareBracket != null)
-        r'equipment[]': encodeCollectionQueryParameter(
-            equipmentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (hasDocuments != null)
         r'has_documents': encodeQueryParameter(hasDocuments),

@@ -5,16 +5,16 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for ReportLinksEquipments
+// tests for ReportLinksEquipment
 void main() {
-  // final instance = ReportLinksEquipments();
+  // final instance = ReportLinksEquipment();
 
-  group('test ReportLinksEquipments', () {
-    // The URI of the equipments associated to the given report.
+  group('test ReportLinksEquipment', () {
+    // The URI of the equipment associated to the given report.
     // String href
     test('to test the property `href`', () async {});
 
-    // ReportLinksEquipmentsIriTemplate iriTemplate
+    // ReportLinksEquipmentIriTemplate iriTemplate
     test('to test the property `iriTemplate`', () async {});
   });
 }

@@ -9620,6 +9620,7 @@
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "description": {
@@ -9649,11 +9650,13 @@
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "address": {
@@ -10427,6 +10430,7 @@
                         "description": "Organization responsible for the contract.",
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "signedAt": {
@@ -10457,6 +10461,7 @@
                         "description": "The type of the contract defined by the organization.",
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "id": {
@@ -10536,6 +10541,7 @@
                     "provider": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "renewal": {
@@ -10559,6 +10565,7 @@
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     }
                 },
@@ -10612,6 +10619,7 @@
                     "provider": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "renewal": {
@@ -10634,6 +10642,7 @@
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     }
                 }
@@ -10873,6 +10882,7 @@
                         "description": "The brand of the asset. The brand refers to the specific manufacturer or company that produces or sells an asset.",
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "commissioningDate": {
@@ -10918,6 +10928,7 @@
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "id": {
@@ -10956,11 +10967,13 @@
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "address": {
@@ -10985,6 +10998,7 @@
                     "brand": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "commissioningDate": {
@@ -11016,6 +11030,7 @@
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "serialNumber": {
@@ -11025,11 +11040,13 @@
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "warranty": {
@@ -11050,6 +11067,7 @@
                     "brand": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "commissioningDate": {
@@ -11081,6 +11099,7 @@
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "serialNumber": {
@@ -11090,11 +11109,13 @@
                     "state": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "warranty": {
@@ -11256,7 +11277,8 @@
                 "properties": {
                     "connector": {
                         "type": "string",
-                        "format": "iri-reference"
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
                     },
                     "inputs": {
                         "type": "object",
@@ -11264,7 +11286,8 @@
                     },
                     "organization": {
                         "type": "string",
-                        "format": "iri-reference"
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
                     },
                     "id": {
                         "readOnly": true,
@@ -11424,6 +11447,7 @@
                     "integration": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "metadata": {
@@ -11838,14 +11862,16 @@
                         "type": "array",
                         "items": {
                             "type": "string",
-                            "format": "iri-reference"
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
                         }
                     },
                     "toStates": {
                         "type": "array",
                         "items": {
                             "type": "string",
-                            "format": "iri-reference"
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
                         }
                     },
                     "id": {
@@ -11914,14 +11940,16 @@
                         "type": "array",
                         "items": {
                             "type": "string",
-                            "format": "iri-reference"
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
                         }
                     },
                     "toStates": {
                         "type": "array",
                         "items": {
                             "type": "string",
-                            "format": "iri-reference"
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
                         }
                     },
                     "id": {
@@ -11975,6 +12003,7 @@
                     "category": {
                         "type": "string",
                         "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     },
                     "description": {

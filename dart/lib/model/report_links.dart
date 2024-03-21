@@ -11,7 +11,7 @@ class ReportLinks {
     this.category,
     this.children,
     this.createdBy,
-    this.equipment,
+    this.equipments,
     this.feedback,
     this.operations,
     this.organization,
@@ -32,7 +32,7 @@ class ReportLinks {
       category: ReportLinksCategory.fromJson(json[r'category']),
       children: ReportLinksChildren.fromJson(json[r'children']),
       createdBy: ReportLinksCreatedBy.fromJson(json[r'createdBy']),
-      equipment: ReportLinksEquipment.fromJson(json[r'equipment']),
+      equipments: ReportLinksEquipments.listFromJson(json[r'equipments']),
       feedback: ReportLinksFeedback.fromJson(json[r'feedback']),
       operations: ReportLinksOperations.fromJson(json[r'operations']),
       organization: ReportLinksOrganization.fromJson(json[r'organization']),
@@ -50,7 +50,7 @@ class ReportLinks {
 
   ReportLinksCreatedBy? createdBy;
 
-  ReportLinksEquipment? equipment;
+  List<ReportLinksEquipments>? equipments;
 
   ReportLinksFeedback? feedback;
 
@@ -76,7 +76,8 @@ class ReportLinks {
         other.category == category &&
         other.children == children &&
         other.createdBy == createdBy &&
-        other.equipment == equipment &&
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
         other.feedback == feedback &&
         other.operations == operations &&
         other.organization == organization &&
@@ -91,7 +92,7 @@ class ReportLinks {
       (category == null ? 0 : category.hashCode) +
       (children == null ? 0 : children.hashCode) +
       (createdBy == null ? 0 : createdBy.hashCode) +
-      (equipment == null ? 0 : equipment.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode) +
       (feedback == null ? 0 : feedback.hashCode) +
       (operations == null ? 0 : operations.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
@@ -146,7 +147,7 @@ class ReportLinks {
 
   @override
   String toString() =>
-      'ReportLinks[asset=$asset, category=$category, children=$children, createdBy=$createdBy, equipment=$equipment, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
+      'ReportLinks[asset=$asset, category=$category, children=$children, createdBy=$createdBy, equipments=$equipments, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -189,16 +190,8 @@ class ReportLinks {
 
           return previousValue;
         })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^equipment\.').hasMatch(key)))
-        r'equipment': equipment?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^equipment\.'))) {
-            previousValue.add(element.split(RegExp(r'^equipment\.')).last);
-          }
-
-          return previousValue;
-        })),
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
       if (keys == null ||
           keys.any((key) => RegExp(r'^feedback\.').hasMatch(key)))
         r'feedback': feedback?.toJson(keys?.fold<List<String>>(<String>[],

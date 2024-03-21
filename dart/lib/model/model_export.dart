@@ -282,13 +282,13 @@ class ModelExportGroupByEnum {
 
   String toJson() => value;
 
-  static const asset = ModelExportGroupByEnum._(r'asset');
   static const category = ModelExportGroupByEnum._(r'category');
+  static const place = ModelExportGroupByEnum._(r'place');
 
   /// List of all possible values in this [enum][ModelExportGroupByEnum].
   static const values = <ModelExportGroupByEnum>[
-    asset,
     category,
+    place,
   ];
 
   static ModelExportGroupByEnum? fromJson(dynamic value) =>
@@ -324,10 +324,10 @@ class ModelExportGroupByEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ModelExportGroupByEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'asset':
-        return ModelExportGroupByEnum.asset;
       case r'category':
         return ModelExportGroupByEnum.category;
+      case r'place':
+        return ModelExportGroupByEnum.place;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

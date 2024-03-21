@@ -8722,37 +8722,6 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "asset",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "form",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "asset[]",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "style": "form",
-                        "explode": true,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "assignments.service",
                         "in": "query",
                         "description": "",
@@ -8970,6 +8939,37 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "equipments",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "equipments[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "feedback.batch",
                         "in": "query",
                         "description": "",
@@ -9109,6 +9109,37 @@
                     },
                     {
                         "name": "phase[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "place",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "place[]",
                         "in": "query",
                         "description": "",
                         "required": false,

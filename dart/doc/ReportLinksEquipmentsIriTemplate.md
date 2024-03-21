@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.ReportLinksEquipmentIriTemplate
+# keyclic_sdk_api.model.ReportLinksEquipmentsIriTemplate
 
 ## Load the model package
 ```dart

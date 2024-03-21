@@ -23,6 +23,7 @@ class EquipmentRead {
     required this.name,
     this.parent,
     this.state,
+    this.preferences,
     this.address,
   });
 
@@ -76,6 +77,7 @@ class EquipmentRead {
       name: json[r'name'],
       parent: json[r'parent'],
       state: json[r'state'],
+      preferences: PreferencesRead.fromJson(json[r'preferences']),
       address: PostalAddressRead.fromJson(json[r'address']),
     );
   }
@@ -122,6 +124,8 @@ class EquipmentRead {
 
   String? state;
 
+  PreferencesRead? preferences;
+
   PostalAddressRead? address;
 
   @override
@@ -148,6 +152,7 @@ class EquipmentRead {
         other.name == name &&
         other.parent == parent &&
         other.state == state &&
+        other.preferences == preferences &&
         other.address == address;
   }
 
@@ -169,6 +174,7 @@ class EquipmentRead {
       name.hashCode +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode) +
+      (preferences == null ? 0 : preferences.hashCode) +
       (address == null ? 0 : address.hashCode);
 
   static List<EquipmentRead> listFromJson(List<dynamic>? json) {
@@ -218,7 +224,7 @@ class EquipmentRead {
 
   @override
   String toString() =>
-      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, parent=$parent, state=$state, address=$address]';
+      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, parent=$parent, state=$state, preferences=$preferences, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -253,6 +259,16 @@ class EquipmentRead {
       r'name': name,
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
       if (keys == null || keys.contains(r'state')) r'state': state,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

@@ -20,6 +20,7 @@ class EquipmentJsonhalRead {
     this.warranty,
     this.description,
     required this.name,
+    this.preferences,
     this.address,
   });
 
@@ -70,6 +71,7 @@ class EquipmentJsonhalRead {
       warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       description: json[r'description'],
       name: json[r'name'],
+      preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
@@ -109,6 +111,8 @@ class EquipmentJsonhalRead {
 
   String name;
 
+  PreferencesJsonhalRead? preferences;
+
   PostalAddressJsonhalRead? address;
 
   @override
@@ -132,6 +136,7 @@ class EquipmentJsonhalRead {
         other.warranty == warranty &&
         other.description == description &&
         other.name == name &&
+        other.preferences == preferences &&
         other.address == address;
   }
 
@@ -150,6 +155,7 @@ class EquipmentJsonhalRead {
       (warranty == null ? 0 : warranty.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
+      (preferences == null ? 0 : preferences.hashCode) +
       (address == null ? 0 : address.hashCode);
 
   static List<EquipmentJsonhalRead> listFromJson(List<dynamic>? json) {
@@ -202,7 +208,7 @@ class EquipmentJsonhalRead {
 
   @override
   String toString() =>
-      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, address=$address]';
+      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, preferences=$preferences, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -242,6 +248,16 @@ class EquipmentJsonhalRead {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

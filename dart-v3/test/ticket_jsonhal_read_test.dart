@@ -19,8 +19,8 @@ void main() {
     // DateTime dueBy
     test('to test the property `dueBy`', () async {});
 
-    // TicketPriorityJsonhalRead priority
-    test('to test the property `priority`', () async {});
+    // String name
+    test('to test the property `name`', () async {});
 
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
@@ -42,5 +42,8 @@ void main() {
 
     // bool archived
     test('to test the property `archived`', () async {});
+
+    // TicketJsonhalReadEmbedded embedded
+    test('to test the property `embedded`', () async {});
   });
 }

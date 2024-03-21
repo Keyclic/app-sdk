@@ -10,13 +10,14 @@ class TicketJsonhalRead {
     this.links,
     this.description,
     this.dueBy,
-    this.priority,
+    this.name,
     this.scheduledAt,
     this.id,
     this.tags,
     this.createdAt,
     this.updatedAt,
     this.archived,
+    this.embedded,
   });
 
   /// Returns a new [TicketJsonhalRead] instance and imports its values from
@@ -55,13 +56,14 @@ class TicketJsonhalRead {
       links: TicketJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       dueBy: dueBy,
-      priority: TicketPriorityJsonhalRead.fromJson(json[r'priority']),
+      name: json[r'name'],
       scheduledAt: scheduledAt,
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       archived: json[r'archived'],
+      embedded: TicketJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -69,9 +71,9 @@ class TicketJsonhalRead {
 
   String? description;
 
-  DateTime? dueBy;
+  final DateTime? dueBy;
 
-  TicketPriorityJsonhalRead? priority;
+  String? name;
 
   DateTime? scheduledAt;
 
@@ -88,6 +90,8 @@ class TicketJsonhalRead {
 
   final bool? archived;
 
+  TicketJsonhalReadEmbedded? embedded;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -99,13 +103,14 @@ class TicketJsonhalRead {
         other.links == links &&
         other.description == description &&
         other.dueBy == dueBy &&
-        other.priority == priority &&
+        other.name == name &&
         other.scheduledAt == scheduledAt &&
         other.id == id &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
-        other.archived == archived;
+        other.archived == archived &&
+        other.embedded == embedded;
   }
 
   @override
@@ -113,13 +118,14 @@ class TicketJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
-      (priority == null ? 0 : priority.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (archived == null ? 0 : archived.hashCode);
+      (archived == null ? 0 : archived.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<TicketJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -170,7 +176,7 @@ class TicketJsonhalRead {
 
   @override
   String toString() =>
-      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, priority=$priority, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived]';
+      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, name=$name, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -187,16 +193,7 @@ class TicketJsonhalRead {
         r'description': description,
       if (keys == null || keys.contains(r'dueBy'))
         r'dueBy': dueBy?.toUtc().toIso8601String(),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^priority\.').hasMatch(key)))
-        r'priority': priority?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^priority\.'))) {
-            previousValue.add(element.split(RegExp(r'^priority\.')).last);
-          }
-
-          return previousValue;
-        })),
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'id')) r'id': id,
@@ -206,6 +203,16 @@ class TicketJsonhalRead {
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'archived')) r'archived': archived,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

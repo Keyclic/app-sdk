@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **warranty** | [**WarrantyJsonhalRead**](WarrantyJsonhalRead.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
+**preferences** | [**PreferencesJsonhalRead**](PreferencesJsonhalRead.md) |  | [optional] 
 **address** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

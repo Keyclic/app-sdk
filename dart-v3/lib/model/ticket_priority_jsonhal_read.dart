@@ -8,6 +8,8 @@ class TicketPriorityJsonhalRead {
   /// Returns a new [TicketPriorityJsonhalRead] instance.
   TicketPriorityJsonhalRead({
     this.links,
+    this.color,
+    this.name,
     this.id,
     this.position,
   });
@@ -21,12 +23,18 @@ class TicketPriorityJsonhalRead {
 
     return TicketPriorityJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      color: json[r'color'],
+      name: json[r'name'],
       id: json[r'id'],
       position: json[r'position'],
     );
   }
 
   AssetTypeJsonhalReadLinks? links;
+
+  String? color;
+
+  String? name;
 
   /// The resource identifier.
   final String? id;
@@ -42,6 +50,8 @@ class TicketPriorityJsonhalRead {
 
     return other is TicketPriorityJsonhalRead &&
         other.links == links &&
+        other.color == color &&
+        other.name == name &&
         other.id == id &&
         other.position == position;
   }
@@ -49,6 +59,8 @@ class TicketPriorityJsonhalRead {
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
+      (color == null ? 0 : color.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (position == null ? 0 : position.hashCode);
 
@@ -102,7 +114,7 @@ class TicketPriorityJsonhalRead {
 
   @override
   String toString() =>
-      'TicketPriorityJsonhalRead[links=$links, id=$id, position=$position]';
+      'TicketPriorityJsonhalRead[links=$links, color=$color, name=$name, id=$id, position=$position]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -115,6 +127,8 @@ class TicketPriorityJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'color')) r'color': color,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'position')) r'position': position,
     };

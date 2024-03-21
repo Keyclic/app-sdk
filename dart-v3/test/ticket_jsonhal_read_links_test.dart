@@ -13,7 +13,10 @@ void main() {
     // GetAssetTypeCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst category
-    test('to test the property `category`', () async {});
+    // GetAssetTypeCollection200ResponseLinksFirst organization
+    test('to test the property `organization`', () async {});
+
+    // GetAssetTypeCollection200ResponseLinksFirst parent
+    test('to test the property `parent`', () async {});
   });
 }

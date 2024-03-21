@@ -13,6 +13,7 @@ class AssetJsonhalRead {
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.preferences,
     this.address,
   });
 
@@ -42,6 +43,7 @@ class AssetJsonhalRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
+      preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
@@ -61,6 +63,8 @@ class AssetJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  PreferencesJsonhalRead? preferences;
+
   PostalAddressJsonhalRead? address;
 
   @override
@@ -77,6 +81,7 @@ class AssetJsonhalRead {
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
+        other.preferences == preferences &&
         other.address == address;
   }
 
@@ -88,6 +93,7 @@ class AssetJsonhalRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (preferences == null ? 0 : preferences.hashCode) +
       (address == null ? 0 : address.hashCode);
 
   static List<AssetJsonhalRead> listFromJson(List<dynamic>? json) {
@@ -137,7 +143,7 @@ class AssetJsonhalRead {
 
   @override
   String toString() =>
-      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, address=$address]';
+      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, preferences=$preferences, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -158,6 +164,16 @@ class AssetJsonhalRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
+        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^preferences\.'))) {
+            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

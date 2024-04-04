@@ -14,8 +14,8 @@ class ExternalServicePatchAddress {
 
   /// Returns a new [ExternalServicePatchAddress] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ExternalServicePatchAddress? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ExternalServicePatchAddress? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

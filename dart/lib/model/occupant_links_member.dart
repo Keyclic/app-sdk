@@ -13,8 +13,8 @@ class OccupantLinksMember {
 
   /// Returns a new [OccupantLinksMember] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OccupantLinksMember? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OccupantLinksMember? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

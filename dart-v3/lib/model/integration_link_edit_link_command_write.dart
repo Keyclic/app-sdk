@@ -16,9 +16,8 @@ class IntegrationLinkEditLinkCommandWrite {
 
   /// Returns a new [IntegrationLinkEditLinkCommandWrite] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static IntegrationLinkEditLinkCommandWrite? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static IntegrationLinkEditLinkCommandWrite? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

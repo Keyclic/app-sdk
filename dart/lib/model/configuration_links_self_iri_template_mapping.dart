@@ -12,9 +12,8 @@ class ConfigurationLinksSelfIriTemplateMapping {
 
   /// Returns a new [ConfigurationLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ConfigurationLinksSelfIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static ConfigurationLinksSelfIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

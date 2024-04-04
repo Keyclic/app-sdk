@@ -15,8 +15,8 @@ class ExportData {
 
   /// Returns a new [ExportData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ExportData? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ExportData? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

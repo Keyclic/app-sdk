@@ -12,9 +12,8 @@ class OrganizationLinksDispatcherIriTemplateMapping {
 
   /// Returns a new [OrganizationLinksDispatcherIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OrganizationLinksDispatcherIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static OrganizationLinksDispatcherIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,8 +12,8 @@ class MarkerLinksPlanIriTemplate {
 
   /// Returns a new [MarkerLinksPlanIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MarkerLinksPlanIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MarkerLinksPlanIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,9 +12,8 @@ class AssignmentLinksReportIriTemplate {
 
   /// Returns a new [AssignmentLinksReportIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssignmentLinksReportIriTemplate? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssignmentLinksReportIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

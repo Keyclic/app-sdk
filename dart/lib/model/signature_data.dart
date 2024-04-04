@@ -13,8 +13,8 @@ class SignatureData {
 
   /// Returns a new [SignatureData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SignatureData? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static SignatureData? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

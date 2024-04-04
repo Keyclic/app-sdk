@@ -12,8 +12,8 @@ class PlaceLinksSelfIriTemplate {
 
   /// Returns a new [PlaceLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlaceLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlaceLinksSelfIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

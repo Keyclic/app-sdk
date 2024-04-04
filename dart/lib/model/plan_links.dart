@@ -14,8 +14,8 @@ class PlanLinks {
 
   /// Returns a new [PlanLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlanLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlanLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

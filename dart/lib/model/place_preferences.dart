@@ -12,8 +12,8 @@ class PlacePreferences {
 
   /// Returns a new [PlacePreferences] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlacePreferences? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlacePreferences? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

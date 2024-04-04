@@ -12,9 +12,8 @@ class InvitationLinksSelfIriTemplateMapping {
 
   /// Returns a new [InvitationLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InvitationLinksSelfIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static InvitationLinksSelfIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

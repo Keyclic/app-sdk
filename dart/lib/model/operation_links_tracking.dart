@@ -13,8 +13,8 @@ class OperationLinksTracking {
 
   /// Returns a new [OperationLinksTracking] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OperationLinksTracking? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OperationLinksTracking? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

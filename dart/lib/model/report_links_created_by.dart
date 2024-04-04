@@ -13,8 +13,8 @@ class ReportLinksCreatedBy {
 
   /// Returns a new [ReportLinksCreatedBy] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReportLinksCreatedBy? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReportLinksCreatedBy? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

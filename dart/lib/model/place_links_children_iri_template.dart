@@ -12,8 +12,8 @@ class PlaceLinksChildrenIriTemplate {
 
   /// Returns a new [PlaceLinksChildrenIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlaceLinksChildrenIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlaceLinksChildrenIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

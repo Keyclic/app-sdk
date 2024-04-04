@@ -14,8 +14,8 @@ class CategoryEmbedded {
 
   /// Returns a new [CategoryEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static CategoryEmbedded? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static CategoryEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

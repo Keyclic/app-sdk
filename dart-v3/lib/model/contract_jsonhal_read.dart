@@ -26,8 +26,8 @@ class ContractJsonhalRead {
 
   /// Returns a new [ContractJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ContractJsonhalRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ContractJsonhalRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

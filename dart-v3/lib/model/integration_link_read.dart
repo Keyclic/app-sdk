@@ -20,8 +20,8 @@ class IntegrationLinkRead {
 
   /// Returns a new [IntegrationLinkRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static IntegrationLinkRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static IntegrationLinkRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

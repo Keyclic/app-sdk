@@ -12,8 +12,8 @@ class ConfigurationLinks {
 
   /// Returns a new [ConfigurationLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ConfigurationLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ConfigurationLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,9 +12,8 @@ class DocumentLinksCreatedByIriTemplate {
 
   /// Returns a new [DocumentLinksCreatedByIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentLinksCreatedByIriTemplate? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentLinksCreatedByIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

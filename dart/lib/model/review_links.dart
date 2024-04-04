@@ -14,8 +14,8 @@ class ReviewLinks {
 
   /// Returns a new [ReviewLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReviewLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReviewLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,9 +13,8 @@ class FeedbackLinksPlansIriTemplateMapping {
 
   /// Returns a new [FeedbackLinksPlansIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackLinksPlansIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackLinksPlansIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

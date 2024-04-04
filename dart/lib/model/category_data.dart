@@ -15,8 +15,8 @@ class CategoryData {
 
   /// Returns a new [CategoryData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static CategoryData? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static CategoryData? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

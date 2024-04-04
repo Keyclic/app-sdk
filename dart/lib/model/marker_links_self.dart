@@ -13,8 +13,8 @@ class MarkerLinksSelf {
 
   /// Returns a new [MarkerLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MarkerLinksSelf? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MarkerLinksSelf? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

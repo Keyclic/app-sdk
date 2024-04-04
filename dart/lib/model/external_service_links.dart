@@ -13,8 +13,8 @@ class ExternalServiceLinks {
 
   /// Returns a new [ExternalServiceLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ExternalServiceLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ExternalServiceLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

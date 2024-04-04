@@ -12,9 +12,8 @@ class ReviewLinksSelfIriTemplateMapping {
 
   /// Returns a new [ReviewLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReviewLinksSelfIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReviewLinksSelfIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

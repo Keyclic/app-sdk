@@ -20,8 +20,8 @@ class AssetRead {
 
   /// Returns a new [AssetRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssetRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssetRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

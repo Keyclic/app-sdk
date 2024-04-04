@@ -13,8 +13,8 @@ class BookmarkLinksMember {
 
   /// Returns a new [BookmarkLinksMember] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BookmarkLinksMember? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static BookmarkLinksMember? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,8 +12,8 @@ class RuleLinksCategoryIriTemplate {
 
   /// Returns a new [RuleLinksCategoryIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static RuleLinksCategoryIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static RuleLinksCategoryIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

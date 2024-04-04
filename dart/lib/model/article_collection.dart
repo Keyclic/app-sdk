@@ -12,8 +12,8 @@ class ArticleCollection {
 
   /// Returns a new [ArticleCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ArticleCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ArticleCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

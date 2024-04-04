@@ -13,8 +13,8 @@ class OrganizationLinksConfiguration {
 
   /// Returns a new [OrganizationLinksConfiguration] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OrganizationLinksConfiguration? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OrganizationLinksConfiguration? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class ArticleLinksSection {
 
   /// Returns a new [ArticleLinksSection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ArticleLinksSection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ArticleLinksSection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

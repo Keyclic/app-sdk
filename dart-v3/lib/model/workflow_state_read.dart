@@ -14,8 +14,8 @@ class WorkflowStateRead {
 
   /// Returns a new [WorkflowStateRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static WorkflowStateRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static WorkflowStateRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

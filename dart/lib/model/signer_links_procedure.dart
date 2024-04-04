@@ -13,8 +13,8 @@ class SignerLinksProcedure {
 
   /// Returns a new [SignerLinksProcedure] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SignerLinksProcedure? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static SignerLinksProcedure? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

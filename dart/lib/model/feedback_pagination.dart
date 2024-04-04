@@ -17,8 +17,8 @@ class FeedbackPagination implements Pagination {
 
   /// Returns a new [FeedbackPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

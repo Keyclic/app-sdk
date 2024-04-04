@@ -12,8 +12,8 @@ class PlacePatchPreferences {
 
   /// Returns a new [PlacePatchPreferences] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlacePatchPreferences? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlacePatchPreferences? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

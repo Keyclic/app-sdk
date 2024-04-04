@@ -16,8 +16,8 @@ class ConditionListCondition {
 
   /// Returns a new [ConditionListCondition] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ConditionListCondition? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ConditionListCondition? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

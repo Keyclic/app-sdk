@@ -12,8 +12,8 @@ class NoteCollection {
 
   /// Returns a new [NoteCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static NoteCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static NoteCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

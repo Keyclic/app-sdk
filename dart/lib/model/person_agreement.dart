@@ -14,8 +14,8 @@ class PersonAgreement {
 
   /// Returns a new [PersonAgreement] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PersonAgreement? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PersonAgreement? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

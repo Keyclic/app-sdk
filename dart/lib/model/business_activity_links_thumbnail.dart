@@ -13,8 +13,8 @@ class BusinessActivityLinksThumbnail {
 
   /// Returns a new [BusinessActivityLinksThumbnail] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BusinessActivityLinksThumbnail? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static BusinessActivityLinksThumbnail? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -17,8 +17,8 @@ class ModelExport {
 
   /// Returns a new [ModelExport] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ModelExport? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ModelExport? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class MarkerLinksPlan {
 
   /// Returns a new [MarkerLinksPlan] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MarkerLinksPlan? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MarkerLinksPlan? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,8 +12,8 @@ class InvitationEmbedded {
 
   /// Returns a new [InvitationEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InvitationEmbedded? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static InvitationEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,8 +12,8 @@ class BookmarkLinksSelfIriTemplate {
 
   /// Returns a new [BookmarkLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BookmarkLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static BookmarkLinksSelfIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

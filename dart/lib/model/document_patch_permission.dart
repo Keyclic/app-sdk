@@ -12,8 +12,8 @@ class DocumentPatchPermission {
 
   /// Returns a new [DocumentPatchPermission] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentPatchPermission? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentPatchPermission? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

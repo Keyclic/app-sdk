@@ -12,8 +12,8 @@ class NotePatch {
 
   /// Returns a new [NotePatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static NotePatch? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static NotePatch? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

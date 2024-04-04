@@ -19,8 +19,8 @@ class FeedbackLinks {
 
   /// Returns a new [FeedbackLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

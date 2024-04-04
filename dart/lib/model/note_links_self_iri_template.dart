@@ -12,8 +12,8 @@ class NoteLinksSelfIriTemplate {
 
   /// Returns a new [NoteLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static NoteLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static NoteLinksSelfIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

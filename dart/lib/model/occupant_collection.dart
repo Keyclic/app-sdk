@@ -12,8 +12,8 @@ class OccupantCollection {
 
   /// Returns a new [OccupantCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OccupantCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OccupantCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

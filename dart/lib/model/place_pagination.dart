@@ -17,8 +17,8 @@ class PlacePagination implements Pagination {
 
   /// Returns a new [PlacePagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlacePagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlacePagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

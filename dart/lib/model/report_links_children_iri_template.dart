@@ -12,8 +12,8 @@ class ReportLinksChildrenIriTemplate {
 
   /// Returns a new [ReportLinksChildrenIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReportLinksChildrenIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReportLinksChildrenIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

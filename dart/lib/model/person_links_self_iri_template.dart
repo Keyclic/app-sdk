@@ -12,8 +12,8 @@ class PersonLinksSelfIriTemplate {
 
   /// Returns a new [PersonLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PersonLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PersonLinksSelfIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -15,8 +15,8 @@ class Tracking {
 
   /// Returns a new [Tracking] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Tracking? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Tracking? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

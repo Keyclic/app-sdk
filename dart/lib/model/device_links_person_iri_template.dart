@@ -12,8 +12,8 @@ class DeviceLinksPersonIriTemplate {
 
   /// Returns a new [DeviceLinksPersonIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DeviceLinksPersonIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DeviceLinksPersonIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -25,8 +25,8 @@ class OrganizationPreferences {
 
   /// Returns a new [OrganizationPreferences] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OrganizationPreferences? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OrganizationPreferences? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

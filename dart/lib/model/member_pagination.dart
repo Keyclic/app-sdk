@@ -17,8 +17,8 @@ class MemberPagination implements Pagination {
 
   /// Returns a new [MemberPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MemberPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MemberPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

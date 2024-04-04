@@ -13,8 +13,8 @@ class ProcedureLinksDocument {
 
   /// Returns a new [ProcedureLinksDocument] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ProcedureLinksDocument? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ProcedureLinksDocument? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

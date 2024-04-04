@@ -14,8 +14,8 @@ class SignerLinks {
 
   /// Returns a new [SignerLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SignerLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static SignerLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

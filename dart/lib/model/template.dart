@@ -19,8 +19,8 @@ class Template {
 
   /// Returns a new [Template] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Template? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Template? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

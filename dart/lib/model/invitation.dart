@@ -18,8 +18,8 @@ class Invitation {
 
   /// Returns a new [Invitation] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Invitation? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Invitation? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

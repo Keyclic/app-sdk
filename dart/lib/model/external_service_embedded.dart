@@ -12,8 +12,8 @@ class ExternalServiceEmbedded {
 
   /// Returns a new [ExternalServiceEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ExternalServiceEmbedded? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ExternalServiceEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

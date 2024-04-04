@@ -15,8 +15,8 @@ class GetBrandCollection200Response {
 
   /// Returns a new [GetBrandCollection200Response] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetBrandCollection200Response? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static GetBrandCollection200Response? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

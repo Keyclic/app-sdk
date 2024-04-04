@@ -13,8 +13,8 @@ class ReviewRequestLinksItemToReview {
 
   /// Returns a new [ReviewRequestLinksItemToReview] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReviewRequestLinksItemToReview? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReviewRequestLinksItemToReview? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

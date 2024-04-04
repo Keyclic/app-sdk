@@ -12,9 +12,8 @@ class DocumentLinksProcedureIriTemplate {
 
   /// Returns a new [DocumentLinksProcedureIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentLinksProcedureIriTemplate? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentLinksProcedureIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

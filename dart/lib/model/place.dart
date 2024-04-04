@@ -22,8 +22,8 @@ class Place {
 
   /// Returns a new [Place] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Place? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Place? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -25,8 +25,8 @@ class EquipmentJsonhalRead {
 
   /// Returns a new [EquipmentJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EquipmentJsonhalRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static EquipmentJsonhalRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

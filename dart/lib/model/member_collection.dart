@@ -12,8 +12,8 @@ class MemberCollection {
 
   /// Returns a new [MemberCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MemberCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MemberCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

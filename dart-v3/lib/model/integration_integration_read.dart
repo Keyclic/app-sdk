@@ -18,8 +18,8 @@ class IntegrationIntegrationRead {
 
   /// Returns a new [IntegrationIntegrationRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static IntegrationIntegrationRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static IntegrationIntegrationRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

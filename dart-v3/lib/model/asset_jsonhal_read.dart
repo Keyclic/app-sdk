@@ -18,8 +18,8 @@ class AssetJsonhalRead {
 
   /// Returns a new [AssetJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssetJsonhalRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssetJsonhalRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

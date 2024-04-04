@@ -25,8 +25,8 @@ class Operation {
 
   /// Returns a new [Operation] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Operation? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Operation? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

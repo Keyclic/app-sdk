@@ -13,8 +13,8 @@ class ProcedureLinksSelf {
 
   /// Returns a new [ProcedureLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ProcedureLinksSelf? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ProcedureLinksSelf? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

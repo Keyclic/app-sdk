@@ -12,9 +12,8 @@ class GetSlaPolicyCollection200ResponseEmbedded {
 
   /// Returns a new [GetSlaPolicyCollection200ResponseEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetSlaPolicyCollection200ResponseEmbedded? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static GetSlaPolicyCollection200ResponseEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

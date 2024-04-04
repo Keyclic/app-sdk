@@ -12,9 +12,8 @@ class BookmarkLinksPlaceIriTemplateMapping {
 
   /// Returns a new [BookmarkLinksPlaceIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BookmarkLinksPlaceIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static BookmarkLinksPlaceIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

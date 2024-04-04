@@ -17,8 +17,8 @@ class OccupantPagination implements Pagination {
 
   /// Returns a new [OccupantPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OccupantPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OccupantPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

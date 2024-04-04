@@ -12,8 +12,8 @@ class DocumentLinksSelfIriTemplate {
 
   /// Returns a new [DocumentLinksSelfIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentLinksSelfIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentLinksSelfIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

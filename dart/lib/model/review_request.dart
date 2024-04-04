@@ -17,8 +17,8 @@ class ReviewRequest {
 
   /// Returns a new [ReviewRequest] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReviewRequest? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReviewRequest? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

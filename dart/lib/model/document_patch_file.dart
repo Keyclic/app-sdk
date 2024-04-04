@@ -12,8 +12,8 @@ class DocumentPatchFile {
 
   /// Returns a new [DocumentPatchFile] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentPatchFile? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentPatchFile? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

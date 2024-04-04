@@ -13,8 +13,8 @@ class PlaceLinksPlans {
 
   /// Returns a new [PlaceLinksPlans] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlaceLinksPlans? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlaceLinksPlans? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

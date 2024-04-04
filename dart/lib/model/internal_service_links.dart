@@ -13,8 +13,8 @@ class InternalServiceLinks {
 
   /// Returns a new [InternalServiceLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InternalServiceLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static InternalServiceLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -23,9 +23,8 @@ class EquipmentEditEquipmentCommandWrite {
 
   /// Returns a new [EquipmentEditEquipmentCommandWrite] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EquipmentEditEquipmentCommandWrite? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static EquipmentEditEquipmentCommandWrite? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

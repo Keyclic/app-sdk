@@ -12,8 +12,8 @@ class ServiceCollection {
 
   /// Returns a new [ServiceCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ServiceCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ServiceCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

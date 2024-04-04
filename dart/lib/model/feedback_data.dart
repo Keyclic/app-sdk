@@ -22,8 +22,8 @@ class FeedbackData {
 
   /// Returns a new [FeedbackData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackData? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackData? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

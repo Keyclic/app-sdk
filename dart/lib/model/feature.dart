@@ -14,8 +14,8 @@ class Feature {
 
   /// Returns a new [Feature] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Feature? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Feature? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

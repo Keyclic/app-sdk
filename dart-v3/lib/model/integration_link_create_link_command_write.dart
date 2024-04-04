@@ -18,9 +18,8 @@ class IntegrationLinkCreateLinkCommandWrite {
 
   /// Returns a new [IntegrationLinkCreateLinkCommandWrite] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static IntegrationLinkCreateLinkCommandWrite? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static IntegrationLinkCreateLinkCommandWrite? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

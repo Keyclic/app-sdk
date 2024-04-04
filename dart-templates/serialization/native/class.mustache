@@ -194,7 +194,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{^required}}({{{name}}} == null ? 0 :{{/required}} {{{name}}}.hashCode{{^required}}){{/required}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
   {{/vars}}
 
-  static List<{{{classname}}}> listFromJson(List<dynamic>? json) {
+  static List<{{{classname}}}> listFromJson(Iterable? json) {
     if (json == null) {
       return <{{{classname}}}>[];
     }

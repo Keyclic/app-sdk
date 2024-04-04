@@ -14,8 +14,8 @@ class ConfigurationPlaceType {
 
   /// Returns a new [ConfigurationPlaceType] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ConfigurationPlaceType? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ConfigurationPlaceType? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

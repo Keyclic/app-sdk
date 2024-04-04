@@ -19,8 +19,8 @@ class ExternalServiceContactPoint {
 
   /// Returns a new [ExternalServiceContactPoint] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ExternalServiceContactPoint? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ExternalServiceContactPoint? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

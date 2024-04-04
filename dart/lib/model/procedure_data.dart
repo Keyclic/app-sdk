@@ -14,8 +14,8 @@ class ProcedureData {
 
   /// Returns a new [ProcedureData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ProcedureData? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ProcedureData? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -22,8 +22,8 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
   /// Returns a new [SlaPolicyJsonhalSlaPolicyRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SlaPolicyJsonhalSlaPolicyRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static SlaPolicyJsonhalSlaPolicyRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

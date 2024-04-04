@@ -13,8 +13,8 @@ class DocumentLinksFile {
 
   /// Returns a new [DocumentLinksFile] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentLinksFile? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentLinksFile? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

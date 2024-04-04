@@ -13,8 +13,8 @@ class ActivityEntity {
 
   /// Returns a new [ActivityEntity] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ActivityEntity? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ActivityEntity? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

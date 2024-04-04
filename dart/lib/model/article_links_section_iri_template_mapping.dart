@@ -12,9 +12,8 @@ class ArticleLinksSectionIriTemplateMapping {
 
   /// Returns a new [ArticleLinksSectionIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ArticleLinksSectionIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static ArticleLinksSectionIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

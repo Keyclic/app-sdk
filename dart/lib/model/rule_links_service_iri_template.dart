@@ -12,8 +12,8 @@ class RuleLinksServiceIriTemplate {
 
   /// Returns a new [RuleLinksServiceIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static RuleLinksServiceIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static RuleLinksServiceIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

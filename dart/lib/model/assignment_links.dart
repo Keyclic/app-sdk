@@ -16,8 +16,8 @@ class AssignmentLinks {
 
   /// Returns a new [AssignmentLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssignmentLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssignmentLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

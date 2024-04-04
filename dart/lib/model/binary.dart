@@ -14,8 +14,8 @@ class Binary {
 
   /// Returns a new [Binary] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Binary? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Binary? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

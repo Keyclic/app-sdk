@@ -12,9 +12,8 @@ class SignerLinksSelfIriTemplateMapping {
 
   /// Returns a new [SignerLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SignerLinksSelfIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static SignerLinksSelfIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,8 +12,8 @@ class PublicationLinksFeedIriTemplate {
 
   /// Returns a new [PublicationLinksFeedIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PublicationLinksFeedIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PublicationLinksFeedIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

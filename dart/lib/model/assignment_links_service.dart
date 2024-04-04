@@ -13,8 +13,8 @@ class AssignmentLinksService {
 
   /// Returns a new [AssignmentLinksService] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssignmentLinksService? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssignmentLinksService? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

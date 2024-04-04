@@ -12,8 +12,8 @@ class AgreementTermsOfService {
 
   /// Returns a new [AgreementTermsOfService] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AgreementTermsOfService? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static AgreementTermsOfService? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

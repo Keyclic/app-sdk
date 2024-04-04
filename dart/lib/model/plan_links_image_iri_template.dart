@@ -12,8 +12,8 @@ class PlanLinksImageIriTemplate {
 
   /// Returns a new [PlanLinksImageIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlanLinksImageIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlanLinksImageIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class DocumentLinksSelf {
 
   /// Returns a new [DocumentLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentLinksSelf? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentLinksSelf? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

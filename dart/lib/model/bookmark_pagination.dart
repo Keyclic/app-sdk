@@ -17,8 +17,8 @@ class BookmarkPagination implements Pagination {
 
   /// Returns a new [BookmarkPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BookmarkPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static BookmarkPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

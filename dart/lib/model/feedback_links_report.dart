@@ -13,8 +13,8 @@ class FeedbackLinksReport {
 
   /// Returns a new [FeedbackLinksReport] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackLinksReport? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackLinksReport? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

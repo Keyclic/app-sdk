@@ -12,8 +12,8 @@ class FeedbackCollection {
 
   /// Returns a new [FeedbackCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

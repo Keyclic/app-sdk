@@ -21,8 +21,8 @@ class TicketRead {
 
   /// Returns a new [TicketRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static TicketRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static TicketRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

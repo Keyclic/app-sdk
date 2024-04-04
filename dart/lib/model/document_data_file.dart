@@ -14,8 +14,8 @@ class DocumentDataFile {
 
   /// Returns a new [DocumentDataFile] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentDataFile? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentDataFile? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,9 +12,8 @@ class ReviewRequestLinksOrganizationIriTemplate {
 
   /// Returns a new [ReviewRequestLinksOrganizationIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReviewRequestLinksOrganizationIriTemplate? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReviewRequestLinksOrganizationIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

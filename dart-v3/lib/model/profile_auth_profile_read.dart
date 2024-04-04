@@ -14,8 +14,8 @@ class ProfileAuthProfileRead {
 
   /// Returns a new [ProfileAuthProfileRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ProfileAuthProfileRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ProfileAuthProfileRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

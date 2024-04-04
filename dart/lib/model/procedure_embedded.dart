@@ -12,8 +12,8 @@ class ProcedureEmbedded {
 
   /// Returns a new [ProcedureEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ProcedureEmbedded? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ProcedureEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

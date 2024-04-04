@@ -12,8 +12,8 @@ class AssetTypeJsonhalReadLinks {
 
   /// Returns a new [AssetTypeJsonhalReadLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssetTypeJsonhalReadLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssetTypeJsonhalReadLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

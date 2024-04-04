@@ -13,8 +13,8 @@ class OccupantLinksSelf {
 
   /// Returns a new [OccupantLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OccupantLinksSelf? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OccupantLinksSelf? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

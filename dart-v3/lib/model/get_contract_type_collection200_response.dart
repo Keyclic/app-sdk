@@ -15,9 +15,8 @@ class GetContractTypeCollection200Response {
 
   /// Returns a new [GetContractTypeCollection200Response] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetContractTypeCollection200Response? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static GetContractTypeCollection200Response? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

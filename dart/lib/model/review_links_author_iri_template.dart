@@ -12,8 +12,8 @@ class ReviewLinksAuthorIriTemplate {
 
   /// Returns a new [ReviewLinksAuthorIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReviewLinksAuthorIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReviewLinksAuthorIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

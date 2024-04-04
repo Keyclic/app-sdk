@@ -13,8 +13,8 @@ class PublicationLinksFeed {
 
   /// Returns a new [PublicationLinksFeed] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PublicationLinksFeed? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PublicationLinksFeed? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

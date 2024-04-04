@@ -12,8 +12,8 @@ class InternalServiceEmbedded {
 
   /// Returns a new [InternalServiceEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InternalServiceEmbedded? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static InternalServiceEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -16,8 +16,8 @@ class ReportPriority {
 
   /// Returns a new [ReportPriority] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReportPriority? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReportPriority? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

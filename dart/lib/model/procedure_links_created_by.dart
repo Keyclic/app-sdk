@@ -13,8 +13,8 @@ class ProcedureLinksCreatedBy {
 
   /// Returns a new [ProcedureLinksCreatedBy] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ProcedureLinksCreatedBy? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ProcedureLinksCreatedBy? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

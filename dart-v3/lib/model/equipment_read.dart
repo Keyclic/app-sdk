@@ -28,8 +28,8 @@ class EquipmentRead {
 
   /// Returns a new [EquipmentRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EquipmentRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static EquipmentRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,9 +12,8 @@ class GetTicketTypeCollection200ResponseEmbedded {
 
   /// Returns a new [GetTicketTypeCollection200ResponseEmbedded] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetTicketTypeCollection200ResponseEmbedded? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static GetTicketTypeCollection200ResponseEmbedded? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

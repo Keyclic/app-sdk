@@ -13,8 +13,8 @@ class MemberPatch {
 
   /// Returns a new [MemberPatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MemberPatch? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MemberPatch? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

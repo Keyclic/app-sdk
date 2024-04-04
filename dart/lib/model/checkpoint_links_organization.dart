@@ -13,8 +13,8 @@ class CheckpointLinksOrganization {
 
   /// Returns a new [CheckpointLinksOrganization] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static CheckpointLinksOrganization? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static CheckpointLinksOrganization? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

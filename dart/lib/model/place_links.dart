@@ -16,8 +16,8 @@ class PlaceLinks {
 
   /// Returns a new [PlaceLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlaceLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlaceLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

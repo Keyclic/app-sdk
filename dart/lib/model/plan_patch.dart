@@ -12,8 +12,8 @@ class PlanPatch {
 
   /// Returns a new [PlanPatch] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlanPatch? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PlanPatch? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

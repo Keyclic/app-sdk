@@ -16,8 +16,8 @@ class ActivityAggregatedPagination {
 
   /// Returns a new [ActivityAggregatedPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ActivityAggregatedPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ActivityAggregatedPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

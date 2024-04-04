@@ -12,9 +12,8 @@ class CategoryLinksOrganizationIriTemplateMapping {
 
   /// Returns a new [CategoryLinksOrganizationIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static CategoryLinksOrganizationIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static CategoryLinksOrganizationIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

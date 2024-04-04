@@ -14,8 +14,8 @@ class InternalServicePostalAddress {
 
   /// Returns a new [InternalServicePostalAddress] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InternalServicePostalAddress? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static InternalServicePostalAddress? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

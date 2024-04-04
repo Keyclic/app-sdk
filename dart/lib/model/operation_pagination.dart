@@ -17,8 +17,8 @@ class OperationPagination implements Pagination {
 
   /// Returns a new [OperationPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OperationPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OperationPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

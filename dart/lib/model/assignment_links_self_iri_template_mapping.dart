@@ -12,9 +12,8 @@ class AssignmentLinksSelfIriTemplateMapping {
 
   /// Returns a new [AssignmentLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static AssignmentLinksSelfIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static AssignmentLinksSelfIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

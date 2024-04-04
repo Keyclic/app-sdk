@@ -17,8 +17,8 @@ class ServicePagination implements Pagination {
 
   /// Returns a new [ServicePagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ServicePagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ServicePagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

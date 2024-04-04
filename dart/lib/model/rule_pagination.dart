@@ -17,8 +17,8 @@ class RulePagination implements Pagination {
 
   /// Returns a new [RulePagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static RulePagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static RulePagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

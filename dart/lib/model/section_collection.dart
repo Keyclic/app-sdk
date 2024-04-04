@@ -12,8 +12,8 @@ class SectionCollection {
 
   /// Returns a new [SectionCollection] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SectionCollection? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static SectionCollection? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

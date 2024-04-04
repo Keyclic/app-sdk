@@ -12,8 +12,8 @@ class ReportLinksCategoryIriTemplate {
 
   /// Returns a new [ReportLinksCategoryIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReportLinksCategoryIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReportLinksCategoryIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class OperationLinksAssignments {
 
   /// Returns a new [OperationLinksAssignments] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OperationLinksAssignments? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OperationLinksAssignments? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -15,9 +15,8 @@ class GetBusinessHoursCollection200Response {
 
   /// Returns a new [GetBusinessHoursCollection200Response] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetBusinessHoursCollection200Response? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static GetBusinessHoursCollection200Response? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -23,8 +23,8 @@ class Document {
 
   /// Returns a new [Document] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static Document? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static Document? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

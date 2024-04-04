@@ -12,8 +12,8 @@ class PropertyItems {
 
   /// Returns a new [PropertyItems] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PropertyItems? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PropertyItems? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

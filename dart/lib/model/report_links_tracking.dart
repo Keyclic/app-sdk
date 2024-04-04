@@ -13,8 +13,8 @@ class ReportLinksTracking {
 
   /// Returns a new [ReportLinksTracking] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ReportLinksTracking? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ReportLinksTracking? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

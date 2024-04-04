@@ -16,8 +16,8 @@ class FeedbackPriority {
 
   /// Returns a new [FeedbackPriority] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackPriority? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackPriority? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

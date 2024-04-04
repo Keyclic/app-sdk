@@ -17,8 +17,8 @@ class CategoryTypeJsonhalRead {
 
   /// Returns a new [CategoryTypeJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static CategoryTypeJsonhalRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static CategoryTypeJsonhalRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class PersonLinksImage {
 
   /// Returns a new [PersonLinksImage] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PersonLinksImage? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PersonLinksImage? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

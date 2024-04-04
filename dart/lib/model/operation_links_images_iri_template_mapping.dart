@@ -13,9 +13,8 @@ class OperationLinksImagesIriTemplateMapping {
 
   /// Returns a new [OperationLinksImagesIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OperationLinksImagesIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static OperationLinksImagesIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

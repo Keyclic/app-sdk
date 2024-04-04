@@ -17,8 +17,8 @@ class TicketTypeJsonhalRead {
 
   /// Returns a new [TicketTypeJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static TicketTypeJsonhalRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static TicketTypeJsonhalRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

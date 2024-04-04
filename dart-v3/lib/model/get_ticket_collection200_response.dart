@@ -15,8 +15,8 @@ class GetTicketCollection200Response {
 
   /// Returns a new [GetTicketCollection200Response] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetTicketCollection200Response? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static GetTicketCollection200Response? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

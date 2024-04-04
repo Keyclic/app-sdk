@@ -22,8 +22,8 @@ class CheckpointState {
 
   /// Returns a new [CheckpointState] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static CheckpointState? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static CheckpointState? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

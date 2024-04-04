@@ -17,8 +17,8 @@ class DocumentPagination implements Pagination {
 
   /// Returns a new [DocumentPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static DocumentPagination? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static DocumentPagination? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

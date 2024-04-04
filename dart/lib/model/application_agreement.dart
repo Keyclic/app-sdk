@@ -14,8 +14,8 @@ class ApplicationAgreement {
 
   /// Returns a new [ApplicationAgreement] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ApplicationAgreement? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static ApplicationAgreement? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

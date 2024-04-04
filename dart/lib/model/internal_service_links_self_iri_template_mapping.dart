@@ -12,9 +12,8 @@ class InternalServiceLinksSelfIriTemplateMapping {
 
   /// Returns a new [InternalServiceLinksSelfIriTemplateMapping] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InternalServiceLinksSelfIriTemplateMapping? fromJson(
-      Map<String, dynamic>? json) {
-    if (json == null) {
+  static InternalServiceLinksSelfIriTemplateMapping? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

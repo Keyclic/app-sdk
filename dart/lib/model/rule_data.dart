@@ -16,8 +16,8 @@ class RuleData {
 
   /// Returns a new [RuleData] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static RuleData? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static RuleData? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class FeedbackLinksTracking {
 
   /// Returns a new [FeedbackLinksTracking] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackLinksTracking? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackLinksTracking? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

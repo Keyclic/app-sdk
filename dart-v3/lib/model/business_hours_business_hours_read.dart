@@ -17,8 +17,8 @@ class BusinessHoursBusinessHoursRead {
 
   /// Returns a new [BusinessHoursBusinessHoursRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BusinessHoursBusinessHoursRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static BusinessHoursBusinessHoursRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

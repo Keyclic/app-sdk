@@ -14,8 +14,8 @@ class PersonPatchAgreement {
 
   /// Returns a new [PersonPatchAgreement] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PersonPatchAgreement? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PersonPatchAgreement? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

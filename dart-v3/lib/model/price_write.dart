@@ -12,8 +12,8 @@ class PriceWrite {
 
   /// Returns a new [PriceWrite] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PriceWrite? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PriceWrite? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

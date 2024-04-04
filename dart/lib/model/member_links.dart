@@ -14,8 +14,8 @@ class MemberLinks {
 
   /// Returns a new [MemberLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static MemberLinks? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static MemberLinks? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -12,8 +12,8 @@ class OccupantLinksPlaceIriTemplate {
 
   /// Returns a new [OccupantLinksPlaceIriTemplate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static OccupantLinksPlaceIriTemplate? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static OccupantLinksPlaceIriTemplate? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

@@ -13,8 +13,8 @@ class PersonLinksSelf {
 
   /// Returns a new [PersonLinksSelf] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PersonLinksSelf? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static PersonLinksSelf? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

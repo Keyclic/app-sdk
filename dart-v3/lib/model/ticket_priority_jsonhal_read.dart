@@ -14,8 +14,8 @@ class TicketPriorityJsonhalRead {
 
   /// Returns a new [TicketPriorityJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static TicketPriorityJsonhalRead? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static TicketPriorityJsonhalRead? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

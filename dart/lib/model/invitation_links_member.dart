@@ -13,8 +13,8 @@ class InvitationLinksMember {
 
   /// Returns a new [InvitationLinksMember] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static InvitationLinksMember? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static InvitationLinksMember? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

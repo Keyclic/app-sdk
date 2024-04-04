@@ -13,8 +13,8 @@ class FeedbackDataGeo {
 
   /// Returns a new [FeedbackDataGeo] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static FeedbackDataGeo? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static FeedbackDataGeo? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

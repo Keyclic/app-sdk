@@ -13,8 +13,8 @@ class RuleLinksService {
 
   /// Returns a new [RuleLinksService] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static RuleLinksService? fromJson(Map<String, dynamic>? json) {
-    if (json == null) {
+  static RuleLinksService? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
       return null;
     }
 

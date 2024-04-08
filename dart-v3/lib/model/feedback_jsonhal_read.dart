@@ -14,7 +14,7 @@ class FeedbackJsonhalRead {
     this.id,
     this.createdAt,
     this.updatedAt,
-    required this.geoCoordinates,
+    this.geoCoordinates,
     this.embedded,
   });
 
@@ -49,7 +49,7 @@ class FeedbackJsonhalRead {
       createdAt: createdAt,
       updatedAt: updatedAt,
       geoCoordinates:
-          GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates'])!,
+          GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates']),
       embedded: FeedbackJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
@@ -71,7 +71,7 @@ class FeedbackJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  GeoCoordinatesJsonhalRead geoCoordinates;
+  GeoCoordinatesJsonhalRead? geoCoordinates;
 
   FeedbackJsonhalReadEmbedded? embedded;
 
@@ -103,7 +103,7 @@ class FeedbackJsonhalRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      geoCoordinates.hashCode +
+      (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
   static List<FeedbackJsonhalRead> listFromJson(List<dynamic>? json) {
@@ -177,14 +177,16 @@ class FeedbackJsonhalRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      r'geoCoordinates': geoCoordinates.toJson(keys?.fold<List<String>>(
-          <String>[], (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^geoCoordinates\.'))) {
-          previousValue.add(element.split(RegExp(r'^geoCoordinates\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^geoCoordinates\.').hasMatch(key)))
+        r'geoCoordinates': geoCoordinates?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^geoCoordinates\.'))) {
+            previousValue.add(element.split(RegExp(r'^geoCoordinates\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
         r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],

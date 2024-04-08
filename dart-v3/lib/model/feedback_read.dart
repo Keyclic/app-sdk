@@ -15,7 +15,7 @@ class FeedbackRead {
     this.id,
     this.createdAt,
     this.updatedAt,
-    required this.geoCoordinates,
+    this.geoCoordinates,
   });
 
   /// Returns a new [FeedbackRead] instance and imports its values from
@@ -48,7 +48,7 @@ class FeedbackRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
-      geoCoordinates: GeoCoordinatesRead.fromJson(json[r'geoCoordinates'])!,
+      geoCoordinates: GeoCoordinatesRead.fromJson(json[r'geoCoordinates']),
     );
   }
 
@@ -71,7 +71,7 @@ class FeedbackRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  GeoCoordinatesRead geoCoordinates;
+  GeoCoordinatesRead? geoCoordinates;
 
   @override
   bool operator ==(Object other) {
@@ -102,7 +102,7 @@ class FeedbackRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      geoCoordinates.hashCode;
+      (geoCoordinates == null ? 0 : geoCoordinates.hashCode);
 
   static List<FeedbackRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -166,14 +166,16 @@ class FeedbackRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      r'geoCoordinates': geoCoordinates.toJson(keys?.fold<List<String>>(
-          <String>[], (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^geoCoordinates\.'))) {
-          previousValue.add(element.split(RegExp(r'^geoCoordinates\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^geoCoordinates\.').hasMatch(key)))
+        r'geoCoordinates': geoCoordinates?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^geoCoordinates\.'))) {
+            previousValue.add(element.split(RegExp(r'^geoCoordinates\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
     };
   }
 }

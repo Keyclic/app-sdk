@@ -11925,7 +11925,6 @@
                     }
                 },
                 "required": [
-                    "geoCoordinates",
                     "visibility"
                 ]
             },
@@ -12014,7 +12013,6 @@
                     }
                 },
                 "required": [
-                    "geoCoordinates",
                     "visibility"
                 ]
             },

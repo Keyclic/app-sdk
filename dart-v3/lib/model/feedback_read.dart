@@ -42,7 +42,7 @@ class FeedbackRead {
       markers: MarkerRead.listFromJson(json[r'markers']),
       metadata: json[r'metadata'] == null
           ? null
-          : List<String>.from(json[r'metadata']),
+          : Map<String, Object?>.from(json[r'metadata']),
       reporter: json[r'reporter'],
       visibility: FeedbackReadVisibilityEnum.fromJson(json[r'visibility'])!,
       id: json[r'id'],
@@ -56,7 +56,7 @@ class FeedbackRead {
 
   final List<MarkerRead>? markers;
 
-  List<String>? metadata;
+  Map<String, Object?>? metadata;
 
   String? reporter;
 

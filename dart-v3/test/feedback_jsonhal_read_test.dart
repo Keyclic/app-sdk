@@ -16,7 +16,7 @@ void main() {
     // String description
     test('to test the property `description`', () async {});
 
-    // List<String> metadata (default value: const [])
+    // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
     // String visibility

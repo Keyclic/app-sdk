@@ -11879,10 +11879,8 @@
                         }
                     },
                     "metadata": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object",
+                        "additionalProperties": true
                     },
                     "reporter": {
                         "type": "string",
@@ -11964,10 +11962,8 @@
                         "nullable": true
                     },
                     "metadata": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "type": "object",
+                        "additionalProperties": true
                     },
                     "visibility": {
                         "enum": [

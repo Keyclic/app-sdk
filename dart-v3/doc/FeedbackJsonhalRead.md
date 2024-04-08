@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**FeedbackJsonhalReadLinks**](FeedbackJsonhalReadLinks.md) |  | [optional] 
 **description** | **String** |  | [optional] 
-**metadata** | **List<String>** |  | [optional] [default to const []]
+**metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **visibility** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 

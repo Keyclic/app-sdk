@@ -16,7 +16,7 @@ void main() {
     // List<MarkerRead> markers (default value: const [])
     test('to test the property `markers`', () async {});
 
-    // List<String> metadata (default value: const [])
+    // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
     // String reporter

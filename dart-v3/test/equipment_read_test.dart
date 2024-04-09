@@ -68,6 +68,9 @@ void main() {
     // String state
     test('to test the property `state`', () async {});
 
+    // PreferencesRead preferences
+    test('to test the property `preferences`', () async {});
+
     // PostalAddressRead address
     test('to test the property `address`', () async {});
   });

@@ -8,8 +8,6 @@ class SlaPolicyJsonhalSlaPolicyRead {
   /// Returns a new [SlaPolicyJsonhalSlaPolicyRead] instance.
   SlaPolicyJsonhalSlaPolicyRead({
     this.links,
-    this.fromStates,
-    this.toStates,
     this.id,
     required this.timeTarget,
     this.description,
@@ -18,6 +16,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
     this.conditions,
     this.createdAt,
     this.updatedAt,
+    this.embedded,
   });
 
   /// Returns a new [SlaPolicyJsonhalSlaPolicyRead] instance and imports its values from
@@ -41,12 +40,6 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
     return SlaPolicyJsonhalSlaPolicyRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      fromStates: json[r'fromStates'] == null
-          ? null
-          : List<String>.from(json[r'fromStates']),
-      toStates: json[r'toStates'] == null
-          ? null
-          : List<String>.from(json[r'toStates']),
       id: json[r'id'],
       timeTarget: json[r'timeTarget'],
       description: json[r'description'],
@@ -56,14 +49,12 @@ class SlaPolicyJsonhalSlaPolicyRead {
           ConditionJsonhalSlaPolicyRead.mapFromJson(json[r'conditions']),
       createdAt: createdAt,
       updatedAt: updatedAt,
+      embedded:
+          SlaPolicyJsonhalSlaPolicyReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
   AssetTypeJsonhalReadLinks? links;
-
-  List<String>? fromStates;
-
-  List<String>? toStates;
 
   /// The resource identifier.
   final String? id;
@@ -84,6 +75,8 @@ class SlaPolicyJsonhalSlaPolicyRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  SlaPolicyJsonhalSlaPolicyReadEmbedded? embedded;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -93,9 +86,6 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
     return other is SlaPolicyJsonhalSlaPolicyRead &&
         other.links == links &&
-        DeepCollectionEquality.unordered()
-            .equals(fromStates, other.fromStates) &&
-        DeepCollectionEquality.unordered().equals(toStates, other.toStates) &&
         other.id == id &&
         other.timeTarget == timeTarget &&
         other.description == description &&
@@ -104,14 +94,13 @@ class SlaPolicyJsonhalSlaPolicyRead {
         DeepCollectionEquality.unordered()
             .equals(conditions, other.conditions) &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.embedded == embedded;
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
-      (fromStates == null ? 0 : fromStates.hashCode) +
-      (toStates == null ? 0 : toStates.hashCode) +
       (id == null ? 0 : id.hashCode) +
       timeTarget.hashCode +
       (description == null ? 0 : description.hashCode) +
@@ -119,7 +108,8 @@ class SlaPolicyJsonhalSlaPolicyRead {
       (enabled == null ? 0 : enabled.hashCode) +
       (conditions == null ? 0 : conditions.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<SlaPolicyJsonhalSlaPolicyRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -171,7 +161,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
   @override
   String toString() =>
-      'SlaPolicyJsonhalSlaPolicyRead[links=$links, fromStates=$fromStates, toStates=$toStates, id=$id, timeTarget=$timeTarget, description=$description, name=$name, enabled=$enabled, conditions=$conditions, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'SlaPolicyJsonhalSlaPolicyRead[links=$links, id=$id, timeTarget=$timeTarget, description=$description, name=$name, enabled=$enabled, conditions=$conditions, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -184,9 +174,6 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'fromStates'))
-        r'fromStates': fromStates,
-      if (keys == null || keys.contains(r'toStates')) r'toStates': toStates,
       if (keys == null || keys.contains(r'id')) r'id': id,
       r'timeTarget': timeTarget,
       if (keys == null || keys.contains(r'description'))
@@ -199,6 +186,16 @@ class SlaPolicyJsonhalSlaPolicyRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

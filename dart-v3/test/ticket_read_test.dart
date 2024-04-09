@@ -10,7 +10,10 @@ void main() {
   // final instance = TicketRead();
 
   group('test TicketRead', () {
-    // String category
+    // List<AssignmentRead> assignments (default value: const [])
+    test('to test the property `assignments`', () async {});
+
+    // CategoryRead category
     test('to test the property `category`', () async {});
 
     // String description
@@ -19,11 +22,26 @@ void main() {
     // DateTime dueBy
     test('to test the property `dueBy`', () async {});
 
+    // String name
+    test('to test the property `name`', () async {});
+
+    // String organization
+    test('to test the property `organization`', () async {});
+
+    // WorkflowStateRead phase
+    test('to test the property `phase`', () async {});
+
+    // PlaceRead place
+    test('to test the property `place`', () async {});
+
     // TicketPriorityRead priority
     test('to test the property `priority`', () async {});
 
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
+
+    // FeedbackRead feedback
+    test('to test the property `feedback`', () async {});
 
     // The resource identifier.
     // String id
@@ -39,6 +57,12 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // String parent
+    test('to test the property `parent`', () async {});
+
+    // WorkflowStateRead state
+    test('to test the property `state`', () async {});
 
     // bool archived
     test('to test the property `archived`', () async {});

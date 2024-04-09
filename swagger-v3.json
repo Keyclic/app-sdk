@@ -8020,6 +8020,21 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "X-Enable-Dispatch",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "boolean"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -8159,6 +8174,21 @@
                         "schema": {
                             "type": "string",
                             "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Enable-Dispatch",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "boolean"
                         },
                         "style": "simple",
                         "explode": false,
@@ -9331,6 +9361,21 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "X-Enable-Dispatch",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "boolean"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -9346,6 +9391,164 @@
                         "allowReserved": false
                     }
                 ],
+                "deprecated": false
+            },
+            "post": {
+                "operationId": "postTicket",
+                "tags": [
+                    "Ticket"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Ticket resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Ticket.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Ticket-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a Ticket resource.",
+                "description": "Creates a Ticket resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Enable-Dispatch",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "boolean"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new Ticket resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Ticket.CreateTicketCommand-Write"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "deprecated": false
             },
             "parameters": []
@@ -9476,6 +9679,21 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "X-Enable-Dispatch",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "boolean"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -9491,6 +9709,181 @@
                         "allowReserved": false
                     }
                 ],
+                "deprecated": false
+            },
+            "patch": {
+                "operationId": "patchTicket",
+                "tags": [
+                    "Ticket"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ticket resource updated",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Ticket.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Ticket-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Ticket resource.",
+                "description": "Updates the Ticket resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Task identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Enable-Dispatch",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "boolean"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Ticket resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Ticket.EditTicketCommand-Write"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "deprecated": false
             },
             "parameters": []
@@ -9690,6 +10083,15 @@
                         "example": "https://example.com/",
                         "nullable": true
                     },
+                    "preferences": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "address": {
                         "readOnly": true,
                         "anyOf": [
@@ -9773,6 +10175,15 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "preferences": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "address": {
                         "readOnly": true,
@@ -9877,6 +10288,84 @@
                 "required": [
                     "name"
                 ]
+            },
+            "Assignment-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "member": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "outOfContract": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "service": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                }
+            },
+            "Assignment.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "member": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "service": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "outOfContract": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                }
             },
             "Billing-Read": {
                 "type": "object",
@@ -10118,6 +10607,60 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    }
+                }
+            },
+            "Category-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                }
+            },
+            "Category.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
                     }
                 }
             },
@@ -11007,6 +11550,15 @@
                         "example": "https://example.com/",
                         "nullable": true
                     },
+                    "preferences": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "address": {
                         "readOnly": true,
                         "anyOf": [
@@ -11287,6 +11839,15 @@
                     "name": {
                         "type": "string"
                     },
+                    "preferences": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "address": {
                         "readOnly": true,
                         "anyOf": [
@@ -11300,6 +11861,216 @@
                 "required": [
                     "name"
                 ]
+            },
+            "Feedback-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "markers": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Marker-Read"
+                        }
+                    },
+                    "metadata": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "reporter": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "visibility": {
+                        "enum": [
+                            "VISIBILITY_PRIVATE",
+                            "VISIBILITY_PUBLIC",
+                            "VISIBILITY_SHARED"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "geoCoordinates": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GeoCoordinates-Read"
+                            }
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "geoCoordinates",
+                    "visibility"
+                ]
+            },
+            "Feedback.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "reporter": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "metadata": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "visibility": {
+                        "enum": [
+                            "VISIBILITY_PRIVATE",
+                            "VISIBILITY_PUBLIC",
+                            "VISIBILITY_SHARED"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "geoCoordinates": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GeoCoordinates.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "markers": {
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Marker.jsonhal-Read"
+                                }
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "geoCoordinates",
+                    "visibility"
+                ]
+            },
+            "GeoCoordinates-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "elevation": {
+                        "minimum": -10000,
+                        "maximum": 8000,
+                        "description": "The elevation of a location (WGS 84).",
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "point": {
+                        "description": "Point that contains the longitude , latitude and SRID of a location.",
+                        "$ref": "#/components/schemas/Point-Read"
+                    }
+                }
+            },
+            "GeoCoordinates.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "elevation": {
+                        "minimum": -10000,
+                        "maximum": 8000,
+                        "description": "The elevation of a location (WGS 84).",
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "point": {
+                        "description": "Point that contains the longitude , latitude and SRID of a location.",
+                        "$ref": "#/components/schemas/Point.jsonhal-Read"
+                    }
+                }
             },
             "Integration-integration.read": {
                 "type": "object",
@@ -11615,6 +12386,226 @@
                     "source"
                 ]
             },
+            "Marker-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "point": {
+                        "$ref": "#/components/schemas/Point-Read"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                }
+            },
+            "Marker.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "point": {
+                        "$ref": "#/components/schemas/Point.jsonhal-Read"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    }
+                }
+            },
+            "Place-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "state": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/WorkflowState-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "preferences": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "address": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress-Read"
+                            }
+                        ],
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "Place.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "parent": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "preferences": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "address": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "state": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/WorkflowState.jsonhal-Read"
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            },
+            "Point-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "srid": {
+                        "type": "integer"
+                    },
+                    "latitude": {
+                        "type": "number"
+                    },
+                    "longitude": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Point.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "srid": {
+                        "type": "integer"
+                    },
+                    "latitude": {
+                        "type": "number"
+                    },
+                    "longitude": {
+                        "type": "number"
+                    }
+                }
+            },
             "PostalAddress-Read": {
                 "type": "object",
                 "description": "",
@@ -11662,6 +12653,52 @@
                         "nullable": true
                     },
                     "streetAddress": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "Preferences-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "visibility": {
+                        "enum": [
+                            "VISIBILITY_PRIVATE",
+                            "VISIBILITY_PUBLIC",
+                            "VISIBILITY_SHARED"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "Preferences.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "visibility": {
+                        "enum": [
+                            "VISIBILITY_PRIVATE",
+                            "VISIBILITY_PUBLIC",
+                            "VISIBILITY_SHARED"
+                        ],
                         "type": "string",
                         "nullable": true
                     }
@@ -11967,22 +13004,6 @@
                             }
                         }
                     },
-                    "fromStates": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "toStates": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -12019,6 +13040,27 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "fromStates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "iri-reference",
+                                    "example": "https://example.com/"
+                                }
+                            },
+                            "toStates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "iri-reference",
+                                    "example": "https://example.com/"
+                                }
+                            }
+                        }
                     }
                 },
                 "required": [
@@ -12031,10 +13073,20 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "assignments": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Assignment-Read"
+                        }
+                    },
                     "category": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Category-Read"
+                            }
+                        ],
                         "nullable": true
                     },
                     "description": {
@@ -12042,11 +13094,38 @@
                         "nullable": true
                     },
                     "dueBy": {
+                        "readOnly": true,
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "organization": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/"
+                    },
+                    "phase": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/WorkflowState-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "place": {
+                        "readOnly": true,
+                        "$ref": "#/components/schemas/Place-Read"
+                    },
                     "priority": {
+                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/TicketPriority-Read"
@@ -12058,6 +13137,10 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "feedback": {
+                        "readOnly": true,
+                        "$ref": "#/components/schemas/Feedback-Read"
                     },
                     "id": {
                         "readOnly": true,
@@ -12083,9 +13166,119 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "parent": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "state": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/WorkflowState-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "archived": {
                         "readOnly": true,
                         "type": "boolean"
+                    }
+                },
+                "required": [
+                    "organization",
+                    "place",
+                    "feedback",
+                    "state"
+                ]
+            },
+            "Ticket.CreateTicketCommand-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "member": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "scheduledAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "parent"
+                ]
+            },
+            "Ticket.EditTicketCommand-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "archivedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "category": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dueBy": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "identificationNumber": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "priority": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "scheduledAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
                     }
                 }
             },
@@ -12106,7 +13299,16 @@
                                     }
                                 }
                             },
-                            "category": {
+                            "organization": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "parent": {
                                 "type": "object",
                                 "properties": {
                                     "href": {
@@ -12122,16 +13324,15 @@
                         "nullable": true
                     },
                     "dueBy": {
+                        "readOnly": true,
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
                     },
-                    "priority": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/TicketPriority.jsonhal-Read"
-                            }
-                        ],
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string",
                         "nullable": true
                     },
                     "scheduledAt": {
@@ -12166,14 +13367,83 @@
                     "archived": {
                         "readOnly": true,
                         "type": "boolean"
+                    },
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "assignments": {
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Assignment.jsonhal-Read"
+                                }
+                            },
+                            "category": {
+                                "readOnly": true,
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Category.jsonhal-Read"
+                                    }
+                                ],
+                                "nullable": true
+                            },
+                            "phase": {
+                                "readOnly": true,
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/WorkflowState.jsonhal-Read"
+                                    }
+                                ],
+                                "nullable": true
+                            },
+                            "place": {
+                                "readOnly": true,
+                                "$ref": "#/components/schemas/Place.jsonhal-Read"
+                            },
+                            "priority": {
+                                "readOnly": true,
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/TicketPriority.jsonhal-Read"
+                                    }
+                                ],
+                                "nullable": true
+                            },
+                            "feedback": {
+                                "readOnly": true,
+                                "$ref": "#/components/schemas/Feedback.jsonhal-Read"
+                            },
+                            "state": {
+                                "readOnly": true,
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/WorkflowState.jsonhal-Read"
+                                    }
+                                ],
+                                "nullable": true
+                            }
+                        }
                     }
-                }
+                },
+                "required": [
+                    "organization",
+                    "place",
+                    "feedback",
+                    "state"
+                ]
             },
             "TicketPriority-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "color": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -12202,6 +13472,13 @@
                                 }
                             }
                         }
+                    },
+                    "color": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string"
                     },
                     "id": {
                         "readOnly": true,
@@ -12393,12 +13670,37 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "allowAdd": {
+                        "type": "boolean"
+                    },
+                    "allowDispatch": {
+                        "type": "boolean"
+                    },
+                    "end": {
+                        "type": "boolean"
+                    },
+                    "backgroundColor": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "color": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
                         "type": "string",
                         "nullable": true
                     },
                     "name": {
                         "type": "string"
+                    },
+                    "progression": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "reference": {
+                        "type": "string",
+                        "nullable": true
                     },
                     "id": {
                         "readOnly": true,
@@ -12429,12 +13731,37 @@
                             }
                         }
                     },
+                    "allowAdd": {
+                        "type": "boolean"
+                    },
+                    "allowDispatch": {
+                        "type": "boolean"
+                    },
+                    "end": {
+                        "type": "boolean"
+                    },
+                    "backgroundColor": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "color": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
                         "type": "string",
                         "nullable": true
                     },
                     "name": {
                         "type": "string"
+                    },
+                    "progression": {
+                        "type": "number",
+                        "nullable": true
+                    },
+                    "reference": {
+                        "type": "string",
+                        "nullable": true
                     },
                     "id": {
                         "readOnly": true,

@@ -8,6 +8,8 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**color** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **position** | **int** |  | [optional] 
 

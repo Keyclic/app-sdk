@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getTicketType**
-> TicketTypeJsonhalRead getTicketType(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> TicketTypeJsonhalRead getTicketType(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
 
 Retrieves a TicketType resource.
 
@@ -36,9 +36,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = xEnableDispatch_example; // bool | 
 
 try { 
-    final result = api_instance.getTicketType(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTicketType(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
     print('Exception when calling TicketTypeApi->getTicketType: $e\n');
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -73,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTicketTypeCollection**
-> GetTicketTypeCollection200Response getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetTicketTypeCollection200Response getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
 
 Retrieves the collection of TicketType resources.
 
@@ -97,9 +99,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xEnableDispatch = xEnableDispatch_example; // bool | 
 
 try { 
-    final result = api_instance.getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
     print('Exception when calling TicketTypeApi->getTicketTypeCollection: $e\n');
@@ -119,6 +122,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 

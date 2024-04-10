@@ -8,7 +8,8 @@ class TicketJsonhalReadLinks {
   /// Returns a new [TicketJsonhalReadLinks] instance.
   TicketJsonhalReadLinks({
     this.self,
-    this.category,
+    this.organization,
+    this.parent,
   });
 
   /// Returns a new [TicketJsonhalReadLinks] instance and imports its values from
@@ -20,14 +21,18 @@ class TicketJsonhalReadLinks {
 
     return TicketJsonhalReadLinks(
       self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      category: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
-          json[r'category']),
+      organization: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
+          json[r'organization']),
+      parent:
+          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'parent']),
     );
   }
 
   GetAssetTypeCollection200ResponseLinksFirst? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? category;
+  GetAssetTypeCollection200ResponseLinksFirst? organization;
+
+  GetAssetTypeCollection200ResponseLinksFirst? parent;
 
   @override
   bool operator ==(Object other) {
@@ -38,13 +43,15 @@ class TicketJsonhalReadLinks {
 
     return other is TicketJsonhalReadLinks &&
         other.self == self &&
-        other.category == category;
+        other.organization == organization &&
+        other.parent == parent;
   }
 
   @override
   int get hashCode =>
       (self == null ? 0 : self.hashCode) +
-      (category == null ? 0 : category.hashCode);
+      (organization == null ? 0 : organization.hashCode) +
+      (parent == null ? 0 : parent.hashCode);
 
   static List<TicketJsonhalReadLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -95,7 +102,8 @@ class TicketJsonhalReadLinks {
   }
 
   @override
-  String toString() => 'TicketJsonhalReadLinks[self=$self, category=$category]';
+  String toString() =>
+      'TicketJsonhalReadLinks[self=$self, organization=$organization, parent=$parent]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -109,11 +117,20 @@ class TicketJsonhalReadLinks {
           return previousValue;
         })),
       if (keys == null ||
-          keys.any((key) => RegExp(r'^category\.').hasMatch(key)))
-        r'category': category?.toJson(keys?.fold<List<String>>(<String>[],
+          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
+        r'organization': organization?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^organization\.'))) {
+            previousValue.add(element.split(RegExp(r'^organization\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
+        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^category\.'))) {
-            previousValue.add(element.split(RegExp(r'^category\.')).last);
+          if (element.contains(RegExp(r'^parent\.'))) {
+            previousValue.add(element.split(RegExp(r'^parent\.')).last);
           }
 
           return previousValue;

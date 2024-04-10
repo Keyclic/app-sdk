@@ -13,12 +13,6 @@ void main() {
     // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
-    // List<String> fromStates (default value: const [])
-    test('to test the property `fromStates`', () async {});
-
-    // List<String> toStates (default value: const [])
-    test('to test the property `toStates`', () async {});
-
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
@@ -45,5 +39,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // SlaPolicyJsonhalSlaPolicyReadEmbedded embedded
+    test('to test the property `embedded`', () async {});
   });
 }

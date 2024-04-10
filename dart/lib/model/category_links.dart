@@ -9,6 +9,7 @@ class CategoryLinks {
   CategoryLinks({
     this.organization,
     this.self,
+    this.type,
   });
 
   /// Returns a new [CategoryLinks] instance and imports its values from
@@ -21,12 +22,15 @@ class CategoryLinks {
     return CategoryLinks(
       organization: CategoryLinksOrganization.fromJson(json[r'organization']),
       self: CategoryLinksSelf.fromJson(json[r'self']),
+      type: CategoryLinksType.fromJson(json[r'type']),
     );
   }
 
   CategoryLinksOrganization? organization;
 
   CategoryLinksSelf? self;
+
+  CategoryLinksType? type;
 
   @override
   bool operator ==(Object other) {
@@ -37,13 +41,15 @@ class CategoryLinks {
 
     return other is CategoryLinks &&
         other.organization == organization &&
-        other.self == self;
+        other.self == self &&
+        other.type == type;
   }
 
   @override
   int get hashCode =>
       (organization == null ? 0 : organization.hashCode) +
-      (self == null ? 0 : self.hashCode);
+      (self == null ? 0 : self.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<CategoryLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -91,7 +97,8 @@ class CategoryLinks {
   }
 
   @override
-  String toString() => 'CategoryLinks[organization=$organization, self=$self]';
+  String toString() =>
+      'CategoryLinks[organization=$organization, self=$self, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -110,6 +117,15 @@ class CategoryLinks {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^self\.'))) {
             previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
+        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^type\.'))) {
+            previousValue.add(element.split(RegExp(r'^type\.')).last);
           }
 
           return previousValue;

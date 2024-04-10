@@ -131,6 +131,7 @@ Class | Method | HTTP request | Description
  - [BusinessHoursBusinessHoursRead](doc//BusinessHoursBusinessHoursRead.md)
  - [BusinessHoursJsonhalBusinessHoursRead](doc//BusinessHoursJsonhalBusinessHoursRead.md)
  - [CategoryJsonhalRead](doc//CategoryJsonhalRead.md)
+ - [CategoryJsonhalReadLinks](doc//CategoryJsonhalReadLinks.md)
  - [CategoryRead](doc//CategoryRead.md)
  - [CategoryTypeJsonhalRead](doc//CategoryTypeJsonhalRead.md)
  - [CategoryTypeRead](doc//CategoryTypeRead.md)

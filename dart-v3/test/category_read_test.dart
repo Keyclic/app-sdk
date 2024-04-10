@@ -13,6 +13,9 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
+    // String type
+    test('to test the property `type`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});

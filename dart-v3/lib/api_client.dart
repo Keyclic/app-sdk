@@ -233,6 +233,8 @@ class ApiPlatformClient {
           return BusinessHoursJsonhalBusinessHoursRead.fromJson(value);
         case 'CategoryJsonhalRead':
           return CategoryJsonhalRead.fromJson(value);
+        case 'CategoryJsonhalReadLinks':
+          return CategoryJsonhalReadLinks.fromJson(value);
         case 'CategoryRead':
           return CategoryRead.fromJson(value);
         case 'CategoryTypeJsonhalRead':

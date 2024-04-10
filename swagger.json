@@ -18357,6 +18357,9 @@
                         },
                         "self": {
                             "$ref": "#\/definitions\/CategoryLinksSelf"
+                        },
+                        "type": {
+                            "$ref": "#\/definitions\/CategoryLinksType"
                         }
                     }
                 },
@@ -18478,6 +18481,32 @@
                     "type": "object",
                     "properties": {
                         "category": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "CategoryLinksType": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the type associated to the given category.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/CategoryLinksTypeIriTemplate"
+                }
+            }
+        },
+        "CategoryLinksTypeIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "identifier": {
                             "type": "string"
                         }
                     }

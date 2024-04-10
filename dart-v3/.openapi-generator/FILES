@@ -24,6 +24,7 @@ doc/BusinessHoursApi.md
 doc/BusinessHoursBusinessHoursRead.md
 doc/BusinessHoursJsonhalBusinessHoursRead.md
 doc/CategoryJsonhalRead.md
+doc/CategoryJsonhalReadLinks.md
 doc/CategoryRead.md
 doc/CategoryTypeApi.md
 doc/CategoryTypeJsonhalRead.md
@@ -182,6 +183,7 @@ lib/model/brand_read.dart
 lib/model/business_hours_business_hours_read.dart
 lib/model/business_hours_jsonhal_business_hours_read.dart
 lib/model/category_jsonhal_read.dart
+lib/model/category_jsonhal_read_links.dart
 lib/model/category_read.dart
 lib/model/category_type_jsonhal_read.dart
 lib/model/category_type_read.dart
@@ -308,6 +310,7 @@ test/brand_read_test.dart
 test/business_hours_api_test.dart
 test/business_hours_business_hours_read_test.dart
 test/business_hours_jsonhal_business_hours_read_test.dart
+test/category_jsonhal_read_links_test.dart
 test/category_jsonhal_read_test.dart
 test/category_read_test.dart
 test/category_type_api_test.dart

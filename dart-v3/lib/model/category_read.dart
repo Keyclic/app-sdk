@@ -8,6 +8,7 @@ class CategoryRead {
   /// Returns a new [CategoryRead] instance.
   CategoryRead({
     required this.name,
+    this.type,
     this.id,
   });
 
@@ -20,11 +21,14 @@ class CategoryRead {
 
     return CategoryRead(
       name: json[r'name'],
+      type: json[r'type'],
       id: json[r'id'],
     );
   }
 
   String name;
+
+  final String? type;
 
   /// The resource identifier.
   final String? id;
@@ -36,11 +40,17 @@ class CategoryRead {
       return true;
     }
 
-    return other is CategoryRead && other.name == name && other.id == id;
+    return other is CategoryRead &&
+        other.name == name &&
+        other.type == type &&
+        other.id == id;
   }
 
   @override
-  int get hashCode => name.hashCode + (id == null ? 0 : id.hashCode);
+  int get hashCode =>
+      name.hashCode +
+      (type == null ? 0 : type.hashCode) +
+      (id == null ? 0 : id.hashCode);
 
   static List<CategoryRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -88,11 +98,12 @@ class CategoryRead {
   }
 
   @override
-  String toString() => 'CategoryRead[name=$name, id=$id]';
+  String toString() => 'CategoryRead[name=$name, type=$type, id=$id]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'name': name,
+      if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'id')) r'id': id,
     };
   }

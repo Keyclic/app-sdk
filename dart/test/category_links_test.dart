@@ -15,5 +15,8 @@ void main() {
 
     // CategoryLinksSelf self
     test('to test the property `self`', () async {});
+
+    // CategoryLinksType type
+    test('to test the property `type`', () async {});
   });
 }

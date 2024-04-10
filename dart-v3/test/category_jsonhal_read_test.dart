@@ -10,7 +10,7 @@ void main() {
   // final instance = CategoryJsonhalRead();
 
   group('test CategoryJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // CategoryJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // String name

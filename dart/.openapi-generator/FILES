@@ -103,6 +103,8 @@ doc/CategoryLinksOrganizationIriTemplateMapping.md
 doc/CategoryLinksSelf.md
 doc/CategoryLinksSelfIriTemplate.md
 doc/CategoryLinksSelfIriTemplateMapping.md
+doc/CategoryLinksType.md
+doc/CategoryLinksTypeIriTemplate.md
 doc/CategoryPagination.md
 doc/CategoryPatch.md
 doc/Chart.md
@@ -766,6 +768,8 @@ lib/model/category_links_organization_iri_template_mapping.dart
 lib/model/category_links_self.dart
 lib/model/category_links_self_iri_template.dart
 lib/model/category_links_self_iri_template_mapping.dart
+lib/model/category_links_type.dart
+lib/model/category_links_type_iri_template.dart
 lib/model/category_pagination.dart
 lib/model/category_patch.dart
 lib/model/chart.dart
@@ -1345,6 +1349,8 @@ test/category_links_self_iri_template_mapping_test.dart
 test/category_links_self_iri_template_test.dart
 test/category_links_self_test.dart
 test/category_links_test.dart
+test/category_links_type_iri_template_test.dart
+test/category_links_type_test.dart
 test/category_pagination_test.dart
 test/category_patch_test.dart
 test/category_test.dart

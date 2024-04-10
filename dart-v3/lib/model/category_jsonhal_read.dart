@@ -20,13 +20,13 @@ class CategoryJsonhalRead {
     }
 
     return CategoryJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: CategoryJsonhalReadLinks.fromJson(json[r'_links']),
       name: json[r'name'],
       id: json[r'id'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  CategoryJsonhalReadLinks? links;
 
   String name;
 

@@ -158,6 +158,8 @@ part 'model/category_links_organization_iri_template_mapping.dart';
 part 'model/category_links_self.dart';
 part 'model/category_links_self_iri_template.dart';
 part 'model/category_links_self_iri_template_mapping.dart';
+part 'model/category_links_type.dart';
+part 'model/category_links_type_iri_template.dart';
 part 'model/category_pagination.dart';
 part 'model/category_patch.dart';
 part 'model/chart.dart';

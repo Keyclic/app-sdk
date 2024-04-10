@@ -338,6 +338,8 @@ Class | Method | HTTP request | Description
  - [CategoryLinksSelf](doc//CategoryLinksSelf.md)
  - [CategoryLinksSelfIriTemplate](doc//CategoryLinksSelfIriTemplate.md)
  - [CategoryLinksSelfIriTemplateMapping](doc//CategoryLinksSelfIriTemplateMapping.md)
+ - [CategoryLinksType](doc//CategoryLinksType.md)
+ - [CategoryLinksTypeIriTemplate](doc//CategoryLinksTypeIriTemplate.md)
  - [CategoryPagination](doc//CategoryPagination.md)
  - [CategoryPatch](doc//CategoryPatch.md)
  - [Chart](doc//Chart.md)

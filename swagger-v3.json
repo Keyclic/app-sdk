@@ -10623,6 +10623,13 @@
                         "maxLength": 255,
                         "type": "string"
                     },
+                    "type": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -10642,6 +10649,15 @@
                         "type": "object",
                         "properties": {
                             "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "type": {
                                 "type": "object",
                                 "properties": {
                                     "href": {

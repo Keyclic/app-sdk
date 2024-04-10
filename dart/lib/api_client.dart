@@ -525,6 +525,10 @@ class ApiClient {
           return CategoryLinksSelfIriTemplate.fromJson(value);
         case 'CategoryLinksSelfIriTemplateMapping':
           return CategoryLinksSelfIriTemplateMapping.fromJson(value);
+        case 'CategoryLinksType':
+          return CategoryLinksType.fromJson(value);
+        case 'CategoryLinksTypeIriTemplate':
+          return CategoryLinksTypeIriTemplate.fromJson(value);
         case 'CategoryPagination':
           return CategoryPagination.fromJson(value);
         case 'CategoryPatch':

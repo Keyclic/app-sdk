@@ -53,6 +53,7 @@ part 'model/brand_read.dart';
 part 'model/business_hours_business_hours_read.dart';
 part 'model/business_hours_jsonhal_business_hours_read.dart';
 part 'model/category_jsonhal_read.dart';
+part 'model/category_jsonhal_read_links.dart';
 part 'model/category_read.dart';
 part 'model/category_type_jsonhal_read.dart';
 part 'model/category_type_read.dart';

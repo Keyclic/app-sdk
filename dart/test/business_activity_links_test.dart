@@ -18,8 +18,5 @@ void main() {
 
     // BusinessActivityLinksSelf self
     test('to test the property `self`', () async {});
-
-    // BusinessActivityLinksThumbnail thumbnail
-    test('to test the property `thumbnail`', () async {});
   });
 }

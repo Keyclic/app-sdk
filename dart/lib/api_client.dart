@@ -493,10 +493,6 @@ class ApiClient {
           return BusinessActivityLinksSelf.fromJson(value);
         case 'BusinessActivityLinksSelfIriTemplate':
           return BusinessActivityLinksSelfIriTemplate.fromJson(value);
-        case 'BusinessActivityLinksThumbnail':
-          return BusinessActivityLinksThumbnail.fromJson(value);
-        case 'BusinessActivityLinksThumbnailIriTemplate':
-          return BusinessActivityLinksThumbnailIriTemplate.fromJson(value);
         case 'BusinessActivityPagination':
           return BusinessActivityPagination.fromJson(value);
         case 'BusinessActivitySchema':

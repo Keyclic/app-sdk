@@ -13,11 +13,17 @@ void main() {
     // String description
     test('to test the property `description`', () async {});
 
+    // List<String> equipments (default value: const [])
+    test('to test the property `equipments`', () async {});
+
     // String member
     test('to test the property `member`', () async {});
 
     // String name
     test('to test the property `name`', () async {});
+
+    // String offer
+    test('to test the property `offer`', () async {});
 
     // String parent
     test('to test the property `parent`', () async {});

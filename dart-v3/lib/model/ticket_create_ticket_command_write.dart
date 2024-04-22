@@ -8,8 +8,10 @@ class TicketCreateTicketCommandWrite {
   /// Returns a new [TicketCreateTicketCommandWrite] instance.
   TicketCreateTicketCommandWrite({
     this.description,
+    this.equipments,
     this.member,
     this.name,
+    this.offer,
     required this.parent,
     this.scheduledAt,
   });
@@ -30,8 +32,12 @@ class TicketCreateTicketCommandWrite {
 
     return TicketCreateTicketCommandWrite(
       description: json[r'description'],
+      equipments: json[r'equipments'] == null
+          ? null
+          : List<String>.from(json[r'equipments']),
       member: json[r'member'],
       name: json[r'name'],
+      offer: json[r'offer'],
       parent: json[r'parent'],
       scheduledAt: scheduledAt,
     );
@@ -39,9 +45,13 @@ class TicketCreateTicketCommandWrite {
 
   String? description;
 
+  List<String>? equipments;
+
   String? member;
 
   String? name;
+
+  String? offer;
 
   String parent;
 
@@ -56,8 +66,11 @@ class TicketCreateTicketCommandWrite {
 
     return other is TicketCreateTicketCommandWrite &&
         other.description == description &&
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
         other.member == member &&
         other.name == name &&
+        other.offer == offer &&
         other.parent == parent &&
         other.scheduledAt == scheduledAt;
   }
@@ -65,8 +78,10 @@ class TicketCreateTicketCommandWrite {
   @override
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode) +
       (member == null ? 0 : member.hashCode) +
       (name == null ? 0 : name.hashCode) +
+      (offer == null ? 0 : offer.hashCode) +
       parent.hashCode +
       (scheduledAt == null ? 0 : scheduledAt.hashCode);
 
@@ -121,14 +136,17 @@ class TicketCreateTicketCommandWrite {
 
   @override
   String toString() =>
-      'TicketCreateTicketCommandWrite[description=$description, member=$member, name=$name, parent=$parent, scheduledAt=$scheduledAt]';
+      'TicketCreateTicketCommandWrite[description=$description, equipments=$equipments, member=$member, name=$name, offer=$offer, parent=$parent, scheduledAt=$scheduledAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
       if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'offer')) r'offer': offer,
       r'parent': parent,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),

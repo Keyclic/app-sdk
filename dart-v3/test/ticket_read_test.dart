@@ -25,6 +25,9 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
+    // String offer
+    test('to test the property `offer`', () async {});
+
     // String organization
     test('to test the property `organization`', () async {});
 
@@ -39,6 +42,9 @@ void main() {
 
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
+
+    // bool completed
+    test('to test the property `completed`', () async {});
 
     // FeedbackRead feedback
     test('to test the property `feedback`', () async {});

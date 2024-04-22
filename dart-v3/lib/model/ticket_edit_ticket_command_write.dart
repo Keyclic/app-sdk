@@ -9,6 +9,7 @@ class TicketEditTicketCommandWrite {
   TicketEditTicketCommandWrite({
     this.archivedAt,
     this.category,
+    this.completed,
     this.description,
     this.dueBy,
     this.identificationNumber,
@@ -48,6 +49,7 @@ class TicketEditTicketCommandWrite {
     return TicketEditTicketCommandWrite(
       archivedAt: archivedAt,
       category: json[r'category'],
+      completed: json[r'completed'],
       description: json[r'description'],
       dueBy: dueBy,
       identificationNumber: json[r'identificationNumber'],
@@ -61,6 +63,8 @@ class TicketEditTicketCommandWrite {
   DateTime? archivedAt;
 
   String? category;
+
+  bool? completed;
 
   String? description;
 
@@ -86,6 +90,7 @@ class TicketEditTicketCommandWrite {
     return other is TicketEditTicketCommandWrite &&
         other.archivedAt == archivedAt &&
         other.category == category &&
+        other.completed == completed &&
         other.description == description &&
         other.dueBy == dueBy &&
         other.identificationNumber == identificationNumber &&
@@ -99,6 +104,7 @@ class TicketEditTicketCommandWrite {
   int get hashCode =>
       (archivedAt == null ? 0 : archivedAt.hashCode) +
       (category == null ? 0 : category.hashCode) +
+      (completed == null ? 0 : completed.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
@@ -157,13 +163,14 @@ class TicketEditTicketCommandWrite {
 
   @override
   String toString() =>
-      'TicketEditTicketCommandWrite[archivedAt=$archivedAt, category=$category, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags]';
+      'TicketEditTicketCommandWrite[archivedAt=$archivedAt, category=$category, completed=$completed, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'archivedAt'))
         r'archivedAt': archivedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'category')) r'category': category,
+      if (keys == null || keys.contains(r'completed')) r'completed': completed,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'dueBy'))

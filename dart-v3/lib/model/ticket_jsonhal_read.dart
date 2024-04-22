@@ -12,6 +12,7 @@ class TicketJsonhalRead {
     this.dueBy,
     this.name,
     this.scheduledAt,
+    this.completed,
     this.id,
     this.tags,
     this.createdAt,
@@ -58,6 +59,7 @@ class TicketJsonhalRead {
       dueBy: dueBy,
       name: json[r'name'],
       scheduledAt: scheduledAt,
+      completed: json[r'completed'],
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       createdAt: createdAt,
@@ -76,6 +78,8 @@ class TicketJsonhalRead {
   String? name;
 
   DateTime? scheduledAt;
+
+  bool? completed;
 
   /// The resource identifier.
   final String? id;
@@ -105,6 +109,7 @@ class TicketJsonhalRead {
         other.dueBy == dueBy &&
         other.name == name &&
         other.scheduledAt == scheduledAt &&
+        other.completed == completed &&
         other.id == id &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.createdAt == createdAt &&
@@ -120,6 +125,7 @@ class TicketJsonhalRead {
       (dueBy == null ? 0 : dueBy.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
+      (completed == null ? 0 : completed.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
@@ -176,7 +182,7 @@ class TicketJsonhalRead {
 
   @override
   String toString() =>
-      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, name=$name, scheduledAt=$scheduledAt, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived, embedded=$embedded]';
+      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, name=$name, scheduledAt=$scheduledAt, completed=$completed, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, archived=$archived, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -196,6 +202,7 @@ class TicketJsonhalRead {
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'completed')) r'completed': completed,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'tags')) r'tags': tags,
       if (keys == null || keys.contains(r'createdAt'))

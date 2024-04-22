@@ -25,6 +25,9 @@ void main() {
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
 
+    // bool completed
+    test('to test the property `completed`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});

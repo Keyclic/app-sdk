@@ -9,8 +9,10 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **String** |  | [optional] 
+**equipments** | **List<String>** |  | [optional] [default to const []]
 **member** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
+**offer** | **String** |  | [optional] 
 **parent** | **String** |  | 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
 

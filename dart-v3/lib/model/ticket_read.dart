@@ -12,18 +12,20 @@ class TicketRead {
     this.description,
     this.dueBy,
     this.name,
+    this.offer,
     required this.organization,
     this.phase,
     required this.place,
     this.priority,
     this.scheduledAt,
+    this.completed,
     required this.feedback,
     this.id,
     this.tags,
     this.createdAt,
     this.updatedAt,
     this.parent,
-    required this.state,
+    this.state,
     this.archived,
   });
 
@@ -65,18 +67,20 @@ class TicketRead {
       description: json[r'description'],
       dueBy: dueBy,
       name: json[r'name'],
+      offer: json[r'offer'],
       organization: json[r'organization'],
       phase: WorkflowStateRead.fromJson(json[r'phase']),
       place: PlaceRead.fromJson(json[r'place'])!,
       priority: TicketPriorityRead.fromJson(json[r'priority']),
       scheduledAt: scheduledAt,
+      completed: json[r'completed'],
       feedback: FeedbackRead.fromJson(json[r'feedback'])!,
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       parent: json[r'parent'],
-      state: WorkflowStateRead.fromJson(json[r'state'])!,
+      state: WorkflowStateRead.fromJson(json[r'state']),
       archived: json[r'archived'],
     );
   }
@@ -91,6 +95,8 @@ class TicketRead {
 
   String? name;
 
+  String? offer;
+
   final String organization;
 
   WorkflowStateRead? phase;
@@ -100,6 +106,8 @@ class TicketRead {
   TicketPriorityRead? priority;
 
   DateTime? scheduledAt;
+
+  bool? completed;
 
   FeedbackRead feedback;
 
@@ -116,7 +124,7 @@ class TicketRead {
 
   final String? parent;
 
-  WorkflowStateRead state;
+  WorkflowStateRead? state;
 
   final bool? archived;
 
@@ -134,11 +142,13 @@ class TicketRead {
         other.description == description &&
         other.dueBy == dueBy &&
         other.name == name &&
+        other.offer == offer &&
         other.organization == organization &&
         other.phase == phase &&
         other.place == place &&
         other.priority == priority &&
         other.scheduledAt == scheduledAt &&
+        other.completed == completed &&
         other.feedback == feedback &&
         other.id == id &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
@@ -156,18 +166,20 @@ class TicketRead {
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
       (name == null ? 0 : name.hashCode) +
+      (offer == null ? 0 : offer.hashCode) +
       organization.hashCode +
       (phase == null ? 0 : phase.hashCode) +
       place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
+      (completed == null ? 0 : completed.hashCode) +
       feedback.hashCode +
       (id == null ? 0 : id.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
-      state.hashCode +
+      (state == null ? 0 : state.hashCode) +
       (archived == null ? 0 : archived.hashCode);
 
   static List<TicketRead> listFromJson(List<dynamic>? json) {
@@ -216,7 +228,7 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, archived=$archived]';
+      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, name=$name, offer=$offer, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -237,6 +249,7 @@ class TicketRead {
       if (keys == null || keys.contains(r'dueBy'))
         r'dueBy': dueBy?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'offer')) r'offer': offer,
       r'organization': organization,
       if (keys == null || keys.any((key) => RegExp(r'^phase\.').hasMatch(key)))
         r'phase': phase?.toJson(keys?.fold<List<String>>(<String>[],
@@ -267,6 +280,7 @@ class TicketRead {
         })),
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'completed')) r'completed': completed,
       r'feedback': feedback.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^feedback\.'))) {
@@ -282,14 +296,15 @@ class TicketRead {
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
-      r'state': state.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^state\.'))) {
-          previousValue.add(element.split(RegExp(r'^state\.')).last);
-        }
+      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
+        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^state\.'))) {
+            previousValue.add(element.split(RegExp(r'^state\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'archived')) r'archived': archived,
     };
   }

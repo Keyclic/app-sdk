@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
 **allowAdd** | **bool** |  | [optional] 
-**allowDispatch** | **bool** |  | [optional] 
+**allowDispatch** | **bool** |  | [optional] [default to true]
 **end** | **bool** |  | [optional] 
 **backgroundColor** | **String** |  | [optional] 
 **color** | **String** |  | [optional] 

@@ -9,7 +9,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **allowAdd** | **bool** |  | [optional] 
-**allowDispatch** | **bool** |  | [optional] 
+**allowDispatch** | **bool** |  | [optional] [default to true]
 **end** | **bool** |  | [optional] 
 **backgroundColor** | **String** |  | [optional] 
 **color** | **String** |  | [optional] 

@@ -10692,7 +10692,7 @@
                 "deprecated": false,
                 "properties": {
                     "adjustedCost": {
-                        "description": "Final cost of the contract after adjustments have been applied.",
+                        "description": "Adjusted cost of the contract after adjustments have been applied.",
                         "$ref": "#/components/schemas/Price-Read"
                     },
                     "initialCost": {
@@ -10744,7 +10744,7 @@
                         }
                     },
                     "adjustedCost": {
-                        "description": "Final cost of the contract after adjustments have been applied.",
+                        "description": "Adjusted cost of the contract after adjustments have been applied.",
                         "$ref": "#/components/schemas/Price.jsonhal-Read"
                     },
                     "initialCost": {
@@ -14153,6 +14153,8 @@
                         "type": "boolean"
                     },
                     "allowDispatch": {
+                        "default": true,
+                        "example": true,
                         "type": "boolean"
                     },
                     "end": {
@@ -14214,6 +14216,8 @@
                         "type": "boolean"
                     },
                     "allowDispatch": {
+                        "default": true,
+                        "example": true,
                         "type": "boolean"
                     },
                     "end": {

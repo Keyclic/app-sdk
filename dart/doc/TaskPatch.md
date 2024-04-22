@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **archivedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **category** | **String** |  | [optional] 
+**completed** | **bool** |  | [optional] 
 **description** | **String** |  | [optional] 
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] 
 **identificationNumber** | **String** |  | [optional] 

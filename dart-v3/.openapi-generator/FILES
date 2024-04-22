@@ -118,6 +118,11 @@ doc/ProfileProfileInput.md
 doc/RenewalJsonhalRead.md
 doc/RenewalRead.md
 doc/RenewalWrite.md
+doc/ServiceOfferApi.md
+doc/ServiceOfferCreateOfferCommandWrite.md
+doc/ServiceOfferJsonhalRead.md
+doc/ServiceOfferJsonhalReadLinks.md
+doc/ServiceOfferRead.md
 doc/SlaPolicyApi.md
 doc/SlaPolicyJsonhalSlaPolicyRead.md
 doc/SlaPolicyJsonhalSlaPolicyReadEmbedded.md
@@ -154,6 +159,7 @@ lib/api/contract_type_api.dart
 lib/api/equipment_api.dart
 lib/api/integration_api.dart
 lib/api/integration_link_api.dart
+lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
 lib/api/ticket_api.dart
 lib/api/ticket_type_api.dart
@@ -270,6 +276,10 @@ lib/model/profile_profile_input.dart
 lib/model/renewal_jsonhal_read.dart
 lib/model/renewal_read.dart
 lib/model/renewal_write.dart
+lib/model/service_offer_create_offer_command_write.dart
+lib/model/service_offer_jsonhal_read.dart
+lib/model/service_offer_jsonhal_read_links.dart
+lib/model/service_offer_read.dart
 lib/model/sla_policy_jsonhal_sla_policy_read.dart
 lib/model/sla_policy_jsonhal_sla_policy_read_embedded.dart
 lib/model/sla_policy_sla_policy_read.dart
@@ -405,6 +415,11 @@ test/profile_profile_input_test.dart
 test/renewal_jsonhal_read_test.dart
 test/renewal_read_test.dart
 test/renewal_write_test.dart
+test/service_offer_api_test.dart
+test/service_offer_create_offer_command_write_test.dart
+test/service_offer_jsonhal_read_links_test.dart
+test/service_offer_jsonhal_read_test.dart
+test/service_offer_read_test.dart
 test/sla_policy_api_test.dart
 test/sla_policy_jsonhal_sla_policy_read_embedded_test.dart
 test/sla_policy_jsonhal_sla_policy_read_test.dart

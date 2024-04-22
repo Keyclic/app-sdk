@@ -22911,6 +22911,7 @@
                 "SERVICE:ALL",
                 "NOTE_READ",
                 "NOTE_WRITE",
+                "service-offer:write",
                 "sla-policy:read",
                 "ticket:archiving:write",
                 "ticket:read"
@@ -26233,6 +26234,9 @@
                 "category": {
                     "type": "string",
                     "format": "string"
+                },
+                "completed": {
+                    "type": "boolean"
                 },
                 "description": {
                     "format": "string",

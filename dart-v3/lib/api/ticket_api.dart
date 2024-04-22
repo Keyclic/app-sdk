@@ -122,6 +122,7 @@ class TicketApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
+  /// * [completed] -
   /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
@@ -141,6 +142,7 @@ class TicketApi {
   /// * [existsLeftSquareBracketArchivedAtRightSquareBracket] -
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
+  /// * [existsLeftSquareBracketOfferRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketDueByRightSquareBracket] -
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
@@ -201,6 +203,7 @@ class TicketApi {
     int? limit,
     bool? pagination,
     String? search,
+    bool? completed,
     String? createdAtLeftSquareBracketBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketAfterRightSquareBracket,
@@ -220,6 +223,7 @@ class TicketApi {
     bool? existsLeftSquareBracketArchivedAtRightSquareBracket,
     bool? existsLeftSquareBracketAssignmentsRightSquareBracket,
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
+    bool? existsLeftSquareBracketOfferRightSquareBracket,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketDueByRightSquareBracket,
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
@@ -308,6 +312,7 @@ class TicketApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
+      if (completed != null) r'completed': encodeQueryParameter(completed),
       if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'createdAt[before]': encodeQueryParameter(
             createdAtLeftSquareBracketBeforeRightSquareBracket),
@@ -365,6 +370,9 @@ class TicketApi {
       if (existsLeftSquareBracketDocumentsRightSquareBracket != null)
         r'exists[documents]': encodeQueryParameter(
             existsLeftSquareBracketDocumentsRightSquareBracket),
+      if (existsLeftSquareBracketOfferRightSquareBracket != null)
+        r'exists[offer]': encodeQueryParameter(
+            existsLeftSquareBracketOfferRightSquareBracket),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),

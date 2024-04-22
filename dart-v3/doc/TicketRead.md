@@ -13,18 +13,20 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **name** | **String** |  | [optional] 
+**offer** | **String** |  | [optional] 
 **organization** | **String** |  | [readonly] 
 **phase** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
 **place** | [**PlaceRead**](PlaceRead.md) |  | 
 **priority** | [**TicketPriorityRead**](TicketPriorityRead.md) |  | [optional] 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**completed** | **bool** |  | [optional] 
 **feedback** | [**FeedbackRead**](FeedbackRead.md) |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **tags** | **List<String>** |  | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **parent** | **String** |  | [optional] [readonly] 
-**state** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | 
+**state** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
 **archived** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

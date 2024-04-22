@@ -16,6 +16,9 @@ void main() {
     // String category
     test('to test the property `category`', () async {});
 
+    // bool completed
+    test('to test the property `completed`', () async {});
+
     // String description
     test('to test the property `description`', () async {});
 

@@ -124,6 +124,11 @@ class ApiPlatformClient {
     return IntegrationLinkApi(this);
   }
 
+  /// Get ServiceOfferApi instance
+  ServiceOfferApi getServiceOfferApi() {
+    return ServiceOfferApi(this);
+  }
+
   /// Get SlaPolicyApi instance
   SlaPolicyApi getSlaPolicyApi() {
     return SlaPolicyApi(this);
@@ -408,6 +413,14 @@ class ApiPlatformClient {
           return RenewalRead.fromJson(value);
         case 'RenewalWrite':
           return RenewalWrite.fromJson(value);
+        case 'ServiceOfferCreateOfferCommandWrite':
+          return ServiceOfferCreateOfferCommandWrite.fromJson(value);
+        case 'ServiceOfferJsonhalRead':
+          return ServiceOfferJsonhalRead.fromJson(value);
+        case 'ServiceOfferJsonhalReadLinks':
+          return ServiceOfferJsonhalReadLinks.fromJson(value);
+        case 'ServiceOfferRead':
+          return ServiceOfferRead.fromJson(value);
         case 'SlaPolicyJsonhalSlaPolicyRead':
           return SlaPolicyJsonhalSlaPolicyRead.fromJson(value);
         case 'SlaPolicyJsonhalSlaPolicyReadEmbedded':

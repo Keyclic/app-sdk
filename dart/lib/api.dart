@@ -142,8 +142,6 @@ part 'model/business_activity_links_schema.dart';
 part 'model/business_activity_links_schema_iri_template.dart';
 part 'model/business_activity_links_self.dart';
 part 'model/business_activity_links_self_iri_template.dart';
-part 'model/business_activity_links_thumbnail.dart';
-part 'model/business_activity_links_thumbnail_iri_template.dart';
 part 'model/business_activity_pagination.dart';
 part 'model/business_activity_schema.dart';
 part 'model/category.dart';

@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.58.0-dev.ge9754b52a"
+        "version": "2.61.1-dev.gea6021eff"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -18123,9 +18123,6 @@
                         },
                         "self": {
                             "$ref": "#\/definitions\/BusinessActivityLinksSelf"
-                        },
-                        "thumbnail": {
-                            "$ref": "#\/definitions\/BusinessActivityLinksThumbnail"
                         }
                     }
                 },
@@ -18246,32 +18243,6 @@
             }
         },
         "BusinessActivityLinksSelfIriTemplate": {
-            "type": "object",
-            "properties": {
-                "mapping": {
-                    "type": "object",
-                    "properties": {
-                        "businessActivity": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "BusinessActivityLinksThumbnail": {
-            "type": "object",
-            "properties": {
-                "href": {
-                    "description": "The URI of the thumbnail associated to the given businessactivity.",
-                    "type": "string",
-                    "format": "string"
-                },
-                "iriTemplate": {
-                    "$ref": "#\/definitions\/BusinessActivityLinksThumbnailIriTemplate"
-                }
-            }
-        },
-        "BusinessActivityLinksThumbnailIriTemplate": {
             "type": "object",
             "properties": {
                 "mapping": {

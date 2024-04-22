@@ -10,7 +10,6 @@ class BusinessActivityLinks {
     this.image,
     this.schema,
     this.self,
-    this.thumbnail,
   });
 
   /// Returns a new [BusinessActivityLinks] instance and imports its values from
@@ -24,7 +23,6 @@ class BusinessActivityLinks {
       image: BusinessActivityLinksImage.fromJson(json[r'image']),
       schema: BusinessActivityLinksSchema.fromJson(json[r'schema']),
       self: BusinessActivityLinksSelf.fromJson(json[r'self']),
-      thumbnail: BusinessActivityLinksThumbnail.fromJson(json[r'thumbnail']),
     );
   }
 
@@ -33,8 +31,6 @@ class BusinessActivityLinks {
   BusinessActivityLinksSchema? schema;
 
   BusinessActivityLinksSelf? self;
-
-  BusinessActivityLinksThumbnail? thumbnail;
 
   @override
   bool operator ==(Object other) {
@@ -46,16 +42,14 @@ class BusinessActivityLinks {
     return other is BusinessActivityLinks &&
         other.image == image &&
         other.schema == schema &&
-        other.self == self &&
-        other.thumbnail == thumbnail;
+        other.self == self;
   }
 
   @override
   int get hashCode =>
       (image == null ? 0 : image.hashCode) +
       (schema == null ? 0 : schema.hashCode) +
-      (self == null ? 0 : self.hashCode) +
-      (thumbnail == null ? 0 : thumbnail.hashCode);
+      (self == null ? 0 : self.hashCode);
 
   static List<BusinessActivityLinks> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -107,7 +101,7 @@ class BusinessActivityLinks {
 
   @override
   String toString() =>
-      'BusinessActivityLinks[image=$image, schema=$schema, self=$self, thumbnail=$thumbnail]';
+      'BusinessActivityLinks[image=$image, schema=$schema, self=$self]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -134,16 +128,6 @@ class BusinessActivityLinks {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^self\.'))) {
             previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
-
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^thumbnail\.').hasMatch(key)))
-        r'thumbnail': thumbnail?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^thumbnail\.'))) {
-            previousValue.add(element.split(RegExp(r'^thumbnail\.')).last);
           }
 
           return previousValue;

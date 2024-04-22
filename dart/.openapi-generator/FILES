@@ -86,8 +86,6 @@ doc/BusinessActivityLinksSchema.md
 doc/BusinessActivityLinksSchemaIriTemplate.md
 doc/BusinessActivityLinksSelf.md
 doc/BusinessActivityLinksSelfIriTemplate.md
-doc/BusinessActivityLinksThumbnail.md
-doc/BusinessActivityLinksThumbnailIriTemplate.md
 doc/BusinessActivityPagination.md
 doc/BusinessActivitySchema.md
 doc/Category.md
@@ -752,8 +750,6 @@ lib/model/business_activity_links_schema.dart
 lib/model/business_activity_links_schema_iri_template.dart
 lib/model/business_activity_links_self.dart
 lib/model/business_activity_links_self_iri_template.dart
-lib/model/business_activity_links_thumbnail.dart
-lib/model/business_activity_links_thumbnail_iri_template.dart
 lib/model/business_activity_pagination.dart
 lib/model/business_activity_schema.dart
 lib/model/category.dart
@@ -1332,8 +1328,6 @@ test/business_activity_links_schema_test.dart
 test/business_activity_links_self_iri_template_test.dart
 test/business_activity_links_self_test.dart
 test/business_activity_links_test.dart
-test/business_activity_links_thumbnail_iri_template_test.dart
-test/business_activity_links_thumbnail_test.dart
 test/business_activity_pagination_test.dart
 test/business_activity_schema_test.dart
 test/business_activity_test.dart

@@ -31,22 +31,10 @@ class Person {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Person(
       links: PersonLinks.fromJson(json[r'_links']),
       agreement: PersonAgreement.fromJson(json[r'agreement']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       email: json[r'email'],
       enabled: json[r'enabled'],
       familyName: json[r'familyName'],
@@ -57,7 +45,7 @@ class Person {
       preferences: PersonPreferences.fromJson(json[r'preferences']),
       telephone: json[r'telephone'],
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       username: json[r'username'],
     );
   }
@@ -135,7 +123,7 @@ class Person {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (username == null ? 0 : username.hashCode);
 
-  static List<Person> listFromJson(List<dynamic>? json) {
+  static List<Person> listFromJson(Iterable? json) {
     if (json == null) {
       return <Person>[];
     }

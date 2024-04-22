@@ -31,44 +31,18 @@ class EquipmentJsonhalRead {
       return null;
     }
 
-    DateTime? commissioningDate = json[r'commissioningDate'] == null
-        ? null
-        : DateTime.parse(json[r'commissioningDate']);
-    if (commissioningDate != null && commissioningDate.isUtc == false) {
-      commissioningDate = DateTime.parse('${json[r'commissioningDate']}Z');
-    }
-
-    DateTime? retirementDate = json[r'retirementDate'] == null
-        ? null
-        : DateTime.parse(json[r'retirementDate']);
-    if (retirementDate != null && retirementDate.isUtc == false) {
-      retirementDate = DateTime.parse('${json[r'retirementDate']}Z');
-    }
-
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return EquipmentJsonhalRead(
       links: EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
-      commissioningDate: commissioningDate,
+      commissioningDate: mapToDateTime(json[r'commissioningDate']),
       lifetime: json[r'lifetime'],
       model: json[r'model'],
       mpn: json[r'mpn'],
-      retirementDate: retirementDate,
+      retirementDate: mapToDateTime(json[r'retirementDate']),
       serialNumber: json[r'serialNumber'],
       warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
@@ -158,7 +132,7 @@ class EquipmentJsonhalRead {
       (preferences == null ? 0 : preferences.hashCode) +
       (address == null ? 0 : address.hashCode);
 
-  static List<EquipmentJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<EquipmentJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <EquipmentJsonhalRead>[];
     }

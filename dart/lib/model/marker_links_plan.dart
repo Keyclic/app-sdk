@@ -46,7 +46,7 @@ class MarkerLinksPlan {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<MarkerLinksPlan> listFromJson(List<dynamic>? json) {
+  static List<MarkerLinksPlan> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerLinksPlan>[];
     }

@@ -63,7 +63,7 @@ class OperationPriority {
       (position == null ? 0 : position.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<OperationPriority> listFromJson(List<dynamic>? json) {
+  static List<OperationPriority> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationPriority>[];
     }

@@ -37,7 +37,7 @@ class PreferencesContract {
   @override
   int get hashCode => (enabled == null ? 0 : enabled.hashCode);
 
-  static List<PreferencesContract> listFromJson(List<dynamic>? json) {
+  static List<PreferencesContract> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesContract>[];
     }

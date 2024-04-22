@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Retrieve one Export resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 
@@ -33,7 +33,7 @@ final after = 2013-10-20T19:20:30+01:00; // DateTime |
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
 final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
 
-try { 
+try {
     final result = api_instance.getExport(xKeyclicApp, export_, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, orderLeftSquareBracketRightSquareBracket);
     print(result);
 } catch (e) {
@@ -75,7 +75,7 @@ No authorization required
 
 Create one Export resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -138,7 +138,7 @@ final state = state_example; // String |
 final statesLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final visibilityLeftSquareBracketRightSquareBracket = []; // List<String> | 
 
-try { 
+try {
     final result = api_instance.postExport(xKeyclicApp, exportData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket);
     print(result);
 } catch (e) {

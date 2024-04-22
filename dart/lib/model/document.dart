@@ -28,25 +28,13 @@ class Document {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Document(
       embedded: DocumentEmbedded.fromJson(json[r'_embedded']),
       links: DocumentLinks.fromJson(json[r'_links']),
       body: json[r'body'] == null
           ? null
           : List<Map<String, Object?>>.from(json[r'body']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       file: DocumentFile.fromJson(json[r'file']),
       id: json[r'id'],
       permission: DocumentPermission.fromJson(json[r'permission']),
@@ -54,7 +42,7 @@ class Document {
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       text: json[r'text'],
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -119,7 +107,7 @@ class Document {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Document> listFromJson(List<dynamic>? json) {
+  static List<Document> listFromJson(Iterable? json) {
     if (json == null) {
       return <Document>[];
     }

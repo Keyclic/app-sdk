@@ -26,18 +26,6 @@ class IntegrationLinkJsonhalRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return IntegrationLinkJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       data: json[r'data'] == null
@@ -51,8 +39,8 @@ class IntegrationLinkJsonhalRead {
       state: IntegrationLinkJsonhalReadStateEnum.fromJson(json[r'state']),
       target: json[r'target'],
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -114,7 +102,7 @@ class IntegrationLinkJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<IntegrationLinkJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<IntegrationLinkJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <IntegrationLinkJsonhalRead>[];
     }

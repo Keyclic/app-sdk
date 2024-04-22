@@ -45,7 +45,7 @@ class BookmarkEmbedded {
       (member == null ? 0 : member.hashCode) +
       (place == null ? 0 : place.hashCode);
 
-  static List<BookmarkEmbedded> listFromJson(List<dynamic>? json) {
+  static List<BookmarkEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkEmbedded>[];
     }

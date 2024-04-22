@@ -63,7 +63,7 @@ class ActivityPagination {
       (unread == null ? 0 : unread.hashCode) +
       (results == null ? 0 : results.hashCode);
 
-  static List<ActivityPagination> listFromJson(List<dynamic>? json) {
+  static List<ActivityPagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <ActivityPagination>[];
     }

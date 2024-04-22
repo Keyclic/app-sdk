@@ -45,7 +45,7 @@ class InvitationLinks {
       (member == null ? 0 : member.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<InvitationLinks> listFromJson(List<dynamic>? json) {
+  static List<InvitationLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationLinks>[];
     }

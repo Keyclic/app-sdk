@@ -32,48 +32,23 @@ class Report {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? dueBy =
-        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
-    if (dueBy != null && dueBy.isUtc == false) {
-      dueBy = DateTime.parse('${json[r'dueBy']}Z');
-    }
-
-    DateTime? scheduledAt = json[r'scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
-    if (scheduledAt != null && scheduledAt.isUtc == false) {
-      scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Report(
       embedded: ReportEmbedded.fromJson(json[r'_embedded']),
       links: ReportLinks.fromJson(json[r'_links']),
       archived: json[r'archived'],
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       description: json[r'description'],
-      dueBy: dueBy,
+      dueBy: mapToDateTime(json[r'dueBy']),
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
       phase: WorkflowState.fromJson(json[r'phase']),
       priority: ReportPriority.fromJson(json[r'priority']),
       reference: json[r'reference'],
-      scheduledAt: scheduledAt,
+      scheduledAt: mapToDateTime(json[r'scheduledAt']),
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -154,7 +129,7 @@ class Report {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Report> listFromJson(List<dynamic>? json) {
+  static List<Report> listFromJson(Iterable? json) {
     if (json == null) {
       return <Report>[];
     }

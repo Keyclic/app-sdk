@@ -44,7 +44,7 @@ class ServiceOfferCreateOfferCommandWrite {
   int get hashCode => name.hashCode + service.hashCode;
 
   static List<ServiceOfferCreateOfferCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <ServiceOfferCreateOfferCommandWrite>[];
     }

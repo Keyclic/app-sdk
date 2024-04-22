@@ -63,7 +63,7 @@ class PlacePatch {
       (name == null ? 0 : name.hashCode) +
       (preferences == null ? 0 : preferences.hashCode);
 
-  static List<PlacePatch> listFromJson(List<dynamic>? json) {
+  static List<PlacePatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlacePatch>[];
     }

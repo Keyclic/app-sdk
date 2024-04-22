@@ -52,7 +52,7 @@ class MarkerJsonhalRead {
       (point == null ? 0 : point.hashCode) +
       (id == null ? 0 : id.hashCode);
 
-  static List<MarkerJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<MarkerJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerJsonhalRead>[];
     }

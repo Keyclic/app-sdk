@@ -58,7 +58,7 @@ class MemberData {
       (person == null ? 0 : person.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<MemberData> listFromJson(List<dynamic>? json) {
+  static List<MemberData> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberData>[];
     }

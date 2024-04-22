@@ -37,7 +37,7 @@ class PlanLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlanLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<PlanLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlanLinksSelfIriTemplate>[];
     }

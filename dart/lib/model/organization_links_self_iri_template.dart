@@ -39,8 +39,7 @@ class OrganizationLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<OrganizationLinksSelfIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<OrganizationLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationLinksSelfIriTemplate>[];
     }

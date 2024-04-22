@@ -51,7 +51,7 @@ class OrganizationPostalAddress {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<OrganizationPostalAddress> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPostalAddress> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationPostalAddress>[];
     }

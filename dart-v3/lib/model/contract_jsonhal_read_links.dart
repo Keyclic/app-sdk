@@ -52,7 +52,7 @@ class ContractJsonhalReadLinks {
       (provider == null ? 0 : provider.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ContractJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<ContractJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContractJsonhalReadLinks>[];
     }

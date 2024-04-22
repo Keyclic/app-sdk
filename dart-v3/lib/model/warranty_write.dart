@@ -18,15 +18,9 @@ class WarrantyWrite {
       return null;
     }
 
-    DateTime? startDate =
-        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
-    if (startDate != null && startDate.isUtc == false) {
-      startDate = DateTime.parse('${json[r'startDate']}Z');
-    }
-
     return WarrantyWrite(
       duration: json[r'duration'],
-      startDate: startDate,
+      startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
@@ -53,7 +47,7 @@ class WarrantyWrite {
       (duration == null ? 0 : duration.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<WarrantyWrite> listFromJson(List<dynamic>? json) {
+  static List<WarrantyWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <WarrantyWrite>[];
     }

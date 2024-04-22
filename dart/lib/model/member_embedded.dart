@@ -51,7 +51,7 @@ class MemberEmbedded {
       (person == null ? 0 : person.hashCode) +
       (roles == null ? 0 : roles.hashCode);
 
-  static List<MemberEmbedded> listFromJson(List<dynamic>? json) {
+  static List<MemberEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberEmbedded>[];
     }

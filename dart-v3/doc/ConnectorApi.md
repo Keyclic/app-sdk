@@ -19,7 +19,7 @@ Retrieves a Connector resource.
 
 Retrieves a Connector resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -31,7 +31,7 @@ final api_instance = ConnectorApi();
 final identifier = identifier_example; // String | Connector identifier
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.getConnector(identifier, acceptLanguage);
     print(result);
 } catch (e) {

@@ -47,7 +47,7 @@ class ConfigurationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ConfigurationLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConfigurationLinksSelf>[];
     }

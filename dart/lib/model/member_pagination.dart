@@ -69,7 +69,7 @@ class MemberPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<MemberPagination> listFromJson(List<dynamic>? json) {
+  static List<MemberPagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberPagination>[];
     }

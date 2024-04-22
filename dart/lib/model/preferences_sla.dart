@@ -37,7 +37,7 @@ class PreferencesSla {
   @override
   int get hashCode => (enabled == null ? 0 : enabled.hashCode);
 
-  static List<PreferencesSla> listFromJson(List<dynamic>? json) {
+  static List<PreferencesSla> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesSla>[];
     }

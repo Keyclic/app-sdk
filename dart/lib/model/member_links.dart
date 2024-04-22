@@ -51,7 +51,7 @@ class MemberLinks {
       (person == null ? 0 : person.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<MemberLinks> listFromJson(List<dynamic>? json) {
+  static List<MemberLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberLinks>[];
     }

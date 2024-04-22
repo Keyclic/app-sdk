@@ -58,7 +58,7 @@ class AssignmentRead {
       (service == null ? 0 : service.hashCode) +
       (id == null ? 0 : id.hashCode);
 
-  static List<AssignmentRead> listFromJson(List<dynamic>? json) {
+  static List<AssignmentRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentRead>[];
     }

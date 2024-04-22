@@ -40,7 +40,7 @@ class BusinessActivityLinksImageIriTemplateMapping {
       (businessActivity == null ? 0 : businessActivity.hashCode);
 
   static List<BusinessActivityLinksImageIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <BusinessActivityLinksImageIriTemplateMapping>[];
     }

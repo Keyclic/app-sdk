@@ -37,7 +37,7 @@ class PersonPreferences {
   @override
   int get hashCode => (notification == null ? 0 : notification.hashCode);
 
-  static List<PersonPreferences> listFromJson(List<dynamic>? json) {
+  static List<PersonPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <PersonPreferences>[];
     }

@@ -23,26 +23,14 @@ class BusinessHoursJsonhalBusinessHoursRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return BusinessHoursJsonhalBusinessHoursRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       hoursPerDay: json[r'hoursPerDay'],
       name: json[r'name'],
       openingHours: List<String>.from(json[r'openingHours']),
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -92,7 +80,7 @@ class BusinessHoursJsonhalBusinessHoursRead {
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<BusinessHoursJsonhalBusinessHoursRead> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <BusinessHoursJsonhalBusinessHoursRead>[];
     }

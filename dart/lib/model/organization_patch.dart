@@ -25,35 +25,16 @@ class OrganizationPatch {
       return null;
     }
 
-    DateTime? archivedAt = json[r'archivedAt'] == null
-        ? null
-        : DateTime.parse(json[r'archivedAt']);
-    if (archivedAt != null && archivedAt.isUtc == false) {
-      archivedAt = DateTime.parse('${json[r'archivedAt']}Z');
-    }
-
-    DateTime? endDate =
-        json[r'endDate'] == null ? null : DateTime.parse(json[r'endDate']);
-    if (endDate != null && endDate.isUtc == false) {
-      endDate = DateTime.parse('${json[r'endDate']}Z');
-    }
-
-    DateTime? startDate =
-        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
-    if (startDate != null && startDate.isUtc == false) {
-      startDate = DateTime.parse('${json[r'startDate']}Z');
-    }
-
     return OrganizationPatch(
       address: ExternalServicePatchAddress.fromJson(json[r'address']),
       alternateName: json[r'alternateName'],
-      archivedAt: archivedAt,
+      archivedAt: mapToDateTime(json[r'archivedAt']),
       description: json[r'description'],
-      endDate: endDate,
+      endDate: mapToDateTime(json[r'endDate']),
       logo: json[r'logo'],
       name: json[r'name'],
       preferences: OrganizationPatchPreferences.fromJson(json[r'preferences']),
-      startDate: startDate,
+      startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
@@ -106,7 +87,7 @@ class OrganizationPatch {
       (preferences == null ? 0 : preferences.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<OrganizationPatch> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationPatch>[];
     }

@@ -99,7 +99,7 @@ class ItemsChoice {
       (title == null ? 0 : title.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ItemsChoice> listFromJson(List<dynamic>? json) {
+  static List<ItemsChoice> listFromJson(Iterable? json) {
     if (json == null) {
       return <ItemsChoice>[];
     }

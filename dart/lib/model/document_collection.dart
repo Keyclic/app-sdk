@@ -38,7 +38,7 @@ class DocumentCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<DocumentCollection> listFromJson(List<dynamic>? json) {
+  static List<DocumentCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentCollection>[];
     }

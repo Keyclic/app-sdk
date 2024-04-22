@@ -60,7 +60,7 @@ class ProfileAuthProfileRead {
       (user == null ? 0 : user.hashCode) +
       (firstConnection == null ? 0 : firstConnection.hashCode);
 
-  static List<ProfileAuthProfileRead> listFromJson(List<dynamic>? json) {
+  static List<ProfileAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProfileAuthProfileRead>[];
     }

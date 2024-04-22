@@ -46,7 +46,7 @@ class RuleLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<RuleLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <RuleLinksSelf>[];
     }

@@ -51,7 +51,7 @@ class CategoryEmbedded {
       (path == null ? 0 : path.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<CategoryEmbedded> listFromJson(List<dynamic>? json) {
+  static List<CategoryEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryEmbedded>[];
     }

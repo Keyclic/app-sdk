@@ -51,7 +51,7 @@ class FeatureGeometry {
       (type == null ? 0 : type.hashCode) +
       (coordinates == null ? 0 : coordinates.hashCode);
 
-  static List<FeatureGeometry> listFromJson(List<dynamic>? json) {
+  static List<FeatureGeometry> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeatureGeometry>[];
     }

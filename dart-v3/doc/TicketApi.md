@@ -22,7 +22,7 @@ Retrieves a Ticket resource.
 
 Retrieves a Ticket resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -40,7 +40,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = xEnableDispatch_example; // bool | 
 
-try { 
+try {
     final result = api_instance.getTicket(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
@@ -83,7 +83,7 @@ Retrieves the collection of Ticket resources.
 
 Retrieves the collection of Ticket resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -167,7 +167,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = xEnableDispatch_example; // bool | 
 
-try { 
+try {
     final result = api_instance.getTicketCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, completed, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, dueByLeftSquareBracketBeforeRightSquareBracket, dueByLeftSquareBracketStrictlyBeforeRightSquareBracket, dueByLeftSquareBracketAfterRightSquareBracket, dueByLeftSquareBracketStrictlyAfterRightSquareBracket, scheduledAtLeftSquareBracketBeforeRightSquareBracket, scheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket, scheduledAtLeftSquareBracketAfterRightSquareBracket, scheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, existsLeftSquareBracketArchivedAtRightSquareBracket, existsLeftSquareBracketAssignmentsRightSquareBracket, existsLeftSquareBracketDocumentsRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketDueByRightSquareBracket, orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket, orderLeftSquareBracketScheduledAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, assignmentsPeriodService, assignmentsPeriodServiceLeftSquareBracketRightSquareBracket, assignmentsPeriodServicePeriodManager, assignmentsPeriodServicePeriodManagerLeftSquareBracketRightSquareBracket, category, categoryLeftSquareBracketRightSquareBracket, categoryPeriodType, categoryPeriodTypeLeftSquareBracketRightSquareBracket, childrenPeriodAssignmentsPeriodMember, childrenPeriodAssignmentsPeriodMemberLeftSquareBracketRightSquareBracket, childrenPeriodState, childrenPeriodStateLeftSquareBracketRightSquareBracket, createdBy, createdByLeftSquareBracketRightSquareBracket, equipments, equipmentsLeftSquareBracketRightSquareBracket, feedbackPeriodBatch, feedbackPeriodBatchLeftSquareBracketRightSquareBracket, feedbackPeriodVisibility, feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, phase, phaseLeftSquareBracketRightSquareBracket, place, placeLeftSquareBracketRightSquareBracket, priority, priorityLeftSquareBracketRightSquareBracket, reviewsPeriodReviewRating, reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
@@ -276,7 +276,7 @@ Updates the Ticket resource.
 
 Updates the Ticket resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -295,7 +295,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = xEnableDispatch_example; // bool | 
 
-try { 
+try {
     final result = api_instance.patchTicket(identifier, xKeyclicApp, xOrganizationId, ticketEditTicketCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
@@ -339,7 +339,7 @@ Creates a Ticket resource.
 
 Creates a Ticket resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -357,7 +357,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = xEnableDispatch_example; // bool | 
 
-try { 
+try {
     final result = api_instance.postTicket(xKeyclicApp, xOrganizationId, ticketCreateTicketCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {

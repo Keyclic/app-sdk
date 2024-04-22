@@ -28,16 +28,9 @@ class EquipmentEditEquipmentCommandWrite {
       return null;
     }
 
-    DateTime? commissioningDate = json[r'commissioningDate'] == null
-        ? null
-        : DateTime.parse(json[r'commissioningDate']);
-    if (commissioningDate != null && commissioningDate.isUtc == false) {
-      commissioningDate = DateTime.parse('${json[r'commissioningDate']}Z');
-    }
-
     return EquipmentEditEquipmentCommandWrite(
       brand: json[r'brand'],
-      commissioningDate: commissioningDate,
+      commissioningDate: mapToDateTime(json[r'commissioningDate']),
       description: json[r'description'],
       lifetime: json[r'lifetime'],
       model: json[r'model'],
@@ -112,8 +105,7 @@ class EquipmentEditEquipmentCommandWrite {
       (type == null ? 0 : type.hashCode) +
       (warranty == null ? 0 : warranty.hashCode);
 
-  static List<EquipmentEditEquipmentCommandWrite> listFromJson(
-      List<dynamic>? json) {
+  static List<EquipmentEditEquipmentCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <EquipmentEditEquipmentCommandWrite>[];
     }

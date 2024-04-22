@@ -60,7 +60,7 @@ class GetPlaceCollection200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetPlaceCollection200Response> listFromJson(List<dynamic>? json) {
+  static List<GetPlaceCollection200Response> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetPlaceCollection200Response>[];
     }

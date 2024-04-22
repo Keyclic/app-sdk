@@ -65,7 +65,7 @@ class PlaceEmbedded {
       (targetGroups == null ? 0 : targetGroups.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<PlaceEmbedded> listFromJson(List<dynamic>? json) {
+  static List<PlaceEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceEmbedded>[];
     }

@@ -65,7 +65,7 @@ class DocumentPatch {
       (text == null ? 0 : text.hashCode) +
       (tags == null ? 0 : tags.hashCode);
 
-  static List<DocumentPatch> listFromJson(List<dynamic>? json) {
+  static List<DocumentPatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentPatch>[];
     }

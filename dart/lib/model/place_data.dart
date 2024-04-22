@@ -69,7 +69,7 @@ class PlaceData {
       organization.hashCode +
       (preferences == null ? 0 : preferences.hashCode);
 
-  static List<PlaceData> listFromJson(List<dynamic>? json) {
+  static List<PlaceData> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceData>[];
     }

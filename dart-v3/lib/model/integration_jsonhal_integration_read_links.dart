@@ -54,7 +54,7 @@ class IntegrationJsonhalIntegrationReadLinks {
       (organization == null ? 0 : organization.hashCode);
 
   static List<IntegrationJsonhalIntegrationReadLinks> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <IntegrationJsonhalIntegrationReadLinks>[];
     }

@@ -26,28 +26,14 @@ class ActivityGroup {
       return null;
     }
 
-    DateTime? createdAt = json[r'created_at'] == null
-        ? null
-        : DateTime.parse(json[r'created_at']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'created_at']}Z');
-    }
-
-    DateTime? updatedAt = json[r'updated_at'] == null
-        ? null
-        : DateTime.parse(json[r'updated_at']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updated_at']}Z');
-    }
-
     return ActivityGroup(
       activities: Activity.listFromJson(json[r'activities']),
       activityCount: json[r'activity_count'],
       actorCount: json[r'actor_count'],
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'created_at']),
       group: json[r'group'],
       id: json[r'id'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updated_at']),
       verb: json[r'verb'],
       isRead: json[r'is_read'],
       isSeen: json[r'is_seen'],
@@ -108,7 +94,7 @@ class ActivityGroup {
       (isRead == null ? 0 : isRead.hashCode) +
       (isSeen == null ? 0 : isSeen.hashCode);
 
-  static List<ActivityGroup> listFromJson(List<dynamic>? json) {
+  static List<ActivityGroup> listFromJson(Iterable? json) {
     if (json == null) {
       return <ActivityGroup>[];
     }

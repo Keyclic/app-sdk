@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Retrieve all Activity resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -36,7 +36,7 @@ final xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetActivitiesByFeed(xKeyclicApp, feed, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
     print(result);
 } catch (e) {
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 Create one Read resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -94,7 +94,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.postReadByFeedAndGroup(xKeyclicApp, feed, group, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling FeedApi->postReadByFeedAndGroup: $e\n');

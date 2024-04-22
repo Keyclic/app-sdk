@@ -22,23 +22,11 @@ class TicketTypeJsonhalRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return TicketTypeJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       name: json[r'name'],
       description: json[r'description'],
     );
@@ -84,7 +72,7 @@ class TicketTypeJsonhalRead {
       name.hashCode +
       (description == null ? 0 : description.hashCode);
 
-  static List<TicketTypeJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<TicketTypeJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketTypeJsonhalRead>[];
     }

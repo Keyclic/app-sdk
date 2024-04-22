@@ -48,7 +48,7 @@ class FileData {
   @override
   int get hashCode => content.hashCode + contentType.hashCode + name.hashCode;
 
-  static List<FileData> listFromJson(List<dynamic>? json) {
+  static List<FileData> listFromJson(Iterable? json) {
     if (json == null) {
       return <FileData>[];
     }

@@ -63,7 +63,7 @@ class OperationData {
       (name == null ? 0 : name.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode);
 
-  static List<OperationData> listFromJson(List<dynamic>? json) {
+  static List<OperationData> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationData>[];
     }

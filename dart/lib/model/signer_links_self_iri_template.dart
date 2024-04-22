@@ -37,7 +37,7 @@ class SignerLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<SignerLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<SignerLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerLinksSelfIriTemplate>[];
     }

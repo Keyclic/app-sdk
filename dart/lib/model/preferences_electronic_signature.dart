@@ -37,8 +37,7 @@ class PreferencesElectronicSignature {
   @override
   int get hashCode => (enabled == null ? 0 : enabled.hashCode);
 
-  static List<PreferencesElectronicSignature> listFromJson(
-      List<dynamic>? json) {
+  static List<PreferencesElectronicSignature> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesElectronicSignature>[];
     }

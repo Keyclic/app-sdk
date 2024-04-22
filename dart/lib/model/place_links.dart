@@ -63,7 +63,7 @@ class PlaceLinks {
       (plans == null ? 0 : plans.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<PlaceLinks> listFromJson(List<dynamic>? json) {
+  static List<PlaceLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceLinks>[];
     }

@@ -47,7 +47,7 @@ class ReviewLinksItemReviewed {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ReviewLinksItemReviewed> listFromJson(List<dynamic>? json) {
+  static List<ReviewLinksItemReviewed> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewLinksItemReviewed>[];
     }

@@ -38,7 +38,7 @@ class OperationCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<OperationCollection> listFromJson(List<dynamic>? json) {
+  static List<OperationCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationCollection>[];
     }

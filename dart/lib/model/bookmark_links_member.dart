@@ -47,7 +47,7 @@ class BookmarkLinksMember {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<BookmarkLinksMember> listFromJson(List<dynamic>? json) {
+  static List<BookmarkLinksMember> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinksMember>[];
     }

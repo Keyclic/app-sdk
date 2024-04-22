@@ -36,48 +36,23 @@ class TicketRead {
       return null;
     }
 
-    DateTime? dueBy =
-        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
-    if (dueBy != null && dueBy.isUtc == false) {
-      dueBy = DateTime.parse('${json[r'dueBy']}Z');
-    }
-
-    DateTime? scheduledAt = json[r'scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
-    if (scheduledAt != null && scheduledAt.isUtc == false) {
-      scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
-    }
-
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return TicketRead(
       assignments: AssignmentRead.listFromJson(json[r'assignments']),
       category: CategoryRead.fromJson(json[r'category']),
       description: json[r'description'],
-      dueBy: dueBy,
+      dueBy: mapToDateTime(json[r'dueBy']),
       name: json[r'name'],
       organization: json[r'organization'],
       phase: WorkflowStateRead.fromJson(json[r'phase']),
       place: PlaceRead.fromJson(json[r'place'])!,
       priority: TicketPriorityRead.fromJson(json[r'priority']),
-      scheduledAt: scheduledAt,
+      scheduledAt: mapToDateTime(json[r'scheduledAt']),
       completed: json[r'completed'],
       feedback: FeedbackRead.fromJson(json[r'feedback'])!,
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       parent: json[r'parent'],
       state: WorkflowStateRead.fromJson(json[r'state']),
       reference: json[r'reference'],
@@ -182,7 +157,7 @@ class TicketRead {
       (reference == null ? 0 : reference.hashCode) +
       (archived == null ? 0 : archived.hashCode);
 
-  static List<TicketRead> listFromJson(List<dynamic>? json) {
+  static List<TicketRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketRead>[];
     }

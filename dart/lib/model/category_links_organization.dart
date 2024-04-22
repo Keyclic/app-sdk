@@ -47,7 +47,7 @@ class CategoryLinksOrganization {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<CategoryLinksOrganization> listFromJson(List<dynamic>? json) {
+  static List<CategoryLinksOrganization> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryLinksOrganization>[];
     }

@@ -60,8 +60,7 @@ class GetSlaPolicyCollection200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetSlaPolicyCollection200Response> listFromJson(
-      List<dynamic>? json) {
+  static List<GetSlaPolicyCollection200Response> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetSlaPolicyCollection200Response>[];
     }

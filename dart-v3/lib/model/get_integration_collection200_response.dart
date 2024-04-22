@@ -61,7 +61,7 @@ class GetIntegrationCollection200Response {
       links.hashCode;
 
   static List<GetIntegrationCollection200Response> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetIntegrationCollection200Response>[];
     }

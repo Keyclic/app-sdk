@@ -38,7 +38,7 @@ class ProblemEmbedded {
   @override
   int get hashCode => (errors == null ? 0 : errors.hashCode);
 
-  static List<ProblemEmbedded> listFromJson(List<dynamic>? json) {
+  static List<ProblemEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProblemEmbedded>[];
     }

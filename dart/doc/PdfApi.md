@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Retrieve all Image resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -35,7 +35,7 @@ final xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cpostImage(xKeyclicApp, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
     print(result);
 } catch (e) {

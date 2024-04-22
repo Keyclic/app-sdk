@@ -51,7 +51,7 @@ class BusinessActivityLinks {
       (schema == null ? 0 : schema.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<BusinessActivityLinks> listFromJson(List<dynamic>? json) {
+  static List<BusinessActivityLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <BusinessActivityLinks>[];
     }

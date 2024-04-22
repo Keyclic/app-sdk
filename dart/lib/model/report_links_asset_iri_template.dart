@@ -38,7 +38,7 @@ class ReportLinksAssetIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReportLinksAssetIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<ReportLinksAssetIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportLinksAssetIriTemplate>[];
     }

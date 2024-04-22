@@ -47,7 +47,7 @@ class ProcedureLinksCreatedBy {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ProcedureLinksCreatedBy> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinksCreatedBy> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProcedureLinksCreatedBy>[];
     }

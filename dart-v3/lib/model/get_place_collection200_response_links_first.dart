@@ -39,7 +39,7 @@ class GetPlaceCollection200ResponseLinksFirst {
   int get hashCode => (href == null ? 0 : href.hashCode);
 
   static List<GetPlaceCollection200ResponseLinksFirst> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetPlaceCollection200ResponseLinksFirst>[];
     }

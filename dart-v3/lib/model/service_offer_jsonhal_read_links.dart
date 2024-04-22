@@ -46,7 +46,7 @@ class ServiceOfferJsonhalReadLinks {
       (self == null ? 0 : self.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<ServiceOfferJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<ServiceOfferJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ServiceOfferJsonhalReadLinks>[];
     }

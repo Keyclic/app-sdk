@@ -51,7 +51,7 @@ class ApplicationAgreement {
       (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
       (termsOfService == null ? 0 : termsOfService.hashCode);
 
-  static List<ApplicationAgreement> listFromJson(List<dynamic>? json) {
+  static List<ApplicationAgreement> listFromJson(Iterable? json) {
     if (json == null) {
       return <ApplicationAgreement>[];
     }

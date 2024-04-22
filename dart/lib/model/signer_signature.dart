@@ -18,14 +18,8 @@ class SignerSignature {
       return null;
     }
 
-    DateTime? signedAt =
-        json[r'signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
-    if (signedAt != null && signedAt.isUtc == false) {
-      signedAt = DateTime.parse('${json[r'signedAt']}Z');
-    }
-
     return SignerSignature(
-      signedAt: signedAt,
+      signedAt: mapToDateTime(json[r'signedAt']),
       text: json[r'text'],
     );
   }
@@ -51,7 +45,7 @@ class SignerSignature {
       (signedAt == null ? 0 : signedAt.hashCode) +
       (text == null ? 0 : text.hashCode);
 
-  static List<SignerSignature> listFromJson(List<dynamic>? json) {
+  static List<SignerSignature> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerSignature>[];
     }

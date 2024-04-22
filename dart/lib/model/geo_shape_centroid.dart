@@ -43,7 +43,7 @@ class GeoShapeCentroid {
   @override
   int get hashCode => latitude.hashCode + longitude.hashCode;
 
-  static List<GeoShapeCentroid> listFromJson(List<dynamic>? json) {
+  static List<GeoShapeCentroid> listFromJson(Iterable? json) {
     if (json == null) {
       return <GeoShapeCentroid>[];
     }

@@ -40,7 +40,7 @@ class GetIntegrationLinkCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetIntegrationLinkCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetIntegrationLinkCollection200ResponseEmbedded>[];
     }

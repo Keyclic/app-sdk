@@ -61,7 +61,7 @@ class GetBusinessHoursCollection200Response {
       links.hashCode;
 
   static List<GetBusinessHoursCollection200Response> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetBusinessHoursCollection200Response>[];
     }

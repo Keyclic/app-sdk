@@ -63,7 +63,7 @@ class EquipmentJsonhalReadLinks {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<EquipmentJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<EquipmentJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <EquipmentJsonhalReadLinks>[];
     }

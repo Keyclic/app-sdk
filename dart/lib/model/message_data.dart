@@ -45,7 +45,7 @@ class MessageData {
   @override
   int get hashCode => (text == null ? 0 : text.hashCode) + task.hashCode;
 
-  static List<MessageData> listFromJson(List<dynamic>? json) {
+  static List<MessageData> listFromJson(Iterable? json) {
     if (json == null) {
       return <MessageData>[];
     }

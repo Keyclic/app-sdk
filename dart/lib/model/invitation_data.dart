@@ -37,7 +37,7 @@ class InvitationData {
   @override
   int get hashCode => member.hashCode;
 
-  static List<InvitationData> listFromJson(List<dynamic>? json) {
+  static List<InvitationData> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationData>[];
     }

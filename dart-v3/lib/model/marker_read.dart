@@ -43,7 +43,7 @@ class MarkerRead {
   int get hashCode =>
       (point == null ? 0 : point.hashCode) + (id == null ? 0 : id.hashCode);
 
-  static List<MarkerRead> listFromJson(List<dynamic>? json) {
+  static List<MarkerRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerRead>[];
     }

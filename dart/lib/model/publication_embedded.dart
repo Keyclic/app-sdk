@@ -45,7 +45,7 @@ class PublicationEmbedded {
       (author == null ? 0 : author.hashCode) +
       (place == null ? 0 : place.hashCode);
 
-  static List<PublicationEmbedded> listFromJson(List<dynamic>? json) {
+  static List<PublicationEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <PublicationEmbedded>[];
     }

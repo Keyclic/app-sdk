@@ -23,18 +23,6 @@ class IntegrationIntegrationRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return IntegrationIntegrationRead(
       connector: json[r'connector'],
       inputs: json[r'inputs'] == null
@@ -42,8 +30,8 @@ class IntegrationIntegrationRead {
           : Map<String, Object?>.from(json[r'inputs']),
       organization: json[r'organization'],
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       name: json[r'name'],
     );
   }
@@ -92,7 +80,7 @@ class IntegrationIntegrationRead {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<IntegrationIntegrationRead> listFromJson(List<dynamic>? json) {
+  static List<IntegrationIntegrationRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <IntegrationIntegrationRead>[];
     }

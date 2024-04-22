@@ -63,7 +63,7 @@ class RunData {
       (outputs == null ? 0 : outputs.hashCode) +
       (verbose == null ? 0 : verbose.hashCode);
 
-  static List<RunData> listFromJson(List<dynamic>? json) {
+  static List<RunData> listFromJson(Iterable? json) {
     if (json == null) {
       return <RunData>[];
     }

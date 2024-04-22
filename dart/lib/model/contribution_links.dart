@@ -45,7 +45,7 @@ class ContributionLinks {
       (contributor == null ? 0 : contributor.hashCode) +
       (feedback == null ? 0 : feedback.hashCode);
 
-  static List<ContributionLinks> listFromJson(List<dynamic>? json) {
+  static List<ContributionLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContributionLinks>[];
     }

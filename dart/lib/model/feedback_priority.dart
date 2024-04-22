@@ -63,7 +63,7 @@ class FeedbackPriority {
       (position == null ? 0 : position.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<FeedbackPriority> listFromJson(List<dynamic>? json) {
+  static List<FeedbackPriority> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackPriority>[];
     }

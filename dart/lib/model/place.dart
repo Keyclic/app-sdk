@@ -27,30 +27,18 @@ class Place {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Place(
       embedded: PlaceEmbedded.fromJson(json[r'_embedded']),
       links: PlaceLinks.fromJson(json[r'_links']),
       address: PlacePostalAddress.fromJson(json[r'address']),
       branchCode: json[r'branchCode'],
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
       preferences: PlacePreferences.fromJson(json[r'preferences']),
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -111,7 +99,7 @@ class Place {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Place> listFromJson(List<dynamic>? json) {
+  static List<Place> listFromJson(Iterable? json) {
     if (json == null) {
       return <Place>[];
     }

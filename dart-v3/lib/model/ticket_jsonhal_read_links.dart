@@ -52,7 +52,7 @@ class TicketJsonhalReadLinks {
       (organization == null ? 0 : organization.hashCode) +
       (parent == null ? 0 : parent.hashCode);
 
-  static List<TicketJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<TicketJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketJsonhalReadLinks>[];
     }

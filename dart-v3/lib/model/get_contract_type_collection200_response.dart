@@ -61,7 +61,7 @@ class GetContractTypeCollection200Response {
       links.hashCode;
 
   static List<GetContractTypeCollection200Response> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetContractTypeCollection200Response>[];
     }

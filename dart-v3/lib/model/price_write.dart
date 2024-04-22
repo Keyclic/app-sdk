@@ -38,7 +38,7 @@ class PriceWrite {
   @override
   int get hashCode => (value == null ? 0 : value.hashCode);
 
-  static List<PriceWrite> listFromJson(List<dynamic>? json) {
+  static List<PriceWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <PriceWrite>[];
     }

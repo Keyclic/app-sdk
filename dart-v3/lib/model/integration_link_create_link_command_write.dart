@@ -81,7 +81,7 @@ class IntegrationLinkCreateLinkCommandWrite {
       (target == null ? 0 : target.hashCode);
 
   static List<IntegrationLinkCreateLinkCommandWrite> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <IntegrationLinkCreateLinkCommandWrite>[];
     }

@@ -38,7 +38,7 @@ class PersonLinksImageIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PersonLinksImageIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<PersonLinksImageIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <PersonLinksImageIriTemplate>[];
     }

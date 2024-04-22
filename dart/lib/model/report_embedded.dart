@@ -82,7 +82,7 @@ class ReportEmbedded {
       (targetGroups == null ? 0 : targetGroups.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ReportEmbedded> listFromJson(List<dynamic>? json) {
+  static List<ReportEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportEmbedded>[];
     }

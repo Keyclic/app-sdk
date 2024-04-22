@@ -23,13 +23,6 @@ class TicketCreateTicketCommandWrite {
       return null;
     }
 
-    DateTime? scheduledAt = json[r'scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
-    if (scheduledAt != null && scheduledAt.isUtc == false) {
-      scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
-    }
-
     return TicketCreateTicketCommandWrite(
       description: json[r'description'],
       equipments: json[r'equipments'] == null
@@ -38,7 +31,7 @@ class TicketCreateTicketCommandWrite {
       member: json[r'member'],
       name: json[r'name'],
       parent: json[r'parent'],
-      scheduledAt: scheduledAt,
+      scheduledAt: mapToDateTime(json[r'scheduledAt']),
       type: TicketCreateTicketCommandWriteTypeEnum.fromJson(json[r'type']),
     );
   }
@@ -85,8 +78,7 @@ class TicketCreateTicketCommandWrite {
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<TicketCreateTicketCommandWrite> listFromJson(
-      List<dynamic>? json) {
+  static List<TicketCreateTicketCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketCreateTicketCommandWrite>[];
     }

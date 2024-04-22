@@ -99,7 +99,7 @@ class WorkflowState {
       (reference == null ? 0 : reference.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<WorkflowState> listFromJson(List<dynamic>? json) {
+  static List<WorkflowState> listFromJson(Iterable? json) {
     if (json == null) {
       return <WorkflowState>[];
     }

@@ -39,7 +39,7 @@ class GetTicketCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetTicketCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetTicketCollection200ResponseEmbedded>[];
     }

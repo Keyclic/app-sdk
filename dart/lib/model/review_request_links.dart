@@ -65,7 +65,7 @@ class ReviewRequestLinks {
       (reviewer == null ? 0 : reviewer.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ReviewRequestLinks> listFromJson(List<dynamic>? json) {
+  static List<ReviewRequestLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewRequestLinks>[];
     }

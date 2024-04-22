@@ -29,22 +29,11 @@ class ContractCreateContractCommandWrite {
       return null;
     }
 
-    DateTime effectiveDate = DateTime.parse(json[r'effectiveDate']);
-    if (effectiveDate.isUtc == false) {
-      effectiveDate = DateTime.parse('${json[r'effectiveDate']}Z');
-    }
-
-    DateTime? signedAt =
-        json[r'signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
-    if (signedAt != null && signedAt.isUtc == false) {
-      signedAt = DateTime.parse('${json[r'signedAt']}Z');
-    }
-
     return ContractCreateContractCommandWrite(
       billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: effectiveDate,
+      effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
@@ -52,7 +41,7 @@ class ContractCreateContractCommandWrite {
           json[r'places'] == null ? null : List<String>.from(json[r'places']),
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
-      signedAt: signedAt,
+      signedAt: mapToDateTime(json[r'signedAt']),
       state: json[r'state'],
       type: json[r'type'],
     );
@@ -123,8 +112,7 @@ class ContractCreateContractCommandWrite {
       state.hashCode +
       type.hashCode;
 
-  static List<ContractCreateContractCommandWrite> listFromJson(
-      List<dynamic>? json) {
+  static List<ContractCreateContractCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContractCreateContractCommandWrite>[];
     }

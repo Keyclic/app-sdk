@@ -41,7 +41,7 @@ class SignatureData {
   @override
   int get hashCode => image.hashCode + (text == null ? 0 : text.hashCode);
 
-  static List<SignatureData> listFromJson(List<dynamic>? json) {
+  static List<SignatureData> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignatureData>[];
     }

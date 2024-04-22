@@ -39,7 +39,7 @@ class WorkflowLinksSelfIriTemplateMapping {
   int get hashCode => (workflow == null ? 0 : workflow.hashCode);
 
   static List<WorkflowLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <WorkflowLinksSelfIriTemplateMapping>[];
     }

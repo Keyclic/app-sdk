@@ -37,7 +37,7 @@ class ProfileProfileInput {
   @override
   int get hashCode => username.hashCode;
 
-  static List<ProfileProfileInput> listFromJson(List<dynamic>? json) {
+  static List<ProfileProfileInput> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProfileProfileInput>[];
     }

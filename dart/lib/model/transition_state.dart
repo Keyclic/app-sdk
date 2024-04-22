@@ -99,7 +99,7 @@ class TransitionState {
       (reference == null ? 0 : reference.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<TransitionState> listFromJson(List<dynamic>? json) {
+  static List<TransitionState> listFromJson(Iterable? json) {
     if (json == null) {
       return <TransitionState>[];
     }

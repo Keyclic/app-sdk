@@ -39,7 +39,7 @@ class AssignmentLinksContractIriTemplateMapping {
   int get hashCode => (identifier == null ? 0 : identifier.hashCode);
 
   static List<AssignmentLinksContractIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <AssignmentLinksContractIriTemplateMapping>[];
     }

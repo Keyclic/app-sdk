@@ -45,7 +45,7 @@ class MemberPatch {
       (contactPoint == null ? 0 : contactPoint.hashCode) +
       (roles == null ? 0 : roles.hashCode);
 
-  static List<MemberPatch> listFromJson(List<dynamic>? json) {
+  static List<MemberPatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberPatch>[];
     }

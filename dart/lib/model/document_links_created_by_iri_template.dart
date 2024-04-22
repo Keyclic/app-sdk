@@ -39,8 +39,7 @@ class DocumentLinksCreatedByIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<DocumentLinksCreatedByIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<DocumentLinksCreatedByIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentLinksCreatedByIriTemplate>[];
     }

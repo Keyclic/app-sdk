@@ -51,7 +51,7 @@ class TargetGroup {
       (name == null ? 0 : name.hashCode) +
       (description == null ? 0 : description.hashCode);
 
-  static List<TargetGroup> listFromJson(List<dynamic>? json) {
+  static List<TargetGroup> listFromJson(Iterable? json) {
     if (json == null) {
       return <TargetGroup>[];
     }

@@ -48,7 +48,7 @@ class DeviceData {
   @override
   int get hashCode => token.hashCode + platform.hashCode + person.hashCode;
 
-  static List<DeviceData> listFromJson(List<dynamic>? json) {
+  static List<DeviceData> listFromJson(Iterable? json) {
     if (json == null) {
       return <DeviceData>[];
     }

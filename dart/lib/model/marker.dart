@@ -21,15 +21,9 @@ class Marker {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
     return Marker(
       links: MarkerLinks.fromJson(json[r'_links']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       id: json[r'id'],
       point: Point.fromJson(json[r'point'])!,
       type: json[r'type'],
@@ -69,7 +63,7 @@ class Marker {
       point.hashCode +
       (type == null ? 0 : type.hashCode);
 
-  static List<Marker> listFromJson(List<dynamic>? json) {
+  static List<Marker> listFromJson(Iterable? json) {
     if (json == null) {
       return <Marker>[];
     }

@@ -39,8 +39,7 @@ class OperationLinksFeedbackIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<OperationLinksFeedbackIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<OperationLinksFeedbackIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationLinksFeedbackIriTemplate>[];
     }

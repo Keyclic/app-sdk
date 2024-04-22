@@ -27,30 +27,18 @@ class ExternalService {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return ExternalService(
       embedded: ExternalServiceEmbedded.fromJson(json[r'_embedded']),
       links: ExternalServiceLinks.fromJson(json[r'_links']),
       address: ExternalServicePostalAddress.fromJson(json[r'address']),
       contactPoint: ExternalServiceContactPoint.fromJson(json[r'contactPoint']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
       onCall: ExternalServiceContactPoint.fromJson(json[r'onCall']),
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -111,7 +99,7 @@ class ExternalService {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ExternalService> listFromJson(List<dynamic>? json) {
+  static List<ExternalService> listFromJson(Iterable? json) {
     if (json == null) {
       return <ExternalService>[];
     }

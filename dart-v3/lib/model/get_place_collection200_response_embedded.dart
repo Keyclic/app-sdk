@@ -39,7 +39,7 @@ class GetPlaceCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetPlaceCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetPlaceCollection200ResponseEmbedded>[];
     }

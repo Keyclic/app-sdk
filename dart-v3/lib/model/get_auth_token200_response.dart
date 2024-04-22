@@ -51,7 +51,7 @@ class GetAuthToken200Response {
       (idToken == null ? 0 : idToken.hashCode) +
       (tokenType == null ? 0 : tokenType.hashCode);
 
-  static List<GetAuthToken200Response> listFromJson(List<dynamic>? json) {
+  static List<GetAuthToken200Response> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetAuthToken200Response>[];
     }

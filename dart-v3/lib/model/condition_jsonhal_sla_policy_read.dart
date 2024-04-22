@@ -58,7 +58,7 @@ class ConditionJsonhalSlaPolicyRead {
       values.hashCode +
       (operator_ == null ? 0 : operator_.hashCode);
 
-  static List<ConditionJsonhalSlaPolicyRead> listFromJson(List<dynamic>? json) {
+  static List<ConditionJsonhalSlaPolicyRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConditionJsonhalSlaPolicyRead>[];
     }

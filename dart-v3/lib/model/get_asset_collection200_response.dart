@@ -60,7 +60,7 @@ class GetAssetCollection200Response {
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
-  static List<GetAssetCollection200Response> listFromJson(List<dynamic>? json) {
+  static List<GetAssetCollection200Response> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetAssetCollection200Response>[];
     }

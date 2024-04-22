@@ -38,7 +38,7 @@ class ReviewRequestCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ReviewRequestCollection> listFromJson(List<dynamic>? json) {
+  static List<ReviewRequestCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewRequestCollection>[];
     }

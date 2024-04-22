@@ -99,7 +99,7 @@ class CheckpointState {
       (reference == null ? 0 : reference.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<CheckpointState> listFromJson(List<dynamic>? json) {
+  static List<CheckpointState> listFromJson(Iterable? json) {
     if (json == null) {
       return <CheckpointState>[];
     }

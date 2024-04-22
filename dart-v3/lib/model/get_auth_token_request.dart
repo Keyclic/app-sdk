@@ -45,7 +45,7 @@ class GetAuthTokenRequest {
       (grantType == null ? 0 : grantType.hashCode) +
       (idToken == null ? 0 : idToken.hashCode);
 
-  static List<GetAuthTokenRequest> listFromJson(List<dynamic>? json) {
+  static List<GetAuthTokenRequest> listFromJson(Iterable? json) {
     if (json == null) {
       return <GetAuthTokenRequest>[];
     }

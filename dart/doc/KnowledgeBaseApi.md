@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Retrieve all Article resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -42,7 +42,7 @@ final sectionsLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetArticlesByKnowledgeBase(xKeyclicApp, knowledgeBase, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, section, sectionsLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Section resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -109,7 +109,7 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetSectionsByKnowledgeBase(xKeyclicApp, knowledgeBase, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit);
     print(result);
 } catch (e) {
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 Retrieve one KnowledgeBase resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -169,7 +169,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getKnowledgeBase(xKeyclicApp, knowledgeBase, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

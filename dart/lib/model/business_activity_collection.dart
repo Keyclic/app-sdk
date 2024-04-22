@@ -38,7 +38,7 @@ class BusinessActivityCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<BusinessActivityCollection> listFromJson(List<dynamic>? json) {
+  static List<BusinessActivityCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <BusinessActivityCollection>[];
     }

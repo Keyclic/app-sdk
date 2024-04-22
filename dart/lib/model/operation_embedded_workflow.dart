@@ -52,7 +52,7 @@ class OperationEmbeddedWorkflow {
       (state == null ? 0 : state.hashCode) +
       (transitions == null ? 0 : transitions.hashCode);
 
-  static List<OperationEmbeddedWorkflow> listFromJson(List<dynamic>? json) {
+  static List<OperationEmbeddedWorkflow> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationEmbeddedWorkflow>[];
     }

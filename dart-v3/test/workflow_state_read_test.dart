@@ -13,7 +13,7 @@ void main() {
     // bool allowAdd
     test('to test the property `allowAdd`', () async {});
 
-    // bool allowDispatch
+    // bool allowDispatch (default value: true)
     test('to test the property `allowDispatch`', () async {});
 
     // bool end

@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.61.1-dev.gea6021eff"
+        "version": "2.61.1-dev.g5619ea51d"
     },
     "servers": [
         {
@@ -12618,13 +12618,13 @@
                 "properties": {
                     "data": {
                         "type": "object",
-                        "additionalProperties": true,
-                        "nullable": true
+                        "nullable": true,
+                        "additionalProperties": true
                     },
                     "metadata": {
                         "type": "object",
-                        "additionalProperties": true,
-                        "nullable": true
+                        "nullable": true,
+                        "additionalProperties": true
                     },
                     "name": {
                         "type": "string",
@@ -13404,8 +13404,8 @@
                         "type": "boolean"
                     },
                     "conditions": {
-                        "type": "object",
-                        "additionalProperties": {
+                        "type": "array",
+                        "items": {
                             "$ref": "#/components/schemas/Condition-sla-policy.read"
                         }
                     },
@@ -13466,8 +13466,8 @@
                         "type": "boolean"
                     },
                     "conditions": {
-                        "type": "object",
-                        "additionalProperties": {
+                        "type": "array",
+                        "items": {
                             "$ref": "#/components/schemas/Condition.jsonhal-sla-policy.read"
                         }
                     },

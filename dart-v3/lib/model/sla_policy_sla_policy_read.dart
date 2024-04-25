@@ -50,7 +50,7 @@ class SlaPolicySlaPolicyRead {
       description: json[r'description'],
       name: json[r'name'],
       enabled: json[r'enabled'],
-      conditions: ConditionSlaPolicyRead.mapFromJson(json[r'conditions']),
+      conditions: ConditionSlaPolicyRead.listFromJson(json[r'conditions']),
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -71,7 +71,7 @@ class SlaPolicySlaPolicyRead {
 
   bool? enabled;
 
-  Map<String, ConditionSlaPolicyRead>? conditions;
+  List<ConditionSlaPolicyRead>? conditions;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;

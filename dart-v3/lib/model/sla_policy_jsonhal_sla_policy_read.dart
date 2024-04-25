@@ -46,7 +46,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
       name: json[r'name'],
       enabled: json[r'enabled'],
       conditions:
-          ConditionJsonhalSlaPolicyRead.mapFromJson(json[r'conditions']),
+          ConditionJsonhalSlaPolicyRead.listFromJson(json[r'conditions']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       embedded:
@@ -67,7 +67,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
   bool? enabled;
 
-  Map<String, ConditionJsonhalSlaPolicyRead>? conditions;
+  List<ConditionJsonhalSlaPolicyRead>? conditions;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;

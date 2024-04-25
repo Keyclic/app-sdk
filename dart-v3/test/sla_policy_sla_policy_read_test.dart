@@ -32,7 +32,7 @@ void main() {
     // bool enabled
     test('to test the property `enabled`', () async {});
 
-    // Map<String, ConditionSlaPolicyRead> conditions (default value: const {})
+    // List<ConditionSlaPolicyRead> conditions (default value: const [])
     test('to test the property `conditions`', () async {});
 
     // The date and time when the resource was created, in UTC format.

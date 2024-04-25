@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
 **enabled** | **bool** |  | [optional] 
-**conditions** | [**Map<String, ConditionJsonhalSlaPolicyRead>**](ConditionJsonhalSlaPolicyRead.md) |  | [optional] [default to const {}]
+**conditions** | [**List<ConditionJsonhalSlaPolicyRead>**](ConditionJsonhalSlaPolicyRead.md) |  | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **embedded** | [**SlaPolicyJsonhalSlaPolicyReadEmbedded**](SlaPolicyJsonhalSlaPolicyReadEmbedded.md) |  | [optional] 

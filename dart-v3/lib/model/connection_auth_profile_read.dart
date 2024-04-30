@@ -24,7 +24,7 @@ class ConnectionAuthProfileRead {
       image: json[r'image'],
       text: json[r'text'],
       authorizationUrl: json[r'authorizationUrl'],
-      type: json[r'type'],
+      type: ConnectionAuthProfileReadTypeEnum.fromJson(json[r'type']),
     );
   }
 
@@ -34,7 +34,7 @@ class ConnectionAuthProfileRead {
 
   final String? authorizationUrl;
 
-  final String? type;
+  final ConnectionAuthProfileReadTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -118,4 +118,76 @@ class ConnectionAuthProfileRead {
       if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
+}
+
+class ConnectionAuthProfileReadTypeEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ConnectionAuthProfileReadTypeEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const enterprise = ConnectionAuthProfileReadTypeEnum._(r'enterprise');
+  static const password = ConnectionAuthProfileReadTypeEnum._(r'password');
+
+  /// List of all possible values in this [enum][ConnectionAuthProfileReadTypeEnum].
+  static const values = <ConnectionAuthProfileReadTypeEnum>[
+    enterprise,
+    password,
+  ];
+
+  static ConnectionAuthProfileReadTypeEnum? fromJson(dynamic value) =>
+      ConnectionAuthProfileReadTypeEnumTypeTransformer().decode(value);
+
+  static List<ConnectionAuthProfileReadTypeEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return ConnectionAuthProfileReadTypeEnum.fromJson(value);
+        })
+        .whereType<ConnectionAuthProfileReadTypeEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ConnectionAuthProfileReadTypeEnum] to String,
+/// and [decode] dynamic data back to [ConnectionAuthProfileReadTypeEnum].
+class ConnectionAuthProfileReadTypeEnumTypeTransformer {
+  const ConnectionAuthProfileReadTypeEnumTypeTransformer._();
+
+  factory ConnectionAuthProfileReadTypeEnumTypeTransformer() =>
+      _instance ??= ConnectionAuthProfileReadTypeEnumTypeTransformer._();
+
+  String encode(ConnectionAuthProfileReadTypeEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ConnectionAuthProfileReadTypeEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ConnectionAuthProfileReadTypeEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'enterprise':
+        return ConnectionAuthProfileReadTypeEnum.enterprise;
+      case r'password':
+        return ConnectionAuthProfileReadTypeEnum.password;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ConnectionAuthProfileReadTypeEnumTypeTransformer] instance.
+  static ConnectionAuthProfileReadTypeEnumTypeTransformer? _instance;
 }

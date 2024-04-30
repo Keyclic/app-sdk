@@ -238,6 +238,8 @@ Class | Method | HTTP request | Description
  - [TicketRead](doc//TicketRead.md)
  - [TicketTypeJsonhalRead](doc//TicketTypeJsonhalRead.md)
  - [TicketTypeRead](doc//TicketTypeRead.md)
+ - [UserAuthProfileRead](doc//UserAuthProfileRead.md)
+ - [UserJsonhalAuthProfileRead](doc//UserJsonhalAuthProfileRead.md)
  - [WarrantyJsonhalRead](doc//WarrantyJsonhalRead.md)
  - [WarrantyRead](doc//WarrantyRead.md)
  - [WarrantyWrite](doc//WarrantyWrite.md)

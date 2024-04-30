@@ -452,6 +452,10 @@ class ApiPlatformClient {
           return TicketTypeJsonhalRead.fromJson(value);
         case 'TicketTypeRead':
           return TicketTypeRead.fromJson(value);
+        case 'UserAuthProfileRead':
+          return UserAuthProfileRead.fromJson(value);
+        case 'UserJsonhalAuthProfileRead':
+          return UserJsonhalAuthProfileRead.fromJson(value);
         case 'WarrantyJsonhalRead':
           return WarrantyJsonhalRead.fromJson(value);
         case 'WarrantyRead':

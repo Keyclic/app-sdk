@@ -20,6 +20,9 @@ void main() {
     // List<ConnectionJsonhalAuthProfileRead> connections (default value: const [])
     test('to test the property `connections`', () async {});
 
+    // UserJsonhalAuthProfileRead user
+    test('to test the property `user`', () async {});
+
     // Represents whether a user is making their first connection or interaction with the service.
     // bool firstConnection
     test('to test the property `firstConnection`', () async {});

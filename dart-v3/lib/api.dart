@@ -159,6 +159,8 @@ part 'model/ticket_priority_read.dart';
 part 'model/ticket_read.dart';
 part 'model/ticket_type_jsonhal_read.dart';
 part 'model/ticket_type_read.dart';
+part 'model/user_auth_profile_read.dart';
+part 'model/user_jsonhal_auth_profile_read.dart';
 part 'model/warranty_jsonhal_read.dart';
 part 'model/warranty_read.dart';
 part 'model/warranty_write.dart';

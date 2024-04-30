@@ -11743,6 +11743,10 @@
                         "type": "string"
                     },
                     "type": {
+                        "enum": [
+                            "enterprise",
+                            "password"
+                        ],
                         "readOnly": true,
                         "type": "string"
                     }
@@ -11778,6 +11782,10 @@
                         "type": "string"
                     },
                     "type": {
+                        "enum": [
+                            "enterprise",
+                            "password"
+                        ],
                         "readOnly": true,
                         "type": "string"
                     }
@@ -13722,6 +13730,9 @@
                             "$ref": "#/components/schemas/Connection-auth-profile.read"
                         }
                     },
+                    "user": {
+                        "$ref": "#/components/schemas/User-auth-profile.read"
+                    },
                     "firstConnection": {
                         "readOnly": true,
                         "description": "Represents whether a user is making their first connection or interaction with the service.",
@@ -13774,6 +13785,9 @@
                         "items": {
                             "$ref": "#/components/schemas/Connection.jsonhal-auth-profile.read"
                         }
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User.jsonhal-auth-profile.read"
                     },
                     "firstConnection": {
                         "readOnly": true,
@@ -14661,6 +14675,46 @@
                 "required": [
                     "name"
                 ]
+            },
+            "User-auth-profile.read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                }
+            },
+            "User.jsonhal-auth-profile.read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                }
             },
             "Warranty-Read": {
                 "type": "object",

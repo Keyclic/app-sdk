@@ -140,6 +140,8 @@ doc/TicketRead.md
 doc/TicketTypeApi.md
 doc/TicketTypeJsonhalRead.md
 doc/TicketTypeRead.md
+doc/UserAuthProfileRead.md
+doc/UserJsonhalAuthProfileRead.md
 doc/WarrantyJsonhalRead.md
 doc/WarrantyRead.md
 doc/WarrantyWrite.md
@@ -295,6 +297,8 @@ lib/model/ticket_priority_read.dart
 lib/model/ticket_read.dart
 lib/model/ticket_type_jsonhal_read.dart
 lib/model/ticket_type_read.dart
+lib/model/user_auth_profile_read.dart
+lib/model/user_jsonhal_auth_profile_read.dart
 lib/model/warranty_jsonhal_read.dart
 lib/model/warranty_read.dart
 lib/model/warranty_write.dart
@@ -439,6 +443,8 @@ test/ticket_read_test.dart
 test/ticket_type_api_test.dart
 test/ticket_type_jsonhal_read_test.dart
 test/ticket_type_read_test.dart
+test/user_auth_profile_read_test.dart
+test/user_jsonhal_auth_profile_read_test.dart
 test/warranty_jsonhal_read_test.dart
 test/warranty_read_test.dart
 test/warranty_write_test.dart

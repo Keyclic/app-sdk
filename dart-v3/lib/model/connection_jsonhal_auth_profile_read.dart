@@ -26,7 +26,7 @@ class ConnectionJsonhalAuthProfileRead {
       image: json[r'image'],
       text: json[r'text'],
       authorizationUrl: json[r'authorizationUrl'],
-      type: json[r'type'],
+      type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type']),
     );
   }
 
@@ -38,7 +38,7 @@ class ConnectionJsonhalAuthProfileRead {
 
   final String? authorizationUrl;
 
-  final String? type;
+  final ConnectionJsonhalAuthProfileReadTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -134,4 +134,78 @@ class ConnectionJsonhalAuthProfileRead {
       if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
+}
+
+class ConnectionJsonhalAuthProfileReadTypeEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ConnectionJsonhalAuthProfileReadTypeEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const enterprise =
+      ConnectionJsonhalAuthProfileReadTypeEnum._(r'enterprise');
+  static const password =
+      ConnectionJsonhalAuthProfileReadTypeEnum._(r'password');
+
+  /// List of all possible values in this [enum][ConnectionJsonhalAuthProfileReadTypeEnum].
+  static const values = <ConnectionJsonhalAuthProfileReadTypeEnum>[
+    enterprise,
+    password,
+  ];
+
+  static ConnectionJsonhalAuthProfileReadTypeEnum? fromJson(dynamic value) =>
+      ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer().decode(value);
+
+  static List<ConnectionJsonhalAuthProfileReadTypeEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(value);
+        })
+        .whereType<ConnectionJsonhalAuthProfileReadTypeEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ConnectionJsonhalAuthProfileReadTypeEnum] to String,
+/// and [decode] dynamic data back to [ConnectionJsonhalAuthProfileReadTypeEnum].
+class ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer {
+  const ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer._();
+
+  factory ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer() =>
+      _instance ??= ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer._();
+
+  String encode(ConnectionJsonhalAuthProfileReadTypeEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ConnectionJsonhalAuthProfileReadTypeEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ConnectionJsonhalAuthProfileReadTypeEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'enterprise':
+        return ConnectionJsonhalAuthProfileReadTypeEnum.enterprise;
+      case r'password':
+        return ConnectionJsonhalAuthProfileReadTypeEnum.password;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer] instance.
+  static ConnectionJsonhalAuthProfileReadTypeEnumTypeTransformer? _instance;
 }

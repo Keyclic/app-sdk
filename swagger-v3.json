@@ -10373,10 +10373,26 @@
                     "name": {
                         "type": "string"
                     },
+                    "preferences": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress-Read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "createdAt": {
                         "readOnly": true,
@@ -10400,24 +10416,6 @@
                         "type": "string",
                         "format": "iri-reference",
                         "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "preferences": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Preferences-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "address": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress-Read"
-                            }
-                        ],
                         "nullable": true
                     }
                 },
@@ -10478,10 +10476,26 @@
                     "name": {
                         "type": "string"
                     },
+                    "preferences": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "createdAt": {
                         "readOnly": true,
@@ -10494,24 +10508,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "preferences": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "address": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
                     }
                 },
                 "required": [
@@ -11342,6 +11338,14 @@
                         "example": "https://example.com/",
                         "nullable": true
                     },
+                    "renewal": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "signedAt": {
                         "type": "string",
                         "format": "date-time",
@@ -11389,15 +11393,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "renewal": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Renewal-Read"
-                            }
-                        ],
-                        "nullable": true
                     }
                 },
                 "required": [
@@ -11632,6 +11627,14 @@
                         "description": "The onCall property represents whether a staff member is currently available for on-call duties.",
                         "type": "boolean"
                     },
+                    "renewal": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "signedAt": {
                         "type": "string",
                         "format": "date-time",
@@ -11672,15 +11675,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "renewal": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Renewal.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
                     }
                 },
                 "required": [
@@ -11834,6 +11828,15 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "warranty": {
+                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Warranty-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
@@ -11857,15 +11860,6 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "warranty": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Warranty-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
                     "description": {
                         "type": "string",
                         "nullable": true
@@ -11886,7 +11880,6 @@
                         "nullable": true
                     },
                     "preferences": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/Preferences-Read"
@@ -11895,7 +11888,6 @@
                         "nullable": true
                     },
                     "address": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/PostalAddress-Read"
@@ -12141,6 +12133,15 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "warranty": {
+                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Warranty.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
@@ -12158,15 +12159,6 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "warranty": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Warranty.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
                     "description": {
                         "type": "string",
                         "nullable": true
@@ -12175,7 +12167,6 @@
                         "type": "string"
                     },
                     "preferences": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/Preferences.jsonhal-Read"
@@ -12184,7 +12175,6 @@
                         "nullable": true
                     },
                     "address": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
@@ -12204,6 +12194,14 @@
                 "properties": {
                     "description": {
                         "type": "string",
+                        "nullable": true
+                    },
+                    "geoCoordinates": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GeoCoordinates-Read"
+                            }
+                        ],
                         "nullable": true
                     },
                     "markers": {
@@ -12248,15 +12246,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "geoCoordinates": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/GeoCoordinates-Read"
-                            }
-                        ],
-                        "nullable": true
                     }
                 },
                 "required": [
@@ -12295,6 +12284,14 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "geoCoordinates": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/GeoCoordinates.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "metadata": {
                         "type": "object",
                         "additionalProperties": true
@@ -12324,15 +12321,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "geoCoordinates": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/GeoCoordinates.jsonhal-Read"
-                            }
-                        ],
-                        "nullable": true
                     },
                     "_embedded": {
                         "type": "object",
@@ -12791,7 +12779,6 @@
                         "nullable": true
                     },
                     "preferences": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/Preferences-Read"
@@ -12800,7 +12787,6 @@
                         "nullable": true
                     },
                     "address": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/PostalAddress-Read"
@@ -12854,7 +12840,6 @@
                         "type": "string"
                     },
                     "preferences": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/Preferences.jsonhal-Read"
@@ -12863,7 +12848,6 @@
                         "nullable": true
                     },
                     "address": {
-                        "readOnly": true,
                         "anyOf": [
                             {
                                 "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"

@@ -14,10 +14,10 @@ class EquipmentJsonhalRead {
     this.mpn,
     this.retirementDate,
     this.serialNumber,
+    this.warranty,
     this.id,
     this.createdAt,
     this.updatedAt,
-    this.warranty,
     this.description,
     required this.name,
     this.preferences,
@@ -65,10 +65,10 @@ class EquipmentJsonhalRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
+      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
-      warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
@@ -96,6 +96,8 @@ class EquipmentJsonhalRead {
   /// The unique identifier assigned to an individual asset, allowing for easy identification and tracking.
   String? serialNumber;
 
+  WarrantyJsonhalRead? warranty;
+
   /// The resource identifier.
   final String? id;
 
@@ -104,8 +106,6 @@ class EquipmentJsonhalRead {
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
-
-  WarrantyJsonhalRead? warranty;
 
   String? description;
 
@@ -130,10 +130,10 @@ class EquipmentJsonhalRead {
         other.mpn == mpn &&
         other.retirementDate == retirementDate &&
         other.serialNumber == serialNumber &&
+        other.warranty == warranty &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
-        other.warranty == warranty &&
         other.description == description &&
         other.name == name &&
         other.preferences == preferences &&
@@ -149,10 +149,10 @@ class EquipmentJsonhalRead {
       (mpn == null ? 0 : mpn.hashCode) +
       (retirementDate == null ? 0 : retirementDate.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
+      (warranty == null ? 0 : warranty.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (warranty == null ? 0 : warranty.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
@@ -208,7 +208,7 @@ class EquipmentJsonhalRead {
 
   @override
   String toString() =>
-      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, preferences=$preferences, address=$address]';
+      'EquipmentJsonhalRead[links=$links, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -230,11 +230,6 @@ class EquipmentJsonhalRead {
         r'retirementDate': retirementDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'serialNumber'))
         r'serialNumber': serialNumber,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null ||
           keys.any((key) => RegExp(r'^warranty\.').hasMatch(key)))
         r'warranty': warranty?.toJson(keys?.fold<List<String>>(<String>[],
@@ -245,6 +240,11 @@ class EquipmentJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,

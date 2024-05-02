@@ -10,13 +10,13 @@ class AssetRead {
     this.type,
     this.description,
     required this.name,
+    this.preferences,
     this.id,
+    this.address,
     this.createdAt,
     this.updatedAt,
     this.parent,
     this.state,
-    this.preferences,
-    this.address,
   });
 
   /// Returns a new [AssetRead] instance and imports its values from
@@ -42,13 +42,13 @@ class AssetRead {
       type: json[r'type'],
       description: json[r'description'],
       name: json[r'name'],
+      preferences: PreferencesRead.fromJson(json[r'preferences']),
       id: json[r'id'],
+      address: PostalAddressRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
       parent: json[r'parent'],
       state: json[r'state'],
-      preferences: PreferencesRead.fromJson(json[r'preferences']),
-      address: PostalAddressRead.fromJson(json[r'address']),
     );
   }
 
@@ -58,8 +58,12 @@ class AssetRead {
 
   String name;
 
+  PreferencesRead? preferences;
+
   /// The resource identifier.
   final String? id;
+
+  PostalAddressRead? address;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
@@ -70,10 +74,6 @@ class AssetRead {
   String? parent;
 
   String? state;
-
-  PreferencesRead? preferences;
-
-  PostalAddressRead? address;
 
   @override
   bool operator ==(Object other) {
@@ -86,13 +86,13 @@ class AssetRead {
         other.type == type &&
         other.description == description &&
         other.name == name &&
+        other.preferences == preferences &&
         other.id == id &&
+        other.address == address &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
         other.parent == parent &&
-        other.state == state &&
-        other.preferences == preferences &&
-        other.address == address;
+        other.state == state;
   }
 
   @override
@@ -100,13 +100,13 @@ class AssetRead {
       (type == null ? 0 : type.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
+      (preferences == null ? 0 : preferences.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode) +
-      (preferences == null ? 0 : preferences.hashCode) +
-      (address == null ? 0 : address.hashCode);
+      (state == null ? 0 : state.hashCode);
 
   static List<AssetRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -154,7 +154,7 @@ class AssetRead {
 
   @override
   String toString() =>
-      'AssetRead[type=$type, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, preferences=$preferences, address=$address]';
+      'AssetRead[type=$type, description=$description, name=$name, preferences=$preferences, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -162,13 +162,6 @@ class AssetRead {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'parent')) r'parent': parent,
-      if (keys == null || keys.contains(r'state')) r'state': state,
       if (keys == null ||
           keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
         r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
@@ -179,6 +172,7 @@ class AssetRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
@@ -189,6 +183,12 @@ class AssetRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'state')) r'state': state,
     };
   }
 }

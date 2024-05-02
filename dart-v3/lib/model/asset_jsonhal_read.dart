@@ -10,11 +10,11 @@ class AssetJsonhalRead {
     this.links,
     this.description,
     required this.name,
+    this.preferences,
     this.id,
+    this.address,
     this.createdAt,
     this.updatedAt,
-    this.preferences,
-    this.address,
   });
 
   /// Returns a new [AssetJsonhalRead] instance and imports its values from
@@ -40,11 +40,11 @@ class AssetJsonhalRead {
       links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
+      preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
       id: json[r'id'],
+      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
       createdAt: createdAt,
       updatedAt: updatedAt,
-      preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
-      address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
 
@@ -54,18 +54,18 @@ class AssetJsonhalRead {
 
   String name;
 
+  PreferencesJsonhalRead? preferences;
+
   /// The resource identifier.
   final String? id;
+
+  PostalAddressJsonhalRead? address;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
-
-  PreferencesJsonhalRead? preferences;
-
-  PostalAddressJsonhalRead? address;
 
   @override
   bool operator ==(Object other) {
@@ -78,11 +78,11 @@ class AssetJsonhalRead {
         other.links == links &&
         other.description == description &&
         other.name == name &&
-        other.id == id &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
         other.preferences == preferences &&
-        other.address == address;
+        other.id == id &&
+        other.address == address &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt;
   }
 
   @override
@@ -90,11 +90,11 @@ class AssetJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
       (preferences == null ? 0 : preferences.hashCode) +
-      (address == null ? 0 : address.hashCode);
+      (id == null ? 0 : id.hashCode) +
+      (address == null ? 0 : address.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<AssetJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -143,7 +143,7 @@ class AssetJsonhalRead {
 
   @override
   String toString() =>
-      'AssetJsonhalRead[links=$links, description=$description, name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, preferences=$preferences, address=$address]';
+      'AssetJsonhalRead[links=$links, description=$description, name=$name, preferences=$preferences, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -159,11 +159,6 @@ class AssetJsonhalRead {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null ||
           keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
         r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
@@ -174,6 +169,7 @@ class AssetJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
@@ -184,6 +180,10 @@ class AssetJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

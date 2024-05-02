@@ -37,6 +37,9 @@ void main() {
     // String serialNumber
     test('to test the property `serialNumber`', () async {});
 
+    // WarrantyJsonhalRead warranty
+    test('to test the property `warranty`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
@@ -48,9 +51,6 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // WarrantyJsonhalRead warranty
-    test('to test the property `warranty`', () async {});
 
     // String description
     test('to test the property `description`', () async {});

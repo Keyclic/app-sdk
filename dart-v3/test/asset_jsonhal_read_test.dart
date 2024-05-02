@@ -19,9 +19,15 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
+    // PreferencesJsonhalRead preferences
+    test('to test the property `preferences`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
+
+    // PostalAddressJsonhalRead address
+    test('to test the property `address`', () async {});
 
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
@@ -30,11 +36,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // PreferencesJsonhalRead preferences
-    test('to test the property `preferences`', () async {});
-
-    // PostalAddressJsonhalRead address
-    test('to test the property `address`', () async {});
   });
 }

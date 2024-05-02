@@ -41,6 +41,9 @@ void main() {
     // String provider
     test('to test the property `provider`', () async {});
 
+    // RenewalRead renewal
+    test('to test the property `renewal`', () async {});
+
     // DateTime signedAt
     test('to test the property `signedAt`', () async {});
 
@@ -67,8 +70,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // RenewalRead renewal
-    test('to test the property `renewal`', () async {});
   });
 }

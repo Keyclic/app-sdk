@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **number** | **String** |  | 
 **onCall** | **bool** |  | [optional] 
+**places** | **List<String>** |  | [optional] [default to const []]
 **provider** | **String** |  | 
 **renewal** | [**RenewalWrite**](RenewalWrite.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 

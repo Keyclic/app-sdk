@@ -13,6 +13,9 @@ void main() {
     // String description
     test('to test the property `description`', () async {});
 
+    // GeoCoordinatesRead geoCoordinates
+    test('to test the property `geoCoordinates`', () async {});
+
     // List<MarkerRead> markers (default value: const [])
     test('to test the property `markers`', () async {});
 
@@ -36,8 +39,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // GeoCoordinatesRead geoCoordinates
-    test('to test the property `geoCoordinates`', () async {});
   });
 }

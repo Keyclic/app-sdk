@@ -14,11 +14,11 @@ class EquipmentRead {
     this.mpn,
     this.retirementDate,
     this.serialNumber,
+    this.warranty,
     this.type,
     this.id,
     this.createdAt,
     this.updatedAt,
-    this.warranty,
     this.description,
     required this.name,
     this.parent,
@@ -68,11 +68,11 @@ class EquipmentRead {
       mpn: json[r'mpn'],
       retirementDate: retirementDate,
       serialNumber: json[r'serialNumber'],
+      warranty: WarrantyRead.fromJson(json[r'warranty']),
       type: json[r'type'],
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
-      warranty: WarrantyRead.fromJson(json[r'warranty']),
       description: json[r'description'],
       name: json[r'name'],
       parent: json[r'parent'],
@@ -103,6 +103,8 @@ class EquipmentRead {
   /// The unique identifier assigned to an individual asset, allowing for easy identification and tracking.
   String? serialNumber;
 
+  WarrantyRead? warranty;
+
   String? type;
 
   /// The resource identifier.
@@ -113,8 +115,6 @@ class EquipmentRead {
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
-
-  WarrantyRead? warranty;
 
   String? description;
 
@@ -143,11 +143,11 @@ class EquipmentRead {
         other.mpn == mpn &&
         other.retirementDate == retirementDate &&
         other.serialNumber == serialNumber &&
+        other.warranty == warranty &&
         other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
-        other.warranty == warranty &&
         other.description == description &&
         other.name == name &&
         other.parent == parent &&
@@ -165,11 +165,11 @@ class EquipmentRead {
       (mpn == null ? 0 : mpn.hashCode) +
       (retirementDate == null ? 0 : retirementDate.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
+      (warranty == null ? 0 : warranty.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (warranty == null ? 0 : warranty.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (parent == null ? 0 : parent.hashCode) +
@@ -224,7 +224,7 @@ class EquipmentRead {
 
   @override
   String toString() =>
-      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, warranty=$warranty, description=$description, name=$name, parent=$parent, state=$state, preferences=$preferences, address=$address]';
+      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, parent=$parent, state=$state, preferences=$preferences, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -238,12 +238,6 @@ class EquipmentRead {
         r'retirementDate': retirementDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'serialNumber'))
         r'serialNumber': serialNumber,
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null ||
           keys.any((key) => RegExp(r'^warranty\.').hasMatch(key)))
         r'warranty': warranty?.toJson(keys?.fold<List<String>>(<String>[],
@@ -254,6 +248,12 @@ class EquipmentRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,

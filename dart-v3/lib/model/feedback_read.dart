@@ -8,6 +8,7 @@ class FeedbackRead {
   /// Returns a new [FeedbackRead] instance.
   FeedbackRead({
     this.description,
+    this.geoCoordinates,
     this.markers,
     this.metadata,
     this.reporter,
@@ -15,7 +16,6 @@ class FeedbackRead {
     this.id,
     this.createdAt,
     this.updatedAt,
-    this.geoCoordinates,
   });
 
   /// Returns a new [FeedbackRead] instance and imports its values from
@@ -39,6 +39,7 @@ class FeedbackRead {
 
     return FeedbackRead(
       description: json[r'description'],
+      geoCoordinates: GeoCoordinatesRead.fromJson(json[r'geoCoordinates']),
       markers: MarkerRead.listFromJson(json[r'markers']),
       metadata: json[r'metadata'] == null
           ? null
@@ -48,11 +49,12 @@ class FeedbackRead {
       id: json[r'id'],
       createdAt: createdAt,
       updatedAt: updatedAt,
-      geoCoordinates: GeoCoordinatesRead.fromJson(json[r'geoCoordinates']),
     );
   }
 
   String? description;
+
+  GeoCoordinatesRead? geoCoordinates;
 
   final List<MarkerRead>? markers;
 
@@ -71,8 +73,6 @@ class FeedbackRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  GeoCoordinatesRead? geoCoordinates;
-
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -82,27 +82,27 @@ class FeedbackRead {
 
     return other is FeedbackRead &&
         other.description == description &&
+        other.geoCoordinates == geoCoordinates &&
         DeepCollectionEquality.unordered().equals(markers, other.markers) &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.reporter == reporter &&
         other.visibility == visibility &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.geoCoordinates == geoCoordinates;
+        other.updatedAt == updatedAt;
   }
 
   @override
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
+      (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       (markers == null ? 0 : markers.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       visibility.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (geoCoordinates == null ? 0 : geoCoordinates.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<FeedbackRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -151,21 +151,12 @@ class FeedbackRead {
 
   @override
   String toString() =>
-      'FeedbackRead[description=$description, markers=$markers, metadata=$metadata, reporter=$reporter, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, geoCoordinates=$geoCoordinates]';
+      'FeedbackRead[description=$description, geoCoordinates=$geoCoordinates, markers=$markers, metadata=$metadata, reporter=$reporter, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if (keys == null || keys.contains(r'markers')) r'markers': markers,
-      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
-      r'visibility': visibility,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null ||
           keys.any((key) => RegExp(r'^geoCoordinates\.').hasMatch(key)))
         r'geoCoordinates': geoCoordinates?.toJson(keys?.fold<List<String>>(
@@ -176,6 +167,15 @@ class FeedbackRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
+      if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
+      r'visibility': visibility,
+      if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
     };
   }
 }

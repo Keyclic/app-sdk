@@ -19,9 +19,15 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
+    // PreferencesRead preferences
+    test('to test the property `preferences`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
+
+    // PostalAddressRead address
+    test('to test the property `address`', () async {});
 
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
@@ -36,11 +42,5 @@ void main() {
 
     // String state
     test('to test the property `state`', () async {});
-
-    // PreferencesRead preferences
-    test('to test the property `preferences`', () async {});
-
-    // PostalAddressRead address
-    test('to test the property `address`', () async {});
   });
 }

@@ -411,6 +411,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "exists[contracts]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "contracts",
                         "in": "query",
                         "description": "",

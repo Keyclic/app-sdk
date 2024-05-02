@@ -33,6 +33,7 @@ class PlaceApi {
   /// * [parentPeriodIdentifier] -
   /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [subtree] -
+  /// * [existsLeftSquareBracketContractsRightSquareBracket] -
   /// * [contracts] -
   /// * [contractsLeftSquareBracketRightSquareBracket] -
   /// * [acceptLanguage] -
@@ -69,6 +70,7 @@ class PlaceApi {
     String? parentPeriodIdentifier,
     List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? subtree,
+    bool? existsLeftSquareBracketContractsRightSquareBracket,
     String? contracts,
     List<String>? contractsLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
@@ -156,6 +158,9 @@ class PlaceApi {
             parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (subtree != null) r'subtree': encodeQueryParameter(subtree),
+      if (existsLeftSquareBracketContractsRightSquareBracket != null)
+        r'exists[contracts]': encodeQueryParameter(
+            existsLeftSquareBracketContractsRightSquareBracket),
       if (contracts != null) r'contracts': encodeQueryParameter(contracts),
       if (contractsLeftSquareBracketRightSquareBracket != null)
         r'contracts[]': encodeCollectionQueryParameter(

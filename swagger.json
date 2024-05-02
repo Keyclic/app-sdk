@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.61.1-dev.gea6021eff"
+        "version": "2.62.0-beta.1.dev.2ab25d233"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -24977,12 +24977,14 @@
             "type": "object",
             "properties": {
                 "email": {
-                    "type": "string",
-                    "format": "email"
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
                 }
             },
             "required": [
-                "email"
+                "username"
             ]
         },
         "Review": {

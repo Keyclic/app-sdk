@@ -12,5 +12,8 @@ void main() {
   group('test ResetPasswordData', () {
     // String email
     test('to test the property `email`', () async {});
+
+    // String username
+    test('to test the property `username`', () async {});
   });
 }

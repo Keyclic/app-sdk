@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class ResetPasswordData {
   /// Returns a new [ResetPasswordData] instance.
   ResetPasswordData({
-    required this.email,
+    this.email,
+    required this.username,
   });
 
   /// Returns a new [ResetPasswordData] instance and imports its values from
@@ -19,10 +20,13 @@ class ResetPasswordData {
 
     return ResetPasswordData(
       email: json[r'email'],
+      username: json[r'username'],
     );
   }
 
-  String email;
+  String? email;
+
+  String username;
 
   @override
   bool operator ==(Object other) {
@@ -31,11 +35,13 @@ class ResetPasswordData {
       return true;
     }
 
-    return other is ResetPasswordData && other.email == email;
+    return other is ResetPasswordData &&
+        other.email == email &&
+        other.username == username;
   }
 
   @override
-  int get hashCode => email.hashCode;
+  int get hashCode => (email == null ? 0 : email.hashCode) + username.hashCode;
 
   static List<ResetPasswordData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -85,11 +91,12 @@ class ResetPasswordData {
   }
 
   @override
-  String toString() => 'ResetPasswordData[email=$email]';
+  String toString() => 'ResetPasswordData[email=$email, username=$username]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'email': email,
+      if (keys == null || keys.contains(r'email')) r'email': email,
+      r'username': username,
     };
   }
 }

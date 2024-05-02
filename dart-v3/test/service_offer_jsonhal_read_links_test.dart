@@ -10,10 +10,10 @@ void main() {
   // final instance = ServiceOfferJsonhalReadLinks();
 
   group('test ServiceOfferJsonhalReadLinks', () {
-    // GetAssetTypeCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst service
+    // GetPlaceCollection200ResponseLinksFirst service
     test('to test the property `service`', () async {});
   });
 }

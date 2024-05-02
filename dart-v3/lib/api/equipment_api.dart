@@ -204,8 +204,6 @@ class EquipmentApi {
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [contractsPeriodIdentifier] -
-  /// * [contractsPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [parentPeriodIdentifier] -
   /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [subtree] -
@@ -274,8 +272,6 @@ class EquipmentApi {
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
-    String? contractsPeriodIdentifier,
-    List<String>? contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? parentPeriodIdentifier,
     List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? subtree,
@@ -395,13 +391,6 @@ class EquipmentApi {
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (contractsPeriodIdentifier != null)
-        r'contracts.identifier':
-            encodeQueryParameter(contractsPeriodIdentifier),
-      if (contractsPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
-        r'contracts.identifier[]': encodeCollectionQueryParameter(
-            contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
       if (parentPeriodIdentifier != null)
         r'parent.identifier': encodeQueryParameter(parentPeriodIdentifier),
       if (parentPeriodIdentifierLeftSquareBracketRightSquareBracket != null)

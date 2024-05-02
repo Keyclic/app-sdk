@@ -9,11 +9,12 @@ class PlaceJsonhalRead {
   PlaceJsonhalRead({
     this.links,
     this.id,
+    this.createdAt,
+    this.updatedAt,
     this.description,
     required this.name,
     this.preferences,
     this.address,
-    this.embedded,
   });
 
   /// Returns a new [PlaceJsonhalRead] instance and imports its values from
@@ -23,21 +24,40 @@ class PlaceJsonhalRead {
       return null;
     }
 
+    DateTime? createdAt =
+        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    if (createdAt != null && createdAt.isUtc == false) {
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
+    }
+
+    DateTime? updatedAt =
+        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    if (updatedAt != null && updatedAt.isUtc == false) {
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
+    }
+
     return PlaceJsonhalRead(
-      links: PlaceJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
+      createdAt: createdAt,
+      updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
-      embedded: PlaceJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  PlaceJsonhalReadLinks? links;
+  AssetJsonhalReadLinks? links;
 
   /// The resource identifier.
   final String? id;
+
+  /// The date and time when the resource was created, in UTC format.
+  final DateTime? createdAt;
+
+  /// The date and time when the resource was updated, in UTC format.
+  final DateTime? updatedAt;
 
   String? description;
 
@@ -46,8 +66,6 @@ class PlaceJsonhalRead {
   PreferencesJsonhalRead? preferences;
 
   PostalAddressJsonhalRead? address;
-
-  PlaceJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -59,22 +77,24 @@ class PlaceJsonhalRead {
     return other is PlaceJsonhalRead &&
         other.links == links &&
         other.id == id &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
         other.description == description &&
         other.name == name &&
         other.preferences == preferences &&
-        other.address == address &&
-        other.embedded == embedded;
+        other.address == address;
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
-      (address == null ? 0 : address.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+      (address == null ? 0 : address.hashCode);
 
   static List<PlaceJsonhalRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -123,7 +143,7 @@ class PlaceJsonhalRead {
 
   @override
   String toString() =>
-      'PlaceJsonhalRead[links=$links, id=$id, description=$description, name=$name, preferences=$preferences, address=$address, embedded=$embedded]';
+      'PlaceJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -137,6 +157,10 @@ class PlaceJsonhalRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
@@ -156,16 +180,6 @@ class PlaceJsonhalRead {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^address\.'))) {
             previousValue.add(element.split(RegExp(r'^address\.')).last);
-          }
-
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
           }
 
           return previousValue;

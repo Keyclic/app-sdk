@@ -62,16 +62,16 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // String parent
-    test('to test the property `parent`', () async {});
-
-    // String state
-    test('to test the property `state`', () async {});
-
     // PreferencesRead preferences
     test('to test the property `preferences`', () async {});
 
     // PostalAddressRead address
     test('to test the property `address`', () async {});
+
+    // String parent
+    test('to test the property `parent`', () async {});
+
+    // String state
+    test('to test the property `state`', () async {});
   });
 }

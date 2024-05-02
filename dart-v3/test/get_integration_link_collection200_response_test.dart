@@ -19,7 +19,7 @@ void main() {
     // int itemsPerPage
     test('to test the property `itemsPerPage`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinks links
+    // GetPlaceCollection200ResponseLinks links
     test('to test the property `links`', () async {});
   });
 }

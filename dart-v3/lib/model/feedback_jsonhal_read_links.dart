@@ -19,15 +19,15 @@ class FeedbackJsonhalReadLinks {
     }
 
     return FeedbackJsonhalReadLinks(
-      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      reporter: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
-          json[r'reporter']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      reporter:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reporter']),
     );
   }
 
-  GetAssetTypeCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? reporter;
+  GetPlaceCollection200ResponseLinksFirst? reporter;
 
   @override
   bool operator ==(Object other) {

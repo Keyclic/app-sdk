@@ -10,16 +10,16 @@ void main() {
   // final instance = TicketJsonhalReadLinks();
 
   group('test TicketJsonhalReadLinks', () {
-    // GetAssetTypeCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst offer
+    // GetPlaceCollection200ResponseLinksFirst offer
     test('to test the property `offer`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst organization
+    // GetPlaceCollection200ResponseLinksFirst organization
     test('to test the property `organization`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst parent
+    // GetPlaceCollection200ResponseLinksFirst parent
     test('to test the property `parent`', () async {});
   });
 }

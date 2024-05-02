@@ -7,13 +7,16 @@ part of keyclic_sdk_api_platform;
 class PlaceRead {
   /// Returns a new [PlaceRead] instance.
   PlaceRead({
+    this.type,
     this.id,
+    this.createdAt,
+    this.updatedAt,
     this.description,
     required this.name,
-    this.parent,
-    this.state,
     this.preferences,
     this.address,
+    this.parent,
+    this.state,
   });
 
   /// Returns a new [PlaceRead] instance and imports its values from
@@ -23,31 +26,54 @@ class PlaceRead {
       return null;
     }
 
+    DateTime? createdAt =
+        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
+    if (createdAt != null && createdAt.isUtc == false) {
+      createdAt = DateTime.parse('${json[r'createdAt']}Z');
+    }
+
+    DateTime? updatedAt =
+        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
+    if (updatedAt != null && updatedAt.isUtc == false) {
+      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
+    }
+
     return PlaceRead(
+      type: json[r'type'],
       id: json[r'id'],
+      createdAt: createdAt,
+      updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
-      parent: json[r'parent'],
-      state: WorkflowStateRead.fromJson(json[r'state']),
       preferences: PreferencesRead.fromJson(json[r'preferences']),
       address: PostalAddressRead.fromJson(json[r'address']),
+      parent: json[r'parent'],
+      state: json[r'state'],
     );
   }
 
+  String? type;
+
   /// The resource identifier.
   final String? id;
+
+  /// The date and time when the resource was created, in UTC format.
+  final DateTime? createdAt;
+
+  /// The date and time when the resource was updated, in UTC format.
+  final DateTime? updatedAt;
 
   String? description;
 
   String name;
 
-  String? parent;
-
-  WorkflowStateRead? state;
-
   PreferencesRead? preferences;
 
   PostalAddressRead? address;
+
+  String? parent;
+
+  String? state;
 
   @override
   bool operator ==(Object other) {
@@ -57,24 +83,30 @@ class PlaceRead {
     }
 
     return other is PlaceRead &&
+        other.type == type &&
         other.id == id &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
         other.description == description &&
         other.name == name &&
-        other.parent == parent &&
-        other.state == state &&
         other.preferences == preferences &&
-        other.address == address;
+        other.address == address &&
+        other.parent == parent &&
+        other.state == state;
   }
 
   @override
   int get hashCode =>
+      (type == null ? 0 : type.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode) +
       (preferences == null ? 0 : preferences.hashCode) +
-      (address == null ? 0 : address.hashCode);
+      (address == null ? 0 : address.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
+      (state == null ? 0 : state.hashCode);
 
   static List<PlaceRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -122,24 +154,19 @@ class PlaceRead {
 
   @override
   String toString() =>
-      'PlaceRead[id=$id, description=$description, name=$name, parent=$parent, state=$state, preferences=$preferences, address=$address]';
+      'PlaceRead[type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, address=$address, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'parent')) r'parent': parent,
-      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
-        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^state\.'))) {
-            previousValue.add(element.split(RegExp(r'^state\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
         r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
@@ -160,6 +187,8 @@ class PlaceRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'state')) r'state': state,
     };
   }
 }

@@ -225,10 +225,10 @@ class ContractApi {
   /// * [propertiesLeftSquareBracketRightSquareBracket] - Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
   /// * [onCall] -
   /// * [onCallLeftSquareBracketRightSquareBracket] -
-  /// * [organizationPeriodIdentifier] -
-  /// * [organizationPeriodIdentifierLeftSquareBracketRightSquareBracket] -
-  /// * [providerPeriodIdentifier] -
-  /// * [providerPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [provider] -
+  /// * [providerLeftSquareBracketRightSquareBracket] -
+  /// * [places] -
+  /// * [placesLeftSquareBracketRightSquareBracket] -
   /// * [state] -
   /// * [stateLeftSquareBracketRightSquareBracket] -
   /// * [acceptLanguage] -
@@ -285,11 +285,10 @@ class ContractApi {
     List<String>? propertiesLeftSquareBracketRightSquareBracket,
     bool? onCall,
     List<bool>? onCallLeftSquareBracketRightSquareBracket,
-    String? organizationPeriodIdentifier,
-    List<String>?
-        organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
-    String? providerPeriodIdentifier,
-    List<String>? providerPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    String? provider,
+    List<String>? providerLeftSquareBracketRightSquareBracket,
+    String? places,
+    List<String>? placesLeftSquareBracketRightSquareBracket,
     String? state,
     List<String>? stateLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
@@ -438,19 +437,15 @@ class ContractApi {
         r'onCall[]': encodeCollectionQueryParameter(
             onCallLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (organizationPeriodIdentifier != null)
-        r'organization.identifier':
-            encodeQueryParameter(organizationPeriodIdentifier),
-      if (organizationPeriodIdentifierLeftSquareBracketRightSquareBracket !=
-          null)
-        r'organization.identifier[]': encodeCollectionQueryParameter(
-            organizationPeriodIdentifierLeftSquareBracketRightSquareBracket,
+      if (provider != null) r'provider': encodeQueryParameter(provider),
+      if (providerLeftSquareBracketRightSquareBracket != null)
+        r'provider[]': encodeCollectionQueryParameter(
+            providerLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (providerPeriodIdentifier != null)
-        r'provider.identifier': encodeQueryParameter(providerPeriodIdentifier),
-      if (providerPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
-        r'provider.identifier[]': encodeCollectionQueryParameter(
-            providerPeriodIdentifierLeftSquareBracketRightSquareBracket,
+      if (places != null) r'places': encodeQueryParameter(places),
+      if (placesLeftSquareBracketRightSquareBracket != null)
+        r'places[]': encodeCollectionQueryParameter(
+            placesLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (state != null) r'state': encodeQueryParameter(state),
       if (stateLeftSquareBracketRightSquareBracket != null)

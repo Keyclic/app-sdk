@@ -10,10 +10,10 @@ void main() {
   // final instance = FeedbackJsonhalReadLinks();
 
   group('test FeedbackJsonhalReadLinks', () {
-    // GetAssetTypeCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst reporter
+    // GetPlaceCollection200ResponseLinksFirst reporter
     test('to test the property `reporter`', () async {});
   });
 }

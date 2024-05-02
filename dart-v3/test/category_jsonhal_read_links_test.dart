@@ -10,10 +10,10 @@ void main() {
   // final instance = CategoryJsonhalReadLinks();
 
   group('test CategoryJsonhalReadLinks', () {
-    // GetAssetTypeCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst type
+    // GetPlaceCollection200ResponseLinksFirst type
     test('to test the property `type`', () async {});
   });
 }

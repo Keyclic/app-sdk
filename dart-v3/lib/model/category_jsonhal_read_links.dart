@@ -19,14 +19,14 @@ class CategoryJsonhalReadLinks {
     }
 
     return CategoryJsonhalReadLinks(
-      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      type: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'type']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
     );
   }
 
-  GetAssetTypeCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? type;
+  GetPlaceCollection200ResponseLinksFirst? type;
 
   @override
   bool operator ==(Object other) {

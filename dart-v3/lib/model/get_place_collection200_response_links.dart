@@ -4,9 +4,9 @@
 
 part of keyclic_sdk_api_platform;
 
-class GetAssetTypeCollection200ResponseLinks {
-  /// Returns a new [GetAssetTypeCollection200ResponseLinks] instance.
-  GetAssetTypeCollection200ResponseLinks({
+class GetPlaceCollection200ResponseLinks {
+  /// Returns a new [GetPlaceCollection200ResponseLinks] instance.
+  GetPlaceCollection200ResponseLinks({
     this.self,
     this.first,
     this.last,
@@ -15,37 +15,35 @@ class GetAssetTypeCollection200ResponseLinks {
     this.item,
   });
 
-  /// Returns a new [GetAssetTypeCollection200ResponseLinks] instance and imports its values from
+  /// Returns a new [GetPlaceCollection200ResponseLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static GetAssetTypeCollection200ResponseLinks? fromJson(Object? json) {
+  static GetPlaceCollection200ResponseLinks? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return GetAssetTypeCollection200ResponseLinks(
-      self: GetAssetTypeCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      first:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'first']),
-      last: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'last']),
-      next: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'next']),
-      previous: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
-          json[r'previous']),
-      item: GetAssetTypeCollection200ResponseLinksFirst.listFromJson(
-          json[r'item']),
+    return GetPlaceCollection200ResponseLinks(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      first: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'first']),
+      last: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'last']),
+      next: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'next']),
+      previous:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'previous']),
+      item: GetPlaceCollection200ResponseLinksFirst.listFromJson(json[r'item']),
     );
   }
 
-  GetAssetTypeCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? first;
+  GetPlaceCollection200ResponseLinksFirst? first;
 
-  GetAssetTypeCollection200ResponseLinksFirst? last;
+  GetPlaceCollection200ResponseLinksFirst? last;
 
-  GetAssetTypeCollection200ResponseLinksFirst? next;
+  GetPlaceCollection200ResponseLinksFirst? next;
 
-  GetAssetTypeCollection200ResponseLinksFirst? previous;
+  GetPlaceCollection200ResponseLinksFirst? previous;
 
-  List<GetAssetTypeCollection200ResponseLinksFirst>? item;
+  List<GetPlaceCollection200ResponseLinksFirst>? item;
 
   @override
   bool operator ==(Object other) {
@@ -54,7 +52,7 @@ class GetAssetTypeCollection200ResponseLinks {
       return true;
     }
 
-    return other is GetAssetTypeCollection200ResponseLinks &&
+    return other is GetPlaceCollection200ResponseLinks &&
         other.self == self &&
         other.first == first &&
         other.last == last &&
@@ -72,17 +70,17 @@ class GetAssetTypeCollection200ResponseLinks {
       (previous == null ? 0 : previous.hashCode) +
       (item == null ? 0 : item.hashCode);
 
-  static List<GetAssetTypeCollection200ResponseLinks> listFromJson(
+  static List<GetPlaceCollection200ResponseLinks> listFromJson(
       List<dynamic>? json) {
     if (json == null) {
-      return <GetAssetTypeCollection200ResponseLinks>[];
+      return <GetPlaceCollection200ResponseLinks>[];
     }
 
-    return json.fold(<GetAssetTypeCollection200ResponseLinks>[],
-        (List<GetAssetTypeCollection200ResponseLinks> previousValue, element) {
-      final GetAssetTypeCollection200ResponseLinks? object =
-          GetAssetTypeCollection200ResponseLinks.fromJson(element);
-      if (object is GetAssetTypeCollection200ResponseLinks) {
+    return json.fold(<GetPlaceCollection200ResponseLinks>[],
+        (List<GetPlaceCollection200ResponseLinks> previousValue, element) {
+      final GetPlaceCollection200ResponseLinks? object =
+          GetPlaceCollection200ResponseLinks.fromJson(element);
+      if (object is GetPlaceCollection200ResponseLinks) {
         previousValue.add(object);
       }
 
@@ -90,18 +88,18 @@ class GetAssetTypeCollection200ResponseLinks {
     });
   }
 
-  static Map<String, GetAssetTypeCollection200ResponseLinks> mapFromJson(
+  static Map<String, GetPlaceCollection200ResponseLinks> mapFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, GetAssetTypeCollection200ResponseLinks>{};
+      return <String, GetPlaceCollection200ResponseLinks>{};
     }
 
-    return json.entries.fold(<String, GetAssetTypeCollection200ResponseLinks>{},
-        (Map<String, GetAssetTypeCollection200ResponseLinks> previousValue,
+    return json.entries.fold(<String, GetPlaceCollection200ResponseLinks>{},
+        (Map<String, GetPlaceCollection200ResponseLinks> previousValue,
             element) {
-      final GetAssetTypeCollection200ResponseLinks? object =
-          GetAssetTypeCollection200ResponseLinks.fromJson(element.value);
-      if (object is GetAssetTypeCollection200ResponseLinks) {
+      final GetPlaceCollection200ResponseLinks? object =
+          GetPlaceCollection200ResponseLinks.fromJson(element.value);
+      if (object is GetPlaceCollection200ResponseLinks) {
         previousValue[element.key] = object;
       }
 
@@ -109,22 +107,22 @@ class GetAssetTypeCollection200ResponseLinks {
     });
   }
 
-  // maps a json object with a list of GetAssetTypeCollection200ResponseLinks-objects as value to a dart map
-  static Map<String, List<GetAssetTypeCollection200ResponseLinks>>
-      mapListFromJson(Map<String, dynamic>? json) {
+  // maps a json object with a list of GetPlaceCollection200ResponseLinks-objects as value to a dart map
+  static Map<String, List<GetPlaceCollection200ResponseLinks>> mapListFromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<GetAssetTypeCollection200ResponseLinks>>{};
+      return <String, List<GetPlaceCollection200ResponseLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<GetAssetTypeCollection200ResponseLinks>>(
-          key, GetAssetTypeCollection200ResponseLinks.listFromJson(value));
+      return MapEntry<String, List<GetPlaceCollection200ResponseLinks>>(
+          key, GetPlaceCollection200ResponseLinks.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'GetAssetTypeCollection200ResponseLinks[self=$self, first=$first, last=$last, next=$next, previous=$previous, item=$item]';
+      'GetPlaceCollection200ResponseLinks[self=$self, first=$first, last=$last, next=$next, previous=$previous, item=$item]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

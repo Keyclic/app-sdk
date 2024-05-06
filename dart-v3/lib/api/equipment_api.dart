@@ -204,8 +204,10 @@ class EquipmentApi {
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
-  /// * [parentPeriodIdentifier] -
-  /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [level] -
+  /// * [levelLeftSquareBracketRightSquareBracket] -
+  /// * [parent] -
+  /// * [parentLeftSquareBracketRightSquareBracket] -
   /// * [subtree] -
   /// * [commissioningDateLeftSquareBracketBeforeRightSquareBracket] -
   /// * [commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
@@ -272,8 +274,10 @@ class EquipmentApi {
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
-    String? parentPeriodIdentifier,
-    List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    int? level,
+    List<int>? levelLeftSquareBracketRightSquareBracket,
+    String? parent,
+    List<String>? parentLeftSquareBracketRightSquareBracket,
     String? subtree,
     String? commissioningDateLeftSquareBracketBeforeRightSquareBracket,
     String? commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
@@ -391,11 +395,15 @@ class EquipmentApi {
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),
-      if (parentPeriodIdentifier != null)
-        r'parent.identifier': encodeQueryParameter(parentPeriodIdentifier),
-      if (parentPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
-        r'parent.identifier[]': encodeCollectionQueryParameter(
-            parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+      if (level != null) r'level': encodeQueryParameter(level),
+      if (levelLeftSquareBracketRightSquareBracket != null)
+        r'level[]': encodeCollectionQueryParameter(
+            levelLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (parent != null) r'parent': encodeQueryParameter(parent),
+      if (parentLeftSquareBracketRightSquareBracket != null)
+        r'parent[]': encodeCollectionQueryParameter(
+            parentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (subtree != null) r'subtree': encodeQueryParameter(subtree),
       if (commissioningDateLeftSquareBracketBeforeRightSquareBracket != null)

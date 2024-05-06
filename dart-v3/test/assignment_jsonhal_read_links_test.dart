@@ -10,13 +10,13 @@ void main() {
   // final instance = AssignmentJsonhalReadLinks();
 
   group('test AssignmentJsonhalReadLinks', () {
-    // GetAssetTypeCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst member
+    // GetPlaceCollection200ResponseLinksFirst member
     test('to test the property `member`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst service
+    // GetPlaceCollection200ResponseLinksFirst service
     test('to test the property `service`', () async {});
   });
 }

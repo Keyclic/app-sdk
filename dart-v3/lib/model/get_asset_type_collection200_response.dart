@@ -25,7 +25,7 @@ class GetAssetTypeCollection200Response {
           json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
-      links: GetAssetTypeCollection200ResponseLinks.fromJson(json[r'_links'])!,
+      links: GetPlaceCollection200ResponseLinks.fromJson(json[r'_links'])!,
     );
   }
 
@@ -37,7 +37,7 @@ class GetAssetTypeCollection200Response {
   // minimum: 0
   int? itemsPerPage;
 
-  GetAssetTypeCollection200ResponseLinks links;
+  GetPlaceCollection200ResponseLinks links;
 
   @override
   bool operator ==(Object other) {

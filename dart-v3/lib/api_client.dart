@@ -124,6 +124,11 @@ class ApiPlatformClient {
     return IntegrationLinkApi(this);
   }
 
+  /// Get PlaceApi instance
+  PlaceApi getPlaceApi() {
+    return PlaceApi(this);
+  }
+
   /// Get ServiceOfferApi instance
   ServiceOfferApi getServiceOfferApi() {
     return ServiceOfferApi(this);
@@ -302,12 +307,6 @@ class ApiPlatformClient {
           return GetAssetTypeCollection200Response.fromJson(value);
         case 'GetAssetTypeCollection200ResponseEmbedded':
           return GetAssetTypeCollection200ResponseEmbedded.fromJson(value);
-        case 'GetAssetTypeCollection200ResponseLinks':
-          return GetAssetTypeCollection200ResponseLinks.fromJson(value);
-        case 'GetAssetTypeCollection200ResponseLinksFirst':
-          return GetAssetTypeCollection200ResponseLinksFirst.fromJson(value);
-        case 'GetAssetTypeCollection200ResponseLinksSelf':
-          return GetAssetTypeCollection200ResponseLinksSelf.fromJson(value);
         case 'GetAuthToken200Response':
           return GetAuthToken200Response.fromJson(value);
         case 'GetAuthTokenRequest':
@@ -345,6 +344,16 @@ class ApiPlatformClient {
         case 'GetIntegrationLinkCollection200ResponseEmbedded':
           return GetIntegrationLinkCollection200ResponseEmbedded.fromJson(
               value);
+        case 'GetPlaceCollection200Response':
+          return GetPlaceCollection200Response.fromJson(value);
+        case 'GetPlaceCollection200ResponseEmbedded':
+          return GetPlaceCollection200ResponseEmbedded.fromJson(value);
+        case 'GetPlaceCollection200ResponseLinks':
+          return GetPlaceCollection200ResponseLinks.fromJson(value);
+        case 'GetPlaceCollection200ResponseLinksFirst':
+          return GetPlaceCollection200ResponseLinksFirst.fromJson(value);
+        case 'GetPlaceCollection200ResponseLinksSelf':
+          return GetPlaceCollection200ResponseLinksSelf.fromJson(value);
         case 'GetSlaPolicyCollection200Response':
           return GetSlaPolicyCollection200Response.fromJson(value);
         case 'GetSlaPolicyCollection200ResponseEmbedded':
@@ -377,10 +386,6 @@ class ApiPlatformClient {
           return MarkerRead.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
-        case 'PlaceJsonhalReadEmbedded':
-          return PlaceJsonhalReadEmbedded.fromJson(value);
-        case 'PlaceJsonhalReadLinks':
-          return PlaceJsonhalReadLinks.fromJson(value);
         case 'PlaceRead':
           return PlaceRead.fromJson(value);
         case 'PointJsonhalRead':

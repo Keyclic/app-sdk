@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAssetCollection**
-> GetAssetCollection200Response getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetAssetCollection200Response getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Asset resources.
 
@@ -107,8 +107,6 @@ final orderLeftSquareBracketCreatedAtRightSquareBracket = orderLeftSquareBracket
 final orderLeftSquareBracketNameRightSquareBracket = orderLeftSquareBracketNameRightSquareBracket_example; // String | 
 final orderLeftSquareBracketUpdatedAtRightSquareBracket = orderLeftSquareBracketUpdatedAtRightSquareBracket_example; // String | 
 final propertiesLeftSquareBracketRightSquareBracket = []; // List<String> | Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
-final contractsPeriodIdentifier = contractsPeriodIdentifier_example; // String | 
-final contractsPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final parentPeriodIdentifier = parentPeriodIdentifier_example; // String | 
 final parentPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final subtree = subtree_example; // String | 
@@ -118,7 +116,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try { 
-    final result = api_instance.getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, contractsPeriodIdentifier, contractsPeriodIdentifierLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, parentPeriodIdentifier, parentPeriodIdentifierLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling AssetApi->getAssetCollection: $e\n');
@@ -148,8 +146,6 @@ Name | Type | Description  | Notes
  **orderLeftSquareBracketNameRightSquareBracket** | **String**|  | [optional] 
  **orderLeftSquareBracketUpdatedAtRightSquareBracket** | **String**|  | [optional] 
  **propertiesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty} | [optional] [default to const []]
- **contractsPeriodIdentifier** | **String**|  | [optional] 
- **contractsPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **parentPeriodIdentifier** | **String**|  | [optional] 
  **parentPeriodIdentifierLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **subtree** | **String**|  | [optional] 

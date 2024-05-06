@@ -20,19 +20,18 @@ class AssignmentJsonhalReadLinks {
     }
 
     return AssignmentJsonhalReadLinks(
-      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      member:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'member']),
-      service: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
-          json[r'service']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      member: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member']),
+      service:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'service']),
     );
   }
 
-  GetAssetTypeCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? member;
+  GetPlaceCollection200ResponseLinksFirst? member;
 
-  GetAssetTypeCollection200ResponseLinksFirst? service;
+  GetPlaceCollection200ResponseLinksFirst? service;
 
   @override
   bool operator ==(Object other) {

@@ -22,26 +22,23 @@ class EquipmentJsonhalReadLinks {
     }
 
     return EquipmentJsonhalReadLinks(
-      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      brand:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'brand']),
-      type: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'type']),
-      parent:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'parent']),
-      state:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'state']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      brand: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'brand']),
+      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
+      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
-  GetAssetTypeCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? brand;
+  GetPlaceCollection200ResponseLinksFirst? brand;
 
-  GetAssetTypeCollection200ResponseLinksFirst? type;
+  GetPlaceCollection200ResponseLinksFirst? type;
 
-  GetAssetTypeCollection200ResponseLinksFirst? parent;
+  GetPlaceCollection200ResponseLinksFirst? parent;
 
-  GetAssetTypeCollection200ResponseLinksFirst? state;
+  GetPlaceCollection200ResponseLinksFirst? state;
 
   @override
   bool operator ==(Object other) {

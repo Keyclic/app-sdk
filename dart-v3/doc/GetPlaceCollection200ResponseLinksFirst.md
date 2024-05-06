@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.GetAssetTypeCollection200ResponseLinksFirst
+# keyclic_sdk_api_platform.model.GetPlaceCollection200ResponseLinksFirst
 
 ## Load the model package
 ```dart

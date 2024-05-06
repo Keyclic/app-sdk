@@ -21,23 +21,21 @@ class TicketJsonhalReadLinks {
     }
 
     return TicketJsonhalReadLinks(
-      self: GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      offer:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'offer']),
-      organization: GetAssetTypeCollection200ResponseLinksFirst.fromJson(
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      offer: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'offer']),
+      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'organization']),
-      parent:
-          GetAssetTypeCollection200ResponseLinksFirst.fromJson(json[r'parent']),
+      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
     );
   }
 
-  GetAssetTypeCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst? self;
 
-  GetAssetTypeCollection200ResponseLinksFirst? offer;
+  GetPlaceCollection200ResponseLinksFirst? offer;
 
-  GetAssetTypeCollection200ResponseLinksFirst? organization;
+  GetPlaceCollection200ResponseLinksFirst? organization;
 
-  GetAssetTypeCollection200ResponseLinksFirst? parent;
+  GetPlaceCollection200ResponseLinksFirst? parent;
 
   @override
   bool operator ==(Object other) {

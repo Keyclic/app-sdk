@@ -10,13 +10,13 @@ void main() {
   // final instance = ContractJsonhalReadLinks();
 
   group('test ContractJsonhalReadLinks', () {
-    // GetAssetTypeCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst provider
+    // GetPlaceCollection200ResponseLinksFirst provider
     test('to test the property `provider`', () async {});
 
-    // GetAssetTypeCollection200ResponseLinksFirst type
+    // GetPlaceCollection200ResponseLinksFirst type
     test('to test the property `type`', () async {});
   });
 }

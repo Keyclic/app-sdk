@@ -21,10 +21,10 @@ class EquipmentRead {
     this.updatedAt,
     this.description,
     required this.name,
-    this.parent,
-    this.state,
     this.preferences,
     this.address,
+    this.parent,
+    this.state,
   });
 
   /// Returns a new [EquipmentRead] instance and imports its values from
@@ -75,10 +75,10 @@ class EquipmentRead {
       updatedAt: updatedAt,
       description: json[r'description'],
       name: json[r'name'],
-      parent: json[r'parent'],
-      state: json[r'state'],
       preferences: PreferencesRead.fromJson(json[r'preferences']),
       address: PostalAddressRead.fromJson(json[r'address']),
+      parent: json[r'parent'],
+      state: json[r'state'],
     );
   }
 
@@ -120,13 +120,13 @@ class EquipmentRead {
 
   String name;
 
-  String? parent;
-
-  String? state;
-
   PreferencesRead? preferences;
 
   PostalAddressRead? address;
+
+  String? parent;
+
+  String? state;
 
   @override
   bool operator ==(Object other) {
@@ -150,10 +150,10 @@ class EquipmentRead {
         other.updatedAt == updatedAt &&
         other.description == description &&
         other.name == name &&
-        other.parent == parent &&
-        other.state == state &&
         other.preferences == preferences &&
-        other.address == address;
+        other.address == address &&
+        other.parent == parent &&
+        other.state == state;
   }
 
   @override
@@ -172,10 +172,10 @@ class EquipmentRead {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode) +
       (preferences == null ? 0 : preferences.hashCode) +
-      (address == null ? 0 : address.hashCode);
+      (address == null ? 0 : address.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
+      (state == null ? 0 : state.hashCode);
 
   static List<EquipmentRead> listFromJson(List<dynamic>? json) {
     if (json == null) {
@@ -224,7 +224,7 @@ class EquipmentRead {
 
   @override
   String toString() =>
-      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, parent=$parent, state=$state, preferences=$preferences, address=$address]';
+      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, address=$address, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -257,8 +257,6 @@ class EquipmentRead {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'parent')) r'parent': parent,
-      if (keys == null || keys.contains(r'state')) r'state': state,
       if (keys == null ||
           keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
         r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
@@ -279,6 +277,8 @@ class EquipmentRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      if (keys == null || keys.contains(r'state')) r'state': state,
     };
   }
 }

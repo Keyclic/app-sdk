@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.61.1-dev.g5619ea51d"
+        "version": "2.62.0-beta.1.dev.2ab25d233"
     },
     "servers": [
         {
@@ -18,6 +18,545 @@
         }
     ],
     "paths": {
+        "/asset-places": {
+            "get": {
+                "operationId": "getPlaceCollection",
+                "tags": [
+                    "Place"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Place collection",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_embedded": {
+                                            "type": "object",
+                                            "properties": {
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Place.jsonhal-Read"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "item"
+                                            ]
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "itemsPerPage": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "_links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    },
+                                                    "nullable": false
+                                                },
+                                                "first": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "last": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "next": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "previous": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string",
+                                                                "format": "iri-reference"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "_links"
+                                    ]
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Place-Read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Place resources.",
+                "description": "Retrieves the collection of Place resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 0,
+                            "maximum": 50
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "createdAt[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "createdAt[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "createdAt[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "createdAt[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "updatedAt[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "updatedAt[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "updatedAt[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "updatedAt[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[createdAt]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[name]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "order[updatedAt]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "parent.identifier",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "parent.identifier[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "subtree",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "exists[contracts]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "contracts",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "contracts[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
         "/asset-types": {
             "get": {
                 "operationId": "getAssetTypeCollection",
@@ -797,37 +1336,6 @@
                         "name": "properties[]",
                         "in": "query",
                         "description": "Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "style": "form",
-                        "explode": true,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "contracts.identifier",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "form",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "contracts.identifier[]",
-                        "in": "query",
-                        "description": "",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
@@ -3811,7 +4319,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "organization.identifier",
+                        "name": "provider",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -3825,7 +4333,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "organization.identifier[]",
+                        "name": "provider[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -3842,7 +4350,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "provider.identifier",
+                        "name": "places",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -3856,7 +4364,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "provider.identifier[]",
+                        "name": "places[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -4928,37 +5436,6 @@
                         },
                         "style": "form",
                         "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "contracts.identifier",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "string"
-                        },
-                        "style": "form",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "contracts.identifier[]",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "style": "form",
-                        "explode": true,
                         "allowReserved": false
                     },
                     {
@@ -11867,18 +12344,6 @@
                     "name": {
                         "type": "string"
                     },
-                    "parent": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "state": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
                     "preferences": {
                         "anyOf": [
                             {
@@ -11893,6 +12358,18 @@
                                 "$ref": "#/components/schemas/PostalAddress-Read"
                             }
                         ],
+                        "nullable": true
+                    },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     }
                 },
@@ -12752,10 +13229,28 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "type": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
                     "id": {
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "description": {
                         "type": "string",
@@ -12763,20 +13258,6 @@
                     },
                     "name": {
                         "type": "string"
-                    },
-                    "parent": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "state": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/WorkflowState-Read"
-                            }
-                        ],
-                        "nullable": true
                     },
                     "preferences": {
                         "anyOf": [
@@ -12792,6 +13273,18 @@
                                 "$ref": "#/components/schemas/PostalAddress-Read"
                             }
                         ],
+                        "nullable": true
+                    },
+                    "parent": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "state": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
                         "nullable": true
                     }
                 },
@@ -12816,7 +13309,25 @@
                                     }
                                 }
                             },
+                            "type": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
                             "parent": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "state": {
                                 "type": "object",
                                 "properties": {
                                     "href": {
@@ -12831,6 +13342,18 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
                     },
                     "description": {
                         "type": "string",
@@ -12854,19 +13377,6 @@
                             }
                         ],
                         "nullable": true
-                    },
-                    "_embedded": {
-                        "type": "object",
-                        "properties": {
-                            "state": {
-                                "anyOf": [
-                                    {
-                                        "$ref": "#/components/schemas/WorkflowState.jsonhal-Read"
-                                    }
-                                ],
-                                "nullable": true
-                            }
-                        }
                     }
                 },
                 "required": [

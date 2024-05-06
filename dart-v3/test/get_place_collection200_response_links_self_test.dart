@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for GetAssetTypeCollection200ResponseLinksSelf
+// tests for GetPlaceCollection200ResponseLinksSelf
 void main() {
-  // final instance = GetAssetTypeCollection200ResponseLinksSelf();
+  // final instance = GetPlaceCollection200ResponseLinksSelf();
 
-  group('test GetAssetTypeCollection200ResponseLinksSelf', () {
+  group('test GetPlaceCollection200ResponseLinksSelf', () {
     // String href
     test('to test the property `href`', () async {});
   });

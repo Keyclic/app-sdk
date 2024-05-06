@@ -132,8 +132,6 @@ class AssetApi {
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
   /// * [propertiesLeftSquareBracketRightSquareBracket] - Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
-  /// * [contractsPeriodIdentifier] -
-  /// * [contractsPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [parentPeriodIdentifier] -
   /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
   /// * [subtree] -
@@ -170,8 +168,6 @@ class AssetApi {
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
     List<String>? propertiesLeftSquareBracketRightSquareBracket,
-    String? contractsPeriodIdentifier,
-    List<String>? contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? parentPeriodIdentifier,
     List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
     String? subtree,
@@ -258,13 +254,6 @@ class AssetApi {
       if (propertiesLeftSquareBracketRightSquareBracket != null)
         r'properties[]': encodeCollectionQueryParameter(
             propertiesLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
-      if (contractsPeriodIdentifier != null)
-        r'contracts.identifier':
-            encodeQueryParameter(contractsPeriodIdentifier),
-      if (contractsPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
-        r'contracts.identifier[]': encodeCollectionQueryParameter(
-            contractsPeriodIdentifierLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (parentPeriodIdentifier != null)
         r'parent.identifier': encodeQueryParameter(parentPeriodIdentifier),

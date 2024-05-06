@@ -61,9 +61,6 @@ doc/GetAssetCollection200Response.md
 doc/GetAssetCollection200ResponseEmbedded.md
 doc/GetAssetTypeCollection200Response.md
 doc/GetAssetTypeCollection200ResponseEmbedded.md
-doc/GetAssetTypeCollection200ResponseLinks.md
-doc/GetAssetTypeCollection200ResponseLinksFirst.md
-doc/GetAssetTypeCollection200ResponseLinksSelf.md
 doc/GetAuthToken200Response.md
 doc/GetAuthTokenRequest.md
 doc/GetBrandCollection200Response.md
@@ -82,6 +79,11 @@ doc/GetIntegrationCollection200Response.md
 doc/GetIntegrationCollection200ResponseEmbedded.md
 doc/GetIntegrationLinkCollection200Response.md
 doc/GetIntegrationLinkCollection200ResponseEmbedded.md
+doc/GetPlaceCollection200Response.md
+doc/GetPlaceCollection200ResponseEmbedded.md
+doc/GetPlaceCollection200ResponseLinks.md
+doc/GetPlaceCollection200ResponseLinksFirst.md
+doc/GetPlaceCollection200ResponseLinksSelf.md
 doc/GetSlaPolicyCollection200Response.md
 doc/GetSlaPolicyCollection200ResponseEmbedded.md
 doc/GetTicketCollection200Response.md
@@ -99,9 +101,8 @@ doc/IntegrationLinkJsonhalRead.md
 doc/IntegrationLinkRead.md
 doc/MarkerJsonhalRead.md
 doc/MarkerRead.md
+doc/PlaceApi.md
 doc/PlaceJsonhalRead.md
-doc/PlaceJsonhalReadEmbedded.md
-doc/PlaceJsonhalReadLinks.md
 doc/PlaceRead.md
 doc/PointJsonhalRead.md
 doc/PointRead.md
@@ -159,6 +160,7 @@ lib/api/contract_type_api.dart
 lib/api/equipment_api.dart
 lib/api/integration_api.dart
 lib/api/integration_link_api.dart
+lib/api/place_api.dart
 lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
 lib/api/ticket_api.dart
@@ -221,9 +223,6 @@ lib/model/get_asset_collection200_response.dart
 lib/model/get_asset_collection200_response_embedded.dart
 lib/model/get_asset_type_collection200_response.dart
 lib/model/get_asset_type_collection200_response_embedded.dart
-lib/model/get_asset_type_collection200_response_links.dart
-lib/model/get_asset_type_collection200_response_links_first.dart
-lib/model/get_asset_type_collection200_response_links_self.dart
 lib/model/get_auth_token200_response.dart
 lib/model/get_auth_token_request.dart
 lib/model/get_brand_collection200_response.dart
@@ -242,6 +241,11 @@ lib/model/get_integration_collection200_response.dart
 lib/model/get_integration_collection200_response_embedded.dart
 lib/model/get_integration_link_collection200_response.dart
 lib/model/get_integration_link_collection200_response_embedded.dart
+lib/model/get_place_collection200_response.dart
+lib/model/get_place_collection200_response_embedded.dart
+lib/model/get_place_collection200_response_links.dart
+lib/model/get_place_collection200_response_links_first.dart
+lib/model/get_place_collection200_response_links_self.dart
 lib/model/get_sla_policy_collection200_response.dart
 lib/model/get_sla_policy_collection200_response_embedded.dart
 lib/model/get_ticket_collection200_response.dart
@@ -258,8 +262,6 @@ lib/model/integration_link_read.dart
 lib/model/marker_jsonhal_read.dart
 lib/model/marker_read.dart
 lib/model/place_jsonhal_read.dart
-lib/model/place_jsonhal_read_embedded.dart
-lib/model/place_jsonhal_read_links.dart
 lib/model/place_read.dart
 lib/model/point_jsonhal_read.dart
 lib/model/point_read.dart
@@ -357,9 +359,6 @@ test/geo_coordinates_read_test.dart
 test/get_asset_collection200_response_embedded_test.dart
 test/get_asset_collection200_response_test.dart
 test/get_asset_type_collection200_response_embedded_test.dart
-test/get_asset_type_collection200_response_links_first_test.dart
-test/get_asset_type_collection200_response_links_self_test.dart
-test/get_asset_type_collection200_response_links_test.dart
 test/get_asset_type_collection200_response_test.dart
 test/get_auth_token200_response_test.dart
 test/get_auth_token_request_test.dart
@@ -379,6 +378,11 @@ test/get_integration_collection200_response_embedded_test.dart
 test/get_integration_collection200_response_test.dart
 test/get_integration_link_collection200_response_embedded_test.dart
 test/get_integration_link_collection200_response_test.dart
+test/get_place_collection200_response_embedded_test.dart
+test/get_place_collection200_response_links_first_test.dart
+test/get_place_collection200_response_links_self_test.dart
+test/get_place_collection200_response_links_test.dart
+test/get_place_collection200_response_test.dart
 test/get_sla_policy_collection200_response_embedded_test.dart
 test/get_sla_policy_collection200_response_test.dart
 test/get_ticket_collection200_response_embedded_test.dart
@@ -396,8 +400,7 @@ test/integration_link_jsonhal_read_test.dart
 test/integration_link_read_test.dart
 test/marker_jsonhal_read_test.dart
 test/marker_read_test.dart
-test/place_jsonhal_read_embedded_test.dart
-test/place_jsonhal_read_links_test.dart
+test/place_api_test.dart
 test/place_jsonhal_read_test.dart
 test/place_read_test.dart
 test/point_jsonhal_read_test.dart

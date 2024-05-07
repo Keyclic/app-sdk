@@ -132,8 +132,10 @@ class AssetApi {
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
   /// * [propertiesLeftSquareBracketRightSquareBracket] - Allows you to reduce the response to contain only the properties you need. If your desired property is nested, you can address it using nested arrays. Example: properties[]={propertyName}&properties[]={anotherPropertyName}&properties[{nestedPropertyParent}][]={nestedProperty}
-  /// * [parentPeriodIdentifier] -
-  /// * [parentPeriodIdentifierLeftSquareBracketRightSquareBracket] -
+  /// * [level] -
+  /// * [levelLeftSquareBracketRightSquareBracket] -
+  /// * [parent] -
+  /// * [parentLeftSquareBracketRightSquareBracket] -
   /// * [subtree] -
   /// * [acceptLanguage] -
   /// * [xDateTime] -
@@ -168,8 +170,10 @@ class AssetApi {
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
     List<String>? propertiesLeftSquareBracketRightSquareBracket,
-    String? parentPeriodIdentifier,
-    List<String>? parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+    int? level,
+    List<int>? levelLeftSquareBracketRightSquareBracket,
+    String? parent,
+    List<String>? parentLeftSquareBracketRightSquareBracket,
     String? subtree,
     String? acceptLanguage,
     DateTime? xDateTime,
@@ -255,11 +259,15 @@ class AssetApi {
         r'properties[]': encodeCollectionQueryParameter(
             propertiesLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
-      if (parentPeriodIdentifier != null)
-        r'parent.identifier': encodeQueryParameter(parentPeriodIdentifier),
-      if (parentPeriodIdentifierLeftSquareBracketRightSquareBracket != null)
-        r'parent.identifier[]': encodeCollectionQueryParameter(
-            parentPeriodIdentifierLeftSquareBracketRightSquareBracket,
+      if (level != null) r'level': encodeQueryParameter(level),
+      if (levelLeftSquareBracketRightSquareBracket != null)
+        r'level[]': encodeCollectionQueryParameter(
+            levelLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (parent != null) r'parent': encodeQueryParameter(parent),
+      if (parentLeftSquareBracketRightSquareBracket != null)
+        r'parent[]': encodeCollectionQueryParameter(
+            parentLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (subtree != null) r'subtree': encodeQueryParameter(subtree),
     };

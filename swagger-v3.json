@@ -366,7 +366,38 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "parent.identifier",
+                        "name": "level",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "level[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "parent",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -380,7 +411,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "parent.identifier[]",
+                        "name": "parent[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -1350,7 +1381,38 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "parent.identifier",
+                        "name": "level",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "level[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "parent",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -1364,7 +1426,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "parent.identifier[]",
+                        "name": "parent[]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -5439,7 +5501,38 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "parent.identifier",
+                        "name": "level",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "level[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "parent",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -5453,7 +5546,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "parent.identifier[]",
+                        "name": "parent[]",
                         "in": "query",
                         "description": "",
                         "required": false,

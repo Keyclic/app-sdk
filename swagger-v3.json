@@ -10168,6 +10168,57 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "tree[place][descendants][]",
+                        "in": "query",
+                        "description": "Filter on the tree below the node excluding the parent node.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][node][]",
+                        "in": "query",
+                        "description": "Filter on the node only.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][subtree][]",
+                        "in": "query",
+                        "description": "Filter on the tree below the node including the parent node.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "Accept-Language",
                         "in": "header",
                         "description": "",

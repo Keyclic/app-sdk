@@ -12012,6 +12012,14 @@
                     "onCall": {
                         "type": "boolean"
                     },
+                    "places": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    },
                     "provider": {
                         "type": "string",
                         "format": "iri-reference",
@@ -12089,6 +12097,14 @@
                     },
                     "onCall": {
                         "type": "boolean"
+                    },
+                    "places": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
                     },
                     "provider": {
                         "type": "string",

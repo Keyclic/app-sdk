@@ -31,6 +31,9 @@ void main() {
     // bool onCall
     test('to test the property `onCall`', () async {});
 
+    // List<String> places (default value: const [])
+    test('to test the property `places`', () async {});
+
     // String provider
     test('to test the property `provider`', () async {});
 

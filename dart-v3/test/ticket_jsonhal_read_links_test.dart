@@ -13,9 +13,6 @@ void main() {
     // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst offer
-    test('to test the property `offer`', () async {});
-
     // GetPlaceCollection200ResponseLinksFirst organization
     test('to test the property `organization`', () async {});
 

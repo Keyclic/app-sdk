@@ -22,13 +22,13 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // String offer
-    test('to test the property `offer`', () async {});
-
     // String parent
     test('to test the property `parent`', () async {});
 
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
+
+    // String type
+    test('to test the property `type`', () async {});
   });
 }

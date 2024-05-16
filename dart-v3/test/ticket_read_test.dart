@@ -25,9 +25,6 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // String offer
-    test('to test the property `offer`', () async {});
-
     // String organization
     test('to test the property `organization`', () async {});
 

@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **equipments** | **List<String>** |  | [optional] [default to const []]
 **member** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
-**offer** | **String** |  | [optional] 
 **parent** | **String** |  | 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**type** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

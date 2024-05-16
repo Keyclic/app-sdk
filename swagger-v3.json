@@ -10170,7 +10170,7 @@
                     {
                         "name": "tree[place][descendants][]",
                         "in": "query",
-                        "description": "Filter on the tree below the node excluding the parent node.",
+                        "description": "Filter on the tree below the node excluding the node itself.",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
@@ -10204,7 +10204,7 @@
                     {
                         "name": "tree[place][subtree][]",
                         "in": "query",
-                        "description": "Filter on the tree below the node including the parent node.",
+                        "description": "Filter on the tree below the node including the node itself.",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,

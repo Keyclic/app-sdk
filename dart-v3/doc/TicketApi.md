@@ -158,9 +158,9 @@ final reviewsPeriodReviewRating = 56; // int |
 final reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket = []; // List<int> | 
 final state = state_example; // String | 
 final stateLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the tree below the node excluding the parent node.
+final treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the tree below the node excluding the node itself.
 final treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the node only.
-final treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the tree below the node including the parent node.
+final treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the tree below the node including the node itself.
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
@@ -245,9 +245,9 @@ Name | Type | Description  | Notes
  **reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket** | [**List<int>**](int.md)|  | [optional] [default to const []]
  **state** | **String**|  | [optional] 
  **stateLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the tree below the node excluding the parent node. | [optional] [default to const []]
+ **treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the tree below the node excluding the node itself. | [optional] [default to const []]
  **treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the node only. | [optional] [default to const []]
- **treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the tree below the node including the parent node. | [optional] [default to const []]
+ **treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the tree below the node including the node itself. | [optional] [default to const []]
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

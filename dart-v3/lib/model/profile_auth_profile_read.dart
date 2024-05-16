@@ -9,6 +9,7 @@ class ProfileAuthProfileRead {
   ProfileAuthProfileRead({
     this.types,
     this.connections,
+    this.user,
     this.firstConnection,
   });
 
@@ -22,6 +23,7 @@ class ProfileAuthProfileRead {
     return ProfileAuthProfileRead(
       types: json[r'types'] == null ? null : List<String>.from(json[r'types']),
       connections: ConnectionAuthProfileRead.listFromJson(json[r'connections']),
+      user: UserAuthProfileRead.fromJson(json[r'user']),
       firstConnection: json[r'firstConnection'],
     );
   }
@@ -30,6 +32,8 @@ class ProfileAuthProfileRead {
   final List<String>? types;
 
   List<ConnectionAuthProfileRead>? connections;
+
+  UserAuthProfileRead? user;
 
   /// Represents whether a user is making their first connection or interaction with the service.
   final bool? firstConnection;
@@ -45,6 +49,7 @@ class ProfileAuthProfileRead {
         DeepCollectionEquality.unordered().equals(types, other.types) &&
         DeepCollectionEquality.unordered()
             .equals(connections, other.connections) &&
+        other.user == user &&
         other.firstConnection == firstConnection;
   }
 
@@ -52,6 +57,7 @@ class ProfileAuthProfileRead {
   int get hashCode =>
       (types == null ? 0 : types.hashCode) +
       (connections == null ? 0 : connections.hashCode) +
+      (user == null ? 0 : user.hashCode) +
       (firstConnection == null ? 0 : firstConnection.hashCode);
 
   static List<ProfileAuthProfileRead> listFromJson(List<dynamic>? json) {
@@ -104,13 +110,22 @@ class ProfileAuthProfileRead {
 
   @override
   String toString() =>
-      'ProfileAuthProfileRead[types=$types, connections=$connections, firstConnection=$firstConnection]';
+      'ProfileAuthProfileRead[types=$types, connections=$connections, user=$user, firstConnection=$firstConnection]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'types')) r'types': types,
       if (keys == null || keys.contains(r'connections'))
         r'connections': connections,
+      if (keys == null || keys.any((key) => RegExp(r'^user\.').hasMatch(key)))
+        r'user': user?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^user\.'))) {
+            previousValue.add(element.split(RegExp(r'^user\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'firstConnection'))
         r'firstConnection': firstConnection,
     };

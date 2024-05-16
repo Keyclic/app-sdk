@@ -14295,6 +14295,11 @@
                         ],
                         "nullable": true
                     },
+                    "reference": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
                     "archived": {
                         "readOnly": true,
                         "type": "boolean"
@@ -14498,6 +14503,11 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
+                    },
+                    "reference": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
                     },
                     "archived": {
                         "readOnly": true,

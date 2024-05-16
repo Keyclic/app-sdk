@@ -43,6 +43,9 @@ void main() {
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
 
+    // String reference
+    test('to test the property `reference`', () async {});
+
     // bool archived
     test('to test the property `archived`', () async {});
 

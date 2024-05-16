@@ -22047,6 +22047,10 @@
                 "priority": {
                     "$ref": "#\/definitions\/OperationPriority"
                 },
+                "reference": {
+                    "format": "string",
+                    "type": "string"
+                },
                 "scheduledAt": {
                     "format": "date-time",
                     "type": "string"

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **identificationNumber** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **priority** | [**OperationPriority**](OperationPriority.md) |  | [optional] 
+**reference** | **String** |  | [optional] 
 **scheduledAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **tags** | **List<String>** |  | [optional] [default to const []]
 **type** | **String** |  | [optional] 

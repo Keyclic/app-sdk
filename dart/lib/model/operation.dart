@@ -17,6 +17,7 @@ class Operation {
     this.identificationNumber,
     this.name,
     this.priority,
+    this.reference,
     this.scheduledAt,
     this.tags,
     this.type,
@@ -66,6 +67,7 @@ class Operation {
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
       priority: OperationPriority.fromJson(json[r'priority']),
+      reference: json[r'reference'],
       scheduledAt: scheduledAt,
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       type: json[r'type'],
@@ -93,6 +95,8 @@ class Operation {
 
   OperationPriority? priority;
 
+  String? reference;
+
   DateTime? scheduledAt;
 
   List<String>? tags;
@@ -119,6 +123,7 @@ class Operation {
         other.identificationNumber == identificationNumber &&
         other.name == name &&
         other.priority == priority &&
+        other.reference == reference &&
         other.scheduledAt == scheduledAt &&
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.type == type &&
@@ -137,6 +142,7 @@ class Operation {
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
+      (reference == null ? 0 : reference.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (tags == null ? 0 : tags.hashCode) +
       (type == null ? 0 : type.hashCode) +
@@ -188,7 +194,7 @@ class Operation {
 
   @override
   String toString() =>
-      'Operation[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt]';
+      'Operation[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, priority=$priority, reference=$reference, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -232,6 +238,7 @@ class Operation {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'reference')) r'reference': reference,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'tags')) r'tags': tags,

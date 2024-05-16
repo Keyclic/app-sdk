@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **parent** | **String** |  | [optional] [readonly] 
 **state** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
+**reference** | **String** |  | [optional] [readonly] 
 **archived** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

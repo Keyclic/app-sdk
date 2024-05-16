@@ -40,6 +40,9 @@ void main() {
     // OperationPriority priority
     test('to test the property `priority`', () async {});
 
+    // String reference
+    test('to test the property `reference`', () async {});
+
     // DateTime scheduledAt
     test('to test the property `scheduledAt`', () async {});
 

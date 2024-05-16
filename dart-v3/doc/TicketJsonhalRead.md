@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **tags** | **List<String>** |  | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
+**reference** | **String** |  | [optional] [readonly] 
 **archived** | **bool** |  | [optional] [readonly] 
 **embedded** | [**TicketJsonhalReadEmbedded**](TicketJsonhalReadEmbedded.md) |  | [optional] 
 

@@ -25,6 +25,7 @@ class TicketRead {
     this.updatedAt,
     this.parent,
     this.state,
+    this.reference,
     this.archived,
   });
 
@@ -79,6 +80,7 @@ class TicketRead {
       updatedAt: updatedAt,
       parent: json[r'parent'],
       state: WorkflowStateRead.fromJson(json[r'state']),
+      reference: json[r'reference'],
       archived: json[r'archived'],
     );
   }
@@ -122,6 +124,8 @@ class TicketRead {
 
   WorkflowStateRead? state;
 
+  final String? reference;
+
   final bool? archived;
 
   @override
@@ -151,6 +155,7 @@ class TicketRead {
         other.updatedAt == updatedAt &&
         other.parent == parent &&
         other.state == state &&
+        other.reference == reference &&
         other.archived == archived;
   }
 
@@ -174,6 +179,7 @@ class TicketRead {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode) +
+      (reference == null ? 0 : reference.hashCode) +
       (archived == null ? 0 : archived.hashCode);
 
   static List<TicketRead> listFromJson(List<dynamic>? json) {
@@ -222,7 +228,7 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, archived=$archived]';
+      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, reference=$reference, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -298,6 +304,7 @@ class TicketRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'reference')) r'reference': reference,
       if (keys == null || keys.contains(r'archived')) r'archived': archived,
     };
   }

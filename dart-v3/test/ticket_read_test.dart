@@ -67,6 +67,9 @@ void main() {
     // WorkflowStateRead state
     test('to test the property `state`', () async {});
 
+    // String reference
+    test('to test the property `reference`', () async {});
+
     // bool archived
     test('to test the property `archived`', () async {});
   });

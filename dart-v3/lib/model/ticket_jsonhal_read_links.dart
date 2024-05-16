@@ -8,7 +8,6 @@ class TicketJsonhalReadLinks {
   /// Returns a new [TicketJsonhalReadLinks] instance.
   TicketJsonhalReadLinks({
     this.self,
-    this.offer,
     this.organization,
     this.parent,
   });
@@ -22,7 +21,6 @@ class TicketJsonhalReadLinks {
 
     return TicketJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      offer: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'offer']),
       organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'organization']),
       parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
@@ -30,8 +28,6 @@ class TicketJsonhalReadLinks {
   }
 
   GetPlaceCollection200ResponseLinksFirst? self;
-
-  GetPlaceCollection200ResponseLinksFirst? offer;
 
   GetPlaceCollection200ResponseLinksFirst? organization;
 
@@ -46,7 +42,6 @@ class TicketJsonhalReadLinks {
 
     return other is TicketJsonhalReadLinks &&
         other.self == self &&
-        other.offer == offer &&
         other.organization == organization &&
         other.parent == parent;
   }
@@ -54,7 +49,6 @@ class TicketJsonhalReadLinks {
   @override
   int get hashCode =>
       (self == null ? 0 : self.hashCode) +
-      (offer == null ? 0 : offer.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
       (parent == null ? 0 : parent.hashCode);
 
@@ -108,7 +102,7 @@ class TicketJsonhalReadLinks {
 
   @override
   String toString() =>
-      'TicketJsonhalReadLinks[self=$self, offer=$offer, organization=$organization, parent=$parent]';
+      'TicketJsonhalReadLinks[self=$self, organization=$organization, parent=$parent]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -117,15 +111,6 @@ class TicketJsonhalReadLinks {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^self\.'))) {
             previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
-
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^offer\.').hasMatch(key)))
-        r'offer': offer?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^offer\.'))) {
-            previousValue.add(element.split(RegExp(r'^offer\.')).last);
           }
 
           return previousValue;

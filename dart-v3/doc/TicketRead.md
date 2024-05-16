@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **name** | **String** |  | [optional] 
-**offer** | **String** |  | [optional] 
 **organization** | **String** |  | [readonly] 
 **phase** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
 **place** | [**PlaceRead**](PlaceRead.md) |  | 

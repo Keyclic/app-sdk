@@ -9495,6 +9495,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "resourceType",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "exists[archivedAt]",
                         "in": "query",
                         "description": "",
@@ -9524,20 +9538,6 @@
                     },
                     {
                         "name": "exists[documents]",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "boolean"
-                        },
-                        "style": "form",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "exists[offer]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -14215,12 +14215,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "offer": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
                     "organization": {
                         "readOnly": true,
                         "type": "string",
@@ -14339,12 +14333,6 @@
                         "type": "string",
                         "nullable": true
                     },
-                    "offer": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
@@ -14354,6 +14342,14 @@
                     "scheduledAt": {
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "type": {
+                        "enum": [
+                            "Operation",
+                            "Task"
+                        ],
+                        "type": "string",
                         "nullable": true
                     }
                 },
@@ -14427,15 +14423,6 @@
                         "type": "object",
                         "properties": {
                             "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            },
-                            "offer": {
                                 "type": "object",
                                 "properties": {
                                     "href": {

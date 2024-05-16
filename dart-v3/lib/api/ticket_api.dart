@@ -139,10 +139,10 @@ class TicketApi {
   /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [resourceType] -
   /// * [existsLeftSquareBracketArchivedAtRightSquareBracket] -
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
-  /// * [existsLeftSquareBracketOfferRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketDueByRightSquareBracket] -
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
@@ -223,10 +223,10 @@ class TicketApi {
     String? updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? resourceType,
     bool? existsLeftSquareBracketArchivedAtRightSquareBracket,
     bool? existsLeftSquareBracketAssignmentsRightSquareBracket,
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
-    bool? existsLeftSquareBracketOfferRightSquareBracket,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketDueByRightSquareBracket,
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
@@ -370,6 +370,8 @@ class TicketApi {
       if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'updatedAt[strictly_after]': encodeQueryParameter(
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (resourceType != null)
+        r'resourceType': encodeQueryParameter(resourceType),
       if (existsLeftSquareBracketArchivedAtRightSquareBracket != null)
         r'exists[archivedAt]': encodeQueryParameter(
             existsLeftSquareBracketArchivedAtRightSquareBracket),
@@ -379,9 +381,6 @@ class TicketApi {
       if (existsLeftSquareBracketDocumentsRightSquareBracket != null)
         r'exists[documents]': encodeQueryParameter(
             existsLeftSquareBracketDocumentsRightSquareBracket),
-      if (existsLeftSquareBracketOfferRightSquareBracket != null)
-        r'exists[offer]': encodeQueryParameter(
-            existsLeftSquareBracketOfferRightSquareBracket),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),

@@ -182,6 +182,9 @@ class TicketApi {
   /// * [reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket] -
   /// * [state] -
   /// * [stateLeftSquareBracketRightSquareBracket] -
+  /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node excluding the parent node.
+  /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the node only.
+  /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node including the parent node.
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -265,6 +268,12 @@ class TicketApi {
     List<int>? reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket,
     String? state,
     List<String>? stateLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -486,6 +495,21 @@ class TicketApi {
       if (stateLeftSquareBracketRightSquareBracket != null)
         r'state[]': encodeCollectionQueryParameter(
             stateLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[place][descendants][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[place][node][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[place][subtree][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
     };
 

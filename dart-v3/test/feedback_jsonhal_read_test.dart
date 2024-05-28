@@ -19,6 +19,9 @@ void main() {
     // GeoCoordinatesJsonhalRead geoCoordinates
     test('to test the property `geoCoordinates`', () async {});
 
+    // List<MarkerJsonhalRead> markers (default value: const [])
+    test('to test the property `markers`', () async {});
+
     // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
@@ -36,8 +39,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // FeedbackJsonhalReadEmbedded embedded
-    test('to test the property `embedded`', () async {});
   });
 }

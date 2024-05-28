@@ -18,5 +18,11 @@ void main() {
 
     // GetPlaceCollection200ResponseLinksFirst parent
     test('to test the property `parent`', () async {});
+
+    // List<GetPlaceCollection200ResponseLinksFirst> assignments (default value: const [])
+    test('to test the property `assignments`', () async {});
+
+    // List<GetPlaceCollection200ResponseLinksFirst> equipments (default value: const [])
+    test('to test the property `equipments`', () async {});
   });
 }

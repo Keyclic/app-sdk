@@ -10,12 +10,12 @@ class FeedbackJsonhalRead {
     this.links,
     this.description,
     this.geoCoordinates,
+    this.markers,
     this.metadata,
     required this.visibility,
     this.id,
     this.createdAt,
     this.updatedAt,
-    this.embedded,
   });
 
   /// Returns a new [FeedbackJsonhalRead] instance and imports its values from
@@ -30,6 +30,7 @@ class FeedbackJsonhalRead {
       description: json[r'description'],
       geoCoordinates:
           GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates']),
+      markers: MarkerJsonhalRead.listFromJson(json[r'markers']),
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
@@ -38,7 +39,6 @@ class FeedbackJsonhalRead {
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
-      embedded: FeedbackJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -47,6 +47,8 @@ class FeedbackJsonhalRead {
   String? description;
 
   GeoCoordinatesJsonhalRead? geoCoordinates;
+
+  final List<MarkerJsonhalRead>? markers;
 
   Map<String, Object?>? metadata;
 
@@ -61,8 +63,6 @@ class FeedbackJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  FeedbackJsonhalReadEmbedded? embedded;
-
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -74,12 +74,12 @@ class FeedbackJsonhalRead {
         other.links == links &&
         other.description == description &&
         other.geoCoordinates == geoCoordinates &&
+        DeepCollectionEquality.unordered().equals(markers, other.markers) &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.visibility == visibility &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.embedded == embedded;
+        other.updatedAt == updatedAt;
   }
 
   @override
@@ -87,12 +87,12 @@ class FeedbackJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
+      (markers == null ? 0 : markers.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       visibility.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<FeedbackJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -143,7 +143,7 @@ class FeedbackJsonhalRead {
 
   @override
   String toString() =>
-      'FeedbackJsonhalRead[links=$links, description=$description, geoCoordinates=$geoCoordinates, metadata=$metadata, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
+      'FeedbackJsonhalRead[links=$links, description=$description, geoCoordinates=$geoCoordinates, markers=$markers, metadata=$metadata, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -168,6 +168,7 @@ class FeedbackJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'markers')) r'markers': markers,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       r'visibility': visibility,
       if (keys == null || keys.contains(r'id')) r'id': id,
@@ -175,16 +176,6 @@ class FeedbackJsonhalRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
-
-          return previousValue;
-        })),
     };
   }
 }

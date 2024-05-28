@@ -22,6 +22,9 @@ void main() {
     // DateTime dueBy
     test('to test the property `dueBy`', () async {});
 
+    // List<EquipmentRead> equipments (default value: const [])
+    test('to test the property `equipments`', () async {});
+
     // String name
     test('to test the property `name`', () async {});
 

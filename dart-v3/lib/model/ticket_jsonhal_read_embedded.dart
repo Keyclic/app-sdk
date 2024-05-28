@@ -9,6 +9,7 @@ class TicketJsonhalReadEmbedded {
   TicketJsonhalReadEmbedded({
     this.assignments,
     this.category,
+    this.equipments,
     this.phase,
     this.place,
     this.priority,
@@ -26,6 +27,7 @@ class TicketJsonhalReadEmbedded {
     return TicketJsonhalReadEmbedded(
       assignments: AssignmentJsonhalRead.listFromJson(json[r'assignments']),
       category: CategoryJsonhalRead.fromJson(json[r'category']),
+      equipments: EquipmentJsonhalRead.listFromJson(json[r'equipments']),
       phase: WorkflowStateJsonhalRead.fromJson(json[r'phase']),
       place: PlaceJsonhalRead.fromJson(json[r'place']),
       priority: TicketPriorityJsonhalRead.fromJson(json[r'priority']),
@@ -37,6 +39,8 @@ class TicketJsonhalReadEmbedded {
   final List<AssignmentJsonhalRead>? assignments;
 
   CategoryJsonhalRead? category;
+
+  final List<EquipmentJsonhalRead>? equipments;
 
   WorkflowStateJsonhalRead? phase;
 
@@ -59,6 +63,8 @@ class TicketJsonhalReadEmbedded {
         DeepCollectionEquality.unordered()
             .equals(assignments, other.assignments) &&
         other.category == category &&
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
         other.phase == phase &&
         other.place == place &&
         other.priority == priority &&
@@ -70,6 +76,7 @@ class TicketJsonhalReadEmbedded {
   int get hashCode =>
       (assignments == null ? 0 : assignments.hashCode) +
       (category == null ? 0 : category.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode) +
       (phase == null ? 0 : phase.hashCode) +
       (place == null ? 0 : place.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
@@ -126,7 +133,7 @@ class TicketJsonhalReadEmbedded {
 
   @override
   String toString() =>
-      'TicketJsonhalReadEmbedded[assignments=$assignments, category=$category, phase=$phase, place=$place, priority=$priority, feedback=$feedback, state=$state]';
+      'TicketJsonhalReadEmbedded[assignments=$assignments, category=$category, equipments=$equipments, phase=$phase, place=$place, priority=$priority, feedback=$feedback, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -142,6 +149,8 @@ class TicketJsonhalReadEmbedded {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
       if (keys == null || keys.any((key) => RegExp(r'^phase\.').hasMatch(key)))
         r'phase': phase?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

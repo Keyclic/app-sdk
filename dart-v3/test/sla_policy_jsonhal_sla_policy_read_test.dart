@@ -10,7 +10,7 @@ void main() {
   // final instance = SlaPolicyJsonhalSlaPolicyRead();
 
   group('test SlaPolicyJsonhalSlaPolicyRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // SlaPolicyJsonhalSlaPolicyReadLinks links
     test('to test the property `links`', () async {});
 
     // The resource identifier.

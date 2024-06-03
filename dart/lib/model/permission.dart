@@ -63,6 +63,7 @@ class Permission {
   static const ticketColonArchivingColonWrite =
       Permission._(r'ticket:archiving:write');
   static const ticketColonRead = Permission._(r'ticket:read');
+  static const ticketColonWrite = Permission._(r'ticket:write');
 
   /// List of all possible values in this [enum][Permission].
   static const values = <Permission>[
@@ -106,6 +107,7 @@ class Permission {
     slaPolicyColonRead,
     ticketColonArchivingColonWrite,
     ticketColonRead,
+    ticketColonWrite,
   ];
 
   static Permission? fromJson(dynamic value) =>
@@ -221,6 +223,8 @@ class PermissionTypeTransformer {
         return Permission.ticketColonArchivingColonWrite;
       case r'ticket:read':
         return Permission.ticketColonRead;
+      case r'ticket:write':
+        return Permission.ticketColonWrite;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

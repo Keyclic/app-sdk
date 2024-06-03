@@ -22918,7 +22918,8 @@
                 "service-offer:write",
                 "sla-policy:read",
                 "ticket:archiving:write",
-                "ticket:read"
+                "ticket:read",
+                "ticket:write"
             ]
         },
         "Person": {

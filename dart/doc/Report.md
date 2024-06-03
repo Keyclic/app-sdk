@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **identificationNumber** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
 **phase** | [**WorkflowState**](WorkflowState.md) |  | [optional] 
 **priority** | [**ReportPriority**](ReportPriority.md) |  | [optional] 
 **reference** | **String** |  | [optional] 

@@ -24518,6 +24518,12 @@
                     "minLength": 1,
                     "type": "string"
                 },
+                "name": {
+                    "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string"
+                },
                 "phase": {
                     "$ref": "#\/definitions\/WorkflowState"
                 },

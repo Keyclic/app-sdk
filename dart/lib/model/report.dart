@@ -15,6 +15,7 @@ class Report {
     this.dueBy,
     this.id,
     this.identificationNumber,
+    this.name,
     this.phase,
     this.priority,
     this.reference,
@@ -65,6 +66,7 @@ class Report {
       dueBy: dueBy,
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],
+      name: json[r'name'],
       phase: WorkflowState.fromJson(json[r'phase']),
       priority: ReportPriority.fromJson(json[r'priority']),
       reference: json[r'reference'],
@@ -90,6 +92,8 @@ class Report {
   final String? id;
 
   String? identificationNumber;
+
+  String? name;
 
   WorkflowState? phase;
 
@@ -121,6 +125,7 @@ class Report {
         other.dueBy == dueBy &&
         other.id == id &&
         other.identificationNumber == identificationNumber &&
+        other.name == name &&
         other.phase == phase &&
         other.priority == priority &&
         other.reference == reference &&
@@ -140,6 +145,7 @@ class Report {
       (dueBy == null ? 0 : dueBy.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (phase == null ? 0 : phase.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
@@ -192,7 +198,7 @@ class Report {
 
   @override
   String toString() =>
-      'Report[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, phase=$phase, priority=$priority, reference=$reference, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt]';
+      'Report[embedded=$embedded, links=$links, archived=$archived, createdAt=$createdAt, description=$description, dueBy=$dueBy, id=$id, identificationNumber=$identificationNumber, name=$name, phase=$phase, priority=$priority, reference=$reference, scheduledAt=$scheduledAt, tags=$tags, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -225,6 +231,7 @@ class Report {
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.any((key) => RegExp(r'^phase\.').hasMatch(key)))
         r'phase': phase?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

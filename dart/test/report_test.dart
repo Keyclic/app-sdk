@@ -34,6 +34,9 @@ void main() {
     // String identificationNumber
     test('to test the property `identificationNumber`', () async {});
 
+    // String name
+    test('to test the property `name`', () async {});
+
     // WorkflowState phase
     test('to test the property `phase`', () async {});
 

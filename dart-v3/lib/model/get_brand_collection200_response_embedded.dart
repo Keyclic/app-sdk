@@ -39,7 +39,7 @@ class GetBrandCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetBrandCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetBrandCollection200ResponseEmbedded>[];
     }

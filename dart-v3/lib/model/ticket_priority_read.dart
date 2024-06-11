@@ -58,7 +58,7 @@ class TicketPriorityRead {
       (id == null ? 0 : id.hashCode) +
       (position == null ? 0 : position.hashCode);
 
-  static List<TicketPriorityRead> listFromJson(List<dynamic>? json) {
+  static List<TicketPriorityRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketPriorityRead>[];
     }

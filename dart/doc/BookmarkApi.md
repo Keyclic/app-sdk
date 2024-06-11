@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Retrieve all Bookmark resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -42,7 +42,7 @@ final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetBookmarks(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organization, organizationsLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 Remove one Bookmark resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -103,7 +103,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.deleteBookmark(xKeyclicApp, bookmark, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling BookmarkApi->deleteBookmark: $e\n');
@@ -141,7 +141,7 @@ void (empty response body)
 
 Retrieve one Bookmark resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -157,7 +157,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getBookmark(xKeyclicApp, bookmark, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 Create one Bookmark resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -212,7 +212,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postBookmark(xKeyclicApp, bookmarkData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

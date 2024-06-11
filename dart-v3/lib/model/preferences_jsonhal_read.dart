@@ -46,7 +46,7 @@ class PreferencesJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
-  static List<PreferencesJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<PreferencesJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesJsonhalRead>[];
     }

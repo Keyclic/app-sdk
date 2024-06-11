@@ -38,7 +38,7 @@ class InternalServiceCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<InternalServiceCollection> listFromJson(List<dynamic>? json) {
+  static List<InternalServiceCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServiceCollection>[];
     }

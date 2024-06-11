@@ -51,7 +51,7 @@ class PersonAgreement {
       (privacyPolicy == null ? 0 : privacyPolicy.hashCode) +
       (termsOfService == null ? 0 : termsOfService.hashCode);
 
-  static List<PersonAgreement> listFromJson(List<dynamic>? json) {
+  static List<PersonAgreement> listFromJson(Iterable? json) {
     if (json == null) {
       return <PersonAgreement>[];
     }

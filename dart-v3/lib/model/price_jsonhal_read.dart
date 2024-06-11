@@ -54,7 +54,7 @@ class PriceJsonhalRead {
       (currencyCode == null ? 0 : currencyCode.hashCode) +
       (value == null ? 0 : value.hashCode);
 
-  static List<PriceJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<PriceJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PriceJsonhalRead>[];
     }

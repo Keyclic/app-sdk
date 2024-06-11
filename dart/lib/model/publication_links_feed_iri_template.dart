@@ -37,8 +37,7 @@ class PublicationLinksFeedIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PublicationLinksFeedIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<PublicationLinksFeedIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <PublicationLinksFeedIriTemplate>[];
     }

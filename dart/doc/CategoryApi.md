@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 Retrieve all Category resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -50,7 +50,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetCategories(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoPoint, geoCoordinates, leaf, level, organization, organizationsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 Remove one Category resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -118,7 +118,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.deleteCategory(xKeyclicApp, category, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling CategoryApi->deleteCategory: $e\n');
@@ -156,7 +156,7 @@ void (empty response body)
 
 Retrieve one Category resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -172,7 +172,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getCategory(xKeyclicApp, category, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 Edit one Category resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -228,7 +228,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.patchCategory(xKeyclicApp, category, categoryPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 Create one Category resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -284,7 +284,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postCategory(xKeyclicApp, categoryData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

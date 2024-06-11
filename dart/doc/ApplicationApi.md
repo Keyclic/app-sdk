@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Retrieve one Application resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 
@@ -29,7 +29,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getApplication(xKeyclicApp, application, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

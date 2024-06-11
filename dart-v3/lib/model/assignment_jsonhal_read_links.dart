@@ -52,7 +52,7 @@ class AssignmentJsonhalReadLinks {
       (member == null ? 0 : member.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<AssignmentJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<AssignmentJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentJsonhalReadLinks>[];
     }

@@ -38,7 +38,7 @@ class RuleLinksServiceIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<RuleLinksServiceIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<RuleLinksServiceIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <RuleLinksServiceIriTemplate>[];
     }

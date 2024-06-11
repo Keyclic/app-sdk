@@ -69,7 +69,7 @@ class BookmarkPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<BookmarkPagination> listFromJson(List<dynamic>? json) {
+  static List<BookmarkPagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkPagination>[];
     }

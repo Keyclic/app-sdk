@@ -39,7 +39,7 @@ class GetBusinessHoursCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetBusinessHoursCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetBusinessHoursCollection200ResponseEmbedded>[];
     }

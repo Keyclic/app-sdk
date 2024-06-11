@@ -44,7 +44,7 @@ class CategoryJsonhalReadLinks {
   int get hashCode =>
       (self == null ? 0 : self.hashCode) + (type == null ? 0 : type.hashCode);
 
-  static List<CategoryJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<CategoryJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryJsonhalReadLinks>[];
     }

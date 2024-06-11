@@ -32,53 +32,23 @@ class ContractRead {
       return null;
     }
 
-    DateTime effectiveDate = DateTime.parse(json[r'effectiveDate']);
-    if (effectiveDate.isUtc == false) {
-      effectiveDate = DateTime.parse('${json[r'effectiveDate']}Z');
-    }
-
-    DateTime? signedAt =
-        json[r'signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
-    if (signedAt != null && signedAt.isUtc == false) {
-      signedAt = DateTime.parse('${json[r'signedAt']}Z');
-    }
-
-    DateTime? terminationDate = json[r'terminationDate'] == null
-        ? null
-        : DateTime.parse(json[r'terminationDate']);
-    if (terminationDate != null && terminationDate.isUtc == false) {
-      terminationDate = DateTime.parse('${json[r'terminationDate']}Z');
-    }
-
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return ContractRead(
       billing: BillingRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: effectiveDate,
+      effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
       provider: json[r'provider'],
       renewal: RenewalRead.fromJson(json[r'renewal']),
-      signedAt: signedAt,
+      signedAt: mapToDateTime(json[r'signedAt']),
       state: ContractReadStateEnum.fromJson(json[r'state'])!,
-      terminationDate: terminationDate,
+      terminationDate: mapToDateTime(json[r'terminationDate']),
       type: json[r'type'],
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -172,7 +142,7 @@ class ContractRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ContractRead> listFromJson(List<dynamic>? json) {
+  static List<ContractRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContractRead>[];
     }

@@ -84,7 +84,7 @@ class WorkflowTransition {
       (to == null ? 0 : to.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<WorkflowTransition> listFromJson(List<dynamic>? json) {
+  static List<WorkflowTransition> listFromJson(Iterable? json) {
     if (json == null) {
       return <WorkflowTransition>[];
     }

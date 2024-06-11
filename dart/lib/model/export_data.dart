@@ -57,7 +57,7 @@ class ExportData {
       (groupBy == null ? 0 : groupBy.hashCode) +
       organization.hashCode;
 
-  static List<ExportData> listFromJson(List<dynamic>? json) {
+  static List<ExportData> listFromJson(Iterable? json) {
     if (json == null) {
       return <ExportData>[];
     }

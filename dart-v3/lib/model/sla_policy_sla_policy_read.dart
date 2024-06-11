@@ -26,18 +26,6 @@ class SlaPolicySlaPolicyRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return SlaPolicySlaPolicyRead(
       fromStates: json[r'fromStates'] == null
           ? null
@@ -51,8 +39,8 @@ class SlaPolicySlaPolicyRead {
       name: json[r'name'],
       enabled: json[r'enabled'],
       conditions: ConditionSlaPolicyRead.listFromJson(json[r'conditions']),
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -114,7 +102,7 @@ class SlaPolicySlaPolicyRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<SlaPolicySlaPolicyRead> listFromJson(List<dynamic>? json) {
+  static List<SlaPolicySlaPolicyRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <SlaPolicySlaPolicyRead>[];
     }

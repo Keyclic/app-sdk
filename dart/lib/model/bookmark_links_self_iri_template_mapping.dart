@@ -39,7 +39,7 @@ class BookmarkLinksSelfIriTemplateMapping {
   int get hashCode => (bookmark == null ? 0 : bookmark.hashCode);
 
   static List<BookmarkLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <BookmarkLinksSelfIriTemplateMapping>[];
     }

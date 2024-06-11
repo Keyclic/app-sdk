@@ -69,7 +69,7 @@ class TemplatePatch {
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<TemplatePatch> listFromJson(List<dynamic>? json) {
+  static List<TemplatePatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <TemplatePatch>[];
     }

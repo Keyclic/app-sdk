@@ -39,8 +39,7 @@ class InvitationLinksMemberIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<InvitationLinksMemberIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<InvitationLinksMemberIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationLinksMemberIriTemplate>[];
     }

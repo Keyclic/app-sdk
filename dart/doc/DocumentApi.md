@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Remove one Document resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -36,7 +36,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.deleteDocument(xKeyclicApp, document, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling DocumentApi->deleteDocument: $e\n');
@@ -74,7 +74,7 @@ void (empty response body)
 
 Retrieve one Document resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -90,7 +90,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getDocument(xKeyclicApp, document, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 Edit one Document resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -146,7 +146,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.patchDocument(xKeyclicApp, document, documentPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 Create one Workflow resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -204,7 +204,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xAsyncProcessing = true; // bool | 
 
-try { 
+try {
     final result = api_instance.postWorkflowByDocument(xKeyclicApp, document, documentWorkflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xAsyncProcessing);
     print(result);
 } catch (e) {

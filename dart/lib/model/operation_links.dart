@@ -81,7 +81,7 @@ class OperationLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<OperationLinks> listFromJson(List<dynamic>? json) {
+  static List<OperationLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationLinks>[];
     }

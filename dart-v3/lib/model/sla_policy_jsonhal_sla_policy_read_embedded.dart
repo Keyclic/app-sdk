@@ -51,7 +51,7 @@ class SlaPolicyJsonhalSlaPolicyReadEmbedded {
       (toStates == null ? 0 : toStates.hashCode);
 
   static List<SlaPolicyJsonhalSlaPolicyReadEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <SlaPolicyJsonhalSlaPolicyReadEmbedded>[];
     }

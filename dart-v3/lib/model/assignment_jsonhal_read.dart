@@ -52,7 +52,7 @@ class AssignmentJsonhalRead {
       (outOfContract == null ? 0 : outOfContract.hashCode) +
       (id == null ? 0 : id.hashCode);
 
-  static List<AssignmentJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<AssignmentJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentJsonhalRead>[];
     }

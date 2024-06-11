@@ -38,7 +38,7 @@ class FeedbackCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<FeedbackCollection> listFromJson(List<dynamic>? json) {
+  static List<FeedbackCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackCollection>[];
     }

@@ -23,26 +23,14 @@ class Section {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Section(
       links: SectionLinks.fromJson(json[r'_links']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -87,7 +75,7 @@ class Section {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Section> listFromJson(List<dynamic>? json) {
+  static List<Section> listFromJson(Iterable? json) {
     if (json == null) {
       return <Section>[];
     }

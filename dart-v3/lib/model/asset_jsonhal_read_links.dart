@@ -57,7 +57,7 @@ class AssetJsonhalReadLinks {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<AssetJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<AssetJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssetJsonhalReadLinks>[];
     }

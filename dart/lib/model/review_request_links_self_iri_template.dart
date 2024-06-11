@@ -39,8 +39,7 @@ class ReviewRequestLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReviewRequestLinksSelfIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<ReviewRequestLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewRequestLinksSelfIriTemplate>[];
     }

@@ -58,7 +58,7 @@ class PointJsonhalRead {
       (latitude == null ? 0 : latitude.hashCode) +
       (longitude == null ? 0 : longitude.hashCode);
 
-  static List<PointJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<PointJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PointJsonhalRead>[];
     }

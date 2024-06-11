@@ -40,7 +40,7 @@ class FeedbackLinksBusinessActivityIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<FeedbackLinksBusinessActivityIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <FeedbackLinksBusinessActivityIriTemplate>[];
     }

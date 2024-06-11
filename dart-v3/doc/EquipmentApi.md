@@ -23,7 +23,7 @@ Removes the Equipment resource.
 
 Removes the Equipment resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -40,7 +40,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.deleteEquipment(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling EquipmentApi->deleteEquipment: $e\n');
@@ -81,7 +81,7 @@ Retrieves a Equipment resource.
 
 Retrieves a Equipment resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -98,7 +98,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getEquipment(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -140,7 +140,7 @@ Retrieves the collection of Equipment resources.
 
 Retrieves the collection of Equipment resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -210,7 +210,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getEquipmentCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, subtree, commissioningDateLeftSquareBracketBeforeRightSquareBracket, commissioningDateLeftSquareBracketStrictlyBeforeRightSquareBracket, commissioningDateLeftSquareBracketAfterRightSquareBracket, commissioningDateLeftSquareBracketStrictlyAfterRightSquareBracket, retirementDateLeftSquareBracketBeforeRightSquareBracket, retirementDateLeftSquareBracketStrictlyBeforeRightSquareBracket, retirementDateLeftSquareBracketAfterRightSquareBracket, retirementDateLeftSquareBracketStrictlyAfterRightSquareBracket, warrantyPeriodStartDateLeftSquareBracketBeforeRightSquareBracket, warrantyPeriodStartDateLeftSquareBracketStrictlyBeforeRightSquareBracket, warrantyPeriodStartDateLeftSquareBracketAfterRightSquareBracket, warrantyPeriodStartDateLeftSquareBracketStrictlyAfterRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketBeforeRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketStrictlyBeforeRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketAfterRightSquareBracket, warrantyPeriodEndDateLeftSquareBracketStrictlyAfterRightSquareBracket, orderLeftSquareBracketBrandPeriodNameRightSquareBracket, orderLeftSquareBracketCommissioningDateRightSquareBracket, orderLeftSquareBracketLifetimeRightSquareBracket, orderLeftSquareBracketModelRightSquareBracket, orderLeftSquareBracketMpnRightSquareBracket, orderLeftSquareBracketRetirementDateRightSquareBracket, orderLeftSquareBracketSerialNumberRightSquareBracket, orderLeftSquareBracketWarrantyPeriodStartDateRightSquareBracket, orderLeftSquareBracketWarrantyPeriodEndDateRightSquareBracket, brandPeriodIdentifier, brandPeriodIdentifierLeftSquareBracketRightSquareBracket, model, mpn, serialNumber, statePeriodIdentifier, statePeriodIdentifierLeftSquareBracketRightSquareBracket, typePeriodIdentifier, typePeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -305,7 +305,7 @@ Updates the Equipment resource.
 
 Updates the Equipment resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -323,7 +323,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.patchEquipment(identifier, xKeyclicApp, xOrganizationId, equipmentEditEquipmentCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -366,7 +366,7 @@ Creates a Equipment resource.
 
 Creates a Equipment resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -383,7 +383,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postEquipment(xKeyclicApp, xOrganizationId, equipmentCreateEquipmentCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

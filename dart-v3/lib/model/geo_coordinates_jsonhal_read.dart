@@ -55,7 +55,7 @@ class GeoCoordinatesJsonhalRead {
       (elevation == null ? 0 : elevation.hashCode) +
       (point == null ? 0 : point.hashCode);
 
-  static List<GeoCoordinatesJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<GeoCoordinatesJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <GeoCoordinatesJsonhalRead>[];
     }

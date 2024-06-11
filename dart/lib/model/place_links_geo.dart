@@ -46,7 +46,7 @@ class PlaceLinksGeo {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PlaceLinksGeo> listFromJson(List<dynamic>? json) {
+  static List<PlaceLinksGeo> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceLinksGeo>[];
     }

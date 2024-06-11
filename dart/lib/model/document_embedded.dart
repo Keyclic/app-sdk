@@ -68,7 +68,7 @@ class DocumentEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentEmbedded> listFromJson(List<dynamic>? json) {
+  static List<DocumentEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentEmbedded>[];
     }

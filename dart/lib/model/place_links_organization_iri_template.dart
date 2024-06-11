@@ -39,8 +39,7 @@ class PlaceLinksOrganizationIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<PlaceLinksOrganizationIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<PlaceLinksOrganizationIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceLinksOrganizationIriTemplate>[];
     }

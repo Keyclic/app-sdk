@@ -57,7 +57,7 @@ class RuleLinks {
       (self == null ? 0 : self.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<RuleLinks> listFromJson(List<dynamic>? json) {
+  static List<RuleLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <RuleLinks>[];
     }

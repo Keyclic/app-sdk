@@ -37,7 +37,7 @@ class MarkerLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<MarkerLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<MarkerLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerLinksSelfIriTemplate>[];
     }

@@ -46,7 +46,7 @@ class PlanLinksImage {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PlanLinksImage> listFromJson(List<dynamic>? json) {
+  static List<PlanLinksImage> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlanLinksImage>[];
     }

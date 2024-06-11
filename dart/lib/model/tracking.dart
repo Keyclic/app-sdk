@@ -58,7 +58,7 @@ class Tracking {
       (state == null ? 0 : state.hashCode) +
       (time == null ? 0 : time.hashCode);
 
-  static List<Tracking> listFromJson(List<dynamic>? json) {
+  static List<Tracking> listFromJson(Iterable? json) {
     if (json == null) {
       return <Tracking>[];
     }

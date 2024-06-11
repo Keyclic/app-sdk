@@ -42,7 +42,7 @@ class NodePath {
   int get hashCode =>
       (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
 
-  static List<NodePath> listFromJson(List<dynamic>? json) {
+  static List<NodePath> listFromJson(Iterable? json) {
     if (json == null) {
       return <NodePath>[];
     }

@@ -38,7 +38,7 @@ class CategoryCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<CategoryCollection> listFromJson(List<dynamic>? json) {
+  static List<CategoryCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryCollection>[];
     }

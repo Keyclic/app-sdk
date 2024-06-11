@@ -39,7 +39,7 @@ class GetContractCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetContractCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetContractCollection200ResponseEmbedded>[];
     }

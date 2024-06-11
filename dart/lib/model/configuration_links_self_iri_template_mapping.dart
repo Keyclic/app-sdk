@@ -39,7 +39,7 @@ class ConfigurationLinksSelfIriTemplateMapping {
   int get hashCode => (configuration == null ? 0 : configuration.hashCode);
 
   static List<ConfigurationLinksSelfIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <ConfigurationLinksSelfIriTemplateMapping>[];
     }

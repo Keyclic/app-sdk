@@ -8,22 +8,10 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
       return null;
     }
 
-    {{#vars}}
-    {{#isDateTime}}
-        {{{datatype}}}{{^required}}?{{/required}} {{{name}}} = {{^required}}json[r'{{{baseName}}}'] == null ? null : {{/required}}DateTime.parse(json[r'{{{baseName}}}']);
-        if ({{^required}}{{{name}}} != null && {{/required}}{{{name}}}.isUtc == false) {
-          {{=<< >>=}}
-            <<name>> = DateTime.parse('${json[r'<<baseName>>']}Z');
-          <<={{ }}=>>
-        }
-
-      {{/isDateTime}}
-    {{/vars}}
-
   return {{{classname}}}(
   {{#vars}}
   {{#isDateTime}}
-        {{{name}}}: {{{name}}},
+        {{{name}}}: mapToDateTime(json[r'{{{baseName}}}']){{#required}}!{{/required}},
   {{/isDateTime}}
   {{#isDate}}
         {{{name}}}: json[r'{{{baseName}}}'] == null
@@ -206,7 +194,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{^required}}({{{name}}} == null ? 0 :{{/required}} {{{name}}}.hashCode{{^required}}){{/required}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
   {{/vars}}
 
-  static List<{{{classname}}}> listFromJson(List<dynamic>? json) {
+  static List<{{{classname}}}> listFromJson(Iterable? json) {
     if (json == null) {
       return <{{{classname}}}>[];
     }

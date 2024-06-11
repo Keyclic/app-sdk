@@ -46,7 +46,7 @@ class FeedbackJsonhalReadLinks {
       (self == null ? 0 : self.hashCode) +
       (reporter == null ? 0 : reporter.hashCode);
 
-  static List<FeedbackJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<FeedbackJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackJsonhalReadLinks>[];
     }

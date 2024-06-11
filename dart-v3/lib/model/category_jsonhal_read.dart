@@ -52,7 +52,7 @@ class CategoryJsonhalRead {
       name.hashCode +
       (id == null ? 0 : id.hashCode);
 
-  static List<CategoryJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<CategoryJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryJsonhalRead>[];
     }

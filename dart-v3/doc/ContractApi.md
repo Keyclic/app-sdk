@@ -23,7 +23,7 @@ Removes the Contract resource.
 
 Removes the Contract resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -40,7 +40,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.deleteContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling ContractApi->deleteContract: $e\n');
@@ -81,7 +81,7 @@ Retrieves a Contract resource.
 
 Retrieves a Contract resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -98,7 +98,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getContract(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -140,7 +140,7 @@ Retrieves the collection of Contract resources.
 
 Retrieves the collection of Contract resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -198,7 +198,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getContractCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, effectiveDateLeftSquareBracketBeforeRightSquareBracket, effectiveDateLeftSquareBracketStrictlyBeforeRightSquareBracket, effectiveDateLeftSquareBracketAfterRightSquareBracket, effectiveDateLeftSquareBracketStrictlyAfterRightSquareBracket, signedAtLeftSquareBracketBeforeRightSquareBracket, signedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, signedAtLeftSquareBracketAfterRightSquareBracket, signedAtLeftSquareBracketStrictlyAfterRightSquareBracket, terminationDateLeftSquareBracketBeforeRightSquareBracket, terminationDateLeftSquareBracketStrictlyBeforeRightSquareBracket, terminationDateLeftSquareBracketAfterRightSquareBracket, terminationDateLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, orderLeftSquareBracketBillingPeriodAdjustedCostPeriodValueRightSquareBracket, orderLeftSquareBracketBillingPeriodInitialCostPeriodValueRightSquareBracket, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketEffectiveDateRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketNumberRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, orderLeftSquareBracketSignedAtRightSquareBracket, orderLeftSquareBracketStateRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, onCall, onCallLeftSquareBracketRightSquareBracket, provider, providerLeftSquareBracketRightSquareBracket, places, placesLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -281,7 +281,7 @@ Updates the Contract resource.
 
 Updates the Contract resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -299,7 +299,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.patchContract(identifier, xKeyclicApp, xOrganizationId, contractEditContractCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -342,7 +342,7 @@ Creates a Contract resource.
 
 Creates a Contract resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -359,7 +359,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postContract(xKeyclicApp, xOrganizationId, contractCreateContractCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

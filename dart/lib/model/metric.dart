@@ -43,7 +43,7 @@ class Metric {
       (name == null ? 0 : name.hashCode) +
       (duration == null ? 0 : duration.hashCode);
 
-  static List<Metric> listFromJson(List<dynamic>? json) {
+  static List<Metric> listFromJson(Iterable? json) {
     if (json == null) {
       return <Metric>[];
     }

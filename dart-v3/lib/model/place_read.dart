@@ -26,23 +26,11 @@ class PlaceRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return PlaceRead(
       type: json[r'type'],
       id: json[r'id'],
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesRead.fromJson(json[r'preferences']),
@@ -108,7 +96,7 @@ class PlaceRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<PlaceRead> listFromJson(List<dynamic>? json) {
+  static List<PlaceRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceRead>[];
     }

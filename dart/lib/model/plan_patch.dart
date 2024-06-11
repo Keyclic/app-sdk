@@ -37,7 +37,7 @@ class PlanPatch {
   @override
   int get hashCode => (name == null ? 0 : name.hashCode);
 
-  static List<PlanPatch> listFromJson(List<dynamic>? json) {
+  static List<PlanPatch> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlanPatch>[];
     }

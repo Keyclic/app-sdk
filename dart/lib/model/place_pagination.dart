@@ -69,7 +69,7 @@ class PlacePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<PlacePagination> listFromJson(List<dynamic>? json) {
+  static List<PlacePagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlacePagination>[];
     }

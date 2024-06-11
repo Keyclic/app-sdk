@@ -63,7 +63,7 @@ class AssignmentLinks {
       (self == null ? 0 : self.hashCode) +
       (service == null ? 0 : service.hashCode);
 
-  static List<AssignmentLinks> listFromJson(List<dynamic>? json) {
+  static List<AssignmentLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentLinks>[];
     }

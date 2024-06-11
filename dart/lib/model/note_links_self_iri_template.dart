@@ -37,7 +37,7 @@ class NoteLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<NoteLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<NoteLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <NoteLinksSelfIriTemplate>[];
     }

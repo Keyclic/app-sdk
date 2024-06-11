@@ -29,42 +29,17 @@ class TicketJsonhalRead {
       return null;
     }
 
-    DateTime? dueBy =
-        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
-    if (dueBy != null && dueBy.isUtc == false) {
-      dueBy = DateTime.parse('${json[r'dueBy']}Z');
-    }
-
-    DateTime? scheduledAt = json[r'scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
-    if (scheduledAt != null && scheduledAt.isUtc == false) {
-      scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
-    }
-
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return TicketJsonhalRead(
       links: TicketJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
-      dueBy: dueBy,
+      dueBy: mapToDateTime(json[r'dueBy']),
       name: json[r'name'],
-      scheduledAt: scheduledAt,
+      scheduledAt: mapToDateTime(json[r'scheduledAt']),
       completed: json[r'completed'],
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       reference: json[r'reference'],
       archived: json[r'archived'],
       embedded: TicketJsonhalReadEmbedded.fromJson(json[r'_embedded']),
@@ -139,7 +114,7 @@ class TicketJsonhalRead {
       (archived == null ? 0 : archived.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<TicketJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<TicketJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketJsonhalRead>[];
     }

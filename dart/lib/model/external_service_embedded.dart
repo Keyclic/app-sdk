@@ -37,7 +37,7 @@ class ExternalServiceEmbedded {
   @override
   int get hashCode => (provider == null ? 0 : provider.hashCode);
 
-  static List<ExternalServiceEmbedded> listFromJson(List<dynamic>? json) {
+  static List<ExternalServiceEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <ExternalServiceEmbedded>[];
     }

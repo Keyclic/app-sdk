@@ -38,7 +38,7 @@ class FeedbackJsonhalReadEmbedded {
   @override
   int get hashCode => (markers == null ? 0 : markers.hashCode);
 
-  static List<FeedbackJsonhalReadEmbedded> listFromJson(List<dynamic>? json) {
+  static List<FeedbackJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackJsonhalReadEmbedded>[];
     }

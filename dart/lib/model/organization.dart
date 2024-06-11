@@ -30,45 +30,21 @@ class Organization {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? endDate =
-        json[r'endDate'] == null ? null : DateTime.parse(json[r'endDate']);
-    if (endDate != null && endDate.isUtc == false) {
-      endDate = DateTime.parse('${json[r'endDate']}Z');
-    }
-
-    DateTime? startDate =
-        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
-    if (startDate != null && startDate.isUtc == false) {
-      startDate = DateTime.parse('${json[r'startDate']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Organization(
       links: OrganizationLinks.fromJson(json[r'_links']),
       address: OrganizationPostalAddress.fromJson(json[r'address']),
       alternateName: json[r'alternateName'],
       archived: json[r'archived'],
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       description: json[r'description'],
       enabled: json[r'enabled'],
-      endDate: endDate,
+      endDate: mapToDateTime(json[r'endDate']),
       id: json[r'id'],
       name: json[r'name'],
       preferences: OrganizationPreferences.fromJson(json[r'preferences']),
-      startDate: startDate,
+      startDate: mapToDateTime(json[r'startDate']),
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -141,7 +117,7 @@ class Organization {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Organization> listFromJson(List<dynamic>? json) {
+  static List<Organization> listFromJson(Iterable? json) {
     if (json == null) {
       return <Organization>[];
     }

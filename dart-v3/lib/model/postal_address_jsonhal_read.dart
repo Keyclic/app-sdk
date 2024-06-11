@@ -57,7 +57,7 @@ class PostalAddressJsonhalRead {
       (postalCode == null ? 0 : postalCode.hashCode) +
       (streetAddress == null ? 0 : streetAddress.hashCode);
 
-  static List<PostalAddressJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<PostalAddressJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PostalAddressJsonhalRead>[];
     }

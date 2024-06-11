@@ -66,7 +66,7 @@ class FeedbackEmbedded {
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<FeedbackEmbedded> listFromJson(List<dynamic>? json) {
+  static List<FeedbackEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackEmbedded>[];
     }

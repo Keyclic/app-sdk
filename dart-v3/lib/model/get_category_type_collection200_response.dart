@@ -61,7 +61,7 @@ class GetCategoryTypeCollection200Response {
       links.hashCode;
 
   static List<GetCategoryTypeCollection200Response> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetCategoryTypeCollection200Response>[];
     }

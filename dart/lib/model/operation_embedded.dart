@@ -71,7 +71,7 @@ class OperationEmbedded {
       (targetGroups == null ? 0 : targetGroups.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<OperationEmbedded> listFromJson(List<dynamic>? json) {
+  static List<OperationEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <OperationEmbedded>[];
     }

@@ -65,7 +65,7 @@ class Run {
       (result == null ? 0 : result.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<Run> listFromJson(List<dynamic>? json) {
+  static List<Run> listFromJson(Iterable? json) {
     if (json == null) {
       return <Run>[];
     }

@@ -28,18 +28,6 @@ class Application {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Application(
       links: ApplicationLinks.fromJson(json[r'_links']),
       about: ApplicationAbout.fromJson(json[r'about']),
@@ -47,12 +35,12 @@ class Application {
       configuration: ApplicationConfiguration.fromJson(json[r'configuration']),
       contactPoints:
           ApplicationContactPoint.listFromJson(json[r'contactPoints']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       id: json[r'id'],
       name: json[r'name'],
       token: json[r'token'],
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       version: json[r'version'],
     );
   }
@@ -119,7 +107,7 @@ class Application {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (version == null ? 0 : version.hashCode);
 
-  static List<Application> listFromJson(List<dynamic>? json) {
+  static List<Application> listFromJson(Iterable? json) {
     if (json == null) {
       return <Application>[];
     }

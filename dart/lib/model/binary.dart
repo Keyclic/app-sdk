@@ -51,7 +51,7 @@ class Binary {
       (contentType == null ? 0 : contentType.hashCode) +
       (name == null ? 0 : name.hashCode);
 
-  static List<Binary> listFromJson(List<dynamic>? json) {
+  static List<Binary> listFromJson(Iterable? json) {
     if (json == null) {
       return <Binary>[];
     }

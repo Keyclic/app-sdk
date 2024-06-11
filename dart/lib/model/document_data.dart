@@ -63,7 +63,7 @@ class DocumentData {
       (template == null ? 0 : template.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<DocumentData> listFromJson(List<dynamic>? json) {
+  static List<DocumentData> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentData>[];
     }

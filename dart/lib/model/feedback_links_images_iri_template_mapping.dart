@@ -46,7 +46,7 @@ class FeedbackLinksImagesIriTemplateMapping {
       (image == null ? 0 : image.hashCode);
 
   static List<FeedbackLinksImagesIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <FeedbackLinksImagesIriTemplateMapping>[];
     }

@@ -46,7 +46,7 @@ class FeedbackLinksPlansIriTemplateMapping {
       (feedback == null ? 0 : feedback.hashCode);
 
   static List<FeedbackLinksPlansIriTemplateMapping> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <FeedbackLinksPlansIriTemplateMapping>[];
     }

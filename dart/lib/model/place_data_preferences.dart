@@ -38,7 +38,7 @@ class PlaceDataPreferences {
   @override
   int get hashCode => (visibility == null ? 0 : visibility.hashCode);
 
-  static List<PlaceDataPreferences> listFromJson(List<dynamic>? json) {
+  static List<PlaceDataPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceDataPreferences>[];
     }

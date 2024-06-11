@@ -38,7 +38,7 @@ class ReviewLinksAuthorIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<ReviewLinksAuthorIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<ReviewLinksAuthorIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReviewLinksAuthorIriTemplate>[];
     }

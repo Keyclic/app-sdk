@@ -46,7 +46,7 @@ class ArticleLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<ArticleLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<ArticleLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <ArticleLinksSelf>[];
     }

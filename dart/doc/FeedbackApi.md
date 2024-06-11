@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 Retrieve all Comment resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -43,7 +43,7 @@ final xKeyclicAppVersion = xKeyclicAppVersion_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetCommentsByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit);
     print(result);
 } catch (e) {
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Feedback resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -109,7 +109,7 @@ final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetFeedback(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, batch, batchesLeftSquareBracketRightSquareBracket, after, before, geoHashLeftSquareBracketRightSquareBracket, orderLeftSquareBracketRightSquareBracket, organization, organizationsLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 Remove one Feedback resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -173,7 +173,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     api_instance.deleteFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
 } catch (e) {
     print('Exception when calling FeedbackApi->deleteFeedback: $e\n');
@@ -211,7 +211,7 @@ void (empty response body)
 
 Retrieve one Feedback resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -227,7 +227,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 Retrieve one Tracking resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -282,7 +282,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getTrackingByFeedback(xKeyclicApp, feedback, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 Create one Attachment resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -338,7 +338,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postAttachmentByFeedback(xKeyclicApp, feedback, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 Create one Comment resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -395,7 +395,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postCommentByFeedback(xKeyclicApp, feedback, commentData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -435,7 +435,7 @@ Name | Type | Description  | Notes
 
 Create one Issue resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -451,7 +451,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postIssue(xKeyclicApp, feedbackData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 
 Create one Workflow resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -508,7 +508,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = true; // bool | 
 
-try { 
+try {
     final result = api_instance.postWorkflowByFeedback(xKeyclicApp, feedback, feedbackWorkflowTransitionData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {

@@ -51,7 +51,7 @@ class SignerLinks {
       (procedure == null ? 0 : procedure.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<SignerLinks> listFromJson(List<dynamic>? json) {
+  static List<SignerLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <SignerLinks>[];
     }

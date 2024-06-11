@@ -37,7 +37,7 @@ Method | HTTP request | Description
 
 Retrieve all Category resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -66,7 +66,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetCategoriesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoPoint, geoCoordinates, leaf, level, organizationsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 Retrieve all DispatchService resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -143,7 +143,7 @@ final after = 2013-10-20T19:20:30+01:00; // DateTime |
 final before = 2013-10-20T19:20:30+01:00; // DateTime | 
 final query = query_example; // String | 
 
-try { 
+try {
     final result = api_instance.cgetDispatchServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, asset, category, page, place, limit, orderLeftSquareBracketRightSquareBracket, after, before, query);
     print(result);
 } catch (e) {
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Document resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -215,7 +215,7 @@ final statesLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetDocumentsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, organizationsLeftSquareBracketRightSquareBracket, state, statesLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 Retrieve all ExternalService resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -284,7 +284,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetExternalServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, query, page, limit);
     print(result);
 } catch (e) {
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 Retrieve all InternalService resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -351,7 +351,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetInternalServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, query, page, limit);
     print(result);
 } catch (e) {
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Member resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -425,7 +425,7 @@ final type = type_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, contactPointEmail, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
     print(result);
 } catch (e) {
@@ -477,7 +477,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Occupant resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -505,7 +505,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetOccupantsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, member, membersLeftSquareBracketRightSquareBracket, person, personsLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Operation resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -620,7 +620,7 @@ final visibilityLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetOperationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Organization resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -736,7 +736,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetOrganizations(xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, disabledAt, geoPoint, geoCoordinates, organization, organizationsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
@@ -788,7 +788,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Place resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -822,7 +822,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetPlacesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, branchCode, businessActivity, businessActivitiesLeftSquareBracketRightSquareBracket, after, before, geoElevation, geoHashLeftSquareBracketRightSquareBracket, geoPoint, geoCoordinates, leaf, level, organizationsLeftSquareBracketRightSquareBracket, parent, parentsLeftSquareBracketRightSquareBracket, query, page, limit);
     print(result);
 } catch (e) {
@@ -879,7 +879,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Publication resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -902,7 +902,7 @@ final placesLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetPublicationsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, place, placesLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -948,7 +948,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Report resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1012,7 +1012,7 @@ final visibilityLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetReportsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, asset, assetsLeftSquareBracketRightSquareBracket, batch, batchesLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, isEmpty, isNull, leaf, level, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, organizationsLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, query, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, visibilityLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -1099,7 +1099,7 @@ Name | Type | Description  | Notes
 
 Retrieve all ReviewRequest resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1121,7 +1121,7 @@ final hasReview = true; // bool |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetReviewRequestsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, hasReview, page, limit);
     print(result);
 } catch (e) {
@@ -1166,7 +1166,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Review resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1194,7 +1194,7 @@ final tasksLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetReviewsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, after, before, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, task, tasksLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -1245,7 +1245,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Service resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1267,7 +1267,7 @@ final query = query_example; // String |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetServicesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, query, page, limit);
     print(result);
 } catch (e) {
@@ -1312,7 +1312,7 @@ Name | Type | Description  | Notes
 
 Retrieve all Template resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1333,7 +1333,7 @@ final before = 2013-10-20T19:20:30+01:00; // DateTime |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetTemplatesByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, page, limit);
     print(result);
 } catch (e) {
@@ -1377,7 +1377,7 @@ Name | Type | Description  | Notes
 
 Retrieve one Analytic resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1431,7 +1431,7 @@ final statesLeftSquareBracketRightSquareBracket = []; // List<String> |
 final optionsLeftSquareBracketPropertyRightSquareBracket = optionsLeftSquareBracketPropertyRightSquareBracket_example; // String | 
 final optionsLeftSquareBracketSortRightSquareBracket = optionsLeftSquareBracketSortRightSquareBracket_example; // String | 
 
-try { 
+try {
     final result = api_instance.getAnalyticByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, archived, asset, assetsLeftSquareBracketRightSquareBracket, category, categoriesLeftSquareBracketRightSquareBracket, categoryType, categoryTypesLeftSquareBracketRightSquareBracket, createdBy, createdBiesLeftSquareBracketRightSquareBracket, afterDueBy, after, beforeDueBy, before, deep, delegatedTo, delegatedTosLeftSquareBracketRightSquareBracket, equipmentLeftSquareBracketRightSquareBracket, hasDocuments, managedBy, managedBiesLeftSquareBracketRightSquareBracket, member, membersLeftSquareBracketRightSquareBracket, operationStateAll, operationState, operationStatesLeftSquareBracketRightSquareBracket, phase, phasesLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, priority, prioritiesLeftSquareBracketRightSquareBracket, ratingLeftSquareBracketRightSquareBracket, scheduledAtAfter, scheduledAtBefore, state, statesLeftSquareBracketRightSquareBracket, optionsLeftSquareBracketPropertyRightSquareBracket, optionsLeftSquareBracketSortRightSquareBracket);
     print(result);
 } catch (e) {
@@ -1508,7 +1508,7 @@ Name | Type | Description  | Notes
 
 Retrieve one Configuration resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1524,7 +1524,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getConfigurationByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -1563,7 +1563,7 @@ Name | Type | Description  | Notes
 
 Retrieve one Form resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1579,7 +1579,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getFormByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -1618,7 +1618,7 @@ Name | Type | Description  | Notes
 
 Retrieve one Organization resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1634,7 +1634,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -1673,7 +1673,7 @@ Name | Type | Description  | Notes
 
 Edit one Organization resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -1690,7 +1690,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.patchOrganization(xKeyclicApp, organization, organizationPatch, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

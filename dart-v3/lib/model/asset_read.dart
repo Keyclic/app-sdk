@@ -26,18 +26,6 @@ class AssetRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return AssetRead(
       type: json[r'type'],
       description: json[r'description'],
@@ -45,8 +33,8 @@ class AssetRead {
       preferences: PreferencesRead.fromJson(json[r'preferences']),
       id: json[r'id'],
       address: PostalAddressRead.fromJson(json[r'address']),
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
       parent: json[r'parent'],
       state: json[r'state'],
     );
@@ -108,7 +96,7 @@ class AssetRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<AssetRead> listFromJson(List<dynamic>? json) {
+  static List<AssetRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssetRead>[];
     }

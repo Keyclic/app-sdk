@@ -118,7 +118,7 @@ class OrganizationPreferences {
       (reviewEnabled == null ? 0 : reviewEnabled.hashCode) +
       (sla == null ? 0 : sla.hashCode);
 
-  static List<OrganizationPreferences> listFromJson(List<dynamic>? json) {
+  static List<OrganizationPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <OrganizationPreferences>[];
     }

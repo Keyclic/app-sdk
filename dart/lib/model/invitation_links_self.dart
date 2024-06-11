@@ -47,7 +47,7 @@ class InvitationLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<InvitationLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<InvitationLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <InvitationLinksSelf>[];
     }

@@ -46,7 +46,7 @@ class MemberLinksPerson {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<MemberLinksPerson> listFromJson(List<dynamic>? json) {
+  static List<MemberLinksPerson> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberLinksPerson>[];
     }

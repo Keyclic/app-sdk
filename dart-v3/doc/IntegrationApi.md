@@ -20,7 +20,7 @@ Retrieves a Integration resource.
 
 Retrieves a Integration resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -32,7 +32,7 @@ final api_instance = IntegrationApi();
 final identifier = identifier_example; // String | Integration identifier
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.getIntegration(identifier, acceptLanguage);
     print(result);
 } catch (e) {
@@ -69,7 +69,7 @@ Retrieves the collection of Integration resources.
 
 Retrieves the collection of Integration resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -98,7 +98,7 @@ final organizationPeriodIdentifier = organizationPeriodIdentifier_example; // St
 final organizationPeriodIdentifierLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.getIntegrationCollection(page, limit, pagination, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, jsonInputs, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, connectorPeriodIdentifier, connectorPeriodIdentifierLeftSquareBracketRightSquareBracket, organizationPeriodIdentifier, organizationPeriodIdentifierLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {

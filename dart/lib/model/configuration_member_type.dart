@@ -51,7 +51,7 @@ class ConfigurationMemberType {
       (roles == null ? 0 : roles.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ConfigurationMemberType> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationMemberType> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConfigurationMemberType>[];
     }

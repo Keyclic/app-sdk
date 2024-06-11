@@ -43,7 +43,7 @@ class LoginData {
   @override
   int get hashCode => login.hashCode + password.hashCode;
 
-  static List<LoginData> listFromJson(List<dynamic>? json) {
+  static List<LoginData> listFromJson(Iterable? json) {
     if (json == null) {
       return <LoginData>[];
     }

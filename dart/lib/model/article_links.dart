@@ -45,7 +45,7 @@ class ArticleLinks {
       (section == null ? 0 : section.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ArticleLinks> listFromJson(List<dynamic>? json) {
+  static List<ArticleLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ArticleLinks>[];
     }

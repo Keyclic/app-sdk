@@ -45,7 +45,7 @@ class TrackingProgression {
       (resolved == null ? 0 : resolved.hashCode) +
       (total == null ? 0 : total.hashCode);
 
-  static List<TrackingProgression> listFromJson(List<dynamic>? json) {
+  static List<TrackingProgression> listFromJson(Iterable? json) {
     if (json == null) {
       return <TrackingProgression>[];
     }

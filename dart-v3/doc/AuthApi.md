@@ -20,7 +20,7 @@ Retrieve an access token and ID token.
 
 Retrieve an access token and ID token.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -36,7 +36,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getAuthToken(xKeyclicApp, getAuthTokenRequest, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -77,7 +77,7 @@ Creates a Profile resource.
 
 Creates a Profile resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -93,7 +93,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postAuthProfile(xKeyclicApp, profileProfileInput, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

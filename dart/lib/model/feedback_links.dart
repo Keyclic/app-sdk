@@ -82,7 +82,7 @@ class FeedbackLinks {
       (self == null ? 0 : self.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
 
-  static List<FeedbackLinks> listFromJson(List<dynamic>? json) {
+  static List<FeedbackLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackLinks>[];
     }

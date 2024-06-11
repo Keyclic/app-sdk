@@ -39,8 +39,7 @@ class AssignmentLinksServiceIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<AssignmentLinksServiceIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<AssignmentLinksServiceIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentLinksServiceIriTemplate>[];
     }

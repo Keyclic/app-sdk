@@ -38,7 +38,7 @@ class MemberCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<MemberCollection> listFromJson(List<dynamic>? json) {
+  static List<MemberCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <MemberCollection>[];
     }

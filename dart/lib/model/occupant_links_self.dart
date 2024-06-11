@@ -46,7 +46,7 @@ class OccupantLinksSelf {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<OccupantLinksSelf> listFromJson(List<dynamic>? json) {
+  static List<OccupantLinksSelf> listFromJson(Iterable? json) {
     if (json == null) {
       return <OccupantLinksSelf>[];
     }

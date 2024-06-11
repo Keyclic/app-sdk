@@ -20,7 +20,7 @@ Retrieves a TicketType resource.
 
 Retrieves a TicketType resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -38,7 +38,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = xEnableDispatch_example; // bool | 
 
-try { 
+try {
     final result = api_instance.getTicketType(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {
@@ -81,7 +81,7 @@ Retrieves the collection of TicketType resources.
 
 Retrieves the collection of TicketType resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -101,7 +101,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 final xEnableDispatch = xEnableDispatch_example; // bool | 
 
-try { 
+try {
     final result = api_instance.getTicketTypeCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
     print(result);
 } catch (e) {

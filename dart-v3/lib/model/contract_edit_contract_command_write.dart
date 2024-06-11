@@ -29,24 +29,11 @@ class ContractEditContractCommandWrite {
       return null;
     }
 
-    DateTime? effectiveDate = json[r'effectiveDate'] == null
-        ? null
-        : DateTime.parse(json[r'effectiveDate']);
-    if (effectiveDate != null && effectiveDate.isUtc == false) {
-      effectiveDate = DateTime.parse('${json[r'effectiveDate']}Z');
-    }
-
-    DateTime? signedAt =
-        json[r'signedAt'] == null ? null : DateTime.parse(json[r'signedAt']);
-    if (signedAt != null && signedAt.isUtc == false) {
-      signedAt = DateTime.parse('${json[r'signedAt']}Z');
-    }
-
     return ContractEditContractCommandWrite(
       billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: effectiveDate,
+      effectiveDate: mapToDateTime(json[r'effectiveDate']),
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
@@ -54,7 +41,7 @@ class ContractEditContractCommandWrite {
           json[r'places'] == null ? null : List<String>.from(json[r'places']),
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
-      signedAt: signedAt,
+      signedAt: mapToDateTime(json[r'signedAt']),
       state: json[r'state'],
       type: json[r'type'],
     );
@@ -125,8 +112,7 @@ class ContractEditContractCommandWrite {
       (state == null ? 0 : state.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ContractEditContractCommandWrite> listFromJson(
-      List<dynamic>? json) {
+  static List<ContractEditContractCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContractEditContractCommandWrite>[];
     }

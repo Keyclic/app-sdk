@@ -49,7 +49,7 @@ class GeoCoordinatesRead {
       (elevation == null ? 0 : elevation.hashCode) +
       (point == null ? 0 : point.hashCode);
 
-  static List<GeoCoordinatesRead> listFromJson(List<dynamic>? json) {
+  static List<GeoCoordinatesRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <GeoCoordinatesRead>[];
     }

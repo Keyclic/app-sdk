@@ -51,7 +51,7 @@ class GeoShape {
       (elevation == null ? 0 : elevation.hashCode) +
       (polygon == null ? 0 : polygon.hashCode);
 
-  static List<GeoShape> listFromJson(List<dynamic>? json) {
+  static List<GeoShape> listFromJson(Iterable? json) {
     if (json == null) {
       return <GeoShape>[];
     }

@@ -37,7 +37,7 @@ class InternalServiceEmbedded {
   @override
   int get hashCode => (manager == null ? 0 : manager.hashCode);
 
-  static List<InternalServiceEmbedded> listFromJson(List<dynamic>? json) {
+  static List<InternalServiceEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <InternalServiceEmbedded>[];
     }

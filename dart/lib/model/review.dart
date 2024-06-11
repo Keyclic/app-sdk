@@ -23,26 +23,14 @@ class Review {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Review(
       links: ReviewLinks.fromJson(json[r'_links']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       id: json[r'id'],
       reviewBody: json[r'reviewBody'],
       reviewRating: json[r'reviewRating'],
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -89,7 +77,7 @@ class Review {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Review> listFromJson(List<dynamic>? json) {
+  static List<Review> listFromJson(Iterable? json) {
     if (json == null) {
       return <Review>[];
     }

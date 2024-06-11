@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Retrieve all Signer resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -41,7 +41,7 @@ final orderLeftSquareBracketRightSquareBracket = []; // List<String> |
 final page = 56; // int | Page of the overview.
 final limit = 56; // int | Page of the overview.
 
-try { 
+try {
     final result = api_instance.cgetSignersByProcedure(xKeyclicApp, procedure, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, after, before, orderLeftSquareBracketRightSquareBracket, page, limit);
     print(result);
 } catch (e) {
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 Retrieve one Procedure resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -101,7 +101,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.getProcedure(xKeyclicApp, procedure, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 Create one Procedure resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -156,7 +156,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postProcedure(xKeyclicApp, procedureData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 Create one Workflow resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
 // TODO Configure API key authorization: bearer
@@ -212,7 +212,7 @@ final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime |
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
-try { 
+try {
     final result = api_instance.postWorkflowByProcedure(xKeyclicApp, procedure, procedureWorkflowData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {

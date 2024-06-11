@@ -39,7 +39,7 @@ class GetCategoryTypeCollection200ResponseEmbedded {
   int get hashCode => item.hashCode;
 
   static List<GetCategoryTypeCollection200ResponseEmbedded> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <GetCategoryTypeCollection200ResponseEmbedded>[];
     }

@@ -27,21 +27,9 @@ class Configuration {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Configuration(
       links: ConfigurationLinks.fromJson(json[r'_links']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       description: json[r'description'],
       id: json[r'id'],
       memberType: ConfigurationMemberType.fromJson(json[r'memberType']),
@@ -51,7 +39,7 @@ class Configuration {
       placeType: ConfigurationPlaceType.fromJson(json[r'placeType']),
       reportType: ConfigurationReportType.fromJson(json[r'reportType']),
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -112,7 +100,7 @@ class Configuration {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Configuration> listFromJson(List<dynamic>? json) {
+  static List<Configuration> listFromJson(Iterable? json) {
     if (json == null) {
       return <Configuration>[];
     }

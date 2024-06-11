@@ -42,7 +42,7 @@ class MarkerDataPoint {
   int get hashCode =>
       (x == null ? 0 : x.hashCode) + (y == null ? 0 : y.hashCode);
 
-  static List<MarkerDataPoint> listFromJson(List<dynamic>? json) {
+  static List<MarkerDataPoint> listFromJson(Iterable? json) {
     if (json == null) {
       return <MarkerDataPoint>[];
     }

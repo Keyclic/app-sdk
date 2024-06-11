@@ -51,7 +51,7 @@ class UserJsonhalAuthProfileRead {
       (email == null ? 0 : email.hashCode) +
       (username == null ? 0 : username.hashCode);
 
-  static List<UserJsonhalAuthProfileRead> listFromJson(List<dynamic>? json) {
+  static List<UserJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <UserJsonhalAuthProfileRead>[];
     }

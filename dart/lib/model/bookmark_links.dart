@@ -51,7 +51,7 @@ class BookmarkLinks {
       (place == null ? 0 : place.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<BookmarkLinks> listFromJson(List<dynamic>? json) {
+  static List<BookmarkLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinks>[];
     }

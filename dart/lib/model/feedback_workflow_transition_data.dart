@@ -39,8 +39,7 @@ class FeedbackWorkflowTransitionData {
   @override
   int get hashCode => transition.hashCode;
 
-  static List<FeedbackWorkflowTransitionData> listFromJson(
-      List<dynamic>? json) {
+  static List<FeedbackWorkflowTransitionData> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackWorkflowTransitionData>[];
     }

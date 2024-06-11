@@ -63,7 +63,7 @@ class Rule {
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<Rule> listFromJson(List<dynamic>? json) {
+  static List<Rule> listFromJson(Iterable? json) {
     if (json == null) {
       return <Rule>[];
     }

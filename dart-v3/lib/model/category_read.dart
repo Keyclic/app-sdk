@@ -52,7 +52,7 @@ class CategoryRead {
       (type == null ? 0 : type.hashCode) +
       (id == null ? 0 : id.hashCode);
 
-  static List<CategoryRead> listFromJson(List<dynamic>? json) {
+  static List<CategoryRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <CategoryRead>[];
     }

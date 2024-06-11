@@ -51,7 +51,7 @@ class ProcedureLinks {
       (document == null ? 0 : document.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<ProcedureLinks> listFromJson(List<dynamic>? json) {
+  static List<ProcedureLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <ProcedureLinks>[];
     }

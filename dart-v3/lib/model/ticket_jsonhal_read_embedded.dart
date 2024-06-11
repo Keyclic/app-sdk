@@ -76,7 +76,7 @@ class TicketJsonhalReadEmbedded {
       (feedback == null ? 0 : feedback.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<TicketJsonhalReadEmbedded> listFromJson(List<dynamic>? json) {
+  static List<TicketJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketJsonhalReadEmbedded>[];
     }

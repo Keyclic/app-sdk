@@ -40,7 +40,7 @@ class ReviewRequestLinksReviewerIriTemplate {
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
   static List<ReviewRequestLinksReviewerIriTemplate> listFromJson(
-      List<dynamic>? json) {
+      Iterable? json) {
     if (json == null) {
       return <ReviewRequestLinksReviewerIriTemplate>[];
     }

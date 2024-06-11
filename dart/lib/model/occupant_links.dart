@@ -51,7 +51,7 @@ class OccupantLinks {
       (place == null ? 0 : place.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<OccupantLinks> listFromJson(List<dynamic>? json) {
+  static List<OccupantLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <OccupantLinks>[];
     }

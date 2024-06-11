@@ -39,7 +39,7 @@ class PersonPatchPreferences {
   @override
   int get hashCode => (notification == null ? 0 : notification.hashCode);
 
-  static List<PersonPatchPreferences> listFromJson(List<dynamic>? json) {
+  static List<PersonPatchPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <PersonPatchPreferences>[];
     }

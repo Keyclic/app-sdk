@@ -58,7 +58,7 @@ class ConfigurationReportType {
       (type == null ? 0 : type.hashCode) +
       (workflow == null ? 0 : workflow.hashCode);
 
-  static List<ConfigurationReportType> listFromJson(List<dynamic>? json) {
+  static List<ConfigurationReportType> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConfigurationReportType>[];
     }

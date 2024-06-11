@@ -46,7 +46,7 @@ class BookmarkLinksPlace {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<BookmarkLinksPlace> listFromJson(List<dynamic>? json) {
+  static List<BookmarkLinksPlace> listFromJson(Iterable? json) {
     if (json == null) {
       return <BookmarkLinksPlace>[];
     }

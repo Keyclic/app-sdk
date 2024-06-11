@@ -37,7 +37,7 @@ class AssetTypeJsonhalReadLinks {
   @override
   int get hashCode => (self == null ? 0 : self.hashCode);
 
-  static List<AssetTypeJsonhalReadLinks> listFromJson(List<dynamic>? json) {
+  static List<AssetTypeJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssetTypeJsonhalReadLinks>[];
     }

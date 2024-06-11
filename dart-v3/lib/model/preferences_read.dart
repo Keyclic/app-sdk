@@ -37,7 +37,7 @@ class PreferencesRead {
   @override
   int get hashCode => (visibility == null ? 0 : visibility.hashCode);
 
-  static List<PreferencesRead> listFromJson(List<dynamic>? json) {
+  static List<PreferencesRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <PreferencesRead>[];
     }

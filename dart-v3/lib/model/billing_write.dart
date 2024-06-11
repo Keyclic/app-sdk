@@ -18,15 +18,9 @@ class BillingWrite {
       return null;
     }
 
-    DateTime? startDate =
-        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
-    if (startDate != null && startDate.isUtc == false) {
-      startDate = DateTime.parse('${json[r'startDate']}Z');
-    }
-
     return BillingWrite(
       initialCost: PriceWrite.fromJson(json[r'initialCost']),
-      startDate: startDate,
+      startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
@@ -52,7 +46,7 @@ class BillingWrite {
       (initialCost == null ? 0 : initialCost.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<BillingWrite> listFromJson(List<dynamic>? json) {
+  static List<BillingWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <BillingWrite>[];
     }

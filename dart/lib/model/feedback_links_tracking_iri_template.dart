@@ -39,8 +39,7 @@ class FeedbackLinksTrackingIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<FeedbackLinksTrackingIriTemplate> listFromJson(
-      List<dynamic>? json) {
+  static List<FeedbackLinksTrackingIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <FeedbackLinksTrackingIriTemplate>[];
     }

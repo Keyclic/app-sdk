@@ -40,3 +40,18 @@ String parameterToString(dynamic value) {
   return value.toString();
   // return jsonEncode(value);
 }
+
+/// Returns a valid [DateTime], null otherwise.
+DateTime? mapToDateTime(String? value) {
+  if (value == null) {
+    return null;
+  }
+
+  DateTime dateTime = DateTime.parse(value);
+
+  if (dateTime.isUtc == false) {
+    dateTime = DateTime.parse('${value}Z');
+  }
+
+  return dateTime;
+}

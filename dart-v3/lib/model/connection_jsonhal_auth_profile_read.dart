@@ -63,8 +63,7 @@ class ConnectionJsonhalAuthProfileRead {
       (authorizationUrl == null ? 0 : authorizationUrl.hashCode) +
       (type == null ? 0 : type.hashCode);
 
-  static List<ConnectionJsonhalAuthProfileRead> listFromJson(
-      List<dynamic>? json) {
+  static List<ConnectionJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <ConnectionJsonhalAuthProfileRead>[];
     }

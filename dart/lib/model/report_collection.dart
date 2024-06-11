@@ -38,7 +38,7 @@ class ReportCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ReportCollection> listFromJson(List<dynamic>? json) {
+  static List<ReportCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ReportCollection>[];
     }

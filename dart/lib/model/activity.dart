@@ -24,19 +24,13 @@ class Activity {
       return null;
     }
 
-    DateTime? time =
-        json[r'time'] == null ? null : DateTime.parse(json[r'time']);
-    if (time != null && time.isUtc == false) {
-      time = DateTime.parse('${json[r'time']}Z');
-    }
-
     return Activity(
       actor: json[r'actor'],
       message: json[r'message'],
       object: json[r'object'],
       origin: json[r'origin'],
       subject: ActivityEntity.fromJson(json[r'subject']),
-      time: time,
+      time: mapToDateTime(json[r'time']),
       title: json[r'title'],
       verb: json[r'verb'],
     );
@@ -87,7 +81,7 @@ class Activity {
       (title == null ? 0 : title.hashCode) +
       (verb == null ? 0 : verb.hashCode);
 
-  static List<Activity> listFromJson(List<dynamic>? json) {
+  static List<Activity> listFromJson(Iterable? json) {
     if (json == null) {
       return <Activity>[];
     }

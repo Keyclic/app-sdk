@@ -37,7 +37,7 @@ class DeviceLinksSelfIriTemplate {
   @override
   int get hashCode => (mapping == null ? 0 : mapping.hashCode);
 
-  static List<DeviceLinksSelfIriTemplate> listFromJson(List<dynamic>? json) {
+  static List<DeviceLinksSelfIriTemplate> listFromJson(Iterable? json) {
     if (json == null) {
       return <DeviceLinksSelfIriTemplate>[];
     }

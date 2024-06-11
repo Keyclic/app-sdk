@@ -37,7 +37,7 @@ class ResetPasswordData {
   @override
   int get hashCode => email.hashCode;
 
-  static List<ResetPasswordData> listFromJson(List<dynamic>? json) {
+  static List<ResetPasswordData> listFromJson(Iterable? json) {
     if (json == null) {
       return <ResetPasswordData>[];
     }

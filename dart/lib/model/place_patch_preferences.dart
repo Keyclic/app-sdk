@@ -38,7 +38,7 @@ class PlacePatchPreferences {
   @override
   int get hashCode => (visibility == null ? 0 : visibility.hashCode);
 
-  static List<PlacePatchPreferences> listFromJson(List<dynamic>? json) {
+  static List<PlacePatchPreferences> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlacePatchPreferences>[];
     }

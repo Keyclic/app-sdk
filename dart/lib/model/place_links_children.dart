@@ -46,7 +46,7 @@ class PlaceLinksChildren {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PlaceLinksChildren> listFromJson(List<dynamic>? json) {
+  static List<PlaceLinksChildren> listFromJson(Iterable? json) {
     if (json == null) {
       return <PlaceLinksChildren>[];
     }

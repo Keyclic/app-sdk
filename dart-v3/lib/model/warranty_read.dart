@@ -19,22 +19,10 @@ class WarrantyRead {
       return null;
     }
 
-    DateTime? endDate =
-        json[r'endDate'] == null ? null : DateTime.parse(json[r'endDate']);
-    if (endDate != null && endDate.isUtc == false) {
-      endDate = DateTime.parse('${json[r'endDate']}Z');
-    }
-
-    DateTime? startDate =
-        json[r'startDate'] == null ? null : DateTime.parse(json[r'startDate']);
-    if (startDate != null && startDate.isUtc == false) {
-      startDate = DateTime.parse('${json[r'startDate']}Z');
-    }
-
     return WarrantyRead(
       duration: json[r'duration'],
-      endDate: endDate,
-      startDate: startDate,
+      endDate: mapToDateTime(json[r'endDate']),
+      startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
@@ -66,7 +54,7 @@ class WarrantyRead {
       (endDate == null ? 0 : endDate.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
 
-  static List<WarrantyRead> listFromJson(List<dynamic>? json) {
+  static List<WarrantyRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <WarrantyRead>[];
     }

@@ -26,36 +26,16 @@ class TicketEditTicketCommandWrite {
       return null;
     }
 
-    DateTime? archivedAt = json[r'archivedAt'] == null
-        ? null
-        : DateTime.parse(json[r'archivedAt']);
-    if (archivedAt != null && archivedAt.isUtc == false) {
-      archivedAt = DateTime.parse('${json[r'archivedAt']}Z');
-    }
-
-    DateTime? dueBy =
-        json[r'dueBy'] == null ? null : DateTime.parse(json[r'dueBy']);
-    if (dueBy != null && dueBy.isUtc == false) {
-      dueBy = DateTime.parse('${json[r'dueBy']}Z');
-    }
-
-    DateTime? scheduledAt = json[r'scheduledAt'] == null
-        ? null
-        : DateTime.parse(json[r'scheduledAt']);
-    if (scheduledAt != null && scheduledAt.isUtc == false) {
-      scheduledAt = DateTime.parse('${json[r'scheduledAt']}Z');
-    }
-
     return TicketEditTicketCommandWrite(
-      archivedAt: archivedAt,
+      archivedAt: mapToDateTime(json[r'archivedAt']),
       category: json[r'category'],
       completed: json[r'completed'],
       description: json[r'description'],
-      dueBy: dueBy,
+      dueBy: mapToDateTime(json[r'dueBy']),
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
       priority: json[r'priority'],
-      scheduledAt: scheduledAt,
+      scheduledAt: mapToDateTime(json[r'scheduledAt']),
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
     );
   }
@@ -113,7 +93,7 @@ class TicketEditTicketCommandWrite {
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (tags == null ? 0 : tags.hashCode);
 
-  static List<TicketEditTicketCommandWrite> listFromJson(List<dynamic>? json) {
+  static List<TicketEditTicketCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
       return <TicketEditTicketCommandWrite>[];
     }

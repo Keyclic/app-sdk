@@ -25,28 +25,16 @@ class Publication {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return Publication(
       embedded: PublicationEmbedded.fromJson(json[r'_embedded']),
       links: PublicationLinks.fromJson(json[r'_links']),
-      createdAt: createdAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
       id: json[r'id'],
       message: json[r'message'],
       read: json[r'read'],
       title: json[r'title'],
       type: json[r'type'],
-      updatedAt: updatedAt,
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -99,7 +87,7 @@ class Publication {
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<Publication> listFromJson(List<dynamic>? json) {
+  static List<Publication> listFromJson(Iterable? json) {
     if (json == null) {
       return <Publication>[];
     }

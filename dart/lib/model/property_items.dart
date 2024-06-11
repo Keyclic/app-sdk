@@ -38,7 +38,7 @@ class PropertyItems {
   @override
   int get hashCode => (oneOf == null ? 0 : oneOf.hashCode);
 
-  static List<PropertyItems> listFromJson(List<dynamic>? json) {
+  static List<PropertyItems> listFromJson(Iterable? json) {
     if (json == null) {
       return <PropertyItems>[];
     }

@@ -43,7 +43,7 @@ class DeviceLinks {
       (person == null ? 0 : person.hashCode) +
       (self == null ? 0 : self.hashCode);
 
-  static List<DeviceLinks> listFromJson(List<dynamic>? json) {
+  static List<DeviceLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <DeviceLinks>[];
     }

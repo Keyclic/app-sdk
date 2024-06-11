@@ -23,7 +23,7 @@ Removes the IntegrationLink resource.
 
 Removes the IntegrationLink resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -35,7 +35,7 @@ final api_instance = IntegrationLinkApi();
 final identifier = identifier_example; // String | Link identifier
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     api_instance.deleteIntegrationLink(identifier, acceptLanguage);
 } catch (e) {
     print('Exception when calling IntegrationLinkApi->deleteIntegrationLink: $e\n');
@@ -71,7 +71,7 @@ Retrieves a IntegrationLink resource.
 
 Retrieves a IntegrationLink resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -83,7 +83,7 @@ final api_instance = IntegrationLinkApi();
 final identifier = identifier_example; // String | Link identifier
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.getIntegrationLink(identifier, acceptLanguage);
     print(result);
 } catch (e) {
@@ -120,7 +120,7 @@ Retrieves the collection of IntegrationLink resources.
 
 Retrieves the collection of IntegrationLink resources.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -145,7 +145,7 @@ final target = target_example; // String |
 final targetLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.getIntegrationLinkCollection(page, limit, pagination, existsLeftSquareBracketTargetRightSquareBracket, jsonData, jsonMetadata, integration, integrationLeftSquareBracketRightSquareBracket, source_, sourceLeftSquareBracketRightSquareBracket, state, stateLeftSquareBracketRightSquareBracket, target, targetLeftSquareBracketRightSquareBracket, acceptLanguage);
     print(result);
 } catch (e) {
@@ -195,7 +195,7 @@ Updates the IntegrationLink resource.
 
 Updates the IntegrationLink resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -208,7 +208,7 @@ final identifier = identifier_example; // String | Link identifier
 final integrationLinkEditLinkCommandWrite = IntegrationLinkEditLinkCommandWrite(); // IntegrationLinkEditLinkCommandWrite | The updated IntegrationLink resource
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.patchIntegrationLink(identifier, integrationLinkEditLinkCommandWrite, acceptLanguage);
     print(result);
 } catch (e) {
@@ -246,7 +246,7 @@ Creates a IntegrationLink resource.
 
 Creates a IntegrationLink resource.
 
-### Example 
+### Example
 ```dart
 import 'package:keyclic_sdk_api_platform/api.dart';
 // TODO Configure API key authorization: apiKey
@@ -258,7 +258,7 @@ final api_instance = IntegrationLinkApi();
 final integrationLinkCreateLinkCommandWrite = IntegrationLinkCreateLinkCommandWrite(); // IntegrationLinkCreateLinkCommandWrite | The new IntegrationLink resource
 final acceptLanguage = acceptLanguage_example; // String | 
 
-try { 
+try {
     final result = api_instance.postIntegrationLink(integrationLinkCreateLinkCommandWrite, acceptLanguage);
     print(result);
 } catch (e) {

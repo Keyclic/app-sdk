@@ -37,7 +37,7 @@ class CheckpointLinks {
   @override
   int get hashCode => (organization == null ? 0 : organization.hashCode);
 
-  static List<CheckpointLinks> listFromJson(List<dynamic>? json) {
+  static List<CheckpointLinks> listFromJson(Iterable? json) {
     if (json == null) {
       return <CheckpointLinks>[];
     }

@@ -69,7 +69,7 @@ class DocumentPagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<DocumentPagination> listFromJson(List<dynamic>? json) {
+  static List<DocumentPagination> listFromJson(Iterable? json) {
     if (json == null) {
       return <DocumentPagination>[];
     }

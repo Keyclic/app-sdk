@@ -47,7 +47,7 @@ class PublicationLinksFeed {
       (href == null ? 0 : href.hashCode) +
       (iriTemplate == null ? 0 : iriTemplate.hashCode);
 
-  static List<PublicationLinksFeed> listFromJson(List<dynamic>? json) {
+  static List<PublicationLinksFeed> listFromJson(Iterable? json) {
     if (json == null) {
       return <PublicationLinksFeed>[];
     }

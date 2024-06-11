@@ -24,18 +24,6 @@ class AssetJsonhalRead {
       return null;
     }
 
-    DateTime? createdAt =
-        json[r'createdAt'] == null ? null : DateTime.parse(json[r'createdAt']);
-    if (createdAt != null && createdAt.isUtc == false) {
-      createdAt = DateTime.parse('${json[r'createdAt']}Z');
-    }
-
-    DateTime? updatedAt =
-        json[r'updatedAt'] == null ? null : DateTime.parse(json[r'updatedAt']);
-    if (updatedAt != null && updatedAt.isUtc == false) {
-      updatedAt = DateTime.parse('${json[r'updatedAt']}Z');
-    }
-
     return AssetJsonhalRead(
       links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
@@ -43,8 +31,8 @@ class AssetJsonhalRead {
       preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
       id: json[r'id'],
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
-      createdAt: createdAt,
-      updatedAt: updatedAt,
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
 
@@ -96,7 +84,7 @@ class AssetJsonhalRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<AssetJsonhalRead> listFromJson(List<dynamic>? json) {
+  static List<AssetJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssetJsonhalRead>[];
     }

@@ -75,7 +75,7 @@ class TemplateData {
       organization.hashCode +
       type.hashCode;
 
-  static List<TemplateData> listFromJson(List<dynamic>? json) {
+  static List<TemplateData> listFromJson(Iterable? json) {
     if (json == null) {
       return <TemplateData>[];
     }

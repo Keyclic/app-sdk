@@ -38,7 +38,7 @@ class AssignmentCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<AssignmentCollection> listFromJson(List<dynamic>? json) {
+  static List<AssignmentCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <AssignmentCollection>[];
     }

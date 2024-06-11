@@ -38,7 +38,7 @@ class ContributionCollection {
   @override
   int get hashCode => (items == null ? 0 : items.hashCode);
 
-  static List<ContributionCollection> listFromJson(List<dynamic>? json) {
+  static List<ContributionCollection> listFromJson(Iterable? json) {
     if (json == null) {
       return <ContributionCollection>[];
     }

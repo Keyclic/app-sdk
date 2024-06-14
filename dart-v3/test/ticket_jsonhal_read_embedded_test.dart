@@ -16,6 +16,9 @@ void main() {
     // CategoryJsonhalRead category
     test('to test the property `category`', () async {});
 
+    // List<EquipmentJsonhalRead> equipments (default value: const [])
+    test('to test the property `equipments`', () async {});
+
     // WorkflowStateJsonhalRead phase
     test('to test the property `phase`', () async {});
 

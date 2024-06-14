@@ -27,7 +27,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
     }
 
     return SlaPolicyJsonhalSlaPolicyRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       timeTarget: json[r'timeTarget'],
       description: json[r'description'],
@@ -42,7 +42,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  SlaPolicyJsonhalSlaPolicyReadLinks? links;
 
   /// The resource identifier.
   final String? id;

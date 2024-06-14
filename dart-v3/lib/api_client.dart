@@ -289,8 +289,6 @@ class ApiPlatformClient {
           return EquipmentRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
-        case 'FeedbackJsonhalReadEmbedded':
-          return FeedbackJsonhalReadEmbedded.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
         case 'FeedbackRead':
@@ -430,6 +428,8 @@ class ApiPlatformClient {
           return SlaPolicyJsonhalSlaPolicyRead.fromJson(value);
         case 'SlaPolicyJsonhalSlaPolicyReadEmbedded':
           return SlaPolicyJsonhalSlaPolicyReadEmbedded.fromJson(value);
+        case 'SlaPolicyJsonhalSlaPolicyReadLinks':
+          return SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(value);
         case 'SlaPolicySlaPolicyRead':
           return SlaPolicySlaPolicyRead.fromJson(value);
         case 'TicketCreateTicketCommandWrite':

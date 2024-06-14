@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **category** | [**CategoryRead**](CategoryRead.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **dueBy** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**equipments** | [**List<EquipmentRead>**](EquipmentRead.md) |  | [optional] [readonly] [default to const []]
 **name** | **String** |  | [optional] 
 **organization** | **String** |  | [readonly] 
 **phase** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 

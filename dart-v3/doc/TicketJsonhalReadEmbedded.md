@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assignments** | [**List<AssignmentJsonhalRead>**](AssignmentJsonhalRead.md) |  | [optional] [readonly] [default to const []]
 **category** | [**CategoryJsonhalRead**](CategoryJsonhalRead.md) |  | [optional] 
+**equipments** | [**List<EquipmentJsonhalRead>**](EquipmentJsonhalRead.md) |  | [optional] [readonly] [default to const []]
 **phase** | [**WorkflowStateJsonhalRead**](WorkflowStateJsonhalRead.md) |  | [optional] 
 **place** | [**PlaceJsonhalRead**](PlaceJsonhalRead.md) |  | [optional] 
 **priority** | [**TicketPriorityJsonhalRead**](TicketPriorityJsonhalRead.md) |  | [optional] 

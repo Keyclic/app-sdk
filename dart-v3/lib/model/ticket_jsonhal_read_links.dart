@@ -10,6 +10,8 @@ class TicketJsonhalReadLinks {
     this.self,
     this.organization,
     this.parent,
+    this.assignments,
+    this.equipments,
   });
 
   /// Returns a new [TicketJsonhalReadLinks] instance and imports its values from
@@ -24,6 +26,10 @@ class TicketJsonhalReadLinks {
       organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'organization']),
       parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
+      assignments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+          json[r'assignments']),
+      equipments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+          json[r'equipments']),
     );
   }
 
@@ -32,6 +38,10 @@ class TicketJsonhalReadLinks {
   GetPlaceCollection200ResponseLinksFirst? organization;
 
   GetPlaceCollection200ResponseLinksFirst? parent;
+
+  List<GetPlaceCollection200ResponseLinksFirst>? assignments;
+
+  List<GetPlaceCollection200ResponseLinksFirst>? equipments;
 
   @override
   bool operator ==(Object other) {
@@ -43,14 +53,19 @@ class TicketJsonhalReadLinks {
     return other is TicketJsonhalReadLinks &&
         other.self == self &&
         other.organization == organization &&
-        other.parent == parent;
+        other.parent == parent &&
+        DeepCollectionEquality.unordered()
+            .equals(assignments, other.assignments) &&
+        DeepCollectionEquality.unordered().equals(equipments, other.equipments);
   }
 
   @override
   int get hashCode =>
       (self == null ? 0 : self.hashCode) +
       (organization == null ? 0 : organization.hashCode) +
-      (parent == null ? 0 : parent.hashCode);
+      (parent == null ? 0 : parent.hashCode) +
+      (assignments == null ? 0 : assignments.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode);
 
   static List<TicketJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -102,7 +117,7 @@ class TicketJsonhalReadLinks {
 
   @override
   String toString() =>
-      'TicketJsonhalReadLinks[self=$self, organization=$organization, parent=$parent]';
+      'TicketJsonhalReadLinks[self=$self, organization=$organization, parent=$parent, assignments=$assignments, equipments=$equipments]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -134,6 +149,10 @@ class TicketJsonhalReadLinks {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'assignments'))
+        r'assignments': assignments,
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
     };
   }
 }

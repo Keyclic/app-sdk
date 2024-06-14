@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.62.0-beta.1.dev.2ab25d233"
+        "version": "2.62.0-dev.g5857db285"
     },
     "servers": [
         {
@@ -12937,6 +12937,13 @@
                         ],
                         "nullable": true
                     },
+                    "markers": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Marker.jsonhal-Read"
+                        }
+                    },
                     "metadata": {
                         "type": "object",
                         "additionalProperties": true
@@ -12966,18 +12973,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "_embedded": {
-                        "type": "object",
-                        "properties": {
-                            "markers": {
-                                "readOnly": true,
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/Marker.jsonhal-Read"
-                                }
-                            }
-                        }
                     }
                 },
                 "required": [
@@ -14111,6 +14106,30 @@
                                         "format": "iri-reference"
                                     }
                                 }
+                            },
+                            "fromStates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                }
+                            },
+                            "toStates": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -14208,6 +14227,13 @@
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "equipments": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Equipment-Read"
+                        }
                     },
                     "name": {
                         "minLength": 1,
@@ -14453,6 +14479,30 @@
                                         "format": "iri-reference"
                                     }
                                 }
+                            },
+                            "assignments": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                }
+                            },
+                            "equipments": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -14531,6 +14581,13 @@
                                     }
                                 ],
                                 "nullable": true
+                            },
+                            "equipments": {
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Equipment.jsonhal-Read"
+                                }
                             },
                             "phase": {
                                 "readOnly": true,

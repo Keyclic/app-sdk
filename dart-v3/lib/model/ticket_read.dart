@@ -11,6 +11,7 @@ class TicketRead {
     this.category,
     this.description,
     this.dueBy,
+    this.equipments,
     this.name,
     required this.organization,
     this.phase,
@@ -41,6 +42,7 @@ class TicketRead {
       category: CategoryRead.fromJson(json[r'category']),
       description: json[r'description'],
       dueBy: mapToDateTime(json[r'dueBy']),
+      equipments: EquipmentRead.listFromJson(json[r'equipments']),
       name: json[r'name'],
       organization: json[r'organization'],
       phase: WorkflowStateRead.fromJson(json[r'phase']),
@@ -67,6 +69,8 @@ class TicketRead {
   String? description;
 
   final DateTime? dueBy;
+
+  final List<EquipmentRead>? equipments;
 
   String? name;
 
@@ -116,6 +120,8 @@ class TicketRead {
         other.category == category &&
         other.description == description &&
         other.dueBy == dueBy &&
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
         other.name == name &&
         other.organization == organization &&
         other.phase == phase &&
@@ -140,6 +146,7 @@ class TicketRead {
       (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode) +
       (name == null ? 0 : name.hashCode) +
       organization.hashCode +
       (phase == null ? 0 : phase.hashCode) +
@@ -203,7 +210,7 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, reference=$reference, archived=$archived]';
+      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, equipments=$equipments, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, reference=$reference, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -223,6 +230,8 @@ class TicketRead {
         r'description': description,
       if (keys == null || keys.contains(r'dueBy'))
         r'dueBy': dueBy?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
       if (keys == null || keys.contains(r'name')) r'name': name,
       r'organization': organization,
       if (keys == null || keys.any((key) => RegExp(r'^phase\.').hasMatch(key)))

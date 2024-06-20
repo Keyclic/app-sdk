@@ -10,8 +10,8 @@ void main() {
   // final instance = TaskPatch();
 
   group('test TaskPatch', () {
-    // DateTime archivedAt
-    test('to test the property `archivedAt`', () async {});
+    // bool archived
+    test('to test the property `archived`', () async {});
 
     // String category
     test('to test the property `category`', () async {});

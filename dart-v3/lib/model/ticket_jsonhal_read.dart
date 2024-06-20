@@ -71,7 +71,7 @@ class TicketJsonhalRead {
 
   final String? reference;
 
-  final bool? archived;
+  bool? archived;
 
   TicketJsonhalReadEmbedded? embedded;
 

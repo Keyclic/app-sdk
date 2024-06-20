@@ -7,7 +7,7 @@ part of keyclic_sdk_api;
 class TaskPatch {
   /// Returns a new [TaskPatch] instance.
   TaskPatch({
-    this.archivedAt,
+    this.archived,
     this.category,
     this.completed,
     this.description,
@@ -27,7 +27,7 @@ class TaskPatch {
     }
 
     return TaskPatch(
-      archivedAt: mapToDateTime(json[r'archivedAt']),
+      archived: json[r'archived'],
       category: json[r'category'],
       completed: json[r'completed'],
       description: json[r'description'],
@@ -40,7 +40,7 @@ class TaskPatch {
     );
   }
 
-  DateTime? archivedAt;
+  bool? archived;
 
   String? category;
 
@@ -68,7 +68,7 @@ class TaskPatch {
     }
 
     return other is TaskPatch &&
-        other.archivedAt == archivedAt &&
+        other.archived == archived &&
         other.category == category &&
         other.completed == completed &&
         other.description == description &&
@@ -82,7 +82,7 @@ class TaskPatch {
 
   @override
   int get hashCode =>
-      (archivedAt == null ? 0 : archivedAt.hashCode) +
+      (archived == null ? 0 : archived.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (completed == null ? 0 : completed.hashCode) +
       (description == null ? 0 : description.hashCode) +
@@ -139,12 +139,11 @@ class TaskPatch {
 
   @override
   String toString() =>
-      'TaskPatch[archivedAt=$archivedAt, category=$category, completed=$completed, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags]';
+      'TaskPatch[archived=$archived, category=$category, completed=$completed, description=$description, dueBy=$dueBy, identificationNumber=$identificationNumber, name=$name, priority=$priority, scheduledAt=$scheduledAt, tags=$tags]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'archivedAt'))
-        r'archivedAt': archivedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'archived')) r'archived': archived,
       if (keys == null || keys.contains(r'category')) r'category': category,
       if (keys == null || keys.contains(r'completed')) r'completed': completed,
       if (keys == null || keys.contains(r'description'))

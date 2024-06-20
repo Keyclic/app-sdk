@@ -122,6 +122,7 @@ class TicketApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
+  /// * [archived] - Check if resource is archived and if archived date has passed
   /// * [completed] -
   /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
@@ -206,6 +207,7 @@ class TicketApi {
     int? limit,
     bool? pagination,
     String? search,
+    bool? archived,
     bool? completed,
     String? createdAtLeftSquareBracketBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
@@ -321,6 +323,7 @@ class TicketApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
+      if (archived != null) r'archived': encodeQueryParameter(archived),
       if (completed != null) r'completed': encodeQueryParameter(completed),
       if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'createdAt[before]': encodeQueryParameter(

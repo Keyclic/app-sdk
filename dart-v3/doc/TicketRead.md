@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **parent** | **String** |  | [optional] [readonly] 
 **state** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
 **reference** | **String** |  | [optional] [readonly] 
-**archived** | **bool** |  | [optional] [readonly] 
+**archived** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

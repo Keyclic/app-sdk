@@ -9257,6 +9257,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "archived",
+                        "in": "query",
+                        "description": "Check if resource is archived and if archived date has passed",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "completed",
                         "in": "query",
                         "description": "",
@@ -14327,7 +14341,6 @@
                         "nullable": true
                     },
                     "archived": {
-                        "readOnly": true,
                         "type": "boolean"
                     }
                 },
@@ -14393,9 +14406,8 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "archivedAt": {
-                        "type": "string",
-                        "format": "date-time",
+                    "archived": {
+                        "type": "boolean",
                         "nullable": true
                     },
                     "category": {
@@ -14560,7 +14572,6 @@
                         "nullable": true
                     },
                     "archived": {
-                        "readOnly": true,
                         "type": "boolean"
                     },
                     "_embedded": {

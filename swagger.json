@@ -26222,9 +26222,8 @@
         "TaskPatch": {
             "type": "object",
             "properties": {
-                "archivedAt": {
-                    "type": "string",
-                    "format": "date-time"
+                "archived": {
+                    "type": "boolean"
                 },
                 "category": {
                     "type": "string",

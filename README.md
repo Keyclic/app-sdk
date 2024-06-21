@@ -6,7 +6,8 @@ This repository provides the following packages:
 
 To build SDKs (docker is required).
 
-Building uses Swagger [Codegen](https://github.com/swagger-api/swagger-codegen) to generate Dart source code.
+Building uses [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) to generate Dart source code.
+To keep the generator up to date, refer to the [docker image repository](https://hub.docker.com/r/openapitools/openapi-generator-cli/tags)
 
 ```bash
 bin/app generate

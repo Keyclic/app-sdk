@@ -468,7 +468,6 @@ part 'model/point.dart';
 part 'model/polygon.dart';
 part 'model/preferences_archiving.dart';
 part 'model/preferences_contract.dart';
-part 'model/preferences_electronic_signature.dart';
 part 'model/preferences_equipment.dart';
 part 'model/preferences_form.dart';
 part 'model/preferences_notification.dart';

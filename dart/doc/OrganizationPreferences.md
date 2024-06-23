@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **archiving** | [**PreferencesArchiving**](PreferencesArchiving.md) |  | [optional] 
 **categoryRequired** | **bool** |  | [optional] 
 **contract** | [**PreferencesContract**](PreferencesContract.md) |  | [optional] 
-**electronicSignature** | [**PreferencesElectronicSignature**](PreferencesElectronicSignature.md) |  | [optional] 
 **equipment** | [**PreferencesEquipment**](PreferencesEquipment.md) |  | [optional] 
 **feedbackParentPlace** | **bool** |  | [optional] 
 **form** | [**PreferencesForm**](PreferencesForm.md) |  | [optional] 

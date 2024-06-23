@@ -175,12 +175,10 @@ class ProcedureModeEnum {
   String toJson() => value;
 
   static const onSite = ProcedureModeEnum._(r'on_site');
-  static const remote = ProcedureModeEnum._(r'remote');
 
   /// List of all possible values in this [enum][ProcedureModeEnum].
   static const values = <ProcedureModeEnum>[
     onSite,
-    remote,
   ];
 
   static ProcedureModeEnum? fromJson(dynamic value) =>
@@ -218,8 +216,6 @@ class ProcedureModeEnumTypeTransformer {
     switch (data) {
       case r'on_site':
         return ProcedureModeEnum.onSite;
-      case r'remote':
-        return ProcedureModeEnum.remote;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

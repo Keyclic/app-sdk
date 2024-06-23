@@ -22780,9 +22780,6 @@
                 "contract": {
                     "$ref": "#\/definitions\/PreferencesContract"
                 },
-                "electronicSignature": {
-                    "$ref": "#\/definitions\/PreferencesElectronicSignature"
-                },
                 "equipment": {
                     "$ref": "#\/definitions\/PreferencesEquipment"
                 },
@@ -23820,14 +23817,6 @@
                 }
             }
         },
-        "PreferencesElectronicSignature": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
-                }
-            }
-        },
         "PreferencesEquipment": {
             "type": "object",
             "properties": {
@@ -23961,8 +23950,7 @@
                 },
                 "mode": {
                     "enum": [
-                        "on_site",
-                        "remote"
+                        "on_site"
                     ],
                     "format": "string",
                     "type": "string"
@@ -24002,21 +23990,18 @@
                 "mode": {
                     "type": "string",
                     "enum": [
-                        "remote",
                         "on_site"
                     ]
                 },
                 "type": {
                     "type": "string",
                     "enum": [
-                        "e-signature",
                         "signature"
                     ]
                 }
             },
             "required": [
-                "document",
-                "type"
+                "document"
             ]
         },
         "ProcedureLinksCreatedBy": {

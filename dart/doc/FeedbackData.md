@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **place** | **String** |  | 
 **priority** | **String** |  | [optional] 
 **reporter** | **String** |  | [optional] 
-**visibility** | **String** |  | 
+**visibility** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -55,6 +55,10 @@ void main() {
     // DateTime terminationDate
     test('to test the property `terminationDate`', () async {});
 
+    // The optional reason for termination.
+    // String terminationReason
+    test('to test the property `terminationReason`', () async {});
+
     // The type of the contract defined by the organization.
     // String type
     test('to test the property `type`', () async {});
@@ -70,5 +74,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // DateTime endDate
+    test('to test the property `endDate`', () async {});
   });
 }

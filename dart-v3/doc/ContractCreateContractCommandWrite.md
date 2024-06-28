@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **renewal** | [**RenewalWrite**](RenewalWrite.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **state** | **String** |  | [default to 'DRAFT']
+**terminationDate** | [**DateTime**](DateTime.md) |  | [optional] 
+**terminationReason** | **String** |  | [optional] 
 **type** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

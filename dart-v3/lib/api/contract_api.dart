@@ -213,6 +213,10 @@ class ContractApi {
   /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [endDateLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [endDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [endDateLeftSquareBracketAfterRightSquareBracket] -
+  /// * [endDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [orderLeftSquareBracketBillingPeriodAdjustedCostPeriodValueRightSquareBracket] -
   /// * [orderLeftSquareBracketBillingPeriodInitialCostPeriodValueRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
@@ -271,6 +275,10 @@ class ContractApi {
     String? updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? endDateLeftSquareBracketBeforeRightSquareBracket,
+    String? endDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? endDateLeftSquareBracketAfterRightSquareBracket,
+    String? endDateLeftSquareBracketStrictlyAfterRightSquareBracket,
     String?
         orderLeftSquareBracketBillingPeriodAdjustedCostPeriodValueRightSquareBracket,
     String?
@@ -399,6 +407,18 @@ class ContractApi {
       if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'updatedAt[strictly_after]': encodeQueryParameter(
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (endDateLeftSquareBracketBeforeRightSquareBracket != null)
+        r'endDate[before]': encodeQueryParameter(
+            endDateLeftSquareBracketBeforeRightSquareBracket),
+      if (endDateLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
+        r'endDate[strictly_before]': encodeQueryParameter(
+            endDateLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (endDateLeftSquareBracketAfterRightSquareBracket != null)
+        r'endDate[after]': encodeQueryParameter(
+            endDateLeftSquareBracketAfterRightSquareBracket),
+      if (endDateLeftSquareBracketStrictlyAfterRightSquareBracket != null)
+        r'endDate[strictly_after]': encodeQueryParameter(
+            endDateLeftSquareBracketStrictlyAfterRightSquareBracket),
       if (orderLeftSquareBracketBillingPeriodAdjustedCostPeriodValueRightSquareBracket !=
           null)
         r'order[billing.adjustedCost.value]': encodeQueryParameter(

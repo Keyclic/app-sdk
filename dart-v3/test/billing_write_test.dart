@@ -10,6 +10,9 @@ void main() {
   // final instance = BillingWrite();
 
   group('test BillingWrite', () {
+    // PriceWrite adjustedCost
+    test('to test the property `adjustedCost`', () async {});
+
     // PriceWrite initialCost
     test('to test the property `initialCost`', () async {});
 

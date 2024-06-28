@@ -19,6 +19,8 @@ class ContractEditContractCommandWrite {
     this.renewal,
     this.signedAt,
     this.state,
+    this.terminationDate,
+    this.terminationReason,
     this.type,
   });
 
@@ -43,6 +45,8 @@ class ContractEditContractCommandWrite {
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
       state: json[r'state'],
+      terminationDate: mapToDateTime(json[r'terminationDate']),
+      terminationReason: json[r'terminationReason'],
       type: json[r'type'],
     );
   }
@@ -71,6 +75,10 @@ class ContractEditContractCommandWrite {
 
   String? state;
 
+  DateTime? terminationDate;
+
+  String? terminationReason;
+
   String? type;
 
   @override
@@ -93,6 +101,8 @@ class ContractEditContractCommandWrite {
         other.renewal == renewal &&
         other.signedAt == signedAt &&
         other.state == state &&
+        other.terminationDate == terminationDate &&
+        other.terminationReason == terminationReason &&
         other.type == type;
   }
 
@@ -110,6 +120,8 @@ class ContractEditContractCommandWrite {
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       (state == null ? 0 : state.hashCode) +
+      (terminationDate == null ? 0 : terminationDate.hashCode) +
+      (terminationReason == null ? 0 : terminationReason.hashCode) +
       (type == null ? 0 : type.hashCode);
 
   static List<ContractEditContractCommandWrite> listFromJson(Iterable? json) {
@@ -162,7 +174,7 @@ class ContractEditContractCommandWrite {
 
   @override
   String toString() =>
-      'ContractEditContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, type=$type]';
+      'ContractEditContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -199,6 +211,10 @@ class ContractEditContractCommandWrite {
       if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'state')) r'state': state,
+      if (keys == null || keys.contains(r'terminationDate'))
+        r'terminationDate': terminationDate?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'terminationReason'))
+        r'terminationReason': terminationReason,
       if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }

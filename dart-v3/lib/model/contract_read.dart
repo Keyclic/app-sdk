@@ -19,10 +19,12 @@ class ContractRead {
     this.signedAt,
     this.state = const ContractReadStateEnum._('DRAFT'),
     this.terminationDate,
+    this.terminationReason,
     required this.type,
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.endDate,
   });
 
   /// Returns a new [ContractRead] instance and imports its values from
@@ -45,10 +47,12 @@ class ContractRead {
       signedAt: mapToDateTime(json[r'signedAt']),
       state: ContractReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: mapToDateTime(json[r'terminationDate']),
+      terminationReason: json[r'terminationReason'],
       type: json[r'type'],
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
+      endDate: mapToDateTime(json[r'endDate']),
     );
   }
 
@@ -83,7 +87,10 @@ class ContractRead {
   ContractReadStateEnum state;
 
   /// The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
-  final DateTime? terminationDate;
+  DateTime? terminationDate;
+
+  /// The optional reason for termination.
+  String? terminationReason;
 
   /// The type of the contract defined by the organization.
   String type;
@@ -96,6 +103,8 @@ class ContractRead {
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
+
+  final DateTime? endDate;
 
   @override
   bool operator ==(Object other) {
@@ -117,10 +126,12 @@ class ContractRead {
         other.signedAt == signedAt &&
         other.state == state &&
         other.terminationDate == terminationDate &&
+        other.terminationReason == terminationReason &&
         other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.endDate == endDate;
   }
 
   @override
@@ -137,10 +148,12 @@ class ContractRead {
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
+      (terminationReason == null ? 0 : terminationReason.hashCode) +
       type.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (endDate == null ? 0 : endDate.hashCode);
 
   static List<ContractRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -189,7 +202,7 @@ class ContractRead {
 
   @override
   String toString() =>
-      'ContractRead[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractRead[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, endDate=$endDate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -226,12 +239,16 @@ class ContractRead {
       r'state': state,
       if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'terminationReason'))
+        r'terminationReason': terminationReason,
       r'type': type,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'endDate'))
+        r'endDate': endDate?.toUtc().toIso8601String(),
     };
   }
 }

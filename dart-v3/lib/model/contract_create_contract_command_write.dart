@@ -19,6 +19,8 @@ class ContractCreateContractCommandWrite {
     this.renewal,
     this.signedAt,
     this.state = 'DRAFT',
+    this.terminationDate,
+    this.terminationReason,
     required this.type,
   });
 
@@ -43,6 +45,8 @@ class ContractCreateContractCommandWrite {
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
       state: json[r'state'],
+      terminationDate: mapToDateTime(json[r'terminationDate']),
+      terminationReason: json[r'terminationReason'],
       type: json[r'type'],
     );
   }
@@ -71,6 +75,10 @@ class ContractCreateContractCommandWrite {
 
   String state;
 
+  DateTime? terminationDate;
+
+  String? terminationReason;
+
   String type;
 
   @override
@@ -93,6 +101,8 @@ class ContractCreateContractCommandWrite {
         other.renewal == renewal &&
         other.signedAt == signedAt &&
         other.state == state &&
+        other.terminationDate == terminationDate &&
+        other.terminationReason == terminationReason &&
         other.type == type;
   }
 
@@ -110,6 +120,8 @@ class ContractCreateContractCommandWrite {
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
+      (terminationDate == null ? 0 : terminationDate.hashCode) +
+      (terminationReason == null ? 0 : terminationReason.hashCode) +
       type.hashCode;
 
   static List<ContractCreateContractCommandWrite> listFromJson(Iterable? json) {
@@ -163,7 +175,7 @@ class ContractCreateContractCommandWrite {
 
   @override
   String toString() =>
-      'ContractCreateContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, type=$type]';
+      'ContractCreateContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -199,6 +211,10 @@ class ContractCreateContractCommandWrite {
       if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
       r'state': state,
+      if (keys == null || keys.contains(r'terminationDate'))
+        r'terminationDate': terminationDate?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'terminationReason'))
+        r'terminationReason': terminationReason,
       r'type': type,
     };
   }

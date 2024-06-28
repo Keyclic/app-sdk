@@ -19,11 +19,13 @@ Name | Type | Description | Notes
 **renewal** | [**RenewalRead**](RenewalRead.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **state** | **String** | Current state of the contract. | [default to 'DRAFT']
-**terminationDate** | [**DateTime**](DateTime.md) | The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date. | [optional] [readonly] 
+**terminationDate** | [**DateTime**](DateTime.md) | The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date. | [optional] 
+**terminationReason** | **String** | The optional reason for termination. | [optional] 
 **type** | **String** | The type of the contract defined by the organization. | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
+**endDate** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

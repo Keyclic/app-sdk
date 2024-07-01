@@ -17,7 +17,7 @@ class FeedbackData {
     required this.place,
     this.priority,
     this.reporter,
-    required this.visibility,
+    this.visibility,
   });
 
   /// Returns a new [FeedbackData] instance and imports its values from
@@ -42,7 +42,7 @@ class FeedbackData {
       place: json[r'place'],
       priority: json[r'priority'],
       reporter: json[r'reporter'],
-      visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility'])!,
+      visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
 
@@ -66,7 +66,7 @@ class FeedbackData {
 
   String? reporter;
 
-  FeedbackDataVisibilityEnum visibility;
+  FeedbackDataVisibilityEnum? visibility;
 
   @override
   bool operator ==(Object other) {
@@ -102,7 +102,7 @@ class FeedbackData {
       place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
-      visibility.hashCode;
+      (visibility == null ? 0 : visibility.hashCode);
 
   static List<FeedbackData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -175,7 +175,8 @@ class FeedbackData {
       r'place': place,
       if (keys == null || keys.contains(r'priority')) r'priority': priority,
       if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
-      r'visibility': visibility,
+      if (keys == null || keys.contains(r'visibility'))
+        r'visibility': visibility,
     };
   }
 }

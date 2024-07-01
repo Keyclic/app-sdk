@@ -20164,8 +20164,7 @@
             },
             "required": [
                 "geo",
-                "place",
-                "visibility"
+                "place"
             ]
         },
         "FeedbackGeoCoordinates": {

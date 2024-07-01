@@ -27,7 +27,7 @@ docker run \
     --rm \
     --volume "${PWD}":/local \
     --user "$(id -u)":"$(id -g)" \
-    openapitools/openapi-generator-cli:v7.4.0 \
+    openapitools/openapi-generator-cli:v7.6.0 \
     generate \
     --config /local/options-v3.dart.json \
     --input-spec ${SWAGGER_FILE} \

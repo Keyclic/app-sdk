@@ -141,6 +141,8 @@ class TicketApi {
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [resourceType] -
+  /// * [taskEquipments] -
+  /// * [taskEquipmentsLeftSquareBracketRightSquareBracket] -
   /// * [existsLeftSquareBracketArchivedAtRightSquareBracket] -
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
@@ -226,6 +228,8 @@ class TicketApi {
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
     String? resourceType,
+    String? taskEquipments,
+    List<String>? taskEquipmentsLeftSquareBracketRightSquareBracket,
     bool? existsLeftSquareBracketArchivedAtRightSquareBracket,
     bool? existsLeftSquareBracketAssignmentsRightSquareBracket,
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
@@ -375,6 +379,12 @@ class TicketApi {
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
       if (resourceType != null)
         r'resourceType': encodeQueryParameter(resourceType),
+      if (taskEquipments != null)
+        r'task_equipments': encodeQueryParameter(taskEquipments),
+      if (taskEquipmentsLeftSquareBracketRightSquareBracket != null)
+        r'task_equipments[]': encodeCollectionQueryParameter(
+            taskEquipmentsLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (existsLeftSquareBracketArchivedAtRightSquareBracket != null)
         r'exists[archivedAt]': encodeQueryParameter(
             existsLeftSquareBracketArchivedAtRightSquareBracket),

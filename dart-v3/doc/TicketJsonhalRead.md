@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **reference** | **String** |  | [optional] [readonly] 
-**archived** | **bool** |  | [optional] [readonly] 
+**archived** | **bool** |  | [optional] 
 **embedded** | [**TicketJsonhalReadEmbedded**](TicketJsonhalReadEmbedded.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

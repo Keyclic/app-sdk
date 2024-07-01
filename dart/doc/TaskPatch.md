@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**archivedAt** | [**DateTime**](DateTime.md) |  | [optional] 
+**archived** | **bool** |  | [optional] 
 **category** | **String** |  | [optional] 
 **completed** | **bool** |  | [optional] 
 **description** | **String** |  | [optional] 

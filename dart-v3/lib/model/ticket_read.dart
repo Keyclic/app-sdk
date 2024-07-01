@@ -105,7 +105,7 @@ class TicketRead {
 
   final String? reference;
 
-  final bool? archived;
+  bool? archived;
 
   @override
   bool operator ==(Object other) {

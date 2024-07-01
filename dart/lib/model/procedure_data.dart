@@ -9,7 +9,7 @@ class ProcedureData {
   ProcedureData({
     required this.document,
     this.mode,
-    required this.type,
+    this.type,
   });
 
   /// Returns a new [ProcedureData] instance and imports its values from
@@ -22,7 +22,7 @@ class ProcedureData {
     return ProcedureData(
       document: json[r'document'],
       mode: ProcedureDataModeEnum.fromJson(json[r'mode']),
-      type: ProcedureDataTypeEnum.fromJson(json[r'type'])!,
+      type: ProcedureDataTypeEnum.fromJson(json[r'type']),
     );
   }
 
@@ -30,7 +30,7 @@ class ProcedureData {
 
   ProcedureDataModeEnum? mode;
 
-  ProcedureDataTypeEnum type;
+  ProcedureDataTypeEnum? type;
 
   @override
   bool operator ==(Object other) {
@@ -47,7 +47,9 @@ class ProcedureData {
 
   @override
   int get hashCode =>
-      document.hashCode + (mode == null ? 0 : mode.hashCode) + type.hashCode;
+      document.hashCode +
+      (mode == null ? 0 : mode.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<ProcedureData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -102,7 +104,7 @@ class ProcedureData {
     return <String, dynamic>{
       r'document': document,
       if (keys == null || keys.contains(r'mode')) r'mode': mode,
-      r'type': type,
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }
@@ -119,12 +121,10 @@ class ProcedureDataModeEnum {
 
   String toJson() => value;
 
-  static const remote = ProcedureDataModeEnum._(r'remote');
   static const onSite = ProcedureDataModeEnum._(r'on_site');
 
   /// List of all possible values in this [enum][ProcedureDataModeEnum].
   static const values = <ProcedureDataModeEnum>[
-    remote,
     onSite,
   ];
 
@@ -161,8 +161,6 @@ class ProcedureDataModeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ProcedureDataModeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'remote':
-        return ProcedureDataModeEnum.remote;
       case r'on_site':
         return ProcedureDataModeEnum.onSite;
       default:
@@ -189,12 +187,10 @@ class ProcedureDataTypeEnum {
 
   String toJson() => value;
 
-  static const eSignature = ProcedureDataTypeEnum._(r'e-signature');
   static const signature = ProcedureDataTypeEnum._(r'signature');
 
   /// List of all possible values in this [enum][ProcedureDataTypeEnum].
   static const values = <ProcedureDataTypeEnum>[
-    eSignature,
     signature,
   ];
 
@@ -231,8 +227,6 @@ class ProcedureDataTypeEnumTypeTransformer {
   /// and users are still using an old app with the old code.
   ProcedureDataTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     switch (data) {
-      case r'e-signature':
-        return ProcedureDataTypeEnum.eSignature;
       case r'signature':
         return ProcedureDataTypeEnum.signature;
       default:

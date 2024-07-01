@@ -437,7 +437,6 @@ doc/Point.md
 doc/Polygon.md
 doc/PreferencesArchiving.md
 doc/PreferencesContract.md
-doc/PreferencesElectronicSignature.md
 doc/PreferencesEquipment.md
 doc/PreferencesForm.md
 doc/PreferencesNotification.md
@@ -1076,7 +1075,6 @@ lib/model/point.dart
 lib/model/polygon.dart
 lib/model/preferences_archiving.dart
 lib/model/preferences_contract.dart
-lib/model/preferences_electronic_signature.dart
 lib/model/preferences_equipment.dart
 lib/model/preferences_form.dart
 lib/model/preferences_notification.dart
@@ -1680,7 +1678,6 @@ test/point_test.dart
 test/polygon_test.dart
 test/preferences_archiving_test.dart
 test/preferences_contract_test.dart
-test/preferences_electronic_signature_test.dart
 test/preferences_equipment_test.dart
 test/preferences_form_test.dart
 test/preferences_notification_test.dart

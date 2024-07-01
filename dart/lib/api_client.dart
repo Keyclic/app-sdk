@@ -1146,8 +1146,6 @@ class ApiClient {
           return PreferencesArchiving.fromJson(value);
         case 'PreferencesContract':
           return PreferencesContract.fromJson(value);
-        case 'PreferencesElectronicSignature':
-          return PreferencesElectronicSignature.fromJson(value);
         case 'PreferencesEquipment':
           return PreferencesEquipment.fromJson(value);
         case 'PreferencesForm':

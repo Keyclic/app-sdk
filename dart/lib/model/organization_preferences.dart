@@ -10,7 +10,6 @@ class OrganizationPreferences {
     this.archiving,
     this.categoryRequired,
     this.contract,
-    this.electronicSignature,
     this.equipment,
     this.feedbackParentPlace,
     this.form,
@@ -34,8 +33,6 @@ class OrganizationPreferences {
       archiving: PreferencesArchiving.fromJson(json[r'archiving']),
       categoryRequired: json[r'categoryRequired'],
       contract: PreferencesContract.fromJson(json[r'contract']),
-      electronicSignature:
-          PreferencesElectronicSignature.fromJson(json[r'electronicSignature']),
       equipment: PreferencesEquipment.fromJson(json[r'equipment']),
       feedbackParentPlace: json[r'feedbackParentPlace'],
       form: PreferencesForm.fromJson(json[r'form']),
@@ -54,8 +51,6 @@ class OrganizationPreferences {
   bool? categoryRequired;
 
   PreferencesContract? contract;
-
-  PreferencesElectronicSignature? electronicSignature;
 
   PreferencesEquipment? equipment;
 
@@ -88,7 +83,6 @@ class OrganizationPreferences {
         other.archiving == archiving &&
         other.categoryRequired == categoryRequired &&
         other.contract == contract &&
-        other.electronicSignature == electronicSignature &&
         other.equipment == equipment &&
         other.feedbackParentPlace == feedbackParentPlace &&
         other.form == form &&
@@ -106,7 +100,6 @@ class OrganizationPreferences {
       (archiving == null ? 0 : archiving.hashCode) +
       (categoryRequired == null ? 0 : categoryRequired.hashCode) +
       (contract == null ? 0 : contract.hashCode) +
-      (electronicSignature == null ? 0 : electronicSignature.hashCode) +
       (equipment == null ? 0 : equipment.hashCode) +
       (feedbackParentPlace == null ? 0 : feedbackParentPlace.hashCode) +
       (form == null ? 0 : form.hashCode) +
@@ -168,7 +161,7 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, electronicSignature=$electronicSignature, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled, sla=$sla]';
+      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled, sla=$sla]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -190,18 +183,6 @@ class OrganizationPreferences {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^contract\.'))) {
             previousValue.add(element.split(RegExp(r'^contract\.')).last);
-          }
-
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^electronicSignature\.').hasMatch(key)))
-        r'electronicSignature': electronicSignature?.toJson(keys
-            ?.fold<List<String>>(<String>[],
-                (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^electronicSignature\.'))) {
-            previousValue
-                .add(element.split(RegExp(r'^electronicSignature\.')).last);
           }
 
           return previousValue;

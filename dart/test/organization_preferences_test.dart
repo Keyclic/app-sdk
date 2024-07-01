@@ -19,9 +19,6 @@ void main() {
     // PreferencesContract contract
     test('to test the property `contract`', () async {});
 
-    // PreferencesElectronicSignature electronicSignature
-    test('to test the property `electronicSignature`', () async {});
-
     // PreferencesEquipment equipment
     test('to test the property `equipment`', () async {});
 

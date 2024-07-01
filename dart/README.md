@@ -648,7 +648,6 @@ Class | Method | HTTP request | Description
  - [Polygon](doc//Polygon.md)
  - [PreferencesArchiving](doc//PreferencesArchiving.md)
  - [PreferencesContract](doc//PreferencesContract.md)
- - [PreferencesElectronicSignature](doc//PreferencesElectronicSignature.md)
  - [PreferencesEquipment](doc//PreferencesEquipment.md)
  - [PreferencesForm](doc//PreferencesForm.md)
  - [PreferencesNotification](doc//PreferencesNotification.md)

@@ -114,6 +114,11 @@ class ApiPlatformClient {
     return EquipmentApi(this);
   }
 
+  /// Get ExportApi instance
+  ExportApi getExportApi() {
+    return ExportApi(this);
+  }
+
   /// Get IntegrationApi instance
   IntegrationApi getIntegrationApi() {
     return IntegrationApi(this);
@@ -287,6 +292,10 @@ class ApiPlatformClient {
           return EquipmentJsonhalReadLinks.fromJson(value);
         case 'EquipmentRead':
           return EquipmentRead.fromJson(value);
+        case 'ExportJsonhalRead':
+          return ExportJsonhalRead.fromJson(value);
+        case 'ExportRead':
+          return ExportRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
@@ -333,6 +342,10 @@ class ApiPlatformClient {
           return GetEquipmentCollection200Response.fromJson(value);
         case 'GetEquipmentCollection200ResponseEmbedded':
           return GetEquipmentCollection200ResponseEmbedded.fromJson(value);
+        case 'GetExportCollection200Response':
+          return GetExportCollection200Response.fromJson(value);
+        case 'GetExportCollection200ResponseEmbedded':
+          return GetExportCollection200ResponseEmbedded.fromJson(value);
         case 'GetIntegrationCollection200Response':
           return GetIntegrationCollection200Response.fromJson(value);
         case 'GetIntegrationCollection200ResponseEmbedded':

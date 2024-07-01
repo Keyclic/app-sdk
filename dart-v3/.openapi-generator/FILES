@@ -51,6 +51,9 @@ doc/EquipmentEditEquipmentCommandWrite.md
 doc/EquipmentJsonhalRead.md
 doc/EquipmentJsonhalReadLinks.md
 doc/EquipmentRead.md
+doc/ExportApi.md
+doc/ExportJsonhalRead.md
+doc/ExportRead.md
 doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
 doc/FeedbackRead.md
@@ -74,6 +77,8 @@ doc/GetContractTypeCollection200Response.md
 doc/GetContractTypeCollection200ResponseEmbedded.md
 doc/GetEquipmentCollection200Response.md
 doc/GetEquipmentCollection200ResponseEmbedded.md
+doc/GetExportCollection200Response.md
+doc/GetExportCollection200ResponseEmbedded.md
 doc/GetIntegrationCollection200Response.md
 doc/GetIntegrationCollection200ResponseEmbedded.md
 doc/GetIntegrationLinkCollection200Response.md
@@ -160,6 +165,7 @@ lib/api/connector_api.dart
 lib/api/contract_api.dart
 lib/api/contract_type_api.dart
 lib/api/equipment_api.dart
+lib/api/export_api.dart
 lib/api/integration_api.dart
 lib/api/integration_link_api.dart
 lib/api/place_api.dart
@@ -215,6 +221,8 @@ lib/model/equipment_edit_equipment_command_write.dart
 lib/model/equipment_jsonhal_read.dart
 lib/model/equipment_jsonhal_read_links.dart
 lib/model/equipment_read.dart
+lib/model/export_jsonhal_read.dart
+lib/model/export_read.dart
 lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
 lib/model/feedback_read.dart
@@ -238,6 +246,8 @@ lib/model/get_contract_type_collection200_response.dart
 lib/model/get_contract_type_collection200_response_embedded.dart
 lib/model/get_equipment_collection200_response.dart
 lib/model/get_equipment_collection200_response_embedded.dart
+lib/model/get_export_collection200_response.dart
+lib/model/get_export_collection200_response_embedded.dart
 lib/model/get_integration_collection200_response.dart
 lib/model/get_integration_collection200_response_embedded.dart
 lib/model/get_integration_link_collection200_response.dart
@@ -354,6 +364,9 @@ test/equipment_edit_equipment_command_write_test.dart
 test/equipment_jsonhal_read_links_test.dart
 test/equipment_jsonhal_read_test.dart
 test/equipment_read_test.dart
+test/export_api_test.dart
+test/export_jsonhal_read_test.dart
+test/export_read_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
 test/feedback_read_test.dart
@@ -377,6 +390,8 @@ test/get_contract_type_collection200_response_embedded_test.dart
 test/get_contract_type_collection200_response_test.dart
 test/get_equipment_collection200_response_embedded_test.dart
 test/get_equipment_collection200_response_test.dart
+test/get_export_collection200_response_embedded_test.dart
+test/get_export_collection200_response_test.dart
 test/get_integration_collection200_response_embedded_test.dart
 test/get_integration_collection200_response_test.dart
 test/get_integration_link_collection200_response_embedded_test.dart

@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.62.5-beta.1.dev.3ccd39812"
+        "version": "2.62.5-dev.gb85058007"
     },
     "servers": [
         {
@@ -14914,6 +14914,15 @@
                         "type": "string",
                         "format": "date-time"
                     },
+                    "children": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    },
                     "parent": {
                         "readOnly": true,
                         "type": "string",
@@ -15110,6 +15119,18 @@
                                         }
                                     }
                                 }
+                            },
+                            "children": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                }
                             }
                         }
                     },
@@ -15220,6 +15241,15 @@
                             "feedback": {
                                 "readOnly": true,
                                 "$ref": "#/components/schemas/Feedback.jsonhal-Read"
+                            },
+                            "children": {
+                                "readOnly": true,
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "iri-reference",
+                                    "example": "https://example.com/"
+                                }
                             },
                             "state": {
                                 "readOnly": true,

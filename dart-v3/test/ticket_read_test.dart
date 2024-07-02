@@ -64,6 +64,9 @@ void main() {
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
 
+    // List<String> children (default value: const [])
+    test('to test the property `children`', () async {});
+
     // String parent
     test('to test the property `parent`', () async {});
 

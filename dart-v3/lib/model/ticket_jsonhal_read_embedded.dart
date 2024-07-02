@@ -14,6 +14,7 @@ class TicketJsonhalReadEmbedded {
     this.place,
     this.priority,
     this.feedback,
+    this.children,
     this.state,
   });
 
@@ -32,6 +33,9 @@ class TicketJsonhalReadEmbedded {
       place: PlaceJsonhalRead.fromJson(json[r'place']),
       priority: TicketPriorityJsonhalRead.fromJson(json[r'priority']),
       feedback: FeedbackJsonhalRead.fromJson(json[r'feedback']),
+      children: json[r'children'] == null
+          ? null
+          : List<String>.from(json[r'children']),
       state: WorkflowStateJsonhalRead.fromJson(json[r'state']),
     );
   }
@@ -49,6 +53,8 @@ class TicketJsonhalReadEmbedded {
   TicketPriorityJsonhalRead? priority;
 
   FeedbackJsonhalRead? feedback;
+
+  final List<String>? children;
 
   WorkflowStateJsonhalRead? state;
 
@@ -69,6 +75,7 @@ class TicketJsonhalReadEmbedded {
         other.place == place &&
         other.priority == priority &&
         other.feedback == feedback &&
+        DeepCollectionEquality.unordered().equals(children, other.children) &&
         other.state == state;
   }
 
@@ -81,6 +88,7 @@ class TicketJsonhalReadEmbedded {
       (place == null ? 0 : place.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
       (feedback == null ? 0 : feedback.hashCode) +
+      (children == null ? 0 : children.hashCode) +
       (state == null ? 0 : state.hashCode);
 
   static List<TicketJsonhalReadEmbedded> listFromJson(Iterable? json) {
@@ -133,7 +141,7 @@ class TicketJsonhalReadEmbedded {
 
   @override
   String toString() =>
-      'TicketJsonhalReadEmbedded[assignments=$assignments, category=$category, equipments=$equipments, phase=$phase, place=$place, priority=$priority, feedback=$feedback, state=$state]';
+      'TicketJsonhalReadEmbedded[assignments=$assignments, category=$category, equipments=$equipments, phase=$phase, place=$place, priority=$priority, feedback=$feedback, children=$children, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -189,6 +197,7 @@ class TicketJsonhalReadEmbedded {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'children')) r'children': children,
       if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
         r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

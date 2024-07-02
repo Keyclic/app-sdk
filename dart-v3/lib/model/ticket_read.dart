@@ -24,6 +24,7 @@ class TicketRead {
     this.tags,
     this.createdAt,
     this.updatedAt,
+    this.children,
     this.parent,
     this.state,
     this.reference,
@@ -55,6 +56,9 @@ class TicketRead {
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
+      children: json[r'children'] == null
+          ? null
+          : List<String>.from(json[r'children']),
       parent: json[r'parent'],
       state: WorkflowStateRead.fromJson(json[r'state']),
       reference: json[r'reference'],
@@ -99,6 +103,8 @@ class TicketRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  final List<String>? children;
+
   final String? parent;
 
   WorkflowStateRead? state;
@@ -134,6 +140,7 @@ class TicketRead {
         DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
+        DeepCollectionEquality.unordered().equals(children, other.children) &&
         other.parent == parent &&
         other.state == state &&
         other.reference == reference &&
@@ -159,6 +166,7 @@ class TicketRead {
       (tags == null ? 0 : tags.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (children == null ? 0 : children.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
@@ -210,7 +218,7 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, equipments=$equipments, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state, reference=$reference, archived=$archived]';
+      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, equipments=$equipments, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, children=$children, parent=$parent, state=$state, reference=$reference, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -278,6 +286,7 @@ class TicketRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'children')) r'children': children,
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
       if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
         r'state': state?.toJson(keys?.fold<List<String>>(<String>[],

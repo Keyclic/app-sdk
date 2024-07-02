@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **tags** | **List<String>** |  | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
+**children** | **List<String>** |  | [optional] [readonly] [default to const []]
 **parent** | **String** |  | [optional] [readonly] 
 **state** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
 **reference** | **String** |  | [optional] [readonly] 

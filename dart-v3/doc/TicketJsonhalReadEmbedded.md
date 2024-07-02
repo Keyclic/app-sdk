@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **place** | [**PlaceJsonhalRead**](PlaceJsonhalRead.md) |  | [optional] 
 **priority** | [**TicketPriorityJsonhalRead**](TicketPriorityJsonhalRead.md) |  | [optional] 
 **feedback** | [**FeedbackJsonhalRead**](FeedbackJsonhalRead.md) |  | [optional] 
+**children** | **List<String>** |  | [optional] [readonly] [default to const []]
 **state** | [**WorkflowStateJsonhalRead**](WorkflowStateJsonhalRead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

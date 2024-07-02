@@ -31,6 +31,9 @@ void main() {
     // FeedbackJsonhalRead feedback
     test('to test the property `feedback`', () async {});
 
+    // List<String> children (default value: const [])
+    test('to test the property `children`', () async {});
+
     // WorkflowStateJsonhalRead state
     test('to test the property `state`', () async {});
   });

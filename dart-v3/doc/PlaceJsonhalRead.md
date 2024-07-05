@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
 **preferences** | [**PreferencesJsonhalRead**](PreferencesJsonhalRead.md) |  | [optional] 
+**path** | [**List<NodeJsonhalRead>**](NodeJsonhalRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

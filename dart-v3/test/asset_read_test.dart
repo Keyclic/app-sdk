@@ -26,6 +26,9 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
+    // List<NodeRead> path (default value: const [])
+    test('to test the property `path`', () async {});
+
     // PostalAddressRead address
     test('to test the property `address`', () async {});
 

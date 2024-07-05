@@ -11820,6 +11820,13 @@
                         "description": "The resource identifier.",
                         "type": "string"
                     },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node-Read"
+                        }
+                    },
                     "address": {
                         "anyOf": [
                             {
@@ -11922,6 +11929,13 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node.jsonhal-Read"
+                        }
                     },
                     "address": {
                         "anyOf": [
@@ -12387,6 +12401,13 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node-Read"
+                        }
                     }
                 }
             },
@@ -12430,6 +12451,13 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node.jsonhal-Read"
+                        }
                     }
                 }
             },
@@ -13379,6 +13407,13 @@
                         ],
                         "nullable": true
                     },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node-Read"
+                        }
+                    },
                     "address": {
                         "anyOf": [
                             {
@@ -13677,6 +13712,13 @@
                             }
                         ],
                         "nullable": true
+                    },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node.jsonhal-Read"
+                        }
                     },
                     "address": {
                         "anyOf": [
@@ -14396,6 +14438,46 @@
                     }
                 }
             },
+            "Node-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Node.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
             "Place-Read": {
                 "type": "object",
                 "description": "",
@@ -14438,6 +14520,13 @@
                             }
                         ],
                         "nullable": true
+                    },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node-Read"
+                        }
                     },
                     "address": {
                         "anyOf": [
@@ -14541,6 +14630,13 @@
                             }
                         ],
                         "nullable": true
+                    },
+                    "path": {
+                        "readOnly": true,
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Node.jsonhal-Read"
+                        }
                     },
                     "address": {
                         "anyOf": [

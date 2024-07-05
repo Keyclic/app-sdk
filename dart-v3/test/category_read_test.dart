@@ -19,5 +19,8 @@ void main() {
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});
+
+    // List<NodeRead> path (default value: const [])
+    test('to test the property `path`', () async {});
   });
 }

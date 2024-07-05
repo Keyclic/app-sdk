@@ -10,6 +10,7 @@ class CategoryJsonhalRead {
     this.links,
     required this.name,
     this.id,
+    this.path,
   });
 
   /// Returns a new [CategoryJsonhalRead] instance and imports its values from
@@ -23,6 +24,7 @@ class CategoryJsonhalRead {
       links: CategoryJsonhalReadLinks.fromJson(json[r'_links']),
       name: json[r'name'],
       id: json[r'id'],
+      path: NodeJsonhalRead.listFromJson(json[r'path']),
     );
   }
 
@@ -32,6 +34,8 @@ class CategoryJsonhalRead {
 
   /// The resource identifier.
   final String? id;
+
+  final List<NodeJsonhalRead>? path;
 
   @override
   bool operator ==(Object other) {
@@ -43,14 +47,16 @@ class CategoryJsonhalRead {
     return other is CategoryJsonhalRead &&
         other.links == links &&
         other.name == name &&
-        other.id == id;
+        other.id == id &&
+        DeepCollectionEquality.unordered().equals(path, other.path);
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       name.hashCode +
-      (id == null ? 0 : id.hashCode);
+      (id == null ? 0 : id.hashCode) +
+      (path == null ? 0 : path.hashCode);
 
   static List<CategoryJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -100,7 +106,8 @@ class CategoryJsonhalRead {
   }
 
   @override
-  String toString() => 'CategoryJsonhalRead[links=$links, name=$name, id=$id]';
+  String toString() =>
+      'CategoryJsonhalRead[links=$links, name=$name, id=$id, path=$path]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -115,6 +122,7 @@ class CategoryJsonhalRead {
         })),
       r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'path')) r'path': path,
     };
   }
 }

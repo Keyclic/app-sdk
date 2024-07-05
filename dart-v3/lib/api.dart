@@ -132,6 +132,8 @@ part 'model/integration_link_jsonhal_read.dart';
 part 'model/integration_link_read.dart';
 part 'model/marker_jsonhal_read.dart';
 part 'model/marker_read.dart';
+part 'model/node_jsonhal_read.dart';
+part 'model/node_read.dart';
 part 'model/place_jsonhal_read.dart';
 part 'model/place_read.dart';
 part 'model/point_jsonhal_read.dart';

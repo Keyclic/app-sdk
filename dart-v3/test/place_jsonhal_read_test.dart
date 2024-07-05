@@ -34,6 +34,9 @@ void main() {
     // PreferencesJsonhalRead preferences
     test('to test the property `preferences`', () async {});
 
+    // List<NodeJsonhalRead> path (default value: const [])
+    test('to test the property `path`', () async {});
+
     // PostalAddressJsonhalRead address
     test('to test the property `address`', () async {});
   });

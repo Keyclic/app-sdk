@@ -12,6 +12,7 @@ class AssetRead {
     required this.name,
     this.preferences,
     this.id,
+    this.path,
     this.address,
     this.createdAt,
     this.updatedAt,
@@ -32,6 +33,7 @@ class AssetRead {
       name: json[r'name'],
       preferences: PreferencesRead.fromJson(json[r'preferences']),
       id: json[r'id'],
+      path: NodeRead.listFromJson(json[r'path']),
       address: PostalAddressRead.fromJson(json[r'address']),
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
@@ -50,6 +52,8 @@ class AssetRead {
 
   /// The resource identifier.
   final String? id;
+
+  final List<NodeRead>? path;
 
   PostalAddressRead? address;
 
@@ -76,6 +80,7 @@ class AssetRead {
         other.name == name &&
         other.preferences == preferences &&
         other.id == id &&
+        DeepCollectionEquality.unordered().equals(path, other.path) &&
         other.address == address &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
@@ -90,6 +95,7 @@ class AssetRead {
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (path == null ? 0 : path.hashCode) +
       (address == null ? 0 : address.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
@@ -142,7 +148,7 @@ class AssetRead {
 
   @override
   String toString() =>
-      'AssetRead[type=$type, description=$description, name=$name, preferences=$preferences, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
+      'AssetRead[type=$type, description=$description, name=$name, preferences=$preferences, id=$id, path=$path, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -161,6 +167,7 @@ class AssetRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'path')) r'path': path,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
 *ServiceOfferApi* | [**postServiceOffer**](doc//ServiceOfferApi.md#postserviceoffer) | **POST** /service-offers | Creates a ServiceOffer resource.
 *SlaPolicyApi* | [**getSlaPolicy**](doc//SlaPolicyApi.md#getslapolicy) | **GET** /sla-policies/{identifier} | Retrieves a SlaPolicy resource.
 *SlaPolicyApi* | [**getSlaPolicyCollection**](doc//SlaPolicyApi.md#getslapolicycollection) | **GET** /sla-policies | Retrieves the collection of SlaPolicy resources.
+*TargetGroupApi* | [**getTicketTargetGroups**](doc//TargetGroupApi.md#gettickettargetgroups) | **GET** /tickets/{identifier}/target-groups | Retrieves the collection of TargetGroup resources.
 *TicketApi* | [**getTicket**](doc//TicketApi.md#getticket) | **GET** /tickets/{identifier} | Retrieves a Ticket resource.
 *TicketApi* | [**getTicketCollection**](doc//TicketApi.md#getticketcollection) | **GET** /tickets | Retrieves the collection of Ticket resources.
 *TicketApi* | [**patchTicket**](doc//TicketApi.md#patchticket) | **PATCH** /tickets/{identifier} | Updates the Ticket resource.
@@ -198,6 +199,8 @@ Class | Method | HTTP request | Description
  - [GetSlaPolicyCollection200ResponseEmbedded](doc//GetSlaPolicyCollection200ResponseEmbedded.md)
  - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
  - [GetTicketCollection200ResponseEmbedded](doc//GetTicketCollection200ResponseEmbedded.md)
+ - [GetTicketTargetGroups200Response](doc//GetTicketTargetGroups200Response.md)
+ - [GetTicketTargetGroups200ResponseEmbedded](doc//GetTicketTargetGroups200ResponseEmbedded.md)
  - [GetTicketTypeCollection200Response](doc//GetTicketTypeCollection200Response.md)
  - [GetTicketTypeCollection200ResponseEmbedded](doc//GetTicketTypeCollection200ResponseEmbedded.md)
  - [IntegrationIntegrationRead](doc//IntegrationIntegrationRead.md)
@@ -234,6 +237,8 @@ Class | Method | HTTP request | Description
  - [SlaPolicyJsonhalSlaPolicyReadEmbedded](doc//SlaPolicyJsonhalSlaPolicyReadEmbedded.md)
  - [SlaPolicyJsonhalSlaPolicyReadLinks](doc//SlaPolicyJsonhalSlaPolicyReadLinks.md)
  - [SlaPolicySlaPolicyRead](doc//SlaPolicySlaPolicyRead.md)
+ - [TargetGroupJsonhalRead](doc//TargetGroupJsonhalRead.md)
+ - [TargetGroupRead](doc//TargetGroupRead.md)
  - [TicketCreateTicketCommandWrite](doc//TicketCreateTicketCommandWrite.md)
  - [TicketEditTicketCommandWrite](doc//TicketEditTicketCommandWrite.md)
  - [TicketJsonhalRead](doc//TicketJsonhalRead.md)

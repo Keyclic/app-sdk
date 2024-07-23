@@ -25,6 +25,10 @@ void main() {
     // DateTime effectiveDate
     test('to test the property `effectiveDate`', () async {});
 
+    // The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
+    // DateTime endDate
+    test('to test the property `endDate`', () async {});
+
     // Name of the contract.
     // String name
     test('to test the property `name`', () async {});
@@ -54,6 +58,10 @@ void main() {
     // The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
     // DateTime terminationDate
     test('to test the property `terminationDate`', () async {});
+
+    // The optional reason for termination.
+    // String terminationReason
+    test('to test the property `terminationReason`', () async {});
 
     // The type of the contract defined by the organization.
     // String type

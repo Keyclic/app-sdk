@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.62.5-dev.gb85058007"
+        "version": "2.63.0-beta.2.dev.398385ab7"
     },
     "servers": [
         {
@@ -3990,6 +3990,62 @@
                     },
                     {
                         "name": "effectiveDate[strictly_after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "endDate[before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "endDate[strictly_before]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "endDate[after]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "endDate[strictly_after]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -11788,6 +11844,10 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "adjustedCost": {
+                        "description": "Adjusted cost of the contract after adjustments have been applied.",
+                        "$ref": "#/components/schemas/Price-Write"
+                    },
                     "initialCost": {
                         "description": "Initial cost of the contract before adjustments have been applied.",
                         "$ref": "#/components/schemas/Price-Write"
@@ -12403,6 +12463,13 @@
                         "format": "date-time",
                         "nullable": true
                     },
+                    "endDate": {
+                        "readOnly": true,
+                        "description": "The date and time the contract ends\nThis date is calculated according to effetive date, duration and eventually renewal duration.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "name": {
                         "minLength": 1,
                         "maxLength": 255,
@@ -12444,7 +12511,8 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
-                            "SUSPENDED"
+                            "SUSPENDED",
+                            "TERMINATED"
                         ],
                         "description": "Current state of the contract.",
                         "default": "DRAFT",
@@ -12452,10 +12520,14 @@
                         "type": "string"
                     },
                     "terminationDate": {
-                        "readOnly": true,
                         "description": "The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.",
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "terminationReason": {
+                        "description": "The optional reason for termination.",
+                        "type": "string",
                         "nullable": true
                     },
                     "type": {
@@ -12562,6 +12634,15 @@
                         "example": "DRAFT",
                         "type": "string"
                     },
+                    "terminationDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "terminationReason": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
@@ -12647,6 +12728,15 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "terminationDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "terminationReason": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
@@ -12715,6 +12805,13 @@
                         "format": "date-time",
                         "nullable": true
                     },
+                    "endDate": {
+                        "readOnly": true,
+                        "description": "The date and time the contract ends\nThis date is calculated according to effetive date, duration and eventually renewal duration.",
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
                     "name": {
                         "minLength": 1,
                         "maxLength": 255,
@@ -12749,7 +12846,8 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
-                            "SUSPENDED"
+                            "SUSPENDED",
+                            "TERMINATED"
                         ],
                         "description": "Current state of the contract.",
                         "default": "DRAFT",
@@ -12757,10 +12855,14 @@
                         "type": "string"
                     },
                     "terminationDate": {
-                        "readOnly": true,
                         "description": "The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.",
                         "type": "string",
                         "format": "date-time",
+                        "nullable": true
+                    },
+                    "terminationReason": {
+                        "description": "The optional reason for termination.",
+                        "type": "string",
                         "nullable": true
                     },
                     "id": {

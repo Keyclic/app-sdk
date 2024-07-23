@@ -11,6 +11,7 @@ class ContractRead {
     this.description,
     this.duration,
     required this.effectiveDate,
+    this.endDate,
     required this.name,
     required this.number,
     this.onCall,
@@ -19,6 +20,7 @@ class ContractRead {
     this.signedAt,
     this.state = const ContractReadStateEnum._('DRAFT'),
     this.terminationDate,
+    this.terminationReason,
     required this.type,
     this.id,
     this.createdAt,
@@ -37,6 +39,7 @@ class ContractRead {
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
+      endDate: mapToDateTime(json[r'endDate']),
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
@@ -45,6 +48,7 @@ class ContractRead {
       signedAt: mapToDateTime(json[r'signedAt']),
       state: ContractReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: mapToDateTime(json[r'terminationDate']),
+      terminationReason: json[r'terminationReason'],
       type: json[r'type'],
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
@@ -62,6 +66,9 @@ class ContractRead {
 
   /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
   DateTime effectiveDate;
+
+  /// The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
+  final DateTime? endDate;
 
   /// Name of the contract.
   String name;
@@ -83,7 +90,10 @@ class ContractRead {
   ContractReadStateEnum state;
 
   /// The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
-  final DateTime? terminationDate;
+  DateTime? terminationDate;
+
+  /// The optional reason for termination.
+  String? terminationReason;
 
   /// The type of the contract defined by the organization.
   String type;
@@ -109,6 +119,7 @@ class ContractRead {
         other.description == description &&
         other.duration == duration &&
         other.effectiveDate == effectiveDate &&
+        other.endDate == endDate &&
         other.name == name &&
         other.number == number &&
         other.onCall == onCall &&
@@ -117,6 +128,7 @@ class ContractRead {
         other.signedAt == signedAt &&
         other.state == state &&
         other.terminationDate == terminationDate &&
+        other.terminationReason == terminationReason &&
         other.type == type &&
         other.id == id &&
         other.createdAt == createdAt &&
@@ -129,6 +141,7 @@ class ContractRead {
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
       effectiveDate.hashCode +
+      (endDate == null ? 0 : endDate.hashCode) +
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
@@ -137,6 +150,7 @@ class ContractRead {
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
+      (terminationReason == null ? 0 : terminationReason.hashCode) +
       type.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
@@ -189,7 +203,7 @@ class ContractRead {
 
   @override
   String toString() =>
-      'ContractRead[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractRead[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, endDate=$endDate, name=$name, number=$number, onCall=$onCall, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -207,6 +221,8 @@ class ContractRead {
         r'description': description,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'endDate'))
+        r'endDate': endDate?.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
       if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
@@ -226,6 +242,8 @@ class ContractRead {
       r'state': state,
       if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'terminationReason'))
+        r'terminationReason': terminationReason,
       r'type': type,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
@@ -253,6 +271,7 @@ class ContractReadStateEnum {
   static const DRAFT = ContractReadStateEnum._(r'DRAFT');
   static const EXPIRED = ContractReadStateEnum._(r'EXPIRED');
   static const SUSPENDED = ContractReadStateEnum._(r'SUSPENDED');
+  static const TERMINATED = ContractReadStateEnum._(r'TERMINATED');
 
   /// List of all possible values in this [enum][ContractReadStateEnum].
   static const values = <ContractReadStateEnum>[
@@ -260,6 +279,7 @@ class ContractReadStateEnum {
     DRAFT,
     EXPIRED,
     SUSPENDED,
+    TERMINATED,
   ];
 
   static ContractReadStateEnum? fromJson(dynamic value) =>
@@ -303,6 +323,8 @@ class ContractReadStateEnumTypeTransformer {
         return ContractReadStateEnum.EXPIRED;
       case r'SUSPENDED':
         return ContractReadStateEnum.SUSPENDED;
+      case r'TERMINATED':
+        return ContractReadStateEnum.TERMINATED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

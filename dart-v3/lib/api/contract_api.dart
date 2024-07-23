@@ -201,6 +201,10 @@ class ContractApi {
   /// * [effectiveDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [effectiveDateLeftSquareBracketAfterRightSquareBracket] -
   /// * [effectiveDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
+  /// * [endDateLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [endDateLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [endDateLeftSquareBracketAfterRightSquareBracket] -
+  /// * [endDateLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [signedAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [signedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [signedAtLeftSquareBracketAfterRightSquareBracket] -
@@ -259,6 +263,10 @@ class ContractApi {
     String? effectiveDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? effectiveDateLeftSquareBracketAfterRightSquareBracket,
     String? effectiveDateLeftSquareBracketStrictlyAfterRightSquareBracket,
+    String? endDateLeftSquareBracketBeforeRightSquareBracket,
+    String? endDateLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? endDateLeftSquareBracketAfterRightSquareBracket,
+    String? endDateLeftSquareBracketStrictlyAfterRightSquareBracket,
     String? signedAtLeftSquareBracketBeforeRightSquareBracket,
     String? signedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? signedAtLeftSquareBracketAfterRightSquareBracket,
@@ -361,6 +369,18 @@ class ContractApi {
       if (effectiveDateLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'effectiveDate[strictly_after]': encodeQueryParameter(
             effectiveDateLeftSquareBracketStrictlyAfterRightSquareBracket),
+      if (endDateLeftSquareBracketBeforeRightSquareBracket != null)
+        r'endDate[before]': encodeQueryParameter(
+            endDateLeftSquareBracketBeforeRightSquareBracket),
+      if (endDateLeftSquareBracketStrictlyBeforeRightSquareBracket != null)
+        r'endDate[strictly_before]': encodeQueryParameter(
+            endDateLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (endDateLeftSquareBracketAfterRightSquareBracket != null)
+        r'endDate[after]': encodeQueryParameter(
+            endDateLeftSquareBracketAfterRightSquareBracket),
+      if (endDateLeftSquareBracketStrictlyAfterRightSquareBracket != null)
+        r'endDate[strictly_after]': encodeQueryParameter(
+            endDateLeftSquareBracketStrictlyAfterRightSquareBracket),
       if (signedAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'signedAt[before]': encodeQueryParameter(
             signedAtLeftSquareBracketBeforeRightSquareBracket),

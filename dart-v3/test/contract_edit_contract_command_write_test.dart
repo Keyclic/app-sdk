@@ -46,6 +46,12 @@ void main() {
     // String state
     test('to test the property `state`', () async {});
 
+    // DateTime terminationDate
+    test('to test the property `terminationDate`', () async {});
+
+    // String terminationReason
+    test('to test the property `terminationReason`', () async {});
+
     // String type
     test('to test the property `type`', () async {});
   });

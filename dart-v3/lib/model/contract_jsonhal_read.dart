@@ -12,6 +12,7 @@ class ContractJsonhalRead {
     this.description,
     this.duration,
     required this.effectiveDate,
+    this.endDate,
     required this.name,
     required this.number,
     this.onCall,
@@ -19,6 +20,7 @@ class ContractJsonhalRead {
     this.signedAt,
     this.state = const ContractJsonhalReadStateEnum._('DRAFT'),
     this.terminationDate,
+    this.terminationReason,
     this.id,
     this.createdAt,
     this.updatedAt,
@@ -37,6 +39,7 @@ class ContractJsonhalRead {
       description: json[r'description'],
       duration: json[r'duration'],
       effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
+      endDate: mapToDateTime(json[r'endDate']),
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
@@ -44,6 +47,7 @@ class ContractJsonhalRead {
       signedAt: mapToDateTime(json[r'signedAt']),
       state: ContractJsonhalReadStateEnum.fromJson(json[r'state'])!,
       terminationDate: mapToDateTime(json[r'terminationDate']),
+      terminationReason: json[r'terminationReason'],
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
@@ -63,6 +67,9 @@ class ContractJsonhalRead {
   /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
   DateTime effectiveDate;
 
+  /// The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
+  final DateTime? endDate;
+
   /// Name of the contract.
   String name;
 
@@ -80,7 +87,10 @@ class ContractJsonhalRead {
   ContractJsonhalReadStateEnum state;
 
   /// The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
-  final DateTime? terminationDate;
+  DateTime? terminationDate;
+
+  /// The optional reason for termination.
+  String? terminationReason;
 
   /// The resource identifier.
   final String? id;
@@ -104,6 +114,7 @@ class ContractJsonhalRead {
         other.description == description &&
         other.duration == duration &&
         other.effectiveDate == effectiveDate &&
+        other.endDate == endDate &&
         other.name == name &&
         other.number == number &&
         other.onCall == onCall &&
@@ -111,6 +122,7 @@ class ContractJsonhalRead {
         other.signedAt == signedAt &&
         other.state == state &&
         other.terminationDate == terminationDate &&
+        other.terminationReason == terminationReason &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt;
@@ -123,6 +135,7 @@ class ContractJsonhalRead {
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
       effectiveDate.hashCode +
+      (endDate == null ? 0 : endDate.hashCode) +
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
@@ -130,6 +143,7 @@ class ContractJsonhalRead {
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
+      (terminationReason == null ? 0 : terminationReason.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -183,7 +197,7 @@ class ContractJsonhalRead {
 
   @override
   String toString() =>
-      'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ContractJsonhalRead[links=$links, billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, endDate=$endDate, name=$name, number=$number, onCall=$onCall, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -210,6 +224,8 @@ class ContractJsonhalRead {
         r'description': description,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'endDate'))
+        r'endDate': endDate?.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
       if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
@@ -228,6 +244,8 @@ class ContractJsonhalRead {
       r'state': state,
       if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'terminationReason'))
+        r'terminationReason': terminationReason,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
@@ -254,6 +272,7 @@ class ContractJsonhalReadStateEnum {
   static const DRAFT = ContractJsonhalReadStateEnum._(r'DRAFT');
   static const EXPIRED = ContractJsonhalReadStateEnum._(r'EXPIRED');
   static const SUSPENDED = ContractJsonhalReadStateEnum._(r'SUSPENDED');
+  static const TERMINATED = ContractJsonhalReadStateEnum._(r'TERMINATED');
 
   /// List of all possible values in this [enum][ContractJsonhalReadStateEnum].
   static const values = <ContractJsonhalReadStateEnum>[
@@ -261,6 +280,7 @@ class ContractJsonhalReadStateEnum {
     DRAFT,
     EXPIRED,
     SUSPENDED,
+    TERMINATED,
   ];
 
   static ContractJsonhalReadStateEnum? fromJson(dynamic value) =>
@@ -304,6 +324,8 @@ class ContractJsonhalReadStateEnumTypeTransformer {
         return ContractJsonhalReadStateEnum.EXPIRED;
       case r'SUSPENDED':
         return ContractJsonhalReadStateEnum.SUSPENDED;
+      case r'TERMINATED':
+        return ContractJsonhalReadStateEnum.TERMINATED;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

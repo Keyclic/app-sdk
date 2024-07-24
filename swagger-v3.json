@@ -12088,6 +12088,13 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
+                    "contract": {
+                        "readOnly": true,
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
                     "member": {
                         "readOnly": true,
                         "type": "string",
@@ -12122,6 +12129,15 @@
                         "type": "object",
                         "properties": {
                             "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            },
+                            "contract": {
                                 "type": "object",
                                 "properties": {
                                     "href": {

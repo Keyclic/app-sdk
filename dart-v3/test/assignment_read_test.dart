@@ -10,6 +10,9 @@ void main() {
   // final instance = AssignmentRead();
 
   group('test AssignmentRead', () {
+    // String contract
+    test('to test the property `contract`', () async {});
+
     // String member
     test('to test the property `member`', () async {});
 

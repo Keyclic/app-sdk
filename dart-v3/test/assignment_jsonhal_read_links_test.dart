@@ -13,6 +13,9 @@ void main() {
     // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
+    // GetPlaceCollection200ResponseLinksFirst contract
+    test('to test the property `contract`', () async {});
+
     // GetPlaceCollection200ResponseLinksFirst member
     test('to test the property `member`', () async {});
 

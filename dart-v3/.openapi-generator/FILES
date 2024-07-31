@@ -45,6 +45,8 @@ doc/ContractRead.md
 doc/ContractTypeApi.md
 doc/ContractTypeJsonhalRead.md
 doc/ContractTypeRead.md
+doc/DurationJsonhalRead.md
+doc/DurationRead.md
 doc/EquipmentApi.md
 doc/EquipmentCreateEquipmentCommandWrite.md
 doc/EquipmentEditEquipmentCommandWrite.md
@@ -92,6 +94,8 @@ doc/GetSlaPolicyCollection200Response.md
 doc/GetSlaPolicyCollection200ResponseEmbedded.md
 doc/GetTicketCollection200Response.md
 doc/GetTicketCollection200ResponseEmbedded.md
+doc/GetTicketMetrics200Response.md
+doc/GetTicketMetrics200ResponseEmbedded.md
 doc/GetTicketTargetGroups200Response.md
 doc/GetTicketTargetGroups200ResponseEmbedded.md
 doc/GetTicketTypeCollection200Response.md
@@ -107,6 +111,9 @@ doc/IntegrationLinkJsonhalRead.md
 doc/IntegrationLinkRead.md
 doc/MarkerJsonhalRead.md
 doc/MarkerRead.md
+doc/MetricApi.md
+doc/MetricJsonhalRead.md
+doc/MetricRead.md
 doc/NodeJsonhalRead.md
 doc/NodeRead.md
 doc/PlaceApi.md
@@ -175,6 +182,7 @@ lib/api/equipment_api.dart
 lib/api/export_api.dart
 lib/api/integration_api.dart
 lib/api/integration_link_api.dart
+lib/api/metric_api.dart
 lib/api/place_api.dart
 lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
@@ -224,6 +232,8 @@ lib/model/contract_jsonhal_read_links.dart
 lib/model/contract_read.dart
 lib/model/contract_type_jsonhal_read.dart
 lib/model/contract_type_read.dart
+lib/model/duration_jsonhal_read.dart
+lib/model/duration_read.dart
 lib/model/equipment_create_equipment_command_write.dart
 lib/model/equipment_edit_equipment_command_write.dart
 lib/model/equipment_jsonhal_read.dart
@@ -269,6 +279,8 @@ lib/model/get_sla_policy_collection200_response.dart
 lib/model/get_sla_policy_collection200_response_embedded.dart
 lib/model/get_ticket_collection200_response.dart
 lib/model/get_ticket_collection200_response_embedded.dart
+lib/model/get_ticket_metrics200_response.dart
+lib/model/get_ticket_metrics200_response_embedded.dart
 lib/model/get_ticket_target_groups200_response.dart
 lib/model/get_ticket_target_groups200_response_embedded.dart
 lib/model/get_ticket_type_collection200_response.dart
@@ -282,6 +294,8 @@ lib/model/integration_link_jsonhal_read.dart
 lib/model/integration_link_read.dart
 lib/model/marker_jsonhal_read.dart
 lib/model/marker_read.dart
+lib/model/metric_jsonhal_read.dart
+lib/model/metric_read.dart
 lib/model/node_jsonhal_read.dart
 lib/model/node_read.dart
 lib/model/place_jsonhal_read.dart
@@ -372,6 +386,8 @@ test/contract_read_test.dart
 test/contract_type_api_test.dart
 test/contract_type_jsonhal_read_test.dart
 test/contract_type_read_test.dart
+test/duration_jsonhal_read_test.dart
+test/duration_read_test.dart
 test/equipment_api_test.dart
 test/equipment_create_equipment_command_write_test.dart
 test/equipment_edit_equipment_command_write_test.dart
@@ -419,6 +435,8 @@ test/get_sla_policy_collection200_response_embedded_test.dart
 test/get_sla_policy_collection200_response_test.dart
 test/get_ticket_collection200_response_embedded_test.dart
 test/get_ticket_collection200_response_test.dart
+test/get_ticket_metrics200_response_embedded_test.dart
+test/get_ticket_metrics200_response_test.dart
 test/get_ticket_target_groups200_response_embedded_test.dart
 test/get_ticket_target_groups200_response_test.dart
 test/get_ticket_type_collection200_response_embedded_test.dart
@@ -434,6 +452,9 @@ test/integration_link_jsonhal_read_test.dart
 test/integration_link_read_test.dart
 test/marker_jsonhal_read_test.dart
 test/marker_read_test.dart
+test/metric_api_test.dart
+test/metric_jsonhal_read_test.dart
+test/metric_read_test.dart
 test/node_jsonhal_read_test.dart
 test/node_read_test.dart
 test/place_api_test.dart

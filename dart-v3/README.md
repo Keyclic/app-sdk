@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *IntegrationLinkApi* | [**getIntegrationLinkCollection**](doc//IntegrationLinkApi.md#getintegrationlinkcollection) | **GET** /integration-links | Retrieves the collection of IntegrationLink resources.
 *IntegrationLinkApi* | [**patchIntegrationLink**](doc//IntegrationLinkApi.md#patchintegrationlink) | **PATCH** /integration-links/{identifier} | Updates the IntegrationLink resource.
 *IntegrationLinkApi* | [**postIntegrationLink**](doc//IntegrationLinkApi.md#postintegrationlink) | **POST** /integration-links | Creates a IntegrationLink resource.
+*MetricApi* | [**getTicketMetrics**](doc//MetricApi.md#getticketmetrics) | **GET** /tickets/{identifier}/metrics | Retrieves the collection of Metric resources.
 *PlaceApi* | [**getPlaceCollection**](doc//PlaceApi.md#getplacecollection) | **GET** /asset-places | Retrieves the collection of Place resources.
 *ServiceOfferApi* | [**getServiceOffer**](doc//ServiceOfferApi.md#getserviceoffer) | **GET** /service-offers/{identifier} | Retrieves a ServiceOffer resource.
 *ServiceOfferApi* | [**postServiceOffer**](doc//ServiceOfferApi.md#postserviceoffer) | **POST** /service-offers | Creates a ServiceOffer resource.
@@ -154,6 +155,8 @@ Class | Method | HTTP request | Description
  - [ContractRead](doc//ContractRead.md)
  - [ContractTypeJsonhalRead](doc//ContractTypeJsonhalRead.md)
  - [ContractTypeRead](doc//ContractTypeRead.md)
+ - [DurationJsonhalRead](doc//DurationJsonhalRead.md)
+ - [DurationRead](doc//DurationRead.md)
  - [EquipmentCreateEquipmentCommandWrite](doc//EquipmentCreateEquipmentCommandWrite.md)
  - [EquipmentEditEquipmentCommandWrite](doc//EquipmentEditEquipmentCommandWrite.md)
  - [EquipmentJsonhalRead](doc//EquipmentJsonhalRead.md)
@@ -199,6 +202,8 @@ Class | Method | HTTP request | Description
  - [GetSlaPolicyCollection200ResponseEmbedded](doc//GetSlaPolicyCollection200ResponseEmbedded.md)
  - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
  - [GetTicketCollection200ResponseEmbedded](doc//GetTicketCollection200ResponseEmbedded.md)
+ - [GetTicketMetrics200Response](doc//GetTicketMetrics200Response.md)
+ - [GetTicketMetrics200ResponseEmbedded](doc//GetTicketMetrics200ResponseEmbedded.md)
  - [GetTicketTargetGroups200Response](doc//GetTicketTargetGroups200Response.md)
  - [GetTicketTargetGroups200ResponseEmbedded](doc//GetTicketTargetGroups200ResponseEmbedded.md)
  - [GetTicketTypeCollection200Response](doc//GetTicketTypeCollection200Response.md)
@@ -212,6 +217,8 @@ Class | Method | HTTP request | Description
  - [IntegrationLinkRead](doc//IntegrationLinkRead.md)
  - [MarkerJsonhalRead](doc//MarkerJsonhalRead.md)
  - [MarkerRead](doc//MarkerRead.md)
+ - [MetricJsonhalRead](doc//MetricJsonhalRead.md)
+ - [MetricRead](doc//MetricRead.md)
  - [NodeJsonhalRead](doc//NodeJsonhalRead.md)
  - [NodeRead](doc//NodeRead.md)
  - [PlaceJsonhalRead](doc//PlaceJsonhalRead.md)

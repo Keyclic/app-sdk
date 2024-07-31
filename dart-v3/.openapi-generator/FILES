@@ -92,6 +92,8 @@ doc/GetSlaPolicyCollection200Response.md
 doc/GetSlaPolicyCollection200ResponseEmbedded.md
 doc/GetTicketCollection200Response.md
 doc/GetTicketCollection200ResponseEmbedded.md
+doc/GetTicketTargetGroups200Response.md
+doc/GetTicketTargetGroups200ResponseEmbedded.md
 doc/GetTicketTypeCollection200Response.md
 doc/GetTicketTypeCollection200ResponseEmbedded.md
 doc/IntegrationApi.md
@@ -133,6 +135,9 @@ doc/SlaPolicyJsonhalSlaPolicyRead.md
 doc/SlaPolicyJsonhalSlaPolicyReadEmbedded.md
 doc/SlaPolicyJsonhalSlaPolicyReadLinks.md
 doc/SlaPolicySlaPolicyRead.md
+doc/TargetGroupApi.md
+doc/TargetGroupJsonhalRead.md
+doc/TargetGroupRead.md
 doc/TicketApi.md
 doc/TicketCreateTicketCommandWrite.md
 doc/TicketEditTicketCommandWrite.md
@@ -171,6 +176,7 @@ lib/api/integration_link_api.dart
 lib/api/place_api.dart
 lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
+lib/api/target_group_api.dart
 lib/api/ticket_api.dart
 lib/api/ticket_type_api.dart
 lib/api/workflow_state_api.dart
@@ -261,6 +267,8 @@ lib/model/get_sla_policy_collection200_response.dart
 lib/model/get_sla_policy_collection200_response_embedded.dart
 lib/model/get_ticket_collection200_response.dart
 lib/model/get_ticket_collection200_response_embedded.dart
+lib/model/get_ticket_target_groups200_response.dart
+lib/model/get_ticket_target_groups200_response_embedded.dart
 lib/model/get_ticket_type_collection200_response.dart
 lib/model/get_ticket_type_collection200_response_embedded.dart
 lib/model/integration_integration_read.dart
@@ -297,6 +305,8 @@ lib/model/sla_policy_jsonhal_sla_policy_read.dart
 lib/model/sla_policy_jsonhal_sla_policy_read_embedded.dart
 lib/model/sla_policy_jsonhal_sla_policy_read_links.dart
 lib/model/sla_policy_sla_policy_read.dart
+lib/model/target_group_jsonhal_read.dart
+lib/model/target_group_read.dart
 lib/model/ticket_create_ticket_command_write.dart
 lib/model/ticket_edit_ticket_command_write.dart
 lib/model/ticket_jsonhal_read.dart
@@ -405,6 +415,8 @@ test/get_sla_policy_collection200_response_embedded_test.dart
 test/get_sla_policy_collection200_response_test.dart
 test/get_ticket_collection200_response_embedded_test.dart
 test/get_ticket_collection200_response_test.dart
+test/get_ticket_target_groups200_response_embedded_test.dart
+test/get_ticket_target_groups200_response_test.dart
 test/get_ticket_type_collection200_response_embedded_test.dart
 test/get_ticket_type_collection200_response_test.dart
 test/integration_api_test.dart
@@ -446,6 +458,9 @@ test/sla_policy_jsonhal_sla_policy_read_embedded_test.dart
 test/sla_policy_jsonhal_sla_policy_read_links_test.dart
 test/sla_policy_jsonhal_sla_policy_read_test.dart
 test/sla_policy_sla_policy_read_test.dart
+test/target_group_api_test.dart
+test/target_group_jsonhal_read_test.dart
+test/target_group_read_test.dart
 test/ticket_api_test.dart
 test/ticket_create_ticket_command_write_test.dart
 test/ticket_edit_ticket_command_write_test.dart

@@ -144,6 +144,11 @@ class ApiPlatformClient {
     return SlaPolicyApi(this);
   }
 
+  /// Get TargetGroupApi instance
+  TargetGroupApi getTargetGroupApi() {
+    return TargetGroupApi(this);
+  }
+
   /// Get TicketApi instance
   TicketApi getTicketApi() {
     return TicketApi(this);
@@ -373,6 +378,10 @@ class ApiPlatformClient {
           return GetTicketCollection200Response.fromJson(value);
         case 'GetTicketCollection200ResponseEmbedded':
           return GetTicketCollection200ResponseEmbedded.fromJson(value);
+        case 'GetTicketTargetGroups200Response':
+          return GetTicketTargetGroups200Response.fromJson(value);
+        case 'GetTicketTargetGroups200ResponseEmbedded':
+          return GetTicketTargetGroups200ResponseEmbedded.fromJson(value);
         case 'GetTicketTypeCollection200Response':
           return GetTicketTypeCollection200Response.fromJson(value);
         case 'GetTicketTypeCollection200ResponseEmbedded':
@@ -445,6 +454,10 @@ class ApiPlatformClient {
           return SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(value);
         case 'SlaPolicySlaPolicyRead':
           return SlaPolicySlaPolicyRead.fromJson(value);
+        case 'TargetGroupJsonhalRead':
+          return TargetGroupJsonhalRead.fromJson(value);
+        case 'TargetGroupRead':
+          return TargetGroupRead.fromJson(value);
         case 'TicketCreateTicketCommandWrite':
           return TicketCreateTicketCommandWrite.fromJson(value);
         case 'TicketEditTicketCommandWrite':

@@ -212,6 +212,8 @@ Class | Method | HTTP request | Description
  - [IntegrationLinkRead](doc//IntegrationLinkRead.md)
  - [MarkerJsonhalRead](doc//MarkerJsonhalRead.md)
  - [MarkerRead](doc//MarkerRead.md)
+ - [NodeJsonhalRead](doc//NodeJsonhalRead.md)
+ - [NodeRead](doc//NodeRead.md)
  - [PlaceJsonhalRead](doc//PlaceJsonhalRead.md)
  - [PlaceRead](doc//PlaceRead.md)
  - [PointJsonhalRead](doc//PointJsonhalRead.md)

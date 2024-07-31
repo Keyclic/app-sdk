@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
 **preferences** | [**PreferencesRead**](PreferencesRead.md) |  | [optional] 
+**path** | [**List<NodeRead>**](NodeRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 
 **parent** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 

@@ -404,6 +404,10 @@ class ApiPlatformClient {
           return MarkerJsonhalRead.fromJson(value);
         case 'MarkerRead':
           return MarkerRead.fromJson(value);
+        case 'NodeJsonhalRead':
+          return NodeJsonhalRead.fromJson(value);
+        case 'NodeRead':
+          return NodeRead.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
         case 'PlaceRead':

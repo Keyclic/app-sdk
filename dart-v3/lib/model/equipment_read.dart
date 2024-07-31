@@ -22,6 +22,7 @@ class EquipmentRead {
     this.description,
     required this.name,
     this.preferences,
+    this.path,
     this.address,
     this.parent,
     this.state,
@@ -50,6 +51,7 @@ class EquipmentRead {
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesRead.fromJson(json[r'preferences']),
+      path: NodeRead.listFromJson(json[r'path']),
       address: PostalAddressRead.fromJson(json[r'address']),
       parent: json[r'parent'],
       state: json[r'state'],
@@ -96,6 +98,8 @@ class EquipmentRead {
 
   PreferencesRead? preferences;
 
+  final List<NodeRead>? path;
+
   PostalAddressRead? address;
 
   String? parent;
@@ -125,6 +129,7 @@ class EquipmentRead {
         other.description == description &&
         other.name == name &&
         other.preferences == preferences &&
+        DeepCollectionEquality.unordered().equals(path, other.path) &&
         other.address == address &&
         other.parent == parent &&
         other.state == state;
@@ -147,6 +152,7 @@ class EquipmentRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
+      (path == null ? 0 : path.hashCode) +
       (address == null ? 0 : address.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
@@ -198,7 +204,7 @@ class EquipmentRead {
 
   @override
   String toString() =>
-      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, address=$address, parent=$parent, state=$state]';
+      'EquipmentRead[brand=$brand, commissioningDate=$commissioningDate, lifetime=$lifetime, model=$model, mpn=$mpn, retirementDate=$retirementDate, serialNumber=$serialNumber, warranty=$warranty, type=$type, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, path=$path, address=$address, parent=$parent, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -241,6 +247,7 @@ class EquipmentRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'path')) r'path': path,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

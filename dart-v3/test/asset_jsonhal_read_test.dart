@@ -26,6 +26,9 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
+    // List<NodeJsonhalRead> path (default value: const [])
+    test('to test the property `path`', () async {});
+
     // PostalAddressJsonhalRead address
     test('to test the property `address`', () async {});
 

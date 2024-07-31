@@ -34,6 +34,9 @@ void main() {
     // PreferencesRead preferences
     test('to test the property `preferences`', () async {});
 
+    // List<NodeRead> path (default value: const [])
+    test('to test the property `path`', () async {});
+
     // PostalAddressRead address
     test('to test the property `address`', () async {});
 

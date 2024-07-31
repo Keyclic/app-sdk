@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **preferences** | [**PreferencesRead**](PreferencesRead.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
+**path** | [**List<NodeRead>**](NodeRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 

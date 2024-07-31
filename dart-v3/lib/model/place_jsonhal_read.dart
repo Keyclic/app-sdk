@@ -14,6 +14,7 @@ class PlaceJsonhalRead {
     this.description,
     required this.name,
     this.preferences,
+    this.path,
     this.address,
   });
 
@@ -32,6 +33,7 @@ class PlaceJsonhalRead {
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
+      path: NodeJsonhalRead.listFromJson(json[r'path']),
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
   }
@@ -53,6 +55,8 @@ class PlaceJsonhalRead {
 
   PreferencesJsonhalRead? preferences;
 
+  final List<NodeJsonhalRead>? path;
+
   PostalAddressJsonhalRead? address;
 
   @override
@@ -70,6 +74,7 @@ class PlaceJsonhalRead {
         other.description == description &&
         other.name == name &&
         other.preferences == preferences &&
+        DeepCollectionEquality.unordered().equals(path, other.path) &&
         other.address == address;
   }
 
@@ -82,6 +87,7 @@ class PlaceJsonhalRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
+      (path == null ? 0 : path.hashCode) +
       (address == null ? 0 : address.hashCode);
 
   static List<PlaceJsonhalRead> listFromJson(Iterable? json) {
@@ -131,7 +137,7 @@ class PlaceJsonhalRead {
 
   @override
   String toString() =>
-      'PlaceJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, address=$address]';
+      'PlaceJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, path=$path, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -162,6 +168,7 @@ class PlaceJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'path')) r'path': path,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

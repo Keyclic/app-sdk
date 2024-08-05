@@ -100,6 +100,8 @@ doc/GetTicketTargetGroups200Response.md
 doc/GetTicketTargetGroups200ResponseEmbedded.md
 doc/GetTicketTypeCollection200Response.md
 doc/GetTicketTypeCollection200ResponseEmbedded.md
+doc/GetTicketWorkflowTransitions200Response.md
+doc/GetTicketWorkflowTransitions200ResponseEmbedded.md
 doc/IntegrationApi.md
 doc/IntegrationIntegrationRead.md
 doc/IntegrationJsonhalIntegrationRead.md
@@ -167,6 +169,10 @@ doc/WarrantyWrite.md
 doc/WorkflowStateApi.md
 doc/WorkflowStateJsonhalRead.md
 doc/WorkflowStateRead.md
+doc/WorkflowTransitionApi.md
+doc/WorkflowTransitionJsonhalRead.md
+doc/WorkflowTransitionJsonhalReadEmbedded.md
+doc/WorkflowTransitionRead.md
 git_push.sh
 lib/api.dart
 lib/api/asset_api.dart
@@ -190,6 +196,7 @@ lib/api/target_group_api.dart
 lib/api/ticket_api.dart
 lib/api/ticket_type_api.dart
 lib/api/workflow_state_api.dart
+lib/api/workflow_transition_api.dart
 lib/api_client.dart
 lib/api_exception.dart
 lib/api_helper.dart
@@ -285,6 +292,8 @@ lib/model/get_ticket_target_groups200_response.dart
 lib/model/get_ticket_target_groups200_response_embedded.dart
 lib/model/get_ticket_type_collection200_response.dart
 lib/model/get_ticket_type_collection200_response_embedded.dart
+lib/model/get_ticket_workflow_transitions200_response.dart
+lib/model/get_ticket_workflow_transitions200_response_embedded.dart
 lib/model/integration_integration_read.dart
 lib/model/integration_jsonhal_integration_read.dart
 lib/model/integration_jsonhal_integration_read_links.dart
@@ -342,6 +351,9 @@ lib/model/warranty_read.dart
 lib/model/warranty_write.dart
 lib/model/workflow_state_jsonhal_read.dart
 lib/model/workflow_state_read.dart
+lib/model/workflow_transition_jsonhal_read.dart
+lib/model/workflow_transition_jsonhal_read_embedded.dart
+lib/model/workflow_transition_read.dart
 pubspec.yaml
 test/asset_api_test.dart
 test/asset_jsonhal_read_links_test.dart
@@ -441,6 +453,8 @@ test/get_ticket_target_groups200_response_embedded_test.dart
 test/get_ticket_target_groups200_response_test.dart
 test/get_ticket_type_collection200_response_embedded_test.dart
 test/get_ticket_type_collection200_response_test.dart
+test/get_ticket_workflow_transitions200_response_embedded_test.dart
+test/get_ticket_workflow_transitions200_response_test.dart
 test/integration_api_test.dart
 test/integration_integration_read_test.dart
 test/integration_jsonhal_integration_read_links_test.dart
@@ -508,3 +522,7 @@ test/warranty_write_test.dart
 test/workflow_state_api_test.dart
 test/workflow_state_jsonhal_read_test.dart
 test/workflow_state_read_test.dart
+test/workflow_transition_api_test.dart
+test/workflow_transition_jsonhal_read_embedded_test.dart
+test/workflow_transition_jsonhal_read_test.dart
+test/workflow_transition_read_test.dart

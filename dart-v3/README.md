@@ -117,6 +117,8 @@ Class | Method | HTTP request | Description
 *TicketTypeApi* | [**getTicketType**](doc//TicketTypeApi.md#gettickettype) | **GET** /ticket-types/{identifier} | Retrieves a TicketType resource.
 *TicketTypeApi* | [**getTicketTypeCollection**](doc//TicketTypeApi.md#gettickettypecollection) | **GET** /ticket-types | Retrieves the collection of TicketType resources.
 *WorkflowStateApi* | [**getState**](doc//WorkflowStateApi.md#getstate) | **GET** /workflow-states/{identifier} | Retrieves a WorkflowState resource.
+*WorkflowTransitionApi* | [**getTicketWorkflowTransitions**](doc//WorkflowTransitionApi.md#getticketworkflowtransitions) | **GET** /tickets/{identifier}/workflow-transitions | Retrieves the collection of WorkflowTransition resources.
+*WorkflowTransitionApi* | [**getTransition**](doc//WorkflowTransitionApi.md#gettransition) | **GET** /workflow-transitions/{identifier} | Retrieves a WorkflowTransition resource.
 
 
 ## Documentation For Models
@@ -208,6 +210,8 @@ Class | Method | HTTP request | Description
  - [GetTicketTargetGroups200ResponseEmbedded](doc//GetTicketTargetGroups200ResponseEmbedded.md)
  - [GetTicketTypeCollection200Response](doc//GetTicketTypeCollection200Response.md)
  - [GetTicketTypeCollection200ResponseEmbedded](doc//GetTicketTypeCollection200ResponseEmbedded.md)
+ - [GetTicketWorkflowTransitions200Response](doc//GetTicketWorkflowTransitions200Response.md)
+ - [GetTicketWorkflowTransitions200ResponseEmbedded](doc//GetTicketWorkflowTransitions200ResponseEmbedded.md)
  - [IntegrationIntegrationRead](doc//IntegrationIntegrationRead.md)
  - [IntegrationJsonhalIntegrationRead](doc//IntegrationJsonhalIntegrationRead.md)
  - [IntegrationJsonhalIntegrationReadLinks](doc//IntegrationJsonhalIntegrationReadLinks.md)
@@ -265,6 +269,9 @@ Class | Method | HTTP request | Description
  - [WarrantyWrite](doc//WarrantyWrite.md)
  - [WorkflowStateJsonhalRead](doc//WorkflowStateJsonhalRead.md)
  - [WorkflowStateRead](doc//WorkflowStateRead.md)
+ - [WorkflowTransitionJsonhalRead](doc//WorkflowTransitionJsonhalRead.md)
+ - [WorkflowTransitionJsonhalReadEmbedded](doc//WorkflowTransitionJsonhalReadEmbedded.md)
+ - [WorkflowTransitionRead](doc//WorkflowTransitionRead.md)
 
 
 ## Documentation For Authorization

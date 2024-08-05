@@ -7,6 +7,7 @@ part of keyclic_sdk_api_platform;
 class AssignmentRead {
   /// Returns a new [AssignmentRead] instance.
   AssignmentRead({
+    this.contract,
     this.member,
     this.outOfContract,
     this.service,
@@ -21,12 +22,15 @@ class AssignmentRead {
     }
 
     return AssignmentRead(
+      contract: json[r'contract'],
       member: json[r'member'],
       outOfContract: json[r'outOfContract'],
       service: json[r'service'],
       id: json[r'id'],
     );
   }
+
+  final String? contract;
 
   final String? member;
 
@@ -45,6 +49,7 @@ class AssignmentRead {
     }
 
     return other is AssignmentRead &&
+        other.contract == contract &&
         other.member == member &&
         other.outOfContract == outOfContract &&
         other.service == service &&
@@ -53,6 +58,7 @@ class AssignmentRead {
 
   @override
   int get hashCode =>
+      (contract == null ? 0 : contract.hashCode) +
       (member == null ? 0 : member.hashCode) +
       (outOfContract == null ? 0 : outOfContract.hashCode) +
       (service == null ? 0 : service.hashCode) +
@@ -105,10 +111,11 @@ class AssignmentRead {
 
   @override
   String toString() =>
-      'AssignmentRead[member=$member, outOfContract=$outOfContract, service=$service, id=$id]';
+      'AssignmentRead[contract=$contract, member=$member, outOfContract=$outOfContract, service=$service, id=$id]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'contract')) r'contract': contract,
       if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'outOfContract'))
         r'outOfContract': outOfContract,

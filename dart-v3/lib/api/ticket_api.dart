@@ -151,6 +151,8 @@ class TicketApi {
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
   /// * [orderLeftSquareBracketScheduledAtRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
+  /// * [assignmentsPeriodMember] -
+  /// * [assignmentsPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodService] -
   /// * [assignmentsPeriodServiceLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodServicePeriodManager] -
@@ -238,6 +240,8 @@ class TicketApi {
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
     String? orderLeftSquareBracketScheduledAtRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
+    String? assignmentsPeriodMember,
+    List<String>? assignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodService,
     List<String>? assignmentsPeriodServiceLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodServicePeriodManager,
@@ -410,6 +414,12 @@ class TicketApi {
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),
+      if (assignmentsPeriodMember != null)
+        r'assignments.member': encodeQueryParameter(assignmentsPeriodMember),
+      if (assignmentsPeriodMemberLeftSquareBracketRightSquareBracket != null)
+        r'assignments.member[]': encodeCollectionQueryParameter(
+            assignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (assignmentsPeriodService != null)
         r'assignments.service': encodeQueryParameter(assignmentsPeriodService),
       if (assignmentsPeriodServiceLeftSquareBracketRightSquareBracket != null)

@@ -169,6 +169,11 @@ class ApiPlatformClient {
     return WorkflowStateApi(this);
   }
 
+  /// Get WorkflowTransitionApi instance
+  WorkflowTransitionApi getWorkflowTransitionApi() {
+    return WorkflowTransitionApi(this);
+  }
+
   Future<Response<Object>> invokeAPI({
     required String path,
     Object? body,
@@ -399,6 +404,11 @@ class ApiPlatformClient {
           return GetTicketTypeCollection200Response.fromJson(value);
         case 'GetTicketTypeCollection200ResponseEmbedded':
           return GetTicketTypeCollection200ResponseEmbedded.fromJson(value);
+        case 'GetTicketWorkflowTransitions200Response':
+          return GetTicketWorkflowTransitions200Response.fromJson(value);
+        case 'GetTicketWorkflowTransitions200ResponseEmbedded':
+          return GetTicketWorkflowTransitions200ResponseEmbedded.fromJson(
+              value);
         case 'IntegrationIntegrationRead':
           return IntegrationIntegrationRead.fromJson(value);
         case 'IntegrationJsonhalIntegrationRead':
@@ -513,6 +523,12 @@ class ApiPlatformClient {
           return WorkflowStateJsonhalRead.fromJson(value);
         case 'WorkflowStateRead':
           return WorkflowStateRead.fromJson(value);
+        case 'WorkflowTransitionJsonhalRead':
+          return WorkflowTransitionJsonhalRead.fromJson(value);
+        case 'WorkflowTransitionJsonhalReadEmbedded':
+          return WorkflowTransitionJsonhalReadEmbedded.fromJson(value);
+        case 'WorkflowTransitionRead':
+          return WorkflowTransitionRead.fromJson(value);
         default:
           Match? match;
           if (value is List &&

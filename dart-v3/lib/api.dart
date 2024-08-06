@@ -40,6 +40,7 @@ part 'api/target_group_api.dart';
 part 'api/ticket_api.dart';
 part 'api/ticket_type_api.dart';
 part 'api/workflow_state_api.dart';
+part 'api/workflow_transition_api.dart';
 
 part 'model/asset_jsonhal_read.dart';
 part 'model/asset_jsonhal_read_links.dart';
@@ -128,6 +129,8 @@ part 'model/get_ticket_target_groups200_response.dart';
 part 'model/get_ticket_target_groups200_response_embedded.dart';
 part 'model/get_ticket_type_collection200_response.dart';
 part 'model/get_ticket_type_collection200_response_embedded.dart';
+part 'model/get_ticket_workflow_transitions200_response.dart';
+part 'model/get_ticket_workflow_transitions200_response_embedded.dart';
 part 'model/integration_integration_read.dart';
 part 'model/integration_jsonhal_integration_read.dart';
 part 'model/integration_jsonhal_integration_read_links.dart';
@@ -185,6 +188,9 @@ part 'model/warranty_read.dart';
 part 'model/warranty_write.dart';
 part 'model/workflow_state_jsonhal_read.dart';
 part 'model/workflow_state_read.dart';
+part 'model/workflow_transition_jsonhal_read.dart';
+part 'model/workflow_transition_jsonhal_read_embedded.dart';
+part 'model/workflow_transition_read.dart';
 
 final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');

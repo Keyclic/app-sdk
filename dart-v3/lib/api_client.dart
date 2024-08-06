@@ -129,6 +129,11 @@ class ApiPlatformClient {
     return IntegrationLinkApi(this);
   }
 
+  /// Get MetricApi instance
+  MetricApi getMetricApi() {
+    return MetricApi(this);
+  }
+
   /// Get PlaceApi instance
   PlaceApi getPlaceApi() {
     return PlaceApi(this);
@@ -287,6 +292,10 @@ class ApiPlatformClient {
           return ContractTypeJsonhalRead.fromJson(value);
         case 'ContractTypeRead':
           return ContractTypeRead.fromJson(value);
+        case 'DurationJsonhalRead':
+          return DurationJsonhalRead.fromJson(value);
+        case 'DurationRead':
+          return DurationRead.fromJson(value);
         case 'EquipmentCreateEquipmentCommandWrite':
           return EquipmentCreateEquipmentCommandWrite.fromJson(value);
         case 'EquipmentEditEquipmentCommandWrite':
@@ -378,6 +387,10 @@ class ApiPlatformClient {
           return GetTicketCollection200Response.fromJson(value);
         case 'GetTicketCollection200ResponseEmbedded':
           return GetTicketCollection200ResponseEmbedded.fromJson(value);
+        case 'GetTicketMetrics200Response':
+          return GetTicketMetrics200Response.fromJson(value);
+        case 'GetTicketMetrics200ResponseEmbedded':
+          return GetTicketMetrics200ResponseEmbedded.fromJson(value);
         case 'GetTicketTargetGroups200Response':
           return GetTicketTargetGroups200Response.fromJson(value);
         case 'GetTicketTargetGroups200ResponseEmbedded':
@@ -404,6 +417,10 @@ class ApiPlatformClient {
           return MarkerJsonhalRead.fromJson(value);
         case 'MarkerRead':
           return MarkerRead.fromJson(value);
+        case 'MetricJsonhalRead':
+          return MetricJsonhalRead.fromJson(value);
+        case 'MetricRead':
+          return MetricRead.fromJson(value);
         case 'NodeJsonhalRead':
           return NodeJsonhalRead.fromJson(value);
         case 'NodeRead':

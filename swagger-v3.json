@@ -13933,9 +13933,11 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
+                            "FUTURE",
                             "SUSPENDED",
                             "TERMINATED"
                         ],
+                        "readOnly": true,
                         "description": "Current state of the contract.",
                         "default": "DRAFT",
                         "example": "DRAFT",
@@ -13982,7 +13984,6 @@
                     "name",
                     "number",
                     "provider",
-                    "state",
                     "type"
                 ]
             },
@@ -14001,6 +14002,10 @@
                     },
                     "description": {
                         "type": "string",
+                        "nullable": true
+                    },
+                    "draft": {
+                        "type": "boolean",
                         "nullable": true
                     },
                     "duration": {
@@ -14051,10 +14056,9 @@
                         "format": "date-time",
                         "nullable": true
                     },
-                    "state": {
-                        "default": "DRAFT",
-                        "example": "DRAFT",
-                        "type": "string"
+                    "suspended": {
+                        "type": "boolean",
+                        "nullable": true
                     },
                     "terminationDate": {
                         "type": "string",
@@ -14098,6 +14102,10 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "draft": {
+                        "type": "boolean",
+                        "nullable": true
+                    },
                     "duration": {
                         "type": "string",
                         "format": "duration",
@@ -14148,6 +14156,10 @@
                     },
                     "state": {
                         "type": "string",
+                        "nullable": true
+                    },
+                    "suspended": {
+                        "type": "boolean",
                         "nullable": true
                     },
                     "terminationDate": {
@@ -14268,9 +14280,11 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
+                            "FUTURE",
                             "SUSPENDED",
                             "TERMINATED"
                         ],
+                        "readOnly": true,
                         "description": "Current state of the contract.",
                         "default": "DRAFT",
                         "example": "DRAFT",

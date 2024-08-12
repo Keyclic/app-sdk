@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **onCall** | **bool** | The onCall property represents whether a staff member is currently available for on-call duties. | [optional] 
 **renewal** | [**RenewalJsonhalRead**](RenewalJsonhalRead.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
-**state** | **String** | Current state of the contract. | [default to 'DRAFT']
+**state** | **String** | Current state of the contract. | [readonly] [default to 'DRAFT']
 **terminationDate** | [**DateTime**](DateTime.md) | The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date. | [optional] 
 **terminationReason** | **String** | The optional reason for termination. | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 

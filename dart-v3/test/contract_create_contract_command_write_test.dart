@@ -16,6 +16,9 @@ void main() {
     // String description
     test('to test the property `description`', () async {});
 
+    // bool draft
+    test('to test the property `draft`', () async {});
+
     // String duration
     test('to test the property `duration`', () async {});
 
@@ -43,8 +46,8 @@ void main() {
     // DateTime signedAt
     test('to test the property `signedAt`', () async {});
 
-    // String state (default value: 'DRAFT')
-    test('to test the property `state`', () async {});
+    // bool suspended
+    test('to test the property `suspended`', () async {});
 
     // DateTime terminationDate
     test('to test the property `terminationDate`', () async {});

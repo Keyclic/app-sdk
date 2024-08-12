@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **billing** | [**BillingWrite**](BillingWrite.md) |  | [optional] 
 **description** | **String** |  | [optional] 
+**draft** | **bool** |  | [optional] 
 **duration** | **String** |  | [optional] 
 **effectiveDate** | [**DateTime**](DateTime.md) |  | 
 **name** | **String** |  | 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 **provider** | **String** |  | 
 **renewal** | [**RenewalWrite**](RenewalWrite.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
-**state** | **String** |  | [default to 'DRAFT']
+**suspended** | **bool** |  | [optional] 
 **terminationDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **terminationReason** | **String** |  | [optional] 
 **type** | **String** |  | 

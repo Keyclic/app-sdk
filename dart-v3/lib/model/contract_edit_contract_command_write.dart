@@ -9,6 +9,7 @@ class ContractEditContractCommandWrite {
   ContractEditContractCommandWrite({
     this.billing,
     this.description,
+    this.draft,
     this.duration,
     this.effectiveDate,
     this.name,
@@ -19,6 +20,7 @@ class ContractEditContractCommandWrite {
     this.renewal,
     this.signedAt,
     this.state,
+    this.suspended,
     this.terminationDate,
     this.terminationReason,
     this.type,
@@ -34,6 +36,7 @@ class ContractEditContractCommandWrite {
     return ContractEditContractCommandWrite(
       billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
+      draft: json[r'draft'],
       duration: json[r'duration'],
       effectiveDate: mapToDateTime(json[r'effectiveDate']),
       name: json[r'name'],
@@ -45,6 +48,7 @@ class ContractEditContractCommandWrite {
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
       state: json[r'state'],
+      suspended: json[r'suspended'],
       terminationDate: mapToDateTime(json[r'terminationDate']),
       terminationReason: json[r'terminationReason'],
       type: json[r'type'],
@@ -54,6 +58,8 @@ class ContractEditContractCommandWrite {
   BillingWrite? billing;
 
   String? description;
+
+  bool? draft;
 
   String? duration;
 
@@ -75,6 +81,8 @@ class ContractEditContractCommandWrite {
 
   String? state;
 
+  bool? suspended;
+
   DateTime? terminationDate;
 
   String? terminationReason;
@@ -91,6 +99,7 @@ class ContractEditContractCommandWrite {
     return other is ContractEditContractCommandWrite &&
         other.billing == billing &&
         other.description == description &&
+        other.draft == draft &&
         other.duration == duration &&
         other.effectiveDate == effectiveDate &&
         other.name == name &&
@@ -101,6 +110,7 @@ class ContractEditContractCommandWrite {
         other.renewal == renewal &&
         other.signedAt == signedAt &&
         other.state == state &&
+        other.suspended == suspended &&
         other.terminationDate == terminationDate &&
         other.terminationReason == terminationReason &&
         other.type == type;
@@ -110,6 +120,7 @@ class ContractEditContractCommandWrite {
   int get hashCode =>
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (draft == null ? 0 : draft.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
       (effectiveDate == null ? 0 : effectiveDate.hashCode) +
       (name == null ? 0 : name.hashCode) +
@@ -120,6 +131,7 @@ class ContractEditContractCommandWrite {
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       (state == null ? 0 : state.hashCode) +
+      (suspended == null ? 0 : suspended.hashCode) +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (terminationReason == null ? 0 : terminationReason.hashCode) +
       (type == null ? 0 : type.hashCode);
@@ -174,7 +186,7 @@ class ContractEditContractCommandWrite {
 
   @override
   String toString() =>
-      'ContractEditContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type]';
+      'ContractEditContractCommandWrite[billing=$billing, description=$description, draft=$draft, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, suspended=$suspended, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -190,6 +202,7 @@ class ContractEditContractCommandWrite {
         })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'draft')) r'draft': draft,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       if (keys == null || keys.contains(r'effectiveDate'))
         r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
@@ -211,6 +224,7 @@ class ContractEditContractCommandWrite {
       if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'state')) r'state': state,
+      if (keys == null || keys.contains(r'suspended')) r'suspended': suspended,
       if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'terminationReason'))

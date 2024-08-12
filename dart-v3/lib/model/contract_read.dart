@@ -18,7 +18,7 @@ class ContractRead {
     required this.provider,
     this.renewal,
     this.signedAt,
-    this.state = const ContractReadStateEnum._('DRAFT'),
+    this.state,
     this.terminationDate,
     this.terminationReason,
     required this.type,
@@ -46,7 +46,7 @@ class ContractRead {
       provider: json[r'provider'],
       renewal: RenewalRead.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
-      state: ContractReadStateEnum.fromJson(json[r'state'])!,
+      state: ContractReadStateEnum.fromJson(json[r'state']),
       terminationDate: mapToDateTime(json[r'terminationDate']),
       terminationReason: json[r'terminationReason'],
       type: json[r'type'],
@@ -87,7 +87,7 @@ class ContractRead {
   DateTime? signedAt;
 
   /// Current state of the contract.
-  ContractReadStateEnum state;
+  final ContractReadStateEnum? state;
 
   /// The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
   DateTime? terminationDate;
@@ -148,7 +148,7 @@ class ContractRead {
       provider.hashCode +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
-      state.hashCode +
+      (state == null ? 0 : state.hashCode) +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (terminationReason == null ? 0 : terminationReason.hashCode) +
       type.hashCode +
@@ -239,7 +239,7 @@ class ContractRead {
         })),
       if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
-      r'state': state,
+      if (keys == null || keys.contains(r'state')) r'state': state,
       if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'terminationReason'))
@@ -270,6 +270,7 @@ class ContractReadStateEnum {
   static const ACTIVE = ContractReadStateEnum._(r'ACTIVE');
   static const DRAFT = ContractReadStateEnum._(r'DRAFT');
   static const EXPIRED = ContractReadStateEnum._(r'EXPIRED');
+  static const FUTURE = ContractReadStateEnum._(r'FUTURE');
   static const SUSPENDED = ContractReadStateEnum._(r'SUSPENDED');
   static const TERMINATED = ContractReadStateEnum._(r'TERMINATED');
 
@@ -278,6 +279,7 @@ class ContractReadStateEnum {
     ACTIVE,
     DRAFT,
     EXPIRED,
+    FUTURE,
     SUSPENDED,
     TERMINATED,
   ];
@@ -321,6 +323,8 @@ class ContractReadStateEnumTypeTransformer {
         return ContractReadStateEnum.DRAFT;
       case r'EXPIRED':
         return ContractReadStateEnum.EXPIRED;
+      case r'FUTURE':
+        return ContractReadStateEnum.FUTURE;
       case r'SUSPENDED':
         return ContractReadStateEnum.SUSPENDED;
       case r'TERMINATED':

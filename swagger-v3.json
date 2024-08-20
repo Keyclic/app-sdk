@@ -13933,11 +13933,10 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
-                            "FUTURE",
+                            "PENDING",
                             "SUSPENDED",
                             "TERMINATED"
                         ],
-                        "readOnly": true,
                         "description": "Current state of the contract.",
                         "default": "DRAFT",
                         "example": "DRAFT",
@@ -13984,6 +13983,7 @@
                     "name",
                     "number",
                     "provider",
+                    "state",
                     "type"
                 ]
             },
@@ -14002,108 +14002,6 @@
                     },
                     "description": {
                         "type": "string",
-                        "nullable": true
-                    },
-                    "draft": {
-                        "type": "boolean",
-                        "nullable": true
-                    },
-                    "duration": {
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "effectiveDate": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "number": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "onCall": {
-                        "type": "boolean"
-                    },
-                    "places": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "provider": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "renewal": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Renewal-Write"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "signedAt": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "suspended": {
-                        "type": "boolean",
-                        "nullable": true
-                    },
-                    "terminationDate": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "terminationReason": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "type": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "effectiveDate",
-                    "name",
-                    "number",
-                    "provider",
-                    "state",
-                    "type"
-                ]
-            },
-            "Contract.EditContractCommand-Write": {
-                "type": "object",
-                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
-                "deprecated": false,
-                "properties": {
-                    "billing": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Billing-Write"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "draft": {
-                        "type": "boolean",
                         "nullable": true
                     },
                     "duration": {
@@ -14155,11 +14053,112 @@
                         "nullable": true
                     },
                     "state": {
+                        "enum": [
+                            "ACTIVE",
+                            "DRAFT",
+                            "SUSPENDED"
+                        ],
+                        "default": "DRAFT",
+                        "example": "DRAFT",
+                        "type": "string"
+                    },
+                    "terminationDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "terminationReason": {
                         "type": "string",
                         "nullable": true
                     },
-                    "suspended": {
-                        "type": "boolean",
+                    "type": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "effectiveDate",
+                    "name",
+                    "number",
+                    "provider",
+                    "state",
+                    "type"
+                ]
+            },
+            "Contract.EditContractCommand-Write": {
+                "type": "object",
+                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
+                "deprecated": false,
+                "properties": {
+                    "billing": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Billing-Write"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "duration": {
+                        "type": "string",
+                        "format": "duration",
+                        "nullable": true
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "number": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "onCall": {
+                        "type": "boolean"
+                    },
+                    "places": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
+                    },
+                    "provider": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "renewal": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Renewal-Write"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "signedAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "nullable": true
+                    },
+                    "state": {
+                        "enum": [
+                            "ACTIVE",
+                            "DRAFT",
+                            "SUSPENDED"
+                        ],
+                        "type": "string",
                         "nullable": true
                     },
                     "terminationDate": {
@@ -14280,11 +14279,10 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
-                            "FUTURE",
+                            "PENDING",
                             "SUSPENDED",
                             "TERMINATED"
                         ],
-                        "readOnly": true,
                         "description": "Current state of the contract.",
                         "default": "DRAFT",
                         "example": "DRAFT",

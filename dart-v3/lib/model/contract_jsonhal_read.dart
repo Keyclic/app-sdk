@@ -84,7 +84,7 @@ class ContractJsonhalRead {
   DateTime? signedAt;
 
   /// Current state of the contract.
-  final ContractJsonhalReadStateEnum state;
+  ContractJsonhalReadStateEnum state;
 
   /// The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.
   DateTime? terminationDate;
@@ -271,7 +271,7 @@ class ContractJsonhalReadStateEnum {
   static const ACTIVE = ContractJsonhalReadStateEnum._(r'ACTIVE');
   static const DRAFT = ContractJsonhalReadStateEnum._(r'DRAFT');
   static const EXPIRED = ContractJsonhalReadStateEnum._(r'EXPIRED');
-  static const FUTURE = ContractJsonhalReadStateEnum._(r'FUTURE');
+  static const PENDING = ContractJsonhalReadStateEnum._(r'PENDING');
   static const SUSPENDED = ContractJsonhalReadStateEnum._(r'SUSPENDED');
   static const TERMINATED = ContractJsonhalReadStateEnum._(r'TERMINATED');
 
@@ -280,7 +280,7 @@ class ContractJsonhalReadStateEnum {
     ACTIVE,
     DRAFT,
     EXPIRED,
-    FUTURE,
+    PENDING,
     SUSPENDED,
     TERMINATED,
   ];
@@ -324,8 +324,8 @@ class ContractJsonhalReadStateEnumTypeTransformer {
         return ContractJsonhalReadStateEnum.DRAFT;
       case r'EXPIRED':
         return ContractJsonhalReadStateEnum.EXPIRED;
-      case r'FUTURE':
-        return ContractJsonhalReadStateEnum.FUTURE;
+      case r'PENDING':
+        return ContractJsonhalReadStateEnum.PENDING;
       case r'SUSPENDED':
         return ContractJsonhalReadStateEnum.SUSPENDED;
       case r'TERMINATED':

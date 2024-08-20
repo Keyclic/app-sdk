@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **provider** | **String** | Organization responsible for the contract. | 
 **renewal** | [**RenewalRead**](RenewalRead.md) |  | [optional] 
 **signedAt** | [**DateTime**](DateTime.md) |  | [optional] 
-**state** | **String** | Current state of the contract. | [optional] [readonly] [default to 'DRAFT']
+**state** | **String** | Current state of the contract. | [default to 'DRAFT']
 **terminationDate** | [**DateTime**](DateTime.md) | The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date. | [optional] 
 **terminationReason** | **String** | The optional reason for termination. | [optional] 
 **type** | **String** | The type of the contract defined by the organization. | 

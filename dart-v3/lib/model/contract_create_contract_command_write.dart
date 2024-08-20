@@ -9,7 +9,6 @@ class ContractCreateContractCommandWrite {
   ContractCreateContractCommandWrite({
     this.billing,
     this.description,
-    this.draft,
     this.duration,
     required this.effectiveDate,
     required this.name,
@@ -19,7 +18,7 @@ class ContractCreateContractCommandWrite {
     required this.provider,
     this.renewal,
     this.signedAt,
-    this.suspended,
+    this.state = const ContractCreateContractCommandWriteStateEnum._('DRAFT'),
     this.terminationDate,
     this.terminationReason,
     required this.type,
@@ -35,7 +34,6 @@ class ContractCreateContractCommandWrite {
     return ContractCreateContractCommandWrite(
       billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
-      draft: json[r'draft'],
       duration: json[r'duration'],
       effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
       name: json[r'name'],
@@ -46,7 +44,8 @@ class ContractCreateContractCommandWrite {
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
-      suspended: json[r'suspended'],
+      state:
+          ContractCreateContractCommandWriteStateEnum.fromJson(json[r'state'])!,
       terminationDate: mapToDateTime(json[r'terminationDate']),
       terminationReason: json[r'terminationReason'],
       type: json[r'type'],
@@ -56,8 +55,6 @@ class ContractCreateContractCommandWrite {
   BillingWrite? billing;
 
   String? description;
-
-  bool? draft;
 
   String? duration;
 
@@ -77,7 +74,7 @@ class ContractCreateContractCommandWrite {
 
   DateTime? signedAt;
 
-  bool? suspended;
+  ContractCreateContractCommandWriteStateEnum state;
 
   DateTime? terminationDate;
 
@@ -95,7 +92,6 @@ class ContractCreateContractCommandWrite {
     return other is ContractCreateContractCommandWrite &&
         other.billing == billing &&
         other.description == description &&
-        other.draft == draft &&
         other.duration == duration &&
         other.effectiveDate == effectiveDate &&
         other.name == name &&
@@ -105,7 +101,7 @@ class ContractCreateContractCommandWrite {
         other.provider == provider &&
         other.renewal == renewal &&
         other.signedAt == signedAt &&
-        other.suspended == suspended &&
+        other.state == state &&
         other.terminationDate == terminationDate &&
         other.terminationReason == terminationReason &&
         other.type == type;
@@ -115,7 +111,6 @@ class ContractCreateContractCommandWrite {
   int get hashCode =>
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
-      (draft == null ? 0 : draft.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
       effectiveDate.hashCode +
       name.hashCode +
@@ -125,7 +120,7 @@ class ContractCreateContractCommandWrite {
       provider.hashCode +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
-      (suspended == null ? 0 : suspended.hashCode) +
+      state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (terminationReason == null ? 0 : terminationReason.hashCode) +
       type.hashCode;
@@ -181,7 +176,7 @@ class ContractCreateContractCommandWrite {
 
   @override
   String toString() =>
-      'ContractCreateContractCommandWrite[billing=$billing, description=$description, draft=$draft, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, suspended=$suspended, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type]';
+      'ContractCreateContractCommandWrite[billing=$billing, description=$description, duration=$duration, effectiveDate=$effectiveDate, name=$name, number=$number, onCall=$onCall, places=$places, provider=$provider, renewal=$renewal, signedAt=$signedAt, state=$state, terminationDate=$terminationDate, terminationReason=$terminationReason, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -197,7 +192,6 @@ class ContractCreateContractCommandWrite {
         })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if (keys == null || keys.contains(r'draft')) r'draft': draft,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
       r'name': name,
@@ -217,7 +211,7 @@ class ContractCreateContractCommandWrite {
         })),
       if (keys == null || keys.contains(r'signedAt'))
         r'signedAt': signedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'suspended')) r'suspended': suspended,
+      r'state': state,
       if (keys == null || keys.contains(r'terminationDate'))
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'terminationReason'))
@@ -225,4 +219,84 @@ class ContractCreateContractCommandWrite {
       r'type': type,
     };
   }
+}
+
+class ContractCreateContractCommandWriteStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ContractCreateContractCommandWriteStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const ACTIVE =
+      ContractCreateContractCommandWriteStateEnum._(r'ACTIVE');
+  static const DRAFT = ContractCreateContractCommandWriteStateEnum._(r'DRAFT');
+  static const SUSPENDED =
+      ContractCreateContractCommandWriteStateEnum._(r'SUSPENDED');
+
+  /// List of all possible values in this [enum][ContractCreateContractCommandWriteStateEnum].
+  static const values = <ContractCreateContractCommandWriteStateEnum>[
+    ACTIVE,
+    DRAFT,
+    SUSPENDED,
+  ];
+
+  static ContractCreateContractCommandWriteStateEnum? fromJson(dynamic value) =>
+      ContractCreateContractCommandWriteStateEnumTypeTransformer()
+          .decode(value);
+
+  static List<ContractCreateContractCommandWriteStateEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return ContractCreateContractCommandWriteStateEnum.fromJson(value);
+        })
+        .whereType<ContractCreateContractCommandWriteStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ContractCreateContractCommandWriteStateEnum] to String,
+/// and [decode] dynamic data back to [ContractCreateContractCommandWriteStateEnum].
+class ContractCreateContractCommandWriteStateEnumTypeTransformer {
+  const ContractCreateContractCommandWriteStateEnumTypeTransformer._();
+
+  factory ContractCreateContractCommandWriteStateEnumTypeTransformer() =>
+      _instance ??=
+          ContractCreateContractCommandWriteStateEnumTypeTransformer._();
+
+  String encode(ContractCreateContractCommandWriteStateEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ContractCreateContractCommandWriteStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ContractCreateContractCommandWriteStateEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'ACTIVE':
+        return ContractCreateContractCommandWriteStateEnum.ACTIVE;
+      case r'DRAFT':
+        return ContractCreateContractCommandWriteStateEnum.DRAFT;
+      case r'SUSPENDED':
+        return ContractCreateContractCommandWriteStateEnum.SUSPENDED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ContractCreateContractCommandWriteStateEnumTypeTransformer] instance.
+  static ContractCreateContractCommandWriteStateEnumTypeTransformer? _instance;
 }

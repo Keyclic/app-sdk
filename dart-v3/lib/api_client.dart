@@ -109,6 +109,11 @@ class ApiPlatformClient {
     return ContractTypeApi(this);
   }
 
+  /// Get DocumentTypeApi instance
+  DocumentTypeApi getDocumentTypeApi() {
+    return DocumentTypeApi(this);
+  }
+
   /// Get EquipmentApi instance
   EquipmentApi getEquipmentApi() {
     return EquipmentApi(this);
@@ -297,6 +302,10 @@ class ApiPlatformClient {
           return ContractTypeJsonhalRead.fromJson(value);
         case 'ContractTypeRead':
           return ContractTypeRead.fromJson(value);
+        case 'DocumentTypeJsonhalRead':
+          return DocumentTypeJsonhalRead.fromJson(value);
+        case 'DocumentTypeRead':
+          return DocumentTypeRead.fromJson(value);
         case 'DurationJsonhalRead':
           return DurationJsonhalRead.fromJson(value);
         case 'DurationRead':
@@ -392,6 +401,10 @@ class ApiPlatformClient {
           return GetTicketCollection200Response.fromJson(value);
         case 'GetTicketCollection200ResponseEmbedded':
           return GetTicketCollection200ResponseEmbedded.fromJson(value);
+        case 'GetTicketDocumentTypes200Response':
+          return GetTicketDocumentTypes200Response.fromJson(value);
+        case 'GetTicketDocumentTypes200ResponseEmbedded':
+          return GetTicketDocumentTypes200ResponseEmbedded.fromJson(value);
         case 'GetTicketMetrics200Response':
           return GetTicketMetrics200Response.fromJson(value);
         case 'GetTicketMetrics200ResponseEmbedded':

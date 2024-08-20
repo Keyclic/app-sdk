@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *ContractApi* | [**postContract**](doc//ContractApi.md#postcontract) | **POST** /contracts | Creates a Contract resource.
 *ContractTypeApi* | [**getContractType**](doc//ContractTypeApi.md#getcontracttype) | **GET** /contract-types/{identifier} | Retrieves a ContractType resource.
 *ContractTypeApi* | [**getContractTypeCollection**](doc//ContractTypeApi.md#getcontracttypecollection) | **GET** /contract-types | Retrieves the collection of ContractType resources.
+*DocumentTypeApi* | [**getTicketDocumentTypes**](doc//DocumentTypeApi.md#getticketdocumenttypes) | **GET** /tickets/{identifier}/document-types | Retrieves the collection of DocumentType resources.
 *EquipmentApi* | [**deleteEquipment**](doc//EquipmentApi.md#deleteequipment) | **DELETE** /equipments/{identifier} | Removes the Equipment resource.
 *EquipmentApi* | [**getEquipment**](doc//EquipmentApi.md#getequipment) | **GET** /equipments/{identifier} | Retrieves a Equipment resource.
 *EquipmentApi* | [**getEquipmentCollection**](doc//EquipmentApi.md#getequipmentcollection) | **GET** /equipments | Retrieves the collection of Equipment resources.
@@ -158,6 +159,8 @@ Class | Method | HTTP request | Description
  - [ContractRead](doc//ContractRead.md)
  - [ContractTypeJsonhalRead](doc//ContractTypeJsonhalRead.md)
  - [ContractTypeRead](doc//ContractTypeRead.md)
+ - [DocumentTypeJsonhalRead](doc//DocumentTypeJsonhalRead.md)
+ - [DocumentTypeRead](doc//DocumentTypeRead.md)
  - [DurationJsonhalRead](doc//DurationJsonhalRead.md)
  - [DurationRead](doc//DurationRead.md)
  - [EquipmentCreateEquipmentCommandWrite](doc//EquipmentCreateEquipmentCommandWrite.md)
@@ -205,6 +208,8 @@ Class | Method | HTTP request | Description
  - [GetSlaPolicyCollection200ResponseEmbedded](doc//GetSlaPolicyCollection200ResponseEmbedded.md)
  - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
  - [GetTicketCollection200ResponseEmbedded](doc//GetTicketCollection200ResponseEmbedded.md)
+ - [GetTicketDocumentTypes200Response](doc//GetTicketDocumentTypes200Response.md)
+ - [GetTicketDocumentTypes200ResponseEmbedded](doc//GetTicketDocumentTypes200ResponseEmbedded.md)
  - [GetTicketMetrics200Response](doc//GetTicketMetrics200Response.md)
  - [GetTicketMetrics200ResponseEmbedded](doc//GetTicketMetrics200ResponseEmbedded.md)
  - [GetTicketTargetGroups200Response](doc//GetTicketTargetGroups200Response.md)

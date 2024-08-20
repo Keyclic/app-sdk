@@ -10,6 +10,13 @@ void main() {
   // final instance = TicketApi();
 
   group('tests for TicketApi', () {
+    // Removes the Ticket resource.
+    //
+    // Removes the Ticket resource.
+    //
+    //Future deleteTicket(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    test('test deleteTicket', () async {});
+
     // Retrieves a Ticket resource.
     //
     // Retrieves a Ticket resource.

@@ -9,6 +9,80 @@ class TicketApi {
 
   final ApiPlatformClient _apiClient;
 
+  /// Removes the Ticket resource.
+  /// Removes the Ticket resource.
+  ///
+  /// Parameters:
+  /// * [identifier] - Task identifier
+  /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
+  /// * [acceptLanguage] -
+  /// * [xDateTime] -
+  /// * [xKeyclicAppPlatform] -
+  /// * [xKeyclicAppVersion] -
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteTicket({
+    required String identifier,
+    required String xKeyclicApp,
+    required String xOrganizationId,
+    String? acceptLanguage,
+    DateTime? xDateTime,
+    String? xKeyclicAppPlatform,
+    String? xKeyclicAppVersion,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'/tickets/{identifier}'
+        .replaceAll('{' r'identifier' '}', identifier.toString());
+    final options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        // to string ??
+        if (acceptLanguage != null) r'Accept-Language': acceptLanguage,
+        if (xDateTime != null) r'X-Date-Time': xDateTime,
+        r'X-Keyclic-App': xKeyclicApp,
+        if (xKeyclicAppPlatform != null)
+          r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
+        if (xKeyclicAppVersion != null)
+          r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        r'X-Organization-Id': xOrganizationId,
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    return _apiClient.dio.request<Object>(
+      path,
+      options: options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+  }
+
   /// Retrieves a Ticket resource.
   /// Retrieves a Ticket resource.
   ///

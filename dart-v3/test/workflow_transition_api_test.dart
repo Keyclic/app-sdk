@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves a WorkflowTransition resource.
     //
-    //Future<WorkflowTransitionJsonhalRead> getTransition(String identifier, String xKeyclicApp, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<WorkflowTransitionJsonhalRead> getTransition(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getTransition', () async {});
   });
 }

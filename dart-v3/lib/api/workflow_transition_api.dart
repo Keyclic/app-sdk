@@ -133,6 +133,7 @@ class WorkflowTransitionApi {
   /// Parameters:
   /// * [identifier] - Transition identifier
   /// * [xKeyclicApp] -
+  /// * [xOrganizationId] -
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -149,6 +150,7 @@ class WorkflowTransitionApi {
   Future<Response<WorkflowTransitionJsonhalRead>> getTransition({
     required String identifier,
     required String xKeyclicApp,
+    required String xOrganizationId,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -173,6 +175,7 @@ class WorkflowTransitionApi {
           r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'X-Keyclic-App-Version': xKeyclicAppVersion,
+        r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
       extra: <String, dynamic>{

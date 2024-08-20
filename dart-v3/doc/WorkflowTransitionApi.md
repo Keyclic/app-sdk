@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTransition**
-> WorkflowTransitionJsonhalRead getTransition(identifier, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> WorkflowTransitionJsonhalRead getTransition(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves a WorkflowTransition resource.
 
@@ -98,13 +98,14 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 final api_instance = WorkflowTransitionApi();
 final identifier = identifier_example; // String | Transition identifier
 final xKeyclicApp = xKeyclicApp_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getTransition(identifier, xKeyclicApp, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getTransition(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling WorkflowTransitionApi->getTransition: $e\n');
@@ -117,6 +118,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **String**| Transition identifier | 
  **xKeyclicApp** | **String**|  | 
+ **xOrganizationId** | **String**|  | 
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

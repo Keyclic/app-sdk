@@ -9351,21 +9351,6 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -9505,21 +9490,6 @@
                         "schema": {
                             "type": "string",
                             "format": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
                         },
                         "style": "simple",
                         "explode": false,
@@ -10847,21 +10817,6 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -11159,21 +11114,6 @@
                         "schema": {
                             "type": "string",
                             "format": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
                         },
                         "style": "simple",
                         "explode": false,
@@ -11638,21 +11578,6 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -11936,21 +11861,6 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
@@ -12228,21 +12138,6 @@
                         "schema": {
                             "type": "string",
                             "format": "string"
-                        },
-                        "style": "simple",
-                        "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "X-Enable-Dispatch",
-                        "in": "header",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "boolean"
                         },
                         "style": "simple",
                         "explode": false,

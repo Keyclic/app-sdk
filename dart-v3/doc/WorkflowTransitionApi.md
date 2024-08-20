@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getTicketWorkflowTransitions**
-> GetTicketWorkflowTransitions200Response getTicketWorkflowTransitions(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
+> GetTicketWorkflowTransitions200Response getTicketWorkflowTransitions(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of WorkflowTransition resources.
 
@@ -39,10 +39,9 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-final xEnableDispatch = xEnableDispatch_example; // bool | 
 
 try {
-    final result = api_instance.getTicketWorkflowTransitions(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
+    final result = api_instance.getTicketWorkflowTransitions(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling WorkflowTransitionApi->getTicketWorkflowTransitions: $e\n');
@@ -63,7 +62,6 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 

@@ -14,7 +14,7 @@ void main() {
     //
     // Retrieves the collection of Metric resources.
     //
-    //Future<GetTicketMetrics200Response> getTicketMetrics(String identifier, String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
+    //Future<GetTicketMetrics200Response> getTicketMetrics(String identifier, String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getTicketMetrics', () async {});
   });
 }

@@ -14,14 +14,14 @@ void main() {
     //
     // Retrieves a TicketType resource.
     //
-    //Future<TicketTypeJsonhalRead> getTicketType(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
+    //Future<TicketTypeJsonhalRead> getTicketType(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getTicketType', () async {});
 
     // Retrieves the collection of TicketType resources.
     //
     // Retrieves the collection of TicketType resources.
     //
-    //Future<GetTicketTypeCollection200Response> getTicketTypeCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
+    //Future<GetTicketTypeCollection200Response> getTicketTypeCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getTicketTypeCollection', () async {});
   });
 }

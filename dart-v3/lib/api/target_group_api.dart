@@ -23,7 +23,6 @@ class TargetGroupApi {
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
   /// * [xKeyclicAppVersion] -
-  /// * [xEnableDispatch] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -44,7 +43,6 @@ class TargetGroupApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
-    bool? xEnableDispatch,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -65,7 +63,6 @@ class TargetGroupApi {
           r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'X-Keyclic-App-Version': xKeyclicAppVersion,
-        if (xEnableDispatch != null) r'X-Enable-Dispatch': xEnableDispatch,
         r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },

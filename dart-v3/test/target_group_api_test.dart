@@ -14,7 +14,7 @@ void main() {
     //
     // Retrieves the collection of TargetGroup resources.
     //
-    //Future<GetTicketTargetGroups200Response> getTicketTargetGroups(String identifier, String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, bool xEnableDispatch }) async
+    //Future<GetTicketTargetGroups200Response> getTicketTargetGroups(String identifier, String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getTicketTargetGroups', () async {});
   });
 }

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getTicketTargetGroups**
-> GetTicketTargetGroups200Response getTicketTargetGroups(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch)
+> GetTicketTargetGroups200Response getTicketTargetGroups(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of TargetGroup resources.
 
@@ -38,10 +38,9 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-final xEnableDispatch = xEnableDispatch_example; // bool | 
 
 try {
-    final result = api_instance.getTicketTargetGroups(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xEnableDispatch);
+    final result = api_instance.getTicketTargetGroups(identifier, xKeyclicApp, xOrganizationId, page, limit, pagination, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling TargetGroupApi->getTicketTargetGroups: $e\n');
@@ -62,7 +61,6 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
- **xEnableDispatch** | **bool**|  | [optional] 
 
 ### Return type
 

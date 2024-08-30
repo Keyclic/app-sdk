@@ -4,23 +4,23 @@
 
 part of keyclic_sdk_api_platform;
 
-class ConnectorConnectorRead {
-  /// Returns a new [ConnectorConnectorRead] instance.
-  ConnectorConnectorRead({
+class ConnectorRead {
+  /// Returns a new [ConnectorRead] instance.
+  ConnectorRead({
     required this.name,
     this.id,
     this.createdAt,
     this.updatedAt,
   });
 
-  /// Returns a new [ConnectorConnectorRead] instance and imports its values from
+  /// Returns a new [ConnectorRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static ConnectorConnectorRead? fromJson(Object? json) {
+  static ConnectorRead? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return ConnectorConnectorRead(
+    return ConnectorRead(
       name: json[r'name'],
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
@@ -46,7 +46,7 @@ class ConnectorConnectorRead {
       return true;
     }
 
-    return other is ConnectorConnectorRead &&
+    return other is ConnectorRead &&
         other.name == name &&
         other.id == id &&
         other.createdAt == createdAt &&
@@ -60,16 +60,15 @@ class ConnectorConnectorRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<ConnectorConnectorRead> listFromJson(Iterable? json) {
+  static List<ConnectorRead> listFromJson(Iterable? json) {
     if (json == null) {
-      return <ConnectorConnectorRead>[];
+      return <ConnectorRead>[];
     }
 
-    return json.fold(<ConnectorConnectorRead>[],
-        (List<ConnectorConnectorRead> previousValue, element) {
-      final ConnectorConnectorRead? object =
-          ConnectorConnectorRead.fromJson(element);
-      if (object is ConnectorConnectorRead) {
+    return json.fold(<ConnectorRead>[],
+        (List<ConnectorRead> previousValue, element) {
+      final ConnectorRead? object = ConnectorRead.fromJson(element);
+      if (object is ConnectorRead) {
         previousValue.add(object);
       }
 
@@ -77,17 +76,15 @@ class ConnectorConnectorRead {
     });
   }
 
-  static Map<String, ConnectorConnectorRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, ConnectorRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, ConnectorConnectorRead>{};
+      return <String, ConnectorRead>{};
     }
 
-    return json.entries.fold(<String, ConnectorConnectorRead>{},
-        (Map<String, ConnectorConnectorRead> previousValue, element) {
-      final ConnectorConnectorRead? object =
-          ConnectorConnectorRead.fromJson(element.value);
-      if (object is ConnectorConnectorRead) {
+    return json.entries.fold(<String, ConnectorRead>{},
+        (Map<String, ConnectorRead> previousValue, element) {
+      final ConnectorRead? object = ConnectorRead.fromJson(element.value);
+      if (object is ConnectorRead) {
         previousValue[element.key] = object;
       }
 
@@ -95,22 +92,22 @@ class ConnectorConnectorRead {
     });
   }
 
-  // maps a json object with a list of ConnectorConnectorRead-objects as value to a dart map
-  static Map<String, List<ConnectorConnectorRead>> mapListFromJson(
+  // maps a json object with a list of ConnectorRead-objects as value to a dart map
+  static Map<String, List<ConnectorRead>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<ConnectorConnectorRead>>{};
+      return <String, List<ConnectorRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<ConnectorConnectorRead>>(
-          key, ConnectorConnectorRead.listFromJson(value));
+      return MapEntry<String, List<ConnectorRead>>(
+          key, ConnectorRead.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'ConnectorConnectorRead[name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ConnectorRead[name=$name, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

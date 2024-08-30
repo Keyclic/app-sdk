@@ -4,9 +4,9 @@
 
 part of keyclic_sdk_api_platform;
 
-class SlaPolicySlaPolicyRead {
-  /// Returns a new [SlaPolicySlaPolicyRead] instance.
-  SlaPolicySlaPolicyRead({
+class SlaPolicyRead {
+  /// Returns a new [SlaPolicyRead] instance.
+  SlaPolicyRead({
     this.fromStates,
     this.toStates,
     this.id,
@@ -19,14 +19,14 @@ class SlaPolicySlaPolicyRead {
     this.updatedAt,
   });
 
-  /// Returns a new [SlaPolicySlaPolicyRead] instance and imports its values from
+  /// Returns a new [SlaPolicyRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SlaPolicySlaPolicyRead? fromJson(Object? json) {
+  static SlaPolicyRead? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return SlaPolicySlaPolicyRead(
+    return SlaPolicyRead(
       fromStates: json[r'fromStates'] == null
           ? null
           : List<String>.from(json[r'fromStates']),
@@ -38,7 +38,7 @@ class SlaPolicySlaPolicyRead {
       description: json[r'description'],
       name: json[r'name'],
       enabled: json[r'enabled'],
-      conditions: ConditionSlaPolicyRead.listFromJson(json[r'conditions']),
+      conditions: ConditionRead.listFromJson(json[r'conditions']),
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
     );
@@ -59,7 +59,7 @@ class SlaPolicySlaPolicyRead {
 
   bool? enabled;
 
-  List<ConditionSlaPolicyRead>? conditions;
+  List<ConditionRead>? conditions;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
@@ -74,7 +74,7 @@ class SlaPolicySlaPolicyRead {
       return true;
     }
 
-    return other is SlaPolicySlaPolicyRead &&
+    return other is SlaPolicyRead &&
         DeepCollectionEquality.unordered()
             .equals(fromStates, other.fromStates) &&
         DeepCollectionEquality.unordered().equals(toStates, other.toStates) &&
@@ -102,16 +102,15 @@ class SlaPolicySlaPolicyRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<SlaPolicySlaPolicyRead> listFromJson(Iterable? json) {
+  static List<SlaPolicyRead> listFromJson(Iterable? json) {
     if (json == null) {
-      return <SlaPolicySlaPolicyRead>[];
+      return <SlaPolicyRead>[];
     }
 
-    return json.fold(<SlaPolicySlaPolicyRead>[],
-        (List<SlaPolicySlaPolicyRead> previousValue, element) {
-      final SlaPolicySlaPolicyRead? object =
-          SlaPolicySlaPolicyRead.fromJson(element);
-      if (object is SlaPolicySlaPolicyRead) {
+    return json.fold(<SlaPolicyRead>[],
+        (List<SlaPolicyRead> previousValue, element) {
+      final SlaPolicyRead? object = SlaPolicyRead.fromJson(element);
+      if (object is SlaPolicyRead) {
         previousValue.add(object);
       }
 
@@ -119,17 +118,15 @@ class SlaPolicySlaPolicyRead {
     });
   }
 
-  static Map<String, SlaPolicySlaPolicyRead> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, SlaPolicyRead> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, SlaPolicySlaPolicyRead>{};
+      return <String, SlaPolicyRead>{};
     }
 
-    return json.entries.fold(<String, SlaPolicySlaPolicyRead>{},
-        (Map<String, SlaPolicySlaPolicyRead> previousValue, element) {
-      final SlaPolicySlaPolicyRead? object =
-          SlaPolicySlaPolicyRead.fromJson(element.value);
-      if (object is SlaPolicySlaPolicyRead) {
+    return json.entries.fold(<String, SlaPolicyRead>{},
+        (Map<String, SlaPolicyRead> previousValue, element) {
+      final SlaPolicyRead? object = SlaPolicyRead.fromJson(element.value);
+      if (object is SlaPolicyRead) {
         previousValue[element.key] = object;
       }
 
@@ -137,22 +134,22 @@ class SlaPolicySlaPolicyRead {
     });
   }
 
-  // maps a json object with a list of SlaPolicySlaPolicyRead-objects as value to a dart map
-  static Map<String, List<SlaPolicySlaPolicyRead>> mapListFromJson(
+  // maps a json object with a list of SlaPolicyRead-objects as value to a dart map
+  static Map<String, List<SlaPolicyRead>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<SlaPolicySlaPolicyRead>>{};
+      return <String, List<SlaPolicyRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SlaPolicySlaPolicyRead>>(
-          key, SlaPolicySlaPolicyRead.listFromJson(value));
+      return MapEntry<String, List<SlaPolicyRead>>(
+          key, SlaPolicyRead.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'SlaPolicySlaPolicyRead[fromStates=$fromStates, toStates=$toStates, id=$id, timeTarget=$timeTarget, description=$description, name=$name, enabled=$enabled, conditions=$conditions, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'SlaPolicyRead[fromStates=$fromStates, toStates=$toStates, id=$id, timeTarget=$timeTarget, description=$description, name=$name, enabled=$enabled, conditions=$conditions, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

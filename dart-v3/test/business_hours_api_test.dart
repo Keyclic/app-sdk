@@ -14,7 +14,7 @@ void main() {
     //
     // Retrieves a BusinessHours resource.
     //
-    //Future<BusinessHoursJsonhalBusinessHoursRead> getBusinessHours(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<BusinessHoursJsonhalRead> getBusinessHours(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getBusinessHours', () async {});
 
     // Retrieves the collection of BusinessHours resources.

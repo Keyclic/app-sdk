@@ -10,7 +10,7 @@ void main() {
   // final instance = GetSlaPolicyCollection200ResponseEmbedded();
 
   group('test GetSlaPolicyCollection200ResponseEmbedded', () {
-    // List<SlaPolicyJsonhalSlaPolicyRead> item (default value: const [])
+    // List<SlaPolicyJsonhalRead> item (default value: const [])
     test('to test the property `item`', () async {});
   });
 }

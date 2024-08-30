@@ -2417,7 +2417,7 @@
                                                 "item": {
                                                     "type": "array",
                                                     "items": {
-                                                        "$ref": "#/components/schemas/BusinessHours.jsonhal-business-hours.read"
+                                                        "$ref": "#/components/schemas/BusinessHours.jsonhal-Read"
                                                     }
                                                 }
                                             },
@@ -2508,7 +2508,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/BusinessHours-business-hours.read"
+                                        "$ref": "#/components/schemas/BusinessHours-Read"
                                     }
                                 }
                             }
@@ -2678,12 +2678,12 @@
                         "content": {
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BusinessHours.jsonhal-business-hours.read"
+                                    "$ref": "#/components/schemas/BusinessHours.jsonhal-Read"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/BusinessHours-business-hours.read"
+                                    "$ref": "#/components/schemas/BusinessHours-Read"
                                 }
                             }
                         }
@@ -3237,12 +3237,12 @@
                         "content": {
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Connector.jsonhal-connector.read"
+                                    "$ref": "#/components/schemas/Connector.jsonhal-Read"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Connector-connector.read"
+                                    "$ref": "#/components/schemas/Connector-Read"
                                 }
                             }
                         }
@@ -8693,7 +8693,7 @@
                                                 "item": {
                                                     "type": "array",
                                                     "items": {
-                                                        "$ref": "#/components/schemas/SlaPolicy.jsonhal-sla-policy.read"
+                                                        "$ref": "#/components/schemas/SlaPolicy.jsonhal-Read"
                                                     }
                                                 }
                                             },
@@ -8784,7 +8784,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/SlaPolicy-sla-policy.read"
+                                        "$ref": "#/components/schemas/SlaPolicy-Read"
                                     }
                                 }
                             }
@@ -8968,12 +8968,12 @@
                         "content": {
                             "application/hal+json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/SlaPolicy.jsonhal-sla-policy.read"
+                                    "$ref": "#/components/schemas/SlaPolicy.jsonhal-Read"
                                 }
                             },
                             "text/html": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/SlaPolicy-sla-policy.read"
+                                    "$ref": "#/components/schemas/SlaPolicy-Read"
                                 }
                             }
                         }
@@ -13375,7 +13375,7 @@
                     "name"
                 ]
             },
-            "BusinessHours-business-hours.read": {
+            "BusinessHours-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -13417,7 +13417,7 @@
                     }
                 }
             },
-            "BusinessHours.jsonhal-business-hours.read": {
+            "BusinessHours.jsonhal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -13647,7 +13647,7 @@
                     "name"
                 ]
             },
-            "Condition-sla-policy.read": {
+            "Condition-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -13676,7 +13676,7 @@
                     }
                 }
             },
-            "Condition.jsonhal-sla-policy.read": {
+            "Condition.jsonhal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -13783,7 +13783,7 @@
                     }
                 }
             },
-            "Connector-connector.read": {
+            "Connector-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -13813,7 +13813,7 @@
                     }
                 }
             },
-            "Connector.jsonhal-connector.read": {
+            "Connector.jsonhal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -16421,7 +16421,7 @@
                     }
                 }
             },
-            "SlaPolicy-sla-policy.read": {
+            "SlaPolicy-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -16464,7 +16464,7 @@
                     "conditions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/Condition-sla-policy.read"
+                            "$ref": "#/components/schemas/Condition-Read"
                         }
                     },
                     "createdAt": {
@@ -16485,7 +16485,7 @@
                     "name"
                 ]
             },
-            "SlaPolicy.jsonhal-sla-policy.read": {
+            "SlaPolicy.jsonhal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -16550,7 +16550,7 @@
                     "conditions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/Condition.jsonhal-sla-policy.read"
+                            "$ref": "#/components/schemas/Condition.jsonhal-Read"
                         }
                     },
                     "createdAt": {

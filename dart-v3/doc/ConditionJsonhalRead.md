@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.ConditionJsonhalSlaPolicyRead
+# keyclic_sdk_api_platform.model.ConditionJsonhalRead
 
 ## Load the model package
 ```dart

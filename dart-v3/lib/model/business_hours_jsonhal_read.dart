@@ -4,9 +4,10 @@
 
 part of keyclic_sdk_api_platform;
 
-class BusinessHoursBusinessHoursRead {
-  /// Returns a new [BusinessHoursBusinessHoursRead] instance.
-  BusinessHoursBusinessHoursRead({
+class BusinessHoursJsonhalRead {
+  /// Returns a new [BusinessHoursJsonhalRead] instance.
+  BusinessHoursJsonhalRead({
+    this.links,
     required this.hoursPerDay,
     required this.name,
     this.openingHours = const [],
@@ -15,14 +16,15 @@ class BusinessHoursBusinessHoursRead {
     this.updatedAt,
   });
 
-  /// Returns a new [BusinessHoursBusinessHoursRead] instance and imports its values from
+  /// Returns a new [BusinessHoursJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static BusinessHoursBusinessHoursRead? fromJson(Object? json) {
+  static BusinessHoursJsonhalRead? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return BusinessHoursBusinessHoursRead(
+    return BusinessHoursJsonhalRead(
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       hoursPerDay: json[r'hoursPerDay'],
       name: json[r'name'],
       openingHours: List<String>.from(json[r'openingHours']),
@@ -31,6 +33,8 @@ class BusinessHoursBusinessHoursRead {
       updatedAt: mapToDateTime(json[r'updatedAt']),
     );
   }
+
+  AssetTypeJsonhalReadLinks? links;
 
   String hoursPerDay;
 
@@ -54,7 +58,8 @@ class BusinessHoursBusinessHoursRead {
       return true;
     }
 
-    return other is BusinessHoursBusinessHoursRead &&
+    return other is BusinessHoursJsonhalRead &&
+        other.links == links &&
         other.hoursPerDay == hoursPerDay &&
         other.name == name &&
         DeepCollectionEquality.unordered()
@@ -66,6 +71,7 @@ class BusinessHoursBusinessHoursRead {
 
   @override
   int get hashCode =>
+      (links == null ? 0 : links.hashCode) +
       hoursPerDay.hashCode +
       name.hashCode +
       openingHours.hashCode +
@@ -73,16 +79,16 @@ class BusinessHoursBusinessHoursRead {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
-  static List<BusinessHoursBusinessHoursRead> listFromJson(Iterable? json) {
+  static List<BusinessHoursJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
-      return <BusinessHoursBusinessHoursRead>[];
+      return <BusinessHoursJsonhalRead>[];
     }
 
-    return json.fold(<BusinessHoursBusinessHoursRead>[],
-        (List<BusinessHoursBusinessHoursRead> previousValue, element) {
-      final BusinessHoursBusinessHoursRead? object =
-          BusinessHoursBusinessHoursRead.fromJson(element);
-      if (object is BusinessHoursBusinessHoursRead) {
+    return json.fold(<BusinessHoursJsonhalRead>[],
+        (List<BusinessHoursJsonhalRead> previousValue, element) {
+      final BusinessHoursJsonhalRead? object =
+          BusinessHoursJsonhalRead.fromJson(element);
+      if (object is BusinessHoursJsonhalRead) {
         previousValue.add(object);
       }
 
@@ -90,17 +96,17 @@ class BusinessHoursBusinessHoursRead {
     });
   }
 
-  static Map<String, BusinessHoursBusinessHoursRead> mapFromJson(
+  static Map<String, BusinessHoursJsonhalRead> mapFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, BusinessHoursBusinessHoursRead>{};
+      return <String, BusinessHoursJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, BusinessHoursBusinessHoursRead>{},
-        (Map<String, BusinessHoursBusinessHoursRead> previousValue, element) {
-      final BusinessHoursBusinessHoursRead? object =
-          BusinessHoursBusinessHoursRead.fromJson(element.value);
-      if (object is BusinessHoursBusinessHoursRead) {
+    return json.entries.fold(<String, BusinessHoursJsonhalRead>{},
+        (Map<String, BusinessHoursJsonhalRead> previousValue, element) {
+      final BusinessHoursJsonhalRead? object =
+          BusinessHoursJsonhalRead.fromJson(element.value);
+      if (object is BusinessHoursJsonhalRead) {
         previousValue[element.key] = object;
       }
 
@@ -108,25 +114,34 @@ class BusinessHoursBusinessHoursRead {
     });
   }
 
-  // maps a json object with a list of BusinessHoursBusinessHoursRead-objects as value to a dart map
-  static Map<String, List<BusinessHoursBusinessHoursRead>> mapListFromJson(
+  // maps a json object with a list of BusinessHoursJsonhalRead-objects as value to a dart map
+  static Map<String, List<BusinessHoursJsonhalRead>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<BusinessHoursBusinessHoursRead>>{};
+      return <String, List<BusinessHoursJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<BusinessHoursBusinessHoursRead>>(
-          key, BusinessHoursBusinessHoursRead.listFromJson(value));
+      return MapEntry<String, List<BusinessHoursJsonhalRead>>(
+          key, BusinessHoursJsonhalRead.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'BusinessHoursBusinessHoursRead[hoursPerDay=$hoursPerDay, name=$name, openingHours=$openingHours, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'BusinessHoursJsonhalRead[links=$links, hoursPerDay=$hoursPerDay, name=$name, openingHours=$openingHours, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
+        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^links\.'))) {
+            previousValue.add(element.split(RegExp(r'^links\.')).last);
+          }
+
+          return previousValue;
+        })),
       r'hoursPerDay': hoursPerDay,
       r'name': name,
       r'openingHours': openingHours,

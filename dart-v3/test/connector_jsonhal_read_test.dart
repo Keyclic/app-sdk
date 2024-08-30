@@ -5,22 +5,16 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for BusinessHoursJsonhalBusinessHoursRead
+// tests for ConnectorJsonhalRead
 void main() {
-  // final instance = BusinessHoursJsonhalBusinessHoursRead();
+  // final instance = ConnectorJsonhalRead();
 
-  group('test BusinessHoursJsonhalBusinessHoursRead', () {
+  group('test ConnectorJsonhalRead', () {
     // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
-    // String hoursPerDay
-    test('to test the property `hoursPerDay`', () async {});
-
     // String name
     test('to test the property `name`', () async {});
-
-    // List<String> openingHours (default value: const [])
-    test('to test the property `openingHours`', () async {});
 
     // The resource identifier.
     // String id

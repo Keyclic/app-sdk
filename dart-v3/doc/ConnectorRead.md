@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.ConnectorJsonhalConnectorRead
+# keyclic_sdk_api_platform.model.ConnectorRead
 
 ## Load the model package
 ```dart
@@ -8,7 +8,6 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
 **name** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 

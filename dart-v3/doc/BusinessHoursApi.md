@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getBusinessHours**
-> BusinessHoursJsonhalBusinessHoursRead getBusinessHours(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> BusinessHoursJsonhalRead getBusinessHours(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves a BusinessHours resource.
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BusinessHoursJsonhalBusinessHoursRead**](BusinessHoursJsonhalBusinessHoursRead.md)
+[**BusinessHoursJsonhalRead**](BusinessHoursJsonhalRead.md)
 
 ### Authorization
 

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getSlaPolicy**
-> SlaPolicyJsonhalSlaPolicyRead getSlaPolicy(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> SlaPolicyJsonhalRead getSlaPolicy(identifier, xKeyclicApp, xOrganizationId, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves a SlaPolicy resource.
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SlaPolicyJsonhalSlaPolicyRead**](SlaPolicyJsonhalSlaPolicyRead.md)
+[**SlaPolicyJsonhalRead**](SlaPolicyJsonhalRead.md)
 
 ### Authorization
 

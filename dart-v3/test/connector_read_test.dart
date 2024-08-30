@@ -5,19 +5,13 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for BusinessHoursBusinessHoursRead
+// tests for ConnectorRead
 void main() {
-  // final instance = BusinessHoursBusinessHoursRead();
+  // final instance = ConnectorRead();
 
-  group('test BusinessHoursBusinessHoursRead', () {
-    // String hoursPerDay
-    test('to test the property `hoursPerDay`', () async {});
-
+  group('test ConnectorRead', () {
     // String name
     test('to test the property `name`', () async {});
-
-    // List<String> openingHours (default value: const [])
-    test('to test the property `openingHours`', () async {});
 
     // The resource identifier.
     // String id

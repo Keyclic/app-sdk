@@ -14,7 +14,7 @@ void main() {
     //
     // Retrieves a SlaPolicy resource.
     //
-    //Future<SlaPolicyJsonhalSlaPolicyRead> getSlaPolicy(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<SlaPolicyJsonhalRead> getSlaPolicy(String identifier, String xKeyclicApp, String xOrganizationId, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getSlaPolicy', () async {});
 
     // Retrieves the collection of SlaPolicy resources.

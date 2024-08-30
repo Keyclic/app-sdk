@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.SlaPolicyJsonhalSlaPolicyReadEmbedded
+# keyclic_sdk_api_platform.model.SlaPolicyJsonhalReadEmbedded
 
 ## Load the model package
 ```dart

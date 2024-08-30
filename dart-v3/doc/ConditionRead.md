@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.ConditionSlaPolicyRead
+# keyclic_sdk_api_platform.model.ConditionRead
 
 ## Load the model package
 ```dart

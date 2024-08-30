@@ -22,9 +22,9 @@ class ConnectorApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ConnectorJsonhalConnectorRead] as data
+  /// Returns a [Future] containing a [Response] with a [ConnectorJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ConnectorJsonhalConnectorRead>> getConnector({
+  Future<Response<ConnectorJsonhalRead>> getConnector({
     required String identifier,
     String? acceptLanguage,
     CancelToken? cancelToken,
@@ -65,12 +65,11 @@ class ConnectorApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ConnectorJsonhalConnectorRead responseData;
+    ConnectorJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<ConnectorJsonhalConnectorRead>(
-              response.data!, 'ConnectorJsonhalConnectorRead');
+      responseData = await _apiClient.deserializeAsync<ConnectorJsonhalRead>(
+          response.data!, 'ConnectorJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -81,7 +80,7 @@ class ConnectorApi {
       );
     }
 
-    return Response<ConnectorJsonhalConnectorRead>(
+    return Response<ConnectorJsonhalRead>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

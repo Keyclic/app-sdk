@@ -262,10 +262,10 @@ class ApiPlatformClient {
           return BrandJsonhalRead.fromJson(value);
         case 'BrandRead':
           return BrandRead.fromJson(value);
-        case 'BusinessHoursBusinessHoursRead':
-          return BusinessHoursBusinessHoursRead.fromJson(value);
-        case 'BusinessHoursJsonhalBusinessHoursRead':
-          return BusinessHoursJsonhalBusinessHoursRead.fromJson(value);
+        case 'BusinessHoursJsonhalRead':
+          return BusinessHoursJsonhalRead.fromJson(value);
+        case 'BusinessHoursRead':
+          return BusinessHoursRead.fromJson(value);
         case 'CategoryJsonhalRead':
           return CategoryJsonhalRead.fromJson(value);
         case 'CategoryJsonhalReadLinks':
@@ -276,18 +276,18 @@ class ApiPlatformClient {
           return CategoryTypeJsonhalRead.fromJson(value);
         case 'CategoryTypeRead':
           return CategoryTypeRead.fromJson(value);
-        case 'ConditionJsonhalSlaPolicyRead':
-          return ConditionJsonhalSlaPolicyRead.fromJson(value);
-        case 'ConditionSlaPolicyRead':
-          return ConditionSlaPolicyRead.fromJson(value);
+        case 'ConditionJsonhalRead':
+          return ConditionJsonhalRead.fromJson(value);
+        case 'ConditionRead':
+          return ConditionRead.fromJson(value);
         case 'ConnectionAuthProfileRead':
           return ConnectionAuthProfileRead.fromJson(value);
         case 'ConnectionJsonhalAuthProfileRead':
           return ConnectionJsonhalAuthProfileRead.fromJson(value);
-        case 'ConnectorConnectorRead':
-          return ConnectorConnectorRead.fromJson(value);
-        case 'ConnectorJsonhalConnectorRead':
-          return ConnectorJsonhalConnectorRead.fromJson(value);
+        case 'ConnectorJsonhalRead':
+          return ConnectorJsonhalRead.fromJson(value);
+        case 'ConnectorRead':
+          return ConnectorRead.fromJson(value);
         case 'ContractCreateContractCommandWrite':
           return ContractCreateContractCommandWrite.fromJson(value);
         case 'ContractEditContractCommandWrite':
@@ -490,14 +490,14 @@ class ApiPlatformClient {
           return ServiceOfferJsonhalReadLinks.fromJson(value);
         case 'ServiceOfferRead':
           return ServiceOfferRead.fromJson(value);
-        case 'SlaPolicyJsonhalSlaPolicyRead':
-          return SlaPolicyJsonhalSlaPolicyRead.fromJson(value);
-        case 'SlaPolicyJsonhalSlaPolicyReadEmbedded':
-          return SlaPolicyJsonhalSlaPolicyReadEmbedded.fromJson(value);
-        case 'SlaPolicyJsonhalSlaPolicyReadLinks':
-          return SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(value);
-        case 'SlaPolicySlaPolicyRead':
-          return SlaPolicySlaPolicyRead.fromJson(value);
+        case 'SlaPolicyJsonhalRead':
+          return SlaPolicyJsonhalRead.fromJson(value);
+        case 'SlaPolicyJsonhalReadEmbedded':
+          return SlaPolicyJsonhalReadEmbedded.fromJson(value);
+        case 'SlaPolicyJsonhalReadLinks':
+          return SlaPolicyJsonhalReadLinks.fromJson(value);
+        case 'SlaPolicyRead':
+          return SlaPolicyRead.fromJson(value);
         case 'TargetGroupJsonhalRead':
           return TargetGroupJsonhalRead.fromJson(value);
         case 'TargetGroupRead':

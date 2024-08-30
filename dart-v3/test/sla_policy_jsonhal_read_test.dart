@@ -5,16 +5,13 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for SlaPolicySlaPolicyRead
+// tests for SlaPolicyJsonhalRead
 void main() {
-  // final instance = SlaPolicySlaPolicyRead();
+  // final instance = SlaPolicyJsonhalRead();
 
-  group('test SlaPolicySlaPolicyRead', () {
-    // List<String> fromStates (default value: const [])
-    test('to test the property `fromStates`', () async {});
-
-    // List<String> toStates (default value: const [])
-    test('to test the property `toStates`', () async {});
+  group('test SlaPolicyJsonhalRead', () {
+    // SlaPolicyJsonhalReadLinks links
+    test('to test the property `links`', () async {});
 
     // The resource identifier.
     // String id
@@ -32,7 +29,7 @@ void main() {
     // bool enabled
     test('to test the property `enabled`', () async {});
 
-    // List<ConditionSlaPolicyRead> conditions (default value: const [])
+    // List<ConditionJsonhalRead> conditions (default value: const [])
     test('to test the property `conditions`', () async {});
 
     // The date and time when the resource was created, in UTC format.
@@ -42,5 +39,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // SlaPolicyJsonhalReadEmbedded embedded
+    test('to test the property `embedded`', () async {});
   });
 }

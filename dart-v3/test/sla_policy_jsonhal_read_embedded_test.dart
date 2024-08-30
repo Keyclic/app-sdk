@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for SlaPolicyJsonhalSlaPolicyReadEmbedded
+// tests for SlaPolicyJsonhalReadEmbedded
 void main() {
-  // final instance = SlaPolicyJsonhalSlaPolicyReadEmbedded();
+  // final instance = SlaPolicyJsonhalReadEmbedded();
 
-  group('test SlaPolicyJsonhalSlaPolicyReadEmbedded', () {
+  group('test SlaPolicyJsonhalReadEmbedded', () {
     // List<String> fromStates (default value: const [])
     test('to test the property `fromStates`', () async {});
 

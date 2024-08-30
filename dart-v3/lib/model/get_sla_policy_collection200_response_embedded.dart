@@ -18,11 +18,11 @@ class GetSlaPolicyCollection200ResponseEmbedded {
     }
 
     return GetSlaPolicyCollection200ResponseEmbedded(
-      item: SlaPolicyJsonhalSlaPolicyRead.listFromJson(json[r'item']),
+      item: SlaPolicyJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<SlaPolicyJsonhalSlaPolicyRead> item;
+  List<SlaPolicyJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {

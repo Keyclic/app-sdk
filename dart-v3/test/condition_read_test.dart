@@ -5,14 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for ConditionJsonhalSlaPolicyRead
+// tests for ConditionRead
 void main() {
-  // final instance = ConditionJsonhalSlaPolicyRead();
+  // final instance = ConditionRead();
 
-  group('test ConditionJsonhalSlaPolicyRead', () {
-    // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
-
+  group('test ConditionRead', () {
     // String propertyPath
     test('to test the property `propertyPath`', () async {});
 

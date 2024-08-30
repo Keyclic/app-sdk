@@ -4,22 +4,22 @@
 
 part of keyclic_sdk_api_platform;
 
-class SlaPolicyJsonhalSlaPolicyReadLinks {
-  /// Returns a new [SlaPolicyJsonhalSlaPolicyReadLinks] instance.
-  SlaPolicyJsonhalSlaPolicyReadLinks({
+class SlaPolicyJsonhalReadLinks {
+  /// Returns a new [SlaPolicyJsonhalReadLinks] instance.
+  SlaPolicyJsonhalReadLinks({
     this.self,
     this.fromStates,
     this.toStates,
   });
 
-  /// Returns a new [SlaPolicyJsonhalSlaPolicyReadLinks] instance and imports its values from
+  /// Returns a new [SlaPolicyJsonhalReadLinks] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SlaPolicyJsonhalSlaPolicyReadLinks? fromJson(Object? json) {
+  static SlaPolicyJsonhalReadLinks? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return SlaPolicyJsonhalSlaPolicyReadLinks(
+    return SlaPolicyJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
       fromStates: GetPlaceCollection200ResponseLinksFirst.listFromJson(
           json[r'fromStates']),
@@ -41,7 +41,7 @@ class SlaPolicyJsonhalSlaPolicyReadLinks {
       return true;
     }
 
-    return other is SlaPolicyJsonhalSlaPolicyReadLinks &&
+    return other is SlaPolicyJsonhalReadLinks &&
         other.self == self &&
         DeepCollectionEquality.unordered()
             .equals(fromStates, other.fromStates) &&
@@ -54,16 +54,16 @@ class SlaPolicyJsonhalSlaPolicyReadLinks {
       (fromStates == null ? 0 : fromStates.hashCode) +
       (toStates == null ? 0 : toStates.hashCode);
 
-  static List<SlaPolicyJsonhalSlaPolicyReadLinks> listFromJson(Iterable? json) {
+  static List<SlaPolicyJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
-      return <SlaPolicyJsonhalSlaPolicyReadLinks>[];
+      return <SlaPolicyJsonhalReadLinks>[];
     }
 
-    return json.fold(<SlaPolicyJsonhalSlaPolicyReadLinks>[],
-        (List<SlaPolicyJsonhalSlaPolicyReadLinks> previousValue, element) {
-      final SlaPolicyJsonhalSlaPolicyReadLinks? object =
-          SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(element);
-      if (object is SlaPolicyJsonhalSlaPolicyReadLinks) {
+    return json.fold(<SlaPolicyJsonhalReadLinks>[],
+        (List<SlaPolicyJsonhalReadLinks> previousValue, element) {
+      final SlaPolicyJsonhalReadLinks? object =
+          SlaPolicyJsonhalReadLinks.fromJson(element);
+      if (object is SlaPolicyJsonhalReadLinks) {
         previousValue.add(object);
       }
 
@@ -71,18 +71,17 @@ class SlaPolicyJsonhalSlaPolicyReadLinks {
     });
   }
 
-  static Map<String, SlaPolicyJsonhalSlaPolicyReadLinks> mapFromJson(
+  static Map<String, SlaPolicyJsonhalReadLinks> mapFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, SlaPolicyJsonhalSlaPolicyReadLinks>{};
+      return <String, SlaPolicyJsonhalReadLinks>{};
     }
 
-    return json.entries.fold(<String, SlaPolicyJsonhalSlaPolicyReadLinks>{},
-        (Map<String, SlaPolicyJsonhalSlaPolicyReadLinks> previousValue,
-            element) {
-      final SlaPolicyJsonhalSlaPolicyReadLinks? object =
-          SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(element.value);
-      if (object is SlaPolicyJsonhalSlaPolicyReadLinks) {
+    return json.entries.fold(<String, SlaPolicyJsonhalReadLinks>{},
+        (Map<String, SlaPolicyJsonhalReadLinks> previousValue, element) {
+      final SlaPolicyJsonhalReadLinks? object =
+          SlaPolicyJsonhalReadLinks.fromJson(element.value);
+      if (object is SlaPolicyJsonhalReadLinks) {
         previousValue[element.key] = object;
       }
 
@@ -90,22 +89,22 @@ class SlaPolicyJsonhalSlaPolicyReadLinks {
     });
   }
 
-  // maps a json object with a list of SlaPolicyJsonhalSlaPolicyReadLinks-objects as value to a dart map
-  static Map<String, List<SlaPolicyJsonhalSlaPolicyReadLinks>> mapListFromJson(
+  // maps a json object with a list of SlaPolicyJsonhalReadLinks-objects as value to a dart map
+  static Map<String, List<SlaPolicyJsonhalReadLinks>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<SlaPolicyJsonhalSlaPolicyReadLinks>>{};
+      return <String, List<SlaPolicyJsonhalReadLinks>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SlaPolicyJsonhalSlaPolicyReadLinks>>(
-          key, SlaPolicyJsonhalSlaPolicyReadLinks.listFromJson(value));
+      return MapEntry<String, List<SlaPolicyJsonhalReadLinks>>(
+          key, SlaPolicyJsonhalReadLinks.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'SlaPolicyJsonhalSlaPolicyReadLinks[self=$self, fromStates=$fromStates, toStates=$toStates]';
+      'SlaPolicyJsonhalReadLinks[self=$self, fromStates=$fromStates, toStates=$toStates]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

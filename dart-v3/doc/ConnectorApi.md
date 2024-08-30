@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getConnector**
-> ConnectorJsonhalConnectorRead getConnector(identifier, acceptLanguage)
+> ConnectorJsonhalRead getConnector(identifier, acceptLanguage)
 
 Retrieves a Connector resource.
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConnectorJsonhalConnectorRead**](ConnectorJsonhalConnectorRead.md)
+[**ConnectorJsonhalRead**](ConnectorJsonhalRead.md)
 
 ### Authorization
 

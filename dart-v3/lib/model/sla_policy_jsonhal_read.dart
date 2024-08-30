@@ -4,9 +4,9 @@
 
 part of keyclic_sdk_api_platform;
 
-class SlaPolicyJsonhalSlaPolicyRead {
-  /// Returns a new [SlaPolicyJsonhalSlaPolicyRead] instance.
-  SlaPolicyJsonhalSlaPolicyRead({
+class SlaPolicyJsonhalRead {
+  /// Returns a new [SlaPolicyJsonhalRead] instance.
+  SlaPolicyJsonhalRead({
     this.links,
     this.id,
     required this.timeTarget,
@@ -19,30 +19,28 @@ class SlaPolicyJsonhalSlaPolicyRead {
     this.embedded,
   });
 
-  /// Returns a new [SlaPolicyJsonhalSlaPolicyRead] instance and imports its values from
+  /// Returns a new [SlaPolicyJsonhalRead] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static SlaPolicyJsonhalSlaPolicyRead? fromJson(Object? json) {
+  static SlaPolicyJsonhalRead? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return SlaPolicyJsonhalSlaPolicyRead(
-      links: SlaPolicyJsonhalSlaPolicyReadLinks.fromJson(json[r'_links']),
+    return SlaPolicyJsonhalRead(
+      links: SlaPolicyJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       timeTarget: json[r'timeTarget'],
       description: json[r'description'],
       name: json[r'name'],
       enabled: json[r'enabled'],
-      conditions:
-          ConditionJsonhalSlaPolicyRead.listFromJson(json[r'conditions']),
+      conditions: ConditionJsonhalRead.listFromJson(json[r'conditions']),
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
-      embedded:
-          SlaPolicyJsonhalSlaPolicyReadEmbedded.fromJson(json[r'_embedded']),
+      embedded: SlaPolicyJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  SlaPolicyJsonhalSlaPolicyReadLinks? links;
+  SlaPolicyJsonhalReadLinks? links;
 
   /// The resource identifier.
   final String? id;
@@ -55,7 +53,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
 
   bool? enabled;
 
-  List<ConditionJsonhalSlaPolicyRead>? conditions;
+  List<ConditionJsonhalRead>? conditions;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
@@ -63,7 +61,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  SlaPolicyJsonhalSlaPolicyReadEmbedded? embedded;
+  SlaPolicyJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +70,7 @@ class SlaPolicyJsonhalSlaPolicyRead {
       return true;
     }
 
-    return other is SlaPolicyJsonhalSlaPolicyRead &&
+    return other is SlaPolicyJsonhalRead &&
         other.links == links &&
         other.id == id &&
         other.timeTarget == timeTarget &&
@@ -99,16 +97,16 @@ class SlaPolicyJsonhalSlaPolicyRead {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<SlaPolicyJsonhalSlaPolicyRead> listFromJson(Iterable? json) {
+  static List<SlaPolicyJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
-      return <SlaPolicyJsonhalSlaPolicyRead>[];
+      return <SlaPolicyJsonhalRead>[];
     }
 
-    return json.fold(<SlaPolicyJsonhalSlaPolicyRead>[],
-        (List<SlaPolicyJsonhalSlaPolicyRead> previousValue, element) {
-      final SlaPolicyJsonhalSlaPolicyRead? object =
-          SlaPolicyJsonhalSlaPolicyRead.fromJson(element);
-      if (object is SlaPolicyJsonhalSlaPolicyRead) {
+    return json.fold(<SlaPolicyJsonhalRead>[],
+        (List<SlaPolicyJsonhalRead> previousValue, element) {
+      final SlaPolicyJsonhalRead? object =
+          SlaPolicyJsonhalRead.fromJson(element);
+      if (object is SlaPolicyJsonhalRead) {
         previousValue.add(object);
       }
 
@@ -116,17 +114,17 @@ class SlaPolicyJsonhalSlaPolicyRead {
     });
   }
 
-  static Map<String, SlaPolicyJsonhalSlaPolicyRead> mapFromJson(
+  static Map<String, SlaPolicyJsonhalRead> mapFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, SlaPolicyJsonhalSlaPolicyRead>{};
+      return <String, SlaPolicyJsonhalRead>{};
     }
 
-    return json.entries.fold(<String, SlaPolicyJsonhalSlaPolicyRead>{},
-        (Map<String, SlaPolicyJsonhalSlaPolicyRead> previousValue, element) {
-      final SlaPolicyJsonhalSlaPolicyRead? object =
-          SlaPolicyJsonhalSlaPolicyRead.fromJson(element.value);
-      if (object is SlaPolicyJsonhalSlaPolicyRead) {
+    return json.entries.fold(<String, SlaPolicyJsonhalRead>{},
+        (Map<String, SlaPolicyJsonhalRead> previousValue, element) {
+      final SlaPolicyJsonhalRead? object =
+          SlaPolicyJsonhalRead.fromJson(element.value);
+      if (object is SlaPolicyJsonhalRead) {
         previousValue[element.key] = object;
       }
 
@@ -134,22 +132,22 @@ class SlaPolicyJsonhalSlaPolicyRead {
     });
   }
 
-  // maps a json object with a list of SlaPolicyJsonhalSlaPolicyRead-objects as value to a dart map
-  static Map<String, List<SlaPolicyJsonhalSlaPolicyRead>> mapListFromJson(
+  // maps a json object with a list of SlaPolicyJsonhalRead-objects as value to a dart map
+  static Map<String, List<SlaPolicyJsonhalRead>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<SlaPolicyJsonhalSlaPolicyRead>>{};
+      return <String, List<SlaPolicyJsonhalRead>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<SlaPolicyJsonhalSlaPolicyRead>>(
-          key, SlaPolicyJsonhalSlaPolicyRead.listFromJson(value));
+      return MapEntry<String, List<SlaPolicyJsonhalRead>>(
+          key, SlaPolicyJsonhalRead.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'SlaPolicyJsonhalSlaPolicyRead[links=$links, id=$id, timeTarget=$timeTarget, description=$description, name=$name, enabled=$enabled, conditions=$conditions, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
+      'SlaPolicyJsonhalRead[links=$links, id=$id, timeTarget=$timeTarget, description=$description, name=$name, enabled=$enabled, conditions=$conditions, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for SlaPolicyJsonhalSlaPolicyReadLinks
+// tests for SlaPolicyJsonhalReadLinks
 void main() {
-  // final instance = SlaPolicyJsonhalSlaPolicyReadLinks();
+  // final instance = SlaPolicyJsonhalReadLinks();
 
-  group('test SlaPolicyJsonhalSlaPolicyReadLinks', () {
+  group('test SlaPolicyJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 

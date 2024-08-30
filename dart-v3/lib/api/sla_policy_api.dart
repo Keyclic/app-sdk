@@ -27,9 +27,9 @@ class SlaPolicyApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [SlaPolicyJsonhalSlaPolicyRead] as data
+  /// Returns a [Future] containing a [Response] with a [SlaPolicyJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SlaPolicyJsonhalSlaPolicyRead>> getSlaPolicy({
+  Future<Response<SlaPolicyJsonhalRead>> getSlaPolicy({
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -82,12 +82,11 @@ class SlaPolicyApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SlaPolicyJsonhalSlaPolicyRead responseData;
+    SlaPolicyJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<SlaPolicyJsonhalSlaPolicyRead>(
-              response.data!, 'SlaPolicyJsonhalSlaPolicyRead');
+      responseData = await _apiClient.deserializeAsync<SlaPolicyJsonhalRead>(
+          response.data!, 'SlaPolicyJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -98,7 +97,7 @@ class SlaPolicyApi {
       );
     }
 
-    return Response<SlaPolicyJsonhalSlaPolicyRead>(
+    return Response<SlaPolicyJsonhalRead>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

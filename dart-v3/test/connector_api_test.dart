@@ -14,7 +14,7 @@ void main() {
     //
     // Retrieves a Connector resource.
     //
-    //Future<ConnectorJsonhalConnectorRead> getConnector(String identifier, { String acceptLanguage }) async
+    //Future<ConnectorJsonhalRead> getConnector(String identifier, { String acceptLanguage }) async
     test('test getConnector', () async {});
   });
 }

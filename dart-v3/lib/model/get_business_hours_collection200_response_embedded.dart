@@ -18,11 +18,11 @@ class GetBusinessHoursCollection200ResponseEmbedded {
     }
 
     return GetBusinessHoursCollection200ResponseEmbedded(
-      item: BusinessHoursJsonhalBusinessHoursRead.listFromJson(json[r'item']),
+      item: BusinessHoursJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<BusinessHoursJsonhalBusinessHoursRead> item;
+  List<BusinessHoursJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {

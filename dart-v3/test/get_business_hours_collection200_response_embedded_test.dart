@@ -10,7 +10,7 @@ void main() {
   // final instance = GetBusinessHoursCollection200ResponseEmbedded();
 
   group('test GetBusinessHoursCollection200ResponseEmbedded', () {
-    // List<BusinessHoursJsonhalBusinessHoursRead> item (default value: const [])
+    // List<BusinessHoursJsonhalRead> item (default value: const [])
     test('to test the property `item`', () async {});
   });
 }

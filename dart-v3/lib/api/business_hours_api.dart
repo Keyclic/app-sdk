@@ -27,9 +27,9 @@ class BusinessHoursApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BusinessHoursJsonhalBusinessHoursRead] as data
+  /// Returns a [Future] containing a [Response] with a [BusinessHoursJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BusinessHoursJsonhalBusinessHoursRead>> getBusinessHours({
+  Future<Response<BusinessHoursJsonhalRead>> getBusinessHours({
     required String identifier,
     required String xKeyclicApp,
     required String xOrganizationId,
@@ -82,12 +82,12 @@ class BusinessHoursApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BusinessHoursJsonhalBusinessHoursRead responseData;
+    BusinessHoursJsonhalRead responseData;
 
     try {
-      responseData = await _apiClient
-          .deserializeAsync<BusinessHoursJsonhalBusinessHoursRead>(
-              response.data!, 'BusinessHoursJsonhalBusinessHoursRead');
+      responseData =
+          await _apiClient.deserializeAsync<BusinessHoursJsonhalRead>(
+              response.data!, 'BusinessHoursJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -98,7 +98,7 @@ class BusinessHoursApi {
       );
     }
 
-    return Response<BusinessHoursJsonhalBusinessHoursRead>(
+    return Response<BusinessHoursJsonhalRead>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

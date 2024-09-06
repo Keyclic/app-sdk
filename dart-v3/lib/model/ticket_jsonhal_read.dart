@@ -19,6 +19,7 @@ class TicketJsonhalRead {
     this.updatedAt,
     this.reference,
     this.archived,
+    this.images,
     this.embedded,
   });
 
@@ -42,6 +43,8 @@ class TicketJsonhalRead {
       updatedAt: mapToDateTime(json[r'updatedAt']),
       reference: json[r'reference'],
       archived: json[r'archived'],
+      images:
+          json[r'images'] == null ? null : List<String>.from(json[r'images']),
       embedded: TicketJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
@@ -73,6 +76,8 @@ class TicketJsonhalRead {
 
   bool? archived;
 
+  final List<String>? images;
+
   TicketJsonhalReadEmbedded? embedded;
 
   @override
@@ -95,6 +100,7 @@ class TicketJsonhalRead {
         other.updatedAt == updatedAt &&
         other.reference == reference &&
         other.archived == archived &&
+        DeepCollectionEquality.unordered().equals(images, other.images) &&
         other.embedded == embedded;
   }
 
@@ -112,6 +118,7 @@ class TicketJsonhalRead {
       (updatedAt == null ? 0 : updatedAt.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
       (archived == null ? 0 : archived.hashCode) +
+      (images == null ? 0 : images.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
   static List<TicketJsonhalRead> listFromJson(Iterable? json) {
@@ -163,7 +170,7 @@ class TicketJsonhalRead {
 
   @override
   String toString() =>
-      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, name=$name, scheduledAt=$scheduledAt, completed=$completed, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, reference=$reference, archived=$archived, embedded=$embedded]';
+      'TicketJsonhalRead[links=$links, description=$description, dueBy=$dueBy, name=$name, scheduledAt=$scheduledAt, completed=$completed, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, reference=$reference, archived=$archived, images=$images, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -192,6 +199,7 @@ class TicketJsonhalRead {
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'reference')) r'reference': reference,
       if (keys == null || keys.contains(r'archived')) r'archived': archived,
+      if (keys == null || keys.contains(r'images')) r'images': images,
       if (keys == null ||
           keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
         r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],

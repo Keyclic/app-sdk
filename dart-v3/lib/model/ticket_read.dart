@@ -29,6 +29,7 @@ class TicketRead {
     this.state,
     this.reference,
     this.archived,
+    this.images,
   });
 
   /// Returns a new [TicketRead] instance and imports its values from
@@ -63,6 +64,8 @@ class TicketRead {
       state: WorkflowStateRead.fromJson(json[r'state']),
       reference: json[r'reference'],
       archived: json[r'archived'],
+      images:
+          json[r'images'] == null ? null : List<String>.from(json[r'images']),
     );
   }
 
@@ -113,6 +116,8 @@ class TicketRead {
 
   bool? archived;
 
+  final List<String>? images;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -144,7 +149,8 @@ class TicketRead {
         other.parent == parent &&
         other.state == state &&
         other.reference == reference &&
-        other.archived == archived;
+        other.archived == archived &&
+        DeepCollectionEquality.unordered().equals(images, other.images);
   }
 
   @override
@@ -170,7 +176,8 @@ class TicketRead {
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
-      (archived == null ? 0 : archived.hashCode);
+      (archived == null ? 0 : archived.hashCode) +
+      (images == null ? 0 : images.hashCode);
 
   static List<TicketRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -218,7 +225,7 @@ class TicketRead {
 
   @override
   String toString() =>
-      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, equipments=$equipments, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, children=$children, parent=$parent, state=$state, reference=$reference, archived=$archived]';
+      'TicketRead[assignments=$assignments, category=$category, description=$description, dueBy=$dueBy, equipments=$equipments, name=$name, organization=$organization, phase=$phase, place=$place, priority=$priority, scheduledAt=$scheduledAt, completed=$completed, feedback=$feedback, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, children=$children, parent=$parent, state=$state, reference=$reference, archived=$archived, images=$images]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -299,6 +306,7 @@ class TicketRead {
         })),
       if (keys == null || keys.contains(r'reference')) r'reference': reference,
       if (keys == null || keys.contains(r'archived')) r'archived': archived,
+      if (keys == null || keys.contains(r'images')) r'images': images,
     };
   }
 }

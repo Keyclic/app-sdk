@@ -270,6 +270,7 @@ class ContractReadStateEnum {
   static const ACTIVE = ContractReadStateEnum._(r'ACTIVE');
   static const DRAFT = ContractReadStateEnum._(r'DRAFT');
   static const EXPIRED = ContractReadStateEnum._(r'EXPIRED');
+  static const PENDING = ContractReadStateEnum._(r'PENDING');
   static const SUSPENDED = ContractReadStateEnum._(r'SUSPENDED');
   static const TERMINATED = ContractReadStateEnum._(r'TERMINATED');
 
@@ -278,6 +279,7 @@ class ContractReadStateEnum {
     ACTIVE,
     DRAFT,
     EXPIRED,
+    PENDING,
     SUSPENDED,
     TERMINATED,
   ];
@@ -321,6 +323,8 @@ class ContractReadStateEnumTypeTransformer {
         return ContractReadStateEnum.DRAFT;
       case r'EXPIRED':
         return ContractReadStateEnum.EXPIRED;
+      case r'PENDING':
+        return ContractReadStateEnum.PENDING;
       case r'SUSPENDED':
         return ContractReadStateEnum.SUSPENDED;
       case r'TERMINATED':

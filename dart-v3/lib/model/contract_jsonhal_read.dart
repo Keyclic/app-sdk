@@ -271,6 +271,7 @@ class ContractJsonhalReadStateEnum {
   static const ACTIVE = ContractJsonhalReadStateEnum._(r'ACTIVE');
   static const DRAFT = ContractJsonhalReadStateEnum._(r'DRAFT');
   static const EXPIRED = ContractJsonhalReadStateEnum._(r'EXPIRED');
+  static const PENDING = ContractJsonhalReadStateEnum._(r'PENDING');
   static const SUSPENDED = ContractJsonhalReadStateEnum._(r'SUSPENDED');
   static const TERMINATED = ContractJsonhalReadStateEnum._(r'TERMINATED');
 
@@ -279,6 +280,7 @@ class ContractJsonhalReadStateEnum {
     ACTIVE,
     DRAFT,
     EXPIRED,
+    PENDING,
     SUSPENDED,
     TERMINATED,
   ];
@@ -322,6 +324,8 @@ class ContractJsonhalReadStateEnumTypeTransformer {
         return ContractJsonhalReadStateEnum.DRAFT;
       case r'EXPIRED':
         return ContractJsonhalReadStateEnum.EXPIRED;
+      case r'PENDING':
+        return ContractJsonhalReadStateEnum.PENDING;
       case r'SUSPENDED':
         return ContractJsonhalReadStateEnum.SUSPENDED;
       case r'TERMINATED':

@@ -44,7 +44,7 @@ class ContractEditContractCommandWrite {
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
-      state: json[r'state'],
+      state: ContractEditContractCommandWriteStateEnum.fromJson(json[r'state']),
       terminationDate: mapToDateTime(json[r'terminationDate']),
       terminationReason: json[r'terminationReason'],
       type: json[r'type'],
@@ -73,7 +73,7 @@ class ContractEditContractCommandWrite {
 
   DateTime? signedAt;
 
-  String? state;
+  ContractEditContractCommandWriteStateEnum? state;
 
   DateTime? terminationDate;
 
@@ -218,4 +218,82 @@ class ContractEditContractCommandWrite {
       if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
+}
+
+class ContractEditContractCommandWriteStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ContractEditContractCommandWriteStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const ACTIVE = ContractEditContractCommandWriteStateEnum._(r'ACTIVE');
+  static const DRAFT = ContractEditContractCommandWriteStateEnum._(r'DRAFT');
+  static const SUSPENDED =
+      ContractEditContractCommandWriteStateEnum._(r'SUSPENDED');
+
+  /// List of all possible values in this [enum][ContractEditContractCommandWriteStateEnum].
+  static const values = <ContractEditContractCommandWriteStateEnum>[
+    ACTIVE,
+    DRAFT,
+    SUSPENDED,
+  ];
+
+  static ContractEditContractCommandWriteStateEnum? fromJson(dynamic value) =>
+      ContractEditContractCommandWriteStateEnumTypeTransformer().decode(value);
+
+  static List<ContractEditContractCommandWriteStateEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return ContractEditContractCommandWriteStateEnum.fromJson(value);
+        })
+        .whereType<ContractEditContractCommandWriteStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ContractEditContractCommandWriteStateEnum] to String,
+/// and [decode] dynamic data back to [ContractEditContractCommandWriteStateEnum].
+class ContractEditContractCommandWriteStateEnumTypeTransformer {
+  const ContractEditContractCommandWriteStateEnumTypeTransformer._();
+
+  factory ContractEditContractCommandWriteStateEnumTypeTransformer() =>
+      _instance ??=
+          ContractEditContractCommandWriteStateEnumTypeTransformer._();
+
+  String encode(ContractEditContractCommandWriteStateEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ContractEditContractCommandWriteStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ContractEditContractCommandWriteStateEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'ACTIVE':
+        return ContractEditContractCommandWriteStateEnum.ACTIVE;
+      case r'DRAFT':
+        return ContractEditContractCommandWriteStateEnum.DRAFT;
+      case r'SUSPENDED':
+        return ContractEditContractCommandWriteStateEnum.SUSPENDED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ContractEditContractCommandWriteStateEnumTypeTransformer] instance.
+  static ContractEditContractCommandWriteStateEnumTypeTransformer? _instance;
 }

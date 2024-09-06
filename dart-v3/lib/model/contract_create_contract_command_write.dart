@@ -18,7 +18,7 @@ class ContractCreateContractCommandWrite {
     required this.provider,
     this.renewal,
     this.signedAt,
-    this.state = 'DRAFT',
+    this.state = const ContractCreateContractCommandWriteStateEnum._('DRAFT'),
     this.terminationDate,
     this.terminationReason,
     required this.type,
@@ -44,7 +44,8 @@ class ContractCreateContractCommandWrite {
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
-      state: json[r'state'],
+      state:
+          ContractCreateContractCommandWriteStateEnum.fromJson(json[r'state'])!,
       terminationDate: mapToDateTime(json[r'terminationDate']),
       terminationReason: json[r'terminationReason'],
       type: json[r'type'],
@@ -73,7 +74,7 @@ class ContractCreateContractCommandWrite {
 
   DateTime? signedAt;
 
-  String state;
+  ContractCreateContractCommandWriteStateEnum state;
 
   DateTime? terminationDate;
 
@@ -218,4 +219,84 @@ class ContractCreateContractCommandWrite {
       r'type': type,
     };
   }
+}
+
+class ContractCreateContractCommandWriteStateEnum {
+  /// Instantiate a new enum with the provided [value].
+  const ContractCreateContractCommandWriteStateEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const ACTIVE =
+      ContractCreateContractCommandWriteStateEnum._(r'ACTIVE');
+  static const DRAFT = ContractCreateContractCommandWriteStateEnum._(r'DRAFT');
+  static const SUSPENDED =
+      ContractCreateContractCommandWriteStateEnum._(r'SUSPENDED');
+
+  /// List of all possible values in this [enum][ContractCreateContractCommandWriteStateEnum].
+  static const values = <ContractCreateContractCommandWriteStateEnum>[
+    ACTIVE,
+    DRAFT,
+    SUSPENDED,
+  ];
+
+  static ContractCreateContractCommandWriteStateEnum? fromJson(dynamic value) =>
+      ContractCreateContractCommandWriteStateEnumTypeTransformer()
+          .decode(value);
+
+  static List<ContractCreateContractCommandWriteStateEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return ContractCreateContractCommandWriteStateEnum.fromJson(value);
+        })
+        .whereType<ContractCreateContractCommandWriteStateEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [ContractCreateContractCommandWriteStateEnum] to String,
+/// and [decode] dynamic data back to [ContractCreateContractCommandWriteStateEnum].
+class ContractCreateContractCommandWriteStateEnumTypeTransformer {
+  const ContractCreateContractCommandWriteStateEnumTypeTransformer._();
+
+  factory ContractCreateContractCommandWriteStateEnumTypeTransformer() =>
+      _instance ??=
+          ContractCreateContractCommandWriteStateEnumTypeTransformer._();
+
+  String encode(ContractCreateContractCommandWriteStateEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a ContractCreateContractCommandWriteStateEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  ContractCreateContractCommandWriteStateEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'ACTIVE':
+        return ContractCreateContractCommandWriteStateEnum.ACTIVE;
+      case r'DRAFT':
+        return ContractCreateContractCommandWriteStateEnum.DRAFT;
+      case r'SUSPENDED':
+        return ContractCreateContractCommandWriteStateEnum.SUSPENDED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [ContractCreateContractCommandWriteStateEnumTypeTransformer] instance.
+  static ContractCreateContractCommandWriteStateEnumTypeTransformer? _instance;
 }

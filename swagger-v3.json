@@ -13933,6 +13933,7 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
+                            "PENDING",
                             "SUSPENDED",
                             "TERMINATED"
                         ],
@@ -14052,6 +14053,11 @@
                         "nullable": true
                     },
                     "state": {
+                        "enum": [
+                            "ACTIVE",
+                            "DRAFT",
+                            "SUSPENDED"
+                        ],
                         "default": "DRAFT",
                         "example": "DRAFT",
                         "type": "string"
@@ -14147,6 +14153,11 @@
                         "nullable": true
                     },
                     "state": {
+                        "enum": [
+                            "ACTIVE",
+                            "DRAFT",
+                            "SUSPENDED"
+                        ],
                         "type": "string",
                         "nullable": true
                     },
@@ -14268,6 +14279,7 @@
                             "ACTIVE",
                             "DRAFT",
                             "EXPIRED",
+                            "PENDING",
                             "SUSPENDED",
                             "TERMINATED"
                         ],

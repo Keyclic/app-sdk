@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **state** | [**WorkflowStateRead**](WorkflowStateRead.md) |  | [optional] 
 **reference** | **String** |  | [optional] [readonly] 
 **archived** | **bool** |  | [optional] 
+**images** | **List<String>** |  | [optional] [readonly] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

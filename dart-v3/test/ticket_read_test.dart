@@ -78,5 +78,8 @@ void main() {
 
     // bool archived
     test('to test the property `archived`', () async {});
+
+    // List<String> images (default value: const [])
+    test('to test the property `images`', () async {});
   });
 }

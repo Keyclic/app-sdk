@@ -21,6 +21,10 @@ Retrieve one Export resource.
 ### Example
 ```dart
 import 'package:keyclic_sdk_api/api.dart';
+// TODO Configure API key authorization: bearer
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
 
 final api_instance = ExportApi();
 final xKeyclicApp = xKeyclicApp_example; // String | 
@@ -61,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer](../README.md#bearer)
 
 ### HTTP request headers
 

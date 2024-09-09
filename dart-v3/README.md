@@ -106,6 +106,8 @@ Class | Method | HTTP request | Description
 *IntegrationLinkApi* | [**postIntegrationLink**](doc//IntegrationLinkApi.md#postintegrationlink) | **POST** /integration-links | Creates a IntegrationLink resource.
 *MetricApi* | [**getTicketMetrics**](doc//MetricApi.md#getticketmetrics) | **GET** /tickets/{identifier}/metrics | Retrieves the collection of Metric resources.
 *PlaceApi* | [**getPlaceCollection**](doc//PlaceApi.md#getplacecollection) | **GET** /asset-places | Retrieves the collection of Place resources.
+*ReviewApi* | [**getReview**](doc//ReviewApi.md#getreview) | **GET** /reviews/{identifier} | Retrieves a Review resource.
+*ReviewApi* | [**getReviewCollection**](doc//ReviewApi.md#getreviewcollection) | **GET** /reviews | Retrieves the collection of Review resources.
 *ServiceOfferApi* | [**getServiceOffer**](doc//ServiceOfferApi.md#getserviceoffer) | **GET** /service-offers/{identifier} | Retrieves a ServiceOffer resource.
 *ServiceOfferApi* | [**postServiceOffer**](doc//ServiceOfferApi.md#postserviceoffer) | **POST** /service-offers | Creates a ServiceOffer resource.
 *SlaPolicyApi* | [**getSlaPolicy**](doc//SlaPolicyApi.md#getslapolicy) | **GET** /sla-policies/{identifier} | Retrieves a SlaPolicy resource.
@@ -204,6 +206,8 @@ Class | Method | HTTP request | Description
  - [GetPlaceCollection200ResponseLinks](doc//GetPlaceCollection200ResponseLinks.md)
  - [GetPlaceCollection200ResponseLinksFirst](doc//GetPlaceCollection200ResponseLinksFirst.md)
  - [GetPlaceCollection200ResponseLinksSelf](doc//GetPlaceCollection200ResponseLinksSelf.md)
+ - [GetReviewCollection200Response](doc//GetReviewCollection200Response.md)
+ - [GetReviewCollection200ResponseEmbedded](doc//GetReviewCollection200ResponseEmbedded.md)
  - [GetSlaPolicyCollection200Response](doc//GetSlaPolicyCollection200Response.md)
  - [GetSlaPolicyCollection200ResponseEmbedded](doc//GetSlaPolicyCollection200ResponseEmbedded.md)
  - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
@@ -248,6 +252,9 @@ Class | Method | HTTP request | Description
  - [RenewalJsonhalRead](doc//RenewalJsonhalRead.md)
  - [RenewalRead](doc//RenewalRead.md)
  - [RenewalWrite](doc//RenewalWrite.md)
+ - [ReviewJsonhalRead](doc//ReviewJsonhalRead.md)
+ - [ReviewJsonhalReadLinks](doc//ReviewJsonhalReadLinks.md)
+ - [ReviewRead](doc//ReviewRead.md)
  - [ServiceOfferCreateOfferCommandWrite](doc//ServiceOfferCreateOfferCommandWrite.md)
  - [ServiceOfferJsonhalRead](doc//ServiceOfferJsonhalRead.md)
  - [ServiceOfferJsonhalReadLinks](doc//ServiceOfferJsonhalReadLinks.md)

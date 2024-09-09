@@ -93,6 +93,8 @@ doc/GetPlaceCollection200ResponseEmbedded.md
 doc/GetPlaceCollection200ResponseLinks.md
 doc/GetPlaceCollection200ResponseLinksFirst.md
 doc/GetPlaceCollection200ResponseLinksSelf.md
+doc/GetReviewCollection200Response.md
+doc/GetReviewCollection200ResponseEmbedded.md
 doc/GetSlaPolicyCollection200Response.md
 doc/GetSlaPolicyCollection200ResponseEmbedded.md
 doc/GetTicketCollection200Response.md
@@ -141,6 +143,10 @@ doc/ProfileProfileInput.md
 doc/RenewalJsonhalRead.md
 doc/RenewalRead.md
 doc/RenewalWrite.md
+doc/ReviewApi.md
+doc/ReviewJsonhalRead.md
+doc/ReviewJsonhalReadLinks.md
+doc/ReviewRead.md
 doc/ServiceOfferApi.md
 doc/ServiceOfferCreateOfferCommandWrite.md
 doc/ServiceOfferJsonhalRead.md
@@ -196,6 +202,7 @@ lib/api/integration_api.dart
 lib/api/integration_link_api.dart
 lib/api/metric_api.dart
 lib/api/place_api.dart
+lib/api/review_api.dart
 lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
 lib/api/target_group_api.dart
@@ -290,6 +297,8 @@ lib/model/get_place_collection200_response_embedded.dart
 lib/model/get_place_collection200_response_links.dart
 lib/model/get_place_collection200_response_links_first.dart
 lib/model/get_place_collection200_response_links_self.dart
+lib/model/get_review_collection200_response.dart
+lib/model/get_review_collection200_response_embedded.dart
 lib/model/get_sla_policy_collection200_response.dart
 lib/model/get_sla_policy_collection200_response_embedded.dart
 lib/model/get_ticket_collection200_response.dart
@@ -334,6 +343,9 @@ lib/model/profile_profile_input.dart
 lib/model/renewal_jsonhal_read.dart
 lib/model/renewal_read.dart
 lib/model/renewal_write.dart
+lib/model/review_jsonhal_read.dart
+lib/model/review_jsonhal_read_links.dart
+lib/model/review_read.dart
 lib/model/service_offer_create_offer_command_write.dart
 lib/model/service_offer_jsonhal_read.dart
 lib/model/service_offer_jsonhal_read_links.dart
@@ -456,6 +468,8 @@ test/get_place_collection200_response_links_first_test.dart
 test/get_place_collection200_response_links_self_test.dart
 test/get_place_collection200_response_links_test.dart
 test/get_place_collection200_response_test.dart
+test/get_review_collection200_response_embedded_test.dart
+test/get_review_collection200_response_test.dart
 test/get_sla_policy_collection200_response_embedded_test.dart
 test/get_sla_policy_collection200_response_test.dart
 test/get_ticket_collection200_response_embedded_test.dart
@@ -504,6 +518,10 @@ test/profile_profile_input_test.dart
 test/renewal_jsonhal_read_test.dart
 test/renewal_read_test.dart
 test/renewal_write_test.dart
+test/review_api_test.dart
+test/review_jsonhal_read_links_test.dart
+test/review_jsonhal_read_test.dart
+test/review_read_test.dart
 test/service_offer_api_test.dart
 test/service_offer_create_offer_command_write_test.dart
 test/service_offer_jsonhal_read_links_test.dart

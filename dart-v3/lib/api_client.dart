@@ -144,6 +144,11 @@ class ApiPlatformClient {
     return PlaceApi(this);
   }
 
+  /// Get ReviewApi instance
+  ReviewApi getReviewApi() {
+    return ReviewApi(this);
+  }
+
   /// Get ServiceOfferApi instance
   ServiceOfferApi getServiceOfferApi() {
     return ServiceOfferApi(this);
@@ -393,6 +398,10 @@ class ApiPlatformClient {
           return GetPlaceCollection200ResponseLinksFirst.fromJson(value);
         case 'GetPlaceCollection200ResponseLinksSelf':
           return GetPlaceCollection200ResponseLinksSelf.fromJson(value);
+        case 'GetReviewCollection200Response':
+          return GetReviewCollection200Response.fromJson(value);
+        case 'GetReviewCollection200ResponseEmbedded':
+          return GetReviewCollection200ResponseEmbedded.fromJson(value);
         case 'GetSlaPolicyCollection200Response':
           return GetSlaPolicyCollection200Response.fromJson(value);
         case 'GetSlaPolicyCollection200ResponseEmbedded':
@@ -482,6 +491,12 @@ class ApiPlatformClient {
           return RenewalRead.fromJson(value);
         case 'RenewalWrite':
           return RenewalWrite.fromJson(value);
+        case 'ReviewJsonhalRead':
+          return ReviewJsonhalRead.fromJson(value);
+        case 'ReviewJsonhalReadLinks':
+          return ReviewJsonhalReadLinks.fromJson(value);
+        case 'ReviewRead':
+          return ReviewRead.fromJson(value);
         case 'ServiceOfferCreateOfferCommandWrite':
           return ServiceOfferCreateOfferCommandWrite.fromJson(value);
         case 'ServiceOfferJsonhalRead':

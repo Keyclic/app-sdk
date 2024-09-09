@@ -170,7 +170,6 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**cgetPublicationsByOrganization**](doc//OrganizationApi.md#cgetpublicationsbyorganization) | **GET** /organizations/{organization}/publications | Retrieve all Publication resources.
 *OrganizationApi* | [**cgetReportsByOrganization**](doc//OrganizationApi.md#cgetreportsbyorganization) | **GET** /organizations/{organization}/reports | Retrieve all Report resources.
 *OrganizationApi* | [**cgetReviewRequestsByOrganization**](doc//OrganizationApi.md#cgetreviewrequestsbyorganization) | **GET** /organizations/{organization}/review-requests | Retrieve all ReviewRequest resources.
-*OrganizationApi* | [**cgetReviewsByOrganization**](doc//OrganizationApi.md#cgetreviewsbyorganization) | **GET** /organizations/{organization}/reviews | Retrieve all Review resources.
 *OrganizationApi* | [**cgetServicesByOrganization**](doc//OrganizationApi.md#cgetservicesbyorganization) | **GET** /organizations/{organization}/services | Retrieve all Service resources.
 *OrganizationApi* | [**cgetTemplatesByOrganization**](doc//OrganizationApi.md#cgettemplatesbyorganization) | **GET** /organizations/{organization}/templates | Retrieve all Template resources.
 *OrganizationApi* | [**getAnalyticByOrganization**](doc//OrganizationApi.md#getanalyticbyorganization) | **GET** /organizations/{organization}/analytics | Retrieve one Analytic resource.
@@ -719,7 +718,6 @@ Class | Method | HTTP request | Description
  - [ReportTypeWorkflow](doc//ReportTypeWorkflow.md)
  - [ResetPasswordData](doc//ResetPasswordData.md)
  - [Review](doc//Review.md)
- - [ReviewCollection](doc//ReviewCollection.md)
  - [ReviewData](doc//ReviewData.md)
  - [ReviewLinks](doc//ReviewLinks.md)
  - [ReviewLinksAuthor](doc//ReviewLinksAuthor.md)
@@ -729,7 +727,6 @@ Class | Method | HTTP request | Description
  - [ReviewLinksSelf](doc//ReviewLinksSelf.md)
  - [ReviewLinksSelfIriTemplate](doc//ReviewLinksSelfIriTemplate.md)
  - [ReviewLinksSelfIriTemplateMapping](doc//ReviewLinksSelfIriTemplateMapping.md)
- - [ReviewPagination](doc//ReviewPagination.md)
  - [ReviewRequest](doc//ReviewRequest.md)
  - [ReviewRequestCollection](doc//ReviewRequestCollection.md)
  - [ReviewRequestEmbedded](doc//ReviewRequestEmbedded.md)

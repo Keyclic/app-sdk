@@ -10106,132 +10106,6 @@
                 ]
             }
         },
-        "\/organizations\/{organization}\/reviews": {
-            "get": {
-                "tags": [
-                    "Organization"
-                ],
-                "summary": "Retrieve all Review resources.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "cgetReviewsByOrganization",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/category"
-                    },
-                    {
-                        "$ref": "#\/parameters\/categories__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/after"
-                    },
-                    {
-                        "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/delegated_to"
-                    },
-                    {
-                        "$ref": "#\/parameters\/delegated_tos__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/rating__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/task"
-                    },
-                    {
-                        "$ref": "#\/parameters\/tasks__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/page"
-                    },
-                    {
-                        "$ref": "#\/parameters\/limit"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "organization",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/ReviewPagination"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/organizations\/{organization}\/review-requests": {
             "get": {
                 "tags": [
@@ -25084,18 +24958,6 @@
                 }
             }
         },
-        "ReviewCollection": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
-                        "$ref": "#\/definitions\/Review"
-                    }
-                }
-            }
-        },
         "ReviewData": {
             "type": "object",
             "properties": {
@@ -25191,21 +25053,6 @@
                     }
                 }
             }
-        },
-        "ReviewPagination": {
-            "allOf": [
-                {
-                    "$ref": "#\/definitions\/Pagination"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "_embedded": {
-                            "$ref": "#\/definitions\/ReviewCollection"
-                        }
-                    }
-                }
-            ]
         },
         "ReviewRequest": {
             "type": "object",
@@ -27728,22 +27575,6 @@
                 "type": "string"
             },
             "name": "parents[]",
-            "pattern": ".*",
-            "type": "array"
-        },
-        "task": {
-            "in": "query",
-            "name": "task",
-            "pattern": ".*",
-            "type": "string"
-        },
-        "tasks__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "type": "string"
-            },
-            "name": "tasks[]",
             "pattern": ".*",
             "type": "array"
         },

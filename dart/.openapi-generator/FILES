@@ -512,7 +512,6 @@ doc/ReportTypeWorkflow.md
 doc/ResetPasswordData.md
 doc/Review.md
 doc/ReviewApi.md
-doc/ReviewCollection.md
 doc/ReviewData.md
 doc/ReviewLinks.md
 doc/ReviewLinksAuthor.md
@@ -522,7 +521,6 @@ doc/ReviewLinksItemReviewedIriTemplate.md
 doc/ReviewLinksSelf.md
 doc/ReviewLinksSelfIriTemplate.md
 doc/ReviewLinksSelfIriTemplateMapping.md
-doc/ReviewPagination.md
 doc/ReviewRequest.md
 doc/ReviewRequestApi.md
 doc/ReviewRequestCollection.md
@@ -1146,7 +1144,6 @@ lib/model/report_type_priority.dart
 lib/model/report_type_workflow.dart
 lib/model/reset_password_data.dart
 lib/model/review.dart
-lib/model/review_collection.dart
 lib/model/review_data.dart
 lib/model/review_links.dart
 lib/model/review_links_author.dart
@@ -1156,7 +1153,6 @@ lib/model/review_links_item_reviewed_iri_template.dart
 lib/model/review_links_self.dart
 lib/model/review_links_self_iri_template.dart
 lib/model/review_links_self_iri_template_mapping.dart
-lib/model/review_pagination.dart
 lib/model/review_request.dart
 lib/model/review_request_collection.dart
 lib/model/review_request_embedded.dart
@@ -1752,7 +1748,6 @@ test/report_type_priority_test.dart
 test/report_type_workflow_test.dart
 test/reset_password_data_test.dart
 test/review_api_test.dart
-test/review_collection_test.dart
 test/review_data_test.dart
 test/review_links_author_iri_template_test.dart
 test/review_links_author_test.dart
@@ -1762,7 +1757,6 @@ test/review_links_self_iri_template_mapping_test.dart
 test/review_links_self_iri_template_test.dart
 test/review_links_self_test.dart
 test/review_links_test.dart
-test/review_pagination_test.dart
 test/review_request_api_test.dart
 test/review_request_collection_test.dart
 test/review_request_embedded_test.dart

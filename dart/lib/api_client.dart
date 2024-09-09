@@ -1288,8 +1288,6 @@ class ApiClient {
           return ResetPasswordData.fromJson(value);
         case 'Review':
           return Review.fromJson(value);
-        case 'ReviewCollection':
-          return ReviewCollection.fromJson(value);
         case 'ReviewData':
           return ReviewData.fromJson(value);
         case 'ReviewLinks':
@@ -1308,8 +1306,6 @@ class ApiClient {
           return ReviewLinksSelfIriTemplate.fromJson(value);
         case 'ReviewLinksSelfIriTemplateMapping':
           return ReviewLinksSelfIriTemplateMapping.fromJson(value);
-        case 'ReviewPagination':
-          return ReviewPagination.fromJson(value);
         case 'ReviewRequest':
           return ReviewRequest.fromJson(value);
         case 'ReviewRequestCollection':

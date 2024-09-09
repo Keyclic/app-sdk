@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.65.0-dev.g3e4f28a38"
+        "version": "2.65.0-dev.gb0cc195b3"
     },
     "servers": [
         {
@@ -13390,6 +13390,8 @@
                         "format": "duration"
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "openingHours": {
@@ -13446,6 +13448,8 @@
                         "format": "duration"
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "openingHours": {
@@ -13792,6 +13796,8 @@
                 ],
                 "properties": {
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "id": {
@@ -13836,6 +13842,8 @@
                         }
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "id": {
@@ -15456,6 +15464,8 @@
                         "additionalProperties": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string",
                         "nullable": true
                     },
@@ -15605,6 +15615,8 @@
                         "additionalProperties": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string",
                         "nullable": true
                     },
@@ -15702,6 +15714,8 @@
                         "$ref": "#/components/schemas/Duration-Read"
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     }
                 },
@@ -15733,6 +15747,8 @@
                         "$ref": "#/components/schemas/Duration.jsonhal-Read"
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     }
                 },
@@ -17143,6 +17159,8 @@
                         "nullable": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "id": {
@@ -17153,7 +17171,10 @@
                     "position": {
                         "type": "integer"
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "TicketPriority.jsonhal-Read": {
                 "type": "object",
@@ -17179,6 +17200,8 @@
                         "nullable": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "id": {
@@ -17189,7 +17212,10 @@
                     "position": {
                         "type": "integer"
                     }
-                }
+                },
+                "required": [
+                    "name"
+                ]
             },
             "TicketType-Read": {
                 "type": "object",
@@ -17287,9 +17313,17 @@
                 "deprecated": false,
                 "properties": {
                     "email": {
+                        "format": "email",
+                        "minLength": 1,
+                        "maxLength": 180,
+                        "externalDocs": {
+                            "url": "https://schema.org/email"
+                        },
                         "type": "string"
                     },
                     "username": {
+                        "minLength": 1,
+                        "maxLength": 180,
                         "type": "string"
                     }
                 }
@@ -17314,9 +17348,17 @@
                         }
                     },
                     "email": {
+                        "format": "email",
+                        "minLength": 1,
+                        "maxLength": 180,
+                        "externalDocs": {
+                            "url": "https://schema.org/email"
+                        },
                         "type": "string"
                     },
                     "username": {
+                        "minLength": 1,
+                        "maxLength": 180,
                         "type": "string"
                     }
                 }
@@ -17435,6 +17477,8 @@
                         "nullable": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "progression": {
@@ -17498,6 +17542,8 @@
                         "nullable": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "progression": {
@@ -17539,6 +17585,8 @@
                         "$ref": "#/components/schemas/WorkflowState-Read"
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "required": {
@@ -17593,6 +17641,8 @@
                         "nullable": true
                     },
                     "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
                         "type": "string"
                     },
                     "required": {

@@ -18,7 +18,7 @@ class Application {
     required this.token,
     this.type,
     this.updatedAt,
-    this.version,
+    required this.version,
   });
 
   /// Returns a new [Application] instance and imports its values from
@@ -67,7 +67,7 @@ class Application {
 
   final DateTime? updatedAt;
 
-  String? version;
+  String version;
 
   @override
   bool operator ==(Object other) {
@@ -105,7 +105,7 @@ class Application {
       token.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (version == null ? 0 : version.hashCode);
+      version.hashCode;
 
   static List<Application> listFromJson(Iterable? json) {
     if (json == null) {
@@ -206,7 +206,7 @@ class Application {
       if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'version')) r'version': version,
+      r'version': version,
     };
   }
 }

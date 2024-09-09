@@ -9,7 +9,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **color** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**name** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **position** | **int** |  | [optional] 
 

@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.65.0-dev.g3e4f28a38"
+        "version": "2.65.0-dev.gb0cc195b3"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -17396,13 +17396,14 @@
                 "version": {
                     "format": "string",
                     "maxLength": 255,
-                    "minLength": 1,
+                    "pattern": "\/^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-([\\da-zA-Z-]+(\\.[\\da-zA-Z-]+)*))?(?:\\+([\\da-zA-Z-]+(\\.[\\da-zA-Z-]+)*))?$\/",
                     "type": "string"
                 }
             },
             "required": [
                 "name",
-                "token"
+                "token",
+                "version"
             ]
         },
         "ApplicationAbout": {
@@ -17410,6 +17411,8 @@
             "properties": {
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "text": {
@@ -17547,6 +17550,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "text": {
@@ -18650,6 +18654,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "progression": {
@@ -18746,6 +18751,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "operationType": {
@@ -18766,7 +18772,10 @@
                     "readOnly": true,
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "name"
+            ]
         },
         "ConfigurationLinksSelf": {
             "type": "object",
@@ -19703,6 +19712,8 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "onCall": {
@@ -19748,6 +19759,7 @@
                 "familyName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "faxNumber": {
@@ -19758,6 +19770,7 @@
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "isOpen": {
@@ -19905,6 +19918,8 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 }
             }
@@ -20460,6 +20475,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "position": {
@@ -20595,6 +20611,8 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "onCall": {
@@ -20640,6 +20658,7 @@
                 "familyName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "faxNumber": {
@@ -20650,6 +20669,7 @@
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "isOpen": {
@@ -20840,6 +20860,8 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 }
             }
@@ -21046,7 +21068,6 @@
                 },
                 "description": {
                     "format": "string",
-                    "maxLength": 255,
                     "type": "string"
                 },
                 "id": {
@@ -21058,6 +21079,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "type": {
@@ -21317,6 +21339,7 @@
                 "familyName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "faxNumber": {
@@ -21327,6 +21350,7 @@
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "isOpen": {
@@ -21499,6 +21523,7 @@
                         "familyName": {
                             "format": "string",
                             "maxLength": 255,
+                            "minLength": 1,
                             "type": "string"
                         },
                         "faxNumber": {
@@ -21509,6 +21534,7 @@
                         "givenName": {
                             "format": "string",
                             "maxLength": 255,
+                            "minLength": 1,
                             "type": "string"
                         },
                         "telephone": {
@@ -21550,6 +21576,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "permissions": {
@@ -22365,6 +22392,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "position": {
@@ -22401,6 +22429,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "start": {
@@ -22473,7 +22502,6 @@
                 },
                 "description": {
                     "format": "string",
-                    "maxLength": 255,
                     "type": "string"
                 },
                 "enabled": {
@@ -22730,7 +22758,6 @@
                 },
                 "description": {
                     "format": "string",
-                    "maxLength": 255,
                     "type": "string"
                 },
                 "endDate": {
@@ -23581,6 +23608,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "start": {
@@ -24889,6 +24917,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "position": {
@@ -24917,6 +24946,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "position": {
@@ -24953,6 +24983,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "start": {
@@ -25401,6 +25432,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "permissions": {
@@ -25793,6 +25825,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "type": {
@@ -25888,6 +25921,8 @@
                 },
                 "name": {
                     "format": "string",
+                    "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "onCall": {
@@ -25933,6 +25968,7 @@
                 "familyName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "faxNumber": {
@@ -25943,6 +25979,7 @@
                 "givenName": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "isOpen": {
@@ -26549,6 +26586,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "progression": {
@@ -26598,6 +26636,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "start": {
@@ -26707,6 +26746,7 @@
                 "name": {
                     "format": "string",
                     "maxLength": 255,
+                    "minLength": 1,
                     "type": "string"
                 },
                 "progression": {

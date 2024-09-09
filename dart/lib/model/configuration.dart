@@ -12,7 +12,7 @@ class Configuration {
     this.description,
     this.id,
     this.memberType,
-    this.name,
+    required this.name,
     this.operationType,
     this.placeType,
     this.reportType,
@@ -53,7 +53,7 @@ class Configuration {
 
   ConfigurationMemberType? memberType;
 
-  String? name;
+  String name;
 
   ConfigurationOperationType? operationType;
 
@@ -93,7 +93,7 @@ class Configuration {
       (description == null ? 0 : description.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (memberType == null ? 0 : memberType.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (operationType == null ? 0 : operationType.hashCode) +
       (placeType == null ? 0 : placeType.hashCode) +
       (reportType == null ? 0 : reportType.hashCode) +
@@ -175,7 +175,7 @@ class Configuration {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'name': name,
       if (keys == null ||
           keys.any((key) => RegExp(r'^operationType\.').hasMatch(key)))
         r'operationType': operationType?.toJson(keys?.fold<List<String>>(

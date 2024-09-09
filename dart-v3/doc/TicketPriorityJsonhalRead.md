@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
 **color** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**name** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **position** | **int** |  | [optional] 
 

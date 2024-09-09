@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **memberType** | [**ConfigurationMemberType**](ConfigurationMemberType.md) |  | [optional] 
-**name** | **String** |  | [optional] 
+**name** | **String** |  | 
 **operationType** | [**ConfigurationOperationType**](ConfigurationOperationType.md) |  | [optional] 
 **placeType** | [**ConfigurationPlaceType**](ConfigurationPlaceType.md) |  | [optional] 
 **reportType** | [**ConfigurationReportType**](ConfigurationReportType.md) |  | [optional] 

@@ -8,7 +8,7 @@ class TicketPriorityRead {
   /// Returns a new [TicketPriorityRead] instance.
   TicketPriorityRead({
     this.color,
-    this.name,
+    required this.name,
     this.id,
     this.position,
   });
@@ -30,7 +30,7 @@ class TicketPriorityRead {
 
   String? color;
 
-  String? name;
+  String name;
 
   /// The resource identifier.
   final String? id;
@@ -54,7 +54,7 @@ class TicketPriorityRead {
   @override
   int get hashCode =>
       (color == null ? 0 : color.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       (id == null ? 0 : id.hashCode) +
       (position == null ? 0 : position.hashCode);
 
@@ -112,7 +112,7 @@ class TicketPriorityRead {
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'color')) r'color': color,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'position')) r'position': position,
     };

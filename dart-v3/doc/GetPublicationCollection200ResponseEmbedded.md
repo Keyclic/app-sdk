@@ -1,14 +1,14 @@
-# keyclic_sdk_api.model.PublicationCollection
+# keyclic_sdk_api_platform.model.GetPublicationCollection200ResponseEmbedded
 
 ## Load the model package
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
+import 'package:keyclic_sdk_api_platform/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List<Publication>**](Publication.md) |  | [optional] [default to const []]
+**item** | [**List<PublicationJsonhalRead>**](PublicationJsonhalRead.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

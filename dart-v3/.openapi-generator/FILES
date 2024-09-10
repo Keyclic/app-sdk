@@ -93,6 +93,8 @@ doc/GetPlaceCollection200ResponseEmbedded.md
 doc/GetPlaceCollection200ResponseLinks.md
 doc/GetPlaceCollection200ResponseLinksFirst.md
 doc/GetPlaceCollection200ResponseLinksSelf.md
+doc/GetPublicationCollection200Response.md
+doc/GetPublicationCollection200ResponseEmbedded.md
 doc/GetReviewCollection200Response.md
 doc/GetReviewCollection200ResponseEmbedded.md
 doc/GetSlaPolicyCollection200Response.md
@@ -125,6 +127,8 @@ doc/MetricJsonhalRead.md
 doc/MetricRead.md
 doc/NodeJsonhalRead.md
 doc/NodeRead.md
+doc/PersonJsonhalRead.md
+doc/PersonRead.md
 doc/PlaceApi.md
 doc/PlaceJsonhalRead.md
 doc/PlaceRead.md
@@ -140,6 +144,11 @@ doc/PriceWrite.md
 doc/ProfileAuthProfileRead.md
 doc/ProfileJsonhalAuthProfileRead.md
 doc/ProfileProfileInput.md
+doc/PublicationApi.md
+doc/PublicationJsonhalRead.md
+doc/PublicationJsonhalReadEmbedded.md
+doc/PublicationJsonhalReadLinks.md
+doc/PublicationRead.md
 doc/RenewalJsonhalRead.md
 doc/RenewalRead.md
 doc/RenewalWrite.md
@@ -202,6 +211,7 @@ lib/api/integration_api.dart
 lib/api/integration_link_api.dart
 lib/api/metric_api.dart
 lib/api/place_api.dart
+lib/api/publication_api.dart
 lib/api/review_api.dart
 lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
@@ -297,6 +307,8 @@ lib/model/get_place_collection200_response_embedded.dart
 lib/model/get_place_collection200_response_links.dart
 lib/model/get_place_collection200_response_links_first.dart
 lib/model/get_place_collection200_response_links_self.dart
+lib/model/get_publication_collection200_response.dart
+lib/model/get_publication_collection200_response_embedded.dart
 lib/model/get_review_collection200_response.dart
 lib/model/get_review_collection200_response_embedded.dart
 lib/model/get_sla_policy_collection200_response.dart
@@ -326,6 +338,8 @@ lib/model/metric_jsonhal_read.dart
 lib/model/metric_read.dart
 lib/model/node_jsonhal_read.dart
 lib/model/node_read.dart
+lib/model/person_jsonhal_read.dart
+lib/model/person_read.dart
 lib/model/place_jsonhal_read.dart
 lib/model/place_read.dart
 lib/model/point_jsonhal_read.dart
@@ -340,6 +354,10 @@ lib/model/price_write.dart
 lib/model/profile_auth_profile_read.dart
 lib/model/profile_jsonhal_auth_profile_read.dart
 lib/model/profile_profile_input.dart
+lib/model/publication_jsonhal_read.dart
+lib/model/publication_jsonhal_read_embedded.dart
+lib/model/publication_jsonhal_read_links.dart
+lib/model/publication_read.dart
 lib/model/renewal_jsonhal_read.dart
 lib/model/renewal_read.dart
 lib/model/renewal_write.dart
@@ -468,6 +486,8 @@ test/get_place_collection200_response_links_first_test.dart
 test/get_place_collection200_response_links_self_test.dart
 test/get_place_collection200_response_links_test.dart
 test/get_place_collection200_response_test.dart
+test/get_publication_collection200_response_embedded_test.dart
+test/get_publication_collection200_response_test.dart
 test/get_review_collection200_response_embedded_test.dart
 test/get_review_collection200_response_test.dart
 test/get_sla_policy_collection200_response_embedded_test.dart
@@ -500,6 +520,8 @@ test/metric_jsonhal_read_test.dart
 test/metric_read_test.dart
 test/node_jsonhal_read_test.dart
 test/node_read_test.dart
+test/person_jsonhal_read_test.dart
+test/person_read_test.dart
 test/place_api_test.dart
 test/place_jsonhal_read_test.dart
 test/place_read_test.dart
@@ -515,6 +537,11 @@ test/price_write_test.dart
 test/profile_auth_profile_read_test.dart
 test/profile_jsonhal_auth_profile_read_test.dart
 test/profile_profile_input_test.dart
+test/publication_api_test.dart
+test/publication_jsonhal_read_embedded_test.dart
+test/publication_jsonhal_read_links_test.dart
+test/publication_jsonhal_read_test.dart
+test/publication_read_test.dart
 test/renewal_jsonhal_read_test.dart
 test/renewal_read_test.dart
 test/renewal_write_test.dart

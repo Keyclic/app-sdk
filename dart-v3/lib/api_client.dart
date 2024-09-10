@@ -144,6 +144,11 @@ class ApiPlatformClient {
     return PlaceApi(this);
   }
 
+  /// Get PublicationApi instance
+  PublicationApi getPublicationApi() {
+    return PublicationApi(this);
+  }
+
   /// Get ReviewApi instance
   ReviewApi getReviewApi() {
     return ReviewApi(this);
@@ -398,6 +403,10 @@ class ApiPlatformClient {
           return GetPlaceCollection200ResponseLinksFirst.fromJson(value);
         case 'GetPlaceCollection200ResponseLinksSelf':
           return GetPlaceCollection200ResponseLinksSelf.fromJson(value);
+        case 'GetPublicationCollection200Response':
+          return GetPublicationCollection200Response.fromJson(value);
+        case 'GetPublicationCollection200ResponseEmbedded':
+          return GetPublicationCollection200ResponseEmbedded.fromJson(value);
         case 'GetReviewCollection200Response':
           return GetReviewCollection200Response.fromJson(value);
         case 'GetReviewCollection200ResponseEmbedded':
@@ -457,6 +466,10 @@ class ApiPlatformClient {
           return NodeJsonhalRead.fromJson(value);
         case 'NodeRead':
           return NodeRead.fromJson(value);
+        case 'PersonJsonhalRead':
+          return PersonJsonhalRead.fromJson(value);
+        case 'PersonRead':
+          return PersonRead.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
         case 'PlaceRead':
@@ -485,6 +498,14 @@ class ApiPlatformClient {
           return ProfileJsonhalAuthProfileRead.fromJson(value);
         case 'ProfileProfileInput':
           return ProfileProfileInput.fromJson(value);
+        case 'PublicationJsonhalRead':
+          return PublicationJsonhalRead.fromJson(value);
+        case 'PublicationJsonhalReadEmbedded':
+          return PublicationJsonhalReadEmbedded.fromJson(value);
+        case 'PublicationJsonhalReadLinks':
+          return PublicationJsonhalReadLinks.fromJson(value);
+        case 'PublicationRead':
+          return PublicationRead.fromJson(value);
         case 'RenewalJsonhalRead':
           return RenewalJsonhalRead.fromJson(value);
         case 'RenewalRead':

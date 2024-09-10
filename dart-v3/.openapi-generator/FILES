@@ -23,7 +23,9 @@ doc/BrandRead.md
 doc/BusinessHoursApi.md
 doc/BusinessHoursJsonhalRead.md
 doc/BusinessHoursRead.md
+doc/CategoryApi.md
 doc/CategoryJsonhalRead.md
+doc/CategoryJsonhalReadEmbedded.md
 doc/CategoryJsonhalReadLinks.md
 doc/CategoryRead.md
 doc/CategoryTypeApi.md
@@ -74,6 +76,8 @@ doc/GetBrandCollection200Response.md
 doc/GetBrandCollection200ResponseEmbedded.md
 doc/GetBusinessHoursCollection200Response.md
 doc/GetBusinessHoursCollection200ResponseEmbedded.md
+doc/GetCategoryCollection200Response.md
+doc/GetCategoryCollection200ResponseEmbedded.md
 doc/GetCategoryTypeCollection200Response.md
 doc/GetCategoryTypeCollection200ResponseEmbedded.md
 doc/GetContractCollection200Response.md
@@ -200,6 +204,7 @@ lib/api/asset_type_api.dart
 lib/api/auth_api.dart
 lib/api/brand_api.dart
 lib/api/business_hours_api.dart
+lib/api/category_api.dart
 lib/api/category_type_api.dart
 lib/api/connector_api.dart
 lib/api/contract_api.dart
@@ -245,6 +250,7 @@ lib/model/brand_read.dart
 lib/model/business_hours_jsonhal_read.dart
 lib/model/business_hours_read.dart
 lib/model/category_jsonhal_read.dart
+lib/model/category_jsonhal_read_embedded.dart
 lib/model/category_jsonhal_read_links.dart
 lib/model/category_read.dart
 lib/model/category_type_jsonhal_read.dart
@@ -288,6 +294,8 @@ lib/model/get_brand_collection200_response.dart
 lib/model/get_brand_collection200_response_embedded.dart
 lib/model/get_business_hours_collection200_response.dart
 lib/model/get_business_hours_collection200_response_embedded.dart
+lib/model/get_category_collection200_response.dart
+lib/model/get_category_collection200_response_embedded.dart
 lib/model/get_category_type_collection200_response.dart
 lib/model/get_category_type_collection200_response_embedded.dart
 lib/model/get_contract_collection200_response.dart
@@ -416,6 +424,8 @@ test/brand_read_test.dart
 test/business_hours_api_test.dart
 test/business_hours_jsonhal_read_test.dart
 test/business_hours_read_test.dart
+test/category_api_test.dart
+test/category_jsonhal_read_embedded_test.dart
 test/category_jsonhal_read_links_test.dart
 test/category_jsonhal_read_test.dart
 test/category_read_test.dart
@@ -467,6 +477,8 @@ test/get_brand_collection200_response_embedded_test.dart
 test/get_brand_collection200_response_test.dart
 test/get_business_hours_collection200_response_embedded_test.dart
 test/get_business_hours_collection200_response_test.dart
+test/get_category_collection200_response_embedded_test.dart
+test/get_category_collection200_response_test.dart
 test/get_category_type_collection200_response_embedded_test.dart
 test/get_category_type_collection200_response_test.dart
 test/get_contract_collection200_response_embedded_test.dart

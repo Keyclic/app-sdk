@@ -89,6 +89,11 @@ class ApiPlatformClient {
     return BusinessHoursApi(this);
   }
 
+  /// Get CategoryApi instance
+  CategoryApi getCategoryApi() {
+    return CategoryApi(this);
+  }
+
   /// Get CategoryTypeApi instance
   CategoryTypeApi getCategoryTypeApi() {
     return CategoryTypeApi(this);
@@ -278,6 +283,8 @@ class ApiPlatformClient {
           return BusinessHoursRead.fromJson(value);
         case 'CategoryJsonhalRead':
           return CategoryJsonhalRead.fromJson(value);
+        case 'CategoryJsonhalReadEmbedded':
+          return CategoryJsonhalReadEmbedded.fromJson(value);
         case 'CategoryJsonhalReadLinks':
           return CategoryJsonhalReadLinks.fromJson(value);
         case 'CategoryRead':
@@ -364,6 +371,10 @@ class ApiPlatformClient {
           return GetBusinessHoursCollection200Response.fromJson(value);
         case 'GetBusinessHoursCollection200ResponseEmbedded':
           return GetBusinessHoursCollection200ResponseEmbedded.fromJson(value);
+        case 'GetCategoryCollection200Response':
+          return GetCategoryCollection200Response.fromJson(value);
+        case 'GetCategoryCollection200ResponseEmbedded':
+          return GetCategoryCollection200ResponseEmbedded.fromJson(value);
         case 'GetCategoryTypeCollection200Response':
           return GetCategoryTypeCollection200Response.fromJson(value);
         case 'GetCategoryTypeCollection200ResponseEmbedded':

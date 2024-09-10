@@ -8,8 +8,6 @@ class CategoryTypeRead {
   /// Returns a new [CategoryTypeRead] instance.
   CategoryTypeRead({
     this.id,
-    this.createdAt,
-    this.updatedAt,
     this.description,
     required this.name,
   });
@@ -23,8 +21,6 @@ class CategoryTypeRead {
 
     return CategoryTypeRead(
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
       description: json[r'description'],
       name: json[r'name'],
     );
@@ -32,12 +28,6 @@ class CategoryTypeRead {
 
   /// The resource identifier.
   final String? id;
-
-  /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
-
-  /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
 
   String? description;
 
@@ -52,8 +42,6 @@ class CategoryTypeRead {
 
     return other is CategoryTypeRead &&
         other.id == id &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
         other.description == description &&
         other.name == name;
   }
@@ -61,8 +49,6 @@ class CategoryTypeRead {
   @override
   int get hashCode =>
       (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode;
 
@@ -113,15 +99,11 @@ class CategoryTypeRead {
 
   @override
   String toString() =>
-      'CategoryTypeRead[id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
+      'CategoryTypeRead[id=$id, description=$description, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,

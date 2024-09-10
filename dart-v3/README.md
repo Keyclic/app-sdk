@@ -79,6 +79,8 @@ Class | Method | HTTP request | Description
 *BrandApi* | [**getBrandCollection**](doc//BrandApi.md#getbrandcollection) | **GET** /brands | Retrieves the collection of Brand resources.
 *BusinessHoursApi* | [**getBusinessHours**](doc//BusinessHoursApi.md#getbusinesshours) | **GET** /business-hours/{identifier} | Retrieves a BusinessHours resource.
 *BusinessHoursApi* | [**getBusinessHoursCollection**](doc//BusinessHoursApi.md#getbusinesshourscollection) | **GET** /business-hours | Retrieves the collection of BusinessHours resources.
+*CategoryApi* | [**getCategory**](doc//CategoryApi.md#getcategory) | **GET** /categories/{identifier} | Retrieves a Category resource.
+*CategoryApi* | [**getCategoryCollection**](doc//CategoryApi.md#getcategorycollection) | **GET** /categories | Retrieves the collection of Category resources.
 *CategoryTypeApi* | [**getCategoryType**](doc//CategoryTypeApi.md#getcategorytype) | **GET** /category-types/{identifier} | Retrieves a CategoryType resource.
 *CategoryTypeApi* | [**getCategoryTypeCollection**](doc//CategoryTypeApi.md#getcategorytypecollection) | **GET** /category-types | Retrieves the collection of CategoryType resources.
 *ConnectorApi* | [**getConnector**](doc//ConnectorApi.md#getconnector) | **GET** /connectors/{identifier} | Retrieves a Connector resource.
@@ -146,6 +148,7 @@ Class | Method | HTTP request | Description
  - [BusinessHoursJsonhalRead](doc//BusinessHoursJsonhalRead.md)
  - [BusinessHoursRead](doc//BusinessHoursRead.md)
  - [CategoryJsonhalRead](doc//CategoryJsonhalRead.md)
+ - [CategoryJsonhalReadEmbedded](doc//CategoryJsonhalReadEmbedded.md)
  - [CategoryJsonhalReadLinks](doc//CategoryJsonhalReadLinks.md)
  - [CategoryRead](doc//CategoryRead.md)
  - [CategoryTypeJsonhalRead](doc//CategoryTypeJsonhalRead.md)
@@ -189,6 +192,8 @@ Class | Method | HTTP request | Description
  - [GetBrandCollection200ResponseEmbedded](doc//GetBrandCollection200ResponseEmbedded.md)
  - [GetBusinessHoursCollection200Response](doc//GetBusinessHoursCollection200Response.md)
  - [GetBusinessHoursCollection200ResponseEmbedded](doc//GetBusinessHoursCollection200ResponseEmbedded.md)
+ - [GetCategoryCollection200Response](doc//GetCategoryCollection200Response.md)
+ - [GetCategoryCollection200ResponseEmbedded](doc//GetCategoryCollection200ResponseEmbedded.md)
  - [GetCategoryTypeCollection200Response](doc//GetCategoryTypeCollection200Response.md)
  - [GetCategoryTypeCollection200ResponseEmbedded](doc//GetCategoryTypeCollection200ResponseEmbedded.md)
  - [GetContractCollection200Response](doc//GetContractCollection200Response.md)

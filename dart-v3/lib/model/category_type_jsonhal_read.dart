@@ -9,8 +9,6 @@ class CategoryTypeJsonhalRead {
   CategoryTypeJsonhalRead({
     this.links,
     this.id,
-    this.createdAt,
-    this.updatedAt,
     this.description,
     required this.name,
   });
@@ -25,8 +23,6 @@ class CategoryTypeJsonhalRead {
     return CategoryTypeJsonhalRead(
       links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
       description: json[r'description'],
       name: json[r'name'],
     );
@@ -36,12 +32,6 @@ class CategoryTypeJsonhalRead {
 
   /// The resource identifier.
   final String? id;
-
-  /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
-
-  /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
 
   String? description;
 
@@ -57,8 +47,6 @@ class CategoryTypeJsonhalRead {
     return other is CategoryTypeJsonhalRead &&
         other.links == links &&
         other.id == id &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
         other.description == description &&
         other.name == name;
   }
@@ -67,8 +55,6 @@ class CategoryTypeJsonhalRead {
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode;
 
@@ -122,7 +108,7 @@ class CategoryTypeJsonhalRead {
 
   @override
   String toString() =>
-      'CategoryTypeJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name]';
+      'CategoryTypeJsonhalRead[links=$links, id=$id, description=$description, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -136,10 +122,6 @@ class CategoryTypeJsonhalRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,

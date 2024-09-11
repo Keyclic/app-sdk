@@ -114,6 +114,8 @@ Class | Method | HTTP request | Description
 *PublicationApi* | [**getPublicationCollection**](doc//PublicationApi.md#getpublicationcollection) | **GET** /publications | Retrieves the collection of Publication resources.
 *ReviewApi* | [**getReview**](doc//ReviewApi.md#getreview) | **GET** /reviews/{identifier} | Retrieves a Review resource.
 *ReviewApi* | [**getReviewCollection**](doc//ReviewApi.md#getreviewcollection) | **GET** /reviews | Retrieves the collection of Review resources.
+*ServiceApi* | [**getService**](doc//ServiceApi.md#getservice) | **GET** /services/{identifier} | Retrieves a Service resource.
+*ServiceApi* | [**getServiceCollection**](doc//ServiceApi.md#getservicecollection) | **GET** /services | Retrieves the collection of Service resources.
 *ServiceOfferApi* | [**getServiceOffer**](doc//ServiceOfferApi.md#getserviceoffer) | **GET** /service-offers/{identifier} | Retrieves a ServiceOffer resource.
 *ServiceOfferApi* | [**postServiceOffer**](doc//ServiceOfferApi.md#postserviceoffer) | **POST** /service-offers | Creates a ServiceOffer resource.
 *SlaPolicyApi* | [**getSlaPolicy**](doc//SlaPolicyApi.md#getslapolicy) | **GET** /sla-policies/{identifier} | Retrieves a SlaPolicy resource.
@@ -157,6 +159,8 @@ Class | Method | HTTP request | Description
  - [CategoryRead](doc//CategoryRead.md)
  - [CategoryTypeJsonhalRead](doc//CategoryTypeJsonhalRead.md)
  - [CategoryTypeRead](doc//CategoryTypeRead.md)
+ - [CollaboratorJsonhalRead](doc//CollaboratorJsonhalRead.md)
+ - [CollaboratorRead](doc//CollaboratorRead.md)
  - [ConditionJsonhalRead](doc//ConditionJsonhalRead.md)
  - [ConditionRead](doc//ConditionRead.md)
  - [ConnectionAuthProfileRead](doc//ConnectionAuthProfileRead.md)
@@ -231,6 +235,8 @@ Class | Method | HTTP request | Description
  - [GetPublicationCollection200ResponseEmbedded](doc//GetPublicationCollection200ResponseEmbedded.md)
  - [GetReviewCollection200Response](doc//GetReviewCollection200Response.md)
  - [GetReviewCollection200ResponseEmbedded](doc//GetReviewCollection200ResponseEmbedded.md)
+ - [GetServiceCollection200Response](doc//GetServiceCollection200Response.md)
+ - [GetServiceCollection200ResponseEmbedded](doc//GetServiceCollection200ResponseEmbedded.md)
  - [GetSlaPolicyCollection200Response](doc//GetSlaPolicyCollection200Response.md)
  - [GetSlaPolicyCollection200ResponseEmbedded](doc//GetSlaPolicyCollection200ResponseEmbedded.md)
  - [GetTicketCollection200Response](doc//GetTicketCollection200Response.md)
@@ -299,10 +305,13 @@ Class | Method | HTTP request | Description
  - [ReviewRead](doc//ReviewRead.md)
  - [RoleJsonhalRead](doc//RoleJsonhalRead.md)
  - [RoleRead](doc//RoleRead.md)
+ - [ServiceJsonhalRead](doc//ServiceJsonhalRead.md)
+ - [ServiceJsonhalReadEmbedded](doc//ServiceJsonhalReadEmbedded.md)
  - [ServiceOfferCreateOfferCommandWrite](doc//ServiceOfferCreateOfferCommandWrite.md)
  - [ServiceOfferJsonhalRead](doc//ServiceOfferJsonhalRead.md)
  - [ServiceOfferJsonhalReadLinks](doc//ServiceOfferJsonhalReadLinks.md)
  - [ServiceOfferRead](doc//ServiceOfferRead.md)
+ - [ServiceRead](doc//ServiceRead.md)
  - [SlaJsonhalOrganizationPreferenceRead](doc//SlaJsonhalOrganizationPreferenceRead.md)
  - [SlaOrganizationPreferenceRead](doc//SlaOrganizationPreferenceRead.md)
  - [SlaPolicyJsonhalRead](doc//SlaPolicyJsonhalRead.md)

@@ -33,6 +33,8 @@ doc/CategoryRead.md
 doc/CategoryTypeApi.md
 doc/CategoryTypeJsonhalRead.md
 doc/CategoryTypeRead.md
+doc/CollaboratorJsonhalRead.md
+doc/CollaboratorRead.md
 doc/ConditionJsonhalRead.md
 doc/ConditionRead.md
 doc/ConnectionAuthProfileRead.md
@@ -113,6 +115,8 @@ doc/GetPublicationCollection200Response.md
 doc/GetPublicationCollection200ResponseEmbedded.md
 doc/GetReviewCollection200Response.md
 doc/GetReviewCollection200ResponseEmbedded.md
+doc/GetServiceCollection200Response.md
+doc/GetServiceCollection200ResponseEmbedded.md
 doc/GetSlaPolicyCollection200Response.md
 doc/GetSlaPolicyCollection200ResponseEmbedded.md
 doc/GetTicketCollection200Response.md
@@ -188,11 +192,15 @@ doc/ReviewOrganizationPreferenceRead.md
 doc/ReviewRead.md
 doc/RoleJsonhalRead.md
 doc/RoleRead.md
+doc/ServiceApi.md
+doc/ServiceJsonhalRead.md
+doc/ServiceJsonhalReadEmbedded.md
 doc/ServiceOfferApi.md
 doc/ServiceOfferCreateOfferCommandWrite.md
 doc/ServiceOfferJsonhalRead.md
 doc/ServiceOfferJsonhalReadLinks.md
 doc/ServiceOfferRead.md
+doc/ServiceRead.md
 doc/SlaJsonhalOrganizationPreferenceRead.md
 doc/SlaOrganizationPreferenceRead.md
 doc/SlaPolicyApi.md
@@ -249,6 +257,7 @@ lib/api/metric_api.dart
 lib/api/place_api.dart
 lib/api/publication_api.dart
 lib/api/review_api.dart
+lib/api/service_api.dart
 lib/api/service_offer_api.dart
 lib/api/sla_policy_api.dart
 lib/api/target_group_api.dart
@@ -288,6 +297,8 @@ lib/model/category_jsonhal_read_links.dart
 lib/model/category_read.dart
 lib/model/category_type_jsonhal_read.dart
 lib/model/category_type_read.dart
+lib/model/collaborator_jsonhal_read.dart
+lib/model/collaborator_read.dart
 lib/model/condition_jsonhal_read.dart
 lib/model/condition_read.dart
 lib/model/connection_auth_profile_read.dart
@@ -362,6 +373,8 @@ lib/model/get_publication_collection200_response.dart
 lib/model/get_publication_collection200_response_embedded.dart
 lib/model/get_review_collection200_response.dart
 lib/model/get_review_collection200_response_embedded.dart
+lib/model/get_service_collection200_response.dart
+lib/model/get_service_collection200_response_embedded.dart
 lib/model/get_sla_policy_collection200_response.dart
 lib/model/get_sla_policy_collection200_response_embedded.dart
 lib/model/get_ticket_collection200_response.dart
@@ -430,10 +443,13 @@ lib/model/review_organization_preference_read.dart
 lib/model/review_read.dart
 lib/model/role_jsonhal_read.dart
 lib/model/role_read.dart
+lib/model/service_jsonhal_read.dart
+lib/model/service_jsonhal_read_embedded.dart
 lib/model/service_offer_create_offer_command_write.dart
 lib/model/service_offer_jsonhal_read.dart
 lib/model/service_offer_jsonhal_read_links.dart
 lib/model/service_offer_read.dart
+lib/model/service_read.dart
 lib/model/sla_jsonhal_organization_preference_read.dart
 lib/model/sla_organization_preference_read.dart
 lib/model/sla_policy_jsonhal_read.dart
@@ -494,6 +510,8 @@ test/category_read_test.dart
 test/category_type_api_test.dart
 test/category_type_jsonhal_read_test.dart
 test/category_type_read_test.dart
+test/collaborator_jsonhal_read_test.dart
+test/collaborator_read_test.dart
 test/condition_jsonhal_read_test.dart
 test/condition_read_test.dart
 test/connection_auth_profile_read_test.dart
@@ -574,6 +592,8 @@ test/get_publication_collection200_response_embedded_test.dart
 test/get_publication_collection200_response_test.dart
 test/get_review_collection200_response_embedded_test.dart
 test/get_review_collection200_response_test.dart
+test/get_service_collection200_response_embedded_test.dart
+test/get_service_collection200_response_test.dart
 test/get_sla_policy_collection200_response_embedded_test.dart
 test/get_sla_policy_collection200_response_test.dart
 test/get_ticket_collection200_response_embedded_test.dart
@@ -649,11 +669,15 @@ test/review_organization_preference_read_test.dart
 test/review_read_test.dart
 test/role_jsonhal_read_test.dart
 test/role_read_test.dart
+test/service_api_test.dart
+test/service_jsonhal_read_embedded_test.dart
+test/service_jsonhal_read_test.dart
 test/service_offer_api_test.dart
 test/service_offer_create_offer_command_write_test.dart
 test/service_offer_jsonhal_read_links_test.dart
 test/service_offer_jsonhal_read_test.dart
 test/service_offer_read_test.dart
+test/service_read_test.dart
 test/sla_jsonhal_organization_preference_read_test.dart
 test/sla_organization_preference_read_test.dart
 test/sla_policy_api_test.dart

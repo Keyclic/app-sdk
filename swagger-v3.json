@@ -10556,6 +10556,405 @@
             },
             "parameters": []
         },
+        "/services": {
+            "get": {
+                "operationId": "getServiceCollection",
+                "tags": [
+                    "Service"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service collection",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_embedded": {
+                                            "type": "object",
+                                            "properties": {
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Service.jsonhal-Read"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "item"
+                                            ]
+                                        },
+                                        "totalItems": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "itemsPerPage": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "nullable": false
+                                        },
+                                        "_links": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    },
+                                                    "nullable": false
+                                                },
+                                                "first": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "last": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "next": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "previous": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "href": {
+                                                            "type": "string",
+                                                            "format": "iri-reference"
+                                                        }
+                                                    }
+                                                },
+                                                "item": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "href": {
+                                                                "type": "string",
+                                                                "format": "iri-reference"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "_links"
+                                    ]
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Service-Read"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "summary": "Retrieves the collection of Service resources.",
+                "description": "Retrieves the collection of Service resources.",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "The collection page number",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "The number of items per page",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "minimum": 0,
+                            "maximum": 50
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "pagination",
+                        "in": "query",
+                        "description": "Enable or disable pagination",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/services/{identifier}": {
+            "get": {
+                "operationId": "getService",
+                "tags": [
+                    "Service"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Service.jsonhal-Read"
+                                }
+                            },
+                            "text/html": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Service-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a Service resource.",
+                "description": "Retrieves a Service resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Service identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
         "/sla-policies": {
             "get": {
                 "operationId": "getSlaPolicyCollection",
@@ -15659,6 +16058,74 @@
                     "name"
                 ]
             },
+            "Collaborator-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "contactPoint": {
+                        "$ref": "#/components/schemas/ContactPoint-Read"
+                    }
+                }
+            },
+            "Collaborator.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "contactPoint": {
+                        "$ref": "#/components/schemas/ContactPoint.jsonhal-Read"
+                    }
+                }
+            },
             "Condition-Read": {
                 "type": "object",
                 "description": "",
@@ -19526,6 +19993,173 @@
                 },
                 "required": [
                     "name"
+                ]
+            },
+            "Service-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "provider": {
+                        "readOnly": true,
+                        "$ref": "#/components/schemas/Organization-Read"
+                    },
+                    "contactPoint": {
+                        "$ref": "#/components/schemas/ContactPoint-Read"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "manager": {
+                        "readOnly": true,
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Collaborator-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "onCall": {
+                        "readOnly": true,
+                        "$ref": "#/components/schemas/ContactPoint-Read"
+                    },
+                    "organization": {
+                        "readOnly": true,
+                        "$ref": "#/components/schemas/Organization-Read"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "type": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "name",
+                    "organization"
+                ]
+            },
+            "Service.jsonhal-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "contactPoint": {
+                        "$ref": "#/components/schemas/ContactPoint.jsonhal-Read"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "minLength": 1,
+                        "maxLength": 255,
+                        "type": "string"
+                    },
+                    "onCall": {
+                        "readOnly": true,
+                        "$ref": "#/components/schemas/ContactPoint.jsonhal-Read"
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "address": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "type": {
+                        "readOnly": true,
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "_embedded": {
+                        "type": "object",
+                        "properties": {
+                            "provider": {
+                                "readOnly": true,
+                                "$ref": "#/components/schemas/Organization.jsonhal-Read"
+                            },
+                            "manager": {
+                                "readOnly": true,
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Collaborator.jsonhal-Read"
+                                    }
+                                ],
+                                "nullable": true
+                            },
+                            "organization": {
+                                "readOnly": true,
+                                "$ref": "#/components/schemas/Organization.jsonhal-Read"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "name",
+                    "organization"
                 ]
             },
             "ServiceOffer-Read": {

@@ -164,6 +164,11 @@ class ApiPlatformClient {
     return ReviewApi(this);
   }
 
+  /// Get ServiceApi instance
+  ServiceApi getServiceApi() {
+    return ServiceApi(this);
+  }
+
   /// Get ServiceOfferApi instance
   ServiceOfferApi getServiceOfferApi() {
     return ServiceOfferApi(this);
@@ -303,6 +308,10 @@ class ApiPlatformClient {
           return CategoryTypeJsonhalRead.fromJson(value);
         case 'CategoryTypeRead':
           return CategoryTypeRead.fromJson(value);
+        case 'CollaboratorJsonhalRead':
+          return CollaboratorJsonhalRead.fromJson(value);
+        case 'CollaboratorRead':
+          return CollaboratorRead.fromJson(value);
         case 'ConditionJsonhalRead':
           return ConditionJsonhalRead.fromJson(value);
         case 'ConditionRead':
@@ -452,6 +461,10 @@ class ApiPlatformClient {
           return GetReviewCollection200Response.fromJson(value);
         case 'GetReviewCollection200ResponseEmbedded':
           return GetReviewCollection200ResponseEmbedded.fromJson(value);
+        case 'GetServiceCollection200Response':
+          return GetServiceCollection200Response.fromJson(value);
+        case 'GetServiceCollection200ResponseEmbedded':
+          return GetServiceCollection200ResponseEmbedded.fromJson(value);
         case 'GetSlaPolicyCollection200Response':
           return GetSlaPolicyCollection200Response.fromJson(value);
         case 'GetSlaPolicyCollection200ResponseEmbedded':
@@ -589,6 +602,10 @@ class ApiPlatformClient {
           return RoleJsonhalRead.fromJson(value);
         case 'RoleRead':
           return RoleRead.fromJson(value);
+        case 'ServiceJsonhalRead':
+          return ServiceJsonhalRead.fromJson(value);
+        case 'ServiceJsonhalReadEmbedded':
+          return ServiceJsonhalReadEmbedded.fromJson(value);
         case 'ServiceOfferCreateOfferCommandWrite':
           return ServiceOfferCreateOfferCommandWrite.fromJson(value);
         case 'ServiceOfferJsonhalRead':
@@ -597,6 +614,8 @@ class ApiPlatformClient {
           return ServiceOfferJsonhalReadLinks.fromJson(value);
         case 'ServiceOfferRead':
           return ServiceOfferRead.fromJson(value);
+        case 'ServiceRead':
+          return ServiceRead.fromJson(value);
         case 'SlaJsonhalOrganizationPreferenceRead':
           return SlaJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'SlaOrganizationPreferenceRead':

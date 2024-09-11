@@ -21,7 +21,8 @@ class PointJsonhalRead {
     }
 
     return PointJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       srid: json[r'srid'],
       latitude: json[r'latitude'] == null ? null : json[r'latitude'].toDouble(),
       longitude:
@@ -29,7 +30,7 @@ class PointJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   int? srid;
 

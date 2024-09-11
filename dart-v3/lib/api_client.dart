@@ -139,6 +139,11 @@ class ApiPlatformClient {
     return IntegrationLinkApi(this);
   }
 
+  /// Get MemberApi instance
+  MemberApi getMemberApi() {
+    return MemberApi(this);
+  }
+
   /// Get MetricApi instance
   MetricApi getMetricApi() {
     return MetricApi(this);
@@ -249,6 +254,13 @@ class ApiPlatformClient {
           return valueString == 'true' || valueString == '1';
         case 'double':
           return value is double ? value : double.parse('$value');
+        case 'ArchivingJsonhalOrganizationPreferenceRead':
+          return ArchivingJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'ArchivingJsonhalOrganizationPreferenceReadLinks':
+          return ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+              value);
+        case 'ArchivingOrganizationPreferenceRead':
+          return ArchivingOrganizationPreferenceRead.fromJson(value);
         case 'AssetJsonhalRead':
           return AssetJsonhalRead.fromJson(value);
         case 'AssetJsonhalReadLinks':
@@ -257,8 +269,6 @@ class ApiPlatformClient {
           return AssetRead.fromJson(value);
         case 'AssetTypeJsonhalRead':
           return AssetTypeJsonhalRead.fromJson(value);
-        case 'AssetTypeJsonhalReadLinks':
-          return AssetTypeJsonhalReadLinks.fromJson(value);
         case 'AssetTypeRead':
           return AssetTypeRead.fromJson(value);
         case 'AssignmentJsonhalRead':
@@ -305,14 +315,22 @@ class ApiPlatformClient {
           return ConnectorJsonhalRead.fromJson(value);
         case 'ConnectorRead':
           return ConnectorRead.fromJson(value);
+        case 'ContactPointJsonhalRead':
+          return ContactPointJsonhalRead.fromJson(value);
+        case 'ContactPointRead':
+          return ContactPointRead.fromJson(value);
         case 'ContractCreateContractCommandWrite':
           return ContractCreateContractCommandWrite.fromJson(value);
         case 'ContractEditContractCommandWrite':
           return ContractEditContractCommandWrite.fromJson(value);
+        case 'ContractJsonhalOrganizationPreferenceRead':
+          return ContractJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'ContractJsonhalRead':
           return ContractJsonhalRead.fromJson(value);
         case 'ContractJsonhalReadLinks':
           return ContractJsonhalReadLinks.fromJson(value);
+        case 'ContractOrganizationPreferenceRead':
+          return ContractOrganizationPreferenceRead.fromJson(value);
         case 'ContractRead':
           return ContractRead.fromJson(value);
         case 'ContractTypeJsonhalRead':
@@ -331,10 +349,14 @@ class ApiPlatformClient {
           return EquipmentCreateEquipmentCommandWrite.fromJson(value);
         case 'EquipmentEditEquipmentCommandWrite':
           return EquipmentEditEquipmentCommandWrite.fromJson(value);
+        case 'EquipmentJsonhalOrganizationPreferenceRead':
+          return EquipmentJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'EquipmentJsonhalRead':
           return EquipmentJsonhalRead.fromJson(value);
         case 'EquipmentJsonhalReadLinks':
           return EquipmentJsonhalReadLinks.fromJson(value);
+        case 'EquipmentOrganizationPreferenceRead':
+          return EquipmentOrganizationPreferenceRead.fromJson(value);
         case 'EquipmentRead':
           return EquipmentRead.fromJson(value);
         case 'ExportJsonhalRead':
@@ -347,6 +369,10 @@ class ApiPlatformClient {
           return FeedbackJsonhalReadLinks.fromJson(value);
         case 'FeedbackRead':
           return FeedbackRead.fromJson(value);
+        case 'FormJsonhalOrganizationPreferenceRead':
+          return FormJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'FormOrganizationPreferenceRead':
+          return FormOrganizationPreferenceRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':
           return GeoCoordinatesJsonhalRead.fromJson(value);
         case 'GeoCoordinatesRead':
@@ -404,6 +430,10 @@ class ApiPlatformClient {
         case 'GetIntegrationLinkCollection200ResponseEmbedded':
           return GetIntegrationLinkCollection200ResponseEmbedded.fromJson(
               value);
+        case 'GetMemberCollection200Response':
+          return GetMemberCollection200Response.fromJson(value);
+        case 'GetMemberCollection200ResponseEmbedded':
+          return GetMemberCollection200ResponseEmbedded.fromJson(value);
         case 'GetPlaceCollection200Response':
           return GetPlaceCollection200Response.fromJson(value);
         case 'GetPlaceCollection200ResponseEmbedded':
@@ -469,6 +499,14 @@ class ApiPlatformClient {
           return MarkerJsonhalRead.fromJson(value);
         case 'MarkerRead':
           return MarkerRead.fromJson(value);
+        case 'MemberJsonhalRead':
+          return MemberJsonhalRead.fromJson(value);
+        case 'MemberJsonhalReadEmbedded':
+          return MemberJsonhalReadEmbedded.fromJson(value);
+        case 'MemberJsonhalReadLinks':
+          return MemberJsonhalReadLinks.fromJson(value);
+        case 'MemberRead':
+          return MemberRead.fromJson(value);
         case 'MetricJsonhalRead':
           return MetricJsonhalRead.fromJson(value);
         case 'MetricRead':
@@ -477,6 +515,12 @@ class ApiPlatformClient {
           return NodeJsonhalRead.fromJson(value);
         case 'NodeRead':
           return NodeRead.fromJson(value);
+        case 'OrganizationJsonhalRead':
+          return OrganizationJsonhalRead.fromJson(value);
+        case 'OrganizationJsonhalReadLinks':
+          return OrganizationJsonhalReadLinks.fromJson(value);
+        case 'OrganizationRead':
+          return OrganizationRead.fromJson(value);
         case 'PersonJsonhalRead':
           return PersonJsonhalRead.fromJson(value);
         case 'PersonRead':
@@ -497,6 +541,10 @@ class ApiPlatformClient {
           return PreferencesAssetRead.fromJson(value);
         case 'PreferencesJsonhalAssetRead':
           return PreferencesJsonhalAssetRead.fromJson(value);
+        case 'PreferencesJsonhalOrganizationRead':
+          return PreferencesJsonhalOrganizationRead.fromJson(value);
+        case 'PreferencesOrganizationRead':
+          return PreferencesOrganizationRead.fromJson(value);
         case 'PriceJsonhalRead':
           return PriceJsonhalRead.fromJson(value);
         case 'PriceRead':
@@ -517,18 +565,30 @@ class ApiPlatformClient {
           return PublicationJsonhalReadLinks.fromJson(value);
         case 'PublicationRead':
           return PublicationRead.fromJson(value);
+        case 'ReferenceJsonhalOrganizationPreferenceRead':
+          return ReferenceJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'ReferenceOrganizationPreferenceRead':
+          return ReferenceOrganizationPreferenceRead.fromJson(value);
         case 'RenewalJsonhalRead':
           return RenewalJsonhalRead.fromJson(value);
         case 'RenewalRead':
           return RenewalRead.fromJson(value);
         case 'RenewalWrite':
           return RenewalWrite.fromJson(value);
+        case 'ReviewJsonhalOrganizationPreferenceRead':
+          return ReviewJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'ReviewJsonhalRead':
           return ReviewJsonhalRead.fromJson(value);
         case 'ReviewJsonhalReadLinks':
           return ReviewJsonhalReadLinks.fromJson(value);
+        case 'ReviewOrganizationPreferenceRead':
+          return ReviewOrganizationPreferenceRead.fromJson(value);
         case 'ReviewRead':
           return ReviewRead.fromJson(value);
+        case 'RoleJsonhalRead':
+          return RoleJsonhalRead.fromJson(value);
+        case 'RoleRead':
+          return RoleRead.fromJson(value);
         case 'ServiceOfferCreateOfferCommandWrite':
           return ServiceOfferCreateOfferCommandWrite.fromJson(value);
         case 'ServiceOfferJsonhalRead':
@@ -537,6 +597,10 @@ class ApiPlatformClient {
           return ServiceOfferJsonhalReadLinks.fromJson(value);
         case 'ServiceOfferRead':
           return ServiceOfferRead.fromJson(value);
+        case 'SlaJsonhalOrganizationPreferenceRead':
+          return SlaJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'SlaOrganizationPreferenceRead':
+          return SlaOrganizationPreferenceRead.fromJson(value);
         case 'SlaPolicyJsonhalRead':
           return SlaPolicyJsonhalRead.fromJson(value);
         case 'SlaPolicyJsonhalReadEmbedded':

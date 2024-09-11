@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
+**links** | [**ArchivingJsonhalOrganizationPreferenceReadLinks**](ArchivingJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
 **adjustedCost** | [**PriceJsonhalRead**](PriceJsonhalRead.md) |  | [optional] 
 **initialCost** | [**PriceJsonhalRead**](PriceJsonhalRead.md) |  | [optional] 
 **startDate** | [**DateTime**](DateTime.md) | The start date of the billing cycle for the customer's account, in ISO 8601 format. | [optional] 

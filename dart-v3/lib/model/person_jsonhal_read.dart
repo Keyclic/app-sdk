@@ -9,6 +9,7 @@ class PersonJsonhalRead {
   PersonJsonhalRead({
     this.links,
     this.id,
+    this.image,
     this.jobTitle,
     this.optIn,
     this.telephone,
@@ -19,7 +20,6 @@ class PersonJsonhalRead {
     this.givenName,
     this.createdAt,
     this.updatedAt,
-    this.type,
   });
 
   /// Returns a new [PersonJsonhalRead] instance and imports its values from
@@ -30,8 +30,10 @@ class PersonJsonhalRead {
     }
 
     return PersonJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       id: json[r'id'],
+      image: json[r'image'],
       jobTitle: json[r'jobTitle'],
       optIn: json[r'optIn'],
       telephone: json[r'telephone'],
@@ -42,13 +44,14 @@ class PersonJsonhalRead {
       givenName: json[r'givenName'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
-      type: json[r'type'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   final String? id;
+
+  String? image;
 
   String? jobTitle;
 
@@ -74,8 +77,6 @@ class PersonJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  final String? type;
-
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -86,6 +87,7 @@ class PersonJsonhalRead {
     return other is PersonJsonhalRead &&
         other.links == links &&
         other.id == id &&
+        other.image == image &&
         other.jobTitle == jobTitle &&
         other.optIn == optIn &&
         other.telephone == telephone &&
@@ -95,14 +97,14 @@ class PersonJsonhalRead {
         other.familyName == familyName &&
         other.givenName == givenName &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.type == type;
+        other.updatedAt == updatedAt;
   }
 
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (image == null ? 0 : image.hashCode) +
       (jobTitle == null ? 0 : jobTitle.hashCode) +
       (optIn == null ? 0 : optIn.hashCode) +
       (telephone == null ? 0 : telephone.hashCode) +
@@ -112,8 +114,7 @@ class PersonJsonhalRead {
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<PersonJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -164,7 +165,7 @@ class PersonJsonhalRead {
 
   @override
   String toString() =>
-      'PersonJsonhalRead[links=$links, id=$id, jobTitle=$jobTitle, optIn=$optIn, telephone=$telephone, email=$email, username=$username, enabled=$enabled, familyName=$familyName, givenName=$givenName, createdAt=$createdAt, updatedAt=$updatedAt, type=$type]';
+      'PersonJsonhalRead[links=$links, id=$id, image=$image, jobTitle=$jobTitle, optIn=$optIn, telephone=$telephone, email=$email, username=$username, enabled=$enabled, familyName=$familyName, givenName=$givenName, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -178,6 +179,7 @@ class PersonJsonhalRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'image')) r'image': image,
       if (keys == null || keys.contains(r'jobTitle')) r'jobTitle': jobTitle,
       if (keys == null || keys.contains(r'optIn')) r'optIn': optIn,
       if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
@@ -191,7 +193,6 @@ class PersonJsonhalRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

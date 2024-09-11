@@ -21,14 +21,15 @@ class ConditionJsonhalRead {
     }
 
     return ConditionJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       propertyPath: json[r'propertyPath'],
       values: Map<String, String>.from(json[r'values']),
       operator_: ConditionJsonhalReadOperator_Enum.fromJson(json[r'operator']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String propertyPath;
 

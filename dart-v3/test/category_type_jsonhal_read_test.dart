@@ -10,7 +10,7 @@ void main() {
   // final instance = CategoryTypeJsonhalRead();
 
   group('test CategoryTypeJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // The resource identifier.

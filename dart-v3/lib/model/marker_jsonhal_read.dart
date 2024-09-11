@@ -20,13 +20,14 @@ class MarkerJsonhalRead {
     }
 
     return MarkerJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       point: PointJsonhalRead.fromJson(json[r'point']),
       id: json[r'id'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   PointJsonhalRead? point;
 

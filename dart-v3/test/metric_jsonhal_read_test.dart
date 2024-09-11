@@ -10,7 +10,7 @@ void main() {
   // final instance = MetricJsonhalRead();
 
   group('test MetricJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // DurationJsonhalRead duration

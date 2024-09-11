@@ -10,7 +10,7 @@ void main() {
   // final instance = ConnectionJsonhalAuthProfileRead();
 
   group('test ConnectionJsonhalAuthProfileRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String image

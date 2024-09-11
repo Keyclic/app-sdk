@@ -20,13 +20,14 @@ class UserJsonhalAuthProfileRead {
     }
 
     return UserJsonhalAuthProfileRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       email: json[r'email'],
       username: json[r'username'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? email;
 

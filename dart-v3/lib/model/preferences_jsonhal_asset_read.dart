@@ -19,13 +19,14 @@ class PreferencesJsonhalAssetRead {
     }
 
     return PreferencesJsonhalAssetRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       visibility: PreferencesJsonhalAssetReadVisibilityEnum.fromJson(
           json[r'visibility']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   PreferencesJsonhalAssetReadVisibilityEnum? visibility;
 

@@ -21,14 +21,15 @@ class DurationJsonhalRead {
     }
 
     return DurationJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       hours: json[r'hours'] == null ? null : json[r'hours'].toDouble(),
       minutes: json[r'minutes'],
       seconds: json[r'seconds'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   final num? hours;
 

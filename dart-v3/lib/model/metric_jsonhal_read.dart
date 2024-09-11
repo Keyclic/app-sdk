@@ -20,13 +20,14 @@ class MetricJsonhalRead {
     }
 
     return MetricJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       duration: DurationJsonhalRead.fromJson(json[r'duration']),
       name: json[r'name'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   DurationJsonhalRead? duration;
 

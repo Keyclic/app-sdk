@@ -10,11 +10,14 @@ void main() {
   // final instance = PersonJsonhalRead();
 
   group('test PersonJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String id
     test('to test the property `id`', () async {});
+
+    // String image
+    test('to test the property `image`', () async {});
 
     // String jobTitle
     test('to test the property `jobTitle`', () async {});
@@ -49,8 +52,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // String type
-    test('to test the property `type`', () async {});
   });
 }

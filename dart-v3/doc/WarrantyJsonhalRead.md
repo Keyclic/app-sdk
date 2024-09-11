@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
+**links** | [**ArchivingJsonhalOrganizationPreferenceReadLinks**](ArchivingJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
 **duration** | **String** | The duration of the warranty in ISO 8601 duration format. | [optional] 
 **endDate** | [**DateTime**](DateTime.md) | The end date of the warranty, in ISO 8601 format. | [optional] [readonly] 
 **startDate** | [**DateTime**](DateTime.md) | The start date of the warranty, in ISO 8601 format. | [optional] 

@@ -8,6 +8,7 @@ class PersonRead {
   /// Returns a new [PersonRead] instance.
   PersonRead({
     this.id,
+    this.image,
     this.jobTitle,
     this.optIn,
     this.telephone,
@@ -18,7 +19,6 @@ class PersonRead {
     this.givenName,
     this.createdAt,
     this.updatedAt,
-    this.type,
   });
 
   /// Returns a new [PersonRead] instance and imports its values from
@@ -30,6 +30,7 @@ class PersonRead {
 
     return PersonRead(
       id: json[r'id'],
+      image: json[r'image'],
       jobTitle: json[r'jobTitle'],
       optIn: json[r'optIn'],
       telephone: json[r'telephone'],
@@ -40,11 +41,12 @@ class PersonRead {
       givenName: json[r'givenName'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
-      type: json[r'type'],
     );
   }
 
   final String? id;
+
+  String? image;
 
   String? jobTitle;
 
@@ -70,8 +72,6 @@ class PersonRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
-  final String? type;
-
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -81,6 +81,7 @@ class PersonRead {
 
     return other is PersonRead &&
         other.id == id &&
+        other.image == image &&
         other.jobTitle == jobTitle &&
         other.optIn == optIn &&
         other.telephone == telephone &&
@@ -90,13 +91,13 @@ class PersonRead {
         other.familyName == familyName &&
         other.givenName == givenName &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.type == type;
+        other.updatedAt == updatedAt;
   }
 
   @override
   int get hashCode =>
       (id == null ? 0 : id.hashCode) +
+      (image == null ? 0 : image.hashCode) +
       (jobTitle == null ? 0 : jobTitle.hashCode) +
       (optIn == null ? 0 : optIn.hashCode) +
       (telephone == null ? 0 : telephone.hashCode) +
@@ -106,8 +107,7 @@ class PersonRead {
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<PersonRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -155,11 +155,12 @@ class PersonRead {
 
   @override
   String toString() =>
-      'PersonRead[id=$id, jobTitle=$jobTitle, optIn=$optIn, telephone=$telephone, email=$email, username=$username, enabled=$enabled, familyName=$familyName, givenName=$givenName, createdAt=$createdAt, updatedAt=$updatedAt, type=$type]';
+      'PersonRead[id=$id, image=$image, jobTitle=$jobTitle, optIn=$optIn, telephone=$telephone, email=$email, username=$username, enabled=$enabled, familyName=$familyName, givenName=$givenName, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'image')) r'image': image,
       if (keys == null || keys.contains(r'jobTitle')) r'jobTitle': jobTitle,
       if (keys == null || keys.contains(r'optIn')) r'optIn': optIn,
       if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
@@ -173,7 +174,6 @@ class PersonRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

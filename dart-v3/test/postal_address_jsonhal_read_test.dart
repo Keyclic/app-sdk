@@ -10,7 +10,7 @@ void main() {
   // final instance = PostalAddressJsonhalRead();
 
   group('test PostalAddressJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String locality

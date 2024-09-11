@@ -22,7 +22,8 @@ class TicketPriorityJsonhalRead {
     }
 
     return TicketPriorityJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       color: json[r'color'],
       name: json[r'name'],
       id: json[r'id'],
@@ -30,7 +31,7 @@ class TicketPriorityJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? color;
 

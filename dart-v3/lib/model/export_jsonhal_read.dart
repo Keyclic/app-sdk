@@ -27,7 +27,8 @@ class ExportJsonhalRead {
     }
 
     return ExportJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       id: json[r'id'],
       contentType:
           ExportJsonhalReadContentTypeEnum.fromJson(json[r'contentType'])!,
@@ -40,7 +41,7 @@ class ExportJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The resource identifier.
   final String? id;

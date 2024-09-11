@@ -10,7 +10,7 @@ void main() {
   // final instance = MarkerJsonhalRead();
 
   group('test MarkerJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // PointJsonhalRead point

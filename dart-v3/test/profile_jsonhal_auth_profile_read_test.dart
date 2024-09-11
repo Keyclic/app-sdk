@@ -10,7 +10,7 @@ void main() {
   // final instance = ProfileJsonhalAuthProfileRead();
 
   group('test ProfileJsonhalAuthProfileRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // Available connection types for the given email address. These might include password, enterprise, social.

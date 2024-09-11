@@ -10,7 +10,7 @@ void main() {
   // final instance = TargetGroupJsonhalRead();
 
   group('test TargetGroupJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String description

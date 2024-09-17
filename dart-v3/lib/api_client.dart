@@ -169,6 +169,11 @@ class ApiPlatformClient {
     return ReviewApi(this);
   }
 
+  /// Get ReviewRequestApi instance
+  ReviewRequestApi getReviewRequestApi() {
+    return ReviewRequestApi(this);
+  }
+
   /// Get ServiceApi instance
   ServiceApi getServiceApi() {
     return ServiceApi(this);
@@ -476,6 +481,10 @@ class ApiPlatformClient {
           return GetReviewCollection200Response.fromJson(value);
         case 'GetReviewCollection200ResponseEmbedded':
           return GetReviewCollection200ResponseEmbedded.fromJson(value);
+        case 'GetReviewRequestCollection200Response':
+          return GetReviewRequestCollection200Response.fromJson(value);
+        case 'GetReviewRequestCollection200ResponseEmbedded':
+          return GetReviewRequestCollection200ResponseEmbedded.fromJson(value);
         case 'GetServiceCollection200Response':
           return GetServiceCollection200Response.fromJson(value);
         case 'GetServiceCollection200ResponseEmbedded':
@@ -619,6 +628,14 @@ class ApiPlatformClient {
           return ReviewOrganizationPreferenceRead.fromJson(value);
         case 'ReviewRead':
           return ReviewRead.fromJson(value);
+        case 'ReviewRequestJsonhalRead':
+          return ReviewRequestJsonhalRead.fromJson(value);
+        case 'ReviewRequestJsonhalReadEmbedded':
+          return ReviewRequestJsonhalReadEmbedded.fromJson(value);
+        case 'ReviewRequestJsonhalReadLinks':
+          return ReviewRequestJsonhalReadLinks.fromJson(value);
+        case 'ReviewRequestRead':
+          return ReviewRequestRead.fromJson(value);
         case 'RoleJsonhalRead':
           return RoleJsonhalRead.fromJson(value);
         case 'RoleRead':

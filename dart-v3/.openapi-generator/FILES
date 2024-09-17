@@ -42,8 +42,11 @@ doc/ConnectionJsonhalAuthProfileRead.md
 doc/ConnectorApi.md
 doc/ConnectorJsonhalRead.md
 doc/ConnectorRead.md
+doc/ContactJsonhalRead.md
+doc/ContactJsonhalReadEmbedded.md
 doc/ContactPointJsonhalRead.md
 doc/ContactPointRead.md
+doc/ContactRead.md
 doc/ContractApi.md
 doc/ContractCreateContractCommandWrite.md
 doc/ContractEditContractCommandWrite.md
@@ -106,6 +109,8 @@ doc/GetIntegrationLinkCollection200Response.md
 doc/GetIntegrationLinkCollection200ResponseEmbedded.md
 doc/GetMemberCollection200Response.md
 doc/GetMemberCollection200ResponseEmbedded.md
+doc/GetOccupantCollection200Response.md
+doc/GetOccupantCollection200ResponseEmbedded.md
 doc/GetPlaceCollection200Response.md
 doc/GetPlaceCollection200ResponseEmbedded.md
 doc/GetPlaceCollection200ResponseLinks.md
@@ -152,6 +157,10 @@ doc/MetricJsonhalRead.md
 doc/MetricRead.md
 doc/NodeJsonhalRead.md
 doc/NodeRead.md
+doc/OccupantApi.md
+doc/OccupantJsonhalRead.md
+doc/OccupantJsonhalReadEmbedded.md
+doc/OccupantRead.md
 doc/OrganizationJsonhalRead.md
 doc/OrganizationJsonhalReadLinks.md
 doc/OrganizationRead.md
@@ -254,6 +263,7 @@ lib/api/integration_api.dart
 lib/api/integration_link_api.dart
 lib/api/member_api.dart
 lib/api/metric_api.dart
+lib/api/occupant_api.dart
 lib/api/place_api.dart
 lib/api/publication_api.dart
 lib/api/review_api.dart
@@ -305,8 +315,11 @@ lib/model/connection_auth_profile_read.dart
 lib/model/connection_jsonhal_auth_profile_read.dart
 lib/model/connector_jsonhal_read.dart
 lib/model/connector_read.dart
+lib/model/contact_jsonhal_read.dart
+lib/model/contact_jsonhal_read_embedded.dart
 lib/model/contact_point_jsonhal_read.dart
 lib/model/contact_point_read.dart
+lib/model/contact_read.dart
 lib/model/contract_create_contract_command_write.dart
 lib/model/contract_edit_contract_command_write.dart
 lib/model/contract_jsonhal_organization_preference_read.dart
@@ -364,6 +377,8 @@ lib/model/get_integration_link_collection200_response.dart
 lib/model/get_integration_link_collection200_response_embedded.dart
 lib/model/get_member_collection200_response.dart
 lib/model/get_member_collection200_response_embedded.dart
+lib/model/get_occupant_collection200_response.dart
+lib/model/get_occupant_collection200_response_embedded.dart
 lib/model/get_place_collection200_response.dart
 lib/model/get_place_collection200_response_embedded.dart
 lib/model/get_place_collection200_response_links.dart
@@ -406,6 +421,9 @@ lib/model/metric_jsonhal_read.dart
 lib/model/metric_read.dart
 lib/model/node_jsonhal_read.dart
 lib/model/node_read.dart
+lib/model/occupant_jsonhal_read.dart
+lib/model/occupant_jsonhal_read_embedded.dart
+lib/model/occupant_read.dart
 lib/model/organization_jsonhal_read.dart
 lib/model/organization_jsonhal_read_links.dart
 lib/model/organization_read.dart
@@ -519,8 +537,11 @@ test/connection_jsonhal_auth_profile_read_test.dart
 test/connector_api_test.dart
 test/connector_jsonhal_read_test.dart
 test/connector_read_test.dart
+test/contact_jsonhal_read_embedded_test.dart
+test/contact_jsonhal_read_test.dart
 test/contact_point_jsonhal_read_test.dart
 test/contact_point_read_test.dart
+test/contact_read_test.dart
 test/contract_api_test.dart
 test/contract_create_contract_command_write_test.dart
 test/contract_edit_contract_command_write_test.dart
@@ -583,6 +604,8 @@ test/get_integration_link_collection200_response_embedded_test.dart
 test/get_integration_link_collection200_response_test.dart
 test/get_member_collection200_response_embedded_test.dart
 test/get_member_collection200_response_test.dart
+test/get_occupant_collection200_response_embedded_test.dart
+test/get_occupant_collection200_response_test.dart
 test/get_place_collection200_response_embedded_test.dart
 test/get_place_collection200_response_links_first_test.dart
 test/get_place_collection200_response_links_self_test.dart
@@ -629,6 +652,10 @@ test/metric_jsonhal_read_test.dart
 test/metric_read_test.dart
 test/node_jsonhal_read_test.dart
 test/node_read_test.dart
+test/occupant_api_test.dart
+test/occupant_jsonhal_read_embedded_test.dart
+test/occupant_jsonhal_read_test.dart
+test/occupant_read_test.dart
 test/organization_jsonhal_read_links_test.dart
 test/organization_jsonhal_read_test.dart
 test/organization_read_test.dart

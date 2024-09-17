@@ -149,6 +149,11 @@ class ApiPlatformClient {
     return MetricApi(this);
   }
 
+  /// Get OccupantApi instance
+  OccupantApi getOccupantApi() {
+    return OccupantApi(this);
+  }
+
   /// Get PlaceApi instance
   PlaceApi getPlaceApi() {
     return PlaceApi(this);
@@ -324,10 +329,16 @@ class ApiPlatformClient {
           return ConnectorJsonhalRead.fromJson(value);
         case 'ConnectorRead':
           return ConnectorRead.fromJson(value);
+        case 'ContactJsonhalRead':
+          return ContactJsonhalRead.fromJson(value);
+        case 'ContactJsonhalReadEmbedded':
+          return ContactJsonhalReadEmbedded.fromJson(value);
         case 'ContactPointJsonhalRead':
           return ContactPointJsonhalRead.fromJson(value);
         case 'ContactPointRead':
           return ContactPointRead.fromJson(value);
+        case 'ContactRead':
+          return ContactRead.fromJson(value);
         case 'ContractCreateContractCommandWrite':
           return ContractCreateContractCommandWrite.fromJson(value);
         case 'ContractEditContractCommandWrite':
@@ -443,6 +454,10 @@ class ApiPlatformClient {
           return GetMemberCollection200Response.fromJson(value);
         case 'GetMemberCollection200ResponseEmbedded':
           return GetMemberCollection200ResponseEmbedded.fromJson(value);
+        case 'GetOccupantCollection200Response':
+          return GetOccupantCollection200Response.fromJson(value);
+        case 'GetOccupantCollection200ResponseEmbedded':
+          return GetOccupantCollection200ResponseEmbedded.fromJson(value);
         case 'GetPlaceCollection200Response':
           return GetPlaceCollection200Response.fromJson(value);
         case 'GetPlaceCollection200ResponseEmbedded':
@@ -528,6 +543,12 @@ class ApiPlatformClient {
           return NodeJsonhalRead.fromJson(value);
         case 'NodeRead':
           return NodeRead.fromJson(value);
+        case 'OccupantJsonhalRead':
+          return OccupantJsonhalRead.fromJson(value);
+        case 'OccupantJsonhalReadEmbedded':
+          return OccupantJsonhalReadEmbedded.fromJson(value);
+        case 'OccupantRead':
+          return OccupantRead.fromJson(value);
         case 'OrganizationJsonhalRead':
           return OrganizationJsonhalRead.fromJson(value);
         case 'OrganizationJsonhalReadLinks':

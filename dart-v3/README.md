@@ -109,6 +109,8 @@ Class | Method | HTTP request | Description
 *MemberApi* | [**getMember**](doc//MemberApi.md#getmember) | **GET** /members/{identifier} | Retrieves a Member resource.
 *MemberApi* | [**getMemberCollection**](doc//MemberApi.md#getmembercollection) | **GET** /members | Retrieves the collection of Member resources.
 *MetricApi* | [**getTicketMetrics**](doc//MetricApi.md#getticketmetrics) | **GET** /tickets/{identifier}/metrics | Retrieves the collection of Metric resources.
+*OccupantApi* | [**getOccupant**](doc//OccupantApi.md#getoccupant) | **GET** /occupants/{identifier} | Retrieves a Occupant resource.
+*OccupantApi* | [**getOccupantCollection**](doc//OccupantApi.md#getoccupantcollection) | **GET** /occupants | Retrieves the collection of Occupant resources.
 *PlaceApi* | [**getPlaceCollection**](doc//PlaceApi.md#getplacecollection) | **GET** /asset-places | Retrieves the collection of Place resources.
 *PublicationApi* | [**getPublication**](doc//PublicationApi.md#getpublication) | **GET** /publications/{identifier} | Retrieves a Publication resource.
 *PublicationApi* | [**getPublicationCollection**](doc//PublicationApi.md#getpublicationcollection) | **GET** /publications | Retrieves the collection of Publication resources.
@@ -167,8 +169,11 @@ Class | Method | HTTP request | Description
  - [ConnectionJsonhalAuthProfileRead](doc//ConnectionJsonhalAuthProfileRead.md)
  - [ConnectorJsonhalRead](doc//ConnectorJsonhalRead.md)
  - [ConnectorRead](doc//ConnectorRead.md)
+ - [ContactJsonhalRead](doc//ContactJsonhalRead.md)
+ - [ContactJsonhalReadEmbedded](doc//ContactJsonhalReadEmbedded.md)
  - [ContactPointJsonhalRead](doc//ContactPointJsonhalRead.md)
  - [ContactPointRead](doc//ContactPointRead.md)
+ - [ContactRead](doc//ContactRead.md)
  - [ContractCreateContractCommandWrite](doc//ContractCreateContractCommandWrite.md)
  - [ContractEditContractCommandWrite](doc//ContractEditContractCommandWrite.md)
  - [ContractJsonhalOrganizationPreferenceRead](doc//ContractJsonhalOrganizationPreferenceRead.md)
@@ -226,6 +231,8 @@ Class | Method | HTTP request | Description
  - [GetIntegrationLinkCollection200ResponseEmbedded](doc//GetIntegrationLinkCollection200ResponseEmbedded.md)
  - [GetMemberCollection200Response](doc//GetMemberCollection200Response.md)
  - [GetMemberCollection200ResponseEmbedded](doc//GetMemberCollection200ResponseEmbedded.md)
+ - [GetOccupantCollection200Response](doc//GetOccupantCollection200Response.md)
+ - [GetOccupantCollection200ResponseEmbedded](doc//GetOccupantCollection200ResponseEmbedded.md)
  - [GetPlaceCollection200Response](doc//GetPlaceCollection200Response.md)
  - [GetPlaceCollection200ResponseEmbedded](doc//GetPlaceCollection200ResponseEmbedded.md)
  - [GetPlaceCollection200ResponseLinks](doc//GetPlaceCollection200ResponseLinks.md)
@@ -268,6 +275,9 @@ Class | Method | HTTP request | Description
  - [MetricRead](doc//MetricRead.md)
  - [NodeJsonhalRead](doc//NodeJsonhalRead.md)
  - [NodeRead](doc//NodeRead.md)
+ - [OccupantJsonhalRead](doc//OccupantJsonhalRead.md)
+ - [OccupantJsonhalReadEmbedded](doc//OccupantJsonhalReadEmbedded.md)
+ - [OccupantRead](doc//OccupantRead.md)
  - [OrganizationJsonhalRead](doc//OrganizationJsonhalRead.md)
  - [OrganizationJsonhalReadLinks](doc//OrganizationJsonhalReadLinks.md)
  - [OrganizationRead](doc//OrganizationRead.md)

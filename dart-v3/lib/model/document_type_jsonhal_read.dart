@@ -24,7 +24,8 @@ class DocumentTypeJsonhalRead {
     }
 
     return DocumentTypeJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       code: json[r'code'],
       permissions: json[r'permissions'] == null
           ? null
@@ -36,7 +37,7 @@ class DocumentTypeJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? code;
 

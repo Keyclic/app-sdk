@@ -20,14 +20,15 @@ class GeoCoordinatesJsonhalRead {
     }
 
     return GeoCoordinatesJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
       point: PointJsonhalRead.fromJson(json[r'point']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The elevation of a location (WGS 84).
   // minimum: -10000

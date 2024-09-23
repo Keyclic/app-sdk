@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
+**links** | [**ArchivingJsonhalOrganizationPreferenceReadLinks**](ArchivingJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
 **duration** | **String** | Duration of the renewal in ISO 8601 duration format. | [optional] 
 **noticePeriod** | **String** | Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract. | [optional] 
 

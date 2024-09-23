@@ -22,7 +22,8 @@ class ConnectionJsonhalAuthProfileRead {
     }
 
     return ConnectionJsonhalAuthProfileRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       image: json[r'image'],
       text: json[r'text'],
       authorizationUrl: json[r'authorizationUrl'],
@@ -30,7 +31,7 @@ class ConnectionJsonhalAuthProfileRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? image;
 

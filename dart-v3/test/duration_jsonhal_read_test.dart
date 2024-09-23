@@ -10,7 +10,7 @@ void main() {
   // final instance = DurationJsonhalRead();
 
   group('test DurationJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // num hours

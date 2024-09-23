@@ -29,7 +29,7 @@ class AssetJsonhalRead {
       links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
-      preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
+      preferences: PreferencesJsonhalAssetRead.fromJson(json[r'preferences']),
       id: json[r'id'],
       path: NodeJsonhalRead.listFromJson(json[r'path']),
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
@@ -44,7 +44,7 @@ class AssetJsonhalRead {
 
   String name;
 
-  PreferencesJsonhalRead? preferences;
+  PreferencesJsonhalAssetRead? preferences;
 
   /// The resource identifier.
   final String? id;

@@ -22,7 +22,8 @@ class ConnectorJsonhalRead {
     }
 
     return ConnectorJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       name: json[r'name'],
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
@@ -30,7 +31,7 @@ class ConnectorJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String name;
 

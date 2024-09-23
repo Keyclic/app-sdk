@@ -22,7 +22,8 @@ class ProfileJsonhalAuthProfileRead {
     }
 
     return ProfileJsonhalAuthProfileRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       types: json[r'types'] == null ? null : List<String>.from(json[r'types']),
       connections:
           ConnectionJsonhalAuthProfileRead.listFromJson(json[r'connections']),
@@ -31,7 +32,7 @@ class ProfileJsonhalAuthProfileRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// Available connection types for the given email address. These might include password, enterprise, social.
   final List<String>? types;

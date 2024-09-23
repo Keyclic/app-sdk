@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **links** | [**AssetJsonhalReadLinks**](AssetJsonhalReadLinks.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
-**preferences** | [**PreferencesJsonhalRead**](PreferencesJsonhalRead.md) |  | [optional] 
+**preferences** | [**PreferencesJsonhalAssetRead**](PreferencesJsonhalAssetRead.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **path** | [**List<NodeJsonhalRead>**](NodeJsonhalRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 

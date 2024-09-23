@@ -8,7 +8,8 @@ class CategoryJsonhalReadLinks {
   /// Returns a new [CategoryJsonhalReadLinks] instance.
   CategoryJsonhalReadLinks({
     this.self,
-    this.type,
+    this.organization,
+    this.children,
   });
 
   /// Returns a new [CategoryJsonhalReadLinks] instance and imports its values from
@@ -20,13 +21,18 @@ class CategoryJsonhalReadLinks {
 
     return CategoryJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
+      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+          json[r'organization']),
+      children: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+          json[r'children']),
     );
   }
 
   GetPlaceCollection200ResponseLinksFirst? self;
 
-  GetPlaceCollection200ResponseLinksFirst? type;
+  GetPlaceCollection200ResponseLinksFirst? organization;
+
+  List<GetPlaceCollection200ResponseLinksFirst>? children;
 
   @override
   bool operator ==(Object other) {
@@ -37,12 +43,15 @@ class CategoryJsonhalReadLinks {
 
     return other is CategoryJsonhalReadLinks &&
         other.self == self &&
-        other.type == type;
+        other.organization == organization &&
+        DeepCollectionEquality.unordered().equals(children, other.children);
   }
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) + (type == null ? 0 : type.hashCode);
+      (self == null ? 0 : self.hashCode) +
+      (organization == null ? 0 : organization.hashCode) +
+      (children == null ? 0 : children.hashCode);
 
   static List<CategoryJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -93,7 +102,8 @@ class CategoryJsonhalReadLinks {
   }
 
   @override
-  String toString() => 'CategoryJsonhalReadLinks[self=$self, type=$type]';
+  String toString() =>
+      'CategoryJsonhalReadLinks[self=$self, organization=$organization, children=$children]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -106,15 +116,17 @@ class CategoryJsonhalReadLinks {
 
           return previousValue;
         })),
-      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
-        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^type\.'))) {
-            previousValue.add(element.split(RegExp(r'^type\.')).last);
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
+        r'organization': organization?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^organization\.'))) {
+            previousValue.add(element.split(RegExp(r'^organization\.')).last);
           }
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'children')) r'children': children,
     };
   }
 }

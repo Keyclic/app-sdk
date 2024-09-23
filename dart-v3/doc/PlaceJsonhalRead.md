@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
-**preferences** | [**PreferencesJsonhalRead**](PreferencesJsonhalRead.md) |  | [optional] 
+**preferences** | [**PreferencesJsonhalAssetRead**](PreferencesJsonhalAssetRead.md) |  | [optional] 
 **path** | [**List<NodeJsonhalRead>**](NodeJsonhalRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 
 

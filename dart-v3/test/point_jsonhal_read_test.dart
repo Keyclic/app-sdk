@@ -10,7 +10,7 @@ void main() {
   // final instance = PointJsonhalRead();
 
   group('test PointJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // int srid

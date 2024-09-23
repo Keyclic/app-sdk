@@ -13,7 +13,10 @@ void main() {
     // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst type
-    test('to test the property `type`', () async {});
+    // GetPlaceCollection200ResponseLinksFirst organization
+    test('to test the property `organization`', () async {});
+
+    // List<GetPlaceCollection200ResponseLinksFirst> children (default value: const [])
+    test('to test the property `children`', () async {});
   });
 }

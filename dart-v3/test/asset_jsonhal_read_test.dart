@@ -19,7 +19,7 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // PreferencesJsonhalRead preferences
+    // PreferencesJsonhalAssetRead preferences
     test('to test the property `preferences`', () async {});
 
     // The resource identifier.

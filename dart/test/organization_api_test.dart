@@ -10,11 +10,6 @@ void main() {
   // final instance = OrganizationApi();
 
   group('tests for OrganizationApi', () {
-    // Retrieve all Category resources.
-    //
-    //Future<CategoryPagination> cgetCategoriesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoPoint, String geoCoordinates, bool leaf, int level, List<String> organizationsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
-    test('test cgetCategoriesByOrganization', () async {});
-
     // Retrieve all DispatchService resources.
     //
     //Future<ServicePagination> cgetDispatchServicesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, String asset, String category, int page, String place, int limit, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String query }) async

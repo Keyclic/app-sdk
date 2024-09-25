@@ -75,9 +75,7 @@ Class | Method | HTTP request | Description
 *BusinessActivityApi* | [**cgetBusinessActivities**](doc//BusinessActivityApi.md#cgetbusinessactivities) | **GET** /business-activities | Retrieve all BusinessActivity resources.
 *BusinessActivityApi* | [**getBusinessActivity**](doc//BusinessActivityApi.md#getbusinessactivity) | **GET** /business-activities/{businessActivity} | Retrieve one BusinessActivity resource.
 *BusinessActivityApi* | [**getSchemaByBusinessActivity**](doc//BusinessActivityApi.md#getschemabybusinessactivity) | **GET** /businessactivities/{businessActivity}/schema | Retrieve one Schema resource.
-*CategoryApi* | [**cgetCategories**](doc//CategoryApi.md#cgetcategories) | **GET** /categories | Retrieve all Category resources.
 *CategoryApi* | [**deleteCategory**](doc//CategoryApi.md#deletecategory) | **DELETE** /categories/{category} | Remove one Category resource.
-*CategoryApi* | [**getCategory**](doc//CategoryApi.md#getcategory) | **GET** /categories/{category} | Retrieve one Category resource.
 *CategoryApi* | [**patchCategory**](doc//CategoryApi.md#patchcategory) | **PATCH** /categories/{category} | Edit one Category resource.
 *CategoryApi* | [**postCategory**](doc//CategoryApi.md#postcategory) | **POST** /categories | Create one Category resource.
 *ConfigurationApi* | [**getConfiguration**](doc//ConfigurationApi.md#getconfiguration) | **GET** /configurations/{configuration} | Retrieve one Configuration resource.
@@ -157,7 +155,6 @@ Class | Method | HTTP request | Description
 *OperationApi* | [**postDocumentByOperation**](doc//OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 *OperationApi* | [**postOperation**](doc//OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
 *OperationApi* | [**postWorkflowByOperation**](doc//OperationApi.md#postworkflowbyoperation) | **POST** /operations/{operation}/workflow | Create one Workflow resource.
-*OrganizationApi* | [**cgetCategoriesByOrganization**](doc//OrganizationApi.md#cgetcategoriesbyorganization) | **GET** /organizations/{organization}/categories | Retrieve all Category resources.
 *OrganizationApi* | [**cgetDispatchServicesByOrganization**](doc//OrganizationApi.md#cgetdispatchservicesbyorganization) | **GET** /organizations/{organization}/dispatch-services | Retrieve all DispatchService resources.
 *OrganizationApi* | [**cgetDocumentsByOrganization**](doc//OrganizationApi.md#cgetdocumentsbyorganization) | **GET** /organizations/{organization}/documents | Retrieve all Document resources.
 *OrganizationApi* | [**cgetExternalServicesByOrganization**](doc//OrganizationApi.md#cgetexternalservicesbyorganization) | **GET** /organizations/{organization}/external-services | Retrieve all ExternalService resources.
@@ -321,7 +318,6 @@ Class | Method | HTTP request | Description
  - [BusinessActivityPagination](doc//BusinessActivityPagination.md)
  - [BusinessActivitySchema](doc//BusinessActivitySchema.md)
  - [Category](doc//Category.md)
- - [CategoryCollection](doc//CategoryCollection.md)
  - [CategoryData](doc//CategoryData.md)
  - [CategoryEmbedded](doc//CategoryEmbedded.md)
  - [CategoryEmbeddedType](doc//CategoryEmbeddedType.md)
@@ -334,7 +330,6 @@ Class | Method | HTTP request | Description
  - [CategoryLinksSelfIriTemplateMapping](doc//CategoryLinksSelfIriTemplateMapping.md)
  - [CategoryLinksType](doc//CategoryLinksType.md)
  - [CategoryLinksTypeIriTemplate](doc//CategoryLinksTypeIriTemplate.md)
- - [CategoryPagination](doc//CategoryPagination.md)
  - [CategoryPatch](doc//CategoryPatch.md)
  - [Chart](doc//Chart.md)
  - [Checkpoint](doc//Checkpoint.md)

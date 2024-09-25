@@ -10,20 +10,10 @@ void main() {
   // final instance = CategoryApi();
 
   group('tests for CategoryApi', () {
-    // Retrieve all Category resources.
-    //
-    //Future<CategoryPagination> cgetCategories(String xKeyclicApp, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoPoint, String geoCoordinates, bool leaf, int level, String organization, List<String> organizationsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
-    test('test cgetCategories', () async {});
-
     // Remove one Category resource.
     //
     //Future deleteCategory(String xKeyclicApp, String category, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test deleteCategory', () async {});
-
-    // Retrieve one Category resource.
-    //
-    //Future<Category> getCategory(String xKeyclicApp, String category, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getCategory', () async {});
 
     // Edit one Category resource.
     //

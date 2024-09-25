@@ -90,7 +90,6 @@ doc/BusinessActivityPagination.md
 doc/BusinessActivitySchema.md
 doc/Category.md
 doc/CategoryApi.md
-doc/CategoryCollection.md
 doc/CategoryData.md
 doc/CategoryEmbedded.md
 doc/CategoryEmbeddedType.md
@@ -103,7 +102,6 @@ doc/CategoryLinksSelfIriTemplate.md
 doc/CategoryLinksSelfIriTemplateMapping.md
 doc/CategoryLinksType.md
 doc/CategoryLinksTypeIriTemplate.md
-doc/CategoryPagination.md
 doc/CategoryPatch.md
 doc/Chart.md
 doc/Checkpoint.md
@@ -747,7 +745,6 @@ lib/model/business_activity_links_self_iri_template.dart
 lib/model/business_activity_pagination.dart
 lib/model/business_activity_schema.dart
 lib/model/category.dart
-lib/model/category_collection.dart
 lib/model/category_data.dart
 lib/model/category_embedded.dart
 lib/model/category_embedded_type.dart
@@ -760,7 +757,6 @@ lib/model/category_links_self_iri_template.dart
 lib/model/category_links_self_iri_template_mapping.dart
 lib/model/category_links_type.dart
 lib/model/category_links_type_iri_template.dart
-lib/model/category_pagination.dart
 lib/model/category_patch.dart
 lib/model/chart.dart
 lib/model/checkpoint.dart
@@ -1320,7 +1316,6 @@ test/business_activity_pagination_test.dart
 test/business_activity_schema_test.dart
 test/business_activity_test.dart
 test/category_api_test.dart
-test/category_collection_test.dart
 test/category_data_test.dart
 test/category_embedded_test.dart
 test/category_embedded_type_test.dart
@@ -1333,7 +1328,6 @@ test/category_links_self_test.dart
 test/category_links_test.dart
 test/category_links_type_iri_template_test.dart
 test/category_links_type_test.dart
-test/category_pagination_test.dart
 test/category_patch_test.dart
 test/category_test.dart
 test/chart_test.dart

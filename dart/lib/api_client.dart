@@ -499,8 +499,6 @@ class ApiClient {
           return BusinessActivitySchema.fromJson(value);
         case 'Category':
           return Category.fromJson(value);
-        case 'CategoryCollection':
-          return CategoryCollection.fromJson(value);
         case 'CategoryData':
           return CategoryData.fromJson(value);
         case 'CategoryEmbedded':
@@ -525,8 +523,6 @@ class ApiClient {
           return CategoryLinksType.fromJson(value);
         case 'CategoryLinksTypeIriTemplate':
           return CategoryLinksTypeIriTemplate.fromJson(value);
-        case 'CategoryPagination':
-          return CategoryPagination.fromJson(value);
         case 'CategoryPatch':
           return CategoryPatch.fromJson(value);
         case 'Chart':

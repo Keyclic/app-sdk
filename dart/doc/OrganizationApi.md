@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**cgetDocumentsByOrganization**](OrganizationApi.md#cgetdocumentsbyorganization) | **GET** /organizations/{organization}/documents | Retrieve all Document resources.
 [**cgetExternalServicesByOrganization**](OrganizationApi.md#cgetexternalservicesbyorganization) | **GET** /organizations/{organization}/external-services | Retrieve all ExternalService resources.
 [**cgetInternalServicesByOrganization**](OrganizationApi.md#cgetinternalservicesbyorganization) | **GET** /organizations/{organization}/internal-services | Retrieve all InternalService resources.
-[**cgetMembersByOrganization**](OrganizationApi.md#cgetmembersbyorganization) | **GET** /organizations/{organization}/members | Retrieve all Member resources.
 [**cgetOperationsByOrganization**](OrganizationApi.md#cgetoperationsbyorganization) | **GET** /organizations/{organization}/operations | Retrieve all Operation resources.
 [**cgetOrganizations**](OrganizationApi.md#cgetorganizations) | **GET** /organizations | Retrieve all Organization resources.
 [**cgetPlacesByOrganization**](OrganizationApi.md#cgetplacesbyorganization) | **GET** /organizations/{organization}/places | Retrieve all Place resources.
@@ -292,87 +291,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InternalServicePagination**](InternalServicePagination.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cgetMembersByOrganization**
-> MemberPagination cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, contactPointEmail, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit)
-
-Retrieve all Member resources.
-
-### Example
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
-
-final api_instance = OrganizationApi();
-final xKeyclicApp = xKeyclicApp_example; // String | 
-final organization = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
-final acceptLanguage = acceptLanguage_example; // String | 
-final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final archived = true; // bool | 
-final contactPointEmail = contactPointEmail_example; // String | 
-final after = 2013-10-20T19:20:30+01:00; // DateTime | 
-final before = 2013-10-20T19:20:30+01:00; // DateTime | 
-final organizationsLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final permission = permission_example; // String | 
-final query = query_example; // String | 
-final role = role_example; // String | 
-final rolesLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final type = type_example; // String | 
-final page = 56; // int | Page of the overview.
-final limit = 56; // int | Page of the overview.
-
-try {
-    final result = api_instance.cgetMembersByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, archived, contactPointEmail, after, before, organizationsLeftSquareBracketRightSquareBracket, permission, query, role, rolesLeftSquareBracketRightSquareBracket, type, page, limit);
-    print(result);
-} catch (e) {
-    print('Exception when calling OrganizationApi->cgetMembersByOrganization: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **organization** | **String**| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
- **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **archived** | **bool**|  | [optional] 
- **contactPointEmail** | **String**|  | [optional] 
- **after** | **DateTime**|  | [optional] 
- **before** | **DateTime**|  | [optional] 
- **organizationsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **permission** | **String**|  | [optional] 
- **query** | **String**|  | [optional] 
- **role** | **String**|  | [optional] 
- **rolesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **type** | **String**|  | [optional] 
- **page** | **int**| Page of the overview. | [optional] [default to 1]
- **limit** | **int**| Page of the overview. | [optional] [default to 10]
-
-### Return type
-
-[**MemberPagination**](MemberPagination.md)
 
 ### Authorization
 

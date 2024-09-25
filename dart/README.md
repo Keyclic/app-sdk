@@ -163,7 +163,6 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**cgetOrganizations**](doc//OrganizationApi.md#cgetorganizations) | **GET** /organizations | Retrieve all Organization resources.
 *OrganizationApi* | [**cgetPlacesByOrganization**](doc//OrganizationApi.md#cgetplacesbyorganization) | **GET** /organizations/{organization}/places | Retrieve all Place resources.
 *OrganizationApi* | [**cgetReportsByOrganization**](doc//OrganizationApi.md#cgetreportsbyorganization) | **GET** /organizations/{organization}/reports | Retrieve all Report resources.
-*OrganizationApi* | [**cgetReviewRequestsByOrganization**](doc//OrganizationApi.md#cgetreviewrequestsbyorganization) | **GET** /organizations/{organization}/review-requests | Retrieve all ReviewRequest resources.
 *OrganizationApi* | [**cgetTemplatesByOrganization**](doc//OrganizationApi.md#cgettemplatesbyorganization) | **GET** /organizations/{organization}/templates | Retrieve all Template resources.
 *OrganizationApi* | [**getAnalyticByOrganization**](doc//OrganizationApi.md#getanalyticbyorganization) | **GET** /organizations/{organization}/analytics | Retrieve one Analytic resource.
 *OrganizationApi* | [**getConfigurationByOrganization**](doc//OrganizationApi.md#getconfigurationbyorganization) | **GET** /organizations/{organization}/configuration | Retrieve one Configuration resource.
@@ -174,7 +173,6 @@ Class | Method | HTTP request | Description
 *PersonApi* | [**cgetDocumentsByPerson**](doc//PersonApi.md#cgetdocumentsbyperson) | **GET** /people/{person}/documents | Retrieve all Document resources.
 *PersonApi* | [**cgetMembershipsByPerson**](doc//PersonApi.md#cgetmembershipsbyperson) | **GET** /people/{person}/memberships | Retrieve all Membership resources.
 *PersonApi* | [**cgetOperationsByPerson**](doc//PersonApi.md#cgetoperationsbyperson) | **GET** /people/{person}/operations | Retrieve all Operation resources.
-*PersonApi* | [**cgetReviewRequestsByPerson**](doc//PersonApi.md#cgetreviewrequestsbyperson) | **GET** /people/{person}/review-requests | Retrieve all ReviewRequest resources.
 *PersonApi* | [**deletePerson**](doc//PersonApi.md#deleteperson) | **DELETE** /people/{person} | Remove one Person resource.
 *PersonApi* | [**getFeedByPerson**](doc//PersonApi.md#getfeedbyperson) | **GET** /people/{person}/feed | Retrieve one Feed resource.
 *PersonApi* | [**getPerson**](doc//PersonApi.md#getperson) | **GET** /people/{person} | Retrieve one Person resource.
@@ -208,7 +206,6 @@ Class | Method | HTTP request | Description
 *ReportApi* | [**postDocumentByReport**](doc//ReportApi.md#postdocumentbyreport) | **POST** /reports/{report}/documents | Create one Document resource.
 *ReportApi* | [**postWorkflowByReport**](doc//ReportApi.md#postworkflowbyreport) | **POST** /reports/{report}/workflow | Create one Workflow resource.
 *ReviewApi* | [**postReview**](doc//ReviewApi.md#postreview) | **POST** /reviews | Create one Review resource.
-*ReviewRequestApi* | [**getReviewRequest**](doc//ReviewRequestApi.md#getreviewrequest) | **GET** /review-requests/{reviewRequest} | Retrieve one ReviewRequest resource.
 *RoleApi* | [**getRole**](doc//RoleApi.md#getrole) | **GET** /roles/{role} | Retrieve one Role resource.
 *RuleApi* | [**deleteRule**](doc//RuleApi.md#deleterule) | **DELETE** /rules/{rule} | Remove one Rule resource.
 *RuleApi* | [**getRule**](doc//RuleApi.md#getrule) | **GET** /rules/{rule} | Retrieve one Rule resource.
@@ -710,23 +707,6 @@ Class | Method | HTTP request | Description
  - [ReviewLinksSelf](doc//ReviewLinksSelf.md)
  - [ReviewLinksSelfIriTemplate](doc//ReviewLinksSelfIriTemplate.md)
  - [ReviewLinksSelfIriTemplateMapping](doc//ReviewLinksSelfIriTemplateMapping.md)
- - [ReviewRequest](doc//ReviewRequest.md)
- - [ReviewRequestCollection](doc//ReviewRequestCollection.md)
- - [ReviewRequestEmbedded](doc//ReviewRequestEmbedded.md)
- - [ReviewRequestLinks](doc//ReviewRequestLinks.md)
- - [ReviewRequestLinksItemToReview](doc//ReviewRequestLinksItemToReview.md)
- - [ReviewRequestLinksItemToReviewIriTemplate](doc//ReviewRequestLinksItemToReviewIriTemplate.md)
- - [ReviewRequestLinksItemToReviewIriTemplateMapping](doc//ReviewRequestLinksItemToReviewIriTemplateMapping.md)
- - [ReviewRequestLinksOrganization](doc//ReviewRequestLinksOrganization.md)
- - [ReviewRequestLinksOrganizationIriTemplate](doc//ReviewRequestLinksOrganizationIriTemplate.md)
- - [ReviewRequestLinksReview](doc//ReviewRequestLinksReview.md)
- - [ReviewRequestLinksReviewIriTemplate](doc//ReviewRequestLinksReviewIriTemplate.md)
- - [ReviewRequestLinksReviewer](doc//ReviewRequestLinksReviewer.md)
- - [ReviewRequestLinksReviewerIriTemplate](doc//ReviewRequestLinksReviewerIriTemplate.md)
- - [ReviewRequestLinksSelf](doc//ReviewRequestLinksSelf.md)
- - [ReviewRequestLinksSelfIriTemplate](doc//ReviewRequestLinksSelfIriTemplate.md)
- - [ReviewRequestLinksSelfIriTemplateMapping](doc//ReviewRequestLinksSelfIriTemplateMapping.md)
- - [ReviewRequestPagination](doc//ReviewRequestPagination.md)
  - [Role](doc//Role.md)
  - [Rule](doc//Rule.md)
  - [RuleCollection](doc//RuleCollection.md)

@@ -65,11 +65,6 @@ void main() {
     //Future<ReviewRequestPagination> cgetReviewRequestsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, bool hasReview, int page, int limit }) async
     test('test cgetReviewRequestsByOrganization', () async {});
 
-    // Retrieve all Service resources.
-    //
-    //Future<ServicePagination> cgetServicesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String query, int page, int limit }) async
-    test('test cgetServicesByOrganization', () async {});
-
     // Retrieve all Template resources.
     //
     //Future<TemplatePagination> cgetTemplatesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, int page, int limit }) async

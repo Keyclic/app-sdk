@@ -58,7 +58,6 @@ part 'api/role_api.dart';
 part 'api/rule_api.dart';
 part 'api/section_api.dart';
 part 'api/security_api.dart';
-part 'api/service_api.dart';
 part 'api/signer_api.dart';
 part 'api/template_api.dart';
 part 'api/workflow_api.dart';

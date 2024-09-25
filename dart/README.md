@@ -129,7 +129,6 @@ Class | Method | HTTP request | Description
 *MarkerApi* | [**getMarker**](doc//MarkerApi.md#getmarker) | **GET** /markers/{marker} | Retrieve one Marker resource.
 *MarkerApi* | [**postMarker**](doc//MarkerApi.md#postmarker) | **POST** /markers | Create one Marker resource.
 *MemberApi* | [**deleteMember**](doc//MemberApi.md#deletemember) | **DELETE** /members/{member} | Remove one Member resource.
-*MemberApi* | [**getMember**](doc//MemberApi.md#getmember) | **GET** /members/{member} | Retrieve one Member resource.
 *MemberApi* | [**patchMember**](doc//MemberApi.md#patchmember) | **PATCH** /members/{member} | Edit one Member resource.
 *MemberApi* | [**postMember**](doc//MemberApi.md#postmember) | **POST** /members | Create one Member resource.
 *NoteApi* | [**deleteNote**](doc//NoteApi.md#deletenote) | **DELETE** /notes/{note} | Remove one Note resource.
@@ -156,7 +155,6 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**cgetDocumentsByOrganization**](doc//OrganizationApi.md#cgetdocumentsbyorganization) | **GET** /organizations/{organization}/documents | Retrieve all Document resources.
 *OrganizationApi* | [**cgetExternalServicesByOrganization**](doc//OrganizationApi.md#cgetexternalservicesbyorganization) | **GET** /organizations/{organization}/external-services | Retrieve all ExternalService resources.
 *OrganizationApi* | [**cgetInternalServicesByOrganization**](doc//OrganizationApi.md#cgetinternalservicesbyorganization) | **GET** /organizations/{organization}/internal-services | Retrieve all InternalService resources.
-*OrganizationApi* | [**cgetMembersByOrganization**](doc//OrganizationApi.md#cgetmembersbyorganization) | **GET** /organizations/{organization}/members | Retrieve all Member resources.
 *OrganizationApi* | [**cgetOperationsByOrganization**](doc//OrganizationApi.md#cgetoperationsbyorganization) | **GET** /organizations/{organization}/operations | Retrieve all Operation resources.
 *OrganizationApi* | [**cgetOrganizations**](doc//OrganizationApi.md#cgetorganizations) | **GET** /organizations | Retrieve all Organization resources.
 *OrganizationApi* | [**cgetPlacesByOrganization**](doc//OrganizationApi.md#cgetplacesbyorganization) | **GET** /organizations/{organization}/places | Retrieve all Place resources.

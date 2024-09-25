@@ -259,11 +259,6 @@ class ApiClient {
     return SecurityApi(this);
   }
 
-  /// Get ServiceApi instance
-  ServiceApi getServiceApi() {
-    return ServiceApi(this);
-  }
-
   /// Get SignerApi instance
   SignerApi getSignerApi() {
     return SignerApi(this);

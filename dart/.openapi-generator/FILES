@@ -565,7 +565,6 @@ doc/SectionLinksSelfIriTemplate.md
 doc/SectionPagination.md
 doc/SecurityApi.md
 doc/Service.md
-doc/ServiceApi.md
 doc/ServiceCollection.md
 doc/ServiceContactPoint.md
 doc/ServiceMemberData.md
@@ -651,7 +650,6 @@ lib/api/role_api.dart
 lib/api/rule_api.dart
 lib/api/section_api.dart
 lib/api/security_api.dart
-lib/api/service_api.dart
 lib/api/signer_api.dart
 lib/api/template_api.dart
 lib/api/workflow_api.dart
@@ -1791,7 +1789,6 @@ test/section_links_test.dart
 test/section_pagination_test.dart
 test/section_test.dart
 test/security_api_test.dart
-test/service_api_test.dart
 test/service_collection_test.dart
 test/service_contact_point_test.dart
 test/service_member_data_test.dart

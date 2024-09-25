@@ -904,8 +904,6 @@ class ApiClient {
           return NotePatch.fromJson(value);
         case 'Occupant':
           return Occupant.fromJson(value);
-        case 'OccupantCollection':
-          return OccupantCollection.fromJson(value);
         case 'OccupantData':
           return OccupantData.fromJson(value);
         case 'OccupantLinks':
@@ -924,8 +922,6 @@ class ApiClient {
           return OccupantLinksSelfIriTemplate.fromJson(value);
         case 'OccupantLinksSelfIriTemplateMapping':
           return OccupantLinksSelfIriTemplateMapping.fromJson(value);
-        case 'OccupantPagination':
-          return OccupantPagination.fromJson(value);
         case 'Operation':
           return Operation.fromJson(value);
         case 'OperationCollection':

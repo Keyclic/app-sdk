@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**cgetExternalServicesByOrganization**](OrganizationApi.md#cgetexternalservicesbyorganization) | **GET** /organizations/{organization}/external-services | Retrieve all ExternalService resources.
 [**cgetInternalServicesByOrganization**](OrganizationApi.md#cgetinternalservicesbyorganization) | **GET** /organizations/{organization}/internal-services | Retrieve all InternalService resources.
 [**cgetMembersByOrganization**](OrganizationApi.md#cgetmembersbyorganization) | **GET** /organizations/{organization}/members | Retrieve all Member resources.
-[**cgetOccupantsByOrganization**](OrganizationApi.md#cgetoccupantsbyorganization) | **GET** /organizations/{organization}/occupants | Retrieve all Occupant resources.
 [**cgetOperationsByOrganization**](OrganizationApi.md#cgetoperationsbyorganization) | **GET** /organizations/{organization}/operations | Retrieve all Operation resources.
 [**cgetOrganizations**](OrganizationApi.md#cgetorganizations) | **GET** /organizations | Retrieve all Organization resources.
 [**cgetPlacesByOrganization**](OrganizationApi.md#cgetplacesbyorganization) | **GET** /organizations/{organization}/places | Retrieve all Place resources.
@@ -375,85 +374,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**MemberPagination**](MemberPagination.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cgetOccupantsByOrganization**
-> OccupantPagination cgetOccupantsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, member, membersLeftSquareBracketRightSquareBracket, person, personsLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, query, page, limit)
-
-Retrieve all Occupant resources.
-
-### Example
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
-
-final api_instance = OrganizationApi();
-final xKeyclicApp = xKeyclicApp_example; // String | 
-final organization = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The identifier of the resource.
-final acceptLanguage = acceptLanguage_example; // String | 
-final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-final orderLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final after = 2013-10-20T19:20:30+01:00; // DateTime | 
-final before = 2013-10-20T19:20:30+01:00; // DateTime | 
-final member = member_example; // String | 
-final membersLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final person = person_example; // String | 
-final personsLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final place = place_example; // String | 
-final placesLeftSquareBracketRightSquareBracket = []; // List<String> | 
-final query = query_example; // String | 
-final page = 56; // int | Page of the overview.
-final limit = 56; // int | Page of the overview.
-
-try {
-    final result = api_instance.cgetOccupantsByOrganization(xKeyclicApp, organization, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, orderLeftSquareBracketRightSquareBracket, after, before, member, membersLeftSquareBracketRightSquareBracket, person, personsLeftSquareBracketRightSquareBracket, place, placesLeftSquareBracketRightSquareBracket, query, page, limit);
-    print(result);
-} catch (e) {
-    print('Exception when calling OrganizationApi->cgetOccupantsByOrganization: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **organization** | **String**| The identifier of the resource. | 
- **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
- **orderLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **after** | **DateTime**|  | [optional] 
- **before** | **DateTime**|  | [optional] 
- **member** | **String**|  | [optional] 
- **membersLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **person** | **String**|  | [optional] 
- **personsLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **place** | **String**|  | [optional] 
- **placesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
- **query** | **String**|  | [optional] 
- **page** | **int**| Page of the overview. | [optional] [default to 1]
- **limit** | **int**| Page of the overview. | [optional] [default to 10]
-
-### Return type
-
-[**OccupantPagination**](OccupantPagination.md)
 
 ### Authorization
 

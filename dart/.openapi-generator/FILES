@@ -313,7 +313,6 @@ doc/NotePagination.md
 doc/NotePatch.md
 doc/Occupant.md
 doc/OccupantApi.md
-doc/OccupantCollection.md
 doc/OccupantData.md
 doc/OccupantLinks.md
 doc/OccupantLinksMember.md
@@ -323,7 +322,6 @@ doc/OccupantLinksPlaceIriTemplate.md
 doc/OccupantLinksSelf.md
 doc/OccupantLinksSelfIriTemplate.md
 doc/OccupantLinksSelfIriTemplateMapping.md
-doc/OccupantPagination.md
 doc/Operation.md
 doc/OperationApi.md
 doc/OperationCollection.md
@@ -948,7 +946,6 @@ lib/model/note_links_self_iri_template_mapping.dart
 lib/model/note_pagination.dart
 lib/model/note_patch.dart
 lib/model/occupant.dart
-lib/model/occupant_collection.dart
 lib/model/occupant_data.dart
 lib/model/occupant_links.dart
 lib/model/occupant_links_member.dart
@@ -958,7 +955,6 @@ lib/model/occupant_links_place_iri_template.dart
 lib/model/occupant_links_self.dart
 lib/model/occupant_links_self_iri_template.dart
 lib/model/occupant_links_self_iri_template_mapping.dart
-lib/model/occupant_pagination.dart
 lib/model/operation.dart
 lib/model/operation_collection.dart
 lib/model/operation_data.dart
@@ -1537,7 +1533,6 @@ test/note_pagination_test.dart
 test/note_patch_test.dart
 test/note_test.dart
 test/occupant_api_test.dart
-test/occupant_collection_test.dart
 test/occupant_data_test.dart
 test/occupant_links_member_iri_template_test.dart
 test/occupant_links_member_test.dart
@@ -1547,7 +1542,6 @@ test/occupant_links_self_iri_template_mapping_test.dart
 test/occupant_links_self_iri_template_test.dart
 test/occupant_links_self_test.dart
 test/occupant_links_test.dart
-test/occupant_pagination_test.dart
 test/occupant_test.dart
 test/operation_api_test.dart
 test/operation_collection_test.dart

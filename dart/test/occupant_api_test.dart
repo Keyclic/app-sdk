@@ -15,11 +15,6 @@ void main() {
     //Future deleteOccupant(String xKeyclicApp, String occupant, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test deleteOccupant', () async {});
 
-    // Retrieve one Occupant resource.
-    //
-    //Future<Occupant> getOccupant(String xKeyclicApp, String occupant, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getOccupant', () async {});
-
     // Create one Occupant resource.
     //
     //Future<Occupant> postOccupant(String xKeyclicApp, OccupantData occupantData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

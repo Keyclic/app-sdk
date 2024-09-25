@@ -234,11 +234,6 @@ class ApiClient {
     return ReviewApi(this);
   }
 
-  /// Get ReviewRequestApi instance
-  ReviewRequestApi getReviewRequestApi() {
-    return ReviewRequestApi(this);
-  }
-
   /// Get RoleApi instance
   RoleApi getRoleApi() {
     return RoleApi(this);
@@ -1287,41 +1282,6 @@ class ApiClient {
           return ReviewLinksSelfIriTemplate.fromJson(value);
         case 'ReviewLinksSelfIriTemplateMapping':
           return ReviewLinksSelfIriTemplateMapping.fromJson(value);
-        case 'ReviewRequest':
-          return ReviewRequest.fromJson(value);
-        case 'ReviewRequestCollection':
-          return ReviewRequestCollection.fromJson(value);
-        case 'ReviewRequestEmbedded':
-          return ReviewRequestEmbedded.fromJson(value);
-        case 'ReviewRequestLinks':
-          return ReviewRequestLinks.fromJson(value);
-        case 'ReviewRequestLinksItemToReview':
-          return ReviewRequestLinksItemToReview.fromJson(value);
-        case 'ReviewRequestLinksItemToReviewIriTemplate':
-          return ReviewRequestLinksItemToReviewIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksItemToReviewIriTemplateMapping':
-          return ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
-              value);
-        case 'ReviewRequestLinksOrganization':
-          return ReviewRequestLinksOrganization.fromJson(value);
-        case 'ReviewRequestLinksOrganizationIriTemplate':
-          return ReviewRequestLinksOrganizationIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksReview':
-          return ReviewRequestLinksReview.fromJson(value);
-        case 'ReviewRequestLinksReviewIriTemplate':
-          return ReviewRequestLinksReviewIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksReviewer':
-          return ReviewRequestLinksReviewer.fromJson(value);
-        case 'ReviewRequestLinksReviewerIriTemplate':
-          return ReviewRequestLinksReviewerIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksSelf':
-          return ReviewRequestLinksSelf.fromJson(value);
-        case 'ReviewRequestLinksSelfIriTemplate':
-          return ReviewRequestLinksSelfIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksSelfIriTemplateMapping':
-          return ReviewRequestLinksSelfIriTemplateMapping.fromJson(value);
-        case 'ReviewRequestPagination':
-          return ReviewRequestPagination.fromJson(value);
         case 'Role':
           return Role.fromJson(value);
         case 'Rule':

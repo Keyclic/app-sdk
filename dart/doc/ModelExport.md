@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **groupBy** | **String** |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
+**name** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 

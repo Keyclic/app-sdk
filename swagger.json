@@ -19620,6 +19620,10 @@
                     "readOnly": true,
                     "type": "string"
                 },
+                "name": {
+                    "format": "string",
+                    "type": "string"
+                },
                 "type": {
                     "format": "string",
                     "type": "string"
@@ -19657,6 +19661,9 @@
                         "category",
                         "place"
                     ]
+                },
+                "name": {
+                    "type": "string"
                 },
                 "organization": {
                     "type": "string"

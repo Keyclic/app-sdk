@@ -10,6 +10,7 @@ class ExportData {
     this.contentType,
     required this.dataSource,
     this.groupBy,
+    this.name,
     required this.organization,
   });
 
@@ -24,6 +25,7 @@ class ExportData {
       contentType: ExportDataContentTypeEnum.fromJson(json[r'contentType']),
       dataSource: ExportDataDataSourceEnum.fromJson(json[r'dataSource'])!,
       groupBy: ExportDataGroupByEnum.fromJson(json[r'groupBy']),
+      name: json[r'name'],
       organization: json[r'organization'],
     );
   }
@@ -33,6 +35,8 @@ class ExportData {
   ExportDataDataSourceEnum dataSource;
 
   ExportDataGroupByEnum? groupBy;
+
+  String? name;
 
   String organization;
 
@@ -47,6 +51,7 @@ class ExportData {
         other.contentType == contentType &&
         other.dataSource == dataSource &&
         other.groupBy == groupBy &&
+        other.name == name &&
         other.organization == organization;
   }
 
@@ -55,6 +60,7 @@ class ExportData {
       (contentType == null ? 0 : contentType.hashCode) +
       dataSource.hashCode +
       (groupBy == null ? 0 : groupBy.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       organization.hashCode;
 
   static List<ExportData> listFromJson(Iterable? json) {
@@ -103,7 +109,7 @@ class ExportData {
 
   @override
   String toString() =>
-      'ExportData[contentType=$contentType, dataSource=$dataSource, groupBy=$groupBy, organization=$organization]';
+      'ExportData[contentType=$contentType, dataSource=$dataSource, groupBy=$groupBy, name=$name, organization=$organization]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -111,6 +117,7 @@ class ExportData {
         r'contentType': contentType,
       r'dataSource': dataSource,
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       r'organization': organization,
     };
   }

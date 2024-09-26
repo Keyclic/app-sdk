@@ -22,6 +22,9 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
+    // String name
+    test('to test the property `name`', () async {});
+
     // String type
     test('to test the property `type`', () async {});
 

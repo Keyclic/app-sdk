@@ -19,6 +19,9 @@ void main() {
     // String groupBy
     test('to test the property `groupBy`', () async {});
 
+    // String name
+    test('to test the property `name`', () async {});
+
     // String organization
     test('to test the property `organization`', () async {});
   });

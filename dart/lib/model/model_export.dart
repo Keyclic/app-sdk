@@ -11,6 +11,7 @@ class ModelExport {
     this.createdAt,
     this.groupBy,
     this.id,
+    this.name,
     this.type,
     this.updatedAt,
   });
@@ -27,6 +28,7 @@ class ModelExport {
       createdAt: mapToDateTime(json[r'createdAt']),
       groupBy: ModelExportGroupByEnum.fromJson(json[r'groupBy']),
       id: json[r'id'],
+      name: json[r'name'],
       type: json[r'type'],
       updatedAt: mapToDateTime(json[r'updatedAt']),
     );
@@ -39,6 +41,8 @@ class ModelExport {
   ModelExportGroupByEnum? groupBy;
 
   final String? id;
+
+  String? name;
 
   String? type;
 
@@ -56,6 +60,7 @@ class ModelExport {
         other.createdAt == createdAt &&
         other.groupBy == groupBy &&
         other.id == id &&
+        other.name == name &&
         other.type == type &&
         other.updatedAt == updatedAt;
   }
@@ -66,6 +71,7 @@ class ModelExport {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (groupBy == null ? 0 : groupBy.hashCode) +
       (id == null ? 0 : id.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
@@ -116,7 +122,7 @@ class ModelExport {
 
   @override
   String toString() =>
-      'ModelExport[contentType=$contentType, createdAt=$createdAt, groupBy=$groupBy, id=$id, type=$type, updatedAt=$updatedAt]';
+      'ModelExport[contentType=$contentType, createdAt=$createdAt, groupBy=$groupBy, id=$id, name=$name, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -125,6 +131,7 @@ class ModelExport {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),

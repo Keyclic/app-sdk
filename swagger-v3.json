@@ -15070,6 +15070,10 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "createdAt": {
                         "readOnly": true,
                         "description": "The date and time when the resource was created, in UTC format.",
@@ -15081,10 +15085,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    },
-                    "name": {
-                        "readOnly": true,
-                        "type": "string"
                     }
                 },
                 "required": [

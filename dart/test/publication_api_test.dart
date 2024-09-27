@@ -15,11 +15,6 @@ void main() {
     //Future deletePublication(String xKeyclicApp, String publication, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test deletePublication', () async {});
 
-    // Retrieve one Publication resource.
-    //
-    //Future<Publication> getPublication(String xKeyclicApp, String publication, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getPublication', () async {});
-
     // Create one Publication resource.
     //
     //Future<Publication> postPublication(String xKeyclicApp, PublicationData publicationData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

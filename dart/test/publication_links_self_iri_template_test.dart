@@ -10,7 +10,7 @@ void main() {
   // final instance = PublicationLinksSelfIriTemplate();
 
   group('test PublicationLinksSelfIriTemplate', () {
-    // PublicationLinksSelfIriTemplateMapping mapping
+    // AssignmentLinksContractIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });
 }

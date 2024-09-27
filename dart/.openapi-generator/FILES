@@ -461,7 +461,6 @@ doc/PropertyConditionList.md
 doc/PropertyItems.md
 doc/Publication.md
 doc/PublicationApi.md
-doc/PublicationCollection.md
 doc/PublicationData.md
 doc/PublicationEmbedded.md
 doc/PublicationLinks.md
@@ -473,8 +472,6 @@ doc/PublicationLinksOrganization.md
 doc/PublicationLinksOrganizationIriTemplate.md
 doc/PublicationLinksSelf.md
 doc/PublicationLinksSelfIriTemplate.md
-doc/PublicationLinksSelfIriTemplateMapping.md
-doc/PublicationPagination.md
 doc/RegisterData.md
 doc/RegisterDataAgreement.md
 doc/Report.md
@@ -1095,7 +1092,6 @@ lib/model/procedure_workflow_data.dart
 lib/model/property_condition_list.dart
 lib/model/property_items.dart
 lib/model/publication.dart
-lib/model/publication_collection.dart
 lib/model/publication_data.dart
 lib/model/publication_embedded.dart
 lib/model/publication_links.dart
@@ -1107,8 +1103,6 @@ lib/model/publication_links_organization.dart
 lib/model/publication_links_organization_iri_template.dart
 lib/model/publication_links_self.dart
 lib/model/publication_links_self_iri_template.dart
-lib/model/publication_links_self_iri_template_mapping.dart
-lib/model/publication_pagination.dart
 lib/model/register_data.dart
 lib/model/register_data_agreement.dart
 lib/model/report.dart
@@ -1697,7 +1691,6 @@ test/procedure_workflow_data_test.dart
 test/property_condition_list_test.dart
 test/property_items_test.dart
 test/publication_api_test.dart
-test/publication_collection_test.dart
 test/publication_data_test.dart
 test/publication_embedded_test.dart
 test/publication_links_author_iri_template_test.dart
@@ -1706,11 +1699,9 @@ test/publication_links_feed_iri_template_test.dart
 test/publication_links_feed_test.dart
 test/publication_links_organization_iri_template_test.dart
 test/publication_links_organization_test.dart
-test/publication_links_self_iri_template_mapping_test.dart
 test/publication_links_self_iri_template_test.dart
 test/publication_links_self_test.dart
 test/publication_links_test.dart
-test/publication_pagination_test.dart
 test/publication_test.dart
 test/register_data_agreement_test.dart
 test/register_data_test.dart

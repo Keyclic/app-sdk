@@ -19,11 +19,11 @@ class PublicationLinksSelfIriTemplate {
 
     return PublicationLinksSelfIriTemplate(
       mapping:
-          PublicationLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+          AssignmentLinksContractIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  PublicationLinksSelfIriTemplateMapping? mapping;
+  AssignmentLinksContractIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {

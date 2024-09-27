@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
-**preferences** | [**PreferencesRead**](PreferencesRead.md) |  | [optional] 
+**preferences** | [**PreferencesAssetRead**](PreferencesAssetRead.md) |  | [optional] 
 **path** | [**List<NodeRead>**](NodeRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 
 **parent** | **String** |  | [optional] 

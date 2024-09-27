@@ -50,7 +50,7 @@ class EquipmentRead {
       updatedAt: mapToDateTime(json[r'updatedAt']),
       description: json[r'description'],
       name: json[r'name'],
-      preferences: PreferencesRead.fromJson(json[r'preferences']),
+      preferences: PreferencesAssetRead.fromJson(json[r'preferences']),
       path: NodeRead.listFromJson(json[r'path']),
       address: PostalAddressRead.fromJson(json[r'address']),
       parent: json[r'parent'],
@@ -96,7 +96,7 @@ class EquipmentRead {
 
   String name;
 
-  PreferencesRead? preferences;
+  PreferencesAssetRead? preferences;
 
   final List<NodeRead>? path;
 

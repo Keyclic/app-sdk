@@ -31,7 +31,7 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // PreferencesRead preferences
+    // PreferencesAssetRead preferences
     test('to test the property `preferences`', () async {});
 
     // List<NodeRead> path (default value: const [])

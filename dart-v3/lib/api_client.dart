@@ -460,10 +460,10 @@ class ApiPlatformClient {
           return PostalAddressJsonhalRead.fromJson(value);
         case 'PostalAddressRead':
           return PostalAddressRead.fromJson(value);
-        case 'PreferencesJsonhalRead':
-          return PreferencesJsonhalRead.fromJson(value);
-        case 'PreferencesRead':
-          return PreferencesRead.fromJson(value);
+        case 'PreferencesAssetRead':
+          return PreferencesAssetRead.fromJson(value);
+        case 'PreferencesJsonhalAssetRead':
+          return PreferencesJsonhalAssetRead.fromJson(value);
         case 'PriceJsonhalRead':
           return PriceJsonhalRead.fromJson(value);
         case 'PriceRead':

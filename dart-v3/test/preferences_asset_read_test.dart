@@ -5,14 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for PreferencesJsonhalRead
+// tests for PreferencesAssetRead
 void main() {
-  // final instance = PreferencesJsonhalRead();
+  // final instance = PreferencesAssetRead();
 
-  group('test PreferencesJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
-    test('to test the property `links`', () async {});
-
+  group('test PreferencesAssetRead', () {
     // String visibility
     test('to test the property `visibility`', () async {});
   });

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **type** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
-**preferences** | [**PreferencesRead**](PreferencesRead.md) |  | [optional] 
+**preferences** | [**PreferencesAssetRead**](PreferencesAssetRead.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **path** | [**List<NodeRead>**](NodeRead.md) |  | [optional] [readonly] [default to const []]
 **address** | [**PostalAddressRead**](PostalAddressRead.md) |  | [optional] 

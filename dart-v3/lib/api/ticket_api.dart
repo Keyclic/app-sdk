@@ -217,6 +217,7 @@ class TicketApi {
   /// * [existsLeftSquareBracketArchivedAtRightSquareBracket] -
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
+  /// * [operationStateAll] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketDueByRightSquareBracket] -
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
@@ -305,6 +306,7 @@ class TicketApi {
     bool? existsLeftSquareBracketArchivedAtRightSquareBracket,
     bool? existsLeftSquareBracketAssignmentsRightSquareBracket,
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
+    String? operationStateAll,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketDueByRightSquareBracket,
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
@@ -466,6 +468,8 @@ class TicketApi {
       if (existsLeftSquareBracketDocumentsRightSquareBracket != null)
         r'exists[documents]': encodeQueryParameter(
             existsLeftSquareBracketDocumentsRightSquareBracket),
+      if (operationStateAll != null)
+        r'operation_state_all': encodeQueryParameter(operationStateAll),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),

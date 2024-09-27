@@ -10036,6 +10036,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "operation_state_all",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "order[createdAt]",
                         "in": "query",
                         "description": "",

@@ -9758,117 +9758,6 @@
                 ]
             }
         },
-        "\/organizations\/{organization}\/publications": {
-            "get": {
-                "tags": [
-                    "Organization"
-                ],
-                "summary": "Retrieve all Publication resources.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "cgetPublicationsByOrganization",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/after"
-                    },
-                    {
-                        "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/place"
-                    },
-                    {
-                        "$ref": "#\/parameters\/places__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/page"
-                    },
-                    {
-                        "$ref": "#\/parameters\/limit"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "organization",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/PublicationPagination"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/organizations\/{organization}\/reports": {
             "get": {
                 "tags": [
@@ -13723,94 +13612,6 @@
                         "bearer": []
                     }
                 ]
-            },
-            "get": {
-                "tags": [
-                    "Publication"
-                ],
-                "summary": "Retrieve one Publication resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "getPublication",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "publication",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Publication"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
             }
         },
         "\/publications": {
@@ -14775,96 +14576,6 @@
                         "description": "",
                         "schema": {
                             "$ref": "#\/definitions\/Report"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
-        "\/reviews\/{review}": {
-            "get": {
-                "tags": [
-                    "Review"
-                ],
-                "summary": "Retrieve one Review resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "getReview",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "review",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Review"
                         }
                     },
                     "400": {
@@ -24117,18 +23828,6 @@
                 "title"
             ]
         },
-        "PublicationCollection": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
-                        "$ref": "#\/definitions\/Publication"
-                    }
-                }
-            }
-        },
         "PublicationData": {
             "type": "object",
             "properties": {
@@ -24249,27 +23948,12 @@
                 "mapping": {
                     "type": "object",
                     "properties": {
-                        "publication": {
+                        "identifier": {
                             "type": "string"
                         }
                     }
                 }
             }
-        },
-        "PublicationPagination": {
-            "allOf": [
-                {
-                    "$ref": "#\/definitions\/Pagination"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "_embedded": {
-                            "$ref": "#\/definitions\/PublicationCollection"
-                        }
-                    }
-                }
-            ]
         },
         "RegisterData": {
             "type": "object",

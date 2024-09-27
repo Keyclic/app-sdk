@@ -167,7 +167,6 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**cgetOperationsByOrganization**](doc//OrganizationApi.md#cgetoperationsbyorganization) | **GET** /organizations/{organization}/operations | Retrieve all Operation resources.
 *OrganizationApi* | [**cgetOrganizations**](doc//OrganizationApi.md#cgetorganizations) | **GET** /organizations | Retrieve all Organization resources.
 *OrganizationApi* | [**cgetPlacesByOrganization**](doc//OrganizationApi.md#cgetplacesbyorganization) | **GET** /organizations/{organization}/places | Retrieve all Place resources.
-*OrganizationApi* | [**cgetPublicationsByOrganization**](doc//OrganizationApi.md#cgetpublicationsbyorganization) | **GET** /organizations/{organization}/publications | Retrieve all Publication resources.
 *OrganizationApi* | [**cgetReportsByOrganization**](doc//OrganizationApi.md#cgetreportsbyorganization) | **GET** /organizations/{organization}/reports | Retrieve all Report resources.
 *OrganizationApi* | [**cgetReviewRequestsByOrganization**](doc//OrganizationApi.md#cgetreviewrequestsbyorganization) | **GET** /organizations/{organization}/review-requests | Retrieve all ReviewRequest resources.
 *OrganizationApi* | [**cgetServicesByOrganization**](doc//OrganizationApi.md#cgetservicesbyorganization) | **GET** /organizations/{organization}/services | Retrieve all Service resources.
@@ -204,7 +203,6 @@ Class | Method | HTTP request | Description
 *ProcedureApi* | [**postProcedure**](doc//ProcedureApi.md#postprocedure) | **POST** /procedures | Create one Procedure resource.
 *ProcedureApi* | [**postWorkflowByProcedure**](doc//ProcedureApi.md#postworkflowbyprocedure) | **POST** /procedures/{procedure}/workflow | Create one Workflow resource.
 *PublicationApi* | [**deletePublication**](doc//PublicationApi.md#deletepublication) | **DELETE** /publications/{publication} | Remove one Publication resource.
-*PublicationApi* | [**getPublication**](doc//PublicationApi.md#getpublication) | **GET** /publications/{publication} | Retrieve one Publication resource.
 *PublicationApi* | [**postPublication**](doc//PublicationApi.md#postpublication) | **POST** /publications | Create one Publication resource.
 *ReportApi* | [**cgetAssignmentsByReport**](doc//ReportApi.md#cgetassignmentsbyreport) | **GET** /reports/{report}/assignments | Retrieve all Assignment resources.
 *ReportApi* | [**cgetDocumentsByReport**](doc//ReportApi.md#cgetdocumentsbyreport) | **GET** /reports/{report}/documents | Retrieve all Document resources.
@@ -215,7 +213,6 @@ Class | Method | HTTP request | Description
 *ReportApi* | [**patchReport**](doc//ReportApi.md#patchreport) | **PATCH** /reports/{report} | Edit one Report resource.
 *ReportApi* | [**postDocumentByReport**](doc//ReportApi.md#postdocumentbyreport) | **POST** /reports/{report}/documents | Create one Document resource.
 *ReportApi* | [**postWorkflowByReport**](doc//ReportApi.md#postworkflowbyreport) | **POST** /reports/{report}/workflow | Create one Workflow resource.
-*ReviewApi* | [**getReview**](doc//ReviewApi.md#getreview) | **GET** /reviews/{review} | Retrieve one Review resource.
 *ReviewApi* | [**postReview**](doc//ReviewApi.md#postreview) | **POST** /reviews | Create one Review resource.
 *ReviewRequestApi* | [**getReviewRequest**](doc//ReviewRequestApi.md#getreviewrequest) | **GET** /review-requests/{reviewRequest} | Retrieve one ReviewRequest resource.
 *RoleApi* | [**getRole**](doc//RoleApi.md#getrole) | **GET** /roles/{role} | Retrieve one Role resource.
@@ -669,7 +666,6 @@ Class | Method | HTTP request | Description
  - [PropertyConditionList](doc//PropertyConditionList.md)
  - [PropertyItems](doc//PropertyItems.md)
  - [Publication](doc//Publication.md)
- - [PublicationCollection](doc//PublicationCollection.md)
  - [PublicationData](doc//PublicationData.md)
  - [PublicationEmbedded](doc//PublicationEmbedded.md)
  - [PublicationLinks](doc//PublicationLinks.md)
@@ -681,8 +677,6 @@ Class | Method | HTTP request | Description
  - [PublicationLinksOrganizationIriTemplate](doc//PublicationLinksOrganizationIriTemplate.md)
  - [PublicationLinksSelf](doc//PublicationLinksSelf.md)
  - [PublicationLinksSelfIriTemplate](doc//PublicationLinksSelfIriTemplate.md)
- - [PublicationLinksSelfIriTemplateMapping](doc//PublicationLinksSelfIriTemplateMapping.md)
- - [PublicationPagination](doc//PublicationPagination.md)
  - [RegisterData](doc//RegisterData.md)
  - [RegisterDataAgreement](doc//RegisterDataAgreement.md)
  - [Report](doc//Report.md)

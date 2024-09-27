@@ -1190,8 +1190,6 @@ class ApiClient {
           return PropertyItems.fromJson(value);
         case 'Publication':
           return Publication.fromJson(value);
-        case 'PublicationCollection':
-          return PublicationCollection.fromJson(value);
         case 'PublicationData':
           return PublicationData.fromJson(value);
         case 'PublicationEmbedded':
@@ -1214,10 +1212,6 @@ class ApiClient {
           return PublicationLinksSelf.fromJson(value);
         case 'PublicationLinksSelfIriTemplate':
           return PublicationLinksSelfIriTemplate.fromJson(value);
-        case 'PublicationLinksSelfIriTemplateMapping':
-          return PublicationLinksSelfIriTemplateMapping.fromJson(value);
-        case 'PublicationPagination':
-          return PublicationPagination.fromJson(value);
         case 'RegisterData':
           return RegisterData.fromJson(value);
         case 'RegisterDataAgreement':

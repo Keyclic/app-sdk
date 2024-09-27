@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.PreferencesRead
+# keyclic_sdk_api_platform.model.PreferencesAssetRead
 
 ## Load the model package
 ```dart

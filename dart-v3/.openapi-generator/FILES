@@ -130,8 +130,8 @@ doc/PointJsonhalRead.md
 doc/PointRead.md
 doc/PostalAddressJsonhalRead.md
 doc/PostalAddressRead.md
-doc/PreferencesJsonhalRead.md
-doc/PreferencesRead.md
+doc/PreferencesAssetRead.md
+doc/PreferencesJsonhalAssetRead.md
 doc/PriceJsonhalRead.md
 doc/PriceRead.md
 doc/PriceWrite.md
@@ -323,8 +323,8 @@ lib/model/point_jsonhal_read.dart
 lib/model/point_read.dart
 lib/model/postal_address_jsonhal_read.dart
 lib/model/postal_address_read.dart
-lib/model/preferences_jsonhal_read.dart
-lib/model/preferences_read.dart
+lib/model/preferences_asset_read.dart
+lib/model/preferences_jsonhal_asset_read.dart
 lib/model/price_jsonhal_read.dart
 lib/model/price_read.dart
 lib/model/price_write.dart
@@ -493,8 +493,8 @@ test/point_jsonhal_read_test.dart
 test/point_read_test.dart
 test/postal_address_jsonhal_read_test.dart
 test/postal_address_read_test.dart
-test/preferences_jsonhal_read_test.dart
-test/preferences_read_test.dart
+test/preferences_asset_read_test.dart
+test/preferences_jsonhal_asset_read_test.dart
 test/price_jsonhal_read_test.dart
 test/price_read_test.dart
 test/price_write_test.dart

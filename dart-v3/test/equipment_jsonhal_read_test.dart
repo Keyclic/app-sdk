@@ -58,7 +58,7 @@ void main() {
     // String name
     test('to test the property `name`', () async {});
 
-    // PreferencesJsonhalRead preferences
+    // PreferencesJsonhalAssetRead preferences
     test('to test the property `preferences`', () async {});
 
     // List<NodeJsonhalRead> path (default value: const [])

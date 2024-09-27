@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.65.0-dev.gb0cc195b3"
+        "version": "2.66.0-beta.1.dev.1ed7644ba"
     },
     "servers": [
         {
@@ -12890,7 +12890,7 @@
                     "preferences": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Preferences-Read"
+                                "$ref": "#/components/schemas/Preferences-Asset-Read"
                             }
                         ],
                         "nullable": true
@@ -13000,7 +13000,7 @@
                     "preferences": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Asset-Read"
                             }
                         ],
                         "nullable": true
@@ -14664,7 +14664,7 @@
                     "preferences": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Preferences-Read"
+                                "$ref": "#/components/schemas/Preferences-Asset-Read"
                             }
                         ],
                         "nullable": true
@@ -14970,7 +14970,7 @@
                     "preferences": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Asset-Read"
                             }
                         ],
                         "nullable": true
@@ -15834,7 +15834,7 @@
                     "preferences": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Preferences-Read"
+                                "$ref": "#/components/schemas/Preferences-Asset-Read"
                             }
                         ],
                         "nullable": true
@@ -15944,7 +15944,7 @@
                     "preferences": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/Preferences.jsonhal-Read"
+                                "$ref": "#/components/schemas/Preferences.jsonhal-Asset-Read"
                             }
                         ],
                         "nullable": true
@@ -16067,7 +16067,7 @@
                     }
                 }
             },
-            "Preferences-Read": {
+            "Preferences-Asset-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -16083,7 +16083,7 @@
                     }
                 }
             },
-            "Preferences.jsonhal-Read": {
+            "Preferences.jsonhal-Asset-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,

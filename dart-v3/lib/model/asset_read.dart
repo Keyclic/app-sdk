@@ -31,7 +31,7 @@ class AssetRead {
       type: json[r'type'],
       description: json[r'description'],
       name: json[r'name'],
-      preferences: PreferencesRead.fromJson(json[r'preferences']),
+      preferences: PreferencesAssetRead.fromJson(json[r'preferences']),
       id: json[r'id'],
       path: NodeRead.listFromJson(json[r'path']),
       address: PostalAddressRead.fromJson(json[r'address']),
@@ -48,7 +48,7 @@ class AssetRead {
 
   String name;
 
-  PreferencesRead? preferences;
+  PreferencesAssetRead? preferences;
 
   /// The resource identifier.
   final String? id;

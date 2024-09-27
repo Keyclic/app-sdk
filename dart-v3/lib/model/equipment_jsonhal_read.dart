@@ -46,7 +46,7 @@ class EquipmentJsonhalRead {
       updatedAt: mapToDateTime(json[r'updatedAt']),
       description: json[r'description'],
       name: json[r'name'],
-      preferences: PreferencesJsonhalRead.fromJson(json[r'preferences']),
+      preferences: PreferencesJsonhalAssetRead.fromJson(json[r'preferences']),
       path: NodeJsonhalRead.listFromJson(json[r'path']),
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
     );
@@ -87,7 +87,7 @@ class EquipmentJsonhalRead {
 
   String name;
 
-  PreferencesJsonhalRead? preferences;
+  PreferencesJsonhalAssetRead? preferences;
 
   final List<NodeJsonhalRead>? path;
 

@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getPlaceCollection**](PlaceApi.md#getplacecollection) | **GET** /asset-places | Retrieves the collection of Place resources.
+[**postPlace**](PlaceApi.md#postplace) | **POST** /places | Creates a Place resource.
 
 
 # **getPlaceCollection**
@@ -111,6 +112,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/hal+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postPlace**
+> PlaceJsonhalRead postPlace(xKeyclicApp, placeCreatePlaceCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+
+Creates a Place resource.
+
+Creates a Place resource.
+
+### Example
+```dart
+import 'package:keyclic_sdk_api_platform/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+
+final api_instance = PlaceApi();
+final xKeyclicApp = xKeyclicApp_example; // String | 
+final placeCreatePlaceCommandWrite = PlaceCreatePlaceCommandWrite(); // PlaceCreatePlaceCommandWrite | The new Place resource
+final acceptLanguage = acceptLanguage_example; // String | 
+final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
+final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
+final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+
+try {
+    final result = api_instance.postPlace(xKeyclicApp, placeCreatePlaceCommandWrite, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    print(result);
+} catch (e) {
+    print('Exception when calling PlaceApi->postPlace: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xKeyclicApp** | **String**|  | 
+ **placeCreatePlaceCommandWrite** | [**PlaceCreatePlaceCommandWrite**](PlaceCreatePlaceCommandWrite.md)| The new Place resource | 
+ **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
+ **xDateTime** | **DateTime**|  | [optional] 
+ **xKeyclicAppPlatform** | **String**|  | [optional] 
+ **xKeyclicAppVersion** | **String**|  | [optional] 
+
+### Return type
+
+[**PlaceJsonhalRead**](PlaceJsonhalRead.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/hal+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

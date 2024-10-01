@@ -448,6 +448,8 @@ class ApiPlatformClient {
           return NodeJsonhalRead.fromJson(value);
         case 'NodeRead':
           return NodeRead.fromJson(value);
+        case 'PlaceCreatePlaceCommandWrite':
+          return PlaceCreatePlaceCommandWrite.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
         case 'PlaceRead':
@@ -460,6 +462,8 @@ class ApiPlatformClient {
           return PostalAddressJsonhalRead.fromJson(value);
         case 'PostalAddressRead':
           return PostalAddressRead.fromJson(value);
+        case 'PostalAddressWrite':
+          return PostalAddressWrite.fromJson(value);
         case 'PreferencesAssetRead':
           return PreferencesAssetRead.fromJson(value);
         case 'PreferencesJsonhalAssetRead':

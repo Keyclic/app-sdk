@@ -20,19 +20,19 @@ class CategoryJsonhalReadLinks {
     }
 
     return CategoryJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
           json[r'organization']),
-      children: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      children: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'children']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksFirst? organization;
+  GetPlaceCollection200ResponseLinksSelf? organization;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? children;
+  List<GetPlaceCollection200ResponseLinksSelf>? children;
 
   @override
   bool operator ==(Object other) {

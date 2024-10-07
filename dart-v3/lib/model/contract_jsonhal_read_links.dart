@@ -20,15 +20,16 @@ class ContractJsonhalReadLinks {
     }
 
     return ContractJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      provider: AssetJsonhalReadLinksType.fromJson(json[r'provider']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      provider:
+          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'provider']),
       type: AssetJsonhalReadLinksType.fromJson(json[r'type']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  AssetJsonhalReadLinksType? provider;
+  GetPlaceCollection200ResponseLinksSelf? provider;
 
   AssetJsonhalReadLinksType? type;
 

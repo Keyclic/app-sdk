@@ -10,10 +10,10 @@ void main() {
   // final instance = OrganizationJsonhalReadLinks();
 
   group('test OrganizationJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst dispatcher
+    // AssetJsonhalReadLinksType dispatcher
     test('to test the property `dispatcher`', () async {});
   });
 }

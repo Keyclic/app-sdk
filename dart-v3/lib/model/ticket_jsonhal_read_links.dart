@@ -23,30 +23,30 @@ class TicketJsonhalReadLinks {
     }
 
     return TicketJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
           json[r'organization']),
       parent: AssetJsonhalReadLinksType.fromJson(json[r'parent']),
-      assignments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      assignments: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'assignments']),
-      equipments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      equipments: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'equipments']),
-      children: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      children: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'children']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksFirst? organization;
+  GetPlaceCollection200ResponseLinksSelf? organization;
 
   AssetJsonhalReadLinksType? parent;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? assignments;
+  List<GetPlaceCollection200ResponseLinksSelf>? assignments;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? equipments;
+  List<GetPlaceCollection200ResponseLinksSelf>? equipments;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? children;
+  List<GetPlaceCollection200ResponseLinksSelf>? children;
 
   @override
   bool operator ==(Object other) {

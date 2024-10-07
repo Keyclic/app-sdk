@@ -21,14 +21,14 @@ class AssignmentJsonhalReadLinks {
     }
 
     return AssignmentJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
       contract: AssetJsonhalReadLinksType.fromJson(json[r'contract']),
       member: AssetJsonhalReadLinksType.fromJson(json[r'member']),
       service: AssetJsonhalReadLinksType.fromJson(json[r'service']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
   AssetJsonhalReadLinksType? contract;
 

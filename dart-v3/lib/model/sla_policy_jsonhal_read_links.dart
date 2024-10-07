@@ -20,19 +20,19 @@ class SlaPolicyJsonhalReadLinks {
     }
 
     return SlaPolicyJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      fromStates: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      fromStates: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'fromStates']),
-      toStates: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      toStates: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'toStates']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? fromStates;
+  List<GetPlaceCollection200ResponseLinksSelf>? fromStates;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? toStates;
+  List<GetPlaceCollection200ResponseLinksSelf>? toStates;
 
   @override
   bool operator ==(Object other) {

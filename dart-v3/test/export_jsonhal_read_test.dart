@@ -29,6 +29,9 @@ void main() {
     // String groupBy
     test('to test the property `groupBy`', () async {});
 
+    // String name
+    test('to test the property `name`', () async {});
+
     // The date and time when the resource was created, in UTC format.
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
@@ -36,8 +39,5 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
-
-    // String name
-    test('to test the property `name`', () async {});
   });
 }

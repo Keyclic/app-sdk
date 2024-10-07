@@ -13,19 +13,19 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst first
+    // GetPlaceCollection200ResponseLinksSelf first
     test('to test the property `first`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst last
+    // GetPlaceCollection200ResponseLinksSelf last
     test('to test the property `last`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst next
+    // GetPlaceCollection200ResponseLinksSelf next
     test('to test the property `next`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst previous
+    // GetPlaceCollection200ResponseLinksSelf previous
     test('to test the property `previous`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> item (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> item (default value: const [])
     test('to test the property `item`', () async {});
   });
 }

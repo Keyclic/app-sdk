@@ -10,13 +10,13 @@ void main() {
   // final instance = CategoryJsonhalReadLinks();
 
   group('test CategoryJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst organization
+    // GetPlaceCollection200ResponseLinksSelf organization
     test('to test the property `organization`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> children (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> children (default value: const [])
     test('to test the property `children`', () async {});
   });
 }

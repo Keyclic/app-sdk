@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class NodeRead {
   /// Returns a new [NodeRead] instance.
   NodeRead({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
   });
 
   /// Returns a new [NodeRead] instance and imports its values from
@@ -24,9 +24,9 @@ class NodeRead {
     );
   }
 
-  String? id;
+  String id;
 
-  String? name;
+  String name;
 
   @override
   bool operator ==(Object other) {
@@ -39,8 +39,7 @@ class NodeRead {
   }
 
   @override
-  int get hashCode =>
-      (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
+  int get hashCode => id.hashCode + name.hashCode;
 
   static List<NodeRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -91,8 +90,8 @@ class NodeRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'id': id,
+      r'name': name,
     };
   }
 }

@@ -7,17 +7,17 @@ part of keyclic_sdk_api_platform;
 class WorkflowStateJsonhalRead {
   /// Returns a new [WorkflowStateJsonhalRead] instance.
   WorkflowStateJsonhalRead({
-    this.links,
-    this.allowAdd,
-    this.allowDispatch,
-    this.end,
+    required this.links,
+    required this.allowAdd,
+    this.allowDispatch = true,
+    required this.end,
     this.backgroundColor,
     this.color,
     this.description,
     required this.name,
     this.progression,
     this.reference,
-    this.id,
+    required this.id,
   });
 
   /// Returns a new [WorkflowStateJsonhalRead] instance and imports its values from
@@ -28,7 +28,7 @@ class WorkflowStateJsonhalRead {
     }
 
     return WorkflowStateJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       allowAdd: json[r'allowAdd'],
       allowDispatch: json[r'allowDispatch'],
       end: json[r'end'],
@@ -43,13 +43,13 @@ class WorkflowStateJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
-  bool? allowAdd;
+  bool allowAdd;
 
-  bool? allowDispatch;
+  bool allowDispatch;
 
-  bool? end;
+  bool end;
 
   String? backgroundColor;
 
@@ -64,7 +64,7 @@ class WorkflowStateJsonhalRead {
   String? reference;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -89,17 +89,17 @@ class WorkflowStateJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (allowAdd == null ? 0 : allowAdd.hashCode) +
-      (allowDispatch == null ? 0 : allowDispatch.hashCode) +
-      (end == null ? 0 : end.hashCode) +
+      links.hashCode +
+      allowAdd.hashCode +
+      allowDispatch.hashCode +
+      end.hashCode +
       (backgroundColor == null ? 0 : backgroundColor.hashCode) +
       (color == null ? 0 : color.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (progression == null ? 0 : progression.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
-      (id == null ? 0 : id.hashCode);
+      id.hashCode;
 
   static List<WorkflowStateJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -155,19 +155,17 @@ class WorkflowStateJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'allowAdd')) r'allowAdd': allowAdd,
-      if (keys == null || keys.contains(r'allowDispatch'))
-        r'allowDispatch': allowDispatch,
-      if (keys == null || keys.contains(r'end')) r'end': end,
+        return previousValue;
+      })),
+      r'allowAdd': allowAdd,
+      r'allowDispatch': allowDispatch,
+      r'end': end,
       if (keys == null || keys.contains(r'backgroundColor'))
         r'backgroundColor': backgroundColor,
       if (keys == null || keys.contains(r'color')) r'color': color,
@@ -177,7 +175,7 @@ class WorkflowStateJsonhalRead {
       if (keys == null || keys.contains(r'progression'))
         r'progression': progression,
       if (keys == null || keys.contains(r'reference')) r'reference': reference,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
     };
   }
 }

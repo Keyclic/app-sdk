@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class GeoCoordinatesJsonhalRead {
   /// Returns a new [GeoCoordinatesJsonhalRead] instance.
   GeoCoordinatesJsonhalRead({
-    this.links,
+    required this.links,
     this.elevation,
-    this.point,
+    required this.point,
   });
 
   /// Returns a new [GeoCoordinatesJsonhalRead] instance and imports its values from
@@ -20,21 +20,21 @@ class GeoCoordinatesJsonhalRead {
     }
 
     return GeoCoordinatesJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
-      point: PointJsonhalRead.fromJson(json[r'point']),
+      point: PointJsonhalRead.fromJson(json[r'point'])!,
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   /// The elevation of a location (WGS 84).
   // minimum: -10000
   // maximum: 8000
   num? elevation;
 
-  PointJsonhalRead? point;
+  PointJsonhalRead point;
 
   @override
   bool operator ==(Object other) {
@@ -51,9 +51,9 @@ class GeoCoordinatesJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (elevation == null ? 0 : elevation.hashCode) +
-      (point == null ? 0 : point.hashCode);
+      point.hashCode;
 
   static List<GeoCoordinatesJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -109,25 +109,23 @@ class GeoCoordinatesJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+      r'point': point.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^point\.'))) {
+          previousValue.add(element.split(RegExp(r'^point\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

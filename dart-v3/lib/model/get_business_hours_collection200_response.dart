@@ -8,8 +8,8 @@ class GetBusinessHoursCollection200Response {
   /// Returns a new [GetBusinessHoursCollection200Response] instance.
   GetBusinessHoursCollection200Response({
     this.embedded,
-    this.totalItems,
-    this.itemsPerPage,
+    required this.totalItems,
+    required this.itemsPerPage,
     required this.links,
   });
 
@@ -32,10 +32,10 @@ class GetBusinessHoursCollection200Response {
   GetBusinessHoursCollection200ResponseEmbedded? embedded;
 
   // minimum: 0
-  int? totalItems;
+  int totalItems;
 
   // minimum: 0
-  int? itemsPerPage;
+  int itemsPerPage;
 
   GetPlaceCollection200ResponseLinks links;
 
@@ -56,8 +56,8 @@ class GetBusinessHoursCollection200Response {
   @override
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
-      (totalItems == null ? 0 : totalItems.hashCode) +
-      (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
+      totalItems.hashCode +
+      itemsPerPage.hashCode +
       links.hashCode;
 
   static List<GetBusinessHoursCollection200Response> listFromJson(
@@ -126,10 +126,8 @@ class GetBusinessHoursCollection200Response {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'totalItems'))
-        r'totalItems': totalItems,
-      if (keys == null || keys.contains(r'itemsPerPage'))
-        r'itemsPerPage': itemsPerPage,
+      r'totalItems': totalItems,
+      r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {

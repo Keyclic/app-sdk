@@ -9,9 +9,9 @@ class ServiceOfferRead {
   ServiceOfferRead({
     required this.name,
     required this.service,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [ServiceOfferRead] instance and imports its values from
@@ -25,8 +25,8 @@ class ServiceOfferRead {
       name: json[r'name'],
       service: json[r'service'],
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
@@ -35,13 +35,13 @@ class ServiceOfferRead {
   String service;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -62,9 +62,9 @@ class ServiceOfferRead {
   int get hashCode =>
       name.hashCode +
       service.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<ServiceOfferRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -119,11 +119,9 @@ class ServiceOfferRead {
     return <String, dynamic>{
       r'name': name,
       r'service': service,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

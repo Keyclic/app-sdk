@@ -9,7 +9,7 @@ class BrandRead {
   BrandRead({
     this.description,
     required this.name,
-    this.id,
+    required this.id,
   });
 
   /// Returns a new [BrandRead] instance and imports its values from
@@ -33,7 +33,7 @@ class BrandRead {
   String name;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -52,7 +52,7 @@ class BrandRead {
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (id == null ? 0 : id.hashCode);
+      id.hashCode;
 
   static List<BrandRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -107,7 +107,7 @@ class BrandRead {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
     };
   }
 }

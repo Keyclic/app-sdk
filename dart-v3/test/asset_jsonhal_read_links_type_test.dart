@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for GetPlaceCollection200ResponseLinksFirst
+// tests for AssetJsonhalReadLinksType
 void main() {
-  // final instance = GetPlaceCollection200ResponseLinksFirst();
+  // final instance = AssetJsonhalReadLinksType();
 
-  group('test GetPlaceCollection200ResponseLinksFirst', () {
+  group('test AssetJsonhalReadLinksType', () {
     // String href
     test('to test the property `href`', () async {});
   });

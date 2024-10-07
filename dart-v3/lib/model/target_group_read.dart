@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class TargetGroupRead {
   /// Returns a new [TargetGroupRead] instance.
   TargetGroupRead({
-    this.description,
-    this.id,
+    required this.description,
+    required this.id,
     this.name,
   });
 
@@ -26,9 +26,9 @@ class TargetGroupRead {
     );
   }
 
-  final String? description;
+  final String description;
 
-  String? id;
+  String id;
 
   String? name;
 
@@ -47,9 +47,7 @@ class TargetGroupRead {
 
   @override
   int get hashCode =>
-      (description == null ? 0 : description.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      description.hashCode + id.hashCode + (name == null ? 0 : name.hashCode);
 
   static List<TargetGroupRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -102,9 +100,8 @@ class TargetGroupRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'description': description,
+      r'id': id,
       if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }

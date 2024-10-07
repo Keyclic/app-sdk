@@ -10,16 +10,16 @@ void main() {
   // final instance = AssignmentJsonhalReadLinks();
 
   group('test AssignmentJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst contract
+    // AssetJsonhalReadLinksType contract
     test('to test the property `contract`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst member
+    // AssetJsonhalReadLinksType member
     test('to test the property `member`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst service
+    // AssetJsonhalReadLinksType service
     test('to test the property `service`', () async {});
   });
 }

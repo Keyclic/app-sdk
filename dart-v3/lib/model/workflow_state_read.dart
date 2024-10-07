@@ -7,16 +7,16 @@ part of keyclic_sdk_api_platform;
 class WorkflowStateRead {
   /// Returns a new [WorkflowStateRead] instance.
   WorkflowStateRead({
-    this.allowAdd,
-    this.allowDispatch,
-    this.end,
+    required this.allowAdd,
+    this.allowDispatch = true,
+    required this.end,
     this.backgroundColor,
     this.color,
     this.description,
     required this.name,
     this.progression,
     this.reference,
-    this.id,
+    required this.id,
   });
 
   /// Returns a new [WorkflowStateRead] instance and imports its values from
@@ -41,11 +41,11 @@ class WorkflowStateRead {
     );
   }
 
-  bool? allowAdd;
+  bool allowAdd;
 
-  bool? allowDispatch;
+  bool allowDispatch;
 
-  bool? end;
+  bool end;
 
   String? backgroundColor;
 
@@ -60,7 +60,7 @@ class WorkflowStateRead {
   String? reference;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -84,16 +84,16 @@ class WorkflowStateRead {
 
   @override
   int get hashCode =>
-      (allowAdd == null ? 0 : allowAdd.hashCode) +
-      (allowDispatch == null ? 0 : allowDispatch.hashCode) +
-      (end == null ? 0 : end.hashCode) +
+      allowAdd.hashCode +
+      allowDispatch.hashCode +
+      end.hashCode +
       (backgroundColor == null ? 0 : backgroundColor.hashCode) +
       (color == null ? 0 : color.hashCode) +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (progression == null ? 0 : progression.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
-      (id == null ? 0 : id.hashCode);
+      id.hashCode;
 
   static List<WorkflowStateRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -148,10 +148,9 @@ class WorkflowStateRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'allowAdd')) r'allowAdd': allowAdd,
-      if (keys == null || keys.contains(r'allowDispatch'))
-        r'allowDispatch': allowDispatch,
-      if (keys == null || keys.contains(r'end')) r'end': end,
+      r'allowAdd': allowAdd,
+      r'allowDispatch': allowDispatch,
+      r'end': end,
       if (keys == null || keys.contains(r'backgroundColor'))
         r'backgroundColor': backgroundColor,
       if (keys == null || keys.contains(r'color')) r'color': color,
@@ -161,7 +160,7 @@ class WorkflowStateRead {
       if (keys == null || keys.contains(r'progression'))
         r'progression': progression,
       if (keys == null || keys.contains(r'reference')) r'reference': reference,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
     };
   }
 }

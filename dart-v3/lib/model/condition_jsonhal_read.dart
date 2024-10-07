@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class ConditionJsonhalRead {
   /// Returns a new [ConditionJsonhalRead] instance.
   ConditionJsonhalRead({
-    this.links,
+    required this.links,
     required this.propertyPath,
     this.values = const {},
-    this.operator_,
+    required this.operator_,
   });
 
   /// Returns a new [ConditionJsonhalRead] instance and imports its values from
@@ -21,20 +21,20 @@ class ConditionJsonhalRead {
     }
 
     return ConditionJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       propertyPath: json[r'propertyPath'],
       values: Map<String, String>.from(json[r'values']),
-      operator_: ConditionJsonhalReadOperator_Enum.fromJson(json[r'operator']),
+      operator_: ConditionJsonhalReadOperator_Enum.fromJson(json[r'operator'])!,
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
-  String propertyPath;
+  String? propertyPath;
 
   Map<String, String> values;
 
-  ConditionJsonhalReadOperator_Enum? operator_;
+  ConditionJsonhalReadOperator_Enum operator_;
 
   @override
   bool operator ==(Object other) {
@@ -52,10 +52,10 @@ class ConditionJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      propertyPath.hashCode +
+      links.hashCode +
+      (propertyPath == null ? 0 : propertyPath.hashCode) +
       values.hashCode +
-      (operator_ == null ? 0 : operator_.hashCode);
+      operator_.hashCode;
 
   static List<ConditionJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,18 +111,18 @@ class ConditionJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      r'propertyPath': propertyPath,
+        return previousValue;
+      })),
+      if (keys == null || keys.contains(r'propertyPath'))
+        r'propertyPath': propertyPath,
       r'values': values,
-      if (keys == null || keys.contains(r'operator_')) r'operator': operator_,
+      r'operator': operator_,
     };
   }
 }

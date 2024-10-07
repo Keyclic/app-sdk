@@ -10,9 +10,9 @@ class BusinessHoursRead {
     required this.hoursPerDay,
     required this.name,
     this.openingHours = const [],
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [BusinessHoursRead] instance and imports its values from
@@ -27,8 +27,8 @@ class BusinessHoursRead {
       name: json[r'name'],
       openingHours: List<String>.from(json[r'openingHours']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
@@ -39,13 +39,13 @@ class BusinessHoursRead {
   List<String> openingHours;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -69,9 +69,9 @@ class BusinessHoursRead {
       hoursPerDay.hashCode +
       name.hashCode +
       openingHours.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<BusinessHoursRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -129,11 +129,9 @@ class BusinessHoursRead {
       r'hoursPerDay': hoursPerDay,
       r'name': name,
       r'openingHours': openingHours,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

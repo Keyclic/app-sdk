@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class UserAuthProfileRead {
   /// Returns a new [UserAuthProfileRead] instance.
   UserAuthProfileRead({
-    this.email,
-    this.username,
+    required this.email,
+    required this.username,
   });
 
   /// Returns a new [UserAuthProfileRead] instance and imports its values from
@@ -24,9 +24,9 @@ class UserAuthProfileRead {
     );
   }
 
-  String? email;
+  String email;
 
-  String? username;
+  String username;
 
   @override
   bool operator ==(Object other) {
@@ -41,9 +41,7 @@ class UserAuthProfileRead {
   }
 
   @override
-  int get hashCode =>
-      (email == null ? 0 : email.hashCode) +
-      (username == null ? 0 : username.hashCode);
+  int get hashCode => email.hashCode + username.hashCode;
 
   static List<UserAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -97,8 +95,8 @@ class UserAuthProfileRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'email')) r'email': email,
-      if (keys == null || keys.contains(r'username')) r'username': username,
+      r'email': email,
+      r'username': username,
     };
   }
 }

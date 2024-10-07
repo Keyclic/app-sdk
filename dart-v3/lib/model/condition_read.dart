@@ -9,7 +9,7 @@ class ConditionRead {
   ConditionRead({
     required this.propertyPath,
     this.values = const {},
-    this.operator_,
+    required this.operator_,
   });
 
   /// Returns a new [ConditionRead] instance and imports its values from
@@ -22,15 +22,15 @@ class ConditionRead {
     return ConditionRead(
       propertyPath: json[r'propertyPath'],
       values: Map<String, String>.from(json[r'values']),
-      operator_: ConditionReadOperator_Enum.fromJson(json[r'operator']),
+      operator_: ConditionReadOperator_Enum.fromJson(json[r'operator'])!,
     );
   }
 
-  String propertyPath;
+  String? propertyPath;
 
   Map<String, String> values;
 
-  ConditionReadOperator_Enum? operator_;
+  ConditionReadOperator_Enum operator_;
 
   @override
   bool operator ==(Object other) {
@@ -47,9 +47,9 @@ class ConditionRead {
 
   @override
   int get hashCode =>
-      propertyPath.hashCode +
+      (propertyPath == null ? 0 : propertyPath.hashCode) +
       values.hashCode +
-      (operator_ == null ? 0 : operator_.hashCode);
+      operator_.hashCode;
 
   static List<ConditionRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -102,9 +102,10 @@ class ConditionRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'propertyPath': propertyPath,
+      if (keys == null || keys.contains(r'propertyPath'))
+        r'propertyPath': propertyPath,
       r'values': values,
-      if (keys == null || keys.contains(r'operator_')) r'operator': operator_,
+      r'operator': operator_,
     };
   }
 }

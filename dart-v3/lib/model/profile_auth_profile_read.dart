@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class ProfileAuthProfileRead {
   /// Returns a new [ProfileAuthProfileRead] instance.
   ProfileAuthProfileRead({
-    this.types,
-    this.connections,
+    this.types = const [],
+    this.connections = const [],
     this.user,
-    this.firstConnection,
+    required this.firstConnection,
   });
 
   /// Returns a new [ProfileAuthProfileRead] instance and imports its values from
@@ -21,7 +21,7 @@ class ProfileAuthProfileRead {
     }
 
     return ProfileAuthProfileRead(
-      types: json[r'types'] == null ? null : List<String>.from(json[r'types']),
+      types: List<String>.from(json[r'types']),
       connections: ConnectionAuthProfileRead.listFromJson(json[r'connections']),
       user: UserAuthProfileRead.fromJson(json[r'user']),
       firstConnection: json[r'firstConnection'],
@@ -29,14 +29,14 @@ class ProfileAuthProfileRead {
   }
 
   /// Available connection types for the given email address. These might include password, enterprise, social.
-  final List<String>? types;
+  final List<String> types;
 
-  List<ConnectionAuthProfileRead>? connections;
+  List<ConnectionAuthProfileRead> connections;
 
   UserAuthProfileRead? user;
 
   /// Represents whether a user is making their first connection or interaction with the service.
-  final bool? firstConnection;
+  final bool firstConnection;
 
   @override
   bool operator ==(Object other) {
@@ -55,10 +55,10 @@ class ProfileAuthProfileRead {
 
   @override
   int get hashCode =>
-      (types == null ? 0 : types.hashCode) +
-      (connections == null ? 0 : connections.hashCode) +
+      types.hashCode +
+      connections.hashCode +
       (user == null ? 0 : user.hashCode) +
-      (firstConnection == null ? 0 : firstConnection.hashCode);
+      firstConnection.hashCode;
 
   static List<ProfileAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -114,9 +114,8 @@ class ProfileAuthProfileRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'types')) r'types': types,
-      if (keys == null || keys.contains(r'connections'))
-        r'connections': connections,
+      r'types': types,
+      r'connections': connections,
       if (keys == null || keys.any((key) => RegExp(r'^user\.').hasMatch(key)))
         r'user': user?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {
@@ -126,8 +125,7 @@ class ProfileAuthProfileRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'firstConnection'))
-        r'firstConnection': firstConnection,
+      r'firstConnection': firstConnection,
     };
   }
 }

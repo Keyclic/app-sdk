@@ -7,16 +7,16 @@ part of keyclic_sdk_api_platform;
 class SlaPolicyRead {
   /// Returns a new [SlaPolicyRead] instance.
   SlaPolicyRead({
-    this.fromStates,
-    this.toStates,
-    this.id,
+    this.fromStates = const [],
+    this.toStates = const [],
+    required this.id,
     required this.timeTarget,
     this.description,
     required this.name,
-    this.enabled,
-    this.conditions,
-    this.createdAt,
-    this.updatedAt,
+    required this.enabled,
+    this.conditions = const [],
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [SlaPolicyRead] instance and imports its values from
@@ -27,29 +27,25 @@ class SlaPolicyRead {
     }
 
     return SlaPolicyRead(
-      fromStates: json[r'fromStates'] == null
-          ? null
-          : List<String>.from(json[r'fromStates']),
-      toStates: json[r'toStates'] == null
-          ? null
-          : List<String>.from(json[r'toStates']),
+      fromStates: List<String>.from(json[r'fromStates']),
+      toStates: List<String>.from(json[r'toStates']),
       id: json[r'id'],
       timeTarget: json[r'timeTarget'],
       description: json[r'description'],
       name: json[r'name'],
       enabled: json[r'enabled'],
       conditions: ConditionRead.listFromJson(json[r'conditions']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
-  List<String>? fromStates;
+  List<String> fromStates;
 
-  List<String>? toStates;
+  List<String> toStates;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   String timeTarget;
 
@@ -57,15 +53,15 @@ class SlaPolicyRead {
 
   String name;
 
-  bool? enabled;
+  bool enabled;
 
-  List<ConditionRead>? conditions;
+  List<ConditionRead> conditions;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -91,16 +87,16 @@ class SlaPolicyRead {
 
   @override
   int get hashCode =>
-      (fromStates == null ? 0 : fromStates.hashCode) +
-      (toStates == null ? 0 : toStates.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      fromStates.hashCode +
+      toStates.hashCode +
+      id.hashCode +
       timeTarget.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (enabled == null ? 0 : enabled.hashCode) +
-      (conditions == null ? 0 : conditions.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      enabled.hashCode +
+      conditions.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<SlaPolicyRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -153,21 +149,17 @@ class SlaPolicyRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'fromStates'))
-        r'fromStates': fromStates,
-      if (keys == null || keys.contains(r'toStates')) r'toStates': toStates,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'fromStates': fromStates,
+      r'toStates': toStates,
+      r'id': id,
       r'timeTarget': timeTarget,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
-      if (keys == null || keys.contains(r'conditions'))
-        r'conditions': conditions,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'enabled': enabled,
+      r'conditions': conditions,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

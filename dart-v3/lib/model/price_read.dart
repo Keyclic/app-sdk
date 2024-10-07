@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class PriceRead {
   /// Returns a new [PriceRead] instance.
   PriceRead({
-    this.currencyCode,
-    this.value,
+    this.currencyCode = const PriceReadCurrencyCodeEnum._('EUR'),
+    required this.value,
   });
 
   /// Returns a new [PriceRead] instance and imports its values from
@@ -19,16 +19,16 @@ class PriceRead {
     }
 
     return PriceRead(
-      currencyCode: PriceReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
+      currencyCode: PriceReadCurrencyCodeEnum.fromJson(json[r'currencyCode'])!,
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),
     );
   }
 
   /// The currency code, in ISO 4217 format.
-  final PriceReadCurrencyCodeEnum? currencyCode;
+  final PriceReadCurrencyCodeEnum currencyCode;
 
   // minimum: 0
-  num? value;
+  num value;
 
   @override
   bool operator ==(Object other) {
@@ -43,9 +43,7 @@ class PriceRead {
   }
 
   @override
-  int get hashCode =>
-      (currencyCode == null ? 0 : currencyCode.hashCode) +
-      (value == null ? 0 : value.hashCode);
+  int get hashCode => currencyCode.hashCode + value.hashCode;
 
   static List<PriceRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -96,9 +94,8 @@ class PriceRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'currencyCode'))
-        r'currencyCode': currencyCode,
-      if (keys == null || keys.contains(r'value')) r'value': value,
+      r'currencyCode': currencyCode,
+      r'value': value,
     };
   }
 }

@@ -9,8 +9,8 @@ class DocumentTypeRead {
   DocumentTypeRead({
     this.code,
     this.permissions,
-    this.signed,
-    this.id,
+    required this.signed,
+    required this.id,
     this.description,
     required this.name,
   });
@@ -38,10 +38,10 @@ class DocumentTypeRead {
 
   List<String>? permissions;
 
-  bool? signed;
+  bool signed;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   String? description;
 
@@ -68,8 +68,8 @@ class DocumentTypeRead {
   int get hashCode =>
       (code == null ? 0 : code.hashCode) +
       (permissions == null ? 0 : permissions.hashCode) +
-      (signed == null ? 0 : signed.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      signed.hashCode +
+      id.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode;
 
@@ -127,8 +127,8 @@ class DocumentTypeRead {
       if (keys == null || keys.contains(r'code')) r'code': code,
       if (keys == null || keys.contains(r'permissions'))
         r'permissions': permissions,
-      if (keys == null || keys.contains(r'signed')) r'signed': signed,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'signed': signed,
+      r'id': id,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,

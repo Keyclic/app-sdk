@@ -8,8 +8,8 @@ class GetTicketDocumentTypes200Response {
   /// Returns a new [GetTicketDocumentTypes200Response] instance.
   GetTicketDocumentTypes200Response({
     this.embedded,
-    this.totalItems,
-    this.itemsPerPage,
+    required this.totalItems,
+    required this.itemsPerPage,
     required this.links,
   });
 
@@ -32,10 +32,10 @@ class GetTicketDocumentTypes200Response {
   GetTicketDocumentTypes200ResponseEmbedded? embedded;
 
   // minimum: 0
-  int? totalItems;
+  int totalItems;
 
   // minimum: 0
-  int? itemsPerPage;
+  int itemsPerPage;
 
   GetPlaceCollection200ResponseLinks links;
 
@@ -56,8 +56,8 @@ class GetTicketDocumentTypes200Response {
   @override
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
-      (totalItems == null ? 0 : totalItems.hashCode) +
-      (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
+      totalItems.hashCode +
+      itemsPerPage.hashCode +
       links.hashCode;
 
   static List<GetTicketDocumentTypes200Response> listFromJson(Iterable? json) {
@@ -125,10 +125,8 @@ class GetTicketDocumentTypes200Response {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'totalItems'))
-        r'totalItems': totalItems,
-      if (keys == null || keys.contains(r'itemsPerPage'))
-        r'itemsPerPage': itemsPerPage,
+      r'totalItems': totalItems,
+      r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {

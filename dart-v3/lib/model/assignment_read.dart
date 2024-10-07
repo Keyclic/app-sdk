@@ -11,7 +11,7 @@ class AssignmentRead {
     this.member,
     this.outOfContract,
     this.service,
-    this.id,
+    required this.id,
   });
 
   /// Returns a new [AssignmentRead] instance and imports its values from
@@ -39,7 +39,7 @@ class AssignmentRead {
   final String? service;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -62,7 +62,7 @@ class AssignmentRead {
       (member == null ? 0 : member.hashCode) +
       (outOfContract == null ? 0 : outOfContract.hashCode) +
       (service == null ? 0 : service.hashCode) +
-      (id == null ? 0 : id.hashCode);
+      id.hashCode;
 
   static List<AssignmentRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -120,7 +120,7 @@ class AssignmentRead {
       if (keys == null || keys.contains(r'outOfContract'))
         r'outOfContract': outOfContract,
       if (keys == null || keys.contains(r'service')) r'service': service,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
     };
   }
 }

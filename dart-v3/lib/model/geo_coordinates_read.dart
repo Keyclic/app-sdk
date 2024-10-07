@@ -8,7 +8,7 @@ class GeoCoordinatesRead {
   /// Returns a new [GeoCoordinatesRead] instance.
   GeoCoordinatesRead({
     this.elevation,
-    this.point,
+    required this.point,
   });
 
   /// Returns a new [GeoCoordinatesRead] instance and imports its values from
@@ -21,7 +21,7 @@ class GeoCoordinatesRead {
     return GeoCoordinatesRead(
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
-      point: PointRead.fromJson(json[r'point']),
+      point: PointRead.fromJson(json[r'point'])!,
     );
   }
 
@@ -30,7 +30,7 @@ class GeoCoordinatesRead {
   // maximum: 8000
   num? elevation;
 
-  PointRead? point;
+  PointRead point;
 
   @override
   bool operator ==(Object other) {
@@ -46,8 +46,7 @@ class GeoCoordinatesRead {
 
   @override
   int get hashCode =>
-      (elevation == null ? 0 : elevation.hashCode) +
-      (point == null ? 0 : point.hashCode);
+      (elevation == null ? 0 : elevation.hashCode) + point.hashCode;
 
   static List<GeoCoordinatesRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -102,15 +101,14 @@ class GeoCoordinatesRead {
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+      r'point': point.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^point\.'))) {
+          previousValue.add(element.split(RegExp(r'^point\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

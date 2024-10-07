@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class CategoryJsonhalRead {
   /// Returns a new [CategoryJsonhalRead] instance.
   CategoryJsonhalRead({
-    this.links,
+    required this.links,
     required this.name,
-    this.id,
-    this.path,
+    required this.id,
+    this.path = const [],
   });
 
   /// Returns a new [CategoryJsonhalRead] instance and imports its values from
@@ -21,21 +21,21 @@ class CategoryJsonhalRead {
     }
 
     return CategoryJsonhalRead(
-      links: CategoryJsonhalReadLinks.fromJson(json[r'_links']),
+      links: CategoryJsonhalReadLinks.fromJson(json[r'_links'])!,
       name: json[r'name'],
       id: json[r'id'],
       path: NodeJsonhalRead.listFromJson(json[r'path']),
     );
   }
 
-  CategoryJsonhalReadLinks? links;
+  CategoryJsonhalReadLinks links;
 
   String name;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  final List<NodeJsonhalRead>? path;
+  final List<NodeJsonhalRead> path;
 
   @override
   bool operator ==(Object other) {
@@ -53,10 +53,7 @@ class CategoryJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      name.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (path == null ? 0 : path.hashCode);
+      links.hashCode + name.hashCode + id.hashCode + path.hashCode;
 
   static List<CategoryJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,18 +108,17 @@ class CategoryJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'path')) r'path': path,
+      r'id': id,
+      r'path': path,
     };
   }
 }

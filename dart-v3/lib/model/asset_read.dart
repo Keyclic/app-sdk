@@ -11,11 +11,11 @@ class AssetRead {
     this.description,
     required this.name,
     this.preferences,
-    this.id,
-    this.path,
+    required this.id,
+    this.path = const [],
     this.address,
-    this.createdAt,
-    this.updatedAt,
+    required this.createdAt,
+    required this.updatedAt,
     this.parent,
     this.state,
   });
@@ -35,8 +35,8 @@ class AssetRead {
       id: json[r'id'],
       path: NodeRead.listFromJson(json[r'path']),
       address: PostalAddressRead.fromJson(json[r'address']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       parent: json[r'parent'],
       state: json[r'state'],
     );
@@ -51,17 +51,17 @@ class AssetRead {
   PreferencesAssetRead? preferences;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  final List<NodeRead>? path;
+  final List<NodeRead> path;
 
   PostalAddressRead? address;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   String? parent;
 
@@ -94,11 +94,11 @@ class AssetRead {
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (path == null ? 0 : path.hashCode) +
+      id.hashCode +
+      path.hashCode +
       (address == null ? 0 : address.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
 
@@ -166,8 +166,8 @@ class AssetRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'path')) r'path': path,
+      r'id': id,
+      r'path': path,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
@@ -178,10 +178,8 @@ class AssetRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
       if (keys == null || keys.contains(r'state')) r'state': state,
     };

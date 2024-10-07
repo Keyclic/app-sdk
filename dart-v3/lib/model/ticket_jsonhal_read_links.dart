@@ -7,12 +7,12 @@ part of keyclic_sdk_api_platform;
 class TicketJsonhalReadLinks {
   /// Returns a new [TicketJsonhalReadLinks] instance.
   TicketJsonhalReadLinks({
-    this.self,
-    this.organization,
-    this.parent,
-    this.assignments,
-    this.equipments,
-    this.children,
+    required this.self,
+    required this.organization,
+    required this.parent,
+    this.assignments = const [],
+    this.equipments = const [],
+    this.children = const [],
   });
 
   /// Returns a new [TicketJsonhalReadLinks] instance and imports its values from
@@ -23,10 +23,11 @@ class TicketJsonhalReadLinks {
     }
 
     return TicketJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
       organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
-          json[r'organization']),
-      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
+          json[r'organization'])!,
+      parent:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent'])!,
       assignments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
           json[r'assignments']),
       equipments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
@@ -36,17 +37,17 @@ class TicketJsonhalReadLinks {
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst? organization;
+  GetPlaceCollection200ResponseLinksFirst organization;
 
-  GetPlaceCollection200ResponseLinksFirst? parent;
+  GetPlaceCollection200ResponseLinksFirst parent;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? assignments;
+  List<GetPlaceCollection200ResponseLinksFirst> assignments;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? equipments;
+  List<GetPlaceCollection200ResponseLinksFirst> equipments;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? children;
+  List<GetPlaceCollection200ResponseLinksFirst> children;
 
   @override
   bool operator ==(Object other) {
@@ -68,12 +69,12 @@ class TicketJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
-      (parent == null ? 0 : parent.hashCode) +
-      (assignments == null ? 0 : assignments.hashCode) +
-      (equipments == null ? 0 : equipments.hashCode) +
-      (children == null ? 0 : children.hashCode);
+      self.hashCode +
+      organization.hashCode +
+      parent.hashCode +
+      assignments.hashCode +
+      equipments.hashCode +
+      children.hashCode;
 
   static List<TicketJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -129,39 +130,33 @@ class TicketJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+        return previousValue;
+      })),
+      r'organization': organization.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^organization\.'))) {
+          previousValue.add(element.split(RegExp(r'^organization\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
-        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^parent\.'))) {
-            previousValue.add(element.split(RegExp(r'^parent\.')).last);
-          }
+        return previousValue;
+      })),
+      r'parent': parent.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^parent\.'))) {
+          previousValue.add(element.split(RegExp(r'^parent\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'assignments'))
-        r'assignments': assignments,
-      if (keys == null || keys.contains(r'equipments'))
-        r'equipments': equipments,
-      if (keys == null || keys.contains(r'children')) r'children': children,
+        return previousValue;
+      })),
+      r'assignments': assignments,
+      r'equipments': equipments,
+      r'children': children,
     };
   }
 }

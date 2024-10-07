@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class TicketPriorityJsonhalRead {
   /// Returns a new [TicketPriorityJsonhalRead] instance.
   TicketPriorityJsonhalRead({
-    this.links,
+    required this.links,
     this.color,
     required this.name,
-    this.id,
-    this.position,
+    required this.id,
+    required this.position,
   });
 
   /// Returns a new [TicketPriorityJsonhalRead] instance and imports its values from
@@ -22,7 +22,7 @@ class TicketPriorityJsonhalRead {
     }
 
     return TicketPriorityJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       color: json[r'color'],
       name: json[r'name'],
       id: json[r'id'],
@@ -30,16 +30,16 @@ class TicketPriorityJsonhalRead {
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   String? color;
 
   String name;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  int? position;
+  int position;
 
   @override
   bool operator ==(Object other) {
@@ -58,11 +58,11 @@ class TicketPriorityJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (color == null ? 0 : color.hashCode) +
       name.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (position == null ? 0 : position.hashCode);
+      id.hashCode +
+      position.hashCode;
 
   static List<TicketPriorityJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -118,19 +118,18 @@ class TicketPriorityJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'color')) r'color': color,
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'position')) r'position': position,
+      r'id': id,
+      r'position': position,
     };
   }
 }

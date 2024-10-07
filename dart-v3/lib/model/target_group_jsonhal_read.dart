@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class TargetGroupJsonhalRead {
   /// Returns a new [TargetGroupJsonhalRead] instance.
   TargetGroupJsonhalRead({
-    this.links,
-    this.description,
-    this.id,
+    required this.links,
+    required this.description,
+    required this.id,
     this.name,
   });
 
@@ -21,18 +21,18 @@ class TargetGroupJsonhalRead {
     }
 
     return TargetGroupJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
-  final String? description;
+  final String description;
 
-  String? id;
+  String id;
 
   String? name;
 
@@ -52,9 +52,9 @@ class TargetGroupJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (description == null ? 0 : description.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      links.hashCode +
+      description.hashCode +
+      id.hashCode +
       (name == null ? 0 : name.hashCode);
 
   static List<TargetGroupJsonhalRead> listFromJson(Iterable? json) {
@@ -111,18 +111,16 @@ class TargetGroupJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'description': description,
+      r'id': id,
       if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }

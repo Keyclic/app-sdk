@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class FeedbackJsonhalReadLinks {
   /// Returns a new [FeedbackJsonhalReadLinks] instance.
   FeedbackJsonhalReadLinks({
-    this.self,
-    this.reporter,
+    required this.self,
+    required this.reporter,
   });
 
   /// Returns a new [FeedbackJsonhalReadLinks] instance and imports its values from
@@ -19,15 +19,15 @@ class FeedbackJsonhalReadLinks {
     }
 
     return FeedbackJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
       reporter:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reporter']),
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reporter'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst? reporter;
+  GetPlaceCollection200ResponseLinksFirst reporter;
 
   @override
   bool operator ==(Object other) {
@@ -42,9 +42,7 @@ class FeedbackJsonhalReadLinks {
   }
 
   @override
-  int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (reporter == null ? 0 : reporter.hashCode);
+  int get hashCode => self.hashCode + reporter.hashCode;
 
   static List<FeedbackJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -100,25 +98,22 @@ class FeedbackJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^reporter\.').hasMatch(key)))
-        r'reporter': reporter?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^reporter\.'))) {
-            previousValue.add(element.split(RegExp(r'^reporter\.')).last);
-          }
+        return previousValue;
+      })),
+      r'reporter': reporter.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^reporter\.'))) {
+          previousValue.add(element.split(RegExp(r'^reporter\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

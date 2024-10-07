@@ -13,8 +13,8 @@ class ContractEditContractCommandWrite {
     this.effectiveDate,
     this.name,
     this.number,
-    this.onCall,
-    this.places,
+    required this.onCall,
+    this.places = const [],
     this.provider,
     this.renewal,
     this.signedAt,
@@ -39,8 +39,7 @@ class ContractEditContractCommandWrite {
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      places:
-          json[r'places'] == null ? null : List<String>.from(json[r'places']),
+      places: List<String>.from(json[r'places']),
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
@@ -63,9 +62,9 @@ class ContractEditContractCommandWrite {
 
   String? number;
 
-  bool? onCall;
+  bool onCall;
 
-  List<String>? places;
+  List<String> places;
 
   String? provider;
 
@@ -114,8 +113,8 @@ class ContractEditContractCommandWrite {
       (effectiveDate == null ? 0 : effectiveDate.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (number == null ? 0 : number.hashCode) +
-      (onCall == null ? 0 : onCall.hashCode) +
-      (places == null ? 0 : places.hashCode) +
+      onCall.hashCode +
+      places.hashCode +
       (provider == null ? 0 : provider.hashCode) +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
@@ -195,8 +194,8 @@ class ContractEditContractCommandWrite {
         r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'number')) r'number': number,
-      if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
-      if (keys == null || keys.contains(r'places')) r'places': places,
+      r'onCall': onCall,
+      r'places': places,
       if (keys == null || keys.contains(r'provider')) r'provider': provider,
       if (keys == null ||
           keys.any((key) => RegExp(r'^renewal\.').hasMatch(key)))

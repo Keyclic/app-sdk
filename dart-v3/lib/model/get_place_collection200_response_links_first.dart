@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class GetPlaceCollection200ResponseLinksFirst {
   /// Returns a new [GetPlaceCollection200ResponseLinksFirst] instance.
   GetPlaceCollection200ResponseLinksFirst({
-    this.href,
+    required this.href,
   });
 
   /// Returns a new [GetPlaceCollection200ResponseLinksFirst] instance and imports its values from
@@ -22,7 +22,7 @@ class GetPlaceCollection200ResponseLinksFirst {
     );
   }
 
-  String? href;
+  String href;
 
   @override
   bool operator ==(Object other) {
@@ -36,7 +36,7 @@ class GetPlaceCollection200ResponseLinksFirst {
   }
 
   @override
-  int get hashCode => (href == null ? 0 : href.hashCode);
+  int get hashCode => href.hashCode;
 
   static List<GetPlaceCollection200ResponseLinksFirst> listFromJson(
       Iterable? json) {
@@ -94,7 +94,7 @@ class GetPlaceCollection200ResponseLinksFirst {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'href')) r'href': href,
+      r'href': href,
     };
   }
 }

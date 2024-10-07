@@ -7,12 +7,12 @@ part of keyclic_sdk_api_platform;
 class IntegrationIntegrationRead {
   /// Returns a new [IntegrationIntegrationRead] instance.
   IntegrationIntegrationRead({
-    this.connector,
-    this.inputs,
-    this.organization,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.connector,
+    this.inputs = const {},
+    required this.organization,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
     this.name,
   });
 
@@ -25,31 +25,29 @@ class IntegrationIntegrationRead {
 
     return IntegrationIntegrationRead(
       connector: json[r'connector'],
-      inputs: json[r'inputs'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'inputs']),
+      inputs: Map<String, Object?>.from(json[r'inputs']),
       organization: json[r'organization'],
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       name: json[r'name'],
     );
   }
 
-  String? connector;
+  String connector;
 
-  Map<String, Object?>? inputs;
+  Map<String, Object?> inputs;
 
-  String? organization;
+  String organization;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   final String? name;
 
@@ -72,12 +70,12 @@ class IntegrationIntegrationRead {
 
   @override
   int get hashCode =>
-      (connector == null ? 0 : connector.hashCode) +
-      (inputs == null ? 0 : inputs.hashCode) +
-      (organization == null ? 0 : organization.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      connector.hashCode +
+      inputs.hashCode +
+      organization.hashCode +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       (name == null ? 0 : name.hashCode);
 
   static List<IntegrationIntegrationRead> listFromJson(Iterable? json) {
@@ -134,15 +132,12 @@ class IntegrationIntegrationRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'connector')) r'connector': connector,
-      if (keys == null || keys.contains(r'inputs')) r'inputs': inputs,
-      if (keys == null || keys.contains(r'organization'))
-        r'organization': organization,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'connector': connector,
+      r'inputs': inputs,
+      r'organization': organization,
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }

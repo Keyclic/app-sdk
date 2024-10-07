@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class TicketTypeRead {
   /// Returns a new [TicketTypeRead] instance.
   TicketTypeRead({
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
     required this.name,
     this.description,
   });
@@ -23,21 +23,21 @@ class TicketTypeRead {
 
     return TicketTypeRead(
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       name: json[r'name'],
       description: json[r'description'],
     );
   }
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   String name;
 
@@ -60,9 +60,9 @@ class TicketTypeRead {
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       name.hashCode +
       (description == null ? 0 : description.hashCode);
 
@@ -117,11 +117,9 @@ class TicketTypeRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       r'name': name,
       if (keys == null || keys.contains(r'description'))
         r'description': description,

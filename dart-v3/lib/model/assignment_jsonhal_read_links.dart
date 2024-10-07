@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class AssignmentJsonhalReadLinks {
   /// Returns a new [AssignmentJsonhalReadLinks] instance.
   AssignmentJsonhalReadLinks({
-    this.self,
-    this.contract,
-    this.member,
-    this.service,
+    required this.self,
+    required this.contract,
+    required this.member,
+    required this.service,
   });
 
   /// Returns a new [AssignmentJsonhalReadLinks] instance and imports its values from
@@ -21,22 +21,23 @@ class AssignmentJsonhalReadLinks {
     }
 
     return AssignmentJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
       contract:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'contract']),
-      member: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member']),
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'contract'])!,
+      member:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member'])!,
       service:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'service']),
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'service'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst? contract;
+  GetPlaceCollection200ResponseLinksFirst contract;
 
-  GetPlaceCollection200ResponseLinksFirst? member;
+  GetPlaceCollection200ResponseLinksFirst member;
 
-  GetPlaceCollection200ResponseLinksFirst? service;
+  GetPlaceCollection200ResponseLinksFirst service;
 
   @override
   bool operator ==(Object other) {
@@ -54,10 +55,7 @@ class AssignmentJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (contract == null ? 0 : contract.hashCode) +
-      (member == null ? 0 : member.hashCode) +
-      (service == null ? 0 : service.hashCode);
+      self.hashCode + contract.hashCode + member.hashCode + service.hashCode;
 
   static List<AssignmentJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -113,44 +111,38 @@ class AssignmentJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^contract\.').hasMatch(key)))
-        r'contract': contract?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^contract\.'))) {
-            previousValue.add(element.split(RegExp(r'^contract\.')).last);
-          }
+        return previousValue;
+      })),
+      r'contract': contract.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^contract\.'))) {
+          previousValue.add(element.split(RegExp(r'^contract\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
-          }
+        return previousValue;
+      })),
+      r'member': member.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^member\.'))) {
+          previousValue.add(element.split(RegExp(r'^member\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^service\.').hasMatch(key)))
-        r'service': service?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^service\.'))) {
-            previousValue.add(element.split(RegExp(r'^service\.')).last);
-          }
+        return previousValue;
+      })),
+      r'service': service.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^service\.'))) {
+          previousValue.add(element.split(RegExp(r'^service\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

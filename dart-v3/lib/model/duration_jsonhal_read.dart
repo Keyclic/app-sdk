@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class DurationJsonhalRead {
   /// Returns a new [DurationJsonhalRead] instance.
   DurationJsonhalRead({
-    this.links,
-    this.hours,
-    this.minutes,
-    this.seconds,
+    required this.links,
+    required this.hours,
+    required this.minutes,
+    required this.seconds,
   });
 
   /// Returns a new [DurationJsonhalRead] instance and imports its values from
@@ -21,20 +21,20 @@ class DurationJsonhalRead {
     }
 
     return DurationJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       hours: json[r'hours'] == null ? null : json[r'hours'].toDouble(),
       minutes: json[r'minutes'],
       seconds: json[r'seconds'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
-  final num? hours;
+  final num hours;
 
-  final int? minutes;
+  final int minutes;
 
-  final int? seconds;
+  final int seconds;
 
   @override
   bool operator ==(Object other) {
@@ -52,10 +52,7 @@ class DurationJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (hours == null ? 0 : hours.hashCode) +
-      (minutes == null ? 0 : minutes.hashCode) +
-      (seconds == null ? 0 : seconds.hashCode);
+      links.hashCode + hours.hashCode + minutes.hashCode + seconds.hashCode;
 
   static List<DurationJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -110,18 +107,17 @@ class DurationJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'hours')) r'hours': hours,
-      if (keys == null || keys.contains(r'minutes')) r'minutes': minutes,
-      if (keys == null || keys.contains(r'seconds')) r'seconds': seconds,
+        return previousValue;
+      })),
+      r'hours': hours,
+      r'minutes': minutes,
+      r'seconds': seconds,
     };
   }
 }

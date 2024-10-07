@@ -7,14 +7,14 @@ part of keyclic_sdk_api_platform;
 class ContractRead {
   /// Returns a new [ContractRead] instance.
   ContractRead({
-    this.billing,
+    required this.billing,
     this.description,
     this.duration,
     required this.effectiveDate,
     this.endDate,
     required this.name,
     required this.number,
-    this.onCall,
+    required this.onCall,
     required this.provider,
     this.renewal,
     this.signedAt,
@@ -22,9 +22,9 @@ class ContractRead {
     this.terminationDate,
     this.terminationReason,
     required this.type,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [ContractRead] instance and imports its values from
@@ -35,10 +35,10 @@ class ContractRead {
     }
 
     return ContractRead(
-      billing: BillingRead.fromJson(json[r'billing']),
+      billing: BillingRead.fromJson(json[r'billing'])!,
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
+      effectiveDate: mapToDateTime(json[r'effectiveDate']),
       endDate: mapToDateTime(json[r'endDate']),
       name: json[r'name'],
       number: json[r'number'],
@@ -51,12 +51,12 @@ class ContractRead {
       terminationReason: json[r'terminationReason'],
       type: json[r'type'],
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
-  BillingRead? billing;
+  BillingRead billing;
 
   /// Detailed description of the contract.
   String? description;
@@ -65,7 +65,7 @@ class ContractRead {
   String? duration;
 
   /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
-  DateTime effectiveDate;
+  DateTime? effectiveDate;
 
   /// The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
   final DateTime? endDate;
@@ -77,10 +77,10 @@ class ContractRead {
   String number;
 
   /// The onCall property represents whether a staff member is currently available for on-call duties.
-  bool? onCall;
+  bool onCall;
 
   /// Organization responsible for the contract.
-  String provider;
+  String? provider;
 
   RenewalRead? renewal;
 
@@ -96,16 +96,16 @@ class ContractRead {
   String? terminationReason;
 
   /// The type of the contract defined by the organization.
-  String type;
+  String? type;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -137,24 +137,24 @@ class ContractRead {
 
   @override
   int get hashCode =>
-      (billing == null ? 0 : billing.hashCode) +
+      billing.hashCode +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
-      effectiveDate.hashCode +
+      (effectiveDate == null ? 0 : effectiveDate.hashCode) +
       (endDate == null ? 0 : endDate.hashCode) +
       name.hashCode +
       number.hashCode +
-      (onCall == null ? 0 : onCall.hashCode) +
-      provider.hashCode +
+      onCall.hashCode +
+      (provider == null ? 0 : provider.hashCode) +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (terminationReason == null ? 0 : terminationReason.hashCode) +
-      type.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (type == null ? 0 : type.hashCode) +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<ContractRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -207,26 +207,25 @@ class ContractRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^billing\.').hasMatch(key)))
-        r'billing': billing?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^billing\.'))) {
-            previousValue.add(element.split(RegExp(r'^billing\.')).last);
-          }
+      r'billing': billing.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^billing\.'))) {
+          previousValue.add(element.split(RegExp(r'^billing\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
-      r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'effectiveDate'))
+        r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'endDate'))
         r'endDate': endDate?.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
-      if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
-      r'provider': provider,
+      r'onCall': onCall,
+      if (keys == null || keys.contains(r'provider')) r'provider': provider,
       if (keys == null ||
           keys.any((key) => RegExp(r'^renewal\.').hasMatch(key)))
         r'renewal': renewal?.toJson(keys?.fold<List<String>>(<String>[],
@@ -244,12 +243,10 @@ class ContractRead {
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'terminationReason'))
         r'terminationReason': terminationReason,
-      r'type': type,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

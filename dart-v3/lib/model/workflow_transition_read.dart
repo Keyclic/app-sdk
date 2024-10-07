@@ -9,11 +9,11 @@ class WorkflowTransitionRead {
   WorkflowTransitionRead({
     this.description,
     this.fields,
-    this.from,
+    required this.from,
     required this.name,
     this.required_,
-    this.to,
-    this.id,
+    required this.to,
+    required this.id,
   });
 
   /// Returns a new [WorkflowTransitionRead] instance and imports its values from
@@ -27,12 +27,12 @@ class WorkflowTransitionRead {
       description: json[r'description'],
       fields:
           json[r'fields'] == null ? null : List<String>.from(json[r'fields']),
-      from: WorkflowStateRead.fromJson(json[r'from']),
+      from: WorkflowStateRead.fromJson(json[r'from'])!,
       name: json[r'name'],
       required_: json[r'required'] == null
           ? null
           : List<String>.from(json[r'required']),
-      to: WorkflowStateRead.fromJson(json[r'to']),
+      to: WorkflowStateRead.fromJson(json[r'to'])!,
       id: json[r'id'],
     );
   }
@@ -41,16 +41,16 @@ class WorkflowTransitionRead {
 
   List<String>? fields;
 
-  WorkflowStateRead? from;
+  WorkflowStateRead from;
 
   String name;
 
   List<String>? required_;
 
-  WorkflowStateRead? to;
+  WorkflowStateRead to;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -73,11 +73,11 @@ class WorkflowTransitionRead {
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
       (fields == null ? 0 : fields.hashCode) +
-      (from == null ? 0 : from.hashCode) +
+      from.hashCode +
       name.hashCode +
       (required_ == null ? 0 : required_.hashCode) +
-      (to == null ? 0 : to.hashCode) +
-      (id == null ? 0 : id.hashCode);
+      to.hashCode +
+      id.hashCode;
 
   static List<WorkflowTransitionRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -136,27 +136,25 @@ class WorkflowTransitionRead {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'fields')) r'fields': fields,
-      if (keys == null || keys.any((key) => RegExp(r'^from\.').hasMatch(key)))
-        r'from': from?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^from\.'))) {
-            previousValue.add(element.split(RegExp(r'^from\.')).last);
-          }
+      r'from': from.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^from\.'))) {
+          previousValue.add(element.split(RegExp(r'^from\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       r'name': name,
       if (keys == null || keys.contains(r'required_')) r'required': required_,
-      if (keys == null || keys.any((key) => RegExp(r'^to\.').hasMatch(key)))
-        r'to': to?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^to\.'))) {
-            previousValue.add(element.split(RegExp(r'^to\.')).last);
-          }
+      r'to': to.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^to\.'))) {
+          previousValue.add(element.split(RegExp(r'^to\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'id': id,
     };
   }
 }

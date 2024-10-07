@@ -7,29 +7,29 @@ part of keyclic_sdk_api_platform;
 class TicketRead {
   /// Returns a new [TicketRead] instance.
   TicketRead({
-    this.assignments,
+    this.assignments = const [],
     this.category,
     this.description,
     this.dueBy,
-    this.equipments,
+    this.equipments = const [],
     this.name,
     required this.organization,
     this.phase,
     required this.place,
     this.priority,
     this.scheduledAt,
-    this.completed,
+    required this.completed,
     required this.feedback,
-    this.id,
+    required this.id,
     this.tags,
-    this.createdAt,
-    this.updatedAt,
-    this.children,
+    required this.createdAt,
+    required this.updatedAt,
+    this.children = const [],
     this.parent,
     this.state,
     this.reference,
-    this.archived,
-    this.images,
+    required this.archived,
+    this.images = const [],
   });
 
   /// Returns a new [TicketRead] instance and imports its values from
@@ -55,21 +55,18 @@ class TicketRead {
       feedback: FeedbackRead.fromJson(json[r'feedback'])!,
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
-      children: json[r'children'] == null
-          ? null
-          : List<String>.from(json[r'children']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
+      children: List<String>.from(json[r'children']),
       parent: json[r'parent'],
       state: WorkflowStateRead.fromJson(json[r'state']),
       reference: json[r'reference'],
       archived: json[r'archived'],
-      images:
-          json[r'images'] == null ? null : List<String>.from(json[r'images']),
+      images: List<String>.from(json[r'images']),
     );
   }
 
-  final List<AssignmentRead>? assignments;
+  final List<AssignmentRead> assignments;
 
   CategoryRead? category;
 
@@ -77,7 +74,7 @@ class TicketRead {
 
   final DateTime? dueBy;
 
-  final List<EquipmentRead>? equipments;
+  final List<EquipmentRead> equipments;
 
   String? name;
 
@@ -91,22 +88,22 @@ class TicketRead {
 
   DateTime? scheduledAt;
 
-  bool? completed;
+  bool completed;
 
   FeedbackRead feedback;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   List<String>? tags;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
-  final List<String>? children;
+  final List<String> children;
 
   final String? parent;
 
@@ -114,9 +111,9 @@ class TicketRead {
 
   final String? reference;
 
-  bool? archived;
+  bool archived;
 
-  final List<String>? images;
+  final List<String> images;
 
   @override
   bool operator ==(Object other) {
@@ -155,29 +152,29 @@ class TicketRead {
 
   @override
   int get hashCode =>
-      (assignments == null ? 0 : assignments.hashCode) +
+      assignments.hashCode +
       (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
-      (equipments == null ? 0 : equipments.hashCode) +
+      equipments.hashCode +
       (name == null ? 0 : name.hashCode) +
       organization.hashCode +
       (phase == null ? 0 : phase.hashCode) +
       place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
-      (completed == null ? 0 : completed.hashCode) +
+      completed.hashCode +
       feedback.hashCode +
-      (id == null ? 0 : id.hashCode) +
+      id.hashCode +
       (tags == null ? 0 : tags.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (children == null ? 0 : children.hashCode) +
+      createdAt.hashCode +
+      updatedAt.hashCode +
+      children.hashCode +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
-      (archived == null ? 0 : archived.hashCode) +
-      (images == null ? 0 : images.hashCode);
+      archived.hashCode +
+      images.hashCode;
 
   static List<TicketRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -229,8 +226,7 @@ class TicketRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'assignments'))
-        r'assignments': assignments,
+      r'assignments': assignments,
       if (keys == null ||
           keys.any((key) => RegExp(r'^category\.').hasMatch(key)))
         r'category': category?.toJson(keys?.fold<List<String>>(<String>[],
@@ -245,8 +241,7 @@ class TicketRead {
         r'description': description,
       if (keys == null || keys.contains(r'dueBy'))
         r'dueBy': dueBy?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'equipments'))
-        r'equipments': equipments,
+      r'equipments': equipments,
       if (keys == null || keys.contains(r'name')) r'name': name,
       r'organization': organization,
       if (keys == null || keys.any((key) => RegExp(r'^phase\.').hasMatch(key)))
@@ -278,7 +273,7 @@ class TicketRead {
         })),
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'completed')) r'completed': completed,
+      r'completed': completed,
       r'feedback': feedback.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^feedback\.'))) {
@@ -287,13 +282,11 @@ class TicketRead {
 
         return previousValue;
       })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
       if (keys == null || keys.contains(r'tags')) r'tags': tags,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'children')) r'children': children,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      r'children': children,
       if (keys == null || keys.contains(r'parent')) r'parent': parent,
       if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
         r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
@@ -305,8 +298,8 @@ class TicketRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'reference')) r'reference': reference,
-      if (keys == null || keys.contains(r'archived')) r'archived': archived,
-      if (keys == null || keys.contains(r'images')) r'images': images,
+      r'archived': archived,
+      r'images': images,
     };
   }
 }

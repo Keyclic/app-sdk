@@ -9,8 +9,8 @@ class TicketPriorityRead {
   TicketPriorityRead({
     this.color,
     required this.name,
-    this.id,
-    this.position,
+    required this.id,
+    required this.position,
   });
 
   /// Returns a new [TicketPriorityRead] instance and imports its values from
@@ -33,9 +33,9 @@ class TicketPriorityRead {
   String name;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  int? position;
+  int position;
 
   @override
   bool operator ==(Object other) {
@@ -55,8 +55,8 @@ class TicketPriorityRead {
   int get hashCode =>
       (color == null ? 0 : color.hashCode) +
       name.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (position == null ? 0 : position.hashCode);
+      id.hashCode +
+      position.hashCode;
 
   static List<TicketPriorityRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -113,8 +113,8 @@ class TicketPriorityRead {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'color')) r'color': color,
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'position')) r'position': position,
+      r'id': id,
+      r'position': position,
     };
   }
 }

@@ -9,8 +9,8 @@ class CategoryRead {
   CategoryRead({
     required this.name,
     this.type,
-    this.id,
-    this.path,
+    required this.id,
+    this.path = const [],
   });
 
   /// Returns a new [CategoryRead] instance and imports its values from
@@ -33,9 +33,9 @@ class CategoryRead {
   final String? type;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  final List<NodeRead>? path;
+  final List<NodeRead> path;
 
   @override
   bool operator ==(Object other) {
@@ -55,8 +55,8 @@ class CategoryRead {
   int get hashCode =>
       name.hashCode +
       (type == null ? 0 : type.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (path == null ? 0 : path.hashCode);
+      id.hashCode +
+      path.hashCode;
 
   static List<CategoryRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,8 +111,8 @@ class CategoryRead {
     return <String, dynamic>{
       r'name': name,
       if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'path')) r'path': path,
+      r'id': id,
+      r'path': path,
     };
   }
 }

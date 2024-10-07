@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class MetricRead {
   /// Returns a new [MetricRead] instance.
   MetricRead({
-    this.duration,
+    required this.duration,
     required this.name,
   });
 
@@ -19,12 +19,12 @@ class MetricRead {
     }
 
     return MetricRead(
-      duration: DurationRead.fromJson(json[r'duration']),
+      duration: DurationRead.fromJson(json[r'duration'])!,
       name: json[r'name'],
     );
   }
 
-  DurationRead? duration;
+  DurationRead duration;
 
   String name;
 
@@ -41,8 +41,7 @@ class MetricRead {
   }
 
   @override
-  int get hashCode =>
-      (duration == null ? 0 : duration.hashCode) + name.hashCode;
+  int get hashCode => duration.hashCode + name.hashCode;
 
   static List<MetricRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -93,16 +92,14 @@ class MetricRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^duration\.').hasMatch(key)))
-        r'duration': duration?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^duration\.'))) {
-            previousValue.add(element.split(RegExp(r'^duration\.')).last);
-          }
+      r'duration': duration.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^duration\.'))) {
+          previousValue.add(element.split(RegExp(r'^duration\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       r'name': name,
     };
   }

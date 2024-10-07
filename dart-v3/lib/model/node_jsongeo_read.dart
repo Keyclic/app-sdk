@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class NodeJsongeoRead {
   /// Returns a new [NodeJsongeoRead] instance.
   NodeJsongeoRead({
-    this.id,
-    this.name,
+    required this.id,
+    required this.name,
   });
 
   /// Returns a new [NodeJsongeoRead] instance and imports its values from
@@ -24,9 +24,9 @@ class NodeJsongeoRead {
     );
   }
 
-  String? id;
+  String id;
 
-  String? name;
+  String name;
 
   @override
   bool operator ==(Object other) {
@@ -39,8 +39,7 @@ class NodeJsongeoRead {
   }
 
   @override
-  int get hashCode =>
-      (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
+  int get hashCode => id.hashCode + name.hashCode;
 
   static List<NodeJsongeoRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -92,8 +91,8 @@ class NodeJsongeoRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'id': id,
+      r'name': name,
     };
   }
 }

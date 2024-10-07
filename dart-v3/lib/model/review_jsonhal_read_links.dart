@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class ReviewJsonhalReadLinks {
   /// Returns a new [ReviewJsonhalReadLinks] instance.
   ReviewJsonhalReadLinks({
-    this.self,
+    required this.self,
     this.itemReviewed,
     this.author,
   });
@@ -20,14 +20,14 @@ class ReviewJsonhalReadLinks {
     }
 
     return ReviewJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       itemReviewed: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'itemReviewed']),
       author: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   GetPlaceCollection200ResponseLinksFirst? itemReviewed;
 
@@ -48,7 +48,7 @@ class ReviewJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
+      self.hashCode +
       (itemReviewed == null ? 0 : itemReviewed.hashCode) +
       (author == null ? 0 : author.hashCode);
 
@@ -106,15 +106,14 @@ class ReviewJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^itemReviewed\.').hasMatch(key)))
         r'itemReviewed': itemReviewed?.toJson(keys?.fold<List<String>>(

@@ -7,15 +7,15 @@ part of keyclic_sdk_api_platform;
 class ExportRead {
   /// Returns a new [ExportRead] instance.
   ExportRead({
-    this.id,
+    required this.id,
     this.contentType =
         const ExportReadContentTypeEnum._('application/vnd.ms-excel'),
     this.downloadUrl,
-    this.expiredAt,
+    required this.expiredAt,
     this.groupBy,
-    this.name,
-    this.createdAt,
-    this.updatedAt,
+    required this.name,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [ExportRead] instance and imports its values from
@@ -29,32 +29,32 @@ class ExportRead {
       id: json[r'id'],
       contentType: ExportReadContentTypeEnum.fromJson(json[r'contentType'])!,
       downloadUrl: json[r'downloadUrl'],
-      expiredAt: mapToDateTime(json[r'expiredAt']),
+      expiredAt: mapToDateTime(json[r'expiredAt'])!,
       groupBy: ExportReadGroupByEnum.fromJson(json[r'groupBy']),
       name: json[r'name'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   ExportReadContentTypeEnum contentType;
 
   String? downloadUrl;
 
-  final DateTime? expiredAt;
+  final DateTime expiredAt;
 
   ExportReadGroupByEnum? groupBy;
 
-  String? name;
+  String name;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -76,14 +76,14 @@ class ExportRead {
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) +
+      id.hashCode +
       contentType.hashCode +
       (downloadUrl == null ? 0 : downloadUrl.hashCode) +
-      (expiredAt == null ? 0 : expiredAt.hashCode) +
+      expiredAt.hashCode +
       (groupBy == null ? 0 : groupBy.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      name.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<ExportRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -135,18 +135,15 @@ class ExportRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
       r'contentType': contentType,
       if (keys == null || keys.contains(r'downloadUrl'))
         r'downloadUrl': downloadUrl,
-      if (keys == null || keys.contains(r'expiredAt'))
-        r'expiredAt': expiredAt?.toUtc().toIso8601String(),
+      r'expiredAt': expiredAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'name': name,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

@@ -9,13 +9,13 @@ class FeedbackJsongeoRead {
   FeedbackJsongeoRead({
     this.description,
     this.geoCoordinates,
-    this.markers,
+    this.markers = const [],
     this.metadata,
     this.reporter,
     required this.visibility,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [FeedbackJsongeoRead] instance and imports its values from
@@ -35,10 +35,10 @@ class FeedbackJsongeoRead {
           : Map<String, Object?>.from(json[r'metadata']),
       reporter: json[r'reporter'],
       visibility:
-          FeedbackJsongeoReadVisibilityEnum.fromJson(json[r'visibility'])!,
+          FeedbackJsongeoReadVisibilityEnum.fromJson(json[r'visibility']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
@@ -46,22 +46,22 @@ class FeedbackJsongeoRead {
 
   GeoCoordinatesJsongeoRead? geoCoordinates;
 
-  final List<MarkerJsongeoRead>? markers;
+  final List<MarkerJsongeoRead> markers;
 
   Map<String, Object?>? metadata;
 
   String? reporter;
 
-  FeedbackJsongeoReadVisibilityEnum visibility;
+  FeedbackJsongeoReadVisibilityEnum? visibility;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -86,13 +86,13 @@ class FeedbackJsongeoRead {
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
-      (markers == null ? 0 : markers.hashCode) +
+      markers.hashCode +
       (metadata == null ? 0 : metadata.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
-      visibility.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (visibility == null ? 0 : visibility.hashCode) +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<FeedbackJsongeoRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -159,15 +159,14 @@ class FeedbackJsongeoRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      r'markers': markers,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
-      r'visibility': visibility,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'visibility'))
+        r'visibility': visibility,
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

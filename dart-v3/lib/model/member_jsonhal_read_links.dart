@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class MemberJsonhalReadLinks {
   /// Returns a new [MemberJsonhalReadLinks] instance.
   MemberJsonhalReadLinks({
-    this.self,
+    required this.self,
     this.roles,
   });
 
@@ -19,13 +19,13 @@ class MemberJsonhalReadLinks {
     }
 
     return MemberJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       roles:
           GetPlaceCollection200ResponseLinksSelf.listFromJson(json[r'roles']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   List<GetPlaceCollection200ResponseLinksSelf>? roles;
 
@@ -42,8 +42,7 @@ class MemberJsonhalReadLinks {
   }
 
   @override
-  int get hashCode =>
-      (self == null ? 0 : self.hashCode) + (roles == null ? 0 : roles.hashCode);
+  int get hashCode => self.hashCode + (roles == null ? 0 : roles.hashCode);
 
   static List<MemberJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -98,15 +97,14 @@ class MemberJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'roles')) r'roles': roles,
     };
   }

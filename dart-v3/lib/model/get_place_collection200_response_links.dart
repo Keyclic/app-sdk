@@ -7,12 +7,12 @@ part of keyclic_sdk_api_platform;
 class GetPlaceCollection200ResponseLinks {
   /// Returns a new [GetPlaceCollection200ResponseLinks] instance.
   GetPlaceCollection200ResponseLinks({
-    this.self,
+    required this.self,
     this.first,
     this.last,
     this.next,
     this.previous,
-    this.item,
+    this.item = const [],
   });
 
   /// Returns a new [GetPlaceCollection200ResponseLinks] instance and imports its values from
@@ -23,7 +23,7 @@ class GetPlaceCollection200ResponseLinks {
     }
 
     return GetPlaceCollection200ResponseLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       first: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'first']),
       last: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'last']),
       next: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'next']),
@@ -33,7 +33,7 @@ class GetPlaceCollection200ResponseLinks {
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   GetPlaceCollection200ResponseLinksFirst? first;
 
@@ -43,7 +43,7 @@ class GetPlaceCollection200ResponseLinks {
 
   GetPlaceCollection200ResponseLinksFirst? previous;
 
-  List<GetPlaceCollection200ResponseLinksSelf>? item;
+  List<GetPlaceCollection200ResponseLinksSelf> item;
 
   @override
   bool operator ==(Object other) {
@@ -63,12 +63,12 @@ class GetPlaceCollection200ResponseLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
+      self.hashCode +
       (first == null ? 0 : first.hashCode) +
       (last == null ? 0 : last.hashCode) +
       (next == null ? 0 : next.hashCode) +
       (previous == null ? 0 : previous.hashCode) +
-      (item == null ? 0 : item.hashCode);
+      item.hashCode;
 
   static List<GetPlaceCollection200ResponseLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -125,15 +125,14 @@ class GetPlaceCollection200ResponseLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.any((key) => RegExp(r'^first\.').hasMatch(key)))
         r'first': first?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {
@@ -171,7 +170,7 @@ class GetPlaceCollection200ResponseLinks {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'item')) r'item': item,
+      r'item': item,
     };
   }
 }

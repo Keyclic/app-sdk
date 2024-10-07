@@ -7,15 +7,15 @@ part of keyclic_sdk_api_platform;
 class OrganizationJsonhalRead {
   /// Returns a new [OrganizationJsonhalRead] instance.
   OrganizationJsonhalRead({
-    this.links,
+    required this.links,
     this.alternateName,
     this.description,
     this.logo,
     required this.name,
-    this.preferences,
-    this.id,
+    required this.preferences,
+    required this.id,
     this.address,
-    this.archived,
+    required this.archived,
   });
 
   /// Returns a new [OrganizationJsonhalRead] instance and imports its values from
@@ -26,20 +26,20 @@ class OrganizationJsonhalRead {
     }
 
     return OrganizationJsonhalRead(
-      links: OrganizationJsonhalReadLinks.fromJson(json[r'_links']),
+      links: OrganizationJsonhalReadLinks.fromJson(json[r'_links'])!,
       alternateName: json[r'alternateName'],
       description: json[r'description'],
       logo: json[r'logo'],
       name: json[r'name'],
       preferences:
-          PreferencesJsonhalOrganizationRead.fromJson(json[r'preferences']),
+          PreferencesJsonhalOrganizationRead.fromJson(json[r'preferences'])!,
       id: json[r'id'],
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
       archived: json[r'archived'],
     );
   }
 
-  OrganizationJsonhalReadLinks? links;
+  OrganizationJsonhalReadLinks links;
 
   String? alternateName;
 
@@ -49,14 +49,14 @@ class OrganizationJsonhalRead {
 
   String name;
 
-  PreferencesJsonhalOrganizationRead? preferences;
+  PreferencesJsonhalOrganizationRead preferences;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   PostalAddressJsonhalRead? address;
 
-  bool? archived;
+  bool archived;
 
   @override
   bool operator ==(Object other) {
@@ -79,15 +79,15 @@ class OrganizationJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (alternateName == null ? 0 : alternateName.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (logo == null ? 0 : logo.hashCode) +
       name.hashCode +
-      (preferences == null ? 0 : preferences.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      preferences.hashCode +
+      id.hashCode +
       (address == null ? 0 : address.hashCode) +
-      (archived == null ? 0 : archived.hashCode);
+      archived.hashCode;
 
   static List<OrganizationJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -143,32 +143,29 @@ class OrganizationJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'alternateName'))
         r'alternateName': alternateName,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'logo')) r'logo': logo,
       r'name': name,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^preferences\.').hasMatch(key)))
-        r'preferences': preferences?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^preferences\.'))) {
-            previousValue.add(element.split(RegExp(r'^preferences\.')).last);
-          }
+      r'preferences': preferences.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^preferences\.'))) {
+          previousValue.add(element.split(RegExp(r'^preferences\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'id': id,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],
@@ -179,7 +176,7 @@ class OrganizationJsonhalRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'archived')) r'archived': archived,
+      r'archived': archived,
     };
   }
 }

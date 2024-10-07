@@ -8,7 +8,7 @@ class PublicationJsonhalReadEmbedded {
   /// Returns a new [PublicationJsonhalReadEmbedded] instance.
   PublicationJsonhalReadEmbedded({
     this.author,
-    this.place,
+    required this.place,
   });
 
   /// Returns a new [PublicationJsonhalReadEmbedded] instance and imports its values from
@@ -20,13 +20,13 @@ class PublicationJsonhalReadEmbedded {
 
     return PublicationJsonhalReadEmbedded(
       author: PersonJsonhalRead.fromJson(json[r'author']),
-      place: PlaceJsonhalRead.fromJson(json[r'place']),
+      place: PlaceJsonhalRead.fromJson(json[r'place'])!,
     );
   }
 
   PersonJsonhalRead? author;
 
-  PlaceJsonhalRead? place;
+  PlaceJsonhalRead place;
 
   @override
   bool operator ==(Object other) {
@@ -41,9 +41,7 @@ class PublicationJsonhalReadEmbedded {
   }
 
   @override
-  int get hashCode =>
-      (author == null ? 0 : author.hashCode) +
-      (place == null ? 0 : place.hashCode);
+  int get hashCode => (author == null ? 0 : author.hashCode) + place.hashCode;
 
   static List<PublicationJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -108,15 +106,14 @@ class PublicationJsonhalReadEmbedded {
 
           return previousValue;
         })),
-      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
-        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^place\.'))) {
-            previousValue.add(element.split(RegExp(r'^place\.')).last);
-          }
+      r'place': place.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^place\.'))) {
+          previousValue.add(element.split(RegExp(r'^place\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

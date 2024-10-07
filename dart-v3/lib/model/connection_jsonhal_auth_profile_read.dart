@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class ConnectionJsonhalAuthProfileRead {
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance.
   ConnectionJsonhalAuthProfileRead({
-    this.image,
-    this.text,
-    this.authorizationUrl,
-    this.type,
+    required this.image,
+    required this.text,
+    required this.authorizationUrl,
+    required this.type,
   });
 
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance and imports its values from
@@ -24,17 +24,17 @@ class ConnectionJsonhalAuthProfileRead {
       image: json[r'image'],
       text: json[r'text'],
       authorizationUrl: json[r'authorizationUrl'],
-      type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type']),
+      type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type'])!,
     );
   }
 
-  String? image;
+  String image;
 
-  String? text;
+  String text;
 
-  final String? authorizationUrl;
+  final String authorizationUrl;
 
-  final ConnectionJsonhalAuthProfileReadTypeEnum? type;
+  final ConnectionJsonhalAuthProfileReadTypeEnum type;
 
   @override
   bool operator ==(Object other) {
@@ -52,10 +52,10 @@ class ConnectionJsonhalAuthProfileRead {
 
   @override
   int get hashCode =>
-      (image == null ? 0 : image.hashCode) +
-      (text == null ? 0 : text.hashCode) +
-      (authorizationUrl == null ? 0 : authorizationUrl.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      image.hashCode +
+      text.hashCode +
+      authorizationUrl.hashCode +
+      type.hashCode;
 
   static List<ConnectionJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,11 +111,10 @@ class ConnectionJsonhalAuthProfileRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'image')) r'image': image,
-      if (keys == null || keys.contains(r'text')) r'text': text,
-      if (keys == null || keys.contains(r'authorizationUrl'))
-        r'authorizationUrl': authorizationUrl,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+      r'image': image,
+      r'text': text,
+      r'authorizationUrl': authorizationUrl,
+      r'type': type,
     };
   }
 }

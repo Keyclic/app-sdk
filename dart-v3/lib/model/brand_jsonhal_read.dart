@@ -35,7 +35,7 @@ class BrandJsonhalRead {
   String? description;
 
   /// Name of the brand.
-  String? name;
+  String name;
 
   /// The resource identifier.
   final String id;
@@ -58,7 +58,7 @@ class BrandJsonhalRead {
   int get hashCode =>
       links.hashCode +
       (description == null ? 0 : description.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       id.hashCode;
 
   static List<BrandJsonhalRead> listFromJson(Iterable? json) {
@@ -122,7 +122,7 @@ class BrandJsonhalRead {
       })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'name': name,
       r'id': id,
     };
   }

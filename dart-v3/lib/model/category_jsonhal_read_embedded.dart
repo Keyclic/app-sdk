@@ -8,7 +8,7 @@ class CategoryJsonhalReadEmbedded {
   /// Returns a new [CategoryJsonhalReadEmbedded] instance.
   CategoryJsonhalReadEmbedded({
     this.type,
-    this.children = const [],
+    this.children,
   });
 
   /// Returns a new [CategoryJsonhalReadEmbedded] instance and imports its values from
@@ -26,7 +26,7 @@ class CategoryJsonhalReadEmbedded {
 
   CategoryTypeJsonhalRead? type;
 
-  final List<CategoryJsonhalRead> children;
+  final List<CategoryJsonhalRead>? children;
 
   @override
   bool operator ==(Object other) {
@@ -41,7 +41,9 @@ class CategoryJsonhalReadEmbedded {
   }
 
   @override
-  int get hashCode => (type == null ? 0 : type.hashCode) + children.hashCode;
+  int get hashCode =>
+      (type == null ? 0 : type.hashCode) +
+      (children == null ? 0 : children.hashCode);
 
   static List<CategoryJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -106,7 +108,7 @@ class CategoryJsonhalReadEmbedded {
 
           return previousValue;
         })),
-      r'children': children,
+      if (keys == null || keys.contains(r'children')) r'children': children,
     };
   }
 }

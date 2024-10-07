@@ -14,9 +14,9 @@ class ExportJsonhalRead {
     this.downloadUrl,
     required this.expiredAt,
     this.groupBy,
+    this.name,
     required this.createdAt,
     required this.updatedAt,
-    required this.name,
   });
 
   /// Returns a new [ExportJsonhalRead] instance and imports its values from
@@ -35,9 +35,9 @@ class ExportJsonhalRead {
       downloadUrl: json[r'downloadUrl'],
       expiredAt: mapToDateTime(json[r'expiredAt'])!,
       groupBy: ExportJsonhalReadGroupByEnum.fromJson(json[r'groupBy']),
+      name: json[r'name'],
       createdAt: mapToDateTime(json[r'createdAt'])!,
       updatedAt: mapToDateTime(json[r'updatedAt'])!,
-      name: json[r'name'],
     );
   }
 
@@ -54,13 +54,13 @@ class ExportJsonhalRead {
 
   ExportJsonhalReadGroupByEnum? groupBy;
 
+  String? name;
+
   /// The date and time when the resource was created, in UTC format.
   final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime updatedAt;
-
-  final String name;
 
   @override
   bool operator ==(Object other) {
@@ -76,9 +76,9 @@ class ExportJsonhalRead {
         other.downloadUrl == downloadUrl &&
         other.expiredAt == expiredAt &&
         other.groupBy == groupBy &&
+        other.name == name &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.name == name;
+        other.updatedAt == updatedAt;
   }
 
   @override
@@ -89,9 +89,9 @@ class ExportJsonhalRead {
       (downloadUrl == null ? 0 : downloadUrl.hashCode) +
       expiredAt.hashCode +
       (groupBy == null ? 0 : groupBy.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       createdAt.hashCode +
-      updatedAt.hashCode +
-      name.hashCode;
+      updatedAt.hashCode;
 
   static List<ExportJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -142,7 +142,7 @@ class ExportJsonhalRead {
 
   @override
   String toString() =>
-      'ExportJsonhalRead[links=$links, id=$id, contentType=$contentType, downloadUrl=$downloadUrl, expiredAt=$expiredAt, groupBy=$groupBy, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
+      'ExportJsonhalRead[links=$links, id=$id, contentType=$contentType, downloadUrl=$downloadUrl, expiredAt=$expiredAt, groupBy=$groupBy, name=$name, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -160,9 +160,9 @@ class ExportJsonhalRead {
         r'downloadUrl': downloadUrl,
       r'expiredAt': expiredAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       r'createdAt': createdAt.toUtc().toIso8601String(),
       r'updatedAt': updatedAt.toUtc().toIso8601String(),
-      r'name': name,
     };
   }
 }

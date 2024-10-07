@@ -8,7 +8,7 @@ class MemberJsonhalReadLinks {
   /// Returns a new [MemberJsonhalReadLinks] instance.
   MemberJsonhalReadLinks({
     required this.self,
-    this.roles = const [],
+    this.roles,
   });
 
   /// Returns a new [MemberJsonhalReadLinks] instance and imports its values from
@@ -19,15 +19,15 @@ class MemberJsonhalReadLinks {
     }
 
     return MemberJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       roles:
-          GetPlaceCollection200ResponseLinksFirst.listFromJson(json[r'roles']),
+          GetPlaceCollection200ResponseLinksSelf.listFromJson(json[r'roles']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  List<GetPlaceCollection200ResponseLinksFirst> roles;
+  List<GetPlaceCollection200ResponseLinksSelf>? roles;
 
   @override
   bool operator ==(Object other) {
@@ -42,7 +42,7 @@ class MemberJsonhalReadLinks {
   }
 
   @override
-  int get hashCode => self.hashCode + roles.hashCode;
+  int get hashCode => self.hashCode + (roles == null ? 0 : roles.hashCode);
 
   static List<MemberJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -105,7 +105,7 @@ class MemberJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'roles': roles,
+      if (keys == null || keys.contains(r'roles')) r'roles': roles,
     };
   }
 }

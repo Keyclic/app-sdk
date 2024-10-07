@@ -11,7 +11,7 @@ class FeedbackJsonhalRead {
     this.description,
     this.geoCoordinates,
     this.markers = const [],
-    this.metadata = const {},
+    this.metadata,
     required this.visibility,
     required this.id,
     required this.createdAt,
@@ -31,7 +31,9 @@ class FeedbackJsonhalRead {
       geoCoordinates:
           GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates']),
       markers: MarkerJsonhalRead.listFromJson(json[r'markers']),
-      metadata: Map<String, Object?>.from(json[r'metadata']),
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, Object?>.from(json[r'metadata']),
       visibility:
           FeedbackJsonhalReadVisibilityEnum.fromJson(json[r'visibility']),
       id: json[r'id'],
@@ -48,7 +50,7 @@ class FeedbackJsonhalRead {
 
   final List<MarkerJsonhalRead> markers;
 
-  Map<String, Object?> metadata;
+  Map<String, Object?>? metadata;
 
   FeedbackJsonhalReadVisibilityEnum? visibility;
 
@@ -86,7 +88,7 @@ class FeedbackJsonhalRead {
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       markers.hashCode +
-      metadata.hashCode +
+      (metadata == null ? 0 : metadata.hashCode) +
       (visibility == null ? 0 : visibility.hashCode) +
       id.hashCode +
       createdAt.hashCode +
@@ -166,7 +168,7 @@ class FeedbackJsonhalRead {
           return previousValue;
         })),
       r'markers': markers,
-      r'metadata': metadata,
+      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
       r'id': id,

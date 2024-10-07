@@ -9,7 +9,7 @@ class CategoryJsonhalReadLinks {
   CategoryJsonhalReadLinks({
     required this.self,
     required this.organization,
-    this.children = const [],
+    this.children,
   });
 
   /// Returns a new [CategoryJsonhalReadLinks] instance and imports its values from
@@ -20,19 +20,19 @@ class CategoryJsonhalReadLinks {
     }
 
     return CategoryJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
           json[r'organization'])!,
-      children: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      children: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'children']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  GetPlaceCollection200ResponseLinksFirst organization;
+  GetPlaceCollection200ResponseLinksSelf organization;
 
-  List<GetPlaceCollection200ResponseLinksFirst> children;
+  List<GetPlaceCollection200ResponseLinksSelf>? children;
 
   @override
   bool operator ==(Object other) {
@@ -48,7 +48,10 @@ class CategoryJsonhalReadLinks {
   }
 
   @override
-  int get hashCode => self.hashCode + organization.hashCode + children.hashCode;
+  int get hashCode =>
+      self.hashCode +
+      organization.hashCode +
+      (children == null ? 0 : children.hashCode);
 
   static List<CategoryJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -120,7 +123,7 @@ class CategoryJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'children': children,
+      if (keys == null || keys.contains(r'children')) r'children': children,
     };
   }
 }

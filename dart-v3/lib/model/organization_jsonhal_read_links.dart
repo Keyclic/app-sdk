@@ -8,7 +8,7 @@ class OrganizationJsonhalReadLinks {
   /// Returns a new [OrganizationJsonhalReadLinks] instance.
   OrganizationJsonhalReadLinks({
     required this.self,
-    required this.dispatcher,
+    this.dispatcher,
   });
 
   /// Returns a new [OrganizationJsonhalReadLinks] instance and imports its values from
@@ -19,15 +19,14 @@ class OrganizationJsonhalReadLinks {
     }
 
     return OrganizationJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      dispatcher: GetPlaceCollection200ResponseLinksFirst.fromJson(
-          json[r'dispatcher'])!,
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
+      dispatcher: AssetJsonhalReadLinksType.fromJson(json[r'dispatcher']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  GetPlaceCollection200ResponseLinksFirst dispatcher;
+  AssetJsonhalReadLinksType? dispatcher;
 
   @override
   bool operator ==(Object other) {
@@ -42,7 +41,8 @@ class OrganizationJsonhalReadLinks {
   }
 
   @override
-  int get hashCode => self.hashCode + dispatcher.hashCode;
+  int get hashCode =>
+      self.hashCode + (dispatcher == null ? 0 : dispatcher.hashCode);
 
   static List<OrganizationJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -106,14 +106,16 @@ class OrganizationJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'dispatcher': dispatcher.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^dispatcher\.'))) {
-          previousValue.add(element.split(RegExp(r'^dispatcher\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^dispatcher\.').hasMatch(key)))
+        r'dispatcher': dispatcher?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^dispatcher\.'))) {
+            previousValue.add(element.split(RegExp(r'^dispatcher\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
     };
   }
 }

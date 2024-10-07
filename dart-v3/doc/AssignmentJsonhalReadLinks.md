@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**self** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
+**self** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
 **contract** | [**AssetJsonhalReadLinksType**](AssetJsonhalReadLinksType.md) |  | [optional] 
 **member** | [**AssetJsonhalReadLinksType**](AssetJsonhalReadLinksType.md) |  | [optional] 
 **service** | [**AssetJsonhalReadLinksType**](AssetJsonhalReadLinksType.md) |  | [optional] 

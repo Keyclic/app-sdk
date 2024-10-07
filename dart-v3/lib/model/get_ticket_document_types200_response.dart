@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class GetTicketDocumentTypes200Response {
   /// Returns a new [GetTicketDocumentTypes200Response] instance.
   GetTicketDocumentTypes200Response({
-    required this.embedded,
+    this.embedded,
     required this.totalItems,
     required this.itemsPerPage,
     required this.links,
@@ -22,14 +22,14 @@ class GetTicketDocumentTypes200Response {
 
     return GetTicketDocumentTypes200Response(
       embedded: GetTicketDocumentTypes200ResponseEmbedded.fromJson(
-          json[r'_embedded'])!,
+          json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetPlaceCollection200ResponseLinks.fromJson(json[r'_links'])!,
     );
   }
 
-  GetTicketDocumentTypes200ResponseEmbedded embedded;
+  GetTicketDocumentTypes200ResponseEmbedded? embedded;
 
   // minimum: 0
   int totalItems;
@@ -55,7 +55,7 @@ class GetTicketDocumentTypes200Response {
 
   @override
   int get hashCode =>
-      embedded.hashCode +
+      (embedded == null ? 0 : embedded.hashCode) +
       totalItems.hashCode +
       itemsPerPage.hashCode +
       links.hashCode;
@@ -115,14 +115,16 @@ class GetTicketDocumentTypes200Response {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_embedded': embedded.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^embedded\.'))) {
-          previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       r'totalItems': totalItems,
       r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],

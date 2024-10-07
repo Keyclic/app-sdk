@@ -9,7 +9,7 @@ class MemberJsonhalReadEmbedded {
   MemberJsonhalReadEmbedded({
     required this.organization,
     this.person,
-    this.roles = const [],
+    this.roles,
   });
 
   /// Returns a new [MemberJsonhalReadEmbedded] instance and imports its values from
@@ -30,7 +30,7 @@ class MemberJsonhalReadEmbedded {
 
   PersonJsonhalRead? person;
 
-  List<RoleJsonhalRead> roles;
+  List<RoleJsonhalRead>? roles;
 
   @override
   bool operator ==(Object other) {
@@ -49,7 +49,7 @@ class MemberJsonhalReadEmbedded {
   int get hashCode =>
       organization.hashCode +
       (person == null ? 0 : person.hashCode) +
-      roles.hashCode;
+      (roles == null ? 0 : roles.hashCode);
 
   static List<MemberJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -122,7 +122,7 @@ class MemberJsonhalReadEmbedded {
 
           return previousValue;
         })),
-      r'roles': roles,
+      if (keys == null || keys.contains(r'roles')) r'roles': roles,
     };
   }
 }

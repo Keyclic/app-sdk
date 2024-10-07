@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**FormJsonhalOrganizationPreferenceReadLinks**](FormJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
+**links** | [**ArchivingJsonhalOrganizationPreferenceReadLinks**](ArchivingJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
 **contract** | **bool** | Allow authorized user to provide a contract on feedback form. | [optional] 
 **hidden** | **List<String>** |  | [optional] [default to const []]
 **manualDispatch** | **bool** | Allow authorized user to provide a service to dispatch to on feedback form. | [optional] [default to true]

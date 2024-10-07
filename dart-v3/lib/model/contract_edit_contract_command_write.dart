@@ -13,7 +13,7 @@ class ContractEditContractCommandWrite {
     this.effectiveDate,
     this.name,
     this.number,
-    required this.onCall,
+    this.onCall,
     this.places = const [],
     this.provider,
     this.renewal,
@@ -62,7 +62,7 @@ class ContractEditContractCommandWrite {
 
   String? number;
 
-  bool onCall;
+  bool? onCall;
 
   List<String> places;
 
@@ -113,7 +113,7 @@ class ContractEditContractCommandWrite {
       (effectiveDate == null ? 0 : effectiveDate.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (number == null ? 0 : number.hashCode) +
-      onCall.hashCode +
+      (onCall == null ? 0 : onCall.hashCode) +
       places.hashCode +
       (provider == null ? 0 : provider.hashCode) +
       (renewal == null ? 0 : renewal.hashCode) +
@@ -194,7 +194,7 @@ class ContractEditContractCommandWrite {
         r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'number')) r'number': number,
-      r'onCall': onCall,
+      if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
       r'places': places,
       if (keys == null || keys.contains(r'provider')) r'provider': provider,
       if (keys == null ||

@@ -10,13 +10,13 @@ void main() {
   // final instance = SlaPolicyJsonhalReadLinks();
 
   group('test SlaPolicyJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> fromStates (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> fromStates (default value: const [])
     test('to test the property `fromStates`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> toStates (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> toStates (default value: const [])
     test('to test the property `toStates`', () async {});
   });
 }

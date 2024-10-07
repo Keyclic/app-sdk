@@ -10,10 +10,10 @@ void main() {
   // final instance = MemberJsonhalReadLinks();
 
   group('test MemberJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> roles (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> roles (default value: const [])
     test('to test the property `roles`', () async {});
   });
 }

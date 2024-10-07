@@ -37,13 +37,13 @@ class IntegrationLinkCreateLinkCommandWrite {
 
   Map<String, Object?> data;
 
-  String? integration;
+  String integration;
 
   Map<String, Object?> metadata;
 
   String? name;
 
-  String? source_;
+  String source_;
 
   IntegrationLinkCreateLinkCommandWriteStateEnum? state;
 
@@ -69,10 +69,10 @@ class IntegrationLinkCreateLinkCommandWrite {
   @override
   int get hashCode =>
       data.hashCode +
-      (integration == null ? 0 : integration.hashCode) +
+      integration.hashCode +
       metadata.hashCode +
       (name == null ? 0 : name.hashCode) +
-      (source_ == null ? 0 : source_.hashCode) +
+      source_.hashCode +
       (state == null ? 0 : state.hashCode) +
       (target == null ? 0 : target.hashCode);
 
@@ -133,11 +133,10 @@ class IntegrationLinkCreateLinkCommandWrite {
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'data': data,
-      if (keys == null || keys.contains(r'integration'))
-        r'integration': integration,
+      r'integration': integration,
       r'metadata': metadata,
       if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'source_')) r'source': source_,
+      r'source': source_,
       if (keys == null || keys.contains(r'state')) r'state': state,
       if (keys == null || keys.contains(r'target')) r'target': target,
     };

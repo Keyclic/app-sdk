@@ -8,7 +8,7 @@ class ReviewRequestJsonhalReadLinks {
   /// Returns a new [ReviewRequestJsonhalReadLinks] instance.
   ReviewRequestJsonhalReadLinks({
     required this.self,
-    required this.itemToReview,
+    this.itemToReview,
     required this.reviewer,
     required this.organization,
   });
@@ -21,23 +21,22 @@ class ReviewRequestJsonhalReadLinks {
     }
 
     return ReviewRequestJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      itemToReview: GetPlaceCollection200ResponseLinksFirst.fromJson(
-          json[r'itemToReview'])!,
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
+      itemToReview: AssetJsonhalReadLinksType.fromJson(json[r'itemToReview']),
       reviewer:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reviewer'])!,
-      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'reviewer'])!,
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
           json[r'organization'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  GetPlaceCollection200ResponseLinksFirst itemToReview;
+  AssetJsonhalReadLinksType? itemToReview;
 
-  GetPlaceCollection200ResponseLinksFirst reviewer;
+  GetPlaceCollection200ResponseLinksSelf reviewer;
 
-  GetPlaceCollection200ResponseLinksFirst organization;
+  GetPlaceCollection200ResponseLinksSelf organization;
 
   @override
   bool operator ==(Object other) {
@@ -56,7 +55,7 @@ class ReviewRequestJsonhalReadLinks {
   @override
   int get hashCode =>
       self.hashCode +
-      itemToReview.hashCode +
+      (itemToReview == null ? 0 : itemToReview.hashCode) +
       reviewer.hashCode +
       organization.hashCode;
 
@@ -122,14 +121,16 @@ class ReviewRequestJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'itemToReview': itemToReview.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^itemToReview\.'))) {
-          previousValue.add(element.split(RegExp(r'^itemToReview\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^itemToReview\.').hasMatch(key)))
+        r'itemToReview': itemToReview?.toJson(keys?.fold<List<String>>(
+            <String>[], (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^itemToReview\.'))) {
+            previousValue.add(element.split(RegExp(r'^itemToReview\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       r'reviewer': reviewer.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^reviewer\.'))) {

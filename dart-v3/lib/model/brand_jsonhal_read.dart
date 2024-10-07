@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class BrandJsonhalRead {
   /// Returns a new [BrandJsonhalRead] instance.
   BrandJsonhalRead({
-    this.links,
+    required this.links,
     this.description,
     required this.name,
-    this.id,
+    required this.id,
   });
 
   /// Returns a new [BrandJsonhalRead] instance and imports its values from
@@ -21,14 +21,14 @@ class BrandJsonhalRead {
     }
 
     return BrandJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   /// Detailed description of brand.
   String? description;
@@ -37,7 +37,7 @@ class BrandJsonhalRead {
   String name;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -55,10 +55,10 @@ class BrandJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (id == null ? 0 : id.hashCode);
+      id.hashCode;
 
   static List<BrandJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,19 +111,18 @@ class BrandJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
     };
   }
 }

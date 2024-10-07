@@ -7,13 +7,13 @@ part of keyclic_sdk_api_platform;
 class BusinessHoursJsonhalRead {
   /// Returns a new [BusinessHoursJsonhalRead] instance.
   BusinessHoursJsonhalRead({
-    this.links,
+    required this.links,
     required this.hoursPerDay,
     required this.name,
     this.openingHours = const [],
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [BusinessHoursJsonhalRead] instance and imports its values from
@@ -24,17 +24,17 @@ class BusinessHoursJsonhalRead {
     }
 
     return BusinessHoursJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       hoursPerDay: json[r'hoursPerDay'],
       name: json[r'name'],
       openingHours: List<String>.from(json[r'openingHours']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   String hoursPerDay;
 
@@ -43,13 +43,13 @@ class BusinessHoursJsonhalRead {
   List<String> openingHours;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -71,13 +71,13 @@ class BusinessHoursJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       hoursPerDay.hashCode +
       name.hashCode +
       openingHours.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<BusinessHoursJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -133,23 +133,20 @@ class BusinessHoursJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       r'hoursPerDay': hoursPerDay,
       r'name': name,
       r'openingHours': openingHours,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

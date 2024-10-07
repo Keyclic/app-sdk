@@ -9,7 +9,7 @@ class TicketJsongeoRead {
   TicketJsongeoRead({
     this.type = 'Feature',
     required this.geometry,
-    this.properties,
+    this.properties = const {},
   });
 
   /// Returns a new [TicketJsongeoRead] instance and imports its values from
@@ -22,9 +22,7 @@ class TicketJsongeoRead {
     return TicketJsongeoRead(
       type: json[r'type'],
       geometry: TicketJsongeoReadGeometry.fromJson(json[r'geometry'])!,
-      properties: json[r'properties'] == null
-          ? null
-          : Map<String, String>.from(json[r'properties']),
+      properties: Map<String, String>.from(json[r'properties']),
     );
   }
 
@@ -32,7 +30,7 @@ class TicketJsongeoRead {
 
   TicketJsongeoReadGeometry geometry;
 
-  Map<String, String>? properties;
+  Map<String, String> properties;
 
   @override
   bool operator ==(Object other) {
@@ -48,10 +46,7 @@ class TicketJsongeoRead {
   }
 
   @override
-  int get hashCode =>
-      type.hashCode +
-      geometry.hashCode +
-      (properties == null ? 0 : properties.hashCode);
+  int get hashCode => type.hashCode + geometry.hashCode + properties.hashCode;
 
   static List<TicketJsongeoRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -115,8 +110,7 @@ class TicketJsongeoRead {
 
         return previousValue;
       })),
-      if (keys == null || keys.contains(r'properties'))
-        r'properties': properties,
+      r'properties': properties,
     };
   }
 }

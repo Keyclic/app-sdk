@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class CollaboratorJsonhalRead {
   /// Returns a new [CollaboratorJsonhalRead] instance.
   CollaboratorJsonhalRead({
-    this.links,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
-    this.contactPoint,
+    required this.links,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.contactPoint,
   });
 
   /// Returns a new [CollaboratorJsonhalRead] instance and imports its values from
@@ -22,26 +22,26 @@ class CollaboratorJsonhalRead {
     }
 
     return CollaboratorJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
-      contactPoint: ContactPointJsonhalRead.fromJson(json[r'contactPoint']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
+      contactPoint: ContactPointJsonhalRead.fromJson(json[r'contactPoint'])!,
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
-  ContactPointJsonhalRead? contactPoint;
+  ContactPointJsonhalRead contactPoint;
 
   @override
   bool operator ==(Object other) {
@@ -60,11 +60,11 @@ class CollaboratorJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (contactPoint == null ? 0 : contactPoint.hashCode);
+      links.hashCode +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
+      contactPoint.hashCode;
 
   static List<CollaboratorJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -120,30 +120,25 @@ class CollaboratorJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^contactPoint\.').hasMatch(key)))
-        r'contactPoint': contactPoint?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^contactPoint\.'))) {
-            previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
-          }
+        return previousValue;
+      })),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      r'contactPoint': contactPoint.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^contactPoint\.'))) {
+          previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

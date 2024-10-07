@@ -7,13 +7,13 @@ part of keyclic_sdk_api_platform;
 class WorkflowTransitionJsonhalRead {
   /// Returns a new [WorkflowTransitionJsonhalRead] instance.
   WorkflowTransitionJsonhalRead({
-    this.links,
+    required this.links,
     this.description,
     this.fields,
     required this.name,
     this.required_,
-    this.id,
-    this.embedded,
+    required this.id,
+    required this.embedded,
   });
 
   /// Returns a new [WorkflowTransitionJsonhalRead] instance and imports its values from
@@ -24,7 +24,7 @@ class WorkflowTransitionJsonhalRead {
     }
 
     return WorkflowTransitionJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       description: json[r'description'],
       fields:
           json[r'fields'] == null ? null : List<String>.from(json[r'fields']),
@@ -34,11 +34,11 @@ class WorkflowTransitionJsonhalRead {
           : List<String>.from(json[r'required']),
       id: json[r'id'],
       embedded:
-          WorkflowTransitionJsonhalReadEmbedded.fromJson(json[r'_embedded']),
+          WorkflowTransitionJsonhalReadEmbedded.fromJson(json[r'_embedded'])!,
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   String? description;
 
@@ -49,9 +49,9 @@ class WorkflowTransitionJsonhalRead {
   List<String>? required_;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  WorkflowTransitionJsonhalReadEmbedded? embedded;
+  WorkflowTransitionJsonhalReadEmbedded embedded;
 
   @override
   bool operator ==(Object other) {
@@ -72,13 +72,13 @@ class WorkflowTransitionJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (description == null ? 0 : description.hashCode) +
       (fields == null ? 0 : fields.hashCode) +
       name.hashCode +
       (required_ == null ? 0 : required_.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+      id.hashCode +
+      embedded.hashCode;
 
   static List<WorkflowTransitionJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -134,31 +134,28 @@ class WorkflowTransitionJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'fields')) r'fields': fields,
       r'name': name,
       if (keys == null || keys.contains(r'required_')) r'required': required_,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
+      r'id': id,
+      r'_embedded': embedded.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^embedded\.'))) {
+          previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

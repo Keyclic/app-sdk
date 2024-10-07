@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class EquipmentJsonhalRead {
   /// Returns a new [EquipmentJsonhalRead] instance.
   EquipmentJsonhalRead({
-    this.links,
+    required this.links,
     this.commissioningDate,
     this.lifetime,
     this.model,
@@ -15,13 +15,13 @@ class EquipmentJsonhalRead {
     this.retirementDate,
     this.serialNumber,
     this.warranty,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
     this.description,
     required this.name,
     this.preferences,
-    this.path,
+    this.path = const [],
     this.address,
   });
 
@@ -33,7 +33,7 @@ class EquipmentJsonhalRead {
     }
 
     return EquipmentJsonhalRead(
-      links: EquipmentJsonhalReadLinks.fromJson(json[r'_links']),
+      links: EquipmentJsonhalReadLinks.fromJson(json[r'_links'])!,
       commissioningDate: mapToDateTime(json[r'commissioningDate']),
       lifetime: json[r'lifetime'],
       model: json[r'model'],
@@ -42,8 +42,8 @@ class EquipmentJsonhalRead {
       serialNumber: json[r'serialNumber'],
       warranty: WarrantyJsonhalRead.fromJson(json[r'warranty']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       description: json[r'description'],
       name: json[r'name'],
       preferences: PreferencesJsonhalAssetRead.fromJson(json[r'preferences']),
@@ -52,7 +52,7 @@ class EquipmentJsonhalRead {
     );
   }
 
-  EquipmentJsonhalReadLinks? links;
+  EquipmentJsonhalReadLinks links;
 
   /// The date when an asset is officially put into service or operation.
   DateTime? commissioningDate;
@@ -75,13 +75,13 @@ class EquipmentJsonhalRead {
   WarrantyJsonhalRead? warranty;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   String? description;
 
@@ -89,7 +89,7 @@ class EquipmentJsonhalRead {
 
   PreferencesJsonhalAssetRead? preferences;
 
-  final List<NodeJsonhalRead>? path;
+  final List<NodeJsonhalRead> path;
 
   PostalAddressJsonhalRead? address;
 
@@ -121,7 +121,7 @@ class EquipmentJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (commissioningDate == null ? 0 : commissioningDate.hashCode) +
       (lifetime == null ? 0 : lifetime.hashCode) +
       (model == null ? 0 : model.hashCode) +
@@ -129,13 +129,13 @@ class EquipmentJsonhalRead {
       (retirementDate == null ? 0 : retirementDate.hashCode) +
       (serialNumber == null ? 0 : serialNumber.hashCode) +
       (warranty == null ? 0 : warranty.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
-      (path == null ? 0 : path.hashCode) +
+      path.hashCode +
       (address == null ? 0 : address.hashCode);
 
   static List<EquipmentJsonhalRead> listFromJson(Iterable? json) {
@@ -192,15 +192,14 @@ class EquipmentJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'commissioningDate'))
         r'commissioningDate': commissioningDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'lifetime')) r'lifetime': lifetime,
@@ -220,11 +219,9 @@ class EquipmentJsonhalRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
@@ -238,7 +235,7 @@ class EquipmentJsonhalRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'path')) r'path': path,
+      r'path': path,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

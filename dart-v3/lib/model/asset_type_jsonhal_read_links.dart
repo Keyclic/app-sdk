@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class AssetTypeJsonhalReadLinks {
   /// Returns a new [AssetTypeJsonhalReadLinks] instance.
   AssetTypeJsonhalReadLinks({
-    this.self,
+    required this.self,
   });
 
   /// Returns a new [AssetTypeJsonhalReadLinks] instance and imports its values from
@@ -18,11 +18,11 @@ class AssetTypeJsonhalReadLinks {
     }
 
     return AssetTypeJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   @override
   bool operator ==(Object other) {
@@ -35,7 +35,7 @@ class AssetTypeJsonhalReadLinks {
   }
 
   @override
-  int get hashCode => (self == null ? 0 : self.hashCode);
+  int get hashCode => self.hashCode;
 
   static List<AssetTypeJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -90,15 +90,14 @@ class AssetTypeJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

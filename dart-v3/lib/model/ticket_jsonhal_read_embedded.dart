@@ -11,9 +11,9 @@ class TicketJsonhalReadEmbedded {
     this.category,
     this.equipments,
     this.phase,
-    this.place,
+    required this.place,
     this.priority,
-    this.feedback,
+    required this.feedback,
     this.children,
     this.state,
   });
@@ -30,9 +30,9 @@ class TicketJsonhalReadEmbedded {
       category: CategoryJsonhalRead.fromJson(json[r'category']),
       equipments: EquipmentJsonhalRead.listFromJson(json[r'equipments']),
       phase: WorkflowStateJsonhalRead.fromJson(json[r'phase']),
-      place: PlaceJsonhalRead.fromJson(json[r'place']),
+      place: PlaceJsonhalRead.fromJson(json[r'place'])!,
       priority: TicketPriorityJsonhalRead.fromJson(json[r'priority']),
-      feedback: FeedbackJsonhalRead.fromJson(json[r'feedback']),
+      feedback: FeedbackJsonhalRead.fromJson(json[r'feedback'])!,
       children: json[r'children'] == null
           ? null
           : List<String>.from(json[r'children']),
@@ -48,11 +48,11 @@ class TicketJsonhalReadEmbedded {
 
   WorkflowStateJsonhalRead? phase;
 
-  PlaceJsonhalRead? place;
+  PlaceJsonhalRead place;
 
   TicketPriorityJsonhalRead? priority;
 
-  FeedbackJsonhalRead? feedback;
+  FeedbackJsonhalRead feedback;
 
   final List<String>? children;
 
@@ -85,9 +85,9 @@ class TicketJsonhalReadEmbedded {
       (category == null ? 0 : category.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       (phase == null ? 0 : phase.hashCode) +
-      (place == null ? 0 : place.hashCode) +
+      place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
-      (feedback == null ? 0 : feedback.hashCode) +
+      feedback.hashCode +
       (children == null ? 0 : children.hashCode) +
       (state == null ? 0 : state.hashCode);
 
@@ -168,15 +168,14 @@ class TicketJsonhalReadEmbedded {
 
           return previousValue;
         })),
-      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
-        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^place\.'))) {
-            previousValue.add(element.split(RegExp(r'^place\.')).last);
-          }
+      r'place': place.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^place\.'))) {
+          previousValue.add(element.split(RegExp(r'^place\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^priority\.').hasMatch(key)))
         r'priority': priority?.toJson(keys?.fold<List<String>>(<String>[],
@@ -187,16 +186,14 @@ class TicketJsonhalReadEmbedded {
 
           return previousValue;
         })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^feedback\.').hasMatch(key)))
-        r'feedback': feedback?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^feedback\.'))) {
-            previousValue.add(element.split(RegExp(r'^feedback\.')).last);
-          }
+      r'feedback': feedback.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^feedback\.'))) {
+          previousValue.add(element.split(RegExp(r'^feedback\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'children')) r'children': children,
       if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
         r'state': state?.toJson(keys?.fold<List<String>>(<String>[],

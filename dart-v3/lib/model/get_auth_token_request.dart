@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class GetAuthTokenRequest {
   /// Returns a new [GetAuthTokenRequest] instance.
   GetAuthTokenRequest({
-    this.grantType,
-    this.idToken,
+    required this.grantType,
+    required this.idToken,
   });
 
   /// Returns a new [GetAuthTokenRequest] instance and imports its values from
@@ -19,14 +19,14 @@ class GetAuthTokenRequest {
     }
 
     return GetAuthTokenRequest(
-      grantType: GetAuthTokenRequestGrantTypeEnum.fromJson(json[r'grantType']),
+      grantType: GetAuthTokenRequestGrantTypeEnum.fromJson(json[r'grantType'])!,
       idToken: json[r'idToken'],
     );
   }
 
-  GetAuthTokenRequestGrantTypeEnum? grantType;
+  GetAuthTokenRequestGrantTypeEnum grantType;
 
-  String? idToken;
+  String idToken;
 
   @override
   bool operator ==(Object other) {
@@ -41,9 +41,7 @@ class GetAuthTokenRequest {
   }
 
   @override
-  int get hashCode =>
-      (grantType == null ? 0 : grantType.hashCode) +
-      (idToken == null ? 0 : idToken.hashCode);
+  int get hashCode => grantType.hashCode + idToken.hashCode;
 
   static List<GetAuthTokenRequest> listFromJson(Iterable? json) {
     if (json == null) {
@@ -98,8 +96,8 @@ class GetAuthTokenRequest {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'grantType')) r'grantType': grantType,
-      if (keys == null || keys.contains(r'idToken')) r'idToken': idToken,
+      r'grantType': grantType,
+      r'idToken': idToken,
     };
   }
 }

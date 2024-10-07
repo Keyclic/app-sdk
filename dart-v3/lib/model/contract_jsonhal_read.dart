@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class ContractJsonhalRead {
   /// Returns a new [ContractJsonhalRead] instance.
   ContractJsonhalRead({
-    this.links,
+    required this.links,
     this.billing,
     this.description,
     this.duration,
@@ -15,15 +15,15 @@ class ContractJsonhalRead {
     this.endDate,
     required this.name,
     required this.number,
-    this.onCall,
+    required this.onCall,
     this.renewal,
     this.signedAt,
     this.state = const ContractJsonhalReadStateEnum._('DRAFT'),
     this.terminationDate,
     this.terminationReason,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [ContractJsonhalRead] instance and imports its values from
@@ -34,7 +34,7 @@ class ContractJsonhalRead {
     }
 
     return ContractJsonhalRead(
-      links: ContractJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ContractJsonhalReadLinks.fromJson(json[r'_links'])!,
       billing: BillingJsonhalRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
@@ -49,12 +49,12 @@ class ContractJsonhalRead {
       terminationDate: mapToDateTime(json[r'terminationDate']),
       terminationReason: json[r'terminationReason'],
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
-  ContractJsonhalReadLinks? links;
+  ContractJsonhalReadLinks links;
 
   BillingJsonhalRead? billing;
 
@@ -77,7 +77,7 @@ class ContractJsonhalRead {
   String number;
 
   /// The onCall property represents whether a staff member is currently available for on-call duties.
-  bool? onCall;
+  bool onCall;
 
   RenewalJsonhalRead? renewal;
 
@@ -93,13 +93,13 @@ class ContractJsonhalRead {
   String? terminationReason;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -130,7 +130,7 @@ class ContractJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
@@ -138,15 +138,15 @@ class ContractJsonhalRead {
       (endDate == null ? 0 : endDate.hashCode) +
       name.hashCode +
       number.hashCode +
-      (onCall == null ? 0 : onCall.hashCode) +
+      onCall.hashCode +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (terminationReason == null ? 0 : terminationReason.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<ContractJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -201,15 +201,14 @@ class ContractJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^billing\.').hasMatch(key)))
         r'billing': billing?.toJson(keys?.fold<List<String>>(<String>[],
@@ -229,7 +228,7 @@ class ContractJsonhalRead {
         r'endDate': endDate?.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
-      if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
+      r'onCall': onCall,
       if (keys == null ||
           keys.any((key) => RegExp(r'^renewal\.').hasMatch(key)))
         r'renewal': renewal?.toJson(keys?.fold<List<String>>(<String>[],
@@ -247,11 +246,9 @@ class ContractJsonhalRead {
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'terminationReason'))
         r'terminationReason': terminationReason,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

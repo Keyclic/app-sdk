@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class ReferenceJsonhalOrganizationPreferenceRead {
   /// Returns a new [ReferenceJsonhalOrganizationPreferenceRead] instance.
   ReferenceJsonhalOrganizationPreferenceRead({
-    this.links,
+    required this.links,
     this.prefix,
   });
 
@@ -20,12 +20,12 @@ class ReferenceJsonhalOrganizationPreferenceRead {
 
     return ReferenceJsonhalOrganizationPreferenceRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+          json[r'_links'])!,
       prefix: json[r'prefix'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   String? prefix;
 
@@ -42,9 +42,7 @@ class ReferenceJsonhalOrganizationPreferenceRead {
   }
 
   @override
-  int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (prefix == null ? 0 : prefix.hashCode);
+  int get hashCode => links.hashCode + (prefix == null ? 0 : prefix.hashCode);
 
   static List<ReferenceJsonhalOrganizationPreferenceRead> listFromJson(
       Iterable? json) {
@@ -104,15 +102,14 @@ class ReferenceJsonhalOrganizationPreferenceRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'prefix')) r'prefix': prefix,
     };
   }

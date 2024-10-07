@@ -7,18 +7,18 @@ part of keyclic_sdk_api_platform;
 class PreferencesJsonhalOrganizationRead {
   /// Returns a new [PreferencesJsonhalOrganizationRead] instance.
   PreferencesJsonhalOrganizationRead({
-    this.links,
-    this.archiving,
-    this.contract,
-    this.equipment,
-    this.feedbackParentPlace,
-    this.form,
-    this.offline,
-    this.public,
-    this.reference,
-    this.reverseGeocoding,
-    this.review,
-    this.sla,
+    required this.links,
+    required this.archiving,
+    required this.contract,
+    required this.equipment,
+    required this.feedbackParentPlace,
+    required this.form,
+    required this.offline,
+    required this.public,
+    required this.reference,
+    required this.reverseGeocoding,
+    required this.review,
+    required this.sla,
   });
 
   /// Returns a new [PreferencesJsonhalOrganizationRead] instance and imports its values from
@@ -30,48 +30,49 @@ class PreferencesJsonhalOrganizationRead {
 
     return PreferencesJsonhalOrganizationRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+          json[r'_links'])!,
       archiving: ArchivingJsonhalOrganizationPreferenceRead.fromJson(
-          json[r'archiving']),
-      contract:
-          ContractJsonhalOrganizationPreferenceRead.fromJson(json[r'contract']),
+          json[r'archiving'])!,
+      contract: ContractJsonhalOrganizationPreferenceRead.fromJson(
+          json[r'contract'])!,
       equipment: EquipmentJsonhalOrganizationPreferenceRead.fromJson(
-          json[r'equipment']),
+          json[r'equipment'])!,
       feedbackParentPlace: json[r'feedbackParentPlace'],
-      form: FormJsonhalOrganizationPreferenceRead.fromJson(json[r'form']),
+      form: FormJsonhalOrganizationPreferenceRead.fromJson(json[r'form'])!,
       offline: json[r'offline'],
       public: json[r'public'],
       reference: ReferenceJsonhalOrganizationPreferenceRead.fromJson(
-          json[r'reference']),
+          json[r'reference'])!,
       reverseGeocoding: json[r'reverseGeocoding'],
-      review: ReviewJsonhalOrganizationPreferenceRead.fromJson(json[r'review']),
-      sla: SlaJsonhalOrganizationPreferenceRead.fromJson(json[r'sla']),
+      review:
+          ReviewJsonhalOrganizationPreferenceRead.fromJson(json[r'review'])!,
+      sla: SlaJsonhalOrganizationPreferenceRead.fromJson(json[r'sla'])!,
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
-  ArchivingJsonhalOrganizationPreferenceRead? archiving;
+  ArchivingJsonhalOrganizationPreferenceRead archiving;
 
-  ContractJsonhalOrganizationPreferenceRead? contract;
+  ContractJsonhalOrganizationPreferenceRead contract;
 
-  EquipmentJsonhalOrganizationPreferenceRead? equipment;
+  EquipmentJsonhalOrganizationPreferenceRead equipment;
 
-  bool? feedbackParentPlace;
+  bool feedbackParentPlace;
 
-  FormJsonhalOrganizationPreferenceRead? form;
+  FormJsonhalOrganizationPreferenceRead form;
 
-  bool? offline;
+  bool offline;
 
-  bool? public;
+  bool public;
 
-  ReferenceJsonhalOrganizationPreferenceRead? reference;
+  ReferenceJsonhalOrganizationPreferenceRead reference;
 
-  bool? reverseGeocoding;
+  bool reverseGeocoding;
 
-  ReviewJsonhalOrganizationPreferenceRead? review;
+  ReviewJsonhalOrganizationPreferenceRead review;
 
-  SlaJsonhalOrganizationPreferenceRead? sla;
+  SlaJsonhalOrganizationPreferenceRead sla;
 
   @override
   bool operator ==(Object other) {
@@ -97,18 +98,18 @@ class PreferencesJsonhalOrganizationRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (archiving == null ? 0 : archiving.hashCode) +
-      (contract == null ? 0 : contract.hashCode) +
-      (equipment == null ? 0 : equipment.hashCode) +
-      (feedbackParentPlace == null ? 0 : feedbackParentPlace.hashCode) +
-      (form == null ? 0 : form.hashCode) +
-      (offline == null ? 0 : offline.hashCode) +
-      (public == null ? 0 : public.hashCode) +
-      (reference == null ? 0 : reference.hashCode) +
-      (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
-      (review == null ? 0 : review.hashCode) +
-      (sla == null ? 0 : sla.hashCode);
+      links.hashCode +
+      archiving.hashCode +
+      contract.hashCode +
+      equipment.hashCode +
+      feedbackParentPlace.hashCode +
+      form.hashCode +
+      offline.hashCode +
+      public.hashCode +
+      reference.hashCode +
+      reverseGeocoding.hashCode +
+      review.hashCode +
+      sla.hashCode;
 
   static List<PreferencesJsonhalOrganizationRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -165,88 +166,74 @@ class PreferencesJsonhalOrganizationRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^archiving\.').hasMatch(key)))
-        r'archiving': archiving?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^archiving\.'))) {
-            previousValue.add(element.split(RegExp(r'^archiving\.')).last);
-          }
+        return previousValue;
+      })),
+      r'archiving': archiving.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^archiving\.'))) {
+          previousValue.add(element.split(RegExp(r'^archiving\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^contract\.').hasMatch(key)))
-        r'contract': contract?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^contract\.'))) {
-            previousValue.add(element.split(RegExp(r'^contract\.')).last);
-          }
+        return previousValue;
+      })),
+      r'contract': contract.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^contract\.'))) {
+          previousValue.add(element.split(RegExp(r'^contract\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^equipment\.').hasMatch(key)))
-        r'equipment': equipment?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^equipment\.'))) {
-            previousValue.add(element.split(RegExp(r'^equipment\.')).last);
-          }
+        return previousValue;
+      })),
+      r'equipment': equipment.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^equipment\.'))) {
+          previousValue.add(element.split(RegExp(r'^equipment\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'feedbackParentPlace'))
-        r'feedbackParentPlace': feedbackParentPlace,
-      if (keys == null || keys.any((key) => RegExp(r'^form\.').hasMatch(key)))
-        r'form': form?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^form\.'))) {
-            previousValue.add(element.split(RegExp(r'^form\.')).last);
-          }
+        return previousValue;
+      })),
+      r'feedbackParentPlace': feedbackParentPlace,
+      r'form': form.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^form\.'))) {
+          previousValue.add(element.split(RegExp(r'^form\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'offline')) r'offline': offline,
-      if (keys == null || keys.contains(r'public')) r'public': public,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^reference\.').hasMatch(key)))
-        r'reference': reference?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^reference\.'))) {
-            previousValue.add(element.split(RegExp(r'^reference\.')).last);
-          }
+        return previousValue;
+      })),
+      r'offline': offline,
+      r'public': public,
+      r'reference': reference.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^reference\.'))) {
+          previousValue.add(element.split(RegExp(r'^reference\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'reverseGeocoding'))
-        r'reverseGeocoding': reverseGeocoding,
-      if (keys == null || keys.any((key) => RegExp(r'^review\.').hasMatch(key)))
-        r'review': review?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^review\.'))) {
-            previousValue.add(element.split(RegExp(r'^review\.')).last);
-          }
+        return previousValue;
+      })),
+      r'reverseGeocoding': reverseGeocoding,
+      r'review': review.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^review\.'))) {
+          previousValue.add(element.split(RegExp(r'^review\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^sla\.').hasMatch(key)))
-        r'sla': sla?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^sla\.'))) {
-            previousValue.add(element.split(RegExp(r'^sla\.')).last);
-          }
+        return previousValue;
+      })),
+      r'sla': sla.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^sla\.'))) {
+          previousValue.add(element.split(RegExp(r'^sla\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

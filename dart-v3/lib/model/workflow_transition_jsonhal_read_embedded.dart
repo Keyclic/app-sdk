@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class WorkflowTransitionJsonhalReadEmbedded {
   /// Returns a new [WorkflowTransitionJsonhalReadEmbedded] instance.
   WorkflowTransitionJsonhalReadEmbedded({
-    this.from,
-    this.to,
+    required this.from,
+    required this.to,
   });
 
   /// Returns a new [WorkflowTransitionJsonhalReadEmbedded] instance and imports its values from
@@ -19,14 +19,14 @@ class WorkflowTransitionJsonhalReadEmbedded {
     }
 
     return WorkflowTransitionJsonhalReadEmbedded(
-      from: WorkflowStateJsonhalRead.fromJson(json[r'from']),
-      to: WorkflowStateJsonhalRead.fromJson(json[r'to']),
+      from: WorkflowStateJsonhalRead.fromJson(json[r'from'])!,
+      to: WorkflowStateJsonhalRead.fromJson(json[r'to'])!,
     );
   }
 
-  WorkflowStateJsonhalRead? from;
+  WorkflowStateJsonhalRead from;
 
-  WorkflowStateJsonhalRead? to;
+  WorkflowStateJsonhalRead to;
 
   @override
   bool operator ==(Object other) {
@@ -41,8 +41,7 @@ class WorkflowTransitionJsonhalReadEmbedded {
   }
 
   @override
-  int get hashCode =>
-      (from == null ? 0 : from.hashCode) + (to == null ? 0 : to.hashCode);
+  int get hashCode => from.hashCode + to.hashCode;
 
   static List<WorkflowTransitionJsonhalReadEmbedded> listFromJson(
       Iterable? json) {
@@ -100,24 +99,22 @@ class WorkflowTransitionJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^from\.').hasMatch(key)))
-        r'from': from?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^from\.'))) {
-            previousValue.add(element.split(RegExp(r'^from\.')).last);
-          }
+      r'from': from.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^from\.'))) {
+          previousValue.add(element.split(RegExp(r'^from\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^to\.').hasMatch(key)))
-        r'to': to?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^to\.'))) {
-            previousValue.add(element.split(RegExp(r'^to\.')).last);
-          }
+        return previousValue;
+      })),
+      r'to': to.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^to\.'))) {
+          previousValue.add(element.split(RegExp(r'^to\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

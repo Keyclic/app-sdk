@@ -7,15 +7,15 @@ part of keyclic_sdk_api_platform;
 class SlaPolicyJsonhalRead {
   /// Returns a new [SlaPolicyJsonhalRead] instance.
   SlaPolicyJsonhalRead({
-    this.links,
-    this.id,
+    required this.links,
+    required this.id,
     required this.timeTarget,
     this.description,
     required this.name,
-    this.enabled,
-    this.conditions,
-    this.createdAt,
-    this.updatedAt,
+    required this.enabled,
+    this.conditions = const [],
+    required this.createdAt,
+    required this.updatedAt,
     this.embedded,
   });
 
@@ -27,23 +27,23 @@ class SlaPolicyJsonhalRead {
     }
 
     return SlaPolicyJsonhalRead(
-      links: SlaPolicyJsonhalReadLinks.fromJson(json[r'_links']),
+      links: SlaPolicyJsonhalReadLinks.fromJson(json[r'_links'])!,
       id: json[r'id'],
       timeTarget: json[r'timeTarget'],
       description: json[r'description'],
       name: json[r'name'],
       enabled: json[r'enabled'],
       conditions: ConditionJsonhalRead.listFromJson(json[r'conditions']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       embedded: SlaPolicyJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  SlaPolicyJsonhalReadLinks? links;
+  SlaPolicyJsonhalReadLinks links;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   String timeTarget;
 
@@ -51,15 +51,15 @@ class SlaPolicyJsonhalRead {
 
   String name;
 
-  bool? enabled;
+  bool enabled;
 
-  List<ConditionJsonhalRead>? conditions;
+  List<ConditionJsonhalRead> conditions;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   SlaPolicyJsonhalReadEmbedded? embedded;
 
@@ -86,15 +86,15 @@ class SlaPolicyJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      links.hashCode +
+      id.hashCode +
       timeTarget.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
-      (enabled == null ? 0 : enabled.hashCode) +
-      (conditions == null ? 0 : conditions.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      enabled.hashCode +
+      conditions.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       (embedded == null ? 0 : embedded.hashCode);
 
   static List<SlaPolicyJsonhalRead> listFromJson(Iterable? json) {
@@ -151,27 +151,23 @@ class SlaPolicyJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'id': id,
       r'timeTarget': timeTarget,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
-      if (keys == null || keys.contains(r'conditions'))
-        r'conditions': conditions,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'enabled': enabled,
+      r'conditions': conditions,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       if (keys == null ||
           keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
         r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],

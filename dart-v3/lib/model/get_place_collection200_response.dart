@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class GetPlaceCollection200Response {
   /// Returns a new [GetPlaceCollection200Response] instance.
   GetPlaceCollection200Response({
-    required this.embedded,
+    this.embedded,
     required this.totalItems,
     required this.itemsPerPage,
     required this.links,
@@ -22,14 +22,14 @@ class GetPlaceCollection200Response {
 
     return GetPlaceCollection200Response(
       embedded:
-          GetPlaceCollection200ResponseEmbedded.fromJson(json[r'_embedded'])!,
+          GetPlaceCollection200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetPlaceCollection200ResponseLinks.fromJson(json[r'_links'])!,
     );
   }
 
-  GetPlaceCollection200ResponseEmbedded embedded;
+  GetPlaceCollection200ResponseEmbedded? embedded;
 
   // minimum: 0
   int totalItems;
@@ -55,7 +55,7 @@ class GetPlaceCollection200Response {
 
   @override
   int get hashCode =>
-      embedded.hashCode +
+      (embedded == null ? 0 : embedded.hashCode) +
       totalItems.hashCode +
       itemsPerPage.hashCode +
       links.hashCode;
@@ -114,14 +114,16 @@ class GetPlaceCollection200Response {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_embedded': embedded.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^embedded\.'))) {
-          previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       r'totalItems': totalItems,
       r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],

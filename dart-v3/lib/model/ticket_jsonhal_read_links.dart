@@ -10,9 +10,9 @@ class TicketJsonhalReadLinks {
     required this.self,
     required this.organization,
     this.parent,
-    this.assignments = const [],
-    this.equipments = const [],
-    this.children = const [],
+    this.assignments,
+    this.equipments,
+    this.children,
   });
 
   /// Returns a new [TicketJsonhalReadLinks] instance and imports its values from
@@ -23,30 +23,30 @@ class TicketJsonhalReadLinks {
     }
 
     return TicketJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
           json[r'organization'])!,
       parent: AssetJsonhalReadLinksType.fromJson(json[r'parent']),
-      assignments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      assignments: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'assignments']),
-      equipments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      equipments: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'equipments']),
-      children: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      children: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'children']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  GetPlaceCollection200ResponseLinksFirst organization;
+  GetPlaceCollection200ResponseLinksSelf organization;
 
   AssetJsonhalReadLinksType? parent;
 
-  List<GetPlaceCollection200ResponseLinksFirst> assignments;
+  List<GetPlaceCollection200ResponseLinksSelf>? assignments;
 
-  List<GetPlaceCollection200ResponseLinksFirst> equipments;
+  List<GetPlaceCollection200ResponseLinksSelf>? equipments;
 
-  List<GetPlaceCollection200ResponseLinksFirst> children;
+  List<GetPlaceCollection200ResponseLinksSelf>? children;
 
   @override
   bool operator ==(Object other) {
@@ -71,9 +71,9 @@ class TicketJsonhalReadLinks {
       self.hashCode +
       organization.hashCode +
       (parent == null ? 0 : parent.hashCode) +
-      assignments.hashCode +
-      equipments.hashCode +
-      children.hashCode;
+      (assignments == null ? 0 : assignments.hashCode) +
+      (equipments == null ? 0 : equipments.hashCode) +
+      (children == null ? 0 : children.hashCode);
 
   static List<TicketJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -154,9 +154,11 @@ class TicketJsonhalReadLinks {
 
           return previousValue;
         })),
-      r'assignments': assignments,
-      r'equipments': equipments,
-      r'children': children,
+      if (keys == null || keys.contains(r'assignments'))
+        r'assignments': assignments,
+      if (keys == null || keys.contains(r'equipments'))
+        r'equipments': equipments,
+      if (keys == null || keys.contains(r'children')) r'children': children,
     };
   }
 }

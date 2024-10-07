@@ -19,12 +19,12 @@ class FeedbackJsonhalReadLinks {
     }
 
     return FeedbackJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       reporter: AssetJsonhalReadLinksType.fromJson(json[r'reporter']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   AssetJsonhalReadLinksType? reporter;
 

@@ -10,7 +10,7 @@ class FeedbackRead {
     this.description,
     this.geoCoordinates,
     this.markers = const [],
-    this.metadata = const {},
+    this.metadata,
     this.reporter,
     required this.visibility,
     required this.id,
@@ -29,7 +29,9 @@ class FeedbackRead {
       description: json[r'description'],
       geoCoordinates: GeoCoordinatesRead.fromJson(json[r'geoCoordinates']),
       markers: MarkerRead.listFromJson(json[r'markers']),
-      metadata: Map<String, Object?>.from(json[r'metadata']),
+      metadata: json[r'metadata'] == null
+          ? null
+          : Map<String, Object?>.from(json[r'metadata']),
       reporter: json[r'reporter'],
       visibility: FeedbackReadVisibilityEnum.fromJson(json[r'visibility']),
       id: json[r'id'],
@@ -44,7 +46,7 @@ class FeedbackRead {
 
   final List<MarkerRead> markers;
 
-  Map<String, Object?> metadata;
+  Map<String, Object?>? metadata;
 
   String? reporter;
 
@@ -83,7 +85,7 @@ class FeedbackRead {
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       markers.hashCode +
-      metadata.hashCode +
+      (metadata == null ? 0 : metadata.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       (visibility == null ? 0 : visibility.hashCode) +
       id.hashCode +
@@ -154,7 +156,7 @@ class FeedbackRead {
           return previousValue;
         })),
       r'markers': markers,
-      r'metadata': metadata,
+      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,

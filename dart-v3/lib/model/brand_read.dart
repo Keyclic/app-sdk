@@ -30,7 +30,7 @@ class BrandRead {
   String? description;
 
   /// Name of the brand.
-  String? name;
+  String name;
 
   /// The resource identifier.
   final String id;
@@ -51,7 +51,7 @@ class BrandRead {
   @override
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       id.hashCode;
 
   static List<BrandRead> listFromJson(Iterable? json) {
@@ -106,7 +106,7 @@ class BrandRead {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'name': name,
       r'id': id,
     };
   }

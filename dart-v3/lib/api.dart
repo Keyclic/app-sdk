@@ -121,7 +121,6 @@ part 'model/get_integration_link_collection200_response_embedded.dart';
 part 'model/get_place_collection200_response.dart';
 part 'model/get_place_collection200_response_embedded.dart';
 part 'model/get_place_collection200_response_links.dart';
-part 'model/get_place_collection200_response_links_first.dart';
 part 'model/get_place_collection200_response_links_self.dart';
 part 'model/get_sla_policy_collection200_response.dart';
 part 'model/get_sla_policy_collection200_response_embedded.dart';

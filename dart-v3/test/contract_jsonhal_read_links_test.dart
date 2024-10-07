@@ -10,10 +10,10 @@ void main() {
   // final instance = ContractJsonhalReadLinks();
 
   group('test ContractJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // AssetJsonhalReadLinksType provider
+    // GetPlaceCollection200ResponseLinksSelf provider
     test('to test the property `provider`', () async {});
 
     // AssetJsonhalReadLinksType type

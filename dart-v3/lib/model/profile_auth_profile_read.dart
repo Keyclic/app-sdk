@@ -9,7 +9,7 @@ class ProfileAuthProfileRead {
   ProfileAuthProfileRead({
     this.types = const [],
     this.connections = const [],
-    required this.user,
+    this.user,
     required this.firstConnection,
   });
 
@@ -23,7 +23,7 @@ class ProfileAuthProfileRead {
     return ProfileAuthProfileRead(
       types: List<String>.from(json[r'types']),
       connections: ConnectionAuthProfileRead.listFromJson(json[r'connections']),
-      user: UserAuthProfileRead.fromJson(json[r'user'])!,
+      user: UserAuthProfileRead.fromJson(json[r'user']),
       firstConnection: json[r'firstConnection'],
     );
   }
@@ -33,7 +33,7 @@ class ProfileAuthProfileRead {
 
   List<ConnectionAuthProfileRead> connections;
 
-  UserAuthProfileRead user;
+  UserAuthProfileRead? user;
 
   /// Represents whether a user is making their first connection or interaction with the service.
   final bool firstConnection;
@@ -57,7 +57,7 @@ class ProfileAuthProfileRead {
   int get hashCode =>
       types.hashCode +
       connections.hashCode +
-      user.hashCode +
+      (user == null ? 0 : user.hashCode) +
       firstConnection.hashCode;
 
   static List<ProfileAuthProfileRead> listFromJson(Iterable? json) {
@@ -116,14 +116,15 @@ class ProfileAuthProfileRead {
     return <String, dynamic>{
       r'types': types,
       r'connections': connections,
-      r'user': user.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^user\.'))) {
-          previousValue.add(element.split(RegExp(r'^user\.')).last);
-        }
+      if (keys == null || keys.any((key) => RegExp(r'^user\.').hasMatch(key)))
+        r'user': user?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^user\.'))) {
+            previousValue.add(element.split(RegExp(r'^user\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       r'firstConnection': firstConnection,
     };
   }

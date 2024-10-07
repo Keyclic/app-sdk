@@ -10,22 +10,22 @@ void main() {
   // final instance = TicketJsonhalReadLinks();
 
   group('test TicketJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst organization
+    // GetPlaceCollection200ResponseLinksSelf organization
     test('to test the property `organization`', () async {});
 
     // AssetJsonhalReadLinksType parent
     test('to test the property `parent`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> assignments (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> assignments (default value: const [])
     test('to test the property `assignments`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> equipments (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> equipments (default value: const [])
     test('to test the property `equipments`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> children (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> children (default value: const [])
     test('to test the property `children`', () async {});
   });
 }

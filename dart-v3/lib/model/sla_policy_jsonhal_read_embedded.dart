@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class SlaPolicyJsonhalReadEmbedded {
   /// Returns a new [SlaPolicyJsonhalReadEmbedded] instance.
   SlaPolicyJsonhalReadEmbedded({
-    this.fromStates = const [],
-    this.toStates = const [],
+    this.fromStates,
+    this.toStates,
   });
 
   /// Returns a new [SlaPolicyJsonhalReadEmbedded] instance and imports its values from
@@ -19,14 +19,18 @@ class SlaPolicyJsonhalReadEmbedded {
     }
 
     return SlaPolicyJsonhalReadEmbedded(
-      fromStates: List<String>.from(json[r'fromStates']),
-      toStates: List<String>.from(json[r'toStates']),
+      fromStates: json[r'fromStates'] == null
+          ? null
+          : List<String>.from(json[r'fromStates']),
+      toStates: json[r'toStates'] == null
+          ? null
+          : List<String>.from(json[r'toStates']),
     );
   }
 
-  List<String> fromStates;
+  List<String>? fromStates;
 
-  List<String> toStates;
+  List<String>? toStates;
 
   @override
   bool operator ==(Object other) {
@@ -42,7 +46,9 @@ class SlaPolicyJsonhalReadEmbedded {
   }
 
   @override
-  int get hashCode => fromStates.hashCode + toStates.hashCode;
+  int get hashCode =>
+      (fromStates == null ? 0 : fromStates.hashCode) +
+      (toStates == null ? 0 : toStates.hashCode);
 
   static List<SlaPolicyJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -98,8 +104,9 @@ class SlaPolicyJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'fromStates': fromStates,
-      r'toStates': toStates,
+      if (keys == null || keys.contains(r'fromStates'))
+        r'fromStates': fromStates,
+      if (keys == null || keys.contains(r'toStates')) r'toStates': toStates,
     };
   }
 }

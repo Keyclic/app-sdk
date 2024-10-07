@@ -8,7 +8,7 @@ class ContractJsonhalRead {
   /// Returns a new [ContractJsonhalRead] instance.
   ContractJsonhalRead({
     required this.links,
-    required this.billing,
+    this.billing,
     this.description,
     this.duration,
     required this.effectiveDate,
@@ -35,10 +35,10 @@ class ContractJsonhalRead {
 
     return ContractJsonhalRead(
       links: ContractJsonhalReadLinks.fromJson(json[r'_links'])!,
-      billing: BillingJsonhalRead.fromJson(json[r'billing'])!,
+      billing: BillingJsonhalRead.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: mapToDateTime(json[r'effectiveDate']),
+      effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
       endDate: mapToDateTime(json[r'endDate']),
       name: json[r'name'],
       number: json[r'number'],
@@ -56,7 +56,7 @@ class ContractJsonhalRead {
 
   ContractJsonhalReadLinks links;
 
-  BillingJsonhalRead billing;
+  BillingJsonhalRead? billing;
 
   /// Detailed description of the contract.
   String? description;
@@ -65,7 +65,7 @@ class ContractJsonhalRead {
   String? duration;
 
   /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
-  DateTime? effectiveDate;
+  DateTime effectiveDate;
 
   /// The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
   final DateTime? endDate;
@@ -131,10 +131,10 @@ class ContractJsonhalRead {
   @override
   int get hashCode =>
       links.hashCode +
-      billing.hashCode +
+      (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
-      (effectiveDate == null ? 0 : effectiveDate.hashCode) +
+      effectiveDate.hashCode +
       (endDate == null ? 0 : endDate.hashCode) +
       name.hashCode +
       number.hashCode +
@@ -209,19 +209,20 @@ class ContractJsonhalRead {
 
         return previousValue;
       })),
-      r'billing': billing.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^billing\.'))) {
-          previousValue.add(element.split(RegExp(r'^billing\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^billing\.').hasMatch(key)))
+        r'billing': billing?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^billing\.'))) {
+            previousValue.add(element.split(RegExp(r'^billing\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
-      if (keys == null || keys.contains(r'effectiveDate'))
-        r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
+      r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'endDate'))
         r'endDate': endDate?.toUtc().toIso8601String(),
       r'name': name,

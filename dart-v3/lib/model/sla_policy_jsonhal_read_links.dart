@@ -8,8 +8,8 @@ class SlaPolicyJsonhalReadLinks {
   /// Returns a new [SlaPolicyJsonhalReadLinks] instance.
   SlaPolicyJsonhalReadLinks({
     required this.self,
-    this.fromStates = const [],
-    this.toStates = const [],
+    this.fromStates,
+    this.toStates,
   });
 
   /// Returns a new [SlaPolicyJsonhalReadLinks] instance and imports its values from
@@ -20,19 +20,19 @@ class SlaPolicyJsonhalReadLinks {
     }
 
     return SlaPolicyJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      fromStates: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
+      fromStates: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'fromStates']),
-      toStates: GetPlaceCollection200ResponseLinksFirst.listFromJson(
+      toStates: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'toStates']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  List<GetPlaceCollection200ResponseLinksFirst> fromStates;
+  List<GetPlaceCollection200ResponseLinksSelf>? fromStates;
 
-  List<GetPlaceCollection200ResponseLinksFirst> toStates;
+  List<GetPlaceCollection200ResponseLinksSelf>? toStates;
 
   @override
   bool operator ==(Object other) {
@@ -49,7 +49,10 @@ class SlaPolicyJsonhalReadLinks {
   }
 
   @override
-  int get hashCode => self.hashCode + fromStates.hashCode + toStates.hashCode;
+  int get hashCode =>
+      self.hashCode +
+      (fromStates == null ? 0 : fromStates.hashCode) +
+      (toStates == null ? 0 : toStates.hashCode);
 
   static List<SlaPolicyJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -113,8 +116,9 @@ class SlaPolicyJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'fromStates': fromStates,
-      r'toStates': toStates,
+      if (keys == null || keys.contains(r'fromStates'))
+        r'fromStates': fromStates,
+      if (keys == null || keys.contains(r'toStates')) r'toStates': toStates,
     };
   }
 }

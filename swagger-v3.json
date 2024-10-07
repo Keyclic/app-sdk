@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-beta.4.dev.edbcd4183"
+        "version": "2.66.0-beta.5.dev.4853ec269"
     },
     "servers": [
         {
@@ -33,6 +33,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -66,8 +67,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -603,6 +603,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -636,8 +637,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -1017,6 +1017,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -1050,8 +1051,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -1998,6 +1998,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -2031,8 +2032,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -2412,6 +2412,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -2445,8 +2446,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -2826,6 +2826,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -2859,8 +2860,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -3310,6 +3310,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -3343,8 +3344,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -3724,6 +3724,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -3757,8 +3758,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -5224,6 +5224,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -5257,8 +5258,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -6848,6 +6848,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -6881,8 +6882,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -7262,6 +7262,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -7295,8 +7296,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -7906,6 +7906,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -7939,8 +7940,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -8688,6 +8688,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -8721,8 +8722,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -9116,6 +9116,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -9149,8 +9150,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -9530,6 +9530,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -9563,8 +9564,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -11473,6 +11473,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -11506,8 +11507,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -11756,6 +11756,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -11789,8 +11790,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -12039,6 +12039,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -12072,8 +12073,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -12322,6 +12322,7 @@
                                     "type": "object",
                                     "properties": {
                                         "_embedded": {
+                                            "nullable": true,
                                             "type": "object",
                                             "properties": {
                                                 "item": {
@@ -12355,8 +12356,7 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    },
-                                                    "nullable": false
+                                                    }
                                                 },
                                                 "first": {
                                                     "type": "object",
@@ -13338,9 +13338,9 @@
                     "name": {
                         "minLength": 1,
                         "maxLength": 255,
+                        "nullable": false,
                         "description": "Name of the brand.",
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "id": {
                         "readOnly": true,
@@ -13381,9 +13381,9 @@
                     "name": {
                         "minLength": 1,
                         "maxLength": 255,
+                        "nullable": false,
                         "description": "Name of the brand.",
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "id": {
                         "readOnly": true,
@@ -13892,7 +13892,12 @@
                 "properties": {
                     "billing": {
                         "description": "A dictionary containing information about the contract's billing, including the start date, initial cost, and adjusted cost.",
-                        "$ref": "#/components/schemas/Billing-Read"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Billing-Read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "description": {
                         "minLength": 1,
@@ -13908,10 +13913,10 @@
                         "nullable": true
                     },
                     "effectiveDate": {
+                        "nullable": false,
                         "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.",
                         "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "format": "date-time"
                     },
                     "endDate": {
                         "readOnly": true,
@@ -13937,11 +13942,11 @@
                         "type": "boolean"
                     },
                     "provider": {
+                        "nullable": false,
                         "description": "Organization responsible for the contract.",
                         "type": "string",
                         "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
+                        "example": "https://example.com/"
                     },
                     "renewal": {
                         "anyOf": [
@@ -14039,19 +14044,17 @@
                     },
                     "effectiveDate": {
                         "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "format": "date-time"
                     },
                     "name": {
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "number": {
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "onCall": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "nullable": true
                     },
                     "places": {
                         "type": "array",
@@ -14064,8 +14067,7 @@
                     "provider": {
                         "type": "string",
                         "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
+                        "example": "https://example.com/"
                     },
                     "renewal": {
                         "anyOf": [
@@ -14102,8 +14104,7 @@
                     "type": {
                         "type": "string",
                         "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
+                        "example": "https://example.com/"
                     }
                 },
                 "required": [
@@ -14151,7 +14152,8 @@
                         "nullable": true
                     },
                     "onCall": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "nullable": true
                     },
                     "places": {
                         "type": "array",
@@ -14230,8 +14232,7 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                },
-                                "nullable": true
+                                }
                             },
                             "type": {
                                 "type": "object",
@@ -14247,7 +14248,12 @@
                     },
                     "billing": {
                         "description": "A dictionary containing information about the contract's billing, including the start date, initial cost, and adjusted cost.",
-                        "$ref": "#/components/schemas/Billing.jsonhal-Read"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Billing.jsonhal-Read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "description": {
                         "minLength": 1,
@@ -14263,10 +14269,10 @@
                         "nullable": true
                     },
                     "effectiveDate": {
+                        "nullable": false,
                         "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.",
                         "type": "string",
-                        "format": "date-time",
-                        "nullable": true
+                        "format": "date-time"
                     },
                     "endDate": {
                         "readOnly": true,
@@ -15197,7 +15203,8 @@
                     },
                     "metadata": {
                         "type": "object",
-                        "additionalProperties": true
+                        "additionalProperties": true,
+                        "nullable": true
                     },
                     "reporter": {
                         "type": "string",
@@ -15286,7 +15293,8 @@
                     },
                     "metadata": {
                         "type": "object",
-                        "additionalProperties": true
+                        "additionalProperties": true,
+                        "nullable": true
                     },
                     "visibility": {
                         "enum": [
@@ -15548,8 +15556,7 @@
                     "integration": {
                         "type": "string",
                         "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
+                        "example": "https://example.com/"
                     },
                     "metadata": {
                         "type": "object",
@@ -15560,8 +15567,7 @@
                         "nullable": true
                     },
                     "source": {
-                        "type": "string",
-                        "nullable": true
+                        "type": "string"
                     },
                     "state": {
                         "enum": [
@@ -16230,7 +16236,12 @@
                         }
                     },
                     "user": {
-                        "$ref": "#/components/schemas/User-auth-profile.read"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/User-auth-profile.read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "firstConnection": {
                         "readOnly": true,
@@ -16286,7 +16297,12 @@
                         }
                     },
                     "user": {
-                        "$ref": "#/components/schemas/User.jsonhal-auth-profile.read"
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/User.jsonhal-auth-profile.read"
+                            }
+                        ],
+                        "nullable": true
                     },
                     "firstConnection": {
                         "readOnly": true,
@@ -16570,7 +16586,8 @@
                                             "format": "iri-reference"
                                         }
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "toStates": {
                                 "type": "array",
@@ -16582,7 +16599,8 @@
                                             "format": "iri-reference"
                                         }
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -16632,7 +16650,8 @@
                                     "type": "string",
                                     "format": "iri-reference",
                                     "example": "https://example.com/"
-                                }
+                                },
+                                "nullable": true
                             },
                             "toStates": {
                                 "type": "array",
@@ -16640,7 +16659,8 @@
                                     "type": "string",
                                     "format": "iri-reference",
                                     "example": "https://example.com/"
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     }
@@ -16886,8 +16906,7 @@
                     "parent": {
                         "type": "string",
                         "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
+                        "example": "https://example.com/"
                     },
                     "scheduledAt": {
                         "type": "string",
@@ -17009,7 +17028,8 @@
                                             "format": "iri-reference"
                                         }
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "equipments": {
                                 "type": "array",
@@ -17021,7 +17041,8 @@
                                             "format": "iri-reference"
                                         }
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "children": {
                                 "type": "array",
@@ -17033,7 +17054,8 @@
                                             "format": "iri-reference"
                                         }
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -17109,7 +17131,8 @@
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/Assignment.jsonhal-Read"
-                                }
+                                },
+                                "nullable": true
                             },
                             "category": {
                                 "readOnly": true,
@@ -17125,7 +17148,8 @@
                                 "type": "array",
                                 "items": {
                                     "$ref": "#/components/schemas/Equipment.jsonhal-Read"
-                                }
+                                },
+                                "nullable": true
                             },
                             "phase": {
                                 "readOnly": true,
@@ -17160,7 +17184,8 @@
                                     "type": "string",
                                     "format": "iri-reference",
                                     "example": "https://example.com/"
-                                }
+                                },
+                                "nullable": true
                             },
                             "state": {
                                 "readOnly": true,

@@ -13,7 +13,7 @@ class ContractCreateContractCommandWrite {
     required this.effectiveDate,
     required this.name,
     required this.number,
-    required this.onCall,
+    this.onCall,
     this.places = const [],
     required this.provider,
     this.renewal,
@@ -35,7 +35,7 @@ class ContractCreateContractCommandWrite {
       billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: mapToDateTime(json[r'effectiveDate']),
+      effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
@@ -57,17 +57,17 @@ class ContractCreateContractCommandWrite {
 
   String? duration;
 
-  DateTime? effectiveDate;
+  DateTime effectiveDate;
 
-  String? name;
+  String name;
 
-  String? number;
+  String number;
 
-  bool onCall;
+  bool? onCall;
 
   List<String> places;
 
-  String? provider;
+  String provider;
 
   RenewalWrite? renewal;
 
@@ -79,7 +79,7 @@ class ContractCreateContractCommandWrite {
 
   String? terminationReason;
 
-  String? type;
+  String type;
 
   @override
   bool operator ==(Object other) {
@@ -111,18 +111,18 @@ class ContractCreateContractCommandWrite {
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
-      (effectiveDate == null ? 0 : effectiveDate.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (number == null ? 0 : number.hashCode) +
-      onCall.hashCode +
+      effectiveDate.hashCode +
+      name.hashCode +
+      number.hashCode +
+      (onCall == null ? 0 : onCall.hashCode) +
       places.hashCode +
-      (provider == null ? 0 : provider.hashCode) +
+      provider.hashCode +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
       state.hashCode +
       (terminationDate == null ? 0 : terminationDate.hashCode) +
       (terminationReason == null ? 0 : terminationReason.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      type.hashCode;
 
   static List<ContractCreateContractCommandWrite> listFromJson(Iterable? json) {
     if (json == null) {
@@ -192,13 +192,12 @@ class ContractCreateContractCommandWrite {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
-      if (keys == null || keys.contains(r'effectiveDate'))
-        r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'number')) r'number': number,
-      r'onCall': onCall,
+      r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
+      r'name': name,
+      r'number': number,
+      if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
       r'places': places,
-      if (keys == null || keys.contains(r'provider')) r'provider': provider,
+      r'provider': provider,
       if (keys == null ||
           keys.any((key) => RegExp(r'^renewal\.').hasMatch(key)))
         r'renewal': renewal?.toJson(keys?.fold<List<String>>(<String>[],
@@ -216,7 +215,7 @@ class ContractCreateContractCommandWrite {
         r'terminationDate': terminationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'terminationReason'))
         r'terminationReason': terminationReason,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+      r'type': type,
     };
   }
 }

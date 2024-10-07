@@ -391,8 +391,6 @@ class ApiPlatformClient {
           return GetPlaceCollection200ResponseEmbedded.fromJson(value);
         case 'GetPlaceCollection200ResponseLinks':
           return GetPlaceCollection200ResponseLinks.fromJson(value);
-        case 'GetPlaceCollection200ResponseLinksFirst':
-          return GetPlaceCollection200ResponseLinksFirst.fromJson(value);
         case 'GetPlaceCollection200ResponseLinksSelf':
           return GetPlaceCollection200ResponseLinksSelf.fromJson(value);
         case 'GetSlaPolicyCollection200Response':

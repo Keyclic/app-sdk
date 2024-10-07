@@ -42,7 +42,7 @@ class TicketCreateTicketCommandWrite {
 
   String? name;
 
-  String? parent;
+  String parent;
 
   DateTime? scheduledAt;
 
@@ -72,7 +72,7 @@ class TicketCreateTicketCommandWrite {
       equipments.hashCode +
       (member == null ? 0 : member.hashCode) +
       (name == null ? 0 : name.hashCode) +
-      (parent == null ? 0 : parent.hashCode) +
+      parent.hashCode +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (type == null ? 0 : type.hashCode);
 
@@ -135,7 +135,7 @@ class TicketCreateTicketCommandWrite {
       r'equipments': equipments,
       if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'parent')) r'parent': parent,
+      r'parent': parent,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'type')) r'type': type,

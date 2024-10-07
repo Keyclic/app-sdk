@@ -10,7 +10,7 @@ class ProfileJsonhalAuthProfileRead {
     required this.links,
     this.types = const [],
     this.connections = const [],
-    required this.user,
+    this.user,
     required this.firstConnection,
   });
 
@@ -26,7 +26,7 @@ class ProfileJsonhalAuthProfileRead {
       types: List<String>.from(json[r'types']),
       connections:
           ConnectionJsonhalAuthProfileRead.listFromJson(json[r'connections']),
-      user: UserJsonhalAuthProfileRead.fromJson(json[r'user'])!,
+      user: UserJsonhalAuthProfileRead.fromJson(json[r'user']),
       firstConnection: json[r'firstConnection'],
     );
   }
@@ -38,7 +38,7 @@ class ProfileJsonhalAuthProfileRead {
 
   List<ConnectionJsonhalAuthProfileRead> connections;
 
-  UserJsonhalAuthProfileRead user;
+  UserJsonhalAuthProfileRead? user;
 
   /// Represents whether a user is making their first connection or interaction with the service.
   final bool firstConnection;
@@ -64,7 +64,7 @@ class ProfileJsonhalAuthProfileRead {
       links.hashCode +
       types.hashCode +
       connections.hashCode +
-      user.hashCode +
+      (user == null ? 0 : user.hashCode) +
       firstConnection.hashCode;
 
   static List<ProfileJsonhalAuthProfileRead> listFromJson(Iterable? json) {
@@ -131,14 +131,15 @@ class ProfileJsonhalAuthProfileRead {
       })),
       r'types': types,
       r'connections': connections,
-      r'user': user.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^user\.'))) {
-          previousValue.add(element.split(RegExp(r'^user\.')).last);
-        }
+      if (keys == null || keys.any((key) => RegExp(r'^user\.').hasMatch(key)))
+        r'user': user?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^user\.'))) {
+            previousValue.add(element.split(RegExp(r'^user\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       r'firstConnection': firstConnection,
     };
   }

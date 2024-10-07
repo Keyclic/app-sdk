@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class AssetJsonhalReadLinks {
   /// Returns a new [AssetJsonhalReadLinks] instance.
   AssetJsonhalReadLinks({
-    this.self,
-    this.type,
-    this.parent,
-    this.state,
+    required this.self,
+    required this.type,
+    required this.parent,
+    required this.state,
   });
 
   /// Returns a new [AssetJsonhalReadLinks] instance and imports its values from
@@ -21,20 +21,21 @@ class AssetJsonhalReadLinks {
     }
 
     return AssetJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
-      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
-      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
+      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type'])!,
+      parent:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent'])!,
+      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst? type;
+  GetPlaceCollection200ResponseLinksFirst type;
 
-  GetPlaceCollection200ResponseLinksFirst? parent;
+  GetPlaceCollection200ResponseLinksFirst parent;
 
-  GetPlaceCollection200ResponseLinksFirst? state;
+  GetPlaceCollection200ResponseLinksFirst state;
 
   @override
   bool operator ==(Object other) {
@@ -52,10 +53,7 @@ class AssetJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (type == null ? 0 : type.hashCode) +
-      (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode);
+      self.hashCode + type.hashCode + parent.hashCode + state.hashCode;
 
   static List<AssetJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,42 +109,38 @@ class AssetJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
-        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^type\.'))) {
-            previousValue.add(element.split(RegExp(r'^type\.')).last);
-          }
+        return previousValue;
+      })),
+      r'type': type.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^type\.'))) {
+          previousValue.add(element.split(RegExp(r'^type\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
-        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^parent\.'))) {
-            previousValue.add(element.split(RegExp(r'^parent\.')).last);
-          }
+        return previousValue;
+      })),
+      r'parent': parent.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^parent\.'))) {
+          previousValue.add(element.split(RegExp(r'^parent\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
-        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^state\.'))) {
-            previousValue.add(element.split(RegExp(r'^state\.')).last);
-          }
+        return previousValue;
+      })),
+      r'state': state.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^state\.'))) {
+          previousValue.add(element.split(RegExp(r'^state\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

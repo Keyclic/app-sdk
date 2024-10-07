@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class GetAssetTypeCollection200Response {
   /// Returns a new [GetAssetTypeCollection200Response] instance.
   GetAssetTypeCollection200Response({
-    this.embedded,
-    this.totalItems,
-    this.itemsPerPage,
+    required this.embedded,
+    required this.totalItems,
+    required this.itemsPerPage,
     required this.links,
   });
 
@@ -22,20 +22,20 @@ class GetAssetTypeCollection200Response {
 
     return GetAssetTypeCollection200Response(
       embedded: GetAssetTypeCollection200ResponseEmbedded.fromJson(
-          json[r'_embedded']),
+          json[r'_embedded'])!,
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
       links: GetPlaceCollection200ResponseLinks.fromJson(json[r'_links'])!,
     );
   }
 
-  GetAssetTypeCollection200ResponseEmbedded? embedded;
+  GetAssetTypeCollection200ResponseEmbedded embedded;
 
   // minimum: 0
-  int? totalItems;
+  int totalItems;
 
   // minimum: 0
-  int? itemsPerPage;
+  int itemsPerPage;
 
   GetPlaceCollection200ResponseLinks links;
 
@@ -55,9 +55,9 @@ class GetAssetTypeCollection200Response {
 
   @override
   int get hashCode =>
-      (embedded == null ? 0 : embedded.hashCode) +
-      (totalItems == null ? 0 : totalItems.hashCode) +
-      (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
+      embedded.hashCode +
+      totalItems.hashCode +
+      itemsPerPage.hashCode +
       links.hashCode;
 
   static List<GetAssetTypeCollection200Response> listFromJson(Iterable? json) {
@@ -115,20 +115,16 @@ class GetAssetTypeCollection200Response {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
+      r'_embedded': embedded.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^embedded\.'))) {
+          previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'totalItems'))
-        r'totalItems': totalItems,
-      if (keys == null || keys.contains(r'itemsPerPage'))
-        r'itemsPerPage': itemsPerPage,
+        return previousValue;
+      })),
+      r'totalItems': totalItems,
+      r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {

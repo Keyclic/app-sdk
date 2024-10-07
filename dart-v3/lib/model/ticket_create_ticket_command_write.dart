@@ -8,7 +8,7 @@ class TicketCreateTicketCommandWrite {
   /// Returns a new [TicketCreateTicketCommandWrite] instance.
   TicketCreateTicketCommandWrite({
     this.description,
-    this.equipments,
+    this.equipments = const [],
     this.member,
     this.name,
     required this.parent,
@@ -25,9 +25,7 @@ class TicketCreateTicketCommandWrite {
 
     return TicketCreateTicketCommandWrite(
       description: json[r'description'],
-      equipments: json[r'equipments'] == null
-          ? null
-          : List<String>.from(json[r'equipments']),
+      equipments: List<String>.from(json[r'equipments']),
       member: json[r'member'],
       name: json[r'name'],
       parent: json[r'parent'],
@@ -38,13 +36,13 @@ class TicketCreateTicketCommandWrite {
 
   String? description;
 
-  List<String>? equipments;
+  List<String> equipments;
 
   String? member;
 
   String? name;
 
-  String parent;
+  String? parent;
 
   DateTime? scheduledAt;
 
@@ -71,10 +69,10 @@ class TicketCreateTicketCommandWrite {
   @override
   int get hashCode =>
       (description == null ? 0 : description.hashCode) +
-      (equipments == null ? 0 : equipments.hashCode) +
+      equipments.hashCode +
       (member == null ? 0 : member.hashCode) +
       (name == null ? 0 : name.hashCode) +
-      parent.hashCode +
+      (parent == null ? 0 : parent.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
       (type == null ? 0 : type.hashCode);
 
@@ -134,11 +132,10 @@ class TicketCreateTicketCommandWrite {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'description'))
         r'description': description,
-      if (keys == null || keys.contains(r'equipments'))
-        r'equipments': equipments,
+      r'equipments': equipments,
       if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'name')) r'name': name,
-      r'parent': parent,
+      if (keys == null || keys.contains(r'parent')) r'parent': parent,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'type')) r'type': type,

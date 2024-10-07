@@ -7,16 +7,16 @@ part of keyclic_sdk_api_platform;
 class ExportJsonhalRead {
   /// Returns a new [ExportJsonhalRead] instance.
   ExportJsonhalRead({
-    this.links,
-    this.id,
+    required this.links,
+    required this.id,
     this.contentType =
         const ExportJsonhalReadContentTypeEnum._('application/vnd.ms-excel'),
     this.downloadUrl,
-    this.expiredAt,
+    required this.expiredAt,
     this.groupBy,
-    this.createdAt,
-    this.updatedAt,
-    this.name,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.name,
   });
 
   /// Returns a new [ExportJsonhalRead] instance and imports its values from
@@ -28,39 +28,39 @@ class ExportJsonhalRead {
 
     return ExportJsonhalRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+          json[r'_links'])!,
       id: json[r'id'],
       contentType:
           ExportJsonhalReadContentTypeEnum.fromJson(json[r'contentType'])!,
       downloadUrl: json[r'downloadUrl'],
-      expiredAt: mapToDateTime(json[r'expiredAt']),
+      expiredAt: mapToDateTime(json[r'expiredAt'])!,
       groupBy: ExportJsonhalReadGroupByEnum.fromJson(json[r'groupBy']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       name: json[r'name'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   ExportJsonhalReadContentTypeEnum contentType;
 
   String? downloadUrl;
 
-  final DateTime? expiredAt;
+  final DateTime expiredAt;
 
   ExportJsonhalReadGroupByEnum? groupBy;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
-  final String? name;
+  final String name;
 
   @override
   bool operator ==(Object other) {
@@ -83,15 +83,15 @@ class ExportJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      links.hashCode +
+      id.hashCode +
       contentType.hashCode +
       (downloadUrl == null ? 0 : downloadUrl.hashCode) +
-      (expiredAt == null ? 0 : expiredAt.hashCode) +
+      expiredAt.hashCode +
       (groupBy == null ? 0 : groupBy.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      createdAt.hashCode +
+      updatedAt.hashCode +
+      name.hashCode;
 
   static List<ExportJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -146,27 +146,23 @@ class ExportJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'id': id,
       r'contentType': contentType,
       if (keys == null || keys.contains(r'downloadUrl'))
         r'downloadUrl': downloadUrl,
-      if (keys == null || keys.contains(r'expiredAt'))
-        r'expiredAt': expiredAt?.toUtc().toIso8601String(),
+      r'expiredAt': expiredAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
+      r'name': name,
     };
   }
 }

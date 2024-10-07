@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class FileJsonhalRead {
   /// Returns a new [FileJsonhalRead] instance.
   FileJsonhalRead({
-    this.links,
+    required this.links,
   });
 
   /// Returns a new [FileJsonhalRead] instance and imports its values from
@@ -19,11 +19,11 @@ class FileJsonhalRead {
 
     return FileJsonhalRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+          json[r'_links'])!,
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   @override
   bool operator ==(Object other) {
@@ -36,7 +36,7 @@ class FileJsonhalRead {
   }
 
   @override
-  int get hashCode => (links == null ? 0 : links.hashCode);
+  int get hashCode => links.hashCode;
 
   static List<FileJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -88,15 +88,14 @@ class FileJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

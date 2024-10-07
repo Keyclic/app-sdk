@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class ProfileJsonhalAuthProfileRead {
   /// Returns a new [ProfileJsonhalAuthProfileRead] instance.
   ProfileJsonhalAuthProfileRead({
-    this.links,
-    this.types,
-    this.connections,
-    this.user,
-    this.firstConnection,
+    required this.links,
+    this.types = const [],
+    this.connections = const [],
+    required this.user,
+    required this.firstConnection,
   });
 
   /// Returns a new [ProfileJsonhalAuthProfileRead] instance and imports its values from
@@ -23,26 +23,26 @@ class ProfileJsonhalAuthProfileRead {
 
     return ProfileJsonhalAuthProfileRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
-      types: json[r'types'] == null ? null : List<String>.from(json[r'types']),
+          json[r'_links'])!,
+      types: List<String>.from(json[r'types']),
       connections:
           ConnectionJsonhalAuthProfileRead.listFromJson(json[r'connections']),
-      user: UserJsonhalAuthProfileRead.fromJson(json[r'user']),
+      user: UserJsonhalAuthProfileRead.fromJson(json[r'user'])!,
       firstConnection: json[r'firstConnection'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   /// Available connection types for the given email address. These might include password, enterprise, social.
-  final List<String>? types;
+  final List<String> types;
 
-  List<ConnectionJsonhalAuthProfileRead>? connections;
+  List<ConnectionJsonhalAuthProfileRead> connections;
 
-  UserJsonhalAuthProfileRead? user;
+  UserJsonhalAuthProfileRead user;
 
   /// Represents whether a user is making their first connection or interaction with the service.
-  final bool? firstConnection;
+  final bool firstConnection;
 
   @override
   bool operator ==(Object other) {
@@ -62,11 +62,11 @@ class ProfileJsonhalAuthProfileRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (types == null ? 0 : types.hashCode) +
-      (connections == null ? 0 : connections.hashCode) +
-      (user == null ? 0 : user.hashCode) +
-      (firstConnection == null ? 0 : firstConnection.hashCode);
+      links.hashCode +
+      types.hashCode +
+      connections.hashCode +
+      user.hashCode +
+      firstConnection.hashCode;
 
   static List<ProfileJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -122,29 +122,25 @@ class ProfileJsonhalAuthProfileRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'types')) r'types': types,
-      if (keys == null || keys.contains(r'connections'))
-        r'connections': connections,
-      if (keys == null || keys.any((key) => RegExp(r'^user\.').hasMatch(key)))
-        r'user': user?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^user\.'))) {
-            previousValue.add(element.split(RegExp(r'^user\.')).last);
-          }
+        return previousValue;
+      })),
+      r'types': types,
+      r'connections': connections,
+      r'user': user.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^user\.'))) {
+          previousValue.add(element.split(RegExp(r'^user\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'firstConnection'))
-        r'firstConnection': firstConnection,
+        return previousValue;
+      })),
+      r'firstConnection': firstConnection,
     };
   }
 }

@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class EquipmentJsonhalReadLinks {
   /// Returns a new [EquipmentJsonhalReadLinks] instance.
   EquipmentJsonhalReadLinks({
-    this.self,
-    this.brand,
-    this.type,
-    this.parent,
-    this.state,
+    required this.self,
+    required this.brand,
+    required this.type,
+    required this.parent,
+    required this.state,
   });
 
   /// Returns a new [EquipmentJsonhalReadLinks] instance and imports its values from
@@ -22,23 +22,24 @@ class EquipmentJsonhalReadLinks {
     }
 
     return EquipmentJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      brand: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'brand']),
-      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
-      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
-      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
+      brand: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'brand'])!,
+      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type'])!,
+      parent:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent'])!,
+      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst? brand;
+  GetPlaceCollection200ResponseLinksFirst brand;
 
-  GetPlaceCollection200ResponseLinksFirst? type;
+  GetPlaceCollection200ResponseLinksFirst type;
 
-  GetPlaceCollection200ResponseLinksFirst? parent;
+  GetPlaceCollection200ResponseLinksFirst parent;
 
-  GetPlaceCollection200ResponseLinksFirst? state;
+  GetPlaceCollection200ResponseLinksFirst state;
 
   @override
   bool operator ==(Object other) {
@@ -57,11 +58,11 @@ class EquipmentJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (brand == null ? 0 : brand.hashCode) +
-      (type == null ? 0 : type.hashCode) +
-      (parent == null ? 0 : parent.hashCode) +
-      (state == null ? 0 : state.hashCode);
+      self.hashCode +
+      brand.hashCode +
+      type.hashCode +
+      parent.hashCode +
+      state.hashCode;
 
   static List<EquipmentJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -117,51 +118,46 @@ class EquipmentJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^brand\.').hasMatch(key)))
-        r'brand': brand?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^brand\.'))) {
-            previousValue.add(element.split(RegExp(r'^brand\.')).last);
-          }
+        return previousValue;
+      })),
+      r'brand': brand.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^brand\.'))) {
+          previousValue.add(element.split(RegExp(r'^brand\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
-        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^type\.'))) {
-            previousValue.add(element.split(RegExp(r'^type\.')).last);
-          }
+        return previousValue;
+      })),
+      r'type': type.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^type\.'))) {
+          previousValue.add(element.split(RegExp(r'^type\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
-        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^parent\.'))) {
-            previousValue.add(element.split(RegExp(r'^parent\.')).last);
-          }
+        return previousValue;
+      })),
+      r'parent': parent.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^parent\.'))) {
+          previousValue.add(element.split(RegExp(r'^parent\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
-        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^state\.'))) {
-            previousValue.add(element.split(RegExp(r'^state\.')).last);
-          }
+        return previousValue;
+      })),
+      r'state': state.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^state\.'))) {
+          previousValue.add(element.split(RegExp(r'^state\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

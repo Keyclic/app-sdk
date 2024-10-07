@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class ReviewJsonhalReadLinks {
   /// Returns a new [ReviewJsonhalReadLinks] instance.
   ReviewJsonhalReadLinks({
-    this.self,
-    this.itemReviewed,
-    this.author,
+    required this.self,
+    required this.itemReviewed,
+    required this.author,
   });
 
   /// Returns a new [ReviewJsonhalReadLinks] instance and imports its values from
@@ -20,18 +20,19 @@ class ReviewJsonhalReadLinks {
     }
 
     return ReviewJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
       itemReviewed: GetPlaceCollection200ResponseLinksFirst.fromJson(
-          json[r'itemReviewed']),
-      author: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author']),
+          json[r'itemReviewed'])!,
+      author:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst? itemReviewed;
+  GetPlaceCollection200ResponseLinksFirst itemReviewed;
 
-  GetPlaceCollection200ResponseLinksFirst? author;
+  GetPlaceCollection200ResponseLinksFirst author;
 
   @override
   bool operator ==(Object other) {
@@ -47,10 +48,7 @@ class ReviewJsonhalReadLinks {
   }
 
   @override
-  int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (itemReviewed == null ? 0 : itemReviewed.hashCode) +
-      (author == null ? 0 : author.hashCode);
+  int get hashCode => self.hashCode + itemReviewed.hashCode + author.hashCode;
 
   static List<ReviewJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -106,34 +104,30 @@ class ReviewJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^itemReviewed\.').hasMatch(key)))
-        r'itemReviewed': itemReviewed?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^itemReviewed\.'))) {
-            previousValue.add(element.split(RegExp(r'^itemReviewed\.')).last);
-          }
+        return previousValue;
+      })),
+      r'itemReviewed': itemReviewed.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^itemReviewed\.'))) {
+          previousValue.add(element.split(RegExp(r'^itemReviewed\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^author\.').hasMatch(key)))
-        r'author': author?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^author\.'))) {
-            previousValue.add(element.split(RegExp(r'^author\.')).last);
-          }
+        return previousValue;
+      })),
+      r'author': author.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^author\.'))) {
+          previousValue.add(element.split(RegExp(r'^author\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

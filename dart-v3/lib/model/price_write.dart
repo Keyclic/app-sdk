@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class PriceWrite {
   /// Returns a new [PriceWrite] instance.
   PriceWrite({
-    this.value,
+    required this.value,
   });
 
   /// Returns a new [PriceWrite] instance and imports its values from
@@ -23,7 +23,7 @@ class PriceWrite {
   }
 
   // minimum: 0
-  num? value;
+  num value;
 
   @override
   bool operator ==(Object other) {
@@ -36,7 +36,7 @@ class PriceWrite {
   }
 
   @override
-  int get hashCode => (value == null ? 0 : value.hashCode);
+  int get hashCode => value.hashCode;
 
   static List<PriceWrite> listFromJson(Iterable? json) {
     if (json == null) {
@@ -87,7 +87,7 @@ class PriceWrite {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'value')) r'value': value,
+      r'value': value,
     };
   }
 }

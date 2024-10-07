@@ -278,6 +278,8 @@ class ApiPlatformClient {
           return AssetJsonhalRead.fromJson(value);
         case 'AssetJsonhalReadLinks':
           return AssetJsonhalReadLinks.fromJson(value);
+        case 'AssetJsonhalReadLinksType':
+          return AssetJsonhalReadLinksType.fromJson(value);
         case 'AssetTypeJsonhalRead':
           return AssetTypeJsonhalRead.fromJson(value);
         case 'AssignmentJsonhalRead':
@@ -352,6 +354,8 @@ class ApiPlatformClient {
           return FileJsonhalRead.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'FormJsonhalOrganizationPreferenceReadLinks':
+          return FormJsonhalOrganizationPreferenceReadLinks.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':
           return GeoCoordinatesJsonhalRead.fromJson(value);
         case 'GetAssetCollection200Response':

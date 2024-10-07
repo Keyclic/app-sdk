@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-beta.3.dev.e478a8d5e"
+        "version": "2.66.0-beta.4.dev.edbcd4183"
     },
     "servers": [
         {
@@ -15876,7 +15876,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "parent": {
                                 "type": "object",
@@ -15885,7 +15886,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "state": {
                                 "type": "object",
@@ -15894,7 +15896,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -16026,7 +16029,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "member": {
                                 "type": "object",
@@ -16035,7 +16039,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "service": {
                                 "type": "object",
@@ -16044,7 +16049,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -16884,7 +16890,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "type": {
                                 "type": "object",
@@ -16893,7 +16900,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -17332,7 +17340,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "type": {
                                 "type": "object",
@@ -17341,7 +17350,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "parent": {
                                 "type": "object",
@@ -17350,7 +17360,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "state": {
                                 "type": "object",
@@ -17359,7 +17370,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -17732,7 +17744,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -18475,7 +18488,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "parent": {
                                 "type": "object",
@@ -18484,7 +18498,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "state": {
                                 "type": "object",
@@ -18493,7 +18508,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -19703,7 +19719,8 @@
                                         "type": "string",
                                         "format": "iri-reference"
                                     }
-                                }
+                                },
+                                "nullable": true
                             },
                             "assignments": {
                                 "type": "array",

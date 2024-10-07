@@ -16,7 +16,7 @@ void main() {
     // GetPlaceCollection200ResponseLinksFirst organization
     test('to test the property `organization`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst parent
+    // AssetJsonhalReadLinksType parent
     test('to test the property `parent`', () async {});
 
     // List<GetPlaceCollection200ResponseLinksFirst> assignments (default value: const [])

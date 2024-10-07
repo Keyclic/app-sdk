@@ -26,7 +26,7 @@ class TicketJsonhalReadLinks {
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
       organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'organization']),
-      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
+      parent: AssetJsonhalReadLinksType.fromJson(json[r'parent']),
       assignments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
           json[r'assignments']),
       equipments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
@@ -40,7 +40,7 @@ class TicketJsonhalReadLinks {
 
   GetPlaceCollection200ResponseLinksFirst? organization;
 
-  GetPlaceCollection200ResponseLinksFirst? parent;
+  AssetJsonhalReadLinksType? parent;
 
   List<GetPlaceCollection200ResponseLinksFirst>? assignments;
 

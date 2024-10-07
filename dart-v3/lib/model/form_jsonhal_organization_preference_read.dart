@@ -22,8 +22,8 @@ class FormJsonhalOrganizationPreferenceRead {
     }
 
     return FormJsonhalOrganizationPreferenceRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links:
+          FormJsonhalOrganizationPreferenceReadLinks.fromJson(json[r'_links']),
       contract: json[r'contract'],
       hidden:
           json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
@@ -34,7 +34,7 @@ class FormJsonhalOrganizationPreferenceRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  FormJsonhalOrganizationPreferenceReadLinks? links;
 
   /// Allow authorized user to provide a contract on feedback form.
   bool? contract;

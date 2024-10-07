@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **self** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **organization** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
-**parent** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
+**parent** | [**AssetJsonhalReadLinksType**](AssetJsonhalReadLinksType.md) |  | [optional] 
 **assignments** | [**List<GetPlaceCollection200ResponseLinksFirst>**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] [default to const []]
 **equipments** | [**List<GetPlaceCollection200ResponseLinksFirst>**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] [default to const []]
 **children** | [**List<GetPlaceCollection200ResponseLinksFirst>**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] [default to const []]

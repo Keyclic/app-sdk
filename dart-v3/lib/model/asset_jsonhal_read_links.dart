@@ -8,9 +8,9 @@ class AssetJsonhalReadLinks {
   /// Returns a new [AssetJsonhalReadLinks] instance.
   AssetJsonhalReadLinks({
     required this.self,
-    required this.type,
-    required this.parent,
-    required this.state,
+    this.type,
+    this.parent,
+    this.state,
   });
 
   /// Returns a new [AssetJsonhalReadLinks] instance and imports its values from
@@ -22,20 +22,19 @@ class AssetJsonhalReadLinks {
 
     return AssetJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type'])!,
-      parent:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent'])!,
-      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state'])!,
+      type: AssetJsonhalReadLinksType.fromJson(json[r'type']),
+      parent: AssetJsonhalReadLinksType.fromJson(json[r'parent']),
+      state: AssetJsonhalReadLinksType.fromJson(json[r'state']),
     );
   }
 
   GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst type;
+  AssetJsonhalReadLinksType? type;
 
-  GetPlaceCollection200ResponseLinksFirst parent;
+  AssetJsonhalReadLinksType? parent;
 
-  GetPlaceCollection200ResponseLinksFirst state;
+  AssetJsonhalReadLinksType? state;
 
   @override
   bool operator ==(Object other) {
@@ -53,7 +52,10 @@ class AssetJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      self.hashCode + type.hashCode + parent.hashCode + state.hashCode;
+      self.hashCode +
+      (type == null ? 0 : type.hashCode) +
+      (parent == null ? 0 : parent.hashCode) +
+      (state == null ? 0 : state.hashCode);
 
   static List<AssetJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -117,30 +119,33 @@ class AssetJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'type': type.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^type\.'))) {
-          previousValue.add(element.split(RegExp(r'^type\.')).last);
-        }
+      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
+        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^type\.'))) {
+            previousValue.add(element.split(RegExp(r'^type\.')).last);
+          }
 
-        return previousValue;
-      })),
-      r'parent': parent.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^parent\.'))) {
-          previousValue.add(element.split(RegExp(r'^parent\.')).last);
-        }
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
+        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^parent\.'))) {
+            previousValue.add(element.split(RegExp(r'^parent\.')).last);
+          }
 
-        return previousValue;
-      })),
-      r'state': state.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^state\.'))) {
-          previousValue.add(element.split(RegExp(r'^state\.')).last);
-        }
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
+        r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^state\.'))) {
+            previousValue.add(element.split(RegExp(r'^state\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
     };
   }
 }

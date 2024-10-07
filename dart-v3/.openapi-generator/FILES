@@ -7,6 +7,7 @@ doc/ArchivingJsonhalOrganizationPreferenceReadLinks.md
 doc/AssetApi.md
 doc/AssetJsonhalRead.md
 doc/AssetJsonhalReadLinks.md
+doc/AssetJsonhalReadLinksType.md
 doc/AssetTypeApi.md
 doc/AssetTypeJsonhalRead.md
 doc/AssignmentJsonhalRead.md
@@ -56,6 +57,7 @@ doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
 doc/FileJsonhalRead.md
 doc/FormJsonhalOrganizationPreferenceRead.md
+doc/FormJsonhalOrganizationPreferenceReadLinks.md
 doc/GeoCoordinatesJsonhalRead.md
 doc/GetAssetCollection200Response.md
 doc/GetAssetCollection200ResponseEmbedded.md
@@ -239,6 +241,7 @@ lib/model/archiving_jsonhal_organization_preference_read.dart
 lib/model/archiving_jsonhal_organization_preference_read_links.dart
 lib/model/asset_jsonhal_read.dart
 lib/model/asset_jsonhal_read_links.dart
+lib/model/asset_jsonhal_read_links_type.dart
 lib/model/asset_type_jsonhal_read.dart
 lib/model/assignment_jsonhal_read.dart
 lib/model/assignment_jsonhal_read_links.dart
@@ -276,6 +279,7 @@ lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
 lib/model/file_jsonhal_read.dart
 lib/model/form_jsonhal_organization_preference_read.dart
+lib/model/form_jsonhal_organization_preference_read_links.dart
 lib/model/geo_coordinates_jsonhal_read.dart
 lib/model/get_asset_collection200_response.dart
 lib/model/get_asset_collection200_response_embedded.dart
@@ -403,6 +407,7 @@ test/archiving_jsonhal_organization_preference_read_links_test.dart
 test/archiving_jsonhal_organization_preference_read_test.dart
 test/asset_api_test.dart
 test/asset_jsonhal_read_links_test.dart
+test/asset_jsonhal_read_links_type_test.dart
 test/asset_jsonhal_read_test.dart
 test/asset_type_api_test.dart
 test/asset_type_jsonhal_read_test.dart
@@ -452,6 +457,7 @@ test/export_read_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
 test/file_jsonhal_read_test.dart
+test/form_jsonhal_organization_preference_read_links_test.dart
 test/form_jsonhal_organization_preference_read_test.dart
 test/geo_coordinates_jsonhal_read_test.dart
 test/get_asset_collection200_response_embedded_test.dart

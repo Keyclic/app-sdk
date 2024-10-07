@@ -9,7 +9,7 @@ class TicketJsonhalReadLinks {
   TicketJsonhalReadLinks({
     required this.self,
     required this.organization,
-    required this.parent,
+    this.parent,
     this.assignments = const [],
     this.equipments = const [],
     this.children = const [],
@@ -26,8 +26,7 @@ class TicketJsonhalReadLinks {
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
       organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'organization'])!,
-      parent:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent'])!,
+      parent: AssetJsonhalReadLinksType.fromJson(json[r'parent']),
       assignments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
           json[r'assignments']),
       equipments: GetPlaceCollection200ResponseLinksFirst.listFromJson(
@@ -41,7 +40,7 @@ class TicketJsonhalReadLinks {
 
   GetPlaceCollection200ResponseLinksFirst organization;
 
-  GetPlaceCollection200ResponseLinksFirst parent;
+  AssetJsonhalReadLinksType? parent;
 
   List<GetPlaceCollection200ResponseLinksFirst> assignments;
 
@@ -71,7 +70,7 @@ class TicketJsonhalReadLinks {
   int get hashCode =>
       self.hashCode +
       organization.hashCode +
-      parent.hashCode +
+      (parent == null ? 0 : parent.hashCode) +
       assignments.hashCode +
       equipments.hashCode +
       children.hashCode;
@@ -146,14 +145,15 @@ class TicketJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'parent': parent.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^parent\.'))) {
-          previousValue.add(element.split(RegExp(r'^parent\.')).last);
-        }
+      if (keys == null || keys.any((key) => RegExp(r'^parent\.').hasMatch(key)))
+        r'parent': parent?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^parent\.'))) {
+            previousValue.add(element.split(RegExp(r'^parent\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       r'assignments': assignments,
       r'equipments': equipments,
       r'children': children,

@@ -45,6 +45,7 @@ part 'api/workflow_transition_api.dart';
 
 part 'model/asset_jsonhal_read.dart';
 part 'model/asset_jsonhal_read_links.dart';
+part 'model/asset_jsonhal_read_links_type.dart';
 part 'model/asset_read.dart';
 part 'model/asset_type_jsonhal_read.dart';
 part 'model/asset_type_jsonhal_read_links.dart';

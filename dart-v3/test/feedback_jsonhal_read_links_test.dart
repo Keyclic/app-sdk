@@ -13,7 +13,7 @@ void main() {
     // GetPlaceCollection200ResponseLinksFirst self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst reporter
+    // AssetJsonhalReadLinksType reporter
     test('to test the property `reporter`', () async {});
   });
 }

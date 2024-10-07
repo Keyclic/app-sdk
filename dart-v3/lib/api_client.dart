@@ -238,6 +238,8 @@ class ApiPlatformClient {
           return AssetJsonhalRead.fromJson(value);
         case 'AssetJsonhalReadLinks':
           return AssetJsonhalReadLinks.fromJson(value);
+        case 'AssetJsonhalReadLinksType':
+          return AssetJsonhalReadLinksType.fromJson(value);
         case 'AssetRead':
           return AssetRead.fromJson(value);
         case 'AssetTypeJsonhalRead':

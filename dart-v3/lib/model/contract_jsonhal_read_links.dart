@@ -8,8 +8,8 @@ class ContractJsonhalReadLinks {
   /// Returns a new [ContractJsonhalReadLinks] instance.
   ContractJsonhalReadLinks({
     required this.self,
-    required this.provider,
-    required this.type,
+    this.provider,
+    this.type,
   });
 
   /// Returns a new [ContractJsonhalReadLinks] instance and imports its values from
@@ -21,17 +21,16 @@ class ContractJsonhalReadLinks {
 
     return ContractJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self'])!,
-      provider:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'provider'])!,
-      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type'])!,
+      provider: AssetJsonhalReadLinksType.fromJson(json[r'provider']),
+      type: AssetJsonhalReadLinksType.fromJson(json[r'type']),
     );
   }
 
   GetPlaceCollection200ResponseLinksFirst self;
 
-  GetPlaceCollection200ResponseLinksFirst provider;
+  AssetJsonhalReadLinksType? provider;
 
-  GetPlaceCollection200ResponseLinksFirst type;
+  AssetJsonhalReadLinksType? type;
 
   @override
   bool operator ==(Object other) {
@@ -47,7 +46,10 @@ class ContractJsonhalReadLinks {
   }
 
   @override
-  int get hashCode => self.hashCode + provider.hashCode + type.hashCode;
+  int get hashCode =>
+      self.hashCode +
+      (provider == null ? 0 : provider.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<ContractJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -111,22 +113,25 @@ class ContractJsonhalReadLinks {
 
         return previousValue;
       })),
-      r'provider': provider.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^provider\.'))) {
-          previousValue.add(element.split(RegExp(r'^provider\.')).last);
-        }
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^provider\.').hasMatch(key)))
+        r'provider': provider?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^provider\.'))) {
+            previousValue.add(element.split(RegExp(r'^provider\.')).last);
+          }
 
-        return previousValue;
-      })),
-      r'type': type.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^type\.'))) {
-          previousValue.add(element.split(RegExp(r'^type\.')).last);
-        }
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
+        r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^type\.'))) {
+            previousValue.add(element.split(RegExp(r'^type\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
     };
   }
 }

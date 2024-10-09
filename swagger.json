@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.65.0-dev.gb0cc195b3"
+        "version": "2.66.0-beta.1.dev.1ed7644ba"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -22928,6 +22928,8 @@
             "enum": [
                 "asset-equipment:read",
                 "asset-equipment:write",
+                "asset-place:write:create",
+                "asset-place:write:edit",
                 "asset-type:read",
                 "business-hours:read",
                 "category:read",

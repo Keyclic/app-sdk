@@ -19,6 +19,10 @@ class Permission {
   static const assetEquipmentColonRead = Permission._(r'asset-equipment:read');
   static const assetEquipmentColonWrite =
       Permission._(r'asset-equipment:write');
+  static const assetPlaceColonWriteColonCreate =
+      Permission._(r'asset-place:write:create');
+  static const assetPlaceColonWriteColonEdit =
+      Permission._(r'asset-place:write:edit');
   static const assetTypeColonRead = Permission._(r'asset-type:read');
   static const businessHoursColonRead = Permission._(r'business-hours:read');
   static const categoryColonRead = Permission._(r'category:read');
@@ -69,6 +73,8 @@ class Permission {
   static const values = <Permission>[
     assetEquipmentColonRead,
     assetEquipmentColonWrite,
+    assetPlaceColonWriteColonCreate,
+    assetPlaceColonWriteColonEdit,
     assetTypeColonRead,
     businessHoursColonRead,
     categoryColonRead,
@@ -147,6 +153,10 @@ class PermissionTypeTransformer {
         return Permission.assetEquipmentColonRead;
       case r'asset-equipment:write':
         return Permission.assetEquipmentColonWrite;
+      case r'asset-place:write:create':
+        return Permission.assetPlaceColonWriteColonCreate;
+      case r'asset-place:write:edit':
+        return Permission.assetPlaceColonWriteColonEdit;
       case r'asset-type:read':
         return Permission.assetTypeColonRead;
       case r'business-hours:read':

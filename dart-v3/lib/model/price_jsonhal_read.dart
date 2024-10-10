@@ -20,14 +20,15 @@ class PriceJsonhalRead {
     }
 
     return PriceJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       currencyCode:
           PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The currency code, in ISO 4217 format.
   final PriceJsonhalReadCurrencyCodeEnum? currencyCode;

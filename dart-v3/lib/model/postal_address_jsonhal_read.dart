@@ -21,14 +21,15 @@ class PostalAddressJsonhalRead {
     }
 
     return PostalAddressJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       locality: json[r'locality'],
       postalCode: json[r'postalCode'],
       streetAddress: json[r'streetAddress'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? locality;
 

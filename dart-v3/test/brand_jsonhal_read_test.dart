@@ -10,7 +10,7 @@ void main() {
   // final instance = BrandJsonhalRead();
 
   group('test BrandJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // Detailed description of brand.

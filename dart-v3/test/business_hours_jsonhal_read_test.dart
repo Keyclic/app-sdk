@@ -10,7 +10,7 @@ void main() {
   // final instance = BusinessHoursJsonhalRead();
 
   group('test BusinessHoursJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String hoursPerDay

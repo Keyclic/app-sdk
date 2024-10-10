@@ -10,7 +10,11 @@ class CategoryJsonhalRead {
     this.links,
     required this.name,
     this.id,
+    this.identificationNumber,
     this.path,
+    this.createdAt,
+    this.updatedAt,
+    this.embedded,
   });
 
   /// Returns a new [CategoryJsonhalRead] instance and imports its values from
@@ -24,7 +28,11 @@ class CategoryJsonhalRead {
       links: CategoryJsonhalReadLinks.fromJson(json[r'_links']),
       name: json[r'name'],
       id: json[r'id'],
+      identificationNumber: json[r'identificationNumber'],
       path: NodeJsonhalRead.listFromJson(json[r'path']),
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
+      embedded: CategoryJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
@@ -35,7 +43,17 @@ class CategoryJsonhalRead {
   /// The resource identifier.
   final String? id;
 
+  String? identificationNumber;
+
   final List<NodeJsonhalRead>? path;
+
+  /// The date and time when the resource was created, in UTC format.
+  final DateTime? createdAt;
+
+  /// The date and time when the resource was updated, in UTC format.
+  final DateTime? updatedAt;
+
+  CategoryJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -48,7 +66,11 @@ class CategoryJsonhalRead {
         other.links == links &&
         other.name == name &&
         other.id == id &&
-        DeepCollectionEquality.unordered().equals(path, other.path);
+        other.identificationNumber == identificationNumber &&
+        DeepCollectionEquality.unordered().equals(path, other.path) &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.embedded == embedded;
   }
 
   @override
@@ -56,7 +78,11 @@ class CategoryJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
-      (path == null ? 0 : path.hashCode);
+      (identificationNumber == null ? 0 : identificationNumber.hashCode) +
+      (path == null ? 0 : path.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<CategoryJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -107,7 +133,7 @@ class CategoryJsonhalRead {
 
   @override
   String toString() =>
-      'CategoryJsonhalRead[links=$links, name=$name, id=$id, path=$path]';
+      'CategoryJsonhalRead[links=$links, name=$name, id=$id, identificationNumber=$identificationNumber, path=$path, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -122,7 +148,23 @@ class CategoryJsonhalRead {
         })),
       r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'identificationNumber'))
+        r'identificationNumber': identificationNumber,
       if (keys == null || keys.contains(r'path')) r'path': path,
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+          }
+
+          return previousValue;
+        })),
     };
   }
 }

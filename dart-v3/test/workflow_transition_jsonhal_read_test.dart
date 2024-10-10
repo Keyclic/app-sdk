@@ -10,7 +10,7 @@ void main() {
   // final instance = WorkflowTransitionJsonhalRead();
 
   group('test WorkflowTransitionJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String description

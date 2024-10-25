@@ -218,6 +218,7 @@ class TicketApi {
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [operationStateAll] -
+  /// * [operationStateAllLeftSquareBracketRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketDueByRightSquareBracket] -
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
@@ -307,6 +308,7 @@ class TicketApi {
     bool? existsLeftSquareBracketAssignmentsRightSquareBracket,
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     String? operationStateAll,
+    List<String>? operationStateAllLeftSquareBracketRightSquareBracket,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketDueByRightSquareBracket,
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
@@ -470,6 +472,10 @@ class TicketApi {
             existsLeftSquareBracketDocumentsRightSquareBracket),
       if (operationStateAll != null)
         r'operation_state_all': encodeQueryParameter(operationStateAll),
+      if (operationStateAllLeftSquareBracketRightSquareBracket != null)
+        r'operation_state_all[]': encodeCollectionQueryParameter(
+            operationStateAllLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),

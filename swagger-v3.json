@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-beta.1.dev.1ed7644ba"
+        "version": "2.65.5-dev.gcbf2bd75c"
     },
     "servers": [
         {
@@ -10047,6 +10047,23 @@
                         },
                         "style": "form",
                         "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "operation_state_all[]",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
                         "allowReserved": false
                     },
                     {

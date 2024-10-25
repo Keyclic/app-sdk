@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **billing** | [**BillingJsonhalRead**](BillingJsonhalRead.md) |  | [optional] 
 **description** | **String** | Detailed description of the contract. | [optional] 
 **duration** | **String** | Duration of the contract in ISO 8601 duration format. | [optional] 
-**effectiveDate** | [**DateTime**](DateTime.md) | The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date. | 
+**effectiveDate** | [**DateTime**](DateTime.md) | The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date. | [optional] 
 **endDate** | [**DateTime**](DateTime.md) | The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration. | [optional] [readonly] 
 **name** | **String** | Name of the contract. | 
 **number** | **String** | Number assigned to the contract by the organization. Each contract must have a unique contract number to ensure that contracts can be easily identified and tracked. | 

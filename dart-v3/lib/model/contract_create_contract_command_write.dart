@@ -10,7 +10,7 @@ class ContractCreateContractCommandWrite {
     this.billing,
     this.description,
     this.duration,
-    required this.effectiveDate,
+    this.effectiveDate,
     required this.name,
     required this.number,
     this.onCall,
@@ -35,7 +35,7 @@ class ContractCreateContractCommandWrite {
       billing: BillingWrite.fromJson(json[r'billing']),
       description: json[r'description'],
       duration: json[r'duration'],
-      effectiveDate: mapToDateTime(json[r'effectiveDate'])!,
+      effectiveDate: mapToDateTime(json[r'effectiveDate']),
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
@@ -58,7 +58,7 @@ class ContractCreateContractCommandWrite {
 
   String? duration;
 
-  DateTime effectiveDate;
+  DateTime? effectiveDate;
 
   String name;
 
@@ -112,7 +112,7 @@ class ContractCreateContractCommandWrite {
       (billing == null ? 0 : billing.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
-      effectiveDate.hashCode +
+      (effectiveDate == null ? 0 : effectiveDate.hashCode) +
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
@@ -193,7 +193,8 @@ class ContractCreateContractCommandWrite {
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
-      r'effectiveDate': effectiveDate.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'effectiveDate'))
+        r'effectiveDate': effectiveDate?.toUtc().toIso8601String(),
       r'name': name,
       r'number': number,
       if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,

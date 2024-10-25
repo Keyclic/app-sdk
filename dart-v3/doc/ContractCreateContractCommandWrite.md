@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **billing** | [**BillingWrite**](BillingWrite.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **duration** | **String** |  | [optional] 
-**effectiveDate** | [**DateTime**](DateTime.md) |  | 
+**effectiveDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **name** | **String** |  | 
 **number** | **String** |  | 
 **onCall** | **bool** |  | [optional] 

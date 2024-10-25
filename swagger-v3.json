@@ -14001,7 +14001,6 @@
                     }
                 },
                 "required": [
-                    "effectiveDate",
                     "name",
                     "number",
                     "provider",
@@ -14101,7 +14100,6 @@
                     }
                 },
                 "required": [
-                    "effectiveDate",
                     "name",
                     "number",
                     "provider",
@@ -14340,7 +14338,6 @@
                     }
                 },
                 "required": [
-                    "effectiveDate",
                     "name",
                     "number",
                     "provider",

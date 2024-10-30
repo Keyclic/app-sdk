@@ -190,6 +190,7 @@ Class | Method | HTTP request | Description
  - [FeedbackJsongeoRead](doc//FeedbackJsongeoRead.md)
  - [FeedbackJsonhalRead](doc//FeedbackJsonhalRead.md)
  - [FeedbackJsonhalReadLinks](doc//FeedbackJsonhalReadLinks.md)
+ - [FeedbackJsonhalReadLinksMember](doc//FeedbackJsonhalReadLinksMember.md)
  - [FormJsonhalOrganizationPreferenceRead](doc//FormJsonhalOrganizationPreferenceRead.md)
  - [GeoCoordinatesJsongeoRead](doc//GeoCoordinatesJsongeoRead.md)
  - [GeoCoordinatesJsonhalRead](doc//GeoCoordinatesJsonhalRead.md)

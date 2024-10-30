@@ -16,6 +16,9 @@ void main() {
     // List<Marker> markers (default value: const [])
     test('to test the property `markers`', () async {});
 
+    // Member member
+    test('to test the property `member`', () async {});
+
     // Person reporter
     test('to test the property `reporter`', () async {});
 

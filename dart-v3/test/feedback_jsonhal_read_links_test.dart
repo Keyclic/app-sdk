@@ -13,6 +13,9 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
+    // FeedbackJsonhalReadLinksMember member
+    test('to test the property `member`', () async {});
+
     // GetPlaceCollection200ResponseLinksFirst reporter
     test('to test the property `reporter`', () async {});
   });

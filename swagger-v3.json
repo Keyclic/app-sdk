@@ -19941,6 +19941,16 @@
                                     }
                                 }
                             },
+                            "member": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                },
+                                "nullable": true
+                            },
                             "reporter": {
                                 "type": "object",
                                 "properties": {

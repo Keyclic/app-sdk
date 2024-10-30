@@ -19,6 +19,9 @@ void main() {
     // List<FeedbackLinksImages> images (default value: const [])
     test('to test the property `images`', () async {});
 
+    // FeedbackLinksMember member
+    test('to test the property `member`', () async {});
+
     // List<FeedbackLinksPlans> plans (default value: const [])
     test('to test the property `plans`', () async {});
 

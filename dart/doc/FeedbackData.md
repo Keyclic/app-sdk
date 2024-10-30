@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **equipments** | **List<String>** |  | [optional] [default to const []]
 **geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | [optional] 
+**member** | **String** |  | [optional] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **place** | **String** |  | [optional] 
 **priority** | **String** |  | [optional] 

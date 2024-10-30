@@ -709,6 +709,10 @@ class ApiClient {
           return FeedbackLinksImagesIriTemplate.fromJson(value);
         case 'FeedbackLinksImagesIriTemplateMapping':
           return FeedbackLinksImagesIriTemplateMapping.fromJson(value);
+        case 'FeedbackLinksMember':
+          return FeedbackLinksMember.fromJson(value);
+        case 'FeedbackLinksMemberIriTemplate':
+          return FeedbackLinksMemberIriTemplate.fromJson(value);
         case 'FeedbackLinksPlans':
           return FeedbackLinksPlans.fromJson(value);
         case 'FeedbackLinksPlansIriTemplate':

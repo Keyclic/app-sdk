@@ -13,6 +13,7 @@ class FeedbackData {
     this.description,
     this.equipments,
     required this.geo,
+    this.member,
     this.metadata,
     required this.place,
     this.priority,
@@ -36,6 +37,7 @@ class FeedbackData {
           ? null
           : List<String>.from(json[r'equipments']),
       geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
+      member: json[r'member'],
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
@@ -57,6 +59,8 @@ class FeedbackData {
   List<String>? equipments;
 
   FeedbackDataGeo geo;
+
+  String? member;
 
   Map<String, Object?>? metadata;
 
@@ -83,6 +87,7 @@ class FeedbackData {
         DeepCollectionEquality.unordered()
             .equals(equipments, other.equipments) &&
         other.geo == geo &&
+        other.member == member &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.place == place &&
         other.priority == priority &&
@@ -98,6 +103,7 @@ class FeedbackData {
       (description == null ? 0 : description.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       geo.hashCode +
+      (member == null ? 0 : member.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
@@ -151,7 +157,7 @@ class FeedbackData {
 
   @override
   String toString() =>
-      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
+      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, member=$member, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -171,6 +177,7 @@ class FeedbackData {
 
         return previousValue;
       })),
+      if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       r'place': place,
       if (keys == null || keys.contains(r'priority')) r'priority': priority,

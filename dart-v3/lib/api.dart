@@ -90,6 +90,7 @@ part 'model/export_jsonhal_read.dart';
 part 'model/export_read.dart';
 part 'model/feedback_jsonhal_read.dart';
 part 'model/feedback_jsonhal_read_links.dart';
+part 'model/feedback_jsonhal_read_links_member.dart';
 part 'model/feedback_read.dart';
 part 'model/geo_coordinates_jsonhal_read.dart';
 part 'model/geo_coordinates_read.dart';

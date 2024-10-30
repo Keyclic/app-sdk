@@ -10,12 +10,13 @@ class FeedbackRead {
     this.description,
     this.geoCoordinates,
     this.markers,
+    this.member,
     this.metadata,
-    this.reporter,
     required this.visibility,
     this.id,
     this.createdAt,
     this.updatedAt,
+    this.reporter,
   });
 
   /// Returns a new [FeedbackRead] instance and imports its values from
@@ -29,14 +30,15 @@ class FeedbackRead {
       description: json[r'description'],
       geoCoordinates: GeoCoordinatesRead.fromJson(json[r'geoCoordinates']),
       markers: MarkerRead.listFromJson(json[r'markers']),
+      member: json[r'member'],
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
-      reporter: json[r'reporter'],
       visibility: FeedbackReadVisibilityEnum.fromJson(json[r'visibility'])!,
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
+      reporter: json[r'reporter'],
     );
   }
 
@@ -46,9 +48,9 @@ class FeedbackRead {
 
   final List<MarkerRead>? markers;
 
-  Map<String, Object?>? metadata;
+  String? member;
 
-  String? reporter;
+  Map<String, Object?>? metadata;
 
   FeedbackReadVisibilityEnum visibility;
 
@@ -61,6 +63,8 @@ class FeedbackRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  final String? reporter;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -72,12 +76,13 @@ class FeedbackRead {
         other.description == description &&
         other.geoCoordinates == geoCoordinates &&
         DeepCollectionEquality.unordered().equals(markers, other.markers) &&
+        other.member == member &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
-        other.reporter == reporter &&
         other.visibility == visibility &&
         other.id == id &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.reporter == reporter;
   }
 
   @override
@@ -85,12 +90,13 @@ class FeedbackRead {
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       (markers == null ? 0 : markers.hashCode) +
+      (member == null ? 0 : member.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
-      (reporter == null ? 0 : reporter.hashCode) +
       visibility.hashCode +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (reporter == null ? 0 : reporter.hashCode);
 
   static List<FeedbackRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -139,7 +145,7 @@ class FeedbackRead {
 
   @override
   String toString() =>
-      'FeedbackRead[description=$description, geoCoordinates=$geoCoordinates, markers=$markers, metadata=$metadata, reporter=$reporter, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'FeedbackRead[description=$description, geoCoordinates=$geoCoordinates, markers=$markers, member=$member, metadata=$metadata, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, reporter=$reporter]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -156,14 +162,15 @@ class FeedbackRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       r'visibility': visibility,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
     };
   }
 }

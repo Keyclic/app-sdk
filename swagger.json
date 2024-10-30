@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.65.0-dev.gb0cc195b3"
+        "version": "2.66.0-beta.9.dev.3879e5d6d"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -20017,6 +20017,9 @@
                                 "$ref": "#\/definitions\/Marker"
                             }
                         },
+                        "member": {
+                            "$ref": "#\/definitions\/Member"
+                        },
                         "reporter": {
                             "$ref": "#\/definitions\/Person"
                         },
@@ -20047,6 +20050,9 @@
                             "items": {
                                 "$ref": "#\/definitions\/FeedbackLinksImages"
                             }
+                        },
+"member": {
+                            "$ref": "#\/definitions\/FeedbackLinksMember"
                         },
                         "plans": {
                             "type": "array",
@@ -20172,6 +20178,9 @@
                         }
                     }
                 },
+"member": {
+                    "type": "string"
+                },
                 "metadata": {
                     "type": "object",
                     "additionalProperties": true
@@ -20288,6 +20297,32 @@
                             "type": "string"
                         },
                         "image": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "FeedbackLinksMember": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the member associated to the given feedback.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/FeedbackLinksMemberIriTemplate"
+                }
+            }
+        },
+        "FeedbackLinksMemberIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "member": {
                             "type": "string"
                         }
                     }

@@ -9,6 +9,7 @@ class FeedbackEmbedded {
   FeedbackEmbedded({
     this.category,
     this.markers,
+    this.member,
     this.reporter,
     this.stateTransitions,
     this.tracking,
@@ -24,6 +25,7 @@ class FeedbackEmbedded {
     return FeedbackEmbedded(
       category: Category.fromJson(json[r'category']),
       markers: Marker.listFromJson(json[r'markers']),
+      member: Member.fromJson(json[r'member']),
       reporter: Person.fromJson(json[r'reporter']),
       stateTransitions: json[r'stateTransitions'] == null
           ? null
@@ -35,6 +37,8 @@ class FeedbackEmbedded {
   Category? category;
 
   List<Marker>? markers;
+
+  Member? member;
 
   Person? reporter;
 
@@ -52,6 +56,7 @@ class FeedbackEmbedded {
     return other is FeedbackEmbedded &&
         other.category == category &&
         DeepCollectionEquality.unordered().equals(markers, other.markers) &&
+        other.member == member &&
         other.reporter == reporter &&
         DeepCollectionEquality.unordered()
             .equals(stateTransitions, other.stateTransitions) &&
@@ -62,6 +67,7 @@ class FeedbackEmbedded {
   int get hashCode =>
       (category == null ? 0 : category.hashCode) +
       (markers == null ? 0 : markers.hashCode) +
+      (member == null ? 0 : member.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       (stateTransitions == null ? 0 : stateTransitions.hashCode) +
       (tracking == null ? 0 : tracking.hashCode);
@@ -113,7 +119,7 @@ class FeedbackEmbedded {
 
   @override
   String toString() =>
-      'FeedbackEmbedded[category=$category, markers=$markers, reporter=$reporter, stateTransitions=$stateTransitions, tracking=$tracking]';
+      'FeedbackEmbedded[category=$category, markers=$markers, member=$member, reporter=$reporter, stateTransitions=$stateTransitions, tracking=$tracking]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -128,6 +134,15 @@ class FeedbackEmbedded {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
+        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^member\.'))) {
+            previousValue.add(element.split(RegExp(r'^member\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^reporter\.').hasMatch(key)))
         r'reporter': reporter?.toJson(keys?.fold<List<String>>(<String>[],

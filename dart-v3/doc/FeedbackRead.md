@@ -11,12 +11,13 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **geoCoordinates** | [**GeoCoordinatesRead**](GeoCoordinatesRead.md) |  | [optional] 
 **markers** | [**List<MarkerRead>**](MarkerRead.md) |  | [optional] [readonly] [default to const []]
+**member** | **String** |  | [optional] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
-**reporter** | **String** |  | [optional] 
 **visibility** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
+**reporter** | **String** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

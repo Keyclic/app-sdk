@@ -61,6 +61,7 @@ doc/ExportJsonhalRead.md
 doc/ExportRead.md
 doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
+doc/FeedbackJsonhalReadLinksMember.md
 doc/FeedbackRead.md
 doc/GeoCoordinatesJsonhalRead.md
 doc/GeoCoordinatesRead.md
@@ -258,6 +259,7 @@ lib/model/export_jsonhal_read.dart
 lib/model/export_read.dart
 lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
+lib/model/feedback_jsonhal_read_links_member.dart
 lib/model/feedback_read.dart
 lib/model/geo_coordinates_jsonhal_read.dart
 lib/model/geo_coordinates_read.dart
@@ -422,6 +424,7 @@ test/equipment_read_test.dart
 test/export_api_test.dart
 test/export_jsonhal_read_test.dart
 test/export_read_test.dart
+test/feedback_jsonhal_read_links_member_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
 test/feedback_read_test.dart

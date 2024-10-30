@@ -19,11 +19,11 @@ void main() {
     // List<MarkerRead> markers (default value: const [])
     test('to test the property `markers`', () async {});
 
+    // String member
+    test('to test the property `member`', () async {});
+
     // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
-
-    // String reporter
-    test('to test the property `reporter`', () async {});
 
     // String visibility
     test('to test the property `visibility`', () async {});
@@ -39,5 +39,8 @@ void main() {
     // The date and time when the resource was updated, in UTC format.
     // DateTime updatedAt
     test('to test the property `updatedAt`', () async {});
+
+    // String reporter
+    test('to test the property `reporter`', () async {});
   });
 }

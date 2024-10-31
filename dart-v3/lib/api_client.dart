@@ -79,6 +79,11 @@ class ApiPlatformClient {
     return AuthApi(this);
   }
 
+  /// Get BookmarkApi instance
+  BookmarkApi getBookmarkApi() {
+    return BookmarkApi(this);
+  }
+
   /// Get BrandApi instance
   BrandApi getBrandApi() {
     return BrandApi(this);
@@ -288,6 +293,10 @@ class ApiPlatformClient {
           return BillingJsonhalRead.fromJson(value);
         case 'BillingWrite':
           return BillingWrite.fromJson(value);
+        case 'BookmarkJsonhalRead':
+          return BookmarkJsonhalRead.fromJson(value);
+        case 'BookmarkJsonhalReadEmbedded':
+          return BookmarkJsonhalReadEmbedded.fromJson(value);
         case 'BrandJsonhalRead':
           return BrandJsonhalRead.fromJson(value);
         case 'BusinessHoursJsonhalRead':
@@ -364,6 +373,12 @@ class ApiPlatformClient {
           return GetAuthToken200Response.fromJson(value);
         case 'GetAuthTokenRequest':
           return GetAuthTokenRequest.fromJson(value);
+        case 'GetBookmarkCollection200Response':
+          return GetBookmarkCollection200Response.fromJson(value);
+        case 'GetBookmarkCollection200ResponseEmbedded':
+          return GetBookmarkCollection200ResponseEmbedded.fromJson(value);
+        case 'GetBookmarkCollection200ResponseLinks':
+          return GetBookmarkCollection200ResponseLinks.fromJson(value);
         case 'GetBrandCollection200Response':
           return GetBrandCollection200Response.fromJson(value);
         case 'GetBrandCollection200ResponseEmbedded':

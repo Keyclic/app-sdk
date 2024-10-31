@@ -75,6 +75,8 @@ Class | Method | HTTP request | Description
 *AssetTypeApi* | [**getAssetTypeCollection**](doc//AssetTypeApi.md#getassettypecollection) | **GET** /asset-types | Retrieves the collection of AssetType resources.
 *AuthApi* | [**getAuthToken**](doc//AuthApi.md#getauthtoken) | **POST** /auth/token | Retrieve an access token and ID token.
 *AuthApi* | [**postAuthProfile**](doc//AuthApi.md#postauthprofile) | **POST** /auth/profile | Creates a Profile resource.
+*BookmarkApi* | [**getBookmark**](doc//BookmarkApi.md#getbookmark) | **GET** /v2/bookmarks/{identifier} | Retrieves a Bookmark resource.
+*BookmarkApi* | [**getBookmarkCollection**](doc//BookmarkApi.md#getbookmarkcollection) | **GET** /v2/bookmarks | Retrieves the collection of Bookmark resources.
 *BrandApi* | [**getBrand**](doc//BrandApi.md#getbrand) | **GET** /brands/{identifier} | Retrieves a Brand resource.
 *BrandApi* | [**getBrandCollection**](doc//BrandApi.md#getbrandcollection) | **GET** /brands | Retrieves the collection of Brand resources.
 *BusinessHoursApi* | [**getBusinessHours**](doc//BusinessHoursApi.md#getbusinesshours) | **GET** /business-hours/{identifier} | Retrieves a BusinessHours resource.
@@ -149,6 +151,8 @@ Class | Method | HTTP request | Description
  - [AssignmentJsonhalReadLinks](doc//AssignmentJsonhalReadLinks.md)
  - [BillingJsonhalRead](doc//BillingJsonhalRead.md)
  - [BillingWrite](doc//BillingWrite.md)
+ - [BookmarkJsonhalRead](doc//BookmarkJsonhalRead.md)
+ - [BookmarkJsonhalReadEmbedded](doc//BookmarkJsonhalReadEmbedded.md)
  - [BrandJsonhalRead](doc//BrandJsonhalRead.md)
  - [BusinessHoursJsonhalRead](doc//BusinessHoursJsonhalRead.md)
  - [CategoryJsonhalRead](doc//CategoryJsonhalRead.md)
@@ -187,6 +191,9 @@ Class | Method | HTTP request | Description
  - [GetAssetTypeCollection200ResponseEmbedded](doc//GetAssetTypeCollection200ResponseEmbedded.md)
  - [GetAuthToken200Response](doc//GetAuthToken200Response.md)
  - [GetAuthTokenRequest](doc//GetAuthTokenRequest.md)
+ - [GetBookmarkCollection200Response](doc//GetBookmarkCollection200Response.md)
+ - [GetBookmarkCollection200ResponseEmbedded](doc//GetBookmarkCollection200ResponseEmbedded.md)
+ - [GetBookmarkCollection200ResponseLinks](doc//GetBookmarkCollection200ResponseLinks.md)
  - [GetBrandCollection200Response](doc//GetBrandCollection200Response.md)
  - [GetBrandCollection200ResponseEmbedded](doc//GetBrandCollection200ResponseEmbedded.md)
  - [GetBusinessHoursCollection200Response](doc//GetBusinessHoursCollection200Response.md)

@@ -25727,6 +25727,9 @@
                         "additionalProperties": true
                     }
                 },
+                "user": {
+                    "type": "string"
+                },
                 "verbose": {
                     "type": "boolean"
                 }

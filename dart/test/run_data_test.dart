@@ -19,6 +19,9 @@ void main() {
     // List<Map<String, Object>> outputs (default value: const [])
     test('to test the property `outputs`', () async {});
 
+    // String user
+    test('to test the property `user`', () async {});
+
     // bool verbose
     test('to test the property `verbose`', () async {});
   });

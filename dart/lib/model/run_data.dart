@@ -10,6 +10,7 @@ class RunData {
     this.event,
     this.inputs,
     this.outputs,
+    this.user,
     this.verbose,
   });
 
@@ -30,6 +31,7 @@ class RunData {
       outputs: json[r'outputs'] == null
           ? null
           : List<Map<String, Object?>>.from(json[r'outputs']),
+      user: json[r'user'],
       verbose: json[r'verbose'],
     );
   }
@@ -39,6 +41,8 @@ class RunData {
   List<Map<String, Object?>>? inputs;
 
   List<Map<String, Object?>>? outputs;
+
+  String? user;
 
   bool? verbose;
 
@@ -53,6 +57,7 @@ class RunData {
         DeepCollectionEquality.unordered().equals(event, other.event) &&
         DeepCollectionEquality.unordered().equals(inputs, other.inputs) &&
         DeepCollectionEquality.unordered().equals(outputs, other.outputs) &&
+        other.user == user &&
         other.verbose == verbose;
   }
 
@@ -61,6 +66,7 @@ class RunData {
       (event == null ? 0 : event.hashCode) +
       (inputs == null ? 0 : inputs.hashCode) +
       (outputs == null ? 0 : outputs.hashCode) +
+      (user == null ? 0 : user.hashCode) +
       (verbose == null ? 0 : verbose.hashCode);
 
   static List<RunData> listFromJson(Iterable? json) {
@@ -108,13 +114,14 @@ class RunData {
 
   @override
   String toString() =>
-      'RunData[event=$event, inputs=$inputs, outputs=$outputs, verbose=$verbose]';
+      'RunData[event=$event, inputs=$inputs, outputs=$outputs, user=$user, verbose=$verbose]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'event')) r'event': event,
       if (keys == null || keys.contains(r'inputs')) r'inputs': inputs,
       if (keys == null || keys.contains(r'outputs')) r'outputs': outputs,
+      if (keys == null || keys.contains(r'user')) r'user': user,
       if (keys == null || keys.contains(r'verbose')) r'verbose': verbose,
     };
   }

@@ -19233,6 +19233,10 @@
                 "type": "object",
                 "description": "",
                 "deprecated": false,
+                "required": [
+                    "connector",
+                    "organization"
+                ],
                 "properties": {
                     "_links": {
                         "type": "object",

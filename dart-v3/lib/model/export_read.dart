@@ -13,9 +13,9 @@ class ExportRead {
     this.downloadUrl,
     this.expiredAt,
     this.groupBy,
+    this.name,
     this.createdAt,
     this.updatedAt,
-    this.name,
   });
 
   /// Returns a new [ExportRead] instance and imports its values from
@@ -31,9 +31,9 @@ class ExportRead {
       downloadUrl: json[r'downloadUrl'],
       expiredAt: mapToDateTime(json[r'expiredAt']),
       groupBy: ExportReadGroupByEnum.fromJson(json[r'groupBy']),
+      name: json[r'name'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
-      name: json[r'name'],
     );
   }
 
@@ -48,13 +48,13 @@ class ExportRead {
 
   ExportReadGroupByEnum? groupBy;
 
+  String? name;
+
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
-
-  final String? name;
 
   @override
   bool operator ==(Object other) {
@@ -69,9 +69,9 @@ class ExportRead {
         other.downloadUrl == downloadUrl &&
         other.expiredAt == expiredAt &&
         other.groupBy == groupBy &&
+        other.name == name &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
-        other.name == name;
+        other.updatedAt == updatedAt;
   }
 
   @override
@@ -81,9 +81,9 @@ class ExportRead {
       (downloadUrl == null ? 0 : downloadUrl.hashCode) +
       (expiredAt == null ? 0 : expiredAt.hashCode) +
       (groupBy == null ? 0 : groupBy.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode);
 
   static List<ExportRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -131,7 +131,7 @@ class ExportRead {
 
   @override
   String toString() =>
-      'ExportRead[id=$id, contentType=$contentType, downloadUrl=$downloadUrl, expiredAt=$expiredAt, groupBy=$groupBy, createdAt=$createdAt, updatedAt=$updatedAt, name=$name]';
+      'ExportRead[id=$id, contentType=$contentType, downloadUrl=$downloadUrl, expiredAt=$expiredAt, groupBy=$groupBy, name=$name, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -142,11 +142,11 @@ class ExportRead {
       if (keys == null || keys.contains(r'expiredAt'))
         r'expiredAt': expiredAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }
 }

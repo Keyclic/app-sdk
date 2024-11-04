@@ -10,11 +10,6 @@ void main() {
   // final instance = OrganizationApi();
 
   group('tests for OrganizationApi', () {
-    // Retrieve all Category resources.
-    //
-    //Future<CategoryPagination> cgetCategoriesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoPoint, String geoCoordinates, bool leaf, int level, List<String> organizationsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
-    test('test cgetCategoriesByOrganization', () async {});
-
     // Retrieve all DispatchService resources.
     //
     //Future<ServicePagination> cgetDispatchServicesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, String asset, String category, int page, String place, int limit, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String query }) async
@@ -40,11 +35,6 @@ void main() {
     //Future<MemberPagination> cgetMembersByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, bool archived, String contactPointEmail, DateTime after, DateTime before, List<String> organizationsLeftSquareBracketRightSquareBracket, String permission, String query, String role, List<String> rolesLeftSquareBracketRightSquareBracket, String type, int page, int limit }) async
     test('test cgetMembersByOrganization', () async {});
 
-    // Retrieve all Occupant resources.
-    //
-    //Future<OccupantPagination> cgetOccupantsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String member, List<String> membersLeftSquareBracketRightSquareBracket, String person, List<String> personsLeftSquareBracketRightSquareBracket, String place, List<String> placesLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
-    test('test cgetOccupantsByOrganization', () async {});
-
     // Retrieve all Operation resources.
     //
     //Future<OperationPagination> cgetOperationsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, bool archived, String asset, List<String> assetsLeftSquareBracketRightSquareBracket, String batch, List<String> batchesLeftSquareBracketRightSquareBracket, String category, List<String> categoriesLeftSquareBracketRightSquareBracket, String categoryType, List<String> categoryTypesLeftSquareBracketRightSquareBracket, String createdBy, List<String> createdBiesLeftSquareBracketRightSquareBracket, DateTime afterDueBy, DateTime after, DateTime beforeDueBy, DateTime before, bool deep, String delegatedTo, List<String> delegatedTosLeftSquareBracketRightSquareBracket, List<String> equipmentLeftSquareBracketRightSquareBracket, bool hasDocuments, String isEmpty, String isNull, bool leaf, int level, String managedBy, List<String> managedBiesLeftSquareBracketRightSquareBracket, String member, List<String> membersLeftSquareBracketRightSquareBracket, String operationStateAll, String operationState, List<String> operationStatesLeftSquareBracketRightSquareBracket, List<String> organizationsLeftSquareBracketRightSquareBracket, String phase, List<String> phasesLeftSquareBracketRightSquareBracket, String place, List<String> placesLeftSquareBracketRightSquareBracket, String priority, List<String> prioritiesLeftSquareBracketRightSquareBracket, String query, List<String> ratingLeftSquareBracketRightSquareBracket, DateTime scheduledAtAfter, DateTime scheduledAtBefore, String state, List<String> statesLeftSquareBracketRightSquareBracket, List<String> visibilityLeftSquareBracketRightSquareBracket, int page, int limit }) async
@@ -60,30 +50,10 @@ void main() {
     //Future<PlacePagination> cgetPlacesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String branchCode, String businessActivity, List<String> businessActivitiesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String geoElevation, List<String> geoHashLeftSquareBracketRightSquareBracket, String geoPoint, String geoCoordinates, bool leaf, int level, List<String> organizationsLeftSquareBracketRightSquareBracket, String parent, List<String> parentsLeftSquareBracketRightSquareBracket, String query, int page, int limit }) async
     test('test cgetPlacesByOrganization', () async {});
 
-    // Retrieve all Publication resources.
-    //
-    //Future<PublicationPagination> cgetPublicationsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String place, List<String> placesLeftSquareBracketRightSquareBracket, int page, int limit }) async
-    test('test cgetPublicationsByOrganization', () async {});
-
     // Retrieve all Report resources.
     //
     //Future<ReportPagination> cgetReportsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, bool archived, String asset, List<String> assetsLeftSquareBracketRightSquareBracket, String batch, List<String> batchesLeftSquareBracketRightSquareBracket, String category, List<String> categoriesLeftSquareBracketRightSquareBracket, String categoryType, List<String> categoryTypesLeftSquareBracketRightSquareBracket, String createdBy, List<String> createdBiesLeftSquareBracketRightSquareBracket, DateTime afterDueBy, DateTime after, DateTime beforeDueBy, DateTime before, bool deep, String delegatedTo, List<String> delegatedTosLeftSquareBracketRightSquareBracket, List<String> equipmentLeftSquareBracketRightSquareBracket, bool hasDocuments, String isEmpty, String isNull, bool leaf, int level, String managedBy, List<String> managedBiesLeftSquareBracketRightSquareBracket, String member, List<String> membersLeftSquareBracketRightSquareBracket, String operationStateAll, String operationState, List<String> operationStatesLeftSquareBracketRightSquareBracket, List<String> organizationsLeftSquareBracketRightSquareBracket, String phase, List<String> phasesLeftSquareBracketRightSquareBracket, String place, List<String> placesLeftSquareBracketRightSquareBracket, String priority, List<String> prioritiesLeftSquareBracketRightSquareBracket, String query, List<String> ratingLeftSquareBracketRightSquareBracket, DateTime scheduledAtAfter, DateTime scheduledAtBefore, String state, List<String> statesLeftSquareBracketRightSquareBracket, List<String> visibilityLeftSquareBracketRightSquareBracket, int page, int limit }) async
     test('test cgetReportsByOrganization', () async {});
-
-    // Retrieve all ReviewRequest resources.
-    //
-    //Future<ReviewRequestPagination> cgetReviewRequestsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, bool hasReview, int page, int limit }) async
-    test('test cgetReviewRequestsByOrganization', () async {});
-
-    // Retrieve all Review resources.
-    //
-    //Future<ReviewPagination> cgetReviewsByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, String category, List<String> categoriesLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String delegatedTo, List<String> delegatedTosLeftSquareBracketRightSquareBracket, List<String> ratingLeftSquareBracketRightSquareBracket, String task, List<String> tasksLeftSquareBracketRightSquareBracket, int page, int limit }) async
-    test('test cgetReviewsByOrganization', () async {});
-
-    // Retrieve all Service resources.
-    //
-    //Future<ServicePagination> cgetServicesByOrganization(String xKeyclicApp, String organization, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, List<String> orderLeftSquareBracketRightSquareBracket, DateTime after, DateTime before, String query, int page, int limit }) async
-    test('test cgetServicesByOrganization', () async {});
 
     // Retrieve all Template resources.
     //

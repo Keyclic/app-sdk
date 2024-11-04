@@ -234,11 +234,6 @@ class ApiClient {
     return ReviewApi(this);
   }
 
-  /// Get ReviewRequestApi instance
-  ReviewRequestApi getReviewRequestApi() {
-    return ReviewRequestApi(this);
-  }
-
   /// Get RoleApi instance
   RoleApi getRoleApi() {
     return RoleApi(this);
@@ -257,11 +252,6 @@ class ApiClient {
   /// Get SecurityApi instance
   SecurityApi getSecurityApi() {
     return SecurityApi(this);
-  }
-
-  /// Get ServiceApi instance
-  ServiceApi getServiceApi() {
-    return ServiceApi(this);
   }
 
   /// Get SignerApi instance
@@ -499,8 +489,6 @@ class ApiClient {
           return BusinessActivitySchema.fromJson(value);
         case 'Category':
           return Category.fromJson(value);
-        case 'CategoryCollection':
-          return CategoryCollection.fromJson(value);
         case 'CategoryData':
           return CategoryData.fromJson(value);
         case 'CategoryEmbedded':
@@ -525,8 +513,6 @@ class ApiClient {
           return CategoryLinksType.fromJson(value);
         case 'CategoryLinksTypeIriTemplate':
           return CategoryLinksTypeIriTemplate.fromJson(value);
-        case 'CategoryPagination':
-          return CategoryPagination.fromJson(value);
         case 'CategoryPatch':
           return CategoryPatch.fromJson(value);
         case 'Chart':
@@ -913,8 +899,6 @@ class ApiClient {
           return NotePatch.fromJson(value);
         case 'Occupant':
           return Occupant.fromJson(value);
-        case 'OccupantCollection':
-          return OccupantCollection.fromJson(value);
         case 'OccupantData':
           return OccupantData.fromJson(value);
         case 'OccupantLinks':
@@ -933,8 +917,6 @@ class ApiClient {
           return OccupantLinksSelfIriTemplate.fromJson(value);
         case 'OccupantLinksSelfIriTemplateMapping':
           return OccupantLinksSelfIriTemplateMapping.fromJson(value);
-        case 'OccupantPagination':
-          return OccupantPagination.fromJson(value);
         case 'Operation':
           return Operation.fromJson(value);
         case 'OperationCollection':
@@ -1072,10 +1054,6 @@ class ApiClient {
           return Place.fromJson(value);
         case 'PlaceCollection':
           return PlaceCollection.fromJson(value);
-        case 'PlaceData':
-          return PlaceData.fromJson(value);
-        case 'PlaceDataPreferences':
-          return PlaceDataPreferences.fromJson(value);
         case 'PlaceEmbedded':
           return PlaceEmbedded.fromJson(value);
         case 'PlaceLinks':
@@ -1190,8 +1168,6 @@ class ApiClient {
           return PropertyItems.fromJson(value);
         case 'Publication':
           return Publication.fromJson(value);
-        case 'PublicationCollection':
-          return PublicationCollection.fromJson(value);
         case 'PublicationData':
           return PublicationData.fromJson(value);
         case 'PublicationEmbedded':
@@ -1214,10 +1190,6 @@ class ApiClient {
           return PublicationLinksSelf.fromJson(value);
         case 'PublicationLinksSelfIriTemplate':
           return PublicationLinksSelfIriTemplate.fromJson(value);
-        case 'PublicationLinksSelfIriTemplateMapping':
-          return PublicationLinksSelfIriTemplateMapping.fromJson(value);
-        case 'PublicationPagination':
-          return PublicationPagination.fromJson(value);
         case 'RegisterData':
           return RegisterData.fromJson(value);
         case 'RegisterDataAgreement':
@@ -1288,8 +1260,6 @@ class ApiClient {
           return ResetPasswordData.fromJson(value);
         case 'Review':
           return Review.fromJson(value);
-        case 'ReviewCollection':
-          return ReviewCollection.fromJson(value);
         case 'ReviewData':
           return ReviewData.fromJson(value);
         case 'ReviewLinks':
@@ -1308,43 +1278,6 @@ class ApiClient {
           return ReviewLinksSelfIriTemplate.fromJson(value);
         case 'ReviewLinksSelfIriTemplateMapping':
           return ReviewLinksSelfIriTemplateMapping.fromJson(value);
-        case 'ReviewPagination':
-          return ReviewPagination.fromJson(value);
-        case 'ReviewRequest':
-          return ReviewRequest.fromJson(value);
-        case 'ReviewRequestCollection':
-          return ReviewRequestCollection.fromJson(value);
-        case 'ReviewRequestEmbedded':
-          return ReviewRequestEmbedded.fromJson(value);
-        case 'ReviewRequestLinks':
-          return ReviewRequestLinks.fromJson(value);
-        case 'ReviewRequestLinksItemToReview':
-          return ReviewRequestLinksItemToReview.fromJson(value);
-        case 'ReviewRequestLinksItemToReviewIriTemplate':
-          return ReviewRequestLinksItemToReviewIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksItemToReviewIriTemplateMapping':
-          return ReviewRequestLinksItemToReviewIriTemplateMapping.fromJson(
-              value);
-        case 'ReviewRequestLinksOrganization':
-          return ReviewRequestLinksOrganization.fromJson(value);
-        case 'ReviewRequestLinksOrganizationIriTemplate':
-          return ReviewRequestLinksOrganizationIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksReview':
-          return ReviewRequestLinksReview.fromJson(value);
-        case 'ReviewRequestLinksReviewIriTemplate':
-          return ReviewRequestLinksReviewIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksReviewer':
-          return ReviewRequestLinksReviewer.fromJson(value);
-        case 'ReviewRequestLinksReviewerIriTemplate':
-          return ReviewRequestLinksReviewerIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksSelf':
-          return ReviewRequestLinksSelf.fromJson(value);
-        case 'ReviewRequestLinksSelfIriTemplate':
-          return ReviewRequestLinksSelfIriTemplate.fromJson(value);
-        case 'ReviewRequestLinksSelfIriTemplateMapping':
-          return ReviewRequestLinksSelfIriTemplateMapping.fromJson(value);
-        case 'ReviewRequestPagination':
-          return ReviewRequestPagination.fromJson(value);
         case 'Role':
           return Role.fromJson(value);
         case 'Rule':

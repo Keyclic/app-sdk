@@ -45,11 +45,6 @@ void main() {
     //Future<Document> postDocumentByPlace(String xKeyclicApp, String place, DocumentData documentData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test postDocumentByPlace', () async {});
 
-    // Create one Place resource.
-    //
-    //Future<Place> postPlace(String xKeyclicApp, PlaceData placeData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test postPlace', () async {});
-
     // Create one Workflow resource.
     //
     //Future<Place> postWorkflowByPlace(String xKeyclicApp, String place, WorkflowData workflowData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

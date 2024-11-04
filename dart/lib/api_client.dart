@@ -681,8 +681,6 @@ class ApiClient {
           return ExternalServicePostalAddress.fromJson(value);
         case 'Feature':
           return Feature.fromJson(value);
-        case 'FeatureGeometry':
-          return FeatureGeometry.fromJson(value);
         case 'Feed':
           return Feed.fromJson(value);
         case 'Feedback':

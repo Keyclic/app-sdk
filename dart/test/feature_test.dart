@@ -13,10 +13,10 @@ void main() {
     // String type (default value: 'Feature')
     test('to test the property `type`', () async {});
 
-    // FeatureGeometry geometry
+    // Map<String, dynamic> geometry
     test('to test the property `geometry`', () async {});
 
-    // List<String> properties (default value: const [])
+    // Map<String, String> properties (default value: const {})
     test('to test the property `properties`', () async {});
   });
 }

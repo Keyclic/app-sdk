@@ -10,7 +10,7 @@ void main() {
   // final instance = PreferencesJsonhalAssetRead();
 
   group('test PreferencesJsonhalAssetRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String visibility

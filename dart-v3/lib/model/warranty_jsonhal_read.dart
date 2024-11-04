@@ -21,14 +21,15 @@ class WarrantyJsonhalRead {
     }
 
     return WarrantyJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
+          json[r'_links']),
       duration: json[r'duration'],
       endDate: mapToDateTime(json[r'endDate']),
       startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The duration of the warranty in ISO 8601 duration format.
   String? duration;

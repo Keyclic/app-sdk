@@ -10,7 +10,7 @@ void main() {
   // final instance = UserJsonhalAuthProfileRead();
 
   group('test UserJsonhalAuthProfileRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // ArchivingJsonhalOrganizationPreferenceReadLinks links
     test('to test the property `links`', () async {});
 
     // String email

@@ -124,14 +124,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Place-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -694,14 +686,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/AssetType-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -870,11 +854,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/AssetType.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/AssetType-Read"
                                 }
                             }
                         }
@@ -1107,14 +1086,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Asset-Read"
-                                    }
                                 }
                             }
                         }
@@ -1572,11 +1543,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Asset.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Asset-Read"
-                                }
                             }
                         }
                     },
@@ -1716,11 +1682,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Profile.jsonhal-auth-profile.read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Profile-auth-profile.read"
                                 }
                             }
                         },
@@ -2089,14 +2050,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Brand-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -2265,11 +2218,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Brand.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Brand-Read"
                                 }
                             }
                         }
@@ -2503,14 +2451,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/BusinessHours-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -2679,11 +2619,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/BusinessHours.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/BusinessHours-Read"
                                 }
                             }
                         }
@@ -2917,14 +2852,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Category-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -3153,11 +3080,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Category.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Category-Read"
-                                }
                             }
                         }
                     },
@@ -3375,14 +3297,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/CategoryType-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -3552,11 +3466,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/CategoryType.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/CategoryType-Read"
-                                }
                             }
                         }
                     },
@@ -3696,11 +3605,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Connector.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Connector-Read"
                                 }
                             }
                         }
@@ -3858,14 +3762,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ContractType-Read"
-                                    }
                                 }
                             }
                         }
@@ -4035,11 +3931,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ContractType.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ContractType-Read"
                                 }
                             }
                         }
@@ -4272,14 +4163,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Contract-Read"
-                                    }
                                 }
                             }
                         }
@@ -5100,11 +4983,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Contract.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Contract-Read"
-                                }
                             }
                         },
                         "links": {}
@@ -5245,11 +5123,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Contract.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Contract-Read"
                                 }
                             }
                         }
@@ -5518,11 +5391,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Contract.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Contract-Read"
-                                }
                             }
                         },
                         "links": {}
@@ -5772,14 +5640,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Equipment-Read"
-                                    }
                                 }
                             }
                         }
@@ -6724,11 +6584,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Equipment.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Equipment-Read"
-                                }
                             }
                         },
                         "links": {}
@@ -6869,11 +6724,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Equipment.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Equipment-Read"
                                 }
                             }
                         }
@@ -7141,11 +6991,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Equipment.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Equipment-Read"
                                 }
                             }
                         },
@@ -7811,14 +7656,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/IntegrationLink-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -8082,11 +7919,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/IntegrationLink.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/IntegrationLink-Read"
-                                }
                             }
                         },
                         "links": {}
@@ -8152,11 +7984,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IntegrationLink.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/IntegrationLink-Read"
                                 }
                             }
                         }
@@ -8274,11 +8101,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/IntegrationLink.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/IntegrationLink-Read"
                                 }
                             }
                         },
@@ -8454,14 +8276,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Integration-integration.read"
-                                    }
                                 }
                             }
                         }
@@ -8784,11 +8598,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Integration.jsonhal-integration.read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Integration-integration.read"
-                                }
                             }
                         }
                     },
@@ -8945,14 +8754,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Member-Read"
-                                    }
                                 }
                             }
                         }
@@ -9196,11 +8997,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Member.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Member-Read"
-                                }
                             }
                         }
                     },
@@ -9417,14 +9213,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Occupant-Read"
-                                    }
                                 }
                             }
                         }
@@ -9702,11 +9490,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Occupant.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Occupant-Read"
-                                }
                             }
                         }
                     },
@@ -9831,11 +9614,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Place.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Place-Read"
                                 }
                             }
                         },
@@ -10055,14 +9833,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Publication-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -10262,11 +10032,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Publication.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Publication-Read"
                                 }
                             }
                         }
@@ -10485,14 +10250,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/ReviewRequest-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -10646,11 +10403,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ReviewRequest.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ReviewRequest-Read"
                                 }
                             }
                         }
@@ -10868,14 +10620,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Review-Read"
-                                    }
                                 }
                             }
                         }
@@ -11170,11 +10914,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Review.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Review-Read"
-                                }
                             }
                         }
                     },
@@ -11299,11 +11038,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ServiceOffer.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ServiceOffer-Read"
                                 }
                             }
                         },
@@ -11445,11 +11179,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ServiceOffer.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/ServiceOffer-Read"
                                 }
                             }
                         }
@@ -11683,14 +11412,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Service-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -11859,11 +11580,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Service.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Service-Read"
                                 }
                             }
                         }
@@ -12082,14 +11798,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/SlaPolicy-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -12272,11 +11980,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/SlaPolicy.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/SlaPolicy-Read"
                                 }
                             }
                         }
@@ -12510,14 +12213,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TicketType-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -12686,11 +12381,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/TicketType.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/TicketType-Read"
                                 }
                             }
                         }
@@ -12923,14 +12613,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Ticket-Read"
-                                    }
                                 }
                             }
                         }
@@ -14181,11 +13863,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Ticket.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Ticket-Read"
-                                }
                             }
                         },
                         "links": {}
@@ -14341,11 +14018,6 @@
                             "application/hal+json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/Ticket.jsonhal-Read"
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Ticket-Read"
                                 }
                             }
                         }
@@ -14614,11 +14286,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Ticket.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Ticket-Read"
-                                }
                             }
                         },
                         "links": {}
@@ -14883,14 +14550,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/DocumentType-Read"
-                                    }
                                 }
                             }
                         }
@@ -15167,14 +14826,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Metric-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -15449,14 +15100,6 @@
                                     "required": [
                                         "_links"
                                     ]
-                                }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/TargetGroup-Read"
-                                    }
                                 }
                             }
                         }
@@ -15733,14 +15376,6 @@
                                         "_links"
                                     ]
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/WorkflowTransition-Read"
-                                    }
-                                }
                             }
                         }
                     }
@@ -15924,11 +15559,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/WorkflowState.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/WorkflowState-Read"
-                                }
                             }
                         }
                     },
@@ -16069,11 +15699,6 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/WorkflowTransition.jsonhal-Read"
                                 }
-                            },
-                            "text/html": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/WorkflowTransition-Read"
-                                }
                             }
                         }
                     },
@@ -16203,16 +15828,6 @@
     },
     "components": {
         "schemas": {
-            "Archiving-OrganizationPreference-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "enabled": {
-                        "type": "boolean"
-                    }
-                }
-            },
             "Archiving.jsonhal-OrganizationPreference-Read": {
                 "type": "object",
                 "description": "",
@@ -16236,81 +15851,6 @@
                         "type": "boolean"
                     }
                 }
-            },
-            "Asset-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "preferences": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Preferences-Asset-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "path": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Node-Read"
-                        }
-                    },
-                    "address": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "parent": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "state": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
             },
             "Asset.jsonhal-Read": {
                 "type": "object",
@@ -16410,44 +15950,6 @@
                     "name"
                 ]
             },
-            "AssetType-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 500,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "AssetType.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -16499,43 +16001,6 @@
                 "required": [
                     "name"
                 ]
-            },
-            "Assignment-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "contract": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "member": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "outOfContract": {
-                        "type": "boolean",
-                        "nullable": true
-                    },
-                    "service": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    }
-                }
             },
             "Assignment.jsonhal-Read": {
                 "type": "object",
@@ -16591,27 +16056,6 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
-                    }
-                }
-            },
-            "Billing-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "adjustedCost": {
-                        "description": "Adjusted cost of the contract after adjustments have been applied.",
-                        "$ref": "#/components/schemas/Price-Read"
-                    },
-                    "initialCost": {
-                        "description": "Initial cost of the contract before adjustments have been applied.",
-                        "$ref": "#/components/schemas/Price-Read"
-                    },
-                    "startDate": {
-                        "description": "The start date of the billing cycle for the customer's account, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
                     }
                 }
             },
@@ -16671,35 +16115,6 @@
                     }
                 }
             },
-            "Brand-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Detailed description of brand.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Name of the brand.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "Brand.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -16742,50 +16157,6 @@
                 "required": [
                     "name"
                 ]
-            },
-            "BusinessHours-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "hoursPerDay",
-                    "name",
-                    "openingHours"
-                ],
-                "properties": {
-                    "hoursPerDay": {
-                        "type": "string",
-                        "format": "duration"
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "openingHours": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                }
             },
             "BusinessHours.jsonhal-Read": {
                 "type": "object",
@@ -16842,73 +16213,6 @@
                         "description": "The date and time when the resource was updated, in UTC format.",
                         "type": "string",
                         "format": "date-time"
-                    }
-                }
-            },
-            "Category-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "organization": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "type": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/CategoryType-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "identificationNumber": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "path": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Node-Read"
-                        }
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "children": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Category-Read"
-                        }
                     }
                 }
             },
@@ -17013,32 +16317,6 @@
                     }
                 }
             },
-            "CategoryType-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 500,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "CategoryType.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -17079,33 +16357,6 @@
                     "name"
                 ]
             },
-            "Collaborator-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "contactPoint": {
-                        "$ref": "#/components/schemas/ContactPoint-Read"
-                    }
-                }
-            },
             "Collaborator.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -17144,35 +16395,6 @@
                     },
                     "contactPoint": {
                         "$ref": "#/components/schemas/ContactPoint.jsonhal-Read"
-                    }
-                }
-            },
-            "Condition-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "propertyPath",
-                    "values"
-                ],
-                "properties": {
-                    "propertyPath": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "values": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string"
-                        }
-                    },
-                    "operator": {
-                        "enum": [
-                            "eq",
-                            "in",
-                            "not_in"
-                        ],
-                        "type": "string"
                     }
                 }
             },
@@ -17219,31 +16441,6 @@
                     }
                 }
             },
-            "Connection-auth-profile.read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "image": {
-                        "type": "string"
-                    },
-                    "text": {
-                        "type": "string"
-                    },
-                    "authorizationUrl": {
-                        "readOnly": true,
-                        "type": "string"
-                    },
-                    "type": {
-                        "enum": [
-                            "enterprise",
-                            "password"
-                        ],
-                        "readOnly": true,
-                        "type": "string"
-                    }
-                }
-            },
             "Connection.jsonhal-auth-profile.read": {
                 "type": "object",
                 "description": "",
@@ -17280,38 +16477,6 @@
                         ],
                         "readOnly": true,
                         "type": "string"
-                    }
-                }
-            },
-            "Connector-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "name"
-                ],
-                "properties": {
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
                     }
                 }
             },
@@ -17360,52 +16525,6 @@
                         "format": "date-time"
                     }
                 }
-            },
-            "Contact-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "contactPoint": {
-                        "$ref": "#/components/schemas/ContactPoint-Read"
-                    },
-                    "organization": {
-                        "$ref": "#/components/schemas/Organization-Read"
-                    },
-                    "person": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Person-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "type": {
-                        "readOnly": true,
-                        "type": "string",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "organization"
-                ]
             },
             "Contact.jsonhal-Read": {
                 "type": "object",
@@ -17472,47 +16591,6 @@
                     "organization"
                 ]
             },
-            "ContactPoint-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "email": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "telephone": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "familyName": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Family name. In the U.S., the last name of a Person.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "givenName": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Given name. In the U.S., the first name of a Person.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string",
-                        "nullable": true
-                    }
-                }
-            },
             "ContactPoint.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -17567,145 +16645,6 @@
                         "nullable": true
                     }
                 }
-            },
-            "Contract-OrganizationPreference-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "enabled": {
-                        "type": "boolean"
-                    }
-                }
-            },
-            "Contract-Read": {
-                "type": "object",
-                "description": "A Service Contract, also known as a Service Agreement, is a legally binding document between a service provider and a customer (organization).\nIt establishes the terms and conditions governing the provision of services. In the context of ticketing, a Service Contract may be used to define the terms of their service, such as ticket distribution, payment processing, customer support, etc.\nIt typically includes provisions related to pricing, responsibilities, termination clauses, and liability.",
-                "deprecated": false,
-                "properties": {
-                    "billing": {
-                        "description": "A dictionary containing information about the contract's billing, including the start date, initial cost, and adjusted cost.",
-                        "$ref": "#/components/schemas/Billing-Read"
-                    },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Detailed description of the contract.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "duration": {
-                        "description": "Duration of the contract in ISO 8601 duration format.",
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "effectiveDate": {
-                        "description": "The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "endDate": {
-                        "readOnly": true,
-                        "description": "The date and time the contract ends\nThis date is calculated according to effetive date, duration and eventually renewal duration.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Name of the contract.",
-                        "type": "string"
-                    },
-                    "number": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Number assigned to the contract by the organization. Each contract must have a unique contract number to ensure that contracts can be easily identified and tracked.",
-                        "type": "string"
-                    },
-                    "onCall": {
-                        "description": "The onCall property represents whether a staff member is currently available for on-call duties.",
-                        "type": "boolean"
-                    },
-                    "provider": {
-                        "description": "Organization responsible for the contract.",
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "renewal": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Renewal-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "signedAt": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "state": {
-                        "enum": [
-                            "ACTIVE",
-                            "DRAFT",
-                            "EXPIRED",
-                            "PENDING",
-                            "SUSPENDED",
-                            "TERMINATED"
-                        ],
-                        "description": "Current state of the contract.",
-                        "default": "DRAFT",
-                        "example": "DRAFT",
-                        "type": "string"
-                    },
-                    "terminationDate": {
-                        "description": "The date and time the contract is terminated, in ISO 8601 format. The termination date must be in the future and must not be earlier than the effective date.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "terminationReason": {
-                        "description": "The optional reason for termination.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "type": {
-                        "description": "The type of the contract defined by the organization.",
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "required": [
-                    "name",
-                    "number",
-                    "provider",
-                    "state",
-                    "type"
-                ]
             },
             "Contract.CreateContractCommand-Write": {
                 "type": "object",
@@ -18068,44 +17007,6 @@
                     "type"
                 ]
             },
-            "ContractType-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 500,
-                        "type": "string",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "ContractType.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -18152,46 +17053,6 @@
                         "maxLength": 500,
                         "type": "string",
                         "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
-            "DocumentType-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "permissions": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
-                    },
-                    "signed": {
-                        "type": "boolean"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 500,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
                     }
                 },
                 "required": [
@@ -18252,25 +17113,6 @@
                     "name"
                 ]
             },
-            "Duration-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "hours": {
-                        "readOnly": true,
-                        "type": "number"
-                    },
-                    "minutes": {
-                        "readOnly": true,
-                        "type": "integer"
-                    },
-                    "seconds": {
-                        "readOnly": true,
-                        "type": "integer"
-                    }
-                }
-            },
             "Duration.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -18303,147 +17145,6 @@
                         "type": "integer"
                     }
                 }
-            },
-            "Equipment-OrganizationPreference-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "enabled": {
-                        "type": "boolean"
-                    }
-                }
-            },
-            "Equipment-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "brand": {
-                        "description": "The brand of the asset. The brand refers to the specific manufacturer or company that produces or sells an asset.",
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "commissioningDate": {
-                        "description": "The date when an asset is officially put into service or operation.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "lifetime": {
-                        "description": "The expected or estimated duration of an asset's useful life or operational lifespan.",
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "model": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "The model of the asset. The model provides detailed information about the features, capabilities, and technical specifications of the asset.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "mpn": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "The Manufacturer Part Number (MPN) is a unique identifier assigned by the manufacturer to a specific part or component of an asset.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "retirementDate": {
-                        "readOnly": true,
-                        "description": "The date when an asset is expected to reach the end of its operational life based on the commissioning date and the estimated lifetime.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "serialNumber": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "The unique identifier assigned to an individual asset, allowing for easy identification and tracking.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "warranty": {
-                        "description": "The warranty refers to a guarantee provided by the manufacturer or supplier of an asset, ensuring that it will be free from defects or malfunctions for a specific period.",
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Warranty-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "type": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "preferences": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Preferences-Asset-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "path": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Node-Read"
-                        }
-                    },
-                    "address": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "parent": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "state": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
             },
             "Equipment.CreateEquipmentCommand-Write": {
                 "type": "object",
@@ -18913,71 +17614,6 @@
                     "contentType"
                 ]
             },
-            "Feedback-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "geoCoordinates": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/GeoCoordinates-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "markers": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Marker-Read"
-                        }
-                    },
-                    "metadata": {
-                        "type": "object",
-                        "additionalProperties": true
-                    },
-                    "reporter": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "visibility": {
-                        "enum": [
-                            "VISIBILITY_PRIVATE",
-                            "VISIBILITY_PUBLIC",
-                            "VISIBILITY_SHARED"
-                        ],
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "required": [
-                    "visibility"
-                ]
-            },
             "Feedback.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -19060,34 +17696,24 @@
                     "visibility"
                 ]
             },
-            "Form-OrganizationPreference-Read": {
+            "File.jsonhal-Read": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "contract": {
-                        "description": "Allow authorized user to provide a contract on feedback form.",
-                        "type": "boolean"
-                    },
-                    "hidden": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
-                    },
-                    "manualDispatch": {
-                        "description": "Allow authorized user to provide a service to dispatch to on feedback form.",
-                        "default": true,
-                        "example": true,
-                        "type": "boolean"
-                    },
-                    "required": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -19136,24 +17762,6 @@
                     }
                 }
             },
-            "GeoCoordinates-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "elevation": {
-                        "minimum": -10000,
-                        "maximum": 8000,
-                        "description": "The elevation of a location (WGS 84).",
-                        "type": "number",
-                        "nullable": true
-                    },
-                    "point": {
-                        "description": "Point that contains the longitude , latitude and SRID of a location.",
-                        "$ref": "#/components/schemas/Point-Read"
-                    }
-                }
-            },
             "GeoCoordinates.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -19183,49 +17791,6 @@
                     "point": {
                         "description": "Point that contains the longitude , latitude and SRID of a location.",
                         "$ref": "#/components/schemas/Point.jsonhal-Read"
-                    }
-                }
-            },
-            "Integration-integration.read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "connector": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "inputs": {
-                        "type": "object",
-                        "additionalProperties": true
-                    },
-                    "organization": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "name": {
-                        "readOnly": true,
-                        "type": "string",
-                        "nullable": true
                     }
                 }
             },
@@ -19297,65 +17862,6 @@
                         "nullable": true
                     }
                 }
-            },
-            "IntegrationLink-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "data": {
-                        "type": "object",
-                        "additionalProperties": true
-                    },
-                    "metadata": {
-                        "type": "object",
-                        "additionalProperties": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "source": {
-                        "description": "Identify the unique identifier of the resource in the source system.",
-                        "type": "string"
-                    },
-                    "state": {
-                        "enum": [
-                            "ACTIVE",
-                            "INACTIVE"
-                        ],
-                        "default": "INACTIVE",
-                        "example": "INACTIVE",
-                        "type": "string"
-                    },
-                    "target": {
-                        "description": "Identify the unique identifier of the resource in the target system.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "required": [
-                    "source"
-                ]
             },
             "IntegrationLink.CreateLinkCommand-Write": {
                 "type": "object",
@@ -19508,21 +18014,6 @@
                     "source"
                 ]
             },
-            "Marker-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "point": {
-                        "$ref": "#/components/schemas/Point-Read"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    }
-                }
-            },
             "Marker.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -19551,58 +18042,6 @@
                         "type": "string"
                     }
                 }
-            },
-            "Member-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "contactPoint": {
-                        "$ref": "#/components/schemas/ContactPoint-Read"
-                    },
-                    "organization": {
-                        "$ref": "#/components/schemas/Organization-Read"
-                    },
-                    "person": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Person-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "roles": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Role-Read"
-                        }
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "type": {
-                        "readOnly": true,
-                        "type": "string",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "organization"
-                ]
             },
             "Member.jsonhal-Read": {
                 "type": "object",
@@ -19687,25 +18126,6 @@
                     "organization"
                 ]
             },
-            "Metric-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "duration": {
-                        "description": "duration property is used for serialization purpose with MetricService.",
-                        "$ref": "#/components/schemas/Duration-Read"
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "Metric.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -19739,19 +18159,6 @@
                     "name"
                 ]
             },
-            "Node-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    }
-                }
-            },
             "Node.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -19776,47 +18183,6 @@
                     },
                     "name": {
                         "type": "string"
-                    }
-                }
-            },
-            "Occupant-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "place",
-                    "member"
-                ],
-                "properties": {
-                    "place": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Asset-Read"
-                    },
-                    "member": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Contact-Read"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "type": {
-                        "readOnly": true,
-                        "type": "string",
-                        "nullable": true
                     }
                 }
             },
@@ -19879,56 +18245,6 @@
                         }
                     }
                 }
-            },
-            "Organization-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "alternateName": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "dispatcher": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "logo": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "preferences": {
-                        "$ref": "#/components/schemas/Preferences-Organization-Read"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "address": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress-Read"
-                            }
-                        ],
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
             },
             "Organization.jsonhal-Read": {
                 "type": "object",
@@ -19995,77 +18311,6 @@
                 "required": [
                     "name"
                 ]
-            },
-            "Person-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "type": "string"
-                    },
-                    "image": {
-                        "format": "uri",
-                        "type": "string"
-                    },
-                    "jobTitle": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "optIn": {
-                        "type": "boolean"
-                    },
-                    "telephone": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "email": {
-                        "format": "email",
-                        "minLength": 1,
-                        "maxLength": 180,
-                        "externalDocs": {
-                            "url": "https://schema.org/email"
-                        },
-                        "type": "string"
-                    },
-                    "username": {
-                        "minLength": 1,
-                        "maxLength": 180,
-                        "type": "string"
-                    },
-                    "enabled": {
-                        "type": "boolean"
-                    },
-                    "familyName": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Family name. In the U.S., the last name of a Person.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "givenName": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "description": "Given name. In the U.S., the first name of a Person.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                }
             },
             "Person.jsonhal-Read": {
                 "type": "object",
@@ -20151,81 +18396,6 @@
                         "format": "date-time"
                     }
                 }
-            },
-            "Place-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "preferences": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Preferences-Asset-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "path": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Node-Read"
-                        }
-                    },
-                    "address": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "parent": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "state": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
             },
             "Place.CreatePlaceCommand-Write": {
                 "type": "object",
@@ -20376,22 +18546,6 @@
                     "name"
                 ]
             },
-            "Point-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "srid": {
-                        "type": "integer"
-                    },
-                    "latitude": {
-                        "type": "number"
-                    },
-                    "longitude": {
-                        "type": "number"
-                    }
-                }
-            },
             "Point.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -20419,25 +18573,6 @@
                     },
                     "longitude": {
                         "type": "number"
-                    }
-                }
-            },
-            "PostalAddress-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "locality": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "streetAddress": {
-                        "type": "string",
-                        "nullable": true
                     }
                 }
             },
@@ -20506,54 +18641,6 @@
                         ],
                         "type": "string",
                         "nullable": true
-                    }
-                }
-            },
-            "Preferences-Organization-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "archiving": {
-                        "$ref": "#/components/schemas/Archiving-OrganizationPreference-Read"
-                    },
-                    "contract": {
-                        "$ref": "#/components/schemas/Contract-OrganizationPreference-Read"
-                    },
-                    "equipment": {
-                        "$ref": "#/components/schemas/Equipment-OrganizationPreference-Read"
-                    },
-                    "feedbackParentPlace": {
-                        "type": "boolean"
-                    },
-                    "form": {
-                        "$ref": "#/components/schemas/Form-OrganizationPreference-Read"
-                    },
-                    "offline": {
-                        "type": "boolean"
-                    },
-                    "public": {
-                        "type": "boolean"
-                    },
-                    "reference": {
-                        "$ref": "#/components/schemas/Reference-OrganizationPreference-Read"
-                    },
-                    "reverseGeocoding": {
-                        "type": "boolean"
-                    },
-                    "review": {
-                        "$ref": "#/components/schemas/Review-OrganizationPreference-Read"
-                    },
-                    "sla": {
-                        "$ref": "#/components/schemas/Sla-OrganizationPreference-Read"
-                    },
-                    "categoryRequired": {
-                        "readOnly": true,
-                        "type": "boolean"
-                    },
-                    "reviewEnabled": {
-                        "readOnly": true,
-                        "type": "boolean"
                     }
                 }
             },
@@ -20649,27 +18736,6 @@
                     }
                 }
             },
-            "Price-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "currencyCode": {
-                        "enum": [
-                            "EUR"
-                        ],
-                        "readOnly": true,
-                        "description": "The currency code, in ISO 4217 format.",
-                        "default": "EUR",
-                        "example": "EUR",
-                        "type": "string"
-                    },
-                    "value": {
-                        "minimum": 0,
-                        "type": "number"
-                    }
-                }
-            },
             "Price-Write": {
                 "type": "object",
                 "description": "",
@@ -20713,35 +18779,6 @@
                     "value": {
                         "minimum": 0,
                         "type": "number"
-                    }
-                }
-            },
-            "Profile-auth-profile.read": {
-                "type": "object",
-                "description": "Retrieve authentication profile.",
-                "deprecated": false,
-                "properties": {
-                    "types": {
-                        "readOnly": true,
-                        "description": "Available connection types for the given email address. These might include password, enterprise, social.",
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "connections": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Connection-auth-profile.read"
-                        }
-                    },
-                    "user": {
-                        "$ref": "#/components/schemas/User-auth-profile.read"
-                    },
-                    "firstConnection": {
-                        "readOnly": true,
-                        "description": "Represents whether a user is making their first connection or interaction with the service.",
-                        "type": "boolean"
                     }
                 }
             },
@@ -20798,67 +18835,6 @@
                         "readOnly": true,
                         "description": "Represents whether a user is making their first connection or interaction with the service.",
                         "type": "boolean"
-                    }
-                }
-            },
-            "Publication-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "author",
-                    "message",
-                    "organization",
-                    "place",
-                    "title"
-                ],
-                "properties": {
-                    "author": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Person-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "message": {
-                        "type": "string"
-                    },
-                    "organization": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "place": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Place-Read"
-                    },
-                    "read": {
-                        "type": "integer"
-                    },
-                    "title": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
                     }
                 }
             },
@@ -20945,17 +18921,6 @@
                     }
                 }
             },
-            "Reference-OrganizationPreference-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "prefix": {
-                        "type": "string",
-                        "nullable": true
-                    }
-                }
-            },
             "Reference.jsonhal-OrganizationPreference-Read": {
                 "type": "object",
                 "description": "",
@@ -20977,25 +18942,6 @@
                     },
                     "prefix": {
                         "type": "string",
-                        "nullable": true
-                    }
-                }
-            },
-            "Renewal-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "duration": {
-                        "description": "Duration of the renewal in ISO 8601 duration format.",
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "noticePeriod": {
-                        "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
-                        "type": "string",
-                        "format": "duration",
                         "nullable": true
                     }
                 }
@@ -21048,64 +18994,6 @@
                         "description": "Notice period in ISO 8601 duration format. The \"notice period\" refers to the specific length of time that one party is required to give prior notice to the other party before terminating or renewing the contract.",
                         "type": "string",
                         "format": "duration",
-                        "nullable": true
-                    }
-                }
-            },
-            "Review-OrganizationPreference-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "enabled": {
-                        "type": "boolean"
-                    }
-                }
-            },
-            "Review-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "itemReviewed": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "author": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "reviewBody": {
-                        "minLength": 1,
-                        "maxLength": 65535,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "reviewRating": {
-                        "minimum": 1,
-                        "maximum": 5,
-                        "type": "integer",
                         "nullable": true
                     }
                 }
@@ -21202,59 +19090,6 @@
                     }
                 }
             },
-            "ReviewRequest-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "itemToReview",
-                    "reviewer"
-                ],
-                "properties": {
-                    "itemToReview": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "review": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Review-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "reviewer": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "organization": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    }
-                }
-            },
             "ReviewRequest.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -21337,49 +19172,6 @@
                     }
                 }
             },
-            "Role-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "permissions": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "Role.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -21435,80 +19227,6 @@
                 },
                 "required": [
                     "name"
-                ]
-            },
-            "Service-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "provider": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Organization-Read"
-                    },
-                    "contactPoint": {
-                        "$ref": "#/components/schemas/ContactPoint-Read"
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "manager": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Collaborator-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "onCall": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/ContactPoint-Read"
-                    },
-                    "organization": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Organization-Read"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "address": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/PostalAddress-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "type": {
-                        "readOnly": true,
-                        "type": "string",
-                        "nullable": true
-                    }
-                },
-                "required": [
-                    "name",
-                    "organization"
                 ]
             },
             "Service.jsonhal-Read": {
@@ -21604,44 +19322,6 @@
                     "organization"
                 ]
             },
-            "ServiceOffer-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "required": [
-                    "name",
-                    "service"
-                ],
-                "properties": {
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "service": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                }
-            },
             "ServiceOffer.CreateOfferCommand-Write": {
                 "type": "object",
                 "description": "",
@@ -21717,16 +19397,6 @@
                     }
                 }
             },
-            "Sla-OrganizationPreference-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "enabled": {
-                        "type": "boolean"
-                    }
-                }
-            },
             "Sla.jsonhal-OrganizationPreference-Read": {
                 "type": "object",
                 "description": "",
@@ -21750,70 +19420,6 @@
                         "type": "boolean"
                     }
                 }
-            },
-            "SlaPolicy-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "fromStates": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "toStates": {
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "timeTarget": {
-                        "type": "string",
-                        "format": "duration"
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "enabled": {
-                        "type": "boolean"
-                    },
-                    "conditions": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Condition-Read"
-                        }
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    }
-                },
-                "required": [
-                    "timeTarget",
-                    "name"
-                ]
             },
             "SlaPolicy.jsonhal-Read": {
                 "type": "object",
@@ -21922,24 +19528,6 @@
                     "name"
                 ]
             },
-            "TargetGroup-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "description": {
-                        "readOnly": true,
-                        "type": "string"
-                    },
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string",
-                        "nullable": true
-                    }
-                }
-            },
             "TargetGroup.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -21971,162 +19559,6 @@
                         "nullable": true
                     }
                 }
-            },
-            "Ticket-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "assignments": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Assignment-Read"
-                        }
-                    },
-                    "category": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Category-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "dueBy": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "equipments": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Equipment-Read"
-                        }
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "organization": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/"
-                    },
-                    "phase": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/WorkflowState-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "place": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Place-Read"
-                    },
-                    "priority": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/TicketPriority-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "scheduledAt": {
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "completed": {
-                        "type": "boolean"
-                    },
-                    "feedback": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/Feedback-Read"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "tags": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "children": {
-                        "readOnly": true,
-                        "type": "array",
-                        "items": {
-                            "type": "string",
-                            "format": "iri-reference",
-                            "example": "https://example.com/"
-                        }
-                    },
-                    "parent": {
-                        "readOnly": true,
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "state": {
-                        "readOnly": true,
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/WorkflowState-Read"
-                            }
-                        ],
-                        "nullable": true
-                    },
-                    "reference": {
-                        "readOnly": true,
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "archived": {
-                        "type": "boolean"
-                    },
-                    "images": {
-                        "items": {
-                            "format": "uri",
-                            "type": "string"
-                        },
-                        "readOnly": true,
-                        "type": "array"
-                    }
-                },
-                "required": [
-                    "organization",
-                    "place",
-                    "feedback"
-                ]
             },
             "Ticket.CreateTicketCommand-Write": {
                 "type": "object",
@@ -22451,33 +19883,6 @@
                     "feedback"
                 ]
             },
-            "TicketPriority-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "color": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "position": {
-                        "type": "integer"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "TicketPriority.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -22513,44 +19918,6 @@
                     },
                     "position": {
                         "type": "integer"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
-            "TicketType-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    },
-                    "createdAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was created, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "updatedAt": {
-                        "readOnly": true,
-                        "description": "The date and time when the resource was updated, in UTC format.",
-                        "type": "string",
-                        "format": "date-time"
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "description": {
-                        "minLength": 1,
-                        "maxLength": 500,
-                        "type": "string",
-                        "nullable": true
                     }
                 },
                 "required": [
@@ -22609,27 +19976,6 @@
                     "name"
                 ]
             },
-            "User-auth-profile.read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "email": {
-                        "format": "email",
-                        "minLength": 1,
-                        "maxLength": 180,
-                        "externalDocs": {
-                            "url": "https://schema.org/email"
-                        },
-                        "type": "string"
-                    },
-                    "username": {
-                        "minLength": 1,
-                        "maxLength": 180,
-                        "type": "string"
-                    }
-                }
-            },
             "User.jsonhal-auth-profile.read": {
                 "type": "object",
                 "description": "",
@@ -22662,32 +20008,6 @@
                         "minLength": 1,
                         "maxLength": 180,
                         "type": "string"
-                    }
-                }
-            },
-            "Warranty-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "duration": {
-                        "description": "The duration of the warranty in ISO 8601 duration format.",
-                        "type": "string",
-                        "format": "duration",
-                        "nullable": true
-                    },
-                    "endDate": {
-                        "readOnly": true,
-                        "description": "The end date of the warranty, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
-                    },
-                    "startDate": {
-                        "description": "The start date of the warranty, in ISO 8601 format.",
-                        "type": "string",
-                        "format": "date-time",
-                        "nullable": true
                     }
                 }
             },
@@ -22750,57 +20070,6 @@
                     }
                 }
             },
-            "WorkflowState-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "allowAdd": {
-                        "type": "boolean"
-                    },
-                    "allowDispatch": {
-                        "default": true,
-                        "example": true,
-                        "type": "boolean"
-                    },
-                    "end": {
-                        "type": "boolean"
-                    },
-                    "backgroundColor": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "color": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "progression": {
-                        "type": "number",
-                        "nullable": true
-                    },
-                    "reference": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
             "WorkflowState.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -22855,52 +20124,6 @@
                     "reference": {
                         "type": "string",
                         "nullable": true
-                    },
-                    "id": {
-                        "readOnly": true,
-                        "description": "The resource identifier.",
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "name"
-                ]
-            },
-            "WorkflowTransition-Read": {
-                "type": "object",
-                "description": "",
-                "deprecated": false,
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "fields": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
-                    },
-                    "from": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/WorkflowState-Read"
-                    },
-                    "name": {
-                        "minLength": 1,
-                        "maxLength": 255,
-                        "type": "string"
-                    },
-                    "required": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "nullable": true
-                    },
-                    "to": {
-                        "readOnly": true,
-                        "$ref": "#/components/schemas/WorkflowState-Read"
                     },
                     "id": {
                         "readOnly": true,

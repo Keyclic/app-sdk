@@ -9,7 +9,7 @@ class GetAssetTypeCollection200Response {
   GetAssetTypeCollection200Response({
     this.embedded,
     required this.totalItems,
-    required this.itemsPerPage,
+    this.itemsPerPage,
     required this.links,
   });
 
@@ -35,7 +35,7 @@ class GetAssetTypeCollection200Response {
   int totalItems;
 
   // minimum: 0
-  int itemsPerPage;
+  int? itemsPerPage;
 
   GetPlaceCollection200ResponseLinks links;
 
@@ -57,7 +57,7 @@ class GetAssetTypeCollection200Response {
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
       totalItems.hashCode +
-      itemsPerPage.hashCode +
+      (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
   static List<GetAssetTypeCollection200Response> listFromJson(Iterable? json) {
@@ -126,7 +126,8 @@ class GetAssetTypeCollection200Response {
           return previousValue;
         })),
       r'totalItems': totalItems,
-      r'itemsPerPage': itemsPerPage,
+      if (keys == null || keys.contains(r'itemsPerPage'))
+        r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {

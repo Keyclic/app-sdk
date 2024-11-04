@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-beta.5.dev.f1bff1155"
+        "version": "2.66.0-beta.9.dev.1a0e84e0b"
     },
     "servers": [
         {
@@ -49,13 +49,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -611,13 +610,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -1012,13 +1010,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -1975,13 +1972,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -2376,13 +2372,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -2777,13 +2772,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -3222,13 +3216,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -3688,13 +3681,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -4089,13 +4081,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -5566,13 +5557,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -7167,13 +7157,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -7581,13 +7570,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -8202,13 +8190,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -8680,13 +8667,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -9139,13 +9125,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -9758,13 +9743,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -10175,13 +10159,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -10546,13 +10529,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -11337,13 +11319,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -11723,13 +11704,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -12138,13 +12118,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -12539,13 +12518,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -14476,13 +14454,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -14751,13 +14728,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -15026,13 +15002,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -15301,13 +15276,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",

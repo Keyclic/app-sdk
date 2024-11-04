@@ -16,7 +16,6 @@ Method | HTTP request | Description
 [**getPlace**](PlaceApi.md#getplace) | **GET** /places/{place} | Retrieve one Place resource.
 [**patchPlace**](PlaceApi.md#patchplace) | **PATCH** /places/{place} | Edit one Place resource.
 [**postDocumentByPlace**](PlaceApi.md#postdocumentbyplace) | **POST** /places/{place}/documents | Create one Document resource.
-[**postPlace**](PlaceApi.md#postplace) | **POST** /places | Create one Place resource.
 [**postWorkflowByPlace**](PlaceApi.md#postworkflowbyplace) | **POST** /places/{place}/workflow | Create one Workflow resource.
 
 
@@ -461,61 +460,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Document**](Document.md)
-
-### Authorization
-
-[bearer](../README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json;charset=UTF-8
- - **Accept**: application/hal+json;charset=UTF-8
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **postPlace**
-> Place postPlace(xKeyclicApp, placeData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
-
-Create one Place resource.
-
-### Example
-```dart
-import 'package:keyclic_sdk_api/api.dart';
-// TODO Configure API key authorization: bearer
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('bearer').apiKeyPrefix = 'Bearer';
-
-final api_instance = PlaceApi();
-final xKeyclicApp = xKeyclicApp_example; // String | 
-final placeData = PlaceData(); // PlaceData | 
-final acceptLanguage = acceptLanguage_example; // String | 
-final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
-final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
-final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
-
-try {
-    final result = api_instance.postPlace(xKeyclicApp, placeData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
-    print(result);
-} catch (e) {
-    print('Exception when calling PlaceApi->postPlace: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xKeyclicApp** | **String**|  | [default to 'com.keyclic.app']
- **placeData** | [**PlaceData**](PlaceData.md)|  | 
- **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
- **xDateTime** | **DateTime**|  | [optional] 
- **xKeyclicAppPlatform** | **String**|  | [optional] 
- **xKeyclicAppVersion** | **String**|  | [optional] 
-
-### Return type
-
-[**Place**](Place.md)
 
 ### Authorization
 

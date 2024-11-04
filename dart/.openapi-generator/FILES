@@ -395,8 +395,6 @@ doc/PersonPreferences.md
 doc/Place.md
 doc/PlaceApi.md
 doc/PlaceCollection.md
-doc/PlaceData.md
-doc/PlaceDataPreferences.md
 doc/PlaceEmbedded.md
 doc/PlaceLinks.md
 doc/PlaceLinksChildren.md
@@ -1004,8 +1002,6 @@ lib/model/person_patch_preferences_notification.dart
 lib/model/person_preferences.dart
 lib/model/place.dart
 lib/model/place_collection.dart
-lib/model/place_data.dart
-lib/model/place_data_preferences.dart
 lib/model/place_embedded.dart
 lib/model/place_links.dart
 lib/model/place_links_children.dart
@@ -1579,8 +1575,6 @@ test/person_preferences_test.dart
 test/person_test.dart
 test/place_api_test.dart
 test/place_collection_test.dart
-test/place_data_preferences_test.dart
-test/place_data_test.dart
 test/place_embedded_test.dart
 test/place_links_children_iri_template_mapping_test.dart
 test/place_links_children_iri_template_test.dart

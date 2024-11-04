@@ -425,8 +425,6 @@ part 'model/person_patch_preferences_notification.dart';
 part 'model/person_preferences.dart';
 part 'model/place.dart';
 part 'model/place_collection.dart';
-part 'model/place_data.dart';
-part 'model/place_data_preferences.dart';
 part 'model/place_embedded.dart';
 part 'model/place_links.dart';
 part 'model/place_links_children.dart';

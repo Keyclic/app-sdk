@@ -1054,10 +1054,6 @@ class ApiClient {
           return Place.fromJson(value);
         case 'PlaceCollection':
           return PlaceCollection.fromJson(value);
-        case 'PlaceData':
-          return PlaceData.fromJson(value);
-        case 'PlaceDataPreferences':
-          return PlaceDataPreferences.fromJson(value);
         case 'PlaceEmbedded':
           return PlaceEmbedded.fromJson(value);
         case 'PlaceLinks':

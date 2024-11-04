@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-beta.1.dev.e7761995e"
+        "version": "2.66.0-beta.5.dev.317fe0469"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -11185,83 +11185,6 @@
                         "bearer": []
                     }
                 ]
-            },
-            "post": {
-                "tags": [
-                    "Place"
-                ],
-                "summary": "Create one Place resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postPlace",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/PlaceData"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Returned when the resource is created",
-                        "schema": {
-                            "$ref": "#\/definitions\/Place"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
             }
         },
         "\/places\/{place}\/documents": {
@@ -21808,45 +21731,6 @@
                 }
             }
         },
-        "PlaceData": {
-            "type": "object",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "minLength": 0,
-                    "maxLength": 254
-                },
-                "branchCode": {
-                    "type": "string"
-                },
-                "parent": {
-                    "type": "string"
-                },
-                "polygon": {
-                    "type": "string"
-                },
-                "organization": {
-                    "type": "string"
-                },
-                "preferences": {
-                    "type": "object",
-                    "properties": {
-                        "visibility": {
-                            "type": "string",
-                            "enum": [
-                                "VISIBILITY_PRIVATE",
-                                "VISIBILITY_PUBLIC",
-                                "VISIBILITY_SHARED"
-                            ]
-                        }
-                    }
-                }
-            },
-            "required": [
-                "name",
-                "organization"
-            ]
-        },
         "PlaceLinksChildren": {
             "type": "object",
             "properties": {
@@ -25964,14 +25848,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/PlacePatch"
-            },
-            "required": true
-        },
-        "PlaceData": {
-            "name": "PlaceData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/PlaceData"
             },
             "required": true
         },

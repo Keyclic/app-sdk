@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of Bookmark resources.
     //
-    //Future<GetBookmarkCollection200Response> getBookmarkCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String asset, List<String> assetLeftSquareBracketRightSquareBracket, String member, List<String> memberLeftSquareBracketRightSquareBracket, String memberPeriodPerson, List<String> memberPeriodPersonLeftSquareBracketRightSquareBracket, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<GetBookmarkCollection200Response> getBookmarkCollection(String xKeyclicApp, { int page, int limit, bool pagination, String asset, List<String> assetLeftSquareBracketRightSquareBracket, String member, List<String> memberLeftSquareBracketRightSquareBracket, String memberPeriodPerson, List<String> memberPeriodPersonLeftSquareBracketRightSquareBracket, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, String xOrganizationId }) async
     test('test getBookmarkCollection', () async {});
   });
 }

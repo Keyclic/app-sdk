@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBookmarkCollection**
-> GetBookmarkCollection200Response getBookmarkCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetBookmarkCollection200Response getBookmarkCollection(xKeyclicApp, page, limit, pagination, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xOrganizationId)
 
 Retrieves the collection of Bookmark resources.
 
@@ -87,7 +87,6 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 
 final api_instance = BookmarkApi();
 final xKeyclicApp = xKeyclicApp_example; // String | 
-final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 final page = 56; // int | The collection page number
 final limit = 56; // int | The number of items per page
 final pagination = true; // bool | Enable or disable pagination
@@ -101,9 +100,10 @@ final acceptLanguage = acceptLanguage_example; // String |
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
+final xOrganizationId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | 
 
 try {
-    final result = api_instance.getBookmarkCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getBookmarkCollection(xKeyclicApp, page, limit, pagination, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, xOrganizationId);
     print(result);
 } catch (e) {
     print('Exception when calling BookmarkApi->getBookmarkCollection: $e\n');
@@ -115,7 +115,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xKeyclicApp** | **String**|  | 
- **xOrganizationId** | **String**|  | 
  **page** | **int**| The collection page number | [optional] [default to 1]
  **limit** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional] 
@@ -129,6 +128,7 @@ Name | Type | Description  | Notes
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 
  **xKeyclicAppVersion** | **String**|  | [optional] 
+ **xOrganizationId** | **String**|  | [optional] 
 
 ### Return type
 

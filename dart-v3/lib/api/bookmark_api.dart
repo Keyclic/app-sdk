@@ -111,7 +111,6 @@ class BookmarkApi {
   ///
   /// Parameters:
   /// * [xKeyclicApp] -
-  /// * [xOrganizationId] -
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
@@ -125,6 +124,7 @@ class BookmarkApi {
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
   /// * [xKeyclicAppVersion] -
+  /// * [xOrganizationId] -
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -136,7 +136,6 @@ class BookmarkApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<GetBookmarkCollection200Response>> getBookmarkCollection({
     required String xKeyclicApp,
-    required String xOrganizationId,
     int? page,
     int? limit,
     bool? pagination,
@@ -150,6 +149,7 @@ class BookmarkApi {
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
     String? xKeyclicAppVersion,
+    String? xOrganizationId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -169,7 +169,7 @@ class BookmarkApi {
           r'X-Keyclic-App-Platform': xKeyclicAppPlatform,
         if (xKeyclicAppVersion != null)
           r'X-Keyclic-App-Version': xKeyclicAppVersion,
-        r'X-Organization-Id': xOrganizationId,
+        if (xOrganizationId != null) r'X-Organization-Id': xOrganizationId,
         ...?headers,
       },
       extra: <String, dynamic>{

@@ -15961,7 +15961,7 @@
                         "name": "X-Organization-Id",
                         "in": "header",
                         "description": "",
-                        "required": true,
+                        "required": false,
                         "deprecated": false,
                         "allowEmptyValue": false,
                         "schema": {

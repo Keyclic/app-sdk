@@ -11,7 +11,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   return {{{classname}}}(
   {{#vars}}
   {{#isDateTime}}
-        {{{name}}}: mapToDateTime(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+        {{{name}}}: mapToDateTime(json[r'{{{baseName}}}']){{^isNullable}}!{{/isNullable}},
   {{/isDateTime}}
   {{#isDate}}
         {{{name}}}: json[r'{{{baseName}}}'] == null
@@ -67,7 +67,8 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
               {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
             {{/items.isModel}}
             {{^items.isModel}}
-              json[r'{{{baseName}}}'] == null ? null : Map<String, Object?>.from(json[r'{{{baseName}}}']),
+              {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
+              Map<String, Object?>.from(json[r'{{{baseName}}}']),
             {{/items.isModel}}
           {{/items.isMap}}
           {{/items.isArray}}
@@ -77,7 +78,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
         {{{name}}}: null, // No support for decoding binary content from JSON
             {{/isBinary}}
             {{^isBinary}}
-        {{{name}}}: {{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+        {{{name}}}: {{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{^isNullable}}!{{/isNullable}},
             {{/isBinary}}
         {{/isMap}}
       {{/isArray}}
@@ -89,20 +90,14 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
         {{/isEnum}}
         {{^isEnum}}
         {{{name}}}:
-          {{^required}}
-            json[r'{{{baseName}}}'] == null ?
-              null :
-          {{/required}}
+          {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
           {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
         {{/isEnum}}
       {{/isArray}}
       {{^isArray}}
         {{#isMap}}
         {{{name}}}:
-          {{^required}}
-            json[r'{{{baseName}}}'] == null ?
-              null :
-          {{/required}}
+          {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
           Map<String, {{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
         {{/isMap}}
         {{^isMap}}
@@ -113,17 +108,16 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
           {{/isNumber}}
           {{^isNumber}}
             {{#isEnum}}
-              {{{name}}}: {{{enumName}}}.fromJson(json[r'{{{baseName}}}']){{#required}}!{{/required}},
+              {{{name}}}: {{{enumName}}}.fromJson(json[r'{{{baseName}}}']){{^isNullable}}!{{/isNullable}},
             {{/isEnum}}
             {{^isEnum}}
               {{#isFreeFormObject}}
-                {{{name}}}: json[r'{{{baseName}}}'] == null ?
-                null :
+                {{{name}}}: {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
                 Map<String, Object?>.from(json[r'{{{baseName}}}']),
               {{/isFreeFormObject}}
               {{^isFreeFormObject}}
                 {{#isFloat}}
-                  {{{name}}}: json[r'{{{baseName}}}']{{^required}}?{{/required}}.toDouble(),
+                  {{{name}}}: json[r'{{{baseName}}}']{{#isNullable}}?{{/isNullable}}.toDouble(),
                 {{/isFloat}}
                 {{^isFloat}}
                   {{{name}}}: json[r'{{{baseName}}}'],
@@ -153,19 +147,19 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     {{/maximum}}
   {{/isEnum}}
   {{#isFreeFormObject}}
-    {{#isReadOnly}}final {{/isReadOnly}}Map<String, Object?>{{^required}}?{{/required}} {{{name}}};
+    {{#isReadOnly}}final {{/isReadOnly}}Map<String, Object?>{{#isNullable}}?{{/isNullable}} {{{name}}};
   {{/isFreeFormObject}}
   {{^isFreeFormObject}}
     {{#isArray}}
       {{#items.isFreeFormObject}}
-        {{#isReadOnly}}final {{/isReadOnly}}List<Map<String, Object?>>{{^required}}?{{/required}} {{{name}}};
+        {{#isReadOnly}}final {{/isReadOnly}}List<Map<String, Object?>>{{#isNullable}}?{{/isNullable}} {{{name}}};
       {{/items.isFreeFormObject}}
       {{^items.isFreeFormObject}}
-        {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+        {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{#isNullable}}?{{/isNullable}} {{{name}}};
       {{/items.isFreeFormObject}}
     {{/isArray}}
     {{^isArray}}
-      {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{^required}}?{{/required}} {{{name}}};
+      {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{#isNullable}}?{{/isNullable}} {{{name}}};
     {{/isArray}}
   {{/isFreeFormObject}}
 
@@ -191,7 +185,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   @override
   int get hashCode =>
   {{#vars}}
-    {{^required}}({{{name}}} == null ? 0 :{{/required}} {{{name}}}.hashCode{{^required}}){{/required}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
+    {{#isNullable}}({{{name}}} == null ? 0 :{{/isNullable}} {{{name}}}.hashCode{{#isNullable}}){{/isNullable}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
   {{/vars}}
 
   static List<{{{classname}}}> listFromJson(Iterable? json) {
@@ -241,7 +235,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
   {{#vars}}
-    {{^required}}
+    {{#isNullable}}
     if (keys == null || keys.
     {{#isModel}}
     any((key) => RegExp(r'^{{{name}}}\.').hasMatch(key))
@@ -250,7 +244,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
     contains(r'{{{name}}}')
     {{/isModel}}
     )
-    {{/required}}
+    {{/isNullable}}
     {{#isDateTime}}
       {{#pattern}}
       r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
@@ -258,7 +252,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
         : {{{name}}}?.toUtc().toIso8601String(),
       {{/pattern}}
       {{^pattern}}
-      r'{{{baseName}}}': {{{name}}}{{^required}}?{{/required}}.toUtc().toIso8601String(),
+      r'{{{baseName}}}': {{{name}}}{{#isNullable}}?{{/isNullable}}.toUtc().toIso8601String(),
       {{/pattern}}
     {{/isDateTime}}
     {{#isDate}}
@@ -279,7 +273,7 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
             {{name}},
           {{/isContainer}}
           {{^isContainer}}
-            {{name}}{{^required}}?{{/required}}.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+            {{name}}{{#isNullable}}?{{/isNullable}}.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
               if (element.contains(RegExp(r'^{{{name}}}\.'))) {
                 previousValue.add(element.split(RegExp(r'^{{{name}}}\.')).last);
               }

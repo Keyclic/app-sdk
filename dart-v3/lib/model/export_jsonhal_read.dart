@@ -14,7 +14,7 @@ class ExportJsonhalRead {
     this.downloadUrl,
     required this.expiredAt,
     this.groupBy,
-    this.name,
+    required this.name,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -54,7 +54,7 @@ class ExportJsonhalRead {
 
   ExportJsonhalReadGroupByEnum? groupBy;
 
-  String? name;
+  String name;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime createdAt;
@@ -89,7 +89,7 @@ class ExportJsonhalRead {
       (downloadUrl == null ? 0 : downloadUrl.hashCode) +
       expiredAt.hashCode +
       (groupBy == null ? 0 : groupBy.hashCode) +
-      (name == null ? 0 : name.hashCode) +
+      name.hashCode +
       createdAt.hashCode +
       updatedAt.hashCode;
 
@@ -160,7 +160,7 @@ class ExportJsonhalRead {
         r'downloadUrl': downloadUrl,
       r'expiredAt': expiredAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
-      if (keys == null || keys.contains(r'name')) r'name': name,
+      r'name': name,
       r'createdAt': createdAt.toUtc().toIso8601String(),
       r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };

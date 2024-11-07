@@ -10,16 +10,16 @@ void main() {
   // final instance = ReviewRequestJsonhalReadLinks();
 
   group('test ReviewRequestJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst itemToReview
+    // AssetJsonhalReadLinksType itemToReview
     test('to test the property `itemToReview`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst reviewer
+    // GetPlaceCollection200ResponseLinksSelf reviewer
     test('to test the property `reviewer`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst organization
+    // GetPlaceCollection200ResponseLinksSelf organization
     test('to test the property `organization`', () async {});
   });
 }

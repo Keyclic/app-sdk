@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class PreferencesJsonhalAssetRead {
   /// Returns a new [PreferencesJsonhalAssetRead] instance.
   PreferencesJsonhalAssetRead({
-    this.links,
+    required this.links,
     this.visibility,
   });
 
@@ -20,13 +20,13 @@ class PreferencesJsonhalAssetRead {
 
     return PreferencesJsonhalAssetRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+          json[r'_links'])!,
       visibility: PreferencesJsonhalAssetReadVisibilityEnum.fromJson(
           json[r'visibility']),
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   PreferencesJsonhalAssetReadVisibilityEnum? visibility;
 
@@ -44,8 +44,7 @@ class PreferencesJsonhalAssetRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (visibility == null ? 0 : visibility.hashCode);
+      links.hashCode + (visibility == null ? 0 : visibility.hashCode);
 
   static List<PreferencesJsonhalAssetRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -101,15 +100,14 @@ class PreferencesJsonhalAssetRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
     };

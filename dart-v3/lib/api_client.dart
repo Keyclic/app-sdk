@@ -278,6 +278,8 @@ class ApiPlatformClient {
           return AssetJsonhalRead.fromJson(value);
         case 'AssetJsonhalReadLinks':
           return AssetJsonhalReadLinks.fromJson(value);
+        case 'AssetJsonhalReadLinksType':
+          return AssetJsonhalReadLinksType.fromJson(value);
         case 'AssetTypeJsonhalRead':
           return AssetTypeJsonhalRead.fromJson(value);
         case 'AssignmentJsonhalRead':
@@ -421,8 +423,6 @@ class ApiPlatformClient {
           return GetPlaceCollection200ResponseEmbedded.fromJson(value);
         case 'GetPlaceCollection200ResponseLinks':
           return GetPlaceCollection200ResponseLinks.fromJson(value);
-        case 'GetPlaceCollection200ResponseLinksFirst':
-          return GetPlaceCollection200ResponseLinksFirst.fromJson(value);
         case 'GetPlaceCollection200ResponseLinksSelf':
           return GetPlaceCollection200ResponseLinksSelf.fromJson(value);
         case 'GetPublicationCollection200Response':

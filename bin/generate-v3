@@ -33,7 +33,7 @@ docker run \
     --input-spec ${SWAGGER_FILE} \
     --generator-name dart \
     --output /local/dart-v3 \
-    --template-dir /local/dart-templates
+    --template-dir /local/dart-v3-templates
 
 sleep 3
 

@@ -1,0 +1,307 @@
+class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-last}}, {{/-last}} {{/interfaces}}{
+{{>dart_constructor}}
+
+  /// Returns a new [{{{classname}}}] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static {{{classname}}}? fromJson(Object? json) {
+    if (json is! Map<String, dynamic>) {
+      return null;
+    }
+
+  return {{{classname}}}(
+  {{#vars}}
+  {{#isDateTime}}
+        {{{name}}}: mapToDateTime(json[r'{{{baseName}}}']){{^isNullable}}!{{/isNullable}},
+  {{/isDateTime}}
+  {{#isDate}}
+        {{{name}}}: json[r'{{{baseName}}}'] == null
+          ? null
+          : DateTime.parse(json[r'{{{baseName}}}']),
+  {{/isDate}}
+  {{^isDateTime}}
+  {{^isDate}}
+    {{#complexType}}
+      {{#isArray}}
+        {{#items.isArray}}
+        {{{name}}}:
+            {{#items.complexType}}
+                {{items.complexType}}.listFromJson(json[r'{{{baseName}}}']),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                json[r'{{{baseName}}}'] == null ? null : List<{{{items.dataType}}}>.from(json[r'{{{baseName}}}']).map((e) => List<{{items.items.dataType}}>.from(e)).toList(growable: false),
+            {{/items.complexType}}
+        {{/items.isArray}}
+        {{^items.isArray}}
+        {{{name}}}: 
+          {{#items.isFreeFormObject}}
+          json[r'{{{baseName}}}'] == null ? null : List<Map<String, Object?>>.from(json[r'{{{baseName}}}']),
+          {{/items.isFreeFormObject}}
+          {{^items.isFreeFormObject}}
+          {{{complexType}}}.listFromJson(json[r'{{{baseName}}}']),
+          {{/items.isFreeFormObject}}
+        {{/items.isArray}}
+      {{/isArray}}
+      {{^isArray}}
+        {{#isMap}}
+          {{#items.isArray}}
+        {{{name}}}: 
+            {{#items.complexType}}
+                {{items.complexType}}.mapListFromJson(json[r'{{{baseName}}}']),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                Map<String, List>.from(json[r'{{{baseName}}}'] ?? {}),
+            {{/items.complexType}}
+          {{/items.isArray}}
+          {{^items.isArray}}
+            {{{name}}}:
+              {{#items.isMap}}
+            {{#items.complexType}}
+                {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
+            {{/items.complexType}}
+            {{^items.complexType}}
+                Map<String, Map>.from(json[r'{{{baseName}}}'] ?? {}),
+            {{/items.complexType}}
+          {{/items.isMap}}
+          {{^items.isMap}}
+            {{#items.isModel}}
+              {{items.complexType}}.mapFromJson(json[r'{{{baseName}}}']),
+            {{/items.isModel}}
+            {{^items.isModel}}
+              {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
+              Map<String, Object?>.from(json[r'{{{baseName}}}']),
+            {{/items.isModel}}
+          {{/items.isMap}}
+          {{/items.isArray}}
+        {{/isMap}}
+        {{^isMap}}
+            {{#isBinary}}
+        {{{name}}}: null, // No support for decoding binary content from JSON
+            {{/isBinary}}
+            {{^isBinary}}
+        {{{name}}}: {{{complexType}}}.fromJson(json[r'{{{baseName}}}']){{^isNullable}}!{{/isNullable}},
+            {{/isBinary}}
+        {{/isMap}}
+      {{/isArray}}
+    {{/complexType}}
+    {{^complexType}}
+      {{#isArray}}
+        {{#isEnum}}
+        {{{name}}}: {{{items.datatypeWithEnum}}}.listFromJson(json[r'{{{baseName}}}']),
+        {{/isEnum}}
+        {{^isEnum}}
+        {{{name}}}:
+          {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
+          {{#uniqueItems}}Set{{/uniqueItems}}{{^uniqueItems}}List{{/uniqueItems}}<{{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
+        {{/isEnum}}
+      {{/isArray}}
+      {{^isArray}}
+        {{#isMap}}
+        {{{name}}}:
+          {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
+          Map<String, {{{items.datatype}}}>.from(json[r'{{{baseName}}}']),
+        {{/isMap}}
+        {{^isMap}}
+          {{#isNumber}}
+        {{{name}}}: json[r'{{{baseName}}}'] == null ?
+          null :
+          json[r'{{{baseName}}}'].toDouble(),
+          {{/isNumber}}
+          {{^isNumber}}
+            {{#isEnum}}
+              {{{name}}}: {{{enumName}}}.fromJson(json[r'{{{baseName}}}']){{^isNullable}}!{{/isNullable}},
+            {{/isEnum}}
+            {{^isEnum}}
+              {{#isFreeFormObject}}
+                {{{name}}}: {{#isNullable}}json[r'{{{baseName}}}'] == null ? null : {{/isNullable}}
+                Map<String, Object?>.from(json[r'{{{baseName}}}']),
+              {{/isFreeFormObject}}
+              {{^isFreeFormObject}}
+                {{#isFloat}}
+                  {{{name}}}: json[r'{{{baseName}}}']{{#isNullable}}?{{/isNullable}}.toDouble(),
+                {{/isFloat}}
+                {{^isFloat}}
+                  {{{name}}}: json[r'{{{baseName}}}'],
+                {{/isFloat}}
+              {{/isFreeFormObject}}
+            {{/isEnum}}
+          {{/isNumber}}
+        {{/isMap}}
+      {{/isArray}}
+    {{/complexType}}
+  {{/isDate}}
+  {{/isDateTime}}
+  {{/vars}}
+    );
+  }
+
+  {{#vars}}
+  {{#description}}
+  /// {{{description}}}
+  {{/description}}
+  {{^isEnum}}
+    {{#minimum}}
+  // minimum: {{{minimum}}}
+    {{/minimum}}
+    {{#maximum}}
+  // maximum: {{{maximum}}}
+    {{/maximum}}
+  {{/isEnum}}
+  {{#isFreeFormObject}}
+    {{#isReadOnly}}final {{/isReadOnly}}Map<String, Object?>{{#isNullable}}?{{/isNullable}} {{{name}}};
+  {{/isFreeFormObject}}
+  {{^isFreeFormObject}}
+    {{#isArray}}
+      {{#items.isFreeFormObject}}
+        {{#isReadOnly}}final {{/isReadOnly}}List<Map<String, Object?>>{{#isNullable}}?{{/isNullable}} {{{name}}};
+      {{/items.isFreeFormObject}}
+      {{^items.isFreeFormObject}}
+        {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{#isNullable}}?{{/isNullable}} {{{name}}};
+      {{/items.isFreeFormObject}}
+    {{/isArray}}
+    {{^isArray}}
+      {{#isReadOnly}}final {{/isReadOnly}}{{{datatypeWithEnum}}}{{#isNullable}}?{{/isNullable}} {{{name}}};
+    {{/isArray}}
+  {{/isFreeFormObject}}
+
+  {{/vars}}
+  @override
+  bool operator ==(Object other) {
+    // Same reference
+    if (identical(this, other)) {
+      return true;
+    }
+
+    return other is {{{classname}}} {{#vars}}
+        {{#isContainer}}
+          && DeepCollectionEquality.unordered().equals({{name}}, other.{{name}})
+        {{/isContainer}}
+        {{^isContainer}}
+          && other.{{{name}}} == {{{name}}}
+        {{/isContainer}}
+  {{/vars}};
+  }
+  
+
+  @override
+  int get hashCode =>
+  {{#vars}}
+    {{#isNullable}}({{{name}}} == null ? 0 :{{/isNullable}} {{{name}}}.hashCode{{#isNullable}}){{/isNullable}}{{^-last}} +{{/-last}}{{#-last}};{{/-last}}
+  {{/vars}}
+
+  static List<{{{classname}}}> listFromJson(Iterable? json) {
+    if (json == null) {
+      return <{{{classname}}}>[];
+    }
+
+    return json.fold(<{{{classname}}}>[], (List<{{{classname}}}> previousValue, element) {
+      final {{{classname}}}? object = {{{classname}}}.fromJson(element);
+      if (object is {{{classname}}}) {
+        previousValue.add(object);
+      }
+
+      return previousValue;
+    });
+  }
+
+  static Map<String, {{{classname}}}> mapFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, {{{classname}}}>{};
+    }
+
+    return json.entries.fold(<String, {{{classname}}}>{}, (Map<String, {{{classname}}}> previousValue, element) {
+      final {{{classname}}}? object = {{{classname}}}.fromJson(element.value);
+      if (object is {{{classname}}}) {
+        previousValue[element.key] = object;
+      }
+
+      return previousValue;
+    });
+  }
+
+  // maps a json object with a list of {{{classname}}}-objects as value to a dart map
+  static Map<String, List<{{{classname}}}>> mapListFromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return <String, List<{{{classname}}}>>{};
+    }
+
+    return json.map((key, value) {
+      return MapEntry<String, List<{{{classname}}}>>(key, {{{classname}}}.listFromJson(value));
+    });
+  }
+
+  @override
+  String toString() => '{{{classname}}}[{{#vars}}{{{name}}}=${{{name}}}{{^-last}}, {{/-last}}{{/vars}}]';
+
+  Map<String, dynamic> toJson([Iterable<String>? keys]) {
+    return <String, dynamic>{
+  {{#vars}}
+    {{#isNullable}}
+    if (keys == null || keys.
+    {{#isModel}}
+    any((key) => RegExp(r'^{{{name}}}\.').hasMatch(key))
+    {{/isModel}}
+    {{^isModel}}
+    contains(r'{{{name}}}')
+    {{/isModel}}
+    )
+    {{/isNullable}}
+    {{#isDateTime}}
+      {{#pattern}}
+      r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
+        ? {{{name}}}?.millisecondsSinceEpoch
+        : {{{name}}}?.toUtc().toIso8601String(),
+      {{/pattern}}
+      {{^pattern}}
+      r'{{{baseName}}}': {{{name}}}{{#isNullable}}?{{/isNullable}}.toUtc().toIso8601String(),
+      {{/pattern}}
+    {{/isDateTime}}
+    {{#isDate}}
+      {{#pattern}}
+      r'{{{baseName}}}': _dateEpochMarker == '{{{pattern}}}'
+        ? {{{name}}}?.millisecondsSinceEpoch
+        : _dateFormatter.format({{{name}}}.toUtc()),
+      {{/pattern}}
+      {{^pattern}}
+      r'{{{baseName}}}': _dateFormatter.format({{{name}}}.toUtc()),
+      {{/pattern}}
+    {{/isDate}}
+    {{^isDateTime}}
+      {{^isDate}}
+        r'{{{baseName}}}':
+        {{#complexType}}
+          {{#isContainer}}
+            {{name}},
+          {{/isContainer}}
+          {{^isContainer}}
+            {{name}}{{#isNullable}}?{{/isNullable}}.toJson(keys?.fold<List<String>>(<String>[], (List<String> previousValue, String element) {
+              if (element.contains(RegExp(r'^{{{name}}}\.'))) {
+                previousValue.add(element.split(RegExp(r'^{{{name}}}\.')).last);
+              }
+
+              return previousValue;
+            })),
+          {{/isContainer}}
+        {{/complexType}}
+        {{^complexType}}
+          {{name}},
+        {{/complexType}}
+      {{/isDate}}
+    {{/isDateTime}}
+  {{/vars}}
+    };
+  }
+}
+{{#vars}}
+    {{#isEnum}}
+        {{^isContainer}}
+
+{{>serialization/native/enum_inline}}
+        {{/isContainer}}
+        {{#isContainer}}
+            {{#mostInnerItems}}
+
+{{>serialization/native/enum_inline}}
+            {{/mostInnerItems}}
+        {{/isContainer}}
+    {{/isEnum}}
+{{/vars}}

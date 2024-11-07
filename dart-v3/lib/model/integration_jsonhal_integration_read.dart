@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class IntegrationJsonhalIntegrationRead {
   /// Returns a new [IntegrationJsonhalIntegrationRead] instance.
   IntegrationJsonhalIntegrationRead({
-    this.links,
-    this.inputs,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.links,
+    this.inputs = const {},
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
     this.name,
   });
 
@@ -23,29 +23,27 @@ class IntegrationJsonhalIntegrationRead {
     }
 
     return IntegrationJsonhalIntegrationRead(
-      links: IntegrationJsonhalIntegrationReadLinks.fromJson(json[r'_links']),
-      inputs: json[r'inputs'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'inputs']),
+      links: IntegrationJsonhalIntegrationReadLinks.fromJson(json[r'_links'])!,
+      inputs: Map<String, Object?>.from(json[r'inputs']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       name: json[r'name'],
     );
   }
 
-  IntegrationJsonhalIntegrationReadLinks? links;
+  IntegrationJsonhalIntegrationReadLinks links;
 
-  Map<String, Object?>? inputs;
+  Map<String, Object?> inputs;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   final String? name;
 
@@ -67,11 +65,11 @@ class IntegrationJsonhalIntegrationRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (inputs == null ? 0 : inputs.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      links.hashCode +
+      inputs.hashCode +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       (name == null ? 0 : name.hashCode);
 
   static List<IntegrationJsonhalIntegrationRead> listFromJson(Iterable? json) {
@@ -129,21 +127,18 @@ class IntegrationJsonhalIntegrationRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'inputs')) r'inputs': inputs,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+        return previousValue;
+      })),
+      r'inputs': inputs,
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }

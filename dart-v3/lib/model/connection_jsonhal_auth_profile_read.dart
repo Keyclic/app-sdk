@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class ConnectionJsonhalAuthProfileRead {
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance.
   ConnectionJsonhalAuthProfileRead({
-    this.links,
-    this.image,
-    this.text,
-    this.authorizationUrl,
-    this.type,
+    required this.links,
+    required this.image,
+    required this.text,
+    required this.authorizationUrl,
+    required this.type,
   });
 
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance and imports its values from
@@ -23,23 +23,23 @@ class ConnectionJsonhalAuthProfileRead {
 
     return ConnectionJsonhalAuthProfileRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+          json[r'_links'])!,
       image: json[r'image'],
       text: json[r'text'],
       authorizationUrl: json[r'authorizationUrl'],
-      type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type']),
+      type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type'])!,
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
-  String? image;
+  String image;
 
-  String? text;
+  String text;
 
-  final String? authorizationUrl;
+  final String authorizationUrl;
 
-  final ConnectionJsonhalAuthProfileReadTypeEnum? type;
+  final ConnectionJsonhalAuthProfileReadTypeEnum type;
 
   @override
   bool operator ==(Object other) {
@@ -58,11 +58,11 @@ class ConnectionJsonhalAuthProfileRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (image == null ? 0 : image.hashCode) +
-      (text == null ? 0 : text.hashCode) +
-      (authorizationUrl == null ? 0 : authorizationUrl.hashCode) +
-      (type == null ? 0 : type.hashCode);
+      links.hashCode +
+      image.hashCode +
+      text.hashCode +
+      authorizationUrl.hashCode +
+      type.hashCode;
 
   static List<ConnectionJsonhalAuthProfileRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -118,20 +118,18 @@ class ConnectionJsonhalAuthProfileRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'image')) r'image': image,
-      if (keys == null || keys.contains(r'text')) r'text': text,
-      if (keys == null || keys.contains(r'authorizationUrl'))
-        r'authorizationUrl': authorizationUrl,
-      if (keys == null || keys.contains(r'type')) r'type': type,
+        return previousValue;
+      })),
+      r'image': image,
+      r'text': text,
+      r'authorizationUrl': authorizationUrl,
+      r'type': type,
     };
   }
 }

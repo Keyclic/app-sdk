@@ -1,0 +1,202 @@
+{{>header}}
+{{>part_of}}
+{{#operations}}
+
+class {{classname}} {
+  const {{classname}}(this._apiClient);
+
+  final {{clientName}} _apiClient;
+
+  {{#operation}}
+  /// {{#summary}}{{.}}{{/summary}}{{^summary}}{{nickname}}{{/summary}}
+  /// {{notes}}
+  ///
+  /// Parameters:
+  {{#allParams}}
+  /// * [{{paramName}}] {{#description}}- {{{.}}}{{/description}}
+  {{/allParams}}
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]{{#returnType}} containing a [Response] with a [{{{returnType}}}] as data{{/returnType}}
+  /// Throws [DioException] if API call or serialization fails
+  {{#externalDocs}}
+  /// {{description}}
+  /// Also see [{{summary}} Documentation]({{url}})
+  {{/externalDocs}}
+  {{#isDeprecated}}
+  @Deprecated('This operation has been deprecated')
+  {{/isDeprecated}}
+  Future<Response<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}>> {{nickname}}({ {{#allParams}}{{#isPathParam}}
+    required {{{dataType}}} {{paramName}},{{/isPathParam}}{{#isQueryParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isQueryParam}}{{#isHeaderParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isHeaderParam}}{{#isBodyParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isBodyParam}}{{#isFormParam}}
+    {{#required}}required {{/required}}{{{dataType}}}{{^required}}?{{/required}} {{paramName}},{{/isFormParam}}{{/allParams}}
+    {{#hasConsumes}}{{#hasBodyParam}}Iterable<String>? bodyParameters,{{/hasBodyParam}}{{/hasConsumes}}
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final String path = r'{{{path}}}'{{#pathParams}}.replaceAll('{' r'{{{baseName}}}' '}', {{{paramName}}}.toString()){{/pathParams}};
+    final options = Options(
+      method: r'{{#lambda.uppercase}}{{httpMethod}}{{/lambda.uppercase}}',
+      {{#isResponseFile}}
+      responseType: ResponseType.bytes,
+      {{/isResponseFile}}
+      headers: <String, dynamic>{
+        {{#httpUserAgent}}
+        r'User-Agent': r'{{{.}}}',
+        {{/httpUserAgent}}
+        // to string ??
+        {{#headerParams}}
+        {{^required}}{{^nullable}}if ({{{paramName}}} != null) {{/nullable}}{{/required}}r'{{baseName}}': {{paramName}},
+        {{/headerParams}}
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[{{^hasAuthMethods}}],{{/hasAuthMethods}}{{#hasAuthMethods}}
+          {{#authMethods}}{
+            'type': '{{type}}',
+            {{#scheme}}'scheme': '{{scheme}}',{{/scheme}}
+            'name': '{{name}}',{{#isApiKey}}
+            'keyName': '{{keyParamName}}',
+            'where': '{{#isKeyInQuery}}query{{/isKeyInQuery}}{{#isKeyInHeader}}header{{/isKeyInHeader}}',{{/isApiKey}}
+          },{{/authMethods}}
+        ],{{/hasAuthMethods}}
+        ...?extra,
+      },
+      {{#hasConsumes}}contentType: '{{#prioritizedContentTypes}}{{#-first}}{{{mediaType}}}{{/-first}}{{/prioritizedContentTypes}}',{{/hasConsumes}}
+      validateStatus: validateStatus,
+    );
+
+    {{#hasQueryParams}}
+    final queryParameters = <String, dynamic>{
+      {{#queryParams}}
+      {{^required}}{{^isNullable}}if ({{{paramName}}} != null) {{/isNullable}}{{/required}}r'{{baseName}}':
+        {{#isContainer}}encodeCollectionQueryParameter{{/isContainer}}{{^isContainer}}encodeQueryParameter{{/isContainer}}(
+        {{{paramName}}}{{#isContainer}},
+        format: ListFormat.{{{collectionFormat}}}{{/isContainer}}
+        ),
+      {{/queryParams}}
+    };
+    {{/hasQueryParams}}
+
+    {{#hasBodyOrFormParams}}
+    dynamic bodyData;
+
+    try {
+      {{#hasFormParams}}
+        {{#isMultipart}}
+            bodyData = FormData.fromMap(<String, dynamic>{
+          {{#formParams}}
+            {{^required}}{{^isNullable}}if ({{{paramName}}} != null) {{/isNullable}}{{/required}}r'{{{baseName}}}': {{#isFile}}{{{paramName}}}{{/isFile}}{{^isFile}}encodeFormParameter({{{paramName}}}){{/isFile}},
+          {{/formParams}}
+            });
+        {{/isMultipart}}
+        {{^isMultipart}}
+            bodyData = <String, dynamic>{
+          {{#formParams}}
+            {{^required}}
+              {{^isNullable}}if ({{{paramName}}} != null) {{/isNullable}}
+            {{/required}}
+              r'{{{baseName}}}': {{#isContainer}}encodeCollectionQueryParameter{{/isContainer}}{{^isContainer}}encodeQueryParameter{{/isContainer}}(
+            {{{paramName}}},
+            {{#isContainer}}
+              format: ListFormat.{{{collectionFormat}}}
+            {{/isContainer}}
+              ),
+          {{/formParams}}
+            };
+        {{/isMultipart}}
+      {{/hasFormParams}}
+      {{#bodyParam}}
+        {{#isPrimitiveType}}
+            bodyData = {{paramName}}{{#isFile}}.finalize(){{/isFile}};
+        {{/isPrimitiveType}}
+        {{^isPrimitiveType}}
+            bodyData = {{paramName}}{{^required}}?{{/required}}.toJson(bodyParameters);
+        {{/isPrimitiveType}}
+      {{/bodyParam}}
+    } catch(error, stackTrace) {
+      throw DioException(
+        error: error,
+        requestOptions: options.compose(
+          _apiClient.dio.options,
+          path,
+          {{#hasQueryParams}}
+          queryParameters: queryParameters,
+          {{/hasQueryParams}}
+        ),
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
+    }
+    {{/hasBodyOrFormParams}}
+
+    {{#returnType}}final response = await{{/returnType}}{{^returnType}}return{{/returnType}} _apiClient.dio.request<Object>(
+      path,
+      {{#hasBodyOrFormParams}}
+      data: bodyData,
+      {{/hasBodyOrFormParams}}
+      options: options,
+      {{#hasQueryParams}}
+      queryParameters: queryParameters,
+      {{/hasQueryParams}}
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    {{#returnType}}
+    {{{returnType}}} responseData;
+
+    try {
+      {{#isResponseFile}}
+        responseData = response.data as {{{returnType}}};
+      {{/isResponseFile}}
+      {{^isResponseFile}}
+        {{#returnSimpleType}}
+          {{#returnTypeIsPrimitive}}
+            responseData = response.data as {{{returnType}}};
+          {{/returnTypeIsPrimitive}}
+          {{^returnTypeIsPrimitive}}
+            responseData = await _apiClient.deserializeAsync<{{{returnType}}}>(response.data!, '{{{returnType}}}');
+          {{/returnTypeIsPrimitive}}
+        {{/returnSimpleType}}
+        {{^returnSimpleType}}
+            responseData = await _apiClient.deserializeAsync<{{{returnType}}}>(response.data!, '{{{returnType}}}');
+        {{/returnSimpleType}}
+      {{/isResponseFile}}
+    } catch (error, stackTrace) {
+      throw DioException(
+        error: error,
+        requestOptions: response.requestOptions,
+        response: response,
+        stackTrace: stackTrace,
+        type: DioExceptionType.unknown,
+      );
+    }
+
+    return Response<{{{returnType}}}>(
+      data: responseData,
+      headers: response.headers,
+      isRedirect: response.isRedirect,
+      requestOptions: response.requestOptions,
+      redirects: response.redirects,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+    {{/returnType}}
+  }
+  {{/operation}}
+}
+{{/operations}}

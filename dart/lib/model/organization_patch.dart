@@ -9,6 +9,7 @@ class OrganizationPatch {
   OrganizationPatch({
     this.address,
     this.alternateName,
+    this.archived,
     this.archivedAt,
     this.description,
     this.endDate,
@@ -28,6 +29,7 @@ class OrganizationPatch {
     return OrganizationPatch(
       address: ExternalServicePatchAddress.fromJson(json[r'address']),
       alternateName: json[r'alternateName'],
+      archived: json[r'archived'],
       archivedAt: mapToDateTime(json[r'archivedAt']),
       description: json[r'description'],
       endDate: mapToDateTime(json[r'endDate']),
@@ -41,6 +43,8 @@ class OrganizationPatch {
   ExternalServicePatchAddress? address;
 
   String? alternateName;
+
+  bool? archived;
 
   DateTime? archivedAt;
 
@@ -66,6 +70,7 @@ class OrganizationPatch {
     return other is OrganizationPatch &&
         other.address == address &&
         other.alternateName == alternateName &&
+        other.archived == archived &&
         other.archivedAt == archivedAt &&
         other.description == description &&
         other.endDate == endDate &&
@@ -79,6 +84,7 @@ class OrganizationPatch {
   int get hashCode =>
       (address == null ? 0 : address.hashCode) +
       (alternateName == null ? 0 : alternateName.hashCode) +
+      (archived == null ? 0 : archived.hashCode) +
       (archivedAt == null ? 0 : archivedAt.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (endDate == null ? 0 : endDate.hashCode) +
@@ -136,7 +142,7 @@ class OrganizationPatch {
 
   @override
   String toString() =>
-      'OrganizationPatch[address=$address, alternateName=$alternateName, archivedAt=$archivedAt, description=$description, endDate=$endDate, logo=$logo, name=$name, preferences=$preferences, startDate=$startDate]';
+      'OrganizationPatch[address=$address, alternateName=$alternateName, archived=$archived, archivedAt=$archivedAt, description=$description, endDate=$endDate, logo=$logo, name=$name, preferences=$preferences, startDate=$startDate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -152,6 +158,7 @@ class OrganizationPatch {
         })),
       if (keys == null || keys.contains(r'alternateName'))
         r'alternateName': alternateName,
+      if (keys == null || keys.contains(r'archived')) r'archived': archived,
       if (keys == null || keys.contains(r'archivedAt'))
         r'archivedAt': archivedAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'description'))

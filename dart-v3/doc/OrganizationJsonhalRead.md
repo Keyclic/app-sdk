@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **preferences** | [**PreferencesJsonhalOrganizationRead**](PreferencesJsonhalOrganizationRead.md) |  | [optional] 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
 **address** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 
+**archived** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | [**ExternalServicePatchAddress**](ExternalServicePatchAddress.md) |  | [optional] 
 **alternateName** | **String** |  | [optional] 
+**archived** | **bool** |  | [optional] 
 **archivedAt** | [**DateTime**](DateTime.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **endDate** | [**DateTime**](DateTime.md) |  | [optional] 

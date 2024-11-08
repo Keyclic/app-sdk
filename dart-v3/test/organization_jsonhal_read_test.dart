@@ -34,5 +34,8 @@ void main() {
 
     // PostalAddressJsonhalRead address
     test('to test the property `address`', () async {});
+
+    // bool archived
+    test('to test the property `archived`', () async {});
   });
 }

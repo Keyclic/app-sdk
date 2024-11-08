@@ -15,6 +15,7 @@ class OrganizationJsonhalRead {
     this.preferences,
     this.id,
     this.address,
+    this.archived,
   });
 
   /// Returns a new [OrganizationJsonhalRead] instance and imports its values from
@@ -34,6 +35,7 @@ class OrganizationJsonhalRead {
           PreferencesJsonhalOrganizationRead.fromJson(json[r'preferences']),
       id: json[r'id'],
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
+      archived: json[r'archived'],
     );
   }
 
@@ -54,6 +56,8 @@ class OrganizationJsonhalRead {
 
   PostalAddressJsonhalRead? address;
 
+  bool? archived;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -69,7 +73,8 @@ class OrganizationJsonhalRead {
         other.name == name &&
         other.preferences == preferences &&
         other.id == id &&
-        other.address == address;
+        other.address == address &&
+        other.archived == archived;
   }
 
   @override
@@ -81,7 +86,8 @@ class OrganizationJsonhalRead {
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
       (id == null ? 0 : id.hashCode) +
-      (address == null ? 0 : address.hashCode);
+      (address == null ? 0 : address.hashCode) +
+      (archived == null ? 0 : archived.hashCode);
 
   static List<OrganizationJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -133,7 +139,7 @@ class OrganizationJsonhalRead {
 
   @override
   String toString() =>
-      'OrganizationJsonhalRead[links=$links, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences, id=$id, address=$address]';
+      'OrganizationJsonhalRead[links=$links, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences, id=$id, address=$address, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -173,6 +179,7 @@ class OrganizationJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'archived')) r'archived': archived,
     };
   }
 }

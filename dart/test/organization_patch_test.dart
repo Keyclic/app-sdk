@@ -16,6 +16,9 @@ void main() {
     // String alternateName
     test('to test the property `alternateName`', () async {});
 
+    // bool archived
+    test('to test the property `archived`', () async {});
+
     // DateTime archivedAt
     test('to test the property `archivedAt`', () async {});
 

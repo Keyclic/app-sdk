@@ -8,6 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**inApp** | **bool** |  | [optional] 
 **mail** | **bool** |  | [optional] 
 **push** | **bool** |  | [optional] 
 

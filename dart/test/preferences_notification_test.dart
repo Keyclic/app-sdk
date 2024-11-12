@@ -10,6 +10,9 @@ void main() {
   // final instance = PreferencesNotification();
 
   group('test PreferencesNotification', () {
+    // bool inApp
+    test('to test the property `inApp`', () async {});
+
     // bool mail
     test('to test the property `mail`', () async {});
 

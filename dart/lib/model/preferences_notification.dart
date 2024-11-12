@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class PreferencesNotification {
   /// Returns a new [PreferencesNotification] instance.
   PreferencesNotification({
+    this.inApp,
     this.mail,
     this.push,
   });
@@ -19,10 +20,13 @@ class PreferencesNotification {
     }
 
     return PreferencesNotification(
+      inApp: json[r'inApp'],
       mail: json[r'mail'],
       push: json[r'push'],
     );
   }
+
+  bool? inApp;
 
   bool? mail;
 
@@ -36,13 +40,16 @@ class PreferencesNotification {
     }
 
     return other is PreferencesNotification &&
+        other.inApp == inApp &&
         other.mail == mail &&
         other.push == push;
   }
 
   @override
   int get hashCode =>
-      (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
+      (inApp == null ? 0 : inApp.hashCode) +
+      (mail == null ? 0 : mail.hashCode) +
+      (push == null ? 0 : push.hashCode);
 
   static List<PreferencesNotification> listFromJson(Iterable? json) {
     if (json == null) {
@@ -93,10 +100,12 @@ class PreferencesNotification {
   }
 
   @override
-  String toString() => 'PreferencesNotification[mail=$mail, push=$push]';
+  String toString() =>
+      'PreferencesNotification[inApp=$inApp, mail=$mail, push=$push]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'inApp')) r'inApp': inApp,
       if (keys == null || keys.contains(r'mail')) r'mail': mail,
       if (keys == null || keys.contains(r'push')) r'push': push,
     };

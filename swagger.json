@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-beta.5.dev.4c2c6e44c"
+        "version": "2.66.0-dev.gedea1a211"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -21586,6 +21586,9 @@
                                 "mail": {
                                     "type": "boolean"
                                 },
+                                "inApp": {
+                                    "type": "boolean"
+                                },
                                 "push": {
                                     "type": "boolean"
                                 }
@@ -22271,6 +22274,9 @@
         "PreferencesNotification": {
             "type": "object",
             "properties": {
+                "inApp": {
+                    "type": "boolean"
+                },
                 "mail": {
                     "type": "boolean"
                 },

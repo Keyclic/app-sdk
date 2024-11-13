@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-dev.g801c4149b"
+        "version": "2.66.0-dev.g2b38f887d"
     },
     "servers": [
         {
@@ -16277,6 +16277,7 @@
                     },
                     "_embedded": {
                         "type": "object",
+                        "nullable": true,
                         "properties": {
                             "type": {
                                 "readOnly": true,
@@ -19164,6 +19165,7 @@
                     },
                     "_embedded": {
                         "type": "object",
+                        "nullable": true,
                         "properties": {
                             "review": {
                                 "anyOf": [
@@ -19510,6 +19512,7 @@
                     },
                     "_embedded": {
                         "type": "object",
+                        "nullable": true,
                         "properties": {
                             "fromStates": {
                                 "type": "array",

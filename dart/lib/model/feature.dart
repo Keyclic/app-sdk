@@ -21,9 +21,7 @@ class Feature {
 
     return Feature(
       type: json[r'type'],
-      geometry: json[r'geometry'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'geometry']),
+      geometry: Map<String, Object?>.from(json[r'geometry']),
       properties: json[r'properties'] == null
           ? null
           : Map<String, String>.from(json[r'properties']),

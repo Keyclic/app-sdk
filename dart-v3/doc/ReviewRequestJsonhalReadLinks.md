@@ -9,7 +9,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **self** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
-**itemToReview** | [**AssetJsonhalReadLinksType**](AssetJsonhalReadLinksType.md) |  | [optional] 
+**itemToReview** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **reviewer** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
 **organization** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
 

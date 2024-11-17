@@ -16,7 +16,7 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf provider
     test('to test the property `provider`', () async {});
 
-    // AssetJsonhalReadLinksType type
+    // GetPlaceCollection200ResponseLinksFirst type
     test('to test the property `type`', () async {});
   });
 }

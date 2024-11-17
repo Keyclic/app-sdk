@@ -22,7 +22,8 @@ class ReviewRequestJsonhalReadLinks {
 
     return ReviewRequestJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      itemToReview: AssetJsonhalReadLinksType.fromJson(json[r'itemToReview']),
+      itemToReview: GetPlaceCollection200ResponseLinksFirst.fromJson(
+          json[r'itemToReview']),
       reviewer:
           GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'reviewer']),
       organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
@@ -32,7 +33,7 @@ class ReviewRequestJsonhalReadLinks {
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  AssetJsonhalReadLinksType? itemToReview;
+  GetPlaceCollection200ResponseLinksFirst? itemToReview;
 
   GetPlaceCollection200ResponseLinksSelf? reviewer;
 

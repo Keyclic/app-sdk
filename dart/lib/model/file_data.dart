@@ -8,8 +8,8 @@ class FileData {
   /// Returns a new [FileData] instance.
   FileData({
     required this.content,
-    required this.contentType,
-    required this.name,
+    this.contentType,
+    this.name,
   });
 
   /// Returns a new [FileData] instance and imports its values from
@@ -21,16 +21,16 @@ class FileData {
 
     return FileData(
       content: json[r'content'],
-      contentType: FileDataContentTypeEnum.fromJson(json[r'contentType'])!,
+      contentType: FileDataContentTypeEnum.fromJson(json[r'contentType']),
       name: json[r'name'],
     );
   }
 
   String content;
 
-  FileDataContentTypeEnum contentType;
+  FileDataContentTypeEnum? contentType;
 
-  String name;
+  String? name;
 
   @override
   bool operator ==(Object other) {
@@ -46,7 +46,10 @@ class FileData {
   }
 
   @override
-  int get hashCode => content.hashCode + contentType.hashCode + name.hashCode;
+  int get hashCode =>
+      content.hashCode +
+      (contentType == null ? 0 : contentType.hashCode) +
+      (name == null ? 0 : name.hashCode);
 
   static List<FileData> listFromJson(Iterable? json) {
     if (json == null) {
@@ -99,8 +102,9 @@ class FileData {
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'content': content,
-      r'contentType': contentType,
-      r'name': name,
+      if (keys == null || keys.contains(r'contentType'))
+        r'contentType': contentType,
+      if (keys == null || keys.contains(r'name')) r'name': name,
     };
   }
 }

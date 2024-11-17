@@ -13,16 +13,16 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksSelf first
+    // GetPlaceCollection200ResponseLinksFirst first
     test('to test the property `first`', () async {});
 
-    // GetPlaceCollection200ResponseLinksSelf last
+    // GetPlaceCollection200ResponseLinksFirst last
     test('to test the property `last`', () async {});
 
-    // GetPlaceCollection200ResponseLinksSelf next
+    // GetPlaceCollection200ResponseLinksFirst next
     test('to test the property `next`', () async {});
 
-    // GetPlaceCollection200ResponseLinksSelf previous
+    // GetPlaceCollection200ResponseLinksFirst previous
     test('to test the property `previous`', () async {});
 
     // List<GetPlaceCollection200ResponseLinksSelf> item (default value: const [])

@@ -21,16 +21,17 @@ class ReviewJsonhalReadLinks {
 
     return ReviewJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      itemReviewed: AssetJsonhalReadLinksType.fromJson(json[r'itemReviewed']),
-      author: AssetJsonhalReadLinksType.fromJson(json[r'author']),
+      itemReviewed: GetPlaceCollection200ResponseLinksFirst.fromJson(
+          json[r'itemReviewed']),
+      author: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author']),
     );
   }
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  AssetJsonhalReadLinksType? itemReviewed;
+  GetPlaceCollection200ResponseLinksFirst? itemReviewed;
 
-  AssetJsonhalReadLinksType? author;
+  GetPlaceCollection200ResponseLinksFirst? author;
 
   @override
   bool operator ==(Object other) {

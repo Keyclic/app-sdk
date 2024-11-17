@@ -22,19 +22,19 @@ class AssetJsonhalReadLinks {
 
     return AssetJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      type: AssetJsonhalReadLinksType.fromJson(json[r'type']),
-      parent: AssetJsonhalReadLinksType.fromJson(json[r'parent']),
-      state: AssetJsonhalReadLinksType.fromJson(json[r'state']),
+      type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
+      parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
+      state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  AssetJsonhalReadLinksType? type;
+  GetPlaceCollection200ResponseLinksFirst? type;
 
-  AssetJsonhalReadLinksType? parent;
+  GetPlaceCollection200ResponseLinksFirst? parent;
 
-  AssetJsonhalReadLinksType? state;
+  GetPlaceCollection200ResponseLinksFirst? state;
 
   @override
   bool operator ==(Object other) {

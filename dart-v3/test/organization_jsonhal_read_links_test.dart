@@ -13,7 +13,7 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // AssetJsonhalReadLinksType dispatcher
+    // GetPlaceCollection200ResponseLinksFirst dispatcher
     test('to test the property `dispatcher`', () async {});
   });
 }

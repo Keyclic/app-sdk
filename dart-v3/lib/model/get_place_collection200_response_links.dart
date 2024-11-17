@@ -24,24 +24,24 @@ class GetPlaceCollection200ResponseLinks {
 
     return GetPlaceCollection200ResponseLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      first: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'first']),
-      last: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'last']),
-      next: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'next']),
+      first: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'first']),
+      last: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'last']),
+      next: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'next']),
       previous:
-          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'previous']),
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'previous']),
       item: GetPlaceCollection200ResponseLinksSelf.listFromJson(json[r'item']),
     );
   }
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksSelf? first;
+  GetPlaceCollection200ResponseLinksFirst? first;
 
-  GetPlaceCollection200ResponseLinksSelf? last;
+  GetPlaceCollection200ResponseLinksFirst? last;
 
-  GetPlaceCollection200ResponseLinksSelf? next;
+  GetPlaceCollection200ResponseLinksFirst? next;
 
-  GetPlaceCollection200ResponseLinksSelf? previous;
+  GetPlaceCollection200ResponseLinksFirst? previous;
 
   List<GetPlaceCollection200ResponseLinksSelf>? item;
 

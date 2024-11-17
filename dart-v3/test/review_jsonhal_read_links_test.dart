@@ -13,10 +13,10 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // AssetJsonhalReadLinksType itemReviewed
+    // GetPlaceCollection200ResponseLinksFirst itemReviewed
     test('to test the property `itemReviewed`', () async {});
 
-    // AssetJsonhalReadLinksType author
+    // GetPlaceCollection200ResponseLinksFirst author
     test('to test the property `author`', () async {});
   });
 }

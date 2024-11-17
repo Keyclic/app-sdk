@@ -20,13 +20,14 @@ class OrganizationJsonhalReadLinks {
 
     return OrganizationJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      dispatcher: AssetJsonhalReadLinksType.fromJson(json[r'dispatcher']),
+      dispatcher:
+          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'dispatcher']),
     );
   }
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  AssetJsonhalReadLinksType? dispatcher;
+  GetPlaceCollection200ResponseLinksFirst? dispatcher;
 
   @override
   bool operator ==(Object other) {

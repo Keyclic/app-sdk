@@ -8,6 +8,7 @@ class PersonPatchPreferencesNotification {
   /// Returns a new [PersonPatchPreferencesNotification] instance.
   PersonPatchPreferencesNotification({
     this.mail,
+    this.inApp,
     this.push,
   });
 
@@ -20,11 +21,14 @@ class PersonPatchPreferencesNotification {
 
     return PersonPatchPreferencesNotification(
       mail: json[r'mail'],
+      inApp: json[r'inApp'],
       push: json[r'push'],
     );
   }
 
   bool? mail;
+
+  bool? inApp;
 
   bool? push;
 
@@ -37,12 +41,15 @@ class PersonPatchPreferencesNotification {
 
     return other is PersonPatchPreferencesNotification &&
         other.mail == mail &&
+        other.inApp == inApp &&
         other.push == push;
   }
 
   @override
   int get hashCode =>
-      (mail == null ? 0 : mail.hashCode) + (push == null ? 0 : push.hashCode);
+      (mail == null ? 0 : mail.hashCode) +
+      (inApp == null ? 0 : inApp.hashCode) +
+      (push == null ? 0 : push.hashCode);
 
   static List<PersonPatchPreferencesNotification> listFromJson(Iterable? json) {
     if (json == null) {
@@ -95,11 +102,12 @@ class PersonPatchPreferencesNotification {
 
   @override
   String toString() =>
-      'PersonPatchPreferencesNotification[mail=$mail, push=$push]';
+      'PersonPatchPreferencesNotification[mail=$mail, inApp=$inApp, push=$push]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'mail')) r'mail': mail,
+      if (keys == null || keys.contains(r'inApp')) r'inApp': inApp,
       if (keys == null || keys.contains(r'push')) r'push': push,
     };
   }

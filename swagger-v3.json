@@ -18306,6 +18306,9 @@
                             }
                         ],
                         "nullable": true
+                    },
+                    "archived": {
+                        "type": "boolean"
                     }
                 },
                 "required": [

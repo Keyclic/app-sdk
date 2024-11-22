@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class BillingJsonhalRead {
   /// Returns a new [BillingJsonhalRead] instance.
   BillingJsonhalRead({
-    required this.links,
     required this.adjustedCost,
     required this.initialCost,
     this.startDate,
@@ -21,15 +20,13 @@ class BillingJsonhalRead {
     }
 
     return BillingJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       adjustedCost: PriceJsonhalRead.fromJson(json[r'adjustedCost'])!,
       initialCost: PriceJsonhalRead.fromJson(json[r'initialCost'])!,
       startDate: mapToDateTime(json[r'startDate']),
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   PriceJsonhalRead adjustedCost;
 
@@ -112,14 +109,6 @@ class BillingJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       r'adjustedCost': adjustedCost.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^adjustedCost\.'))) {

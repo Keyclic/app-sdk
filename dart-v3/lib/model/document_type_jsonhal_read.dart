@@ -25,7 +25,7 @@ class DocumentTypeJsonhalRead {
 
     return DocumentTypeJsonhalRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
+          json[r'_links']),
       code: json[r'code'],
       permissions: json[r'permissions'] == null
           ? null
@@ -37,7 +37,7 @@ class DocumentTypeJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? code;
 
@@ -134,7 +134,8 @@ class DocumentTypeJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+      if (keys == null || keys.contains(r'_links'))
+      r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {
           previousValue.add(element.split(RegExp(r'^links\.')).last);

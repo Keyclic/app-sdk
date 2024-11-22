@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class EquipmentJsonhalOrganizationPreferenceRead {
   /// Returns a new [EquipmentJsonhalOrganizationPreferenceRead] instance.
   EquipmentJsonhalOrganizationPreferenceRead({
-    required this.links,
     required this.enabled,
   });
 
@@ -19,13 +18,9 @@ class EquipmentJsonhalOrganizationPreferenceRead {
     }
 
     return EquipmentJsonhalOrganizationPreferenceRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       enabled: json[r'enabled'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   bool enabled;
 
@@ -37,12 +32,11 @@ class EquipmentJsonhalOrganizationPreferenceRead {
     }
 
     return other is EquipmentJsonhalOrganizationPreferenceRead &&
-        other.links == links &&
         other.enabled == enabled;
   }
 
   @override
-  int get hashCode => links.hashCode + enabled.hashCode;
+  int get hashCode => enabled.hashCode;
 
   static List<EquipmentJsonhalOrganizationPreferenceRead> listFromJson(
       Iterable? json) {
@@ -98,18 +92,10 @@ class EquipmentJsonhalOrganizationPreferenceRead {
 
   @override
   String toString() =>
-      'EquipmentJsonhalOrganizationPreferenceRead[links=$links, enabled=$enabled]';
+      'EquipmentJsonhalOrganizationPreferenceRead[ enabled=$enabled]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       r'enabled': enabled,
     };
   }

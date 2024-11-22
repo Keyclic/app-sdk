@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class PostalAddressJsonhalRead {
   /// Returns a new [PostalAddressJsonhalRead] instance.
   PostalAddressJsonhalRead({
-    required this.links,
     this.locality,
     this.postalCode,
     this.streetAddress,
@@ -21,15 +20,13 @@ class PostalAddressJsonhalRead {
     }
 
     return PostalAddressJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       locality: json[r'locality'],
       postalCode: json[r'postalCode'],
       streetAddress: json[r'streetAddress'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? locality;
 
@@ -112,14 +109,6 @@ class PostalAddressJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       if (keys == null || keys.contains(r'locality')) r'locality': locality,
       if (keys == null || keys.contains(r'postalCode'))
         r'postalCode': postalCode,

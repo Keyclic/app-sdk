@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class SlaJsonhalOrganizationPreferenceRead {
   /// Returns a new [SlaJsonhalOrganizationPreferenceRead] instance.
   SlaJsonhalOrganizationPreferenceRead({
-    required this.links,
     required this.enabled,
   });
 
@@ -19,13 +18,9 @@ class SlaJsonhalOrganizationPreferenceRead {
     }
 
     return SlaJsonhalOrganizationPreferenceRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       enabled: json[r'enabled'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
 
   bool enabled;
 
@@ -37,12 +32,11 @@ class SlaJsonhalOrganizationPreferenceRead {
     }
 
     return other is SlaJsonhalOrganizationPreferenceRead &&
-        other.links == links &&
         other.enabled == enabled;
   }
 
   @override
-  int get hashCode => links.hashCode + enabled.hashCode;
+  int get hashCode => enabled.hashCode;
 
   static List<SlaJsonhalOrganizationPreferenceRead> listFromJson(
       Iterable? json) {
@@ -96,18 +90,10 @@ class SlaJsonhalOrganizationPreferenceRead {
 
   @override
   String toString() =>
-      'SlaJsonhalOrganizationPreferenceRead[links=$links, enabled=$enabled]';
+      'SlaJsonhalOrganizationPreferenceRead[enabled=$enabled]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       r'enabled': enabled,
     };
   }

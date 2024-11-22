@@ -21,14 +21,14 @@ class GeoCoordinatesJsonhalRead {
 
     return GeoCoordinatesJsonhalRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
+          json[r'_links']),
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
       point: PointJsonhalRead.fromJson(json[r'point'])!,
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The elevation of a location (WGS 84).
   // minimum: -10000
@@ -110,7 +110,8 @@ class GeoCoordinatesJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+      if (keys == null || keys.contains(r'_links'))
+      r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {
           previousValue.add(element.split(RegExp(r'^links\.')).last);

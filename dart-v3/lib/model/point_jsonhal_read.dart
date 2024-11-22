@@ -22,7 +22,7 @@ class PointJsonhalRead {
 
     return PointJsonhalRead(
       links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
+          json[r'_links']),
       srid: json[r'srid'],
       latitude: json[r'latitude'] == null ? null : json[r'latitude'].toDouble(),
       longitude:
@@ -30,7 +30,7 @@ class PointJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   int srid;
 
@@ -107,7 +107,8 @@ class PointJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+      if (keys == null || keys.contains(r'_links'))
+      r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {
           previousValue.add(element.split(RegExp(r'^links\.')).last);

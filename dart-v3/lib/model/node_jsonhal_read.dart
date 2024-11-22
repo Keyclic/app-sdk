@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class NodeJsonhalRead {
   /// Returns a new [NodeJsonhalRead] instance.
   NodeJsonhalRead({
-    required this.links,
     required this.id,
     required this.name,
   });
@@ -20,14 +19,12 @@ class NodeJsonhalRead {
     }
 
     return NodeJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       id: json[r'id'],
       name: json[r'name'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String id;
 
@@ -99,14 +96,6 @@ class NodeJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       r'id': id,
       r'name': name,
     };

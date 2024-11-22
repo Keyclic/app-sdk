@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class ContractJsonhalOrganizationPreferenceRead {
   /// Returns a new [ContractJsonhalOrganizationPreferenceRead] instance.
   ContractJsonhalOrganizationPreferenceRead({
-    required this.links,
     required this.enabled,
   });
 
@@ -19,13 +18,11 @@ class ContractJsonhalOrganizationPreferenceRead {
     }
 
     return ContractJsonhalOrganizationPreferenceRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       enabled: json[r'enabled'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   bool enabled;
 
@@ -101,8 +98,8 @@ class ContractJsonhalOrganizationPreferenceRead {
       'ContractJsonhalOrganizationPreferenceRead[links=$links, enabled=$enabled]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
-    return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+    return <String, dynamic>{if (keys == null || keys.contains(r'_links'))
+      r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
           (List<String> previousValue, String element) {
         if (element.contains(RegExp(r'^links\.'))) {
           previousValue.add(element.split(RegExp(r'^links\.')).last);

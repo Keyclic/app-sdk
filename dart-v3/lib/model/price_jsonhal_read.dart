@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class PriceJsonhalRead {
   /// Returns a new [PriceJsonhalRead] instance.
   PriceJsonhalRead({
-    required this.links,
     this.currencyCode = const PriceJsonhalReadCurrencyCodeEnum._('EUR'),
     required this.value,
   });
@@ -20,15 +19,13 @@ class PriceJsonhalRead {
     }
 
     return PriceJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       currencyCode:
           PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode'])!,
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The currency code, in ISO 4217 format.
   final PriceJsonhalReadCurrencyCodeEnum currencyCode;
@@ -103,14 +100,6 @@ class PriceJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       r'currencyCode': currencyCode,
       r'value': value,
     };

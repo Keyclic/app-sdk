@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class PreferencesJsonhalAssetRead {
   /// Returns a new [PreferencesJsonhalAssetRead] instance.
   PreferencesJsonhalAssetRead({
-    required this.links,
     this.visibility,
   });
 
@@ -19,14 +18,12 @@ class PreferencesJsonhalAssetRead {
     }
 
     return PreferencesJsonhalAssetRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       visibility: PreferencesJsonhalAssetReadVisibilityEnum.fromJson(
           json[r'visibility']),
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   PreferencesJsonhalAssetReadVisibilityEnum? visibility;
 
@@ -100,14 +97,6 @@ class PreferencesJsonhalAssetRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
     };

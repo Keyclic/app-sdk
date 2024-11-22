@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class RenewalJsonhalRead {
   /// Returns a new [RenewalJsonhalRead] instance.
   RenewalJsonhalRead({
-    required this.links,
     this.duration,
     this.noticePeriod,
   });
@@ -20,14 +19,12 @@ class RenewalJsonhalRead {
     }
 
     return RenewalJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links'])!,
       duration: json[r'duration'],
       noticePeriod: json[r'noticePeriod'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks links;
+  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// Duration of the renewal in ISO 8601 duration format.
   String? duration;
@@ -107,14 +104,6 @@ class RenewalJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^links\.'))) {
-          previousValue.add(element.split(RegExp(r'^links\.')).last);
-        }
-
-        return previousValue;
-      })),
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       if (keys == null || keys.contains(r'noticePeriod'))
         r'noticePeriod': noticePeriod,

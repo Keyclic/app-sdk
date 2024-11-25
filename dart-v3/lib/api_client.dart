@@ -517,16 +517,20 @@ class ApiPlatformClient {
           return OrganizationJsonhalReadLinks.fromJson(value);
         case 'PersonJsonhalRead':
           return PersonJsonhalRead.fromJson(value);
-        case 'PlaceCreatePlaceCommandWrite':
-          return PlaceCreatePlaceCommandWrite.fromJson(value);
+        case 'PlaceCreatePlaceCommandWriteCreate':
+          return PlaceCreatePlaceCommandWriteCreate.fromJson(value);
+        case 'PlaceEditPlaceCommandWriteEdit':
+          return PlaceEditPlaceCommandWriteEdit.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
         case 'PointJsonhalRead':
           return PointJsonhalRead.fromJson(value);
         case 'PostalAddressJsonhalRead':
           return PostalAddressJsonhalRead.fromJson(value);
-        case 'PostalAddressWrite':
-          return PostalAddressWrite.fromJson(value);
+        case 'PostalAddressWriteCreate':
+          return PostalAddressWriteCreate.fromJson(value);
+        case 'PostalAddressWriteEdit':
+          return PostalAddressWriteEdit.fromJson(value);
         case 'PreferencesAssetRead':
           return PreferencesAssetRead.fromJson(value);
         case 'PreferencesJsonhalAssetRead':

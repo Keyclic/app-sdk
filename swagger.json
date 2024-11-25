@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-dev.gedea1a211"
+        "version": "2.66.0-dev.g686ea4999"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -11591,97 +11591,6 @@
                         "bearer": []
                     }
                 ]
-            },
-            "patch": {
-                "tags": [
-                    "Place"
-                ],
-                "summary": "Edit one Place resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "patchPlace",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/PlacePatch"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "place",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Place"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
             }
         },
         "\/places\/{place}\/geo": {
@@ -21882,56 +21791,6 @@
                 }
             ]
         },
-        "PlacePatch": {
-            "type": "object",
-            "properties": {
-                "address": {
-                    "type": "object",
-                    "properties": {
-                        "locality": {
-                            "format": "string",
-                            "type": "string"
-                        },
-                        "postalCode": {
-                            "format": "string",
-                            "type": "string"
-                        },
-                        "streetAddress": {
-                            "format": "string",
-                            "type": "string"
-                        }
-                    }
-                },
-                "branchCode": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "type": "string"
-                },
-                "description": {
-                    "format": "string",
-                    "type": "string"
-                },
-                "name": {
-                    "format": "string",
-                    "maxLength": 255,
-                    "type": "string"
-                },
-                "preferences": {
-                    "type": "object",
-                    "properties": {
-                        "visibility": {
-                            "enum": [
-                                "VISIBILITY_PRIVATE",
-                                "VISIBILITY_PUBLIC",
-                                "VISIBILITY_SHARED"
-                            ],
-                            "format": "string",
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
         "PlacePostalAddress": {
             "type": "object",
             "properties": {
@@ -25849,14 +25708,6 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/PersonPatch"
-            },
-            "required": true
-        },
-        "PlacePatch": {
-            "name": "PlacePatch",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/PlacePatch"
             },
             "required": true
         },

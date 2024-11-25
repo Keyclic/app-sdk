@@ -409,8 +409,6 @@ doc/PlaceLinksPlansIriTemplate.md
 doc/PlaceLinksSelf.md
 doc/PlaceLinksSelfIriTemplate.md
 doc/PlacePagination.md
-doc/PlacePatch.md
-doc/PlacePatchPreferences.md
 doc/PlacePostalAddress.md
 doc/PlacePreferences.md
 doc/PlaceTypeWorkflow.md
@@ -1016,8 +1014,6 @@ lib/model/place_links_plans_iri_template.dart
 lib/model/place_links_self.dart
 lib/model/place_links_self_iri_template.dart
 lib/model/place_pagination.dart
-lib/model/place_patch.dart
-lib/model/place_patch_preferences.dart
 lib/model/place_postal_address.dart
 lib/model/place_preferences.dart
 lib/model/place_type_workflow.dart
@@ -1589,8 +1585,6 @@ test/place_links_self_iri_template_test.dart
 test/place_links_self_test.dart
 test/place_links_test.dart
 test/place_pagination_test.dart
-test/place_patch_preferences_test.dart
-test/place_patch_test.dart
 test/place_postal_address_test.dart
 test/place_preferences_test.dart
 test/place_test.dart

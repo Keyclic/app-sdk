@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **embedded** | [**GetBookmarkCollection200ResponseEmbedded**](GetBookmarkCollection200ResponseEmbedded.md) |  | [optional] 
 **totalItems** | **int** |  | [optional] 
 **itemsPerPage** | **int** |  | [optional] 
-**links** | [**GetBookmarkCollection200ResponseLinks**](GetBookmarkCollection200ResponseLinks.md) |  | 
+**links** | [**GetPlaceCollection200ResponseLinks**](GetPlaceCollection200ResponseLinks.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

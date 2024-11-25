@@ -13,6 +13,9 @@ void main() {
     // AssetJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
+    // String branchCode
+    test('to test the property `branchCode`', () async {});
+
     // The resource identifier.
     // String id
     test('to test the property `id`', () async {});

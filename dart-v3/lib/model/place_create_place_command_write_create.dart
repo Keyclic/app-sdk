@@ -4,9 +4,9 @@
 
 part of keyclic_sdk_api_platform;
 
-class PlaceCreatePlaceCommandWrite {
-  /// Returns a new [PlaceCreatePlaceCommandWrite] instance.
-  PlaceCreatePlaceCommandWrite({
+class PlaceCreatePlaceCommandWriteCreate {
+  /// Returns a new [PlaceCreatePlaceCommandWriteCreate] instance.
+  PlaceCreatePlaceCommandWriteCreate({
     this.address,
     this.description,
     required this.name,
@@ -16,15 +16,15 @@ class PlaceCreatePlaceCommandWrite {
     this.state,
   });
 
-  /// Returns a new [PlaceCreatePlaceCommandWrite] instance and imports its values from
+  /// Returns a new [PlaceCreatePlaceCommandWriteCreate] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlaceCreatePlaceCommandWrite? fromJson(Object? json) {
+  static PlaceCreatePlaceCommandWriteCreate? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return PlaceCreatePlaceCommandWrite(
-      address: PostalAddressWrite.fromJson(json[r'address']),
+    return PlaceCreatePlaceCommandWriteCreate(
+      address: PostalAddressWriteCreate.fromJson(json[r'address']),
       description: json[r'description'],
       name: json[r'name'],
       organization: json[r'organization'],
@@ -34,7 +34,7 @@ class PlaceCreatePlaceCommandWrite {
     );
   }
 
-  PostalAddressWrite? address;
+  PostalAddressWriteCreate? address;
 
   String? description;
 
@@ -55,7 +55,7 @@ class PlaceCreatePlaceCommandWrite {
       return true;
     }
 
-    return other is PlaceCreatePlaceCommandWrite &&
+    return other is PlaceCreatePlaceCommandWriteCreate &&
         other.address == address &&
         other.description == description &&
         other.name == name &&
@@ -75,16 +75,16 @@ class PlaceCreatePlaceCommandWrite {
       (preferences == null ? 0 : preferences.hashCode) +
       (state == null ? 0 : state.hashCode);
 
-  static List<PlaceCreatePlaceCommandWrite> listFromJson(Iterable? json) {
+  static List<PlaceCreatePlaceCommandWriteCreate> listFromJson(Iterable? json) {
     if (json == null) {
-      return <PlaceCreatePlaceCommandWrite>[];
+      return <PlaceCreatePlaceCommandWriteCreate>[];
     }
 
-    return json.fold(<PlaceCreatePlaceCommandWrite>[],
-        (List<PlaceCreatePlaceCommandWrite> previousValue, element) {
-      final PlaceCreatePlaceCommandWrite? object =
-          PlaceCreatePlaceCommandWrite.fromJson(element);
-      if (object is PlaceCreatePlaceCommandWrite) {
+    return json.fold(<PlaceCreatePlaceCommandWriteCreate>[],
+        (List<PlaceCreatePlaceCommandWriteCreate> previousValue, element) {
+      final PlaceCreatePlaceCommandWriteCreate? object =
+          PlaceCreatePlaceCommandWriteCreate.fromJson(element);
+      if (object is PlaceCreatePlaceCommandWriteCreate) {
         previousValue.add(object);
       }
 
@@ -92,17 +92,18 @@ class PlaceCreatePlaceCommandWrite {
     });
   }
 
-  static Map<String, PlaceCreatePlaceCommandWrite> mapFromJson(
+  static Map<String, PlaceCreatePlaceCommandWriteCreate> mapFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, PlaceCreatePlaceCommandWrite>{};
+      return <String, PlaceCreatePlaceCommandWriteCreate>{};
     }
 
-    return json.entries.fold(<String, PlaceCreatePlaceCommandWrite>{},
-        (Map<String, PlaceCreatePlaceCommandWrite> previousValue, element) {
-      final PlaceCreatePlaceCommandWrite? object =
-          PlaceCreatePlaceCommandWrite.fromJson(element.value);
-      if (object is PlaceCreatePlaceCommandWrite) {
+    return json.entries.fold(<String, PlaceCreatePlaceCommandWriteCreate>{},
+        (Map<String, PlaceCreatePlaceCommandWriteCreate> previousValue,
+            element) {
+      final PlaceCreatePlaceCommandWriteCreate? object =
+          PlaceCreatePlaceCommandWriteCreate.fromJson(element.value);
+      if (object is PlaceCreatePlaceCommandWriteCreate) {
         previousValue[element.key] = object;
       }
 
@@ -110,22 +111,22 @@ class PlaceCreatePlaceCommandWrite {
     });
   }
 
-  // maps a json object with a list of PlaceCreatePlaceCommandWrite-objects as value to a dart map
-  static Map<String, List<PlaceCreatePlaceCommandWrite>> mapListFromJson(
+  // maps a json object with a list of PlaceCreatePlaceCommandWriteCreate-objects as value to a dart map
+  static Map<String, List<PlaceCreatePlaceCommandWriteCreate>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<PlaceCreatePlaceCommandWrite>>{};
+      return <String, List<PlaceCreatePlaceCommandWriteCreate>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlaceCreatePlaceCommandWrite>>(
-          key, PlaceCreatePlaceCommandWrite.listFromJson(value));
+      return MapEntry<String, List<PlaceCreatePlaceCommandWriteCreate>>(
+          key, PlaceCreatePlaceCommandWriteCreate.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'PlaceCreatePlaceCommandWrite[address=$address, description=$description, name=$name, organization=$organization, parent=$parent, preferences=$preferences, state=$state]';
+      'PlaceCreatePlaceCommandWriteCreate[address=$address, description=$description, name=$name, organization=$organization, parent=$parent, preferences=$preferences, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

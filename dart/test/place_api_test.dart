@@ -35,11 +35,6 @@ void main() {
     //Future<Place> getPlace(String xKeyclicApp, String place, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getPlace', () async {});
 
-    // Edit one Place resource.
-    //
-    //Future<Place> patchPlace(String xKeyclicApp, String place, PlacePatch placePatch, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test patchPlace', () async {});
-
     // Create one Document resource.
     //
     //Future<Document> postDocumentByPlace(String xKeyclicApp, String place, DocumentData documentData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

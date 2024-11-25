@@ -2,11 +2,11 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-part of keyclic_sdk_api;
+part of keyclic_sdk_api_platform;
 
-class PlacePatch {
-  /// Returns a new [PlacePatch] instance.
-  PlacePatch({
+class PlaceEditPlaceCommandWriteEdit {
+  /// Returns a new [PlaceEditPlaceCommandWriteEdit] instance.
+  PlaceEditPlaceCommandWriteEdit({
     this.address,
     this.branchCode,
     this.description,
@@ -14,23 +14,23 @@ class PlacePatch {
     this.preferences,
   });
 
-  /// Returns a new [PlacePatch] instance and imports its values from
+  /// Returns a new [PlaceEditPlaceCommandWriteEdit] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static PlacePatch? fromJson(Object? json) {
+  static PlaceEditPlaceCommandWriteEdit? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return PlacePatch(
-      address: ExternalServicePatchAddress.fromJson(json[r'address']),
+    return PlaceEditPlaceCommandWriteEdit(
+      address: PostalAddressWriteEdit.fromJson(json[r'address']),
       branchCode: json[r'branchCode'],
       description: json[r'description'],
       name: json[r'name'],
-      preferences: PlacePatchPreferences.fromJson(json[r'preferences']),
+      preferences: PreferencesAssetRead.fromJson(json[r'preferences']),
     );
   }
 
-  ExternalServicePatchAddress? address;
+  PostalAddressWriteEdit? address;
 
   String? branchCode;
 
@@ -38,7 +38,7 @@ class PlacePatch {
 
   String? name;
 
-  PlacePatchPreferences? preferences;
+  PreferencesAssetRead? preferences;
 
   @override
   bool operator ==(Object other) {
@@ -47,7 +47,7 @@ class PlacePatch {
       return true;
     }
 
-    return other is PlacePatch &&
+    return other is PlaceEditPlaceCommandWriteEdit &&
         other.address == address &&
         other.branchCode == branchCode &&
         other.description == description &&
@@ -63,14 +63,16 @@ class PlacePatch {
       (name == null ? 0 : name.hashCode) +
       (preferences == null ? 0 : preferences.hashCode);
 
-  static List<PlacePatch> listFromJson(Iterable? json) {
+  static List<PlaceEditPlaceCommandWriteEdit> listFromJson(Iterable? json) {
     if (json == null) {
-      return <PlacePatch>[];
+      return <PlaceEditPlaceCommandWriteEdit>[];
     }
 
-    return json.fold(<PlacePatch>[], (List<PlacePatch> previousValue, element) {
-      final PlacePatch? object = PlacePatch.fromJson(element);
-      if (object is PlacePatch) {
+    return json.fold(<PlaceEditPlaceCommandWriteEdit>[],
+        (List<PlaceEditPlaceCommandWriteEdit> previousValue, element) {
+      final PlaceEditPlaceCommandWriteEdit? object =
+          PlaceEditPlaceCommandWriteEdit.fromJson(element);
+      if (object is PlaceEditPlaceCommandWriteEdit) {
         previousValue.add(object);
       }
 
@@ -78,15 +80,17 @@ class PlacePatch {
     });
   }
 
-  static Map<String, PlacePatch> mapFromJson(Map<String, dynamic>? json) {
+  static Map<String, PlaceEditPlaceCommandWriteEdit> mapFromJson(
+      Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, PlacePatch>{};
+      return <String, PlaceEditPlaceCommandWriteEdit>{};
     }
 
-    return json.entries.fold(<String, PlacePatch>{},
-        (Map<String, PlacePatch> previousValue, element) {
-      final PlacePatch? object = PlacePatch.fromJson(element.value);
-      if (object is PlacePatch) {
+    return json.entries.fold(<String, PlaceEditPlaceCommandWriteEdit>{},
+        (Map<String, PlaceEditPlaceCommandWriteEdit> previousValue, element) {
+      final PlaceEditPlaceCommandWriteEdit? object =
+          PlaceEditPlaceCommandWriteEdit.fromJson(element.value);
+      if (object is PlaceEditPlaceCommandWriteEdit) {
         previousValue[element.key] = object;
       }
 
@@ -94,22 +98,22 @@ class PlacePatch {
     });
   }
 
-  // maps a json object with a list of PlacePatch-objects as value to a dart map
-  static Map<String, List<PlacePatch>> mapListFromJson(
+  // maps a json object with a list of PlaceEditPlaceCommandWriteEdit-objects as value to a dart map
+  static Map<String, List<PlaceEditPlaceCommandWriteEdit>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<PlacePatch>>{};
+      return <String, List<PlaceEditPlaceCommandWriteEdit>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<PlacePatch>>(
-          key, PlacePatch.listFromJson(value));
+      return MapEntry<String, List<PlaceEditPlaceCommandWriteEdit>>(
+          key, PlaceEditPlaceCommandWriteEdit.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'PlacePatch[address=$address, branchCode=$branchCode, description=$description, name=$name, preferences=$preferences]';
+      'PlaceEditPlaceCommandWriteEdit[address=$address, branchCode=$branchCode, description=$description, name=$name, preferences=$preferences]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

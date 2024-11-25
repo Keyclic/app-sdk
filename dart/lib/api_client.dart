@@ -1082,10 +1082,6 @@ class ApiClient {
           return PlaceLinksSelfIriTemplate.fromJson(value);
         case 'PlacePagination':
           return PlacePagination.fromJson(value);
-        case 'PlacePatch':
-          return PlacePatch.fromJson(value);
-        case 'PlacePatchPreferences':
-          return PlacePatchPreferences.fromJson(value);
         case 'PlacePostalAddress':
           return PlacePostalAddress.fromJson(value);
         case 'PlacePreferences':

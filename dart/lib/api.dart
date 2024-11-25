@@ -439,8 +439,6 @@ part 'model/place_links_plans_iri_template.dart';
 part 'model/place_links_self.dart';
 part 'model/place_links_self_iri_template.dart';
 part 'model/place_pagination.dart';
-part 'model/place_patch.dart';
-part 'model/place_patch_preferences.dart';
 part 'model/place_postal_address.dart';
 part 'model/place_preferences.dart';
 part 'model/place_type_workflow.dart';

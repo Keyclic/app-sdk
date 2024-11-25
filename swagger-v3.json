@@ -18808,14 +18808,6 @@
                     },
                     "sla": {
                         "$ref": "#/components/schemas/Sla.jsonhal-OrganizationPreference-Read"
-                    },
-                    "categoryRequired": {
-                        "readOnly": true,
-                        "type": "boolean"
-                    },
-                    "reviewEnabled": {
-                        "readOnly": true,
-                        "type": "boolean"
                     }
                 }
             },

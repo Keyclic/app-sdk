@@ -20,8 +20,6 @@ Name | Type | Description | Notes
 **reverseGeocoding** | **bool** |  | [optional] 
 **review** | [**ReviewJsonhalOrganizationPreferenceRead**](ReviewJsonhalOrganizationPreferenceRead.md) |  | [optional] 
 **sla** | [**SlaJsonhalOrganizationPreferenceRead**](SlaJsonhalOrganizationPreferenceRead.md) |  | [optional] 
-**categoryRequired** | **bool** |  | [optional] [readonly] 
-**reviewEnabled** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

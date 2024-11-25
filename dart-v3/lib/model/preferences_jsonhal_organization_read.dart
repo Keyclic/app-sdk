@@ -19,8 +19,6 @@ class PreferencesJsonhalOrganizationRead {
     this.reverseGeocoding,
     this.review,
     this.sla,
-    this.categoryRequired,
-    this.reviewEnabled,
   });
 
   /// Returns a new [PreferencesJsonhalOrganizationRead] instance and imports its values from
@@ -48,8 +46,6 @@ class PreferencesJsonhalOrganizationRead {
       reverseGeocoding: json[r'reverseGeocoding'],
       review: ReviewJsonhalOrganizationPreferenceRead.fromJson(json[r'review']),
       sla: SlaJsonhalOrganizationPreferenceRead.fromJson(json[r'sla']),
-      categoryRequired: json[r'categoryRequired'],
-      reviewEnabled: json[r'reviewEnabled'],
     );
   }
 
@@ -77,10 +73,6 @@ class PreferencesJsonhalOrganizationRead {
 
   SlaJsonhalOrganizationPreferenceRead? sla;
 
-  final bool? categoryRequired;
-
-  final bool? reviewEnabled;
-
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -100,9 +92,7 @@ class PreferencesJsonhalOrganizationRead {
         other.reference == reference &&
         other.reverseGeocoding == reverseGeocoding &&
         other.review == review &&
-        other.sla == sla &&
-        other.categoryRequired == categoryRequired &&
-        other.reviewEnabled == reviewEnabled;
+        other.sla == sla;
   }
 
   @override
@@ -118,9 +108,7 @@ class PreferencesJsonhalOrganizationRead {
       (reference == null ? 0 : reference.hashCode) +
       (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
       (review == null ? 0 : review.hashCode) +
-      (sla == null ? 0 : sla.hashCode) +
-      (categoryRequired == null ? 0 : categoryRequired.hashCode) +
-      (reviewEnabled == null ? 0 : reviewEnabled.hashCode);
+      (sla == null ? 0 : sla.hashCode);
 
   static List<PreferencesJsonhalOrganizationRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -173,7 +161,7 @@ class PreferencesJsonhalOrganizationRead {
 
   @override
   String toString() =>
-      'PreferencesJsonhalOrganizationRead[links=$links, archiving=$archiving, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, sla=$sla, categoryRequired=$categoryRequired, reviewEnabled=$reviewEnabled]';
+      'PreferencesJsonhalOrganizationRead[links=$links, archiving=$archiving, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, sla=$sla]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -259,10 +247,6 @@ class PreferencesJsonhalOrganizationRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'categoryRequired'))
-        r'categoryRequired': categoryRequired,
-      if (keys == null || keys.contains(r'reviewEnabled'))
-        r'reviewEnabled': reviewEnabled,
     };
   }
 }

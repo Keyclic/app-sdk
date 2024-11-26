@@ -23,27 +23,27 @@ class GetBookmarkCollection200ResponseLinks {
     }
 
     return GetBookmarkCollection200ResponseLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
-      first: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'first']),
-      last: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'last']),
-      next: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'next']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      first: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'first']),
+      last: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'last']),
+      next: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'next']),
       previous:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'previous']),
-      item: GetPlaceCollection200ResponseLinksFirst.listFromJson(json[r'item']),
+          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'previous']),
+      item: GetPlaceCollection200ResponseLinksSelf.listFromJson(json[r'item']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksFirst? first;
+  GetPlaceCollection200ResponseLinksSelf? first;
 
-  GetPlaceCollection200ResponseLinksFirst? last;
+  GetPlaceCollection200ResponseLinksSelf? last;
 
-  GetPlaceCollection200ResponseLinksFirst? next;
+  GetPlaceCollection200ResponseLinksSelf? next;
 
-  GetPlaceCollection200ResponseLinksFirst? previous;
+  GetPlaceCollection200ResponseLinksSelf? previous;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? item;
+  List<GetPlaceCollection200ResponseLinksSelf>? item;
 
   @override
   bool operator ==(Object other) {

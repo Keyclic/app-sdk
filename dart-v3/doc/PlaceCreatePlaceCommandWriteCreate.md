@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.PlaceCreatePlaceCommandWrite
+# keyclic_sdk_api_platform.model.PlaceCreatePlaceCommandWriteCreate
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | [**PostalAddressWrite**](PostalAddressWrite.md) |  | [optional] 
+**address** | [**PostalAddressWriteCreate**](PostalAddressWriteCreate.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **name** | **String** |  | 
 **organization** | **String** |  | 

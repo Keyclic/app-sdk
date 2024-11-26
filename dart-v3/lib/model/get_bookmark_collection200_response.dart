@@ -25,7 +25,7 @@ class GetBookmarkCollection200Response {
           GetBookmarkCollection200ResponseEmbedded.fromJson(json[r'_embedded']),
       totalItems: json[r'totalItems'],
       itemsPerPage: json[r'itemsPerPage'],
-      links: GetBookmarkCollection200ResponseLinks.fromJson(json[r'_links'])!,
+      links: GetPlaceCollection200ResponseLinks.fromJson(json[r'_links'])!,
     );
   }
 
@@ -37,7 +37,7 @@ class GetBookmarkCollection200Response {
   // minimum: 0
   int? itemsPerPage;
 
-  GetBookmarkCollection200ResponseLinks links;
+  GetPlaceCollection200ResponseLinks links;
 
   @override
   bool operator ==(Object other) {

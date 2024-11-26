@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for PostalAddressWrite
+// tests for PostalAddressWriteCreate
 void main() {
-  // final instance = PostalAddressWrite();
+  // final instance = PostalAddressWriteCreate();
 
-  group('test PostalAddressWrite', () {
+  group('test PostalAddressWriteCreate', () {
     // String locality
     test('to test the property `locality`', () async {});
 

@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-dev.g9a4823cb5"
+        "version": "2.66.0-dev.g686ea4999"
     },
     "servers": [
         {
@@ -9762,7 +9762,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/Place.CreatePlaceCommand-Write"
+                                "$ref": "#/components/schemas/Place.CreatePlaceCommand-WriteCreate"
                             }
                         }
                     },
@@ -15654,13 +15654,12 @@
                                         },
                                         "totalItems": {
                                             "type": "integer",
-                                            "minimum": 0,
-                                            "nullable": false
+                                            "minimum": 0
                                         },
                                         "itemsPerPage": {
                                             "type": "integer",
                                             "minimum": 0,
-                                            "nullable": false
+                                            "nullable": true
                                         },
                                         "_links": {
                                             "type": "object",
@@ -15681,7 +15680,8 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    }
+                                                    },
+                                                    "nullable": true
                                                 },
                                                 "last": {
                                                     "type": "object",
@@ -15690,7 +15690,8 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    }
+                                                    },
+                                                    "nullable": true
                                                 },
                                                 "next": {
                                                     "type": "object",
@@ -15699,7 +15700,8 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    }
+                                                    },
+                                                    "nullable": true
                                                 },
                                                 "previous": {
                                                     "type": "object",
@@ -15708,7 +15710,8 @@
                                                             "type": "string",
                                                             "format": "iri-reference"
                                                         }
-                                                    }
+                                                    },
+                                                    "nullable": true
                                                 },
                                                 "item": {
                                                     "type": "array",
@@ -16098,6 +16101,164 @@
                         "allowReserved": false
                     }
                 ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/v2/places/{identifier}": {
+            "patch": {
+                "operationId": "patchPlace",
+                "tags": [
+                    "Place"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Place resource updated",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Place.jsonhal-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Updates the Place resource.",
+                "description": "Updates the Place resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "Place identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Organization-Id",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The updated Place resource",
+                    "content": {
+                        "application/merge-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Place.EditPlaceCommand-WriteEdit"
+                            }
+                        }
+                    },
+                    "required": true
+                },
                 "deprecated": false
             },
             "parameters": []
@@ -19011,7 +19172,7 @@
                     }
                 }
             },
-            "Place.CreatePlaceCommand-Write": {
+            "Place.CreatePlaceCommand-WriteCreate": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,
@@ -19019,7 +19180,7 @@
                     "address": {
                         "anyOf": [
                             {
-                                "$ref": "#/components/schemas/PostalAddress-Write"
+                                "$ref": "#/components/schemas/PostalAddress-WriteCreate"
                             }
                         ],
                         "nullable": true
@@ -19061,6 +19222,41 @@
                     "name",
                     "organization"
                 ]
+            },
+            "Place.EditPlaceCommand-WriteEdit": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "address": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/PostalAddress-WriteEdit"
+                            }
+                        ],
+                        "nullable": true
+                    },
+                    "branchCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "preferences": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/Preferences-Asset-Read"
+                            }
+                        ],
+                        "nullable": true
+                    }
+                }
             },
             "Place.jsonhal-Read": {
                 "type": "object",
@@ -19110,6 +19306,10 @@
                                 "nullable": true
                             }
                         }
+                    },
+                    "branchCode": {
+                        "type": "string",
+                        "nullable": true
                     },
                     "id": {
                         "readOnly": true,
@@ -19193,7 +19393,26 @@
                     }
                 }
             },
-            "PostalAddress-Write": {
+            "PostalAddress-WriteCreate": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "locality": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "streetAddress": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "PostalAddress-WriteEdit": {
                 "type": "object",
                 "description": "",
                 "deprecated": false,

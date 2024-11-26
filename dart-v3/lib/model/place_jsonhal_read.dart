@@ -8,6 +8,7 @@ class PlaceJsonhalRead {
   /// Returns a new [PlaceJsonhalRead] instance.
   PlaceJsonhalRead({
     this.links,
+    this.branchCode,
     this.id,
     this.createdAt,
     this.updatedAt,
@@ -27,6 +28,7 @@ class PlaceJsonhalRead {
 
     return PlaceJsonhalRead(
       links: AssetJsonhalReadLinks.fromJson(json[r'_links']),
+      branchCode: json[r'branchCode'],
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
@@ -39,6 +41,8 @@ class PlaceJsonhalRead {
   }
 
   AssetJsonhalReadLinks? links;
+
+  String? branchCode;
 
   /// The resource identifier.
   final String? id;
@@ -68,6 +72,7 @@ class PlaceJsonhalRead {
 
     return other is PlaceJsonhalRead &&
         other.links == links &&
+        other.branchCode == branchCode &&
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
@@ -81,6 +86,7 @@ class PlaceJsonhalRead {
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
+      (branchCode == null ? 0 : branchCode.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
@@ -137,7 +143,7 @@ class PlaceJsonhalRead {
 
   @override
   String toString() =>
-      'PlaceJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, path=$path, address=$address]';
+      'PlaceJsonhalRead[links=$links, branchCode=$branchCode, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, description=$description, name=$name, preferences=$preferences, path=$path, address=$address]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -150,6 +156,8 @@ class PlaceJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'branchCode'))
+        r'branchCode': branchCode,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),

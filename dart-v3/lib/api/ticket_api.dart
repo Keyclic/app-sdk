@@ -195,6 +195,10 @@ class TicketApi {
   /// * [search] -
   /// * [archived] - Check if resource is archived and if archived date has passed
   /// * [completed] -
+  /// * [childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket] -
+  /// * [childrenPeriodScheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
+  /// * [childrenPeriodScheduledAtLeftSquareBracketAfterRightSquareBracket] -
+  /// * [childrenPeriodScheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
   /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
@@ -285,6 +289,12 @@ class TicketApi {
     String? search,
     bool? archived,
     bool? completed,
+    String? childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket,
+    String?
+        childrenPeriodScheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
+    String? childrenPeriodScheduledAtLeftSquareBracketAfterRightSquareBracket,
+    String?
+        childrenPeriodScheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket,
     String? createdAtLeftSquareBracketBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketAfterRightSquareBracket,
@@ -405,6 +415,22 @@ class TicketApi {
       if (search != null) r'search': encodeQueryParameter(search),
       if (archived != null) r'archived': encodeQueryParameter(archived),
       if (completed != null) r'completed': encodeQueryParameter(completed),
+      if (childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket !=
+          null)
+        r'children.scheduledAt[before]': encodeQueryParameter(
+            childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket),
+      if (childrenPeriodScheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket !=
+          null)
+        r'children.scheduledAt[strictly_before]': encodeQueryParameter(
+            childrenPeriodScheduledAtLeftSquareBracketStrictlyBeforeRightSquareBracket),
+      if (childrenPeriodScheduledAtLeftSquareBracketAfterRightSquareBracket !=
+          null)
+        r'children.scheduledAt[after]': encodeQueryParameter(
+            childrenPeriodScheduledAtLeftSquareBracketAfterRightSquareBracket),
+      if (childrenPeriodScheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket !=
+          null)
+        r'children.scheduledAt[strictly_after]': encodeQueryParameter(
+            childrenPeriodScheduledAtLeftSquareBracketStrictlyAfterRightSquareBracket),
       if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'createdAt[before]': encodeQueryParameter(
             createdAtLeftSquareBracketBeforeRightSquareBracket),

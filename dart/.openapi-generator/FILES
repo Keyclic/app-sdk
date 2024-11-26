@@ -62,7 +62,6 @@ doc/BinaryCollection.md
 doc/BinaryPagination.md
 doc/Bookmark.md
 doc/BookmarkApi.md
-doc/BookmarkCollection.md
 doc/BookmarkData.md
 doc/BookmarkEmbedded.md
 doc/BookmarkLinks.md
@@ -74,7 +73,6 @@ doc/BookmarkLinksPlaceIriTemplateMapping.md
 doc/BookmarkLinksSelf.md
 doc/BookmarkLinksSelfIriTemplate.md
 doc/BookmarkLinksSelfIriTemplateMapping.md
-doc/BookmarkPagination.md
 doc/BusinessActivity.md
 doc/BusinessActivityApi.md
 doc/BusinessActivityCollection.md
@@ -691,7 +689,6 @@ lib/model/binary.dart
 lib/model/binary_collection.dart
 lib/model/binary_pagination.dart
 lib/model/bookmark.dart
-lib/model/bookmark_collection.dart
 lib/model/bookmark_data.dart
 lib/model/bookmark_embedded.dart
 lib/model/bookmark_links.dart
@@ -703,7 +700,6 @@ lib/model/bookmark_links_place_iri_template_mapping.dart
 lib/model/bookmark_links_self.dart
 lib/model/bookmark_links_self_iri_template.dart
 lib/model/bookmark_links_self_iri_template_mapping.dart
-lib/model/bookmark_pagination.dart
 lib/model/business_activity.dart
 lib/model/business_activity_collection.dart
 lib/model/business_activity_links.dart
@@ -1236,7 +1232,6 @@ test/binary_collection_test.dart
 test/binary_pagination_test.dart
 test/binary_test.dart
 test/bookmark_api_test.dart
-test/bookmark_collection_test.dart
 test/bookmark_data_test.dart
 test/bookmark_embedded_test.dart
 test/bookmark_links_member_iri_template_test.dart
@@ -1248,7 +1243,6 @@ test/bookmark_links_self_iri_template_mapping_test.dart
 test/bookmark_links_self_iri_template_test.dart
 test/bookmark_links_self_test.dart
 test/bookmark_links_test.dart
-test/bookmark_pagination_test.dart
 test/bookmark_test.dart
 test/business_activity_api_test.dart
 test/business_activity_collection_test.dart

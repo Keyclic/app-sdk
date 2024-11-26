@@ -12,9 +12,9 @@ class FeedbackData {
     this.category,
     this.description,
     this.equipments,
-    required this.geo,
+    this.geo,
     this.metadata,
-    required this.place,
+    this.place,
     this.priority,
     this.reporter,
     this.visibility,
@@ -35,7 +35,7 @@ class FeedbackData {
       equipments: json[r'equipments'] == null
           ? null
           : List<String>.from(json[r'equipments']),
-      geo: FeedbackDataGeo.fromJson(json[r'geo'])!,
+      geo: FeedbackDataGeo.fromJson(json[r'geo']),
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
@@ -56,11 +56,11 @@ class FeedbackData {
 
   List<String>? equipments;
 
-  FeedbackDataGeo geo;
+  FeedbackDataGeo? geo;
 
   Map<String, Object?>? metadata;
 
-  String place;
+  String? place;
 
   String? priority;
 
@@ -97,9 +97,9 @@ class FeedbackData {
       (category == null ? 0 : category.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
-      geo.hashCode +
+      (geo == null ? 0 : geo.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
-      place.hashCode +
+      (place == null ? 0 : place.hashCode) +
       (priority == null ? 0 : priority.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
@@ -163,16 +163,17 @@ class FeedbackData {
         r'description': description,
       if (keys == null || keys.contains(r'equipments'))
         r'equipments': equipments,
-      r'geo': geo.toJson(keys?.fold<List<String>>(<String>[],
-          (List<String> previousValue, String element) {
-        if (element.contains(RegExp(r'^geo\.'))) {
-          previousValue.add(element.split(RegExp(r'^geo\.')).last);
-        }
+      if (keys == null || keys.any((key) => RegExp(r'^geo\.').hasMatch(key)))
+        r'geo': geo?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^geo\.'))) {
+            previousValue.add(element.split(RegExp(r'^geo\.')).last);
+          }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      r'place': place,
+      if (keys == null || keys.contains(r'place')) r'place': place,
       if (keys == null || keys.contains(r'priority')) r'priority': priority,
       if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       if (keys == null || keys.contains(r'visibility'))

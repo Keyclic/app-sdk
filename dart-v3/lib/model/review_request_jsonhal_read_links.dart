@@ -21,23 +21,23 @@ class ReviewRequestJsonhalReadLinks {
     }
 
     return ReviewRequestJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
       itemToReview: GetPlaceCollection200ResponseLinksFirst.fromJson(
           json[r'itemToReview']),
       reviewer:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reviewer']),
-      organization: GetPlaceCollection200ResponseLinksFirst.fromJson(
+          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'reviewer']),
+      organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
           json[r'organization']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
   GetPlaceCollection200ResponseLinksFirst? itemToReview;
 
-  GetPlaceCollection200ResponseLinksFirst? reviewer;
+  GetPlaceCollection200ResponseLinksSelf? reviewer;
 
-  GetPlaceCollection200ResponseLinksFirst? organization;
+  GetPlaceCollection200ResponseLinksSelf? organization;
 
   @override
   bool operator ==(Object other) {

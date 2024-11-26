@@ -348,8 +348,6 @@ class ApiPlatformClient {
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
-        case 'FileJsonhalRead':
-          return FileJsonhalRead.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':

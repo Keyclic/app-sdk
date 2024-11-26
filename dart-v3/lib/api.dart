@@ -89,7 +89,6 @@ part 'model/export_jsonhal_read.dart';
 part 'model/export_read.dart';
 part 'model/feedback_jsonhal_read.dart';
 part 'model/feedback_jsonhal_read_links.dart';
-part 'model/file_jsonhal_read.dart';
 part 'model/form_jsonhal_organization_preference_read.dart';
 part 'model/geo_coordinates_jsonhal_read.dart';
 part 'model/get_asset_collection200_response.dart';

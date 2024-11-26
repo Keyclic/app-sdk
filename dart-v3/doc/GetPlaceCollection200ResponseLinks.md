@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **last** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **next** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **previous** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
-**item** | [**List<GetPlaceCollection200ResponseLinksFirst>**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] [default to const []]
+**item** | [**List<GetPlaceCollection200ResponseLinksSelf>**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

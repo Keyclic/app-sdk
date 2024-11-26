@@ -29,7 +29,7 @@ class GetPlaceCollection200ResponseLinks {
       next: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'next']),
       previous:
           GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'previous']),
-      item: GetPlaceCollection200ResponseLinksFirst.listFromJson(json[r'item']),
+      item: GetPlaceCollection200ResponseLinksSelf.listFromJson(json[r'item']),
     );
   }
 
@@ -43,7 +43,7 @@ class GetPlaceCollection200ResponseLinks {
 
   GetPlaceCollection200ResponseLinksFirst? previous;
 
-  List<GetPlaceCollection200ResponseLinksFirst>? item;
+  List<GetPlaceCollection200ResponseLinksSelf>? item;
 
   @override
   bool operator ==(Object other) {

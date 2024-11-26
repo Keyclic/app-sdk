@@ -10,7 +10,7 @@ void main() {
   // final instance = AssetJsonhalReadLinks();
 
   group('test AssetJsonhalReadLinks', () {
-    // GetPlaceCollection200ResponseLinksFirst self
+    // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
     // GetPlaceCollection200ResponseLinksFirst type

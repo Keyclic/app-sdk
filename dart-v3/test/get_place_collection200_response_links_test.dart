@@ -25,7 +25,7 @@ void main() {
     // GetPlaceCollection200ResponseLinksFirst previous
     test('to test the property `previous`', () async {});
 
-    // List<GetPlaceCollection200ResponseLinksFirst> item (default value: const [])
+    // List<GetPlaceCollection200ResponseLinksSelf> item (default value: const [])
     test('to test the property `item`', () async {});
   });
 }

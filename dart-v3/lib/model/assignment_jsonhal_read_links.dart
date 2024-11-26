@@ -21,7 +21,7 @@ class AssignmentJsonhalReadLinks {
     }
 
     return AssignmentJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
       contract:
           GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'contract']),
       member: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member']),
@@ -30,7 +30,7 @@ class AssignmentJsonhalReadLinks {
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
   GetPlaceCollection200ResponseLinksFirst? contract;
 

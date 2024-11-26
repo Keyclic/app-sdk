@@ -21,14 +21,14 @@ class AssetJsonhalReadLinks {
     }
 
     return AssetJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
       type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
       parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
       state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
   GetPlaceCollection200ResponseLinksFirst? type;
 

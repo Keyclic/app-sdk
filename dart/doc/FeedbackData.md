@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 **category** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **equipments** | **List<String>** |  | [optional] [default to const []]
-**geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | 
+**geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | [optional] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
-**place** | **String** |  | 
+**place** | **String** |  | [optional] 
 **priority** | **String** |  | [optional] 
 **reporter** | **String** |  | [optional] 
 **visibility** | **String** |  | [optional] 

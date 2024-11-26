@@ -45,11 +45,5 @@ void main() {
 
     // SlaJsonhalOrganizationPreferenceRead sla
     test('to test the property `sla`', () async {});
-
-    // bool categoryRequired
-    test('to test the property `categoryRequired`', () async {});
-
-    // bool reviewEnabled
-    test('to test the property `reviewEnabled`', () async {});
   });
 }

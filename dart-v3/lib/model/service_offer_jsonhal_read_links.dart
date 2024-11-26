@@ -19,15 +19,15 @@ class ServiceOfferJsonhalReadLinks {
     }
 
     return ServiceOfferJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
       service:
-          GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'service']),
+          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'service']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksFirst? service;
+  GetPlaceCollection200ResponseLinksSelf? service;
 
   @override
   bool operator ==(Object other) {

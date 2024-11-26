@@ -11,7 +11,7 @@ class Review {
     this.createdAt,
     this.id,
     this.reviewBody,
-    this.reviewRating,
+    required this.reviewRating,
     this.type,
     this.updatedAt,
   });
@@ -44,7 +44,7 @@ class Review {
 
   // minimum: 1
   // maximum: 5
-  int? reviewRating;
+  int reviewRating;
 
   String? type;
 
@@ -73,7 +73,7 @@ class Review {
       (createdAt == null ? 0 : createdAt.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (reviewBody == null ? 0 : reviewBody.hashCode) +
-      (reviewRating == null ? 0 : reviewRating.hashCode) +
+      reviewRating.hashCode +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
@@ -139,8 +139,7 @@ class Review {
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'reviewBody'))
         r'reviewBody': reviewBody,
-      if (keys == null || keys.contains(r'reviewRating'))
-        r'reviewRating': reviewRating,
+      r'reviewRating': reviewRating,
       if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),

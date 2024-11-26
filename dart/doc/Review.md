@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 **id** | **String** |  | [optional] [readonly] 
 **reviewBody** | **String** |  | [optional] 
-**reviewRating** | **int** |  | [optional] 
+**reviewRating** | **int** |  | 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
 

@@ -54,7 +54,6 @@ doc/ExportJsonhalRead.md
 doc/ExportRead.md
 doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
-doc/FileJsonhalRead.md
 doc/FormJsonhalOrganizationPreferenceRead.md
 doc/GeoCoordinatesJsonhalRead.md
 doc/GetAssetCollection200Response.md
@@ -274,7 +273,6 @@ lib/model/export_jsonhal_read.dart
 lib/model/export_read.dart
 lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
-lib/model/file_jsonhal_read.dart
 lib/model/form_jsonhal_organization_preference_read.dart
 lib/model/geo_coordinates_jsonhal_read.dart
 lib/model/get_asset_collection200_response.dart
@@ -451,7 +449,6 @@ test/export_jsonhal_read_test.dart
 test/export_read_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
-test/file_jsonhal_read_test.dart
 test/form_jsonhal_organization_preference_read_test.dart
 test/geo_coordinates_jsonhal_read_test.dart
 test/get_asset_collection200_response_embedded_test.dart

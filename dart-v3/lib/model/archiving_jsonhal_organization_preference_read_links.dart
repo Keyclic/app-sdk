@@ -19,11 +19,11 @@ class ArchivingJsonhalOrganizationPreferenceReadLinks {
     }
 
     return ArchivingJsonhalOrganizationPreferenceReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
   @override
   bool operator ==(Object other) {

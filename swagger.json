@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.66.0-dev.gedea1a211"
+        "version": "2.66.0-dev.g9a4823cb5"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -17902,16 +17902,14 @@
                         "type": "object",
                         "additionalProperties": true
                     },
-                    "type": "array",
-                    "nullable": true
+                    "type": "array"
                 },
                 "file": {
                     "type": "object",
                     "properties": {
                         "name": {
                             "format": "string",
-                            "type": "string",
-                            "nullable": true
+                            "type": "string"
                         }
                     }
                 },
@@ -17920,22 +17918,19 @@
                     "properties": {
                         "targetGroup": {
                             "format": "string",
-                            "type": "string",
-                            "nullable": true
+                            "type": "string"
                         }
                     }
                 },
                 "text": {
                     "format": "string",
-                    "type": "string",
-                    "nullable": true
+                    "type": "string"
                 },
                 "tags": {
                     "items": {
                         "type": "string"
                     },
-                    "type": "array",
-                    "nullable": true
+                    "type": "array"
                 }
             }
         },
@@ -18630,11 +18625,7 @@
                         "VISIBILITY_SHARED"
                     ]
                 }
-            },
-            "required": [
-                "geo",
-                "place"
-            ]
+            }
         },
         "FeedbackGeoCoordinates": {
             "type": "object",
@@ -18969,9 +18960,7 @@
                 }
             },
             "required": [
-                "content",
-                "contentType",
-                "name"
+                "content"
             ]
         },
         "GeoShape": {
@@ -23428,7 +23417,10 @@
                     "readOnly": true,
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "reviewRating"
+            ]
         },
         "ReviewData": {
             "type": "object",

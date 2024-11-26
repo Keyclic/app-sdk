@@ -22,7 +22,7 @@ class EquipmentJsonhalReadLinks {
     }
 
     return EquipmentJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
       brand: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'brand']),
       type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
       parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
@@ -30,7 +30,7 @@ class EquipmentJsonhalReadLinks {
     );
   }
 
-  GetPlaceCollection200ResponseLinksFirst? self;
+  GetPlaceCollection200ResponseLinksSelf? self;
 
   GetPlaceCollection200ResponseLinksFirst? brand;
 

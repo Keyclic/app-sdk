@@ -10,11 +10,11 @@ void main() {
   // final instance = PersonPatchPreferencesNotification();
 
   group('test PersonPatchPreferencesNotification', () {
-    // bool mail
-    test('to test the property `mail`', () async {});
-
     // bool inApp
     test('to test the property `inApp`', () async {});
+
+    // bool mail
+    test('to test the property `mail`', () async {});
 
     // bool push
     test('to test the property `push`', () async {});

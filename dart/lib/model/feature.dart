@@ -7,8 +7,8 @@ part of keyclic_sdk_api;
 class Feature {
   /// Returns a new [Feature] instance.
   Feature({
-    this.type,
-    this.geometry,
+    this.type = 'Feature',
+    required this.geometry,
     this.properties,
   });
 
@@ -21,16 +21,16 @@ class Feature {
 
     return Feature(
       type: json[r'type'],
-      geometry: FeatureGeometry.fromJson(json[r'geometry']),
+      geometry: Map<String, Object?>.from(json[r'geometry']),
       properties: json[r'properties'] == null
           ? null
           : List<String>.from(json[r'properties']),
     );
   }
 
-  String? type;
+  String type;
 
-  FeatureGeometry? geometry;
+  Map<String, Object?> geometry;
 
   List<String>? properties;
 
@@ -49,8 +49,8 @@ class Feature {
 
   @override
   int get hashCode =>
-      (type == null ? 0 : type.hashCode) +
-      (geometry == null ? 0 : geometry.hashCode) +
+      type.hashCode +
+      geometry.hashCode +
       (properties == null ? 0 : properties.hashCode);
 
   static List<Feature> listFromJson(Iterable? json) {
@@ -102,17 +102,8 @@ class Feature {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^geometry\.').hasMatch(key)))
-        r'geometry': geometry?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^geometry\.'))) {
-            previousValue.add(element.split(RegExp(r'^geometry\.')).last);
-          }
-
-          return previousValue;
-        })),
+      r'type': type,
+      r'geometry': geometry,
       if (keys == null || keys.contains(r'properties'))
         r'properties': properties,
     };

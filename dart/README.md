@@ -405,7 +405,6 @@ Class | Method | HTTP request | Description
  - [ExternalServicePatchContactPoint](doc//ExternalServicePatchContactPoint.md)
  - [ExternalServicePostalAddress](doc//ExternalServicePostalAddress.md)
  - [Feature](doc//Feature.md)
- - [FeatureGeometry](doc//FeatureGeometry.md)
  - [Feed](doc//Feed.md)
  - [Feedback](doc//Feedback.md)
  - [FeedbackCollection](doc//FeedbackCollection.md)

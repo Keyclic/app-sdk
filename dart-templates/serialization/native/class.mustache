@@ -117,8 +117,8 @@ class {{{classname}}} {{#interfaces}}{{#-first}}implements {{/-first}}{{.}}{{^-l
             {{/isEnum}}
             {{^isEnum}}
               {{#isFreeFormObject}}
-                {{{name}}}: json[r'{{{baseName}}}'] == null ?
-                null :
+                {{{name}}}: {{^required}}json[r'{{{baseName}}}'] == null ?
+                null :{{/required}}
                 Map<String, Object?>.from(json[r'{{{baseName}}}']),
               {{/isFreeFormObject}}
               {{^isFreeFormObject}}

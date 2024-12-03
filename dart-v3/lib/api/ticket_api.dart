@@ -223,10 +223,13 @@ class TicketApi {
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [operationStateAll] -
   /// * [operationStateAllLeftSquareBracketRightSquareBracket] -
+  /// * [orderLeftSquareBracketCategoryPeriodNameRightSquareBracket] -
   /// * [orderLeftSquareBracketCreatedAtRightSquareBracket] -
   /// * [orderLeftSquareBracketDueByRightSquareBracket] -
+  /// * [orderLeftSquareBracketPlacePeriodNameRightSquareBracket] -
   /// * [orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket] -
   /// * [orderLeftSquareBracketScheduledAtRightSquareBracket] -
+  /// * [orderLeftSquareBracketStatePeriodNameRightSquareBracket] -
   /// * [orderLeftSquareBracketUpdatedAtRightSquareBracket] -
   /// * [assignmentsPeriodMember] -
   /// * [assignmentsPeriodMemberLeftSquareBracketRightSquareBracket] -
@@ -319,10 +322,13 @@ class TicketApi {
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     String? operationStateAll,
     List<String>? operationStateAllLeftSquareBracketRightSquareBracket,
+    String? orderLeftSquareBracketCategoryPeriodNameRightSquareBracket,
     String? orderLeftSquareBracketCreatedAtRightSquareBracket,
     String? orderLeftSquareBracketDueByRightSquareBracket,
+    String? orderLeftSquareBracketPlacePeriodNameRightSquareBracket,
     String? orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket,
     String? orderLeftSquareBracketScheduledAtRightSquareBracket,
+    String? orderLeftSquareBracketStatePeriodNameRightSquareBracket,
     String? orderLeftSquareBracketUpdatedAtRightSquareBracket,
     String? assignmentsPeriodMember,
     List<String>? assignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
@@ -502,12 +508,18 @@ class TicketApi {
         r'operation_state_all[]': encodeCollectionQueryParameter(
             operationStateAllLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (orderLeftSquareBracketCategoryPeriodNameRightSquareBracket != null)
+        r'order[category.name]': encodeQueryParameter(
+            orderLeftSquareBracketCategoryPeriodNameRightSquareBracket),
       if (orderLeftSquareBracketCreatedAtRightSquareBracket != null)
         r'order[createdAt]': encodeQueryParameter(
             orderLeftSquareBracketCreatedAtRightSquareBracket),
       if (orderLeftSquareBracketDueByRightSquareBracket != null)
         r'order[dueBy]':
             encodeQueryParameter(orderLeftSquareBracketDueByRightSquareBracket),
+      if (orderLeftSquareBracketPlacePeriodNameRightSquareBracket != null)
+        r'order[place.name]': encodeQueryParameter(
+            orderLeftSquareBracketPlacePeriodNameRightSquareBracket),
       if (orderLeftSquareBracketPriorityPeriodPositionRightSquareBracket !=
           null)
         r'order[priority.position]': encodeQueryParameter(
@@ -515,6 +527,9 @@ class TicketApi {
       if (orderLeftSquareBracketScheduledAtRightSquareBracket != null)
         r'order[scheduledAt]': encodeQueryParameter(
             orderLeftSquareBracketScheduledAtRightSquareBracket),
+      if (orderLeftSquareBracketStatePeriodNameRightSquareBracket != null)
+        r'order[state.name]': encodeQueryParameter(
+            orderLeftSquareBracketStatePeriodNameRightSquareBracket),
       if (orderLeftSquareBracketUpdatedAtRightSquareBracket != null)
         r'order[updatedAt]': encodeQueryParameter(
             orderLeftSquareBracketUpdatedAtRightSquareBracket),

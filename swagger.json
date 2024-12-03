@@ -18338,10 +18338,11 @@
                     ]
                 },
                 "properties": {
-                    "additionalProperties": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
                         "type": "string"
-                    },
-                    "type": "object"
+                    }
                 }
             }
         },

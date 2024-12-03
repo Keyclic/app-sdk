@@ -16,7 +16,7 @@ void main() {
     // Map<String, dynamic> geometry
     test('to test the property `geometry`', () async {});
 
-    // Map<String, String> properties (default value: const {})
+    // List<String> properties (default value: const [])
     test('to test the property `properties`', () async {});
   });
 }

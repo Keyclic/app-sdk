@@ -24,7 +24,7 @@ class Feature {
       geometry: Map<String, Object?>.from(json[r'geometry']),
       properties: json[r'properties'] == null
           ? null
-          : Map<String, String>.from(json[r'properties']),
+          : List<String>.from(json[r'properties']),
     );
   }
 
@@ -32,7 +32,7 @@ class Feature {
 
   Map<String, Object?> geometry;
 
-  Map<String, String>? properties;
+  List<String>? properties;
 
   @override
   bool operator ==(Object other) {

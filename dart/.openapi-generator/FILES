@@ -195,7 +195,6 @@ doc/ExternalServicePatchAddress.md
 doc/ExternalServicePatchContactPoint.md
 doc/ExternalServicePostalAddress.md
 doc/Feature.md
-doc/FeatureGeometry.md
 doc/Feed.md
 doc/FeedApi.md
 doc/Feedback.md
@@ -814,7 +813,6 @@ lib/model/external_service_patch_address.dart
 lib/model/external_service_patch_contact_point.dart
 lib/model/external_service_postal_address.dart
 lib/model/feature.dart
-lib/model/feature_geometry.dart
 lib/model/feed.dart
 lib/model/feedback.dart
 lib/model/feedback_collection.dart
@@ -1371,7 +1369,6 @@ test/external_service_patch_contact_point_test.dart
 test/external_service_patch_test.dart
 test/external_service_postal_address_test.dart
 test/external_service_test.dart
-test/feature_geometry_test.dart
 test/feature_test.dart
 test/feed_api_test.dart
 test/feed_test.dart

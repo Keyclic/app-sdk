@@ -285,6 +285,8 @@ class ApiPlatformClient {
           return AssetJsonhalReadLinks.fromJson(value);
         case 'AssetTypeJsonhalRead':
           return AssetTypeJsonhalRead.fromJson(value);
+        case 'AssignmentJsongeoRead':
+          return AssignmentJsongeoRead.fromJson(value);
         case 'AssignmentJsonhalRead':
           return AssignmentJsonhalRead.fromJson(value);
         case 'AssignmentJsonhalReadLinks':
@@ -301,12 +303,16 @@ class ApiPlatformClient {
           return BrandJsonhalRead.fromJson(value);
         case 'BusinessHoursJsonhalRead':
           return BusinessHoursJsonhalRead.fromJson(value);
+        case 'CategoryJsongeoRead':
+          return CategoryJsongeoRead.fromJson(value);
         case 'CategoryJsonhalRead':
           return CategoryJsonhalRead.fromJson(value);
         case 'CategoryJsonhalReadEmbedded':
           return CategoryJsonhalReadEmbedded.fromJson(value);
         case 'CategoryJsonhalReadLinks':
           return CategoryJsonhalReadLinks.fromJson(value);
+        case 'CategoryTypeJsongeoRead':
+          return CategoryTypeJsongeoRead.fromJson(value);
         case 'CategoryTypeJsonhalRead':
           return CategoryTypeJsonhalRead.fromJson(value);
         case 'CollaboratorJsonhalRead':
@@ -343,6 +349,8 @@ class ApiPlatformClient {
           return EquipmentCreateEquipmentCommandWrite.fromJson(value);
         case 'EquipmentEditEquipmentCommandWrite':
           return EquipmentEditEquipmentCommandWrite.fromJson(value);
+        case 'EquipmentJsongeoRead':
+          return EquipmentJsongeoRead.fromJson(value);
         case 'EquipmentJsonhalOrganizationPreferenceRead':
           return EquipmentJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'EquipmentJsonhalRead':
@@ -353,12 +361,16 @@ class ApiPlatformClient {
           return ExportJsonhalRead.fromJson(value);
         case 'ExportRead':
           return ExportRead.fromJson(value);
+        case 'FeedbackJsongeoRead':
+          return FeedbackJsongeoRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'GeoCoordinatesJsongeoRead':
+          return GeoCoordinatesJsongeoRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':
           return GeoCoordinatesJsonhalRead.fromJson(value);
         case 'GetAssetCollection200Response':
@@ -464,6 +476,8 @@ class ApiPlatformClient {
           return GetTicketDocumentTypes200Response.fromJson(value);
         case 'GetTicketDocumentTypes200ResponseEmbedded':
           return GetTicketDocumentTypes200ResponseEmbedded.fromJson(value);
+        case 'GetTicketGeoCollection200Response':
+          return GetTicketGeoCollection200Response.fromJson(value);
         case 'GetTicketMetrics200Response':
           return GetTicketMetrics200Response.fromJson(value);
         case 'GetTicketMetrics200ResponseEmbedded':
@@ -491,6 +505,8 @@ class ApiPlatformClient {
           return IntegrationLinkEditLinkCommandWrite.fromJson(value);
         case 'IntegrationLinkJsonhalRead':
           return IntegrationLinkJsonhalRead.fromJson(value);
+        case 'MarkerJsongeoRead':
+          return MarkerJsongeoRead.fromJson(value);
         case 'MarkerJsonhalRead':
           return MarkerJsonhalRead.fromJson(value);
         case 'MemberJsonhalRead':
@@ -501,6 +517,8 @@ class ApiPlatformClient {
           return MemberJsonhalReadLinks.fromJson(value);
         case 'MetricJsonhalRead':
           return MetricJsonhalRead.fromJson(value);
+        case 'NodeJsongeoRead':
+          return NodeJsongeoRead.fromJson(value);
         case 'NodeJsonhalRead':
           return NodeJsonhalRead.fromJson(value);
         case 'OccupantJsonhalRead':
@@ -517,10 +535,16 @@ class ApiPlatformClient {
           return PlaceCreatePlaceCommandWriteCreate.fromJson(value);
         case 'PlaceEditPlaceCommandWriteEdit':
           return PlaceEditPlaceCommandWriteEdit.fromJson(value);
+        case 'PlaceJsongeoRead':
+          return PlaceJsongeoRead.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
+        case 'PointJsongeoRead':
+          return PointJsongeoRead.fromJson(value);
         case 'PointJsonhalRead':
           return PointJsonhalRead.fromJson(value);
+        case 'PostalAddressJsongeoRead':
+          return PostalAddressJsongeoRead.fromJson(value);
         case 'PostalAddressJsonhalRead':
           return PostalAddressJsonhalRead.fromJson(value);
         case 'PostalAddressWriteCreate':
@@ -529,6 +553,8 @@ class ApiPlatformClient {
           return PostalAddressWriteEdit.fromJson(value);
         case 'PreferencesAssetRead':
           return PreferencesAssetRead.fromJson(value);
+        case 'PreferencesJsongeoAssetRead':
+          return PreferencesJsongeoAssetRead.fromJson(value);
         case 'PreferencesJsonhalAssetRead':
           return PreferencesJsonhalAssetRead.fromJson(value);
         case 'PreferencesJsonhalOrganizationRead':
@@ -591,12 +617,18 @@ class ApiPlatformClient {
           return TicketCreateTicketCommandWrite.fromJson(value);
         case 'TicketEditTicketCommandWrite':
           return TicketEditTicketCommandWrite.fromJson(value);
+        case 'TicketJsongeoRead':
+          return TicketJsongeoRead.fromJson(value);
+        case 'TicketJsongeoReadGeometry':
+          return TicketJsongeoReadGeometry.fromJson(value);
         case 'TicketJsonhalRead':
           return TicketJsonhalRead.fromJson(value);
         case 'TicketJsonhalReadEmbedded':
           return TicketJsonhalReadEmbedded.fromJson(value);
         case 'TicketJsonhalReadLinks':
           return TicketJsonhalReadLinks.fromJson(value);
+        case 'TicketPriorityJsongeoRead':
+          return TicketPriorityJsongeoRead.fromJson(value);
         case 'TicketPriorityJsonhalRead':
           return TicketPriorityJsonhalRead.fromJson(value);
         case 'TicketTypeJsonhalRead':
@@ -607,6 +639,8 @@ class ApiPlatformClient {
           return WarrantyJsonhalRead.fromJson(value);
         case 'WarrantyWrite':
           return WarrantyWrite.fromJson(value);
+        case 'WorkflowStateJsongeoRead':
+          return WorkflowStateJsongeoRead.fromJson(value);
         case 'WorkflowStateJsonhalRead':
           return WorkflowStateJsonhalRead.fromJson(value);
         case 'WorkflowTransitionJsonhalRead':

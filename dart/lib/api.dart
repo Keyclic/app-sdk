@@ -239,7 +239,6 @@ part 'model/external_service_patch_address.dart';
 part 'model/external_service_patch_contact_point.dart';
 part 'model/external_service_postal_address.dart';
 part 'model/feature.dart';
-part 'model/feature_geometry.dart';
 part 'model/feed.dart';
 part 'model/feedback.dart';
 part 'model/feedback_collection.dart';

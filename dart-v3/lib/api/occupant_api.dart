@@ -122,6 +122,10 @@ class OccupantApi {
   /// * [memberLeftSquareBracketRightSquareBracket] -
   /// * [memberPeriodPerson] -
   /// * [memberPeriodPersonLeftSquareBracketRightSquareBracket] -
+  /// * [treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.
+  /// * [treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node excluding the node itself.
+  /// * [treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the node only.
+  /// * [treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node including the node itself.
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -148,6 +152,14 @@ class OccupantApi {
     List<String>? memberLeftSquareBracketRightSquareBracket,
     String? memberPeriodPerson,
     List<String>? memberPeriodPersonLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -208,6 +220,26 @@ class OccupantApi {
       if (memberPeriodPersonLeftSquareBracketRightSquareBracket != null)
         r'member.person[]': encodeCollectionQueryParameter(
             memberPeriodPersonLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[asset][ancestors][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[asset][descendants][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[asset][node][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[asset][subtree][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
     };
 

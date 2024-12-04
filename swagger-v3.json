@@ -9420,6 +9420,74 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "tree[asset][ancestors][]",
+                        "in": "query",
+                        "description": "Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[asset][descendants][]",
+                        "in": "query",
+                        "description": "Filter on the tree below the node excluding the node itself.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[asset][node][]",
+                        "in": "query",
+                        "description": "Filter on the node only.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[asset][subtree][]",
+                        "in": "query",
+                        "description": "Filter on the tree below the node including the node itself.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "Accept-Language",
                         "in": "header",
                         "description": "",
@@ -13890,6 +13958,23 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "tree[place][ancestors][]",
+                        "in": "query",
+                        "description": "Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "tree[place][descendants][]",
                         "in": "query",
                         "description": "Filter on the tree below the node excluding the node itself.",
@@ -15256,6 +15341,23 @@
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][ancestors][]",
+                        "in": "query",
+                        "description": "Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
                         "schema": {
                             "type": "array",
                             "items": {

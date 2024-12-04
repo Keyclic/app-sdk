@@ -23243,12 +23243,14 @@
             "type": "object",
             "properties": {
                 "email": {
-                    "type": "string",
-                    "format": "email"
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
                 }
             },
             "required": [
-                "email"
+                "username"
             ]
         },
         "Review": {

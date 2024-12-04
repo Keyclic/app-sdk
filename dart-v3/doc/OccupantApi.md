@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getOccupantCollection**
-> GetOccupantCollection200Response getOccupantCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetOccupantCollection200Response getOccupantCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Occupant resources.
 
@@ -98,13 +98,17 @@ final member = member_example; // String |
 final memberLeftSquareBracketRightSquareBracket = []; // List<String> | 
 final memberPeriodPerson = memberPeriodPerson_example; // String | 
 final memberPeriodPersonLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.
+final treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the tree below the node excluding the node itself.
+final treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the node only.
+final treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | Filter on the tree below the node including the node itself.
 final acceptLanguage = acceptLanguage_example; // String | 
 final xDateTime = 2013-10-20T19:20:30+01:00; // DateTime | 
 final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String | 
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getOccupantCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getOccupantCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, asset, assetLeftSquareBracketRightSquareBracket, member, memberLeftSquareBracketRightSquareBracket, memberPeriodPerson, memberPeriodPersonLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket, treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling OccupantApi->getOccupantCollection: $e\n');
@@ -127,6 +131,10 @@ Name | Type | Description  | Notes
  **memberLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
  **memberPeriodPerson** | **String**|  | [optional] 
  **memberPeriodPersonLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree. | [optional] [default to const []]
+ **treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the tree below the node excluding the node itself. | [optional] [default to const []]
+ **treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the node only. | [optional] [default to const []]
+ **treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)| Filter on the tree below the node including the node itself. | [optional] [default to const []]
  **acceptLanguage** | **String**|  | [optional] [default to 'en-US']
  **xDateTime** | **DateTime**|  | [optional] 
  **xKeyclicAppPlatform** | **String**|  | [optional] 

@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of Occupant resources.
     //
-    //Future<GetOccupantCollection200Response> getOccupantCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String search, String asset, List<String> assetLeftSquareBracketRightSquareBracket, String member, List<String> memberLeftSquareBracketRightSquareBracket, String memberPeriodPerson, List<String> memberPeriodPersonLeftSquareBracketRightSquareBracket, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<GetOccupantCollection200Response> getOccupantCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String search, String asset, List<String> assetLeftSquareBracketRightSquareBracket, String member, List<String> memberLeftSquareBracketRightSquareBracket, String memberPeriodPerson, List<String> memberPeriodPersonLeftSquareBracketRightSquareBracket, List<String> treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket, List<String> treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket, List<String> treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket, List<String> treeLeftSquareBracketAssetRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getOccupantCollection', () async {});
   });
 }

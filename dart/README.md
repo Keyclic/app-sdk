@@ -68,9 +68,7 @@ Class | Method | HTTP request | Description
 *ArticleApi* | [**getArticle**](doc//ArticleApi.md#getarticle) | **GET** /articles/{article} | Retrieve one Article resource.
 *AssignmentApi* | [**getAssignment**](doc//AssignmentApi.md#getassignment) | **GET** /assignments/{assignment} | Retrieve one Assignment resource.
 *AssignmentApi* | [**postAssignment**](doc//AssignmentApi.md#postassignment) | **POST** /assignments | Create one Assignment resource.
-*BookmarkApi* | [**cgetBookmarks**](doc//BookmarkApi.md#cgetbookmarks) | **GET** /bookmarks | Retrieve all Bookmark resources.
 *BookmarkApi* | [**deleteBookmark**](doc//BookmarkApi.md#deletebookmark) | **DELETE** /bookmarks/{bookmark} | Remove one Bookmark resource.
-*BookmarkApi* | [**getBookmark**](doc//BookmarkApi.md#getbookmark) | **GET** /bookmarks/{bookmark} | Retrieve one Bookmark resource.
 *BookmarkApi* | [**postBookmark**](doc//BookmarkApi.md#postbookmark) | **POST** /bookmarks | Create one Bookmark resource.
 *BusinessActivityApi* | [**cgetBusinessActivities**](doc//BusinessActivityApi.md#cgetbusinessactivities) | **GET** /business-activities | Retrieve all BusinessActivity resources.
 *BusinessActivityApi* | [**getBusinessActivity**](doc//BusinessActivityApi.md#getbusinessactivity) | **GET** /business-activities/{businessActivity} | Retrieve one BusinessActivity resource.
@@ -283,7 +281,6 @@ Class | Method | HTTP request | Description
  - [BinaryCollection](doc//BinaryCollection.md)
  - [BinaryPagination](doc//BinaryPagination.md)
  - [Bookmark](doc//Bookmark.md)
- - [BookmarkCollection](doc//BookmarkCollection.md)
  - [BookmarkData](doc//BookmarkData.md)
  - [BookmarkEmbedded](doc//BookmarkEmbedded.md)
  - [BookmarkLinks](doc//BookmarkLinks.md)
@@ -295,7 +292,6 @@ Class | Method | HTTP request | Description
  - [BookmarkLinksSelf](doc//BookmarkLinksSelf.md)
  - [BookmarkLinksSelfIriTemplate](doc//BookmarkLinksSelfIriTemplate.md)
  - [BookmarkLinksSelfIriTemplateMapping](doc//BookmarkLinksSelfIriTemplateMapping.md)
- - [BookmarkPagination](doc//BookmarkPagination.md)
  - [BusinessActivity](doc//BusinessActivity.md)
  - [BusinessActivityCollection](doc//BusinessActivityCollection.md)
  - [BusinessActivityLinks](doc//BusinessActivityLinks.md)

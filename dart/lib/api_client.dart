@@ -437,8 +437,6 @@ class ApiClient {
           return BinaryPagination.fromJson(value);
         case 'Bookmark':
           return Bookmark.fromJson(value);
-        case 'BookmarkCollection':
-          return BookmarkCollection.fromJson(value);
         case 'BookmarkData':
           return BookmarkData.fromJson(value);
         case 'BookmarkEmbedded':
@@ -461,8 +459,6 @@ class ApiClient {
           return BookmarkLinksSelfIriTemplate.fromJson(value);
         case 'BookmarkLinksSelfIriTemplateMapping':
           return BookmarkLinksSelfIriTemplateMapping.fromJson(value);
-        case 'BookmarkPagination':
-          return BookmarkPagination.fromJson(value);
         case 'BusinessActivity':
           return BusinessActivity.fromJson(value);
         case 'BusinessActivityCollection':

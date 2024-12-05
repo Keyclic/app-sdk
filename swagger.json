@@ -186,180 +186,6 @@
                 ]
             }
         },
-        "\/bookmarks": {
-            "get": {
-                "tags": [
-                    "Bookmark"
-                ],
-                "summary": "Retrieve all Bookmark resources.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "cgetBookmarks",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/order__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/after"
-                    },
-                    {
-                        "$ref": "#\/parameters\/before"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organization"
-                    },
-                    {
-                        "$ref": "#\/parameters\/organizations__"
-                    },
-                    {
-                        "$ref": "#\/parameters\/page"
-                    },
-                    {
-                        "$ref": "#\/parameters\/limit"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/BookmarkPagination"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Bookmark"
-                ],
-                "summary": "Create one Bookmark resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postBookmark",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/BookmarkData"
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Returned when the resource is created",
-                        "schema": {
-                            "$ref": "#\/definitions\/Bookmark"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/bookmarks\/{bookmark}": {
             "delete": {
                 "tags": [
@@ -445,17 +271,19 @@
                         "bearer": []
                     }
                 ]
-            },
-            "get": {
+            }
+        },
+        "\/bookmarks": {
+            "post": {
                 "tags": [
                     "Bookmark"
                 ],
-                "summary": "Retrieve one Bookmark resource.",
+                "summary": "Create one Bookmark resource.",
                 "externalDocs": {
                     "description": "Keyclic API documentation.",
                     "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
                 },
-                "operationId": "getBookmark",
+                "operationId": "postBookmark",
                 "consumes": [
                     "application\/json;charset=UTF-8"
                 ],
@@ -479,17 +307,12 @@
                         "$ref": "#\/parameters\/x-keyclic-app-version"
                     },
                     {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "bookmark",
-                        "required": true,
-                        "type": "string"
+                        "$ref": "#\/parameters\/BookmarkData"
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "",
+                    "201": {
+                        "description": "Returned when the resource is created",
                         "schema": {
                             "$ref": "#\/definitions\/Bookmark"
                         }
@@ -508,12 +331,6 @@
                     },
                     "403": {
                         "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
                         "schema": {
                             "$ref": "#\/definitions\/Problem"
                         }
@@ -16376,18 +16193,6 @@
                 }
             }
         },
-        "BookmarkCollection": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
-                        "$ref": "#\/definitions\/Bookmark"
-                    }
-                }
-            }
-        },
         "BookmarkData": {
             "type": "object",
             "properties": {
@@ -16480,21 +16285,6 @@
                     }
                 }
             }
-        },
-        "BookmarkPagination": {
-            "allOf": [
-                {
-                    "$ref": "#\/definitions\/Pagination"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "_embedded": {
-                            "$ref": "#\/definitions\/BookmarkCollection"
-                        }
-                    }
-                }
-            ]
         },
         "BusinessActivity": {
             "type": "object",
@@ -24877,19 +24667,13 @@
             "format": "string",
             "required": false
         },
-        "order__": {
-            "collectionFormat": "multi",
-            "in": "query",
-            "items": {
-                "enum": [
-                    "asc",
-                    "desc"
-                ],
-                "type": "string"
+        "BookmarkData": {
+            "name": "BookmarkData",
+            "in": "body",
+            "schema": {
+                "$ref": "#\/definitions\/BookmarkData"
             },
-            "name": "order[]",
-            "pattern": "asc|desc",
-            "type": "array"
+            "required": true
         },
         "after": {
             "enum": [
@@ -24910,6 +24694,34 @@
             "in": "query",
             "name": "before",
             "type": "string"
+        },
+        "geo_point": {
+            "description": "One latitude and one longitude serialized and separated by a plus or a minus sign.",
+            "in": "query",
+            "name": "geo_point",
+            "pattern": "^[-+]?\\d*\\.?\\d+[-+]\\d*\\.?\\d+",
+            "type": "string"
+        },
+        "geo_coordinates": {
+            "description": "One latitude and one longitude serialized and separated by a plus or a minus sign.",
+            "in": "query",
+            "name": "geo_coordinates",
+            "pattern": "^[-+]?\\d*\\.?\\d+[-+]\\d*\\.?\\d+",
+            "type": "string"
+        },
+        "order__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "enum": [
+                    "asc",
+                    "desc"
+                ],
+                "type": "string"
+            },
+            "name": "order[]",
+            "pattern": "asc|desc",
+            "type": "array"
         },
         "organization": {
             "in": "query",
@@ -24942,28 +24754,6 @@
             "in": "query",
             "name": "limit",
             "type": "integer"
-        },
-        "BookmarkData": {
-            "name": "BookmarkData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/BookmarkData"
-            },
-            "required": true
-        },
-        "geo_point": {
-            "description": "One latitude and one longitude serialized and separated by a plus or a minus sign.",
-            "in": "query",
-            "name": "geo_point",
-            "pattern": "^[-+]?\\d*\\.?\\d+[-+]\\d*\\.?\\d+",
-            "type": "string"
-        },
-        "geo_coordinates": {
-            "description": "One latitude and one longitude serialized and separated by a plus or a minus sign.",
-            "in": "query",
-            "name": "geo_coordinates",
-            "pattern": "^[-+]?\\d*\\.?\\d+[-+]\\d*\\.?\\d+",
-            "type": "string"
         },
         "CategoryPatch": {
             "name": "CategoryPatch",

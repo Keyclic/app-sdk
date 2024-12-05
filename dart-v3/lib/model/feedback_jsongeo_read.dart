@@ -10,6 +10,7 @@ class FeedbackJsongeoRead {
     this.description,
     this.geoCoordinates,
     this.markers,
+    this.member,
     this.metadata,
     this.reporter,
     required this.visibility,
@@ -30,6 +31,7 @@ class FeedbackJsongeoRead {
       geoCoordinates:
           GeoCoordinatesJsongeoRead.fromJson(json[r'geoCoordinates']),
       markers: MarkerJsongeoRead.listFromJson(json[r'markers']),
+      member: json[r'member'],
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
@@ -47,6 +49,8 @@ class FeedbackJsongeoRead {
   GeoCoordinatesJsongeoRead? geoCoordinates;
 
   final List<MarkerJsongeoRead>? markers;
+
+  String? member;
 
   Map<String, Object?>? metadata;
 
@@ -74,6 +78,7 @@ class FeedbackJsongeoRead {
         other.description == description &&
         other.geoCoordinates == geoCoordinates &&
         DeepCollectionEquality.unordered().equals(markers, other.markers) &&
+        other.member == member &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.reporter == reporter &&
         other.visibility == visibility &&
@@ -87,6 +92,7 @@ class FeedbackJsongeoRead {
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
       (markers == null ? 0 : markers.hashCode) +
+      (member == null ? 0 : member.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
       visibility.hashCode +
@@ -143,7 +149,7 @@ class FeedbackJsongeoRead {
 
   @override
   String toString() =>
-      'FeedbackJsongeoRead[description=$description, geoCoordinates=$geoCoordinates, markers=$markers, metadata=$metadata, reporter=$reporter, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'FeedbackJsongeoRead[description=$description, geoCoordinates=$geoCoordinates, markers=$markers, member=$member, metadata=$metadata, reporter=$reporter, visibility=$visibility, id=$id, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -160,6 +166,7 @@ class FeedbackJsongeoRead {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       r'visibility': visibility,

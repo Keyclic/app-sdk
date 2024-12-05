@@ -13,7 +13,7 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // FeedbackJsonhalReadLinksMember member
+    // GetPlaceCollection200ResponseLinksFirst member
     test('to test the property `member`', () async {});
 
     // GetPlaceCollection200ResponseLinksFirst reporter

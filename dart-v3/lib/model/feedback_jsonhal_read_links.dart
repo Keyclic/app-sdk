@@ -21,7 +21,7 @@ class FeedbackJsonhalReadLinks {
 
     return FeedbackJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      member: FeedbackJsonhalReadLinksMember.fromJson(json[r'member']),
+      member: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member']),
       reporter:
           GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reporter']),
     );
@@ -29,7 +29,7 @@ class FeedbackJsonhalReadLinks {
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  FeedbackJsonhalReadLinksMember? member;
+  GetPlaceCollection200ResponseLinksFirst? member;
 
   GetPlaceCollection200ResponseLinksFirst? reporter;
 

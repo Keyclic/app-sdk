@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **geoCoordinates** | [**GeoCoordinatesJsongeoRead**](GeoCoordinatesJsongeoRead.md) |  | [optional] 
 **markers** | [**List<MarkerJsongeoRead>**](MarkerJsongeoRead.md) |  | [optional] [readonly] [default to const []]
+**member** | **String** |  | [optional] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **reporter** | **String** |  | [optional] 
 **visibility** | **String** |  | 

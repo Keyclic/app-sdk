@@ -19,6 +19,9 @@ void main() {
     // List<MarkerJsongeoRead> markers (default value: const [])
     test('to test the property `markers`', () async {});
 
+    // String member
+    test('to test the property `member`', () async {});
+
     // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 

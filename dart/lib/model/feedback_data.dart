@@ -176,8 +176,8 @@ class FeedbackData {
             previousValue.add(element.split(RegExp(r'^geo\.')).last);
           }
 
-        return previousValue;
-      })),
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
       if (keys == null || keys.contains(r'place')) r'place': place,

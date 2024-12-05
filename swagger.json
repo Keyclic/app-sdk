@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.67.0-dev.g67d443aa6"
+        "version": "2.67.0-dev.g97954c108"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -2887,6 +2887,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -8804,6 +8810,12 @@
                         "$ref": "#\/parameters\/rating__"
                     },
                     {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
+                    },
+                    {
                         "$ref": "#\/parameters\/scheduled_at_after"
                     },
                     {
@@ -9183,6 +9195,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -9769,6 +9787,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -10433,6 +10457,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -12945,6 +12975,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -25202,6 +25238,22 @@
             },
             "name": "rating[]",
             "pattern": "[-+]?\\d+",
+            "type": "array"
+        },
+        "reporter": {
+            "in": "query",
+            "name": "reporter",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "reporters__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "reporters[]",
+            "pattern": ".*",
             "type": "array"
         },
         "scheduled_at_after": {

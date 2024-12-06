@@ -580,7 +580,6 @@ part 'model/signer_pagination.dart';
 part 'model/signer_signature.dart';
 part 'model/state.dart';
 part 'model/success_login.dart';
-part 'model/success_login_credentials.dart';
 part 'model/target_group.dart';
 part 'model/task_patch.dart';
 part 'model/template.dart';

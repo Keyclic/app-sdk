@@ -13,8 +13,8 @@ void main() {
     // String accessToken
     test('to test the property `accessToken`', () async {});
 
-    // SuccessLoginCredentials credentials
-    test('to test the property `credentials`', () async {});
+    // String idToken
+    test('to test the property `idToken`', () async {});
 
     // String tokenType (default value: 'Bearer')
     test('to test the property `tokenType`', () async {});

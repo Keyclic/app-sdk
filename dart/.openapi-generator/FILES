@@ -560,7 +560,6 @@ doc/SignerPagination.md
 doc/SignerSignature.md
 doc/State.md
 doc/SuccessLogin.md
-doc/SuccessLoginCredentials.md
 doc/TargetGroup.md
 doc/TaskPatch.md
 doc/Template.md
@@ -1152,7 +1151,6 @@ lib/model/signer_pagination.dart
 lib/model/signer_signature.dart
 lib/model/state.dart
 lib/model/success_login.dart
-lib/model/success_login_credentials.dart
 lib/model/target_group.dart
 lib/model/task_patch.dart
 lib/model/template.dart
@@ -1730,7 +1728,6 @@ test/signer_pagination_test.dart
 test/signer_signature_test.dart
 test/signer_test.dart
 test/state_test.dart
-test/success_login_credentials_test.dart
 test/success_login_test.dart
 test/target_group_test.dart
 test/task_patch_test.dart

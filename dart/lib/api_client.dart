@@ -1364,8 +1364,6 @@ class ApiClient {
           return State.fromJson(value);
         case 'SuccessLogin':
           return SuccessLogin.fromJson(value);
-        case 'SuccessLoginCredentials':
-          return SuccessLoginCredentials.fromJson(value);
         case 'TargetGroup':
           return TargetGroup.fromJson(value);
         case 'TaskPatch':

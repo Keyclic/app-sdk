@@ -18128,11 +18128,11 @@
                     ]
                 },
                 "properties": {
-                    "type": "array",
                     "default": [],
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "type": "array"
                 }
             }
         },

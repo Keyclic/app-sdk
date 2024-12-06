@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.67.0-dev.g67d443aa6"
+        "version": "2.67.0-dev.g8166f3859"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -14069,7 +14069,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/successLogin"
+                            "$ref": "#\/definitions\/SuccessLogin"
                         }
                     }
                 },
@@ -24044,6 +24044,24 @@
                 }
             }
         },
+        "SuccessLogin": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "idToken": {
+                    "type": "string",
+                    "format": "string"
+                },
+                "tokenType": {
+                    "type": "string",
+                    "format": "string",
+                    "default": "Bearer"
+                }
+            }
+        },
         "TargetGroup": {
             "type": "object",
             "properties": {
@@ -24589,33 +24607,6 @@
                     "format": "string",
                     "readOnly": true,
                     "type": "string"
-                }
-            }
-        },
-        "successLogin": {
-            "type": "object",
-            "properties": {
-                "accessToken": {
-                    "type": "string",
-                    "format": "string"
-                },
-                "credentials": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                            "format": "uuid"
-                        },
-                        "login": {
-                            "type": "string",
-                            "format": "string"
-                        }
-                    }
-                },
-                "tokenType": {
-                    "type": "string",
-                    "format": "string",
-                    "default": "Bearer"
                 }
             }
         }

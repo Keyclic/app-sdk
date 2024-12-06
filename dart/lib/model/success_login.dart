@@ -8,7 +8,7 @@ class SuccessLogin {
   /// Returns a new [SuccessLogin] instance.
   SuccessLogin({
     this.accessToken,
-    this.credentials,
+    this.idToken,
     this.tokenType,
   });
 
@@ -21,14 +21,14 @@ class SuccessLogin {
 
     return SuccessLogin(
       accessToken: json[r'accessToken'],
-      credentials: SuccessLoginCredentials.fromJson(json[r'credentials']),
+      idToken: json[r'idToken'],
       tokenType: json[r'tokenType'],
     );
   }
 
   String? accessToken;
 
-  SuccessLoginCredentials? credentials;
+  String? idToken;
 
   String? tokenType;
 
@@ -41,14 +41,14 @@ class SuccessLogin {
 
     return other is SuccessLogin &&
         other.accessToken == accessToken &&
-        other.credentials == credentials &&
+        other.idToken == idToken &&
         other.tokenType == tokenType;
   }
 
   @override
   int get hashCode =>
       (accessToken == null ? 0 : accessToken.hashCode) +
-      (credentials == null ? 0 : credentials.hashCode) +
+      (idToken == null ? 0 : idToken.hashCode) +
       (tokenType == null ? 0 : tokenType.hashCode);
 
   static List<SuccessLogin> listFromJson(Iterable? json) {
@@ -98,22 +98,13 @@ class SuccessLogin {
 
   @override
   String toString() =>
-      'SuccessLogin[accessToken=$accessToken, credentials=$credentials, tokenType=$tokenType]';
+      'SuccessLogin[accessToken=$accessToken, idToken=$idToken, tokenType=$tokenType]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'accessToken'))
         r'accessToken': accessToken,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^credentials\.').hasMatch(key)))
-        r'credentials': credentials?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^credentials\.'))) {
-            previousValue.add(element.split(RegExp(r'^credentials\.')).last);
-          }
-
-          return previousValue;
-        })),
+      if (keys == null || keys.contains(r'idToken')) r'idToken': idToken,
       if (keys == null || keys.contains(r'tokenType')) r'tokenType': tokenType,
     };
   }

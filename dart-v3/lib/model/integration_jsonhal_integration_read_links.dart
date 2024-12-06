@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class IntegrationJsonhalIntegrationReadLinks {
   /// Returns a new [IntegrationJsonhalIntegrationReadLinks] instance.
   IntegrationJsonhalIntegrationReadLinks({
-    this.self,
-    this.connector,
-    this.organization,
+    required this.self,
+    required this.connector,
+    required this.organization,
   });
 
   /// Returns a new [IntegrationJsonhalIntegrationReadLinks] instance and imports its values from
@@ -20,19 +20,19 @@ class IntegrationJsonhalIntegrationReadLinks {
     }
 
     return IntegrationJsonhalIntegrationReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       connector:
-          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'connector']),
+          GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'connector'])!,
       organization: GetPlaceCollection200ResponseLinksSelf.fromJson(
-          json[r'organization']),
+          json[r'organization'])!,
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
-  GetPlaceCollection200ResponseLinksSelf? connector;
+  GetPlaceCollection200ResponseLinksSelf connector;
 
-  GetPlaceCollection200ResponseLinksSelf? organization;
+  GetPlaceCollection200ResponseLinksSelf organization;
 
   @override
   bool operator ==(Object other) {
@@ -49,9 +49,7 @@ class IntegrationJsonhalIntegrationReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
-      (connector == null ? 0 : connector.hashCode) +
-      (organization == null ? 0 : organization.hashCode);
+      self.hashCode + connector.hashCode + organization.hashCode;
 
   static List<IntegrationJsonhalIntegrationReadLinks> listFromJson(
       Iterable? json) {
@@ -109,35 +107,30 @@ class IntegrationJsonhalIntegrationReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^connector\.').hasMatch(key)))
-        r'connector': connector?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^connector\.'))) {
-            previousValue.add(element.split(RegExp(r'^connector\.')).last);
-          }
+        return previousValue;
+      })),
+      r'connector': connector.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^connector\.'))) {
+          previousValue.add(element.split(RegExp(r'^connector\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+        return previousValue;
+      })),
+      r'organization': organization.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^organization\.'))) {
+          previousValue.add(element.split(RegExp(r'^organization\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

@@ -7,20 +7,20 @@ part of keyclic_sdk_api_platform;
 class TicketJsonhalRead {
   /// Returns a new [TicketJsonhalRead] instance.
   TicketJsonhalRead({
-    this.links,
+    required this.links,
     this.description,
     this.dueBy,
     this.name,
     this.scheduledAt,
-    this.completed,
-    this.id,
+    required this.completed,
+    required this.id,
     this.tags,
-    this.createdAt,
-    this.updatedAt,
+    required this.createdAt,
+    required this.updatedAt,
     this.reference,
-    this.archived,
-    this.images,
-    this.embedded,
+    required this.archived,
+    this.images = const [],
+    required this.embedded,
   });
 
   /// Returns a new [TicketJsonhalRead] instance and imports its values from
@@ -31,7 +31,7 @@ class TicketJsonhalRead {
     }
 
     return TicketJsonhalRead(
-      links: TicketJsonhalReadLinks.fromJson(json[r'_links']),
+      links: TicketJsonhalReadLinks.fromJson(json[r'_links'])!,
       description: json[r'description'],
       dueBy: mapToDateTime(json[r'dueBy']),
       name: json[r'name'],
@@ -39,17 +39,16 @@ class TicketJsonhalRead {
       completed: json[r'completed'],
       id: json[r'id'],
       tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       reference: json[r'reference'],
       archived: json[r'archived'],
-      images:
-          json[r'images'] == null ? null : List<String>.from(json[r'images']),
-      embedded: TicketJsonhalReadEmbedded.fromJson(json[r'_embedded']),
+      images: List<String>.from(json[r'images']),
+      embedded: TicketJsonhalReadEmbedded.fromJson(json[r'_embedded'])!,
     );
   }
 
-  TicketJsonhalReadLinks? links;
+  TicketJsonhalReadLinks links;
 
   String? description;
 
@@ -59,26 +58,26 @@ class TicketJsonhalRead {
 
   DateTime? scheduledAt;
 
-  bool? completed;
+  bool completed;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   List<String>? tags;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   final String? reference;
 
-  bool? archived;
+  bool archived;
 
-  final List<String>? images;
+  final List<String> images;
 
-  TicketJsonhalReadEmbedded? embedded;
+  TicketJsonhalReadEmbedded embedded;
 
   @override
   bool operator ==(Object other) {
@@ -106,20 +105,20 @@ class TicketJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (description == null ? 0 : description.hashCode) +
       (dueBy == null ? 0 : dueBy.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (scheduledAt == null ? 0 : scheduledAt.hashCode) +
-      (completed == null ? 0 : completed.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      completed.hashCode +
+      id.hashCode +
       (tags == null ? 0 : tags.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       (reference == null ? 0 : reference.hashCode) +
-      (archived == null ? 0 : archived.hashCode) +
-      (images == null ? 0 : images.hashCode) +
-      (embedded == null ? 0 : embedded.hashCode);
+      archived.hashCode +
+      images.hashCode +
+      embedded.hashCode;
 
   static List<TicketJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -174,15 +173,14 @@ class TicketJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'dueBy'))
@@ -190,26 +188,22 @@ class TicketJsonhalRead {
       if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'scheduledAt'))
         r'scheduledAt': scheduledAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'completed')) r'completed': completed,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'completed': completed,
+      r'id': id,
       if (keys == null || keys.contains(r'tags')) r'tags': tags,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'reference')) r'reference': reference,
-      if (keys == null || keys.contains(r'archived')) r'archived': archived,
-      if (keys == null || keys.contains(r'images')) r'images': images,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
-        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^embedded\.'))) {
-            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
-          }
+      r'archived': archived,
+      r'images': images,
+      r'_embedded': embedded.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^embedded\.'))) {
+          previousValue.add(element.split(RegExp(r'^embedded\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

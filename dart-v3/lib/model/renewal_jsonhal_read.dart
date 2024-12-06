@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class RenewalJsonhalRead {
   /// Returns a new [RenewalJsonhalRead] instance.
   RenewalJsonhalRead({
-    this.links,
     this.duration,
     this.noticePeriod,
   });
@@ -20,8 +19,6 @@ class RenewalJsonhalRead {
     }
 
     return RenewalJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       duration: json[r'duration'],
       noticePeriod: json[r'noticePeriod'],
     );
@@ -50,7 +47,7 @@ class RenewalJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (duration == null ? 0 : duration.hashCode) +
       (noticePeriod == null ? 0 : noticePeriod.hashCode);
 
@@ -107,15 +104,6 @@ class RenewalJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       if (keys == null || keys.contains(r'noticePeriod'))
         r'noticePeriod': noticePeriod,

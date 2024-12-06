@@ -8,7 +8,7 @@ class GetReviewCollection200Response {
   /// Returns a new [GetReviewCollection200Response] instance.
   GetReviewCollection200Response({
     this.embedded,
-    this.totalItems,
+    required this.totalItems,
     this.itemsPerPage,
     required this.links,
   });
@@ -32,7 +32,7 @@ class GetReviewCollection200Response {
   GetReviewCollection200ResponseEmbedded? embedded;
 
   // minimum: 0
-  int? totalItems;
+  int totalItems;
 
   // minimum: 0
   int? itemsPerPage;
@@ -56,7 +56,7 @@ class GetReviewCollection200Response {
   @override
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
-      (totalItems == null ? 0 : totalItems.hashCode) +
+      totalItems.hashCode +
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
@@ -124,8 +124,7 @@ class GetReviewCollection200Response {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'totalItems'))
-        r'totalItems': totalItems,
+      r'totalItems': totalItems,
       if (keys == null || keys.contains(r'itemsPerPage'))
         r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],

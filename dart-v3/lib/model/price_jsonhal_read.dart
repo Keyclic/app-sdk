@@ -7,9 +7,8 @@ part of keyclic_sdk_api_platform;
 class PriceJsonhalRead {
   /// Returns a new [PriceJsonhalRead] instance.
   PriceJsonhalRead({
-    this.links,
-    this.currencyCode,
-    this.value,
+    this.currencyCode = const PriceJsonhalReadCurrencyCodeEnum._('EUR'),
+    required this.value,
   });
 
   /// Returns a new [PriceJsonhalRead] instance and imports its values from
@@ -20,10 +19,8 @@ class PriceJsonhalRead {
     }
 
     return PriceJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       currencyCode:
-          PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
+          PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode'])!,
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),
     );
   }
@@ -31,10 +28,10 @@ class PriceJsonhalRead {
   ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The currency code, in ISO 4217 format.
-  final PriceJsonhalReadCurrencyCodeEnum? currencyCode;
+  final PriceJsonhalReadCurrencyCodeEnum currencyCode;
 
   // minimum: 0
-  num? value;
+  num value;
 
   @override
   bool operator ==(Object other) {
@@ -50,10 +47,7 @@ class PriceJsonhalRead {
   }
 
   @override
-  int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (currencyCode == null ? 0 : currencyCode.hashCode) +
-      (value == null ? 0 : value.hashCode);
+  int get hashCode => links.hashCode + currencyCode.hashCode + value.hashCode;
 
   static List<PriceJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -106,18 +100,8 @@ class PriceJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'currencyCode'))
-        r'currencyCode': currencyCode,
-      if (keys == null || keys.contains(r'value')) r'value': value,
+      r'currencyCode': currencyCode,
+      r'value': value,
     };
   }
 }

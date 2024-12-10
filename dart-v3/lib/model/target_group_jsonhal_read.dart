@@ -21,15 +21,14 @@ class TargetGroupJsonhalRead {
     }
 
     return TargetGroupJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       id: json[r'id'],
       name: json[r'name'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   final String? description;
 

@@ -10,9 +10,6 @@ void main() {
   // final instance = ConnectionJsonhalAuthProfileRead();
 
   group('test ConnectionJsonhalAuthProfileRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // String image
     test('to test the property `image`', () async {});
 

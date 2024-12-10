@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class ContactPointJsonhalRead {
   /// Returns a new [ContactPointJsonhalRead] instance.
   ContactPointJsonhalRead({
-    this.links,
     this.description,
     this.email,
     this.faxNumber,
@@ -25,8 +24,6 @@ class ContactPointJsonhalRead {
     }
 
     return ContactPointJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       description: json[r'description'],
       email: json[r'email'],
       faxNumber: json[r'faxNumber'],
@@ -36,8 +33,6 @@ class ContactPointJsonhalRead {
       name: json[r'name'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? description;
 
@@ -63,7 +58,6 @@ class ContactPointJsonhalRead {
     }
 
     return other is ContactPointJsonhalRead &&
-        other.links == links &&
         other.description == description &&
         other.email == email &&
         other.faxNumber == faxNumber &&
@@ -75,7 +69,6 @@ class ContactPointJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (description == null ? 0 : description.hashCode) +
       (email == null ? 0 : email.hashCode) +
       (faxNumber == null ? 0 : faxNumber.hashCode) +
@@ -134,19 +127,10 @@ class ContactPointJsonhalRead {
 
   @override
   String toString() =>
-      'ContactPointJsonhalRead[links=$links, description=$description, email=$email, faxNumber=$faxNumber, telephone=$telephone, familyName=$familyName, givenName=$givenName, name=$name]';
+      'ContactPointJsonhalRead[description=$description, email=$email, faxNumber=$faxNumber, telephone=$telephone, familyName=$familyName, givenName=$givenName, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null || keys.contains(r'email')) r'email': email,

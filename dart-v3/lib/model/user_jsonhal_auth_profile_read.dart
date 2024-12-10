@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class UserJsonhalAuthProfileRead {
   /// Returns a new [UserJsonhalAuthProfileRead] instance.
   UserJsonhalAuthProfileRead({
-    this.links,
     this.email,
     this.username,
   });
@@ -20,14 +19,10 @@ class UserJsonhalAuthProfileRead {
     }
 
     return UserJsonhalAuthProfileRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       email: json[r'email'],
       username: json[r'username'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? email;
 
@@ -41,14 +36,12 @@ class UserJsonhalAuthProfileRead {
     }
 
     return other is UserJsonhalAuthProfileRead &&
-        other.links == links &&
         other.email == email &&
         other.username == username;
   }
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (email == null ? 0 : email.hashCode) +
       (username == null ? 0 : username.hashCode);
 
@@ -102,19 +95,10 @@ class UserJsonhalAuthProfileRead {
 
   @override
   String toString() =>
-      'UserJsonhalAuthProfileRead[links=$links, email=$email, username=$username]';
+      'UserJsonhalAuthProfileRead[email=$email, username=$username]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'email')) r'email': email,
       if (keys == null || keys.contains(r'username')) r'username': username,
     };

@@ -10,7 +10,7 @@ void main() {
   // final instance = ConnectorJsonhalRead();
 
   group('test ConnectorJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // String name

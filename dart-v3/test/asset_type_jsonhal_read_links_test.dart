@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for ArchivingJsonhalOrganizationPreferenceReadLinks
+// tests for AssetTypeJsonhalReadLinks
 void main() {
-  // final instance = ArchivingJsonhalOrganizationPreferenceReadLinks();
+  // final instance = AssetTypeJsonhalReadLinks();
 
-  group('test ArchivingJsonhalOrganizationPreferenceReadLinks', () {
+  group('test AssetTypeJsonhalReadLinks', () {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
   });

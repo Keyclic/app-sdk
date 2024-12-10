@@ -1,4 +1,4 @@
-# keyclic_sdk_api_platform.model.ArchivingJsonhalOrganizationPreferenceReadLinks
+# keyclic_sdk_api_platform.model.AssetTypeJsonhalReadLinks
 
 ## Load the model package
 ```dart

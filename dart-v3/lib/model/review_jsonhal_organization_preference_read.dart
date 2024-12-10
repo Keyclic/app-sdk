@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class ReviewJsonhalOrganizationPreferenceRead {
   /// Returns a new [ReviewJsonhalOrganizationPreferenceRead] instance.
   ReviewJsonhalOrganizationPreferenceRead({
-    this.links,
     this.enabled,
   });
 
@@ -19,13 +18,9 @@ class ReviewJsonhalOrganizationPreferenceRead {
     }
 
     return ReviewJsonhalOrganizationPreferenceRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       enabled: json[r'enabled'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   bool? enabled;
 
@@ -37,14 +32,11 @@ class ReviewJsonhalOrganizationPreferenceRead {
     }
 
     return other is ReviewJsonhalOrganizationPreferenceRead &&
-        other.links == links &&
         other.enabled == enabled;
   }
 
   @override
-  int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
 
   static List<ReviewJsonhalOrganizationPreferenceRead> listFromJson(
       Iterable? json) {
@@ -99,19 +91,10 @@ class ReviewJsonhalOrganizationPreferenceRead {
 
   @override
   String toString() =>
-      'ReviewJsonhalOrganizationPreferenceRead[links=$links, enabled=$enabled]';
+      'ReviewJsonhalOrganizationPreferenceRead[enabled=$enabled]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
     };
   }

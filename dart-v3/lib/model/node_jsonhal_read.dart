@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class NodeJsonhalRead {
   /// Returns a new [NodeJsonhalRead] instance.
   NodeJsonhalRead({
-    this.links,
     this.id,
     this.name,
   });
@@ -20,14 +19,10 @@ class NodeJsonhalRead {
     }
 
     return NodeJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       id: json[r'id'],
       name: json[r'name'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? id;
 
@@ -40,17 +35,12 @@ class NodeJsonhalRead {
       return true;
     }
 
-    return other is NodeJsonhalRead &&
-        other.links == links &&
-        other.id == id &&
-        other.name == name;
+    return other is NodeJsonhalRead && other.id == id && other.name == name;
   }
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      (id == null ? 0 : id.hashCode) + (name == null ? 0 : name.hashCode);
 
   static List<NodeJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -98,19 +88,10 @@ class NodeJsonhalRead {
   }
 
   @override
-  String toString() => 'NodeJsonhalRead[links=$links, id=$id, name=$name]';
+  String toString() => 'NodeJsonhalRead[id=$id, name=$name]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'name')) r'name': name,
     };

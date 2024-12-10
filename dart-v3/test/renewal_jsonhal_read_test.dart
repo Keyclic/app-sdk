@@ -10,9 +10,6 @@ void main() {
   // final instance = RenewalJsonhalRead();
 
   group('test RenewalJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // Duration of the renewal in ISO 8601 duration format.
     // String duration
     test('to test the property `duration`', () async {});

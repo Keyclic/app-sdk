@@ -28,8 +28,7 @@ class WorkflowStateJsonhalRead {
     }
 
     return WorkflowStateJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       allowAdd: json[r'allowAdd'],
       allowDispatch: json[r'allowDispatch'],
       end: json[r'end'],
@@ -44,7 +43,7 @@ class WorkflowStateJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   bool? allowAdd;
 

@@ -30,8 +30,7 @@ class PersonJsonhalRead {
     }
 
     return PersonJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       image: json[r'image'],
       jobTitle: json[r'jobTitle'],
@@ -47,7 +46,7 @@ class PersonJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   final String? id;
 

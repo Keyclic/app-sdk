@@ -10,9 +10,6 @@ void main() {
   // final instance = NodeJsonhalRead();
 
   group('test NodeJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // String id
     test('to test the property `id`', () async {});
 

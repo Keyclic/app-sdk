@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**ArchivingJsonhalOrganizationPreferenceReadLinks**](ArchivingJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
+**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
 **data** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
 **name** | **String** |  | [optional] 

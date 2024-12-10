@@ -22,8 +22,7 @@ class CollaboratorJsonhalRead {
     }
 
     return CollaboratorJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
@@ -31,7 +30,7 @@ class CollaboratorJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   /// The resource identifier.
   final String? id;

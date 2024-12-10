@@ -10,9 +10,6 @@ void main() {
   // final instance = PriceJsonhalRead();
 
   group('test PriceJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // The currency code, in ISO 4217 format.
     // String currencyCode (default value: 'EUR')
     test('to test the property `currencyCode`', () async {});

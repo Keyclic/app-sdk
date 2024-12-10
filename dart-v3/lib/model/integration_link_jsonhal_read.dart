@@ -27,8 +27,7 @@ class IntegrationLinkJsonhalRead {
     }
 
     return IntegrationLinkJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       data: json[r'data'] == null
           ? null
           : Map<String, Object?>.from(json[r'data']),
@@ -45,7 +44,7 @@ class IntegrationLinkJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   Map<String, Object?>? data;
 

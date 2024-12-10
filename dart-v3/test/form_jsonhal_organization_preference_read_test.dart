@@ -10,9 +10,6 @@ void main() {
   // final instance = FormJsonhalOrganizationPreferenceRead();
 
   group('test FormJsonhalOrganizationPreferenceRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // Allow authorized user to provide a contract on feedback form.
     // bool contract
     test('to test the property `contract`', () async {});

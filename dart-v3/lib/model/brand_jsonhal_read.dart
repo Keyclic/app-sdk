@@ -21,15 +21,14 @@ class BrandJsonhalRead {
     }
 
     return BrandJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       name: json[r'name'],
       id: json[r'id'],
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   /// Detailed description of brand.
   String? description;

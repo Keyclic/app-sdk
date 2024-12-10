@@ -24,8 +24,7 @@ class WorkflowTransitionJsonhalRead {
     }
 
     return WorkflowTransitionJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       description: json[r'description'],
       fields:
           json[r'fields'] == null ? null : List<String>.from(json[r'fields']),
@@ -39,7 +38,7 @@ class WorkflowTransitionJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   String? description;
 

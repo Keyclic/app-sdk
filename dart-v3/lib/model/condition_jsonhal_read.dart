@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class ConditionJsonhalRead {
   /// Returns a new [ConditionJsonhalRead] instance.
   ConditionJsonhalRead({
-    this.links,
     required this.propertyPath,
     this.values = const {},
     this.operator_,
@@ -21,15 +20,11 @@ class ConditionJsonhalRead {
     }
 
     return ConditionJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       propertyPath: json[r'propertyPath'],
       values: Map<String, String>.from(json[r'values']),
       operator_: ConditionJsonhalReadOperator_Enum.fromJson(json[r'operator']),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String propertyPath;
 
@@ -45,7 +40,6 @@ class ConditionJsonhalRead {
     }
 
     return other is ConditionJsonhalRead &&
-        other.links == links &&
         other.propertyPath == propertyPath &&
         DeepCollectionEquality.unordered().equals(values, other.values) &&
         other.operator_ == operator_;
@@ -53,7 +47,6 @@ class ConditionJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       propertyPath.hashCode +
       values.hashCode +
       (operator_ == null ? 0 : operator_.hashCode);
@@ -108,19 +101,10 @@ class ConditionJsonhalRead {
 
   @override
   String toString() =>
-      'ConditionJsonhalRead[links=$links, propertyPath=$propertyPath, values=$values, operator_=$operator_]';
+      'ConditionJsonhalRead[propertyPath=$propertyPath, values=$values, operator_=$operator_]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       r'propertyPath': propertyPath,
       r'values': values,
       if (keys == null || keys.contains(r'operator_')) r'operator': operator_,

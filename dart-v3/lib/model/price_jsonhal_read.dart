@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class PriceJsonhalRead {
   /// Returns a new [PriceJsonhalRead] instance.
   PriceJsonhalRead({
-    this.links,
     this.currencyCode,
     this.value,
   });
@@ -20,15 +19,11 @@ class PriceJsonhalRead {
     }
 
     return PriceJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       currencyCode:
           PriceJsonhalReadCurrencyCodeEnum.fromJson(json[r'currencyCode']),
       value: json[r'value'] == null ? null : json[r'value'].toDouble(),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The currency code, in ISO 4217 format.
   final PriceJsonhalReadCurrencyCodeEnum? currencyCode;
@@ -44,14 +39,12 @@ class PriceJsonhalRead {
     }
 
     return other is PriceJsonhalRead &&
-        other.links == links &&
         other.currencyCode == currencyCode &&
         other.value == value;
   }
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (currencyCode == null ? 0 : currencyCode.hashCode) +
       (value == null ? 0 : value.hashCode);
 
@@ -102,19 +95,10 @@ class PriceJsonhalRead {
 
   @override
   String toString() =>
-      'PriceJsonhalRead[links=$links, currencyCode=$currencyCode, value=$value]';
+      'PriceJsonhalRead[currencyCode=$currencyCode, value=$value]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'currencyCode'))
         r'currencyCode': currencyCode,
       if (keys == null || keys.contains(r'value')) r'value': value,

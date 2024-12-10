@@ -10,7 +10,7 @@ void main() {
   // final instance = WorkflowStateJsonhalRead();
 
   group('test WorkflowStateJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // bool allowAdd

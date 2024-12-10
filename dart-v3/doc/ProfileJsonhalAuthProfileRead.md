@@ -8,7 +8,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**ArchivingJsonhalOrganizationPreferenceReadLinks**](ArchivingJsonhalOrganizationPreferenceReadLinks.md) |  | [optional] 
+**links** | [**AssetTypeJsonhalReadLinks**](AssetTypeJsonhalReadLinks.md) |  | [optional] 
 **types** | **List<String>** | Available connection types for the given email address. These might include password, enterprise, social. | [optional] [readonly] [default to const []]
 **connections** | [**List<ConnectionJsonhalAuthProfileRead>**](ConnectionJsonhalAuthProfileRead.md) |  | [optional] [default to const []]
 **user** | [**UserJsonhalAuthProfileRead**](UserJsonhalAuthProfileRead.md) |  | [optional] 

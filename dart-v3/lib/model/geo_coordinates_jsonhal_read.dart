@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class GeoCoordinatesJsonhalRead {
   /// Returns a new [GeoCoordinatesJsonhalRead] instance.
   GeoCoordinatesJsonhalRead({
-    this.links,
     this.elevation,
     this.point,
   });
@@ -20,15 +19,11 @@ class GeoCoordinatesJsonhalRead {
     }
 
     return GeoCoordinatesJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
       point: PointJsonhalRead.fromJson(json[r'point']),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The elevation of a location (WGS 84).
   // minimum: -10000
@@ -45,14 +40,12 @@ class GeoCoordinatesJsonhalRead {
     }
 
     return other is GeoCoordinatesJsonhalRead &&
-        other.links == links &&
         other.elevation == elevation &&
         other.point == point;
   }
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (elevation == null ? 0 : elevation.hashCode) +
       (point == null ? 0 : point.hashCode);
 
@@ -106,19 +99,10 @@ class GeoCoordinatesJsonhalRead {
 
   @override
   String toString() =>
-      'GeoCoordinatesJsonhalRead[links=$links, elevation=$elevation, point=$point]';
+      'GeoCoordinatesJsonhalRead[elevation=$elevation, point=$point]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
       if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
         r'point': point?.toJson(keys?.fold<List<String>>(<String>[],

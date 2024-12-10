@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class ConnectionJsonhalAuthProfileRead {
   /// Returns a new [ConnectionJsonhalAuthProfileRead] instance.
   ConnectionJsonhalAuthProfileRead({
-    this.links,
     this.image,
     this.text,
     this.authorizationUrl,
@@ -22,16 +21,12 @@ class ConnectionJsonhalAuthProfileRead {
     }
 
     return ConnectionJsonhalAuthProfileRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       image: json[r'image'],
       text: json[r'text'],
       authorizationUrl: json[r'authorizationUrl'],
       type: ConnectionJsonhalAuthProfileReadTypeEnum.fromJson(json[r'type']),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   String? image;
 
@@ -49,7 +44,6 @@ class ConnectionJsonhalAuthProfileRead {
     }
 
     return other is ConnectionJsonhalAuthProfileRead &&
-        other.links == links &&
         other.image == image &&
         other.text == text &&
         other.authorizationUrl == authorizationUrl &&
@@ -58,7 +52,6 @@ class ConnectionJsonhalAuthProfileRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (image == null ? 0 : image.hashCode) +
       (text == null ? 0 : text.hashCode) +
       (authorizationUrl == null ? 0 : authorizationUrl.hashCode) +
@@ -114,19 +107,10 @@ class ConnectionJsonhalAuthProfileRead {
 
   @override
   String toString() =>
-      'ConnectionJsonhalAuthProfileRead[links=$links, image=$image, text=$text, authorizationUrl=$authorizationUrl, type=$type]';
+      'ConnectionJsonhalAuthProfileRead[image=$image, text=$text, authorizationUrl=$authorizationUrl, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'image')) r'image': image,
       if (keys == null || keys.contains(r'text')) r'text': text,
       if (keys == null || keys.contains(r'authorizationUrl'))

@@ -10,9 +10,6 @@ void main() {
   // final instance = PreferencesJsonhalOrganizationRead();
 
   group('test PreferencesJsonhalOrganizationRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // ArchivingJsonhalOrganizationPreferenceRead archiving
     test('to test the property `archiving`', () async {});
 

@@ -10,7 +10,7 @@ void main() {
   // final instance = TicketPriorityJsonhalRead();
 
   group('test TicketPriorityJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // String color

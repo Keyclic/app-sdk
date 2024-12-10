@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class DurationJsonhalRead {
   /// Returns a new [DurationJsonhalRead] instance.
   DurationJsonhalRead({
-    this.links,
     this.hours,
     this.minutes,
     this.seconds,
@@ -21,15 +20,11 @@ class DurationJsonhalRead {
     }
 
     return DurationJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       hours: json[r'hours'] == null ? null : json[r'hours'].toDouble(),
       minutes: json[r'minutes'],
       seconds: json[r'seconds'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   final num? hours;
 
@@ -45,7 +40,6 @@ class DurationJsonhalRead {
     }
 
     return other is DurationJsonhalRead &&
-        other.links == links &&
         other.hours == hours &&
         other.minutes == minutes &&
         other.seconds == seconds;
@@ -53,7 +47,6 @@ class DurationJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (hours == null ? 0 : hours.hashCode) +
       (minutes == null ? 0 : minutes.hashCode) +
       (seconds == null ? 0 : seconds.hashCode);
@@ -107,19 +100,10 @@ class DurationJsonhalRead {
 
   @override
   String toString() =>
-      'DurationJsonhalRead[links=$links, hours=$hours, minutes=$minutes, seconds=$seconds]';
+      'DurationJsonhalRead[hours=$hours, minutes=$minutes, seconds=$seconds]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'hours')) r'hours': hours,
       if (keys == null || keys.contains(r'minutes')) r'minutes': minutes,
       if (keys == null || keys.contains(r'seconds')) r'seconds': seconds,

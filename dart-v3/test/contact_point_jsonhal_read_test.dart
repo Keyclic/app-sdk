@@ -10,9 +10,6 @@ void main() {
   // final instance = ContactPointJsonhalRead();
 
   group('test ContactPointJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // String description
     test('to test the property `description`', () async {});
 

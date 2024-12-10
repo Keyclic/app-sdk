@@ -10,9 +10,6 @@ void main() {
   // final instance = EquipmentJsonhalOrganizationPreferenceRead();
 
   group('test EquipmentJsonhalOrganizationPreferenceRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // bool enabled
     test('to test the property `enabled`', () async {});
   });

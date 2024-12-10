@@ -10,7 +10,7 @@ void main() {
   // final instance = PersonJsonhalRead();
 
   group('test PersonJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
+    // AssetTypeJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // String id

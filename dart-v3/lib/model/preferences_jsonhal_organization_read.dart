@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class PreferencesJsonhalOrganizationRead {
   /// Returns a new [PreferencesJsonhalOrganizationRead] instance.
   PreferencesJsonhalOrganizationRead({
-    this.links,
     this.archiving,
     this.contract,
     this.equipment,
@@ -29,8 +28,6 @@ class PreferencesJsonhalOrganizationRead {
     }
 
     return PreferencesJsonhalOrganizationRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       archiving: ArchivingJsonhalOrganizationPreferenceRead.fromJson(
           json[r'archiving']),
       contract:
@@ -48,8 +45,6 @@ class PreferencesJsonhalOrganizationRead {
       sla: SlaJsonhalOrganizationPreferenceRead.fromJson(json[r'sla']),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   ArchivingJsonhalOrganizationPreferenceRead? archiving;
 
@@ -81,7 +76,6 @@ class PreferencesJsonhalOrganizationRead {
     }
 
     return other is PreferencesJsonhalOrganizationRead &&
-        other.links == links &&
         other.archiving == archiving &&
         other.contract == contract &&
         other.equipment == equipment &&
@@ -97,7 +91,6 @@ class PreferencesJsonhalOrganizationRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (archiving == null ? 0 : archiving.hashCode) +
       (contract == null ? 0 : contract.hashCode) +
       (equipment == null ? 0 : equipment.hashCode) +
@@ -161,19 +154,10 @@ class PreferencesJsonhalOrganizationRead {
 
   @override
   String toString() =>
-      'PreferencesJsonhalOrganizationRead[links=$links, archiving=$archiving, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, sla=$sla]';
+      'PreferencesJsonhalOrganizationRead[archiving=$archiving, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, sla=$sla]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^archiving\.').hasMatch(key)))
         r'archiving': archiving?.toJson(keys?.fold<List<String>>(<String>[],

@@ -24,8 +24,7 @@ class BusinessHoursJsonhalRead {
     }
 
     return BusinessHoursJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       hoursPerDay: json[r'hoursPerDay'],
       name: json[r'name'],
       openingHours: List<String>.from(json[r'openingHours']),
@@ -35,7 +34,7 @@ class BusinessHoursJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   String hoursPerDay;
 

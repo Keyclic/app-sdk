@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.67.0-dev.g67d443aa6"
+        "version": "2.67.0-dev.gbb3fa61be"
     },
     "servers": [
         {
@@ -17899,20 +17899,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "enabled": {
                         "type": "boolean"
                     }
@@ -18194,20 +18180,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "adjustedCost": {
                         "description": "Adjusted cost of the contract after adjustments have been applied.",
                         "$ref": "#/components/schemas/Price.jsonhal-Read"
@@ -18642,20 +18614,6 @@
                     "values"
                 ],
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "propertyPath": {
                         "type": "string",
                         "nullable": true
@@ -18681,20 +18639,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "image": {
                         "type": "string"
                     },
@@ -18831,20 +18775,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "description": {
                         "type": "string",
                         "nullable": true
@@ -19074,20 +19004,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "enabled": {
                         "type": "boolean"
                     }
@@ -19357,20 +19273,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "hours": {
                         "readOnly": true,
                         "type": "number"
@@ -19587,20 +19489,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "enabled": {
                         "type": "boolean"
                     }
@@ -20069,20 +19957,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "contract": {
                         "description": "Allow authorized user to provide a contract on feedback form.",
                         "type": "boolean"
@@ -20132,20 +20006,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "elevation": {
                         "minimum": -10000,
                         "maximum": 8000,
@@ -20397,20 +20257,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "point": {
                         "$ref": "#/components/schemas/Point.jsonhal-Read"
                     },
@@ -20557,20 +20403,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "id": {
                         "type": "string"
                     },
@@ -21067,20 +20899,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "srid": {
                         "type": "integer"
                     },
@@ -21154,20 +20972,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "locality": {
                         "type": "string",
                         "nullable": true
@@ -21219,20 +21023,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "visibility": {
                         "enum": [
                             "VISIBILITY_PRIVATE",
@@ -21249,20 +21039,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "archiving": {
                         "$ref": "#/components/schemas/Archiving.jsonhal-OrganizationPreference-Read"
                     },
@@ -21314,20 +21090,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "currencyCode": {
                         "enum": [
                             "EUR"
@@ -21493,20 +21255,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "prefix": {
                         "type": "string",
                         "nullable": true
@@ -21537,20 +21285,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "duration": {
                         "description": "Duration of the renewal in ISO 8601 duration format.",
                         "type": "string",
@@ -21570,20 +21304,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "enabled": {
                         "type": "boolean"
                     }
@@ -21972,20 +21692,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "enabled": {
                         "type": "boolean"
                     }
@@ -22627,20 +22333,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "email": {
                         "format": "email",
                         "minLength": 1,
@@ -22681,20 +22373,6 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "_links": {
-                        "type": "object",
-                        "properties": {
-                            "self": {
-                                "type": "object",
-                                "properties": {
-                                    "href": {
-                                        "type": "string",
-                                        "format": "iri-reference"
-                                    }
-                                }
-                            }
-                        }
-                    },
                     "duration": {
                         "description": "The duration of the warranty in ISO 8601 duration format.",
                         "type": "string",

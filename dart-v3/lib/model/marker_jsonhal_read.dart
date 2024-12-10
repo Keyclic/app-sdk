@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class MarkerJsonhalRead {
   /// Returns a new [MarkerJsonhalRead] instance.
   MarkerJsonhalRead({
-    this.links,
     this.point,
     this.id,
   });
@@ -20,14 +19,10 @@ class MarkerJsonhalRead {
     }
 
     return MarkerJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       point: PointJsonhalRead.fromJson(json[r'point']),
       id: json[r'id'],
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   PointJsonhalRead? point;
 
@@ -41,17 +36,12 @@ class MarkerJsonhalRead {
       return true;
     }
 
-    return other is MarkerJsonhalRead &&
-        other.links == links &&
-        other.point == point &&
-        other.id == id;
+    return other is MarkerJsonhalRead && other.point == point && other.id == id;
   }
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (point == null ? 0 : point.hashCode) +
-      (id == null ? 0 : id.hashCode);
+      (point == null ? 0 : point.hashCode) + (id == null ? 0 : id.hashCode);
 
   static List<MarkerJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -101,19 +91,10 @@ class MarkerJsonhalRead {
   }
 
   @override
-  String toString() => 'MarkerJsonhalRead[links=$links, point=$point, id=$id]';
+  String toString() => 'MarkerJsonhalRead[point=$point, id=$id]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
         r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

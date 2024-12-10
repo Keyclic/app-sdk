@@ -52,10 +52,10 @@ part 'api/workflow_state_api.dart';
 part 'api/workflow_transition_api.dart';
 
 part 'model/archiving_jsonhal_organization_preference_read.dart';
-part 'model/archiving_jsonhal_organization_preference_read_links.dart';
 part 'model/asset_jsonhal_read.dart';
 part 'model/asset_jsonhal_read_links.dart';
 part 'model/asset_type_jsonhal_read.dart';
+part 'model/asset_type_jsonhal_read_links.dart';
 part 'model/assignment_jsongeo_read.dart';
 part 'model/assignment_jsonhal_read.dart';
 part 'model/assignment_jsonhal_read_links.dart';

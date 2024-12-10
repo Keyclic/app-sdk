@@ -10,9 +10,6 @@ void main() {
   // final instance = PointJsonhalRead();
 
   group('test PointJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // int srid
     test('to test the property `srid`', () async {});
 

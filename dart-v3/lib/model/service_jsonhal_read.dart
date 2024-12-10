@@ -28,8 +28,7 @@ class ServiceJsonhalRead {
     }
 
     return ServiceJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
       contactPoint: ContactPointJsonhalRead.fromJson(json[r'contactPoint']),
       description: json[r'description'],
       name: json[r'name'],
@@ -43,7 +42,7 @@ class ServiceJsonhalRead {
     );
   }
 
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
+  AssetTypeJsonhalReadLinks? links;
 
   ContactPointJsonhalRead? contactPoint;
 

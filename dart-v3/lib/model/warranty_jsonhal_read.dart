@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class WarrantyJsonhalRead {
   /// Returns a new [WarrantyJsonhalRead] instance.
   WarrantyJsonhalRead({
-    this.links,
     this.duration,
     this.endDate,
     this.startDate,
@@ -21,15 +20,11 @@ class WarrantyJsonhalRead {
     }
 
     return WarrantyJsonhalRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       duration: json[r'duration'],
       endDate: mapToDateTime(json[r'endDate']),
       startDate: mapToDateTime(json[r'startDate']),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// The duration of the warranty in ISO 8601 duration format.
   String? duration;
@@ -48,7 +43,6 @@ class WarrantyJsonhalRead {
     }
 
     return other is WarrantyJsonhalRead &&
-        other.links == links &&
         other.duration == duration &&
         other.endDate == endDate &&
         other.startDate == startDate;
@@ -56,7 +50,6 @@ class WarrantyJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (duration == null ? 0 : duration.hashCode) +
       (endDate == null ? 0 : endDate.hashCode) +
       (startDate == null ? 0 : startDate.hashCode);
@@ -110,19 +103,10 @@ class WarrantyJsonhalRead {
 
   @override
   String toString() =>
-      'WarrantyJsonhalRead[links=$links, duration=$duration, endDate=$endDate, startDate=$startDate]';
+      'WarrantyJsonhalRead[duration=$duration, endDate=$endDate, startDate=$startDate]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'duration')) r'duration': duration,
       if (keys == null || keys.contains(r'endDate'))
         r'endDate': endDate?.toUtc().toIso8601String(),

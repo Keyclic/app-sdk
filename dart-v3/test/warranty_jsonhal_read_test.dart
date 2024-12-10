@@ -10,9 +10,6 @@ void main() {
   // final instance = WarrantyJsonhalRead();
 
   group('test WarrantyJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // The duration of the warranty in ISO 8601 duration format.
     // String duration
     test('to test the property `duration`', () async {});

@@ -10,9 +10,6 @@ void main() {
   // final instance = GeoCoordinatesJsonhalRead();
 
   group('test GeoCoordinatesJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // The elevation of a location (WGS 84).
     // num elevation
     test('to test the property `elevation`', () async {});

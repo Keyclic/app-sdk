@@ -276,15 +276,14 @@ class ApiPlatformClient {
           return value is double ? value : double.parse('$value');
         case 'ArchivingJsonhalOrganizationPreferenceRead':
           return ArchivingJsonhalOrganizationPreferenceRead.fromJson(value);
-        case 'ArchivingJsonhalOrganizationPreferenceReadLinks':
-          return ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-              value);
         case 'AssetJsonhalRead':
           return AssetJsonhalRead.fromJson(value);
         case 'AssetJsonhalReadLinks':
           return AssetJsonhalReadLinks.fromJson(value);
         case 'AssetTypeJsonhalRead':
           return AssetTypeJsonhalRead.fromJson(value);
+        case 'AssetTypeJsonhalReadLinks':
+          return AssetTypeJsonhalReadLinks.fromJson(value);
         case 'AssignmentJsongeoRead':
           return AssignmentJsongeoRead.fromJson(value);
         case 'AssignmentJsonhalRead':

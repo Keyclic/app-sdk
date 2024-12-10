@@ -7,7 +7,6 @@ part of keyclic_sdk_api_platform;
 class FormJsonhalOrganizationPreferenceRead {
   /// Returns a new [FormJsonhalOrganizationPreferenceRead] instance.
   FormJsonhalOrganizationPreferenceRead({
-    this.links,
     this.contract,
     this.hidden,
     this.manualDispatch,
@@ -22,8 +21,6 @@ class FormJsonhalOrganizationPreferenceRead {
     }
 
     return FormJsonhalOrganizationPreferenceRead(
-      links: ArchivingJsonhalOrganizationPreferenceReadLinks.fromJson(
-          json[r'_links']),
       contract: json[r'contract'],
       hidden:
           json[r'hidden'] == null ? null : List<String>.from(json[r'hidden']),
@@ -33,8 +30,6 @@ class FormJsonhalOrganizationPreferenceRead {
           : List<String>.from(json[r'required']),
     );
   }
-
-  ArchivingJsonhalOrganizationPreferenceReadLinks? links;
 
   /// Allow authorized user to provide a contract on feedback form.
   bool? contract;
@@ -54,7 +49,6 @@ class FormJsonhalOrganizationPreferenceRead {
     }
 
     return other is FormJsonhalOrganizationPreferenceRead &&
-        other.links == links &&
         other.contract == contract &&
         DeepCollectionEquality.unordered().equals(hidden, other.hidden) &&
         other.manualDispatch == manualDispatch &&
@@ -63,7 +57,6 @@ class FormJsonhalOrganizationPreferenceRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
       (contract == null ? 0 : contract.hashCode) +
       (hidden == null ? 0 : hidden.hashCode) +
       (manualDispatch == null ? 0 : manualDispatch.hashCode) +
@@ -121,19 +114,10 @@ class FormJsonhalOrganizationPreferenceRead {
 
   @override
   String toString() =>
-      'FormJsonhalOrganizationPreferenceRead[links=$links, contract=$contract, hidden=$hidden, manualDispatch=$manualDispatch, required_=$required_]';
+      'FormJsonhalOrganizationPreferenceRead[contract=$contract, hidden=$hidden, manualDispatch=$manualDispatch, required_=$required_]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
-
-          return previousValue;
-        })),
       if (keys == null || keys.contains(r'contract')) r'contract': contract,
       if (keys == null || keys.contains(r'hidden')) r'hidden': hidden,
       if (keys == null || keys.contains(r'manualDispatch'))

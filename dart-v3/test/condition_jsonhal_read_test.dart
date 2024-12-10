@@ -10,9 +10,6 @@ void main() {
   // final instance = ConditionJsonhalRead();
 
   group('test ConditionJsonhalRead', () {
-    // ArchivingJsonhalOrganizationPreferenceReadLinks links
-    test('to test the property `links`', () async {});
-
     // String propertyPath
     test('to test the property `propertyPath`', () async {});
 

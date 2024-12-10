@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class MarkerJsongeoRead {
   /// Returns a new [MarkerJsongeoRead] instance.
   MarkerJsongeoRead({
-    this.point,
-    this.id,
+    required this.point,
+    required this.id,
   });
 
   /// Returns a new [MarkerJsongeoRead] instance and imports its values from
@@ -19,15 +19,15 @@ class MarkerJsongeoRead {
     }
 
     return MarkerJsongeoRead(
-      point: PointJsongeoRead.fromJson(json[r'point']),
+      point: PointJsongeoRead.fromJson(json[r'point'])!,
       id: json[r'id'],
     );
   }
 
-  PointJsongeoRead? point;
+  PointJsongeoRead point;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -40,8 +40,7 @@ class MarkerJsongeoRead {
   }
 
   @override
-  int get hashCode =>
-      (point == null ? 0 : point.hashCode) + (id == null ? 0 : id.hashCode);
+  int get hashCode => point.hashCode + id.hashCode;
 
   static List<MarkerJsongeoRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -95,16 +94,15 @@ class MarkerJsongeoRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+      r'point': point.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^point\.'))) {
+          previousValue.add(element.split(RegExp(r'^point\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'id': id,
     };
   }
 }

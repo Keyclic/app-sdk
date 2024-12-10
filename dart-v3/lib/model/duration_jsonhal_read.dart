@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class DurationJsonhalRead {
   /// Returns a new [DurationJsonhalRead] instance.
   DurationJsonhalRead({
-    this.hours,
-    this.minutes,
-    this.seconds,
+    required this.hours,
+    required this.minutes,
+    required this.seconds,
   });
 
   /// Returns a new [DurationJsonhalRead] instance and imports its values from
@@ -26,11 +26,11 @@ class DurationJsonhalRead {
     );
   }
 
-  final num? hours;
+  final num hours;
 
-  final int? minutes;
+  final int minutes;
 
-  final int? seconds;
+  final int seconds;
 
   @override
   bool operator ==(Object other) {
@@ -46,10 +46,7 @@ class DurationJsonhalRead {
   }
 
   @override
-  int get hashCode =>
-      (hours == null ? 0 : hours.hashCode) +
-      (minutes == null ? 0 : minutes.hashCode) +
-      (seconds == null ? 0 : seconds.hashCode);
+  int get hashCode => hours.hashCode + minutes.hashCode + seconds.hashCode;
 
   static List<DurationJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -104,9 +101,9 @@ class DurationJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'hours')) r'hours': hours,
-      if (keys == null || keys.contains(r'minutes')) r'minutes': minutes,
-      if (keys == null || keys.contains(r'seconds')) r'seconds': seconds,
+      r'hours': hours,
+      r'minutes': minutes,
+      r'seconds': seconds,
     };
   }
 }

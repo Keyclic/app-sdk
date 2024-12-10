@@ -7,19 +7,19 @@ part of keyclic_sdk_api_platform;
 class PersonJsonhalRead {
   /// Returns a new [PersonJsonhalRead] instance.
   PersonJsonhalRead({
-    this.links,
-    this.id,
+    required this.links,
+    required this.id,
     this.image,
     this.jobTitle,
-    this.optIn,
+    required this.optIn,
     this.telephone,
-    this.email,
-    this.username,
-    this.enabled,
+    required this.email,
+    required this.username,
+    required this.enabled,
     this.familyName,
     this.givenName,
-    this.createdAt,
-    this.updatedAt,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [PersonJsonhalRead] instance and imports its values from
@@ -30,7 +30,7 @@ class PersonJsonhalRead {
     }
 
     return PersonJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       id: json[r'id'],
       image: json[r'image'],
       jobTitle: json[r'jobTitle'],
@@ -41,28 +41,28 @@ class PersonJsonhalRead {
       enabled: json[r'enabled'],
       familyName: json[r'familyName'],
       givenName: json[r'givenName'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
-  final String? id;
+  final String id;
 
   String? image;
 
   String? jobTitle;
 
-  bool? optIn;
+  bool optIn;
 
   String? telephone;
 
-  String? email;
+  String email;
 
-  String? username;
+  String username;
 
-  bool? enabled;
+  bool enabled;
 
   /// Family name. In the U.S., the last name of a Person.
   String? familyName;
@@ -71,10 +71,10 @@ class PersonJsonhalRead {
   String? givenName;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -101,19 +101,19 @@ class PersonJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
+      links.hashCode +
+      id.hashCode +
       (image == null ? 0 : image.hashCode) +
       (jobTitle == null ? 0 : jobTitle.hashCode) +
-      (optIn == null ? 0 : optIn.hashCode) +
+      optIn.hashCode +
       (telephone == null ? 0 : telephone.hashCode) +
-      (email == null ? 0 : email.hashCode) +
-      (username == null ? 0 : username.hashCode) +
-      (enabled == null ? 0 : enabled.hashCode) +
+      email.hashCode +
+      username.hashCode +
+      enabled.hashCode +
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<PersonJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -168,30 +168,27 @@ class PersonJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
+        return previousValue;
+      })),
+      r'id': id,
       if (keys == null || keys.contains(r'image')) r'image': image,
       if (keys == null || keys.contains(r'jobTitle')) r'jobTitle': jobTitle,
-      if (keys == null || keys.contains(r'optIn')) r'optIn': optIn,
+      r'optIn': optIn,
       if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
-      if (keys == null || keys.contains(r'email')) r'email': email,
-      if (keys == null || keys.contains(r'username')) r'username': username,
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+      r'email': email,
+      r'username': username,
+      r'enabled': enabled,
       if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
       if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

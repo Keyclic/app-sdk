@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class ContractJsonhalOrganizationPreferenceRead {
   /// Returns a new [ContractJsonhalOrganizationPreferenceRead] instance.
   ContractJsonhalOrganizationPreferenceRead({
-    this.enabled,
+    required this.enabled,
   });
 
   /// Returns a new [ContractJsonhalOrganizationPreferenceRead] instance and imports its values from
@@ -22,7 +22,7 @@ class ContractJsonhalOrganizationPreferenceRead {
     );
   }
 
-  bool? enabled;
+  bool enabled;
 
   @override
   bool operator ==(Object other) {
@@ -36,7 +36,7 @@ class ContractJsonhalOrganizationPreferenceRead {
   }
 
   @override
-  int get hashCode => (enabled == null ? 0 : enabled.hashCode);
+  int get hashCode => enabled.hashCode;
 
   static List<ContractJsonhalOrganizationPreferenceRead> listFromJson(
       Iterable? json) {
@@ -96,7 +96,7 @@ class ContractJsonhalOrganizationPreferenceRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+      r'enabled': enabled,
     };
   }
 }

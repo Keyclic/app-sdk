@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class FormJsonhalOrganizationPreferenceRead {
   /// Returns a new [FormJsonhalOrganizationPreferenceRead] instance.
   FormJsonhalOrganizationPreferenceRead({
-    this.contract,
+    required this.contract,
     this.hidden,
-    this.manualDispatch,
+    this.manualDispatch = true,
     this.required_,
   });
 
@@ -32,12 +32,12 @@ class FormJsonhalOrganizationPreferenceRead {
   }
 
   /// Allow authorized user to provide a contract on feedback form.
-  bool? contract;
+  bool contract;
 
   List<String>? hidden;
 
   /// Allow authorized user to provide a service to dispatch to on feedback form.
-  bool? manualDispatch;
+  bool manualDispatch;
 
   List<String>? required_;
 
@@ -57,9 +57,9 @@ class FormJsonhalOrganizationPreferenceRead {
 
   @override
   int get hashCode =>
-      (contract == null ? 0 : contract.hashCode) +
+      contract.hashCode +
       (hidden == null ? 0 : hidden.hashCode) +
-      (manualDispatch == null ? 0 : manualDispatch.hashCode) +
+      manualDispatch.hashCode +
       (required_ == null ? 0 : required_.hashCode);
 
   static List<FormJsonhalOrganizationPreferenceRead> listFromJson(
@@ -118,10 +118,9 @@ class FormJsonhalOrganizationPreferenceRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'contract')) r'contract': contract,
+      r'contract': contract,
       if (keys == null || keys.contains(r'hidden')) r'hidden': hidden,
-      if (keys == null || keys.contains(r'manualDispatch'))
-        r'manualDispatch': manualDispatch,
+      r'manualDispatch': manualDispatch,
       if (keys == null || keys.contains(r'required_')) r'required': required_,
     };
   }

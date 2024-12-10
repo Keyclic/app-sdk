@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class GetTicketGeoCollection200Response {
   /// Returns a new [GetTicketGeoCollection200Response] instance.
   GetTicketGeoCollection200Response({
-    this.type,
+    this.type = 'FeatureCollection',
     this.features = const [],
-    this.totalItems,
-    this.itemsPerPage,
+    required this.totalItems,
+    required this.itemsPerPage,
   });
 
   /// Returns a new [GetTicketGeoCollection200Response] instance and imports its values from
@@ -28,15 +28,15 @@ class GetTicketGeoCollection200Response {
     );
   }
 
-  String? type;
+  String type;
 
   List<TicketJsongeoRead> features;
 
   // minimum: 0
-  int? totalItems;
+  int totalItems;
 
   // minimum: 0
-  int? itemsPerPage;
+  int itemsPerPage;
 
   @override
   bool operator ==(Object other) {
@@ -54,10 +54,10 @@ class GetTicketGeoCollection200Response {
 
   @override
   int get hashCode =>
-      (type == null ? 0 : type.hashCode) +
+      type.hashCode +
       features.hashCode +
-      (totalItems == null ? 0 : totalItems.hashCode) +
-      (itemsPerPage == null ? 0 : itemsPerPage.hashCode);
+      totalItems.hashCode +
+      itemsPerPage.hashCode;
 
   static List<GetTicketGeoCollection200Response> listFromJson(Iterable? json) {
     if (json == null) {
@@ -114,12 +114,10 @@ class GetTicketGeoCollection200Response {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'type')) r'type': type,
+      r'type': type,
       r'features': features,
-      if (keys == null || keys.contains(r'totalItems'))
-        r'totalItems': totalItems,
-      if (keys == null || keys.contains(r'itemsPerPage'))
-        r'itemsPerPage': itemsPerPage,
+      r'totalItems': totalItems,
+      r'itemsPerPage': itemsPerPage,
     };
   }
 }

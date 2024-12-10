@@ -8,10 +8,10 @@ class CategoryJsongeoRead {
   /// Returns a new [CategoryJsongeoRead] instance.
   CategoryJsongeoRead({
     required this.name,
-    this.organization,
+    required this.organization,
     this.type,
-    this.id,
-    this.path,
+    required this.id,
+    this.path = const [],
   });
 
   /// Returns a new [CategoryJsongeoRead] instance and imports its values from
@@ -32,14 +32,14 @@ class CategoryJsongeoRead {
 
   String name;
 
-  final String? organization;
+  final String organization;
 
   CategoryTypeJsongeoRead? type;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
-  final List<NodeJsongeoRead>? path;
+  final List<NodeJsongeoRead> path;
 
   @override
   bool operator ==(Object other) {
@@ -59,10 +59,10 @@ class CategoryJsongeoRead {
   @override
   int get hashCode =>
       name.hashCode +
-      (organization == null ? 0 : organization.hashCode) +
+      organization.hashCode +
       (type == null ? 0 : type.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (path == null ? 0 : path.hashCode);
+      id.hashCode +
+      path.hashCode;
 
   static List<CategoryJsongeoRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -118,8 +118,7 @@ class CategoryJsongeoRead {
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       r'name': name,
-      if (keys == null || keys.contains(r'organization'))
-        r'organization': organization,
+      r'organization': organization,
       if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
         r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {
@@ -129,8 +128,8 @@ class CategoryJsongeoRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'path')) r'path': path,
+      r'id': id,
+      r'path': path,
     };
   }
 }

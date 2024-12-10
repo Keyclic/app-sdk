@@ -9,7 +9,7 @@ class ConditionJsonhalRead {
   ConditionJsonhalRead({
     required this.propertyPath,
     this.values = const {},
-    this.operator_,
+    required this.operator_,
   });
 
   /// Returns a new [ConditionJsonhalRead] instance and imports its values from
@@ -22,15 +22,15 @@ class ConditionJsonhalRead {
     return ConditionJsonhalRead(
       propertyPath: json[r'propertyPath'],
       values: Map<String, String>.from(json[r'values']),
-      operator_: ConditionJsonhalReadOperator_Enum.fromJson(json[r'operator']),
+      operator_: ConditionJsonhalReadOperator_Enum.fromJson(json[r'operator'])!,
     );
   }
 
-  String propertyPath;
+  String? propertyPath;
 
   Map<String, String> values;
 
-  ConditionJsonhalReadOperator_Enum? operator_;
+  ConditionJsonhalReadOperator_Enum operator_;
 
   @override
   bool operator ==(Object other) {
@@ -47,9 +47,9 @@ class ConditionJsonhalRead {
 
   @override
   int get hashCode =>
-      propertyPath.hashCode +
+      (propertyPath == null ? 0 : propertyPath.hashCode) +
       values.hashCode +
-      (operator_ == null ? 0 : operator_.hashCode);
+      operator_.hashCode;
 
   static List<ConditionJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -105,9 +105,10 @@ class ConditionJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      r'propertyPath': propertyPath,
+      if (keys == null || keys.contains(r'propertyPath'))
+        r'propertyPath': propertyPath,
       r'values': values,
-      if (keys == null || keys.contains(r'operator_')) r'operator': operator_,
+      r'operator': operator_,
     };
   }
 }

@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class PointJsonhalRead {
   /// Returns a new [PointJsonhalRead] instance.
   PointJsonhalRead({
-    this.srid,
-    this.latitude,
-    this.longitude,
+    required this.srid,
+    required this.latitude,
+    required this.longitude,
   });
 
   /// Returns a new [PointJsonhalRead] instance and imports its values from
@@ -27,11 +27,11 @@ class PointJsonhalRead {
     );
   }
 
-  int? srid;
+  int srid;
 
-  num? latitude;
+  num latitude;
 
-  num? longitude;
+  num longitude;
 
   @override
   bool operator ==(Object other) {
@@ -47,10 +47,7 @@ class PointJsonhalRead {
   }
 
   @override
-  int get hashCode =>
-      (srid == null ? 0 : srid.hashCode) +
-      (latitude == null ? 0 : latitude.hashCode) +
-      (longitude == null ? 0 : longitude.hashCode);
+  int get hashCode => srid.hashCode + latitude.hashCode + longitude.hashCode;
 
   static List<PointJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -103,9 +100,9 @@ class PointJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'srid')) r'srid': srid,
-      if (keys == null || keys.contains(r'latitude')) r'latitude': latitude,
-      if (keys == null || keys.contains(r'longitude')) r'longitude': longitude,
+      r'srid': srid,
+      r'latitude': latitude,
+      r'longitude': longitude,
     };
   }
 }

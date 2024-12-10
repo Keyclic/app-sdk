@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class OccupantJsonhalReadEmbedded {
   /// Returns a new [OccupantJsonhalReadEmbedded] instance.
   OccupantJsonhalReadEmbedded({
-    this.place,
-    this.member,
+    required this.place,
+    required this.member,
   });
 
   /// Returns a new [OccupantJsonhalReadEmbedded] instance and imports its values from
@@ -19,14 +19,14 @@ class OccupantJsonhalReadEmbedded {
     }
 
     return OccupantJsonhalReadEmbedded(
-      place: AssetJsonhalRead.fromJson(json[r'place']),
-      member: ContactJsonhalRead.fromJson(json[r'member']),
+      place: AssetJsonhalRead.fromJson(json[r'place'])!,
+      member: ContactJsonhalRead.fromJson(json[r'member'])!,
     );
   }
 
-  AssetJsonhalRead? place;
+  AssetJsonhalRead place;
 
-  ContactJsonhalRead? member;
+  ContactJsonhalRead member;
 
   @override
   bool operator ==(Object other) {
@@ -41,9 +41,7 @@ class OccupantJsonhalReadEmbedded {
   }
 
   @override
-  int get hashCode =>
-      (place == null ? 0 : place.hashCode) +
-      (member == null ? 0 : member.hashCode);
+  int get hashCode => place.hashCode + member.hashCode;
 
   static List<OccupantJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -99,24 +97,22 @@ class OccupantJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^place\.').hasMatch(key)))
-        r'place': place?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^place\.'))) {
-            previousValue.add(element.split(RegExp(r'^place\.')).last);
-          }
+      r'place': place.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^place\.'))) {
+          previousValue.add(element.split(RegExp(r'^place\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
-          }
+        return previousValue;
+      })),
+      r'member': member.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^member\.'))) {
+          previousValue.add(element.split(RegExp(r'^member\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

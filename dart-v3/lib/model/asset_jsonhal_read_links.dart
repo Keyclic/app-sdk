@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class AssetJsonhalReadLinks {
   /// Returns a new [AssetJsonhalReadLinks] instance.
   AssetJsonhalReadLinks({
-    this.self,
+    required this.self,
     this.type,
     this.parent,
     this.state,
@@ -21,14 +21,14 @@ class AssetJsonhalReadLinks {
     }
 
     return AssetJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
       parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
       state: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'state']),
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   GetPlaceCollection200ResponseLinksFirst? type;
 
@@ -52,7 +52,7 @@ class AssetJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
+      self.hashCode +
       (type == null ? 0 : type.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
@@ -111,15 +111,14 @@ class AssetJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.any((key) => RegExp(r'^type\.').hasMatch(key)))
         r'type': type?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

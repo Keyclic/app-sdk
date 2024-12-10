@@ -7,11 +7,11 @@ part of keyclic_sdk_api_platform;
 class PlaceJsongeoRead {
   /// Returns a new [PlaceJsongeoRead] instance.
   PlaceJsongeoRead({
-    this.id,
+    required this.id,
     this.description,
     required this.name,
     this.preferences,
-    this.path,
+    this.path = const [],
     this.address,
     this.parent,
     this.state,
@@ -37,7 +37,7 @@ class PlaceJsongeoRead {
   }
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   String? description;
 
@@ -45,7 +45,7 @@ class PlaceJsongeoRead {
 
   PreferencesJsongeoAssetRead? preferences;
 
-  final List<NodeJsongeoRead>? path;
+  final List<NodeJsongeoRead> path;
 
   PostalAddressJsongeoRead? address;
 
@@ -73,11 +73,11 @@ class PlaceJsongeoRead {
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) +
+      id.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
-      (path == null ? 0 : path.hashCode) +
+      path.hashCode +
       (address == null ? 0 : address.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
       (state == null ? 0 : state.hashCode);
@@ -133,7 +133,7 @@ class PlaceJsongeoRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,
@@ -147,7 +147,7 @@ class PlaceJsongeoRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'path')) r'path': path,
+      r'path': path,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
         r'address': address?.toJson(keys?.fold<List<String>>(<String>[],

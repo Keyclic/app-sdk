@@ -268,6 +268,7 @@ class TicketApi {
   /// * [reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket] -
   /// * [state] -
   /// * [stateLeftSquareBracketRightSquareBracket] -
+  /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node excluding the node itself.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the node only.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node including the node itself.
@@ -371,6 +372,8 @@ class TicketApi {
     List<int>? reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket,
     String? state,
     List<String>? stateLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
     List<String>?
         treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket,
     List<String>?
@@ -644,6 +647,11 @@ class TicketApi {
         r'state[]': encodeCollectionQueryParameter(
             stateLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[place][ancestors][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket !=
           null)
         r'tree[place][descendants][]': encodeCollectionQueryParameter(
@@ -773,6 +781,7 @@ class TicketApi {
   /// * [reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket] -
   /// * [state] -
   /// * [stateLeftSquareBracketRightSquareBracket] -
+  /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node excluding the node itself.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketNodeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the node only.
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketSubtreeRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the tree below the node including the node itself.
@@ -866,6 +875,8 @@ class TicketApi {
     List<int>? reviewsPeriodReviewRatingLeftSquareBracketRightSquareBracket,
     String? state,
     List<String>? stateLeftSquareBracketRightSquareBracket,
+    List<String>?
+        treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
     List<String>?
         treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket,
     List<String>?
@@ -1107,6 +1118,11 @@ class TicketApi {
       if (stateLeftSquareBracketRightSquareBracket != null)
         r'state[]': encodeCollectionQueryParameter(
             stateLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'tree[place][ancestors][]': encodeCollectionQueryParameter(
+            treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketDescendantsRightSquareBracketLeftSquareBracketRightSquareBracket !=
           null)

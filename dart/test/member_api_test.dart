@@ -15,11 +15,6 @@ void main() {
     //Future deleteMember(String xKeyclicApp, String member, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test deleteMember', () async {});
 
-    // Retrieve one Member resource.
-    //
-    //Future<Member> getMember(String xKeyclicApp, String member, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
-    test('test getMember', () async {});
-
     // Edit one Member resource.
     //
     //Future<Member> patchMember(String xKeyclicApp, String member, MemberPatch memberPatch, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async

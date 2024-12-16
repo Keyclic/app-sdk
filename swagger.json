@@ -20849,7 +20849,6 @@
                 "ORGANIZATION:AGENT",
                 "ORGANIZATION:MEMBER",
                 "ORGANIZATION:OPERATOR",
-                "ALL",
                 "ANALYTICS:ALL",
                 "DOCUMENT:ALL",
                 "EXPORT:ALL",

@@ -45,7 +45,6 @@ class Permission {
   static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
   static const oRGANIZATIONColonOPERATOR =
       Permission._(r'ORGANIZATION:OPERATOR');
-  static const ALL = Permission._(r'ALL');
   static const aNALYTICSColonALL = Permission._(r'ANALYTICS:ALL');
   static const dOCUMENTColonALL = Permission._(r'DOCUMENT:ALL');
   static const eXPORTColonALL = Permission._(r'EXPORT:ALL');
@@ -93,7 +92,6 @@ class Permission {
     oRGANIZATIONColonAGENT,
     oRGANIZATIONColonMEMBER,
     oRGANIZATIONColonOPERATOR,
-    ALL,
     aNALYTICSColonALL,
     dOCUMENTColonALL,
     eXPORTColonALL,
@@ -193,8 +191,6 @@ class PermissionTypeTransformer {
         return Permission.oRGANIZATIONColonMEMBER;
       case r'ORGANIZATION:OPERATOR':
         return Permission.oRGANIZATIONColonOPERATOR;
-      case r'ALL':
-        return Permission.ALL;
       case r'ANALYTICS:ALL':
         return Permission.aNALYTICSColonALL;
       case r'DOCUMENT:ALL':

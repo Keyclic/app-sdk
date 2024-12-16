@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class IntegrationLinkCreateLinkCommandWrite {
   /// Returns a new [IntegrationLinkCreateLinkCommandWrite] instance.
   IntegrationLinkCreateLinkCommandWrite({
-    this.data,
+    this.data = const {},
     required this.integration,
-    this.metadata,
+    this.metadata = const {},
     this.name,
     required this.source_,
     this.state,
@@ -24,13 +24,9 @@ class IntegrationLinkCreateLinkCommandWrite {
     }
 
     return IntegrationLinkCreateLinkCommandWrite(
-      data: json[r'data'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'data']),
+      data: Map<String, Object?>.from(json[r'data']),
       integration: json[r'integration'],
-      metadata: json[r'metadata'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'metadata']),
+      metadata: Map<String, Object?>.from(json[r'metadata']),
       name: json[r'name'],
       source_: json[r'source'],
       state: IntegrationLinkCreateLinkCommandWriteStateEnum.fromJson(
@@ -39,11 +35,11 @@ class IntegrationLinkCreateLinkCommandWrite {
     );
   }
 
-  Map<String, Object?>? data;
+  Map<String, Object?> data;
 
   String integration;
 
-  Map<String, Object?>? metadata;
+  Map<String, Object?> metadata;
 
   String? name;
 
@@ -72,9 +68,9 @@ class IntegrationLinkCreateLinkCommandWrite {
 
   @override
   int get hashCode =>
-      (data == null ? 0 : data.hashCode) +
+      data.hashCode +
       integration.hashCode +
-      (metadata == null ? 0 : metadata.hashCode) +
+      metadata.hashCode +
       (name == null ? 0 : name.hashCode) +
       source_.hashCode +
       (state == null ? 0 : state.hashCode) +
@@ -136,9 +132,9 @@ class IntegrationLinkCreateLinkCommandWrite {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'data')) r'data': data,
+      r'data': data,
       r'integration': integration,
-      if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
+      r'metadata': metadata,
       if (keys == null || keys.contains(r'name')) r'name': name,
       r'source': source_,
       if (keys == null || keys.contains(r'state')) r'state': state,

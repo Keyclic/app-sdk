@@ -7,15 +7,15 @@ part of keyclic_sdk_api_platform;
 class FeedbackJsonhalRead {
   /// Returns a new [FeedbackJsonhalRead] instance.
   FeedbackJsonhalRead({
-    this.links,
+    required this.links,
     this.description,
     this.geoCoordinates,
-    this.markers,
+    this.markers = const [],
     this.metadata,
     required this.visibility,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Returns a new [FeedbackJsonhalRead] instance and imports its values from
@@ -26,7 +26,7 @@ class FeedbackJsonhalRead {
     }
 
     return FeedbackJsonhalRead(
-      links: FeedbackJsonhalReadLinks.fromJson(json[r'_links']),
+      links: FeedbackJsonhalReadLinks.fromJson(json[r'_links'])!,
       description: json[r'description'],
       geoCoordinates:
           GeoCoordinatesJsonhalRead.fromJson(json[r'geoCoordinates']),
@@ -35,33 +35,33 @@ class FeedbackJsonhalRead {
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
       visibility:
-          FeedbackJsonhalReadVisibilityEnum.fromJson(json[r'visibility'])!,
+          FeedbackJsonhalReadVisibilityEnum.fromJson(json[r'visibility']),
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
     );
   }
 
-  FeedbackJsonhalReadLinks? links;
+  FeedbackJsonhalReadLinks links;
 
   String? description;
 
   GeoCoordinatesJsonhalRead? geoCoordinates;
 
-  final List<MarkerJsonhalRead>? markers;
+  final List<MarkerJsonhalRead> markers;
 
   Map<String, Object?>? metadata;
 
-  FeedbackJsonhalReadVisibilityEnum visibility;
+  FeedbackJsonhalReadVisibilityEnum? visibility;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -84,15 +84,15 @@ class FeedbackJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (description == null ? 0 : description.hashCode) +
       (geoCoordinates == null ? 0 : geoCoordinates.hashCode) +
-      (markers == null ? 0 : markers.hashCode) +
+      markers.hashCode +
       (metadata == null ? 0 : metadata.hashCode) +
-      visibility.hashCode +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (visibility == null ? 0 : visibility.hashCode) +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode;
 
   static List<FeedbackJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -147,15 +147,14 @@ class FeedbackJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       if (keys == null ||
@@ -168,14 +167,13 @@ class FeedbackJsonhalRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'markers')) r'markers': markers,
+      r'markers': markers,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      r'visibility': visibility,
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'visibility'))
+        r'visibility': visibility,
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
     };
   }
 }

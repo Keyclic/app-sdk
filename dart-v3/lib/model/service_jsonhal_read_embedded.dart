@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class ServiceJsonhalReadEmbedded {
   /// Returns a new [ServiceJsonhalReadEmbedded] instance.
   ServiceJsonhalReadEmbedded({
-    this.provider,
+    required this.provider,
     this.manager,
-    this.organization,
+    required this.organization,
   });
 
   /// Returns a new [ServiceJsonhalReadEmbedded] instance and imports its values from
@@ -20,17 +20,17 @@ class ServiceJsonhalReadEmbedded {
     }
 
     return ServiceJsonhalReadEmbedded(
-      provider: OrganizationJsonhalRead.fromJson(json[r'provider']),
+      provider: OrganizationJsonhalRead.fromJson(json[r'provider'])!,
       manager: CollaboratorJsonhalRead.fromJson(json[r'manager']),
-      organization: OrganizationJsonhalRead.fromJson(json[r'organization']),
+      organization: OrganizationJsonhalRead.fromJson(json[r'organization'])!,
     );
   }
 
-  OrganizationJsonhalRead? provider;
+  OrganizationJsonhalRead provider;
 
   CollaboratorJsonhalRead? manager;
 
-  OrganizationJsonhalRead? organization;
+  OrganizationJsonhalRead organization;
 
   @override
   bool operator ==(Object other) {
@@ -47,9 +47,9 @@ class ServiceJsonhalReadEmbedded {
 
   @override
   int get hashCode =>
-      (provider == null ? 0 : provider.hashCode) +
+      provider.hashCode +
       (manager == null ? 0 : manager.hashCode) +
-      (organization == null ? 0 : organization.hashCode);
+      organization.hashCode;
 
   static List<ServiceJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -105,16 +105,14 @@ class ServiceJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^provider\.').hasMatch(key)))
-        r'provider': provider?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^provider\.'))) {
-            previousValue.add(element.split(RegExp(r'^provider\.')).last);
-          }
+      r'provider': provider.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^provider\.'))) {
+          previousValue.add(element.split(RegExp(r'^provider\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^manager\.').hasMatch(key)))
         r'manager': manager?.toJson(keys?.fold<List<String>>(<String>[],
@@ -125,16 +123,14 @@ class ServiceJsonhalReadEmbedded {
 
           return previousValue;
         })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+      r'organization': organization.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^organization\.'))) {
+          previousValue.add(element.split(RegExp(r'^organization\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class MemberJsonhalReadEmbedded {
   /// Returns a new [MemberJsonhalReadEmbedded] instance.
   MemberJsonhalReadEmbedded({
-    this.organization,
+    required this.organization,
     this.person,
     this.roles,
   });
@@ -20,13 +20,13 @@ class MemberJsonhalReadEmbedded {
     }
 
     return MemberJsonhalReadEmbedded(
-      organization: OrganizationJsonhalRead.fromJson(json[r'organization']),
+      organization: OrganizationJsonhalRead.fromJson(json[r'organization'])!,
       person: PersonJsonhalRead.fromJson(json[r'person']),
       roles: RoleJsonhalRead.listFromJson(json[r'roles']),
     );
   }
 
-  OrganizationJsonhalRead? organization;
+  OrganizationJsonhalRead organization;
 
   PersonJsonhalRead? person;
 
@@ -47,7 +47,7 @@ class MemberJsonhalReadEmbedded {
 
   @override
   int get hashCode =>
-      (organization == null ? 0 : organization.hashCode) +
+      organization.hashCode +
       (person == null ? 0 : person.hashCode) +
       (roles == null ? 0 : roles.hashCode);
 
@@ -105,16 +105,14 @@ class MemberJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+      r'organization': organization.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^organization\.'))) {
+          previousValue.add(element.split(RegExp(r'^organization\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.any((key) => RegExp(r'^person\.').hasMatch(key)))
         r'person': person?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

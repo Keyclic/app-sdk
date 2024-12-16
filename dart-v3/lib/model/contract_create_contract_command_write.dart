@@ -14,7 +14,7 @@ class ContractCreateContractCommandWrite {
     required this.name,
     required this.number,
     this.onCall,
-    this.places,
+    this.places = const [],
     required this.provider,
     this.renewal,
     this.signedAt,
@@ -39,8 +39,7 @@ class ContractCreateContractCommandWrite {
       name: json[r'name'],
       number: json[r'number'],
       onCall: json[r'onCall'],
-      places:
-          json[r'places'] == null ? null : List<String>.from(json[r'places']),
+      places: List<String>.from(json[r'places']),
       provider: json[r'provider'],
       renewal: RenewalWrite.fromJson(json[r'renewal']),
       signedAt: mapToDateTime(json[r'signedAt']),
@@ -66,7 +65,7 @@ class ContractCreateContractCommandWrite {
 
   bool? onCall;
 
-  List<String>? places;
+  List<String> places;
 
   String provider;
 
@@ -116,7 +115,7 @@ class ContractCreateContractCommandWrite {
       name.hashCode +
       number.hashCode +
       (onCall == null ? 0 : onCall.hashCode) +
-      (places == null ? 0 : places.hashCode) +
+      places.hashCode +
       provider.hashCode +
       (renewal == null ? 0 : renewal.hashCode) +
       (signedAt == null ? 0 : signedAt.hashCode) +
@@ -198,7 +197,7 @@ class ContractCreateContractCommandWrite {
       r'name': name,
       r'number': number,
       if (keys == null || keys.contains(r'onCall')) r'onCall': onCall,
-      if (keys == null || keys.contains(r'places')) r'places': places,
+      r'places': places,
       r'provider': provider,
       if (keys == null ||
           keys.any((key) => RegExp(r'^renewal\.').hasMatch(key)))

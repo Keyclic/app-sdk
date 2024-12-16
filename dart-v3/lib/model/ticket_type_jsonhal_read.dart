@@ -7,10 +7,10 @@ part of keyclic_sdk_api_platform;
 class TicketTypeJsonhalRead {
   /// Returns a new [TicketTypeJsonhalRead] instance.
   TicketTypeJsonhalRead({
-    this.links,
-    this.id,
-    this.createdAt,
-    this.updatedAt,
+    required this.links,
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
     required this.name,
     this.description,
   });
@@ -23,25 +23,25 @@ class TicketTypeJsonhalRead {
     }
 
     return TicketTypeJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
       id: json[r'id'],
-      createdAt: mapToDateTime(json[r'createdAt']),
-      updatedAt: mapToDateTime(json[r'updatedAt']),
+      createdAt: mapToDateTime(json[r'createdAt'])!,
+      updatedAt: mapToDateTime(json[r'updatedAt'])!,
       name: json[r'name'],
       description: json[r'description'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   /// The date and time when the resource was created, in UTC format.
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time when the resource was updated, in UTC format.
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   String name;
 
@@ -65,10 +65,10 @@ class TicketTypeJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (id == null ? 0 : id.hashCode) +
-      (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      links.hashCode +
+      id.hashCode +
+      createdAt.hashCode +
+      updatedAt.hashCode +
       name.hashCode +
       (description == null ? 0 : description.hashCode);
 
@@ -126,20 +126,17 @@ class TicketTypeJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null || keys.contains(r'id')) r'id': id,
-      if (keys == null || keys.contains(r'createdAt'))
-        r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'updatedAt'))
-        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+        return previousValue;
+      })),
+      r'id': id,
+      r'createdAt': createdAt.toUtc().toIso8601String(),
+      r'updatedAt': updatedAt.toUtc().toIso8601String(),
       r'name': name,
       if (keys == null || keys.contains(r'description'))
         r'description': description,

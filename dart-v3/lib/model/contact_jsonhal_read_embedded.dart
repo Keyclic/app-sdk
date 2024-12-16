@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class ContactJsonhalReadEmbedded {
   /// Returns a new [ContactJsonhalReadEmbedded] instance.
   ContactJsonhalReadEmbedded({
-    this.organization,
+    required this.organization,
     this.person,
   });
 
@@ -19,12 +19,12 @@ class ContactJsonhalReadEmbedded {
     }
 
     return ContactJsonhalReadEmbedded(
-      organization: OrganizationJsonhalRead.fromJson(json[r'organization']),
+      organization: OrganizationJsonhalRead.fromJson(json[r'organization'])!,
       person: PersonJsonhalRead.fromJson(json[r'person']),
     );
   }
 
-  OrganizationJsonhalRead? organization;
+  OrganizationJsonhalRead organization;
 
   PersonJsonhalRead? person;
 
@@ -42,8 +42,7 @@ class ContactJsonhalReadEmbedded {
 
   @override
   int get hashCode =>
-      (organization == null ? 0 : organization.hashCode) +
-      (person == null ? 0 : person.hashCode);
+      organization.hashCode + (person == null ? 0 : person.hashCode);
 
   static List<ContactJsonhalReadEmbedded> listFromJson(Iterable? json) {
     if (json == null) {
@@ -99,16 +98,14 @@ class ContactJsonhalReadEmbedded {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^organization\.').hasMatch(key)))
-        r'organization': organization?.toJson(keys?.fold<List<String>>(
-            <String>[], (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^organization\.'))) {
-            previousValue.add(element.split(RegExp(r'^organization\.')).last);
-          }
+      r'organization': organization.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^organization\.'))) {
+          previousValue.add(element.split(RegExp(r'^organization\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.any((key) => RegExp(r'^person\.').hasMatch(key)))
         r'person': person?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

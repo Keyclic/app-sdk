@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class TicketJsongeoReadGeometry {
   /// Returns a new [TicketJsongeoReadGeometry] instance.
   TicketJsongeoReadGeometry({
-    this.type,
-    this.coordinates,
+    required this.type,
+    this.coordinates = const [],
   });
 
   /// Returns a new [TicketJsongeoReadGeometry] instance and imports its values from
@@ -19,16 +19,14 @@ class TicketJsongeoReadGeometry {
     }
 
     return TicketJsongeoReadGeometry(
-      type: TicketJsongeoReadGeometryTypeEnum.fromJson(json[r'type']),
-      coordinates: json[r'coordinates'] == null
-          ? null
-          : List<num>.from(json[r'coordinates']),
+      type: TicketJsongeoReadGeometryTypeEnum.fromJson(json[r'type'])!,
+      coordinates: List<num>.from(json[r'coordinates']),
     );
   }
 
-  TicketJsongeoReadGeometryTypeEnum? type;
+  TicketJsongeoReadGeometryTypeEnum type;
 
-  List<num>? coordinates;
+  List<num> coordinates;
 
   @override
   bool operator ==(Object other) {
@@ -44,9 +42,7 @@ class TicketJsongeoReadGeometry {
   }
 
   @override
-  int get hashCode =>
-      (type == null ? 0 : type.hashCode) +
-      (coordinates == null ? 0 : coordinates.hashCode);
+  int get hashCode => type.hashCode + coordinates.hashCode;
 
   static List<TicketJsongeoReadGeometry> listFromJson(Iterable? json) {
     if (json == null) {
@@ -102,9 +98,8 @@ class TicketJsongeoReadGeometry {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'type')) r'type': type,
-      if (keys == null || keys.contains(r'coordinates'))
-        r'coordinates': coordinates,
+      r'type': type,
+      r'coordinates': coordinates,
     };
   }
 }

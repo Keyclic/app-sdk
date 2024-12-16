@@ -7,9 +7,9 @@ part of keyclic_sdk_api_platform;
 class AssignmentJsonhalRead {
   /// Returns a new [AssignmentJsonhalRead] instance.
   AssignmentJsonhalRead({
-    this.links,
+    required this.links,
     this.outOfContract,
-    this.id,
+    required this.id,
   });
 
   /// Returns a new [AssignmentJsonhalRead] instance and imports its values from
@@ -20,18 +20,18 @@ class AssignmentJsonhalRead {
     }
 
     return AssignmentJsonhalRead(
-      links: AssignmentJsonhalReadLinks.fromJson(json[r'_links']),
+      links: AssignmentJsonhalReadLinks.fromJson(json[r'_links'])!,
       outOfContract: json[r'outOfContract'],
       id: json[r'id'],
     );
   }
 
-  AssignmentJsonhalReadLinks? links;
+  AssignmentJsonhalReadLinks links;
 
   bool? outOfContract;
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   @override
   bool operator ==(Object other) {
@@ -48,9 +48,9 @@ class AssignmentJsonhalRead {
 
   @override
   int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
+      links.hashCode +
       (outOfContract == null ? 0 : outOfContract.hashCode) +
-      (id == null ? 0 : id.hashCode);
+      id.hashCode;
 
   static List<AssignmentJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -106,18 +106,17 @@ class AssignmentJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.contains(r'outOfContract'))
         r'outOfContract': outOfContract,
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
     };
   }
 }

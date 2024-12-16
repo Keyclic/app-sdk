@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class EquipmentJsonhalReadLinks {
   /// Returns a new [EquipmentJsonhalReadLinks] instance.
   EquipmentJsonhalReadLinks({
-    this.self,
+    required this.self,
     this.brand,
     this.type,
     this.parent,
@@ -22,7 +22,7 @@ class EquipmentJsonhalReadLinks {
     }
 
     return EquipmentJsonhalReadLinks(
-      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self'])!,
       brand: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'brand']),
       type: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'type']),
       parent: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'parent']),
@@ -30,7 +30,7 @@ class EquipmentJsonhalReadLinks {
     );
   }
 
-  GetPlaceCollection200ResponseLinksSelf? self;
+  GetPlaceCollection200ResponseLinksSelf self;
 
   GetPlaceCollection200ResponseLinksFirst? brand;
 
@@ -57,7 +57,7 @@ class EquipmentJsonhalReadLinks {
 
   @override
   int get hashCode =>
-      (self == null ? 0 : self.hashCode) +
+      self.hashCode +
       (brand == null ? 0 : brand.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (parent == null ? 0 : parent.hashCode) +
@@ -117,15 +117,14 @@ class EquipmentJsonhalReadLinks {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^self\.').hasMatch(key)))
-        r'self': self?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^self\.'))) {
-            previousValue.add(element.split(RegExp(r'^self\.')).last);
-          }
+      r'self': self.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^self\.'))) {
+          previousValue.add(element.split(RegExp(r'^self\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       if (keys == null || keys.any((key) => RegExp(r'^brand\.').hasMatch(key)))
         r'brand': brand?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

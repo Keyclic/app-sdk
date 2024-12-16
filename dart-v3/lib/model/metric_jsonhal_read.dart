@@ -7,8 +7,8 @@ part of keyclic_sdk_api_platform;
 class MetricJsonhalRead {
   /// Returns a new [MetricJsonhalRead] instance.
   MetricJsonhalRead({
-    this.links,
-    this.duration,
+    required this.links,
+    required this.duration,
     required this.name,
   });
 
@@ -20,15 +20,15 @@ class MetricJsonhalRead {
     }
 
     return MetricJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
-      duration: DurationJsonhalRead.fromJson(json[r'duration']),
+      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links'])!,
+      duration: DurationJsonhalRead.fromJson(json[r'duration'])!,
       name: json[r'name'],
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  AssetTypeJsonhalReadLinks links;
 
-  DurationJsonhalRead? duration;
+  DurationJsonhalRead duration;
 
   String name;
 
@@ -46,10 +46,7 @@ class MetricJsonhalRead {
   }
 
   @override
-  int get hashCode =>
-      (links == null ? 0 : links.hashCode) +
-      (duration == null ? 0 : duration.hashCode) +
-      name.hashCode;
+  int get hashCode => links.hashCode + duration.hashCode + name.hashCode;
 
   static List<MetricJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -104,25 +101,22 @@ class MetricJsonhalRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.any((key) => RegExp(r'^links\.').hasMatch(key)))
-        r'_links': links?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^links\.'))) {
-            previousValue.add(element.split(RegExp(r'^links\.')).last);
-          }
+      r'_links': links.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^links\.'))) {
+          previousValue.add(element.split(RegExp(r'^links\.')).last);
+        }
 
-          return previousValue;
-        })),
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^duration\.').hasMatch(key)))
-        r'duration': duration?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^duration\.'))) {
-            previousValue.add(element.split(RegExp(r'^duration\.')).last);
-          }
+        return previousValue;
+      })),
+      r'duration': duration.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^duration\.'))) {
+          previousValue.add(element.split(RegExp(r'^duration\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
       r'name': name,
     };
   }

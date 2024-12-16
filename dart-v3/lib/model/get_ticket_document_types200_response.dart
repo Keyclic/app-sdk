@@ -8,7 +8,7 @@ class GetTicketDocumentTypes200Response {
   /// Returns a new [GetTicketDocumentTypes200Response] instance.
   GetTicketDocumentTypes200Response({
     this.embedded,
-    this.totalItems,
+    required this.totalItems,
     this.itemsPerPage,
     required this.links,
   });
@@ -32,7 +32,7 @@ class GetTicketDocumentTypes200Response {
   GetTicketDocumentTypes200ResponseEmbedded? embedded;
 
   // minimum: 0
-  int? totalItems;
+  int totalItems;
 
   // minimum: 0
   int? itemsPerPage;
@@ -56,7 +56,7 @@ class GetTicketDocumentTypes200Response {
   @override
   int get hashCode =>
       (embedded == null ? 0 : embedded.hashCode) +
-      (totalItems == null ? 0 : totalItems.hashCode) +
+      totalItems.hashCode +
       (itemsPerPage == null ? 0 : itemsPerPage.hashCode) +
       links.hashCode;
 
@@ -125,8 +125,7 @@ class GetTicketDocumentTypes200Response {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'totalItems'))
-        r'totalItems': totalItems,
+      r'totalItems': totalItems,
       if (keys == null || keys.contains(r'itemsPerPage'))
         r'itemsPerPage': itemsPerPage,
       r'_links': links.toJson(keys?.fold<List<String>>(<String>[],

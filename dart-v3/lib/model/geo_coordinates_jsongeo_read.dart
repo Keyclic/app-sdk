@@ -8,7 +8,7 @@ class GeoCoordinatesJsongeoRead {
   /// Returns a new [GeoCoordinatesJsongeoRead] instance.
   GeoCoordinatesJsongeoRead({
     this.elevation,
-    this.point,
+    required this.point,
   });
 
   /// Returns a new [GeoCoordinatesJsongeoRead] instance and imports its values from
@@ -21,7 +21,7 @@ class GeoCoordinatesJsongeoRead {
     return GeoCoordinatesJsongeoRead(
       elevation:
           json[r'elevation'] == null ? null : json[r'elevation'].toDouble(),
-      point: PointJsongeoRead.fromJson(json[r'point']),
+      point: PointJsongeoRead.fromJson(json[r'point'])!,
     );
   }
 
@@ -30,7 +30,7 @@ class GeoCoordinatesJsongeoRead {
   // maximum: 8000
   num? elevation;
 
-  PointJsongeoRead? point;
+  PointJsongeoRead point;
 
   @override
   bool operator ==(Object other) {
@@ -46,8 +46,7 @@ class GeoCoordinatesJsongeoRead {
 
   @override
   int get hashCode =>
-      (elevation == null ? 0 : elevation.hashCode) +
-      (point == null ? 0 : point.hashCode);
+      (elevation == null ? 0 : elevation.hashCode) + point.hashCode;
 
   static List<GeoCoordinatesJsongeoRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -104,15 +103,14 @@ class GeoCoordinatesJsongeoRead {
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'elevation')) r'elevation': elevation,
-      if (keys == null || keys.any((key) => RegExp(r'^point\.').hasMatch(key)))
-        r'point': point?.toJson(keys?.fold<List<String>>(<String>[],
-            (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^point\.'))) {
-            previousValue.add(element.split(RegExp(r'^point\.')).last);
-          }
+      r'point': point.toJson(keys?.fold<List<String>>(<String>[],
+          (List<String> previousValue, String element) {
+        if (element.contains(RegExp(r'^point\.'))) {
+          previousValue.add(element.split(RegExp(r'^point\.')).last);
+        }
 
-          return previousValue;
-        })),
+        return previousValue;
+      })),
     };
   }
 }

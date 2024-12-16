@@ -7,7 +7,7 @@ part of keyclic_sdk_api_platform;
 class CategoryTypeJsongeoRead {
   /// Returns a new [CategoryTypeJsongeoRead] instance.
   CategoryTypeJsongeoRead({
-    this.id,
+    required this.id,
     this.description,
     required this.name,
   });
@@ -27,7 +27,7 @@ class CategoryTypeJsongeoRead {
   }
 
   /// The resource identifier.
-  final String? id;
+  final String id;
 
   String? description;
 
@@ -48,7 +48,7 @@ class CategoryTypeJsongeoRead {
 
   @override
   int get hashCode =>
-      (id == null ? 0 : id.hashCode) +
+      id.hashCode +
       (description == null ? 0 : description.hashCode) +
       name.hashCode;
 
@@ -106,7 +106,7 @@ class CategoryTypeJsongeoRead {
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'id')) r'id': id,
+      r'id': id,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
       r'name': name,

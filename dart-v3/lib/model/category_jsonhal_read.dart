@@ -10,6 +10,7 @@ class CategoryJsonhalRead {
     this.links,
     required this.name,
     this.id,
+    this.enabled,
     this.identificationNumber,
     this.path,
     this.createdAt,
@@ -28,6 +29,7 @@ class CategoryJsonhalRead {
       links: CategoryJsonhalReadLinks.fromJson(json[r'_links']),
       name: json[r'name'],
       id: json[r'id'],
+      enabled: json[r'enabled'],
       identificationNumber: json[r'identificationNumber'],
       path: NodeJsonhalRead.listFromJson(json[r'path']),
       createdAt: mapToDateTime(json[r'createdAt']),
@@ -42,6 +44,8 @@ class CategoryJsonhalRead {
 
   /// The resource identifier.
   final String? id;
+
+  bool? enabled;
 
   String? identificationNumber;
 
@@ -66,6 +70,7 @@ class CategoryJsonhalRead {
         other.links == links &&
         other.name == name &&
         other.id == id &&
+        other.enabled == enabled &&
         other.identificationNumber == identificationNumber &&
         DeepCollectionEquality.unordered().equals(path, other.path) &&
         other.createdAt == createdAt &&
@@ -78,6 +83,7 @@ class CategoryJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       name.hashCode +
       (id == null ? 0 : id.hashCode) +
+      (enabled == null ? 0 : enabled.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       (path == null ? 0 : path.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
@@ -133,7 +139,7 @@ class CategoryJsonhalRead {
 
   @override
   String toString() =>
-      'CategoryJsonhalRead[links=$links, name=$name, id=$id, identificationNumber=$identificationNumber, path=$path, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
+      'CategoryJsonhalRead[links=$links, name=$name, id=$id, enabled=$enabled, identificationNumber=$identificationNumber, path=$path, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -148,6 +154,7 @@ class CategoryJsonhalRead {
         })),
       r'name': name,
       if (keys == null || keys.contains(r'id')) r'id': id,
+      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
       if (keys == null || keys.contains(r'path')) r'path': path,

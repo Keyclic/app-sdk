@@ -116,6 +116,7 @@ class CategoryApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
+  /// * [enabled] -
   /// * [leaf] -
   /// * [level] -
   /// * [levelLeftSquareBracketRightSquareBracket] -
@@ -139,6 +140,7 @@ class CategoryApi {
     int? limit,
     bool? pagination,
     String? search,
+    bool? enabled,
     bool? leaf,
     int? level,
     List<int>? levelLeftSquareBracketRightSquareBracket,
@@ -187,6 +189,7 @@ class CategoryApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
+      if (enabled != null) r'enabled': encodeQueryParameter(enabled),
       if (leaf != null) r'leaf': encodeQueryParameter(leaf),
       if (level != null) r'level': encodeQueryParameter(level),
       if (levelLeftSquareBracketRightSquareBracket != null)

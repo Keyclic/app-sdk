@@ -19,6 +19,9 @@ void main() {
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
 
+    // bool enabled
+    test('to test the property `enabled`', () async {});
+
     // String id
     test('to test the property `id`', () async {});
 

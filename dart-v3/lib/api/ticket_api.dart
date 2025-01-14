@@ -193,6 +193,10 @@ class TicketApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [archived] - Check if resource is archived and if archived date has passed
   /// * [completed] -
   /// * [childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket] -
@@ -292,6 +296,12 @@ class TicketApi {
     int? limit,
     bool? pagination,
     String? search,
+    List<String>?
+        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+    String? searchLeftSquareBracketTagsRightSquareBracket,
     bool? archived,
     bool? completed,
     String? childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket,
@@ -425,6 +435,22 @@ class TicketApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
+      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[description][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
+      if (searchLeftSquareBracketTagsRightSquareBracket != null)
+        r'search[tags]':
+            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (archived != null) r'archived': encodeQueryParameter(archived),
       if (completed != null) r'completed': encodeQueryParameter(completed),
       if (childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket !=
@@ -716,6 +742,10 @@ class TicketApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [archived] - Check if resource is archived and if archived date has passed
   /// * [completed] -
   /// * [childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket] -
@@ -805,6 +835,12 @@ class TicketApi {
     int? limit,
     bool? pagination,
     String? search,
+    List<String>?
+        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+    String? searchLeftSquareBracketTagsRightSquareBracket,
     bool? archived,
     bool? completed,
     String? childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket,
@@ -928,6 +964,22 @@ class TicketApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
+      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[description][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
+      if (searchLeftSquareBracketTagsRightSquareBracket != null)
+        r'search[tags]':
+            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (archived != null) r'archived': encodeQueryParameter(archived),
       if (completed != null) r'completed': encodeQueryParameter(completed),
       if (childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket !=

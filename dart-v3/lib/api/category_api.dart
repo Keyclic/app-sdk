@@ -116,6 +116,10 @@ class CategoryApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [leaf] -
   /// * [level] -
   /// * [levelLeftSquareBracketRightSquareBracket] -
@@ -139,6 +143,12 @@ class CategoryApi {
     int? limit,
     bool? pagination,
     String? search,
+    List<String>?
+        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+    String? searchLeftSquareBracketTagsRightSquareBracket,
     bool? leaf,
     int? level,
     List<int>? levelLeftSquareBracketRightSquareBracket,
@@ -187,6 +197,22 @@ class CategoryApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
+      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[description][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
+      if (searchLeftSquareBracketTagsRightSquareBracket != null)
+        r'search[tags]':
+            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (leaf != null) r'leaf': encodeQueryParameter(leaf),
       if (level != null) r'level': encodeQueryParameter(level),
       if (levelLeftSquareBracketRightSquareBracket != null)

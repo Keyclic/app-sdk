@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAssetCollection**
-> GetAssetCollection200Response getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetAssetCollection200Response getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketDescriptionRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracket, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Asset resources.
 
@@ -94,6 +94,10 @@ final page = 56; // int | The collection page number
 final limit = 56; // int | The number of items per page
 final pagination = true; // bool | Enable or disable pagination
 final search = search_example; // String | 
+final searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final searchLeftSquareBracketDescriptionRightSquareBracket = searchLeftSquareBracketDescriptionRightSquareBracket_example; // String | 
+final searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final searchLeftSquareBracketTagsRightSquareBracket = searchLeftSquareBracketTagsRightSquareBracket_example; // String | 
 final createdAtLeftSquareBracketBeforeRightSquareBracket = createdAtLeftSquareBracketBeforeRightSquareBracket_example; // String | 
 final createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket = createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket_example; // String | 
 final createdAtLeftSquareBracketAfterRightSquareBracket = createdAtLeftSquareBracketAfterRightSquareBracket_example; // String | 
@@ -118,7 +122,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getAssetCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketDescriptionRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracket, createdAtLeftSquareBracketBeforeRightSquareBracket, createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket, createdAtLeftSquareBracketAfterRightSquareBracket, createdAtLeftSquareBracketStrictlyAfterRightSquareBracket, updatedAtLeftSquareBracketBeforeRightSquareBracket, updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket, updatedAtLeftSquareBracketAfterRightSquareBracket, updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket, resourceType, orderLeftSquareBracketCreatedAtRightSquareBracket, orderLeftSquareBracketNameRightSquareBracket, orderLeftSquareBracketUpdatedAtRightSquareBracket, propertiesLeftSquareBracketRightSquareBracket, level, levelLeftSquareBracketRightSquareBracket, parent, parentLeftSquareBracketRightSquareBracket, subtree, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling AssetApi->getAssetCollection: $e\n');
@@ -135,6 +139,10 @@ Name | Type | Description  | Notes
  **limit** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional] 
  **search** | **String**|  | [optional] 
+ **searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **searchLeftSquareBracketDescriptionRightSquareBracket** | **String**|  | [optional] 
+ **searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **searchLeftSquareBracketTagsRightSquareBracket** | **String**|  | [optional] 
  **createdAtLeftSquareBracketBeforeRightSquareBracket** | **String**|  | [optional] 
  **createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket** | **String**|  | [optional] 
  **createdAtLeftSquareBracketAfterRightSquareBracket** | **String**|  | [optional] 

@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMemberCollection**
-> GetMemberCollection200Response getMemberCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, resourceType, roles, rolesLeftSquareBracketRightSquareBracket, rolesPeriodPermissions, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetMemberCollection200Response getMemberCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketDescriptionRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracket, resourceType, roles, rolesLeftSquareBracketRightSquareBracket, rolesPeriodPermissions, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Member resources.
 
@@ -92,6 +92,10 @@ final page = 56; // int | The collection page number
 final limit = 56; // int | The number of items per page
 final pagination = true; // bool | Enable or disable pagination
 final search = search_example; // String | 
+final searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final searchLeftSquareBracketDescriptionRightSquareBracket = searchLeftSquareBracketDescriptionRightSquareBracket_example; // String | 
+final searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket = []; // List<String> | 
+final searchLeftSquareBracketTagsRightSquareBracket = searchLeftSquareBracketTagsRightSquareBracket_example; // String | 
 final resourceType = resourceType_example; // String | 
 final roles = roles_example; // String | 
 final rolesLeftSquareBracketRightSquareBracket = []; // List<String> | 
@@ -102,7 +106,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getMemberCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, resourceType, roles, rolesLeftSquareBracketRightSquareBracket, rolesPeriodPermissions, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getMemberCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketDescriptionRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket, searchLeftSquareBracketTagsRightSquareBracket, resourceType, roles, rolesLeftSquareBracketRightSquareBracket, rolesPeriodPermissions, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling MemberApi->getMemberCollection: $e\n');
@@ -119,6 +123,10 @@ Name | Type | Description  | Notes
  **limit** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional] 
  **search** | **String**|  | [optional] 
+ **searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **searchLeftSquareBracketDescriptionRightSquareBracket** | **String**|  | [optional] 
+ **searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]
+ **searchLeftSquareBracketTagsRightSquareBracket** | **String**|  | [optional] 
  **resourceType** | **String**|  | [optional] 
  **roles** | **String**|  | [optional] 
  **rolesLeftSquareBracketRightSquareBracket** | [**List<String>**](String.md)|  | [optional] [default to const []]

@@ -223,6 +223,8 @@ class TicketApi {
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket] -
   /// * [existsLeftSquareBracketPriorityRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
   /// * [operationStateAll] -
   /// * [operationStateAllLeftSquareBracketRightSquareBracket] -
   /// * [orderLeftSquareBracketCategoryPeriodNameRightSquareBracket] -
@@ -328,6 +330,9 @@ class TicketApi {
     bool?
         existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket,
     bool? existsLeftSquareBracketPriorityRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? operationStateAll,
     List<String>? operationStateAllLeftSquareBracketRightSquareBracket,
     String? orderLeftSquareBracketCategoryPeriodNameRightSquareBracket,
@@ -521,6 +526,14 @@ class TicketApi {
       if (existsLeftSquareBracketPriorityRightSquareBracket != null)
         r'exists[priority]': encodeQueryParameter(
             existsLeftSquareBracketPriorityRightSquareBracket),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (operationStateAll != null)
         r'operation_state_all': encodeQueryParameter(operationStateAll),
       if (operationStateAllLeftSquareBracketRightSquareBracket != null)
@@ -761,6 +774,8 @@ class TicketApi {
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket] -
   /// * [existsLeftSquareBracketPriorityRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodMember] -
   /// * [assignmentsPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodService] -
@@ -856,6 +871,9 @@ class TicketApi {
     bool?
         existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket,
     bool? existsLeftSquareBracketPriorityRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodMember,
     List<String>? assignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodService,
@@ -1039,6 +1057,14 @@ class TicketApi {
       if (existsLeftSquareBracketPriorityRightSquareBracket != null)
         r'exists[priority]': encodeQueryParameter(
             existsLeftSquareBracketPriorityRightSquareBracket),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (assignmentsPeriodMember != null)
         r'assignments.member': encodeQueryParameter(assignmentsPeriodMember),
       if (assignmentsPeriodMemberLeftSquareBracketRightSquareBracket != null)

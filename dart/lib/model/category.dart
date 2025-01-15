@@ -10,7 +10,7 @@ class Category {
     this.embedded,
     this.links,
     this.createdAt,
-    this.enabled,
+    required this.enabled,
     this.id,
     this.identificationNumber,
     required this.name,
@@ -44,7 +44,7 @@ class Category {
 
   final DateTime? createdAt;
 
-  bool? enabled;
+  bool enabled;
 
   final String? id;
 
@@ -80,7 +80,7 @@ class Category {
       (embedded == null ? 0 : embedded.hashCode) +
       (links == null ? 0 : links.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (enabled == null ? 0 : enabled.hashCode) +
+      enabled.hashCode +
       (id == null ? 0 : id.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       name.hashCode +
@@ -158,7 +158,7 @@ class Category {
         })),
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
+      r'enabled': enabled,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,

@@ -18657,8 +18657,7 @@
                         "type": "string"
                     },
                     "enabled": {
-                        "type": "boolean",
-                        "nullable": true
+                        "type": "boolean"
                     },
                     "identificationNumber": {
                         "minLength": 1,

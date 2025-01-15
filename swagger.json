@@ -16331,6 +16331,7 @@
                 }
             },
             "required": [
+                "enabled",
                 "name"
             ]
         },
@@ -16438,6 +16439,9 @@
         "CategoryPatch": {
             "type": "object",
             "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
                 "identificationNumber": {
                     "format": "string",
                     "maxLength": 255,

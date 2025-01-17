@@ -10,9 +10,6 @@ void main() {
   // final instance = CategoryPatch();
 
   group('test CategoryPatch', () {
-    // bool enabled
-    test('to test the property `enabled`', () async {});
-
     // String identificationNumber
     test('to test the property `identificationNumber`', () async {});
 

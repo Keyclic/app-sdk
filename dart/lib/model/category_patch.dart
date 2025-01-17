@@ -7,7 +7,6 @@ part of keyclic_sdk_api;
 class CategoryPatch {
   /// Returns a new [CategoryPatch] instance.
   CategoryPatch({
-    this.enabled,
     this.identificationNumber,
     this.name,
     this.type,
@@ -21,14 +20,11 @@ class CategoryPatch {
     }
 
     return CategoryPatch(
-      enabled: json[r'enabled'],
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
       type: json[r'type'],
     );
   }
-
-  bool? enabled;
 
   String? identificationNumber;
 
@@ -44,7 +40,6 @@ class CategoryPatch {
     }
 
     return other is CategoryPatch &&
-        other.enabled == enabled &&
         other.identificationNumber == identificationNumber &&
         other.name == name &&
         other.type == type;
@@ -52,7 +47,6 @@ class CategoryPatch {
 
   @override
   int get hashCode =>
-      (enabled == null ? 0 : enabled.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       (name == null ? 0 : name.hashCode) +
       (type == null ? 0 : type.hashCode);
@@ -104,11 +98,10 @@ class CategoryPatch {
 
   @override
   String toString() =>
-      'CategoryPatch[enabled=$enabled, identificationNumber=$identificationNumber, name=$name, type=$type]';
+      'CategoryPatch[identificationNumber=$identificationNumber, name=$name, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,
       if (keys == null || keys.contains(r'name')) r'name': name,

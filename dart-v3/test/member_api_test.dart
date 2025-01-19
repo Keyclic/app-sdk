@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of Member resources.
     //
-    //Future<GetMemberCollection200Response> getMemberCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String search, List<String> searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket, String searchLeftSquareBracketDescriptionRightSquareBracket, List<String> searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket, String searchLeftSquareBracketTagsRightSquareBracket, String resourceType, String roles, List<String> rolesLeftSquareBracketRightSquareBracket, String rolesPeriodPermissions, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<GetMemberCollection200Response> getMemberCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String search, String resourceType, String roles, List<String> rolesLeftSquareBracketRightSquareBracket, String rolesPeriodPermissions, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getMemberCollection', () async {});
   });
 }

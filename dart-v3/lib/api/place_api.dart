@@ -19,10 +19,6 @@ class PlaceApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [createdAtLeftSquareBracketBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [createdAtLeftSquareBracketAfterRightSquareBracket] -
@@ -62,12 +58,6 @@ class PlaceApi {
     int? limit,
     bool? pagination,
     String? search,
-    List<String>?
-        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketDescriptionRightSquareBracket,
-    List<String>?
-        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketTagsRightSquareBracket,
     String? createdAtLeftSquareBracketBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? createdAtLeftSquareBracketAfterRightSquareBracket,
@@ -132,22 +122,6 @@ class PlaceApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
-      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[description][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
-        r'search[description]': encodeQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracket),
-      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[tags][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketTagsRightSquareBracket != null)
-        r'search[tags]':
-            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (createdAtLeftSquareBracketBeforeRightSquareBracket != null)
         r'createdAt[before]': encodeQueryParameter(
             createdAtLeftSquareBracketBeforeRightSquareBracket),

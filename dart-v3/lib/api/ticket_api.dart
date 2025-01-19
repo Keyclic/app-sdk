@@ -193,10 +193,6 @@ class TicketApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [archived] - Check if resource is archived and if archived date has passed
   /// * [completed] -
   /// * [childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket] -
@@ -226,6 +222,8 @@ class TicketApi {
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
   /// * [operationStateAll] -
   /// * [operationStateAllLeftSquareBracketRightSquareBracket] -
   /// * [orderLeftSquareBracketCategoryPeriodNameRightSquareBracket] -
@@ -296,12 +294,6 @@ class TicketApi {
     int? limit,
     bool? pagination,
     String? search,
-    List<String>?
-        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketDescriptionRightSquareBracket,
-    List<String>?
-        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketTagsRightSquareBracket,
     bool? archived,
     bool? completed,
     String? childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket,
@@ -334,6 +326,9 @@ class TicketApi {
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     bool?
         existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? operationStateAll,
     List<String>? operationStateAllLeftSquareBracketRightSquareBracket,
     String? orderLeftSquareBracketCategoryPeriodNameRightSquareBracket,
@@ -435,22 +430,6 @@ class TicketApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
-      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[description][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
-        r'search[description]': encodeQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracket),
-      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[tags][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketTagsRightSquareBracket != null)
-        r'search[tags]':
-            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (archived != null) r'archived': encodeQueryParameter(archived),
       if (completed != null) r'completed': encodeQueryParameter(completed),
       if (childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket !=
@@ -538,6 +517,14 @@ class TicketApi {
           null)
         r'exists[feedback.geoCoordinates.point]': encodeQueryParameter(
             existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
       if (operationStateAll != null)
         r'operation_state_all': encodeQueryParameter(operationStateAll),
       if (operationStateAllLeftSquareBracketRightSquareBracket != null)
@@ -742,10 +729,6 @@ class TicketApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [archived] - Check if resource is archived and if archived date has passed
   /// * [completed] -
   /// * [childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket] -
@@ -775,6 +758,8 @@ class TicketApi {
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodMember] -
   /// * [assignmentsPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodService] -
@@ -835,12 +820,6 @@ class TicketApi {
     int? limit,
     bool? pagination,
     String? search,
-    List<String>?
-        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketDescriptionRightSquareBracket,
-    List<String>?
-        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketTagsRightSquareBracket,
     bool? archived,
     bool? completed,
     String? childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket,
@@ -873,6 +852,9 @@ class TicketApi {
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     bool?
         existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodMember,
     List<String>? assignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodService,
@@ -964,22 +946,6 @@ class TicketApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
-      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[description][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
-        r'search[description]': encodeQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracket),
-      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[tags][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketTagsRightSquareBracket != null)
-        r'search[tags]':
-            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (archived != null) r'archived': encodeQueryParameter(archived),
       if (completed != null) r'completed': encodeQueryParameter(completed),
       if (childrenPeriodScheduledAtLeftSquareBracketBeforeRightSquareBracket !=
@@ -1067,6 +1033,14 @@ class TicketApi {
           null)
         r'exists[feedback.geoCoordinates.point]': encodeQueryParameter(
             existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.csv),
       if (assignmentsPeriodMember != null)
         r'assignments.member': encodeQueryParameter(assignmentsPeriodMember),
       if (assignmentsPeriodMemberLeftSquareBracketRightSquareBracket != null)

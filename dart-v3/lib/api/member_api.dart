@@ -116,10 +116,6 @@ class MemberApi {
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
   /// * [search] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
-  /// * [searchLeftSquareBracketTagsRightSquareBracket] -
   /// * [resourceType] -
   /// * [roles] -
   /// * [rolesLeftSquareBracketRightSquareBracket] -
@@ -144,12 +140,6 @@ class MemberApi {
     int? limit,
     bool? pagination,
     String? search,
-    List<String>?
-        searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketDescriptionRightSquareBracket,
-    List<String>?
-        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-    String? searchLeftSquareBracketTagsRightSquareBracket,
     String? resourceType,
     String? roles,
     List<String>? rolesLeftSquareBracketRightSquareBracket,
@@ -199,22 +189,6 @@ class MemberApi {
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
       if (search != null) r'search': encodeQueryParameter(search),
-      if (searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[description][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
-        r'search[description]': encodeQueryParameter(
-            searchLeftSquareBracketDescriptionRightSquareBracket),
-      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
-          null)
-        r'search[tags][]': encodeCollectionQueryParameter(
-            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
-      if (searchLeftSquareBracketTagsRightSquareBracket != null)
-        r'search[tags]':
-            encodeQueryParameter(searchLeftSquareBracketTagsRightSquareBracket),
       if (resourceType != null)
         r'resourceType': encodeQueryParameter(resourceType),
       if (roles != null) r'roles': encodeQueryParameter(roles),

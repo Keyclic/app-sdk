@@ -524,7 +524,7 @@ class TicketApi {
           null)
         r'search[tags][]': encodeCollectionQueryParameter(
             searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
+            format: ListFormat.multi),
       if (operationStateAll != null)
         r'operation_state_all': encodeQueryParameter(operationStateAll),
       if (operationStateAllLeftSquareBracketRightSquareBracket != null)
@@ -1040,7 +1040,7 @@ class TicketApi {
           null)
         r'search[tags][]': encodeCollectionQueryParameter(
             searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
-            format: ListFormat.csv),
+            format: ListFormat.multi),
       if (assignmentsPeriodMember != null)
         r'assignments.member': encodeQueryParameter(assignmentsPeriodMember),
       if (assignmentsPeriodMemberLeftSquareBracketRightSquareBracket != null)

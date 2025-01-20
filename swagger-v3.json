@@ -13251,7 +13251,7 @@
                                 "type": "string"
                             }
                         },
-                        "style": "deepObject",
+                        "style": "form",
                         "explode": true,
                         "allowReserved": false
                     },
@@ -14851,7 +14851,7 @@
                                 "type": "string"
                             }
                         },
-                        "style": "deepObject",
+                        "style": "form",
                         "explode": true,
                         "allowReserved": false
                     },

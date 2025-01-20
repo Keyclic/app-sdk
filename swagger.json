@@ -20842,6 +20842,8 @@
                 "contract:write",
                 "DISPATCHER:READ",
                 "DISPATCHER:WRITE",
+                "document:tags:read",
+                "document:tags:write",
                 "FILTER:ALL",
                 "integration-link:read",
                 "integration-link:write",
@@ -20868,6 +20870,8 @@
                 "sla-policy:read",
                 "ticket:archiving:write",
                 "ticket:read",
+                "ticket:tags:read",
+                "ticket:tags:write",
                 "ticket:write"
             ]
         },

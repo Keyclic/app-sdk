@@ -491,6 +491,9 @@ doc/ReportLinksSelf.md
 doc/ReportLinksSelfIriTemplate.md
 doc/ReportLinksTracking.md
 doc/ReportLinksTrackingIriTemplate.md
+doc/ReportLinksWorkflow.md
+doc/ReportLinksWorkflowIriTemplate.md
+doc/ReportLinksWorkflowIriTemplateMapping.md
 doc/ReportPagination.md
 doc/ReportPriority.md
 doc/ReportTypePriority.md
@@ -578,7 +581,6 @@ doc/WorkflowData.md
 doc/WorkflowLinks.md
 doc/WorkflowLinksSelf.md
 doc/WorkflowLinksSelfIriTemplate.md
-doc/WorkflowLinksSelfIriTemplateMapping.md
 doc/WorkflowState.md
 doc/WorkflowTransition.md
 git_push.sh
@@ -1088,6 +1090,9 @@ lib/model/report_links_self.dart
 lib/model/report_links_self_iri_template.dart
 lib/model/report_links_tracking.dart
 lib/model/report_links_tracking_iri_template.dart
+lib/model/report_links_workflow.dart
+lib/model/report_links_workflow_iri_template.dart
+lib/model/report_links_workflow_iri_template_mapping.dart
 lib/model/report_pagination.dart
 lib/model/report_priority.dart
 lib/model/report_type_priority.dart
@@ -1167,7 +1172,6 @@ lib/model/workflow_data.dart
 lib/model/workflow_links.dart
 lib/model/workflow_links_self.dart
 lib/model/workflow_links_self_iri_template.dart
-lib/model/workflow_links_self_iri_template_mapping.dart
 lib/model/workflow_state.dart
 lib/model/workflow_transition.dart
 pubspec.yaml
@@ -1659,6 +1663,9 @@ test/report_links_self_test.dart
 test/report_links_test.dart
 test/report_links_tracking_iri_template_test.dart
 test/report_links_tracking_test.dart
+test/report_links_workflow_iri_template_mapping_test.dart
+test/report_links_workflow_iri_template_test.dart
+test/report_links_workflow_test.dart
 test/report_pagination_test.dart
 test/report_priority_test.dart
 test/report_test.dart
@@ -1743,7 +1750,6 @@ test/tracking_test.dart
 test/transition_state_test.dart
 test/workflow_api_test.dart
 test/workflow_data_test.dart
-test/workflow_links_self_iri_template_mapping_test.dart
 test/workflow_links_self_iri_template_test.dart
 test/workflow_links_self_test.dart
 test/workflow_links_test.dart

@@ -32,5 +32,8 @@ void main() {
 
     // String name
     test('to test the property `name`', () async {});
+
+    // bool isOpen
+    test('to test the property `isOpen`', () async {});
   });
 }

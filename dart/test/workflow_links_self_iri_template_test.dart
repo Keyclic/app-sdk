@@ -10,7 +10,7 @@ void main() {
   // final instance = WorkflowLinksSelfIriTemplate();
 
   group('test WorkflowLinksSelfIriTemplate', () {
-    // WorkflowLinksSelfIriTemplateMapping mapping
+    // ReportLinksWorkflowIriTemplateMapping mapping
     test('to test the property `mapping`', () async {});
   });
 }

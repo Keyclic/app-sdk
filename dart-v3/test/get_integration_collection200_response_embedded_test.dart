@@ -10,7 +10,7 @@ void main() {
   // final instance = GetIntegrationCollection200ResponseEmbedded();
 
   group('test GetIntegrationCollection200ResponseEmbedded', () {
-    // List<IntegrationJsonhalIntegrationRead> item (default value: const [])
+    // List<IntegrationJsonhalRead> item (default value: const [])
     test('to test the property `item`', () async {});
   });
 }

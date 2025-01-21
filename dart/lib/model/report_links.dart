@@ -18,6 +18,7 @@ class ReportLinks {
     this.place,
     this.self,
     this.tracking,
+    this.workflow,
   });
 
   /// Returns a new [ReportLinks] instance and imports its values from
@@ -39,6 +40,7 @@ class ReportLinks {
       place: ReportLinksPlace.fromJson(json[r'place']),
       self: ReportLinksSelf.fromJson(json[r'self']),
       tracking: ReportLinksTracking.fromJson(json[r'tracking']),
+      workflow: ReportLinksWorkflow.fromJson(json[r'workflow']),
     );
   }
 
@@ -64,6 +66,8 @@ class ReportLinks {
 
   ReportLinksTracking? tracking;
 
+  ReportLinksWorkflow? workflow;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -83,7 +87,8 @@ class ReportLinks {
         other.organization == organization &&
         other.place == place &&
         other.self == self &&
-        other.tracking == tracking;
+        other.tracking == tracking &&
+        other.workflow == workflow;
   }
 
   @override
@@ -98,7 +103,8 @@ class ReportLinks {
       (organization == null ? 0 : organization.hashCode) +
       (place == null ? 0 : place.hashCode) +
       (self == null ? 0 : self.hashCode) +
-      (tracking == null ? 0 : tracking.hashCode);
+      (tracking == null ? 0 : tracking.hashCode) +
+      (workflow == null ? 0 : workflow.hashCode);
 
   static List<ReportLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -147,7 +153,7 @@ class ReportLinks {
 
   @override
   String toString() =>
-      'ReportLinks[asset=$asset, category=$category, children=$children, createdBy=$createdBy, equipments=$equipments, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking]';
+      'ReportLinks[asset=$asset, category=$category, children=$children, createdBy=$createdBy, equipments=$equipments, feedback=$feedback, operations=$operations, organization=$organization, place=$place, self=$self, tracking=$tracking, workflow=$workflow]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -246,6 +252,16 @@ class ReportLinks {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^tracking\.'))) {
             previousValue.add(element.split(RegExp(r'^tracking\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^workflow\.').hasMatch(key)))
+        r'workflow': workflow?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^workflow\.'))) {
+            previousValue.add(element.split(RegExp(r'^workflow\.')).last);
           }
 
           return previousValue;

@@ -14,7 +14,7 @@ void main() {
     //
     // Retrieves a Integration resource.
     //
-    //Future<IntegrationJsonhalIntegrationRead> getIntegration(String identifier, { String acceptLanguage }) async
+    //Future<IntegrationJsonhalRead> getIntegration(String identifier, { String acceptLanguage }) async
     test('test getIntegration', () async {});
 
     // Retrieves the collection of Integration resources.

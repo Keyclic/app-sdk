@@ -1238,6 +1238,12 @@ class ApiClient {
           return ReportLinksTracking.fromJson(value);
         case 'ReportLinksTrackingIriTemplate':
           return ReportLinksTrackingIriTemplate.fromJson(value);
+        case 'ReportLinksWorkflow':
+          return ReportLinksWorkflow.fromJson(value);
+        case 'ReportLinksWorkflowIriTemplate':
+          return ReportLinksWorkflowIriTemplate.fromJson(value);
+        case 'ReportLinksWorkflowIriTemplateMapping':
+          return ReportLinksWorkflowIriTemplateMapping.fromJson(value);
         case 'ReportPagination':
           return ReportPagination.fromJson(value);
         case 'ReportPriority':
@@ -1396,8 +1402,6 @@ class ApiClient {
           return WorkflowLinksSelf.fromJson(value);
         case 'WorkflowLinksSelfIriTemplate':
           return WorkflowLinksSelfIriTemplate.fromJson(value);
-        case 'WorkflowLinksSelfIriTemplateMapping':
-          return WorkflowLinksSelfIriTemplateMapping.fromJson(value);
         case 'WorkflowState':
           return WorkflowState.fromJson(value);
         case 'WorkflowTransition':

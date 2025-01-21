@@ -42,5 +42,8 @@ void main() {
 
     // ReportLinksTracking tracking
     test('to test the property `tracking`', () async {});
+
+    // ReportLinksWorkflow workflow
+    test('to test the property `workflow`', () async {});
   });
 }

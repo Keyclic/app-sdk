@@ -20,6 +20,7 @@ class PersonJsonhalRead {
     this.givenName,
     this.createdAt,
     this.updatedAt,
+    this.type,
   });
 
   /// Returns a new [PersonJsonhalRead] instance and imports its values from
@@ -43,6 +44,7 @@ class PersonJsonhalRead {
       givenName: json[r'givenName'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
+      type: json[r'type'],
     );
   }
 
@@ -76,6 +78,8 @@ class PersonJsonhalRead {
   /// The date and time when the resource was updated, in UTC format.
   final DateTime? updatedAt;
 
+  final String? type;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -96,7 +100,8 @@ class PersonJsonhalRead {
         other.familyName == familyName &&
         other.givenName == givenName &&
         other.createdAt == createdAt &&
-        other.updatedAt == updatedAt;
+        other.updatedAt == updatedAt &&
+        other.type == type;
   }
 
   @override
@@ -113,7 +118,8 @@ class PersonJsonhalRead {
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
-      (updatedAt == null ? 0 : updatedAt.hashCode);
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (type == null ? 0 : type.hashCode);
 
   static List<PersonJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -164,7 +170,7 @@ class PersonJsonhalRead {
 
   @override
   String toString() =>
-      'PersonJsonhalRead[links=$links, id=$id, image=$image, jobTitle=$jobTitle, optIn=$optIn, telephone=$telephone, email=$email, username=$username, enabled=$enabled, familyName=$familyName, givenName=$givenName, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'PersonJsonhalRead[links=$links, id=$id, image=$image, jobTitle=$jobTitle, optIn=$optIn, telephone=$telephone, email=$email, username=$username, enabled=$enabled, familyName=$familyName, givenName=$givenName, createdAt=$createdAt, updatedAt=$updatedAt, type=$type]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -192,6 +198,7 @@ class PersonJsonhalRead {
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))
         r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'type')) r'type': type,
     };
   }
 }

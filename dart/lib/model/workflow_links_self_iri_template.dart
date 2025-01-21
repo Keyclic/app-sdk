@@ -18,11 +18,11 @@ class WorkflowLinksSelfIriTemplate {
     }
 
     return WorkflowLinksSelfIriTemplate(
-      mapping: WorkflowLinksSelfIriTemplateMapping.fromJson(json[r'mapping']),
+      mapping: ReportLinksWorkflowIriTemplateMapping.fromJson(json[r'mapping']),
     );
   }
 
-  WorkflowLinksSelfIriTemplateMapping? mapping;
+  ReportLinksWorkflowIriTemplateMapping? mapping;
 
   @override
   bool operator ==(Object other) {

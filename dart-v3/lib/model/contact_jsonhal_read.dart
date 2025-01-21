@@ -24,17 +24,17 @@ class ContactJsonhalRead {
     }
 
     return ContactJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: CollaboratorJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
       contactPoint: ContactPointJsonhalRead.fromJson(json[r'contactPoint']),
       type: json[r'type'],
-      embedded: ContactJsonhalReadEmbedded.fromJson(json[r'_embedded']),
+      embedded: CollaboratorJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  CollaboratorJsonhalReadLinks? links;
 
   /// The resource identifier.
   final String? id;
@@ -49,7 +49,7 @@ class ContactJsonhalRead {
 
   final String? type;
 
-  ContactJsonhalReadEmbedded? embedded;
+  CollaboratorJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {

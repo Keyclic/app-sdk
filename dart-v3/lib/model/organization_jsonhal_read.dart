@@ -10,11 +10,16 @@ class OrganizationJsonhalRead {
     this.links,
     this.alternateName,
     this.description,
+    this.endDate,
     this.logo,
     required this.name,
     this.preferences,
+    this.startDate,
     this.id,
     this.address,
+    this.createdAt,
+    this.updatedAt,
+    this.enabled,
     this.archived,
   });
 
@@ -29,12 +34,17 @@ class OrganizationJsonhalRead {
       links: OrganizationJsonhalReadLinks.fromJson(json[r'_links']),
       alternateName: json[r'alternateName'],
       description: json[r'description'],
+      endDate: mapToDateTime(json[r'endDate']),
       logo: json[r'logo'],
       name: json[r'name'],
       preferences:
           PreferencesJsonhalOrganizationRead.fromJson(json[r'preferences']),
+      startDate: mapToDateTime(json[r'startDate']),
       id: json[r'id'],
       address: PostalAddressJsonhalRead.fromJson(json[r'address']),
+      createdAt: mapToDateTime(json[r'createdAt']),
+      updatedAt: mapToDateTime(json[r'updatedAt']),
+      enabled: json[r'enabled'],
       archived: json[r'archived'],
     );
   }
@@ -45,16 +55,28 @@ class OrganizationJsonhalRead {
 
   String? description;
 
+  DateTime? endDate;
+
   String? logo;
 
   String name;
 
   PreferencesJsonhalOrganizationRead? preferences;
 
+  DateTime? startDate;
+
   /// The resource identifier.
   final String? id;
 
   PostalAddressJsonhalRead? address;
+
+  /// The date and time when the resource was created, in UTC format.
+  final DateTime? createdAt;
+
+  /// The date and time when the resource was updated, in UTC format.
+  final DateTime? updatedAt;
+
+  final bool? enabled;
 
   bool? archived;
 
@@ -69,11 +91,16 @@ class OrganizationJsonhalRead {
         other.links == links &&
         other.alternateName == alternateName &&
         other.description == description &&
+        other.endDate == endDate &&
         other.logo == logo &&
         other.name == name &&
         other.preferences == preferences &&
+        other.startDate == startDate &&
         other.id == id &&
         other.address == address &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.enabled == enabled &&
         other.archived == archived;
   }
 
@@ -82,11 +109,16 @@ class OrganizationJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       (alternateName == null ? 0 : alternateName.hashCode) +
       (description == null ? 0 : description.hashCode) +
+      (endDate == null ? 0 : endDate.hashCode) +
       (logo == null ? 0 : logo.hashCode) +
       name.hashCode +
       (preferences == null ? 0 : preferences.hashCode) +
+      (startDate == null ? 0 : startDate.hashCode) +
       (id == null ? 0 : id.hashCode) +
       (address == null ? 0 : address.hashCode) +
+      (createdAt == null ? 0 : createdAt.hashCode) +
+      (updatedAt == null ? 0 : updatedAt.hashCode) +
+      (enabled == null ? 0 : enabled.hashCode) +
       (archived == null ? 0 : archived.hashCode);
 
   static List<OrganizationJsonhalRead> listFromJson(Iterable? json) {
@@ -139,7 +171,7 @@ class OrganizationJsonhalRead {
 
   @override
   String toString() =>
-      'OrganizationJsonhalRead[links=$links, alternateName=$alternateName, description=$description, logo=$logo, name=$name, preferences=$preferences, id=$id, address=$address, archived=$archived]';
+      'OrganizationJsonhalRead[links=$links, alternateName=$alternateName, description=$description, endDate=$endDate, logo=$logo, name=$name, preferences=$preferences, startDate=$startDate, id=$id, address=$address, createdAt=$createdAt, updatedAt=$updatedAt, enabled=$enabled, archived=$archived]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -156,6 +188,8 @@ class OrganizationJsonhalRead {
         r'alternateName': alternateName,
       if (keys == null || keys.contains(r'description'))
         r'description': description,
+      if (keys == null || keys.contains(r'endDate'))
+        r'endDate': endDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'logo')) r'logo': logo,
       r'name': name,
       if (keys == null ||
@@ -168,6 +202,8 @@ class OrganizationJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'startDate'))
+        r'startDate': startDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null ||
           keys.any((key) => RegExp(r'^address\.').hasMatch(key)))
@@ -179,6 +215,11 @@ class OrganizationJsonhalRead {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'createdAt'))
+        r'createdAt': createdAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'updatedAt'))
+        r'updatedAt': updatedAt?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'enabled')) r'enabled': enabled,
       if (keys == null || keys.contains(r'archived')) r'archived': archived,
     };
   }

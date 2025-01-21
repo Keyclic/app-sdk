@@ -18,11 +18,11 @@ class GetIntegrationCollection200ResponseEmbedded {
     }
 
     return GetIntegrationCollection200ResponseEmbedded(
-      item: IntegrationJsonhalIntegrationRead.listFromJson(json[r'item']),
+      item: IntegrationJsonhalRead.listFromJson(json[r'item']),
     );
   }
 
-  List<IntegrationJsonhalIntegrationRead> item;
+  List<IntegrationJsonhalRead> item;
 
   @override
   bool operator ==(Object other) {

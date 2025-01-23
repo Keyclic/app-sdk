@@ -8,6 +8,7 @@ class FeedbackJsonhalReadLinks {
   /// Returns a new [FeedbackJsonhalReadLinks] instance.
   FeedbackJsonhalReadLinks({
     this.self,
+    this.member,
     this.reporter,
   });
 
@@ -20,12 +21,15 @@ class FeedbackJsonhalReadLinks {
 
     return FeedbackJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
+      member: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member']),
       reporter:
           GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'reporter']),
     );
   }
 
   GetPlaceCollection200ResponseLinksSelf? self;
+
+  GetPlaceCollection200ResponseLinksFirst? member;
 
   GetPlaceCollection200ResponseLinksFirst? reporter;
 
@@ -38,12 +42,14 @@ class FeedbackJsonhalReadLinks {
 
     return other is FeedbackJsonhalReadLinks &&
         other.self == self &&
+        other.member == member &&
         other.reporter == reporter;
   }
 
   @override
   int get hashCode =>
       (self == null ? 0 : self.hashCode) +
+      (member == null ? 0 : member.hashCode) +
       (reporter == null ? 0 : reporter.hashCode);
 
   static List<FeedbackJsonhalReadLinks> listFromJson(Iterable? json) {
@@ -96,7 +102,7 @@ class FeedbackJsonhalReadLinks {
 
   @override
   String toString() =>
-      'FeedbackJsonhalReadLinks[self=$self, reporter=$reporter]';
+      'FeedbackJsonhalReadLinks[self=$self, member=$member, reporter=$reporter]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -105,6 +111,15 @@ class FeedbackJsonhalReadLinks {
             (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^self\.'))) {
             previousValue.add(element.split(RegExp(r'^self\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
+        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^member\.'))) {
+            previousValue.add(element.split(RegExp(r'^member\.')).last);
           }
 
           return previousValue;

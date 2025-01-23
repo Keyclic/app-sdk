@@ -2889,6 +2889,12 @@
                         "$ref": "#\/parameters\/rating__"
                     },
                     {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
+                    },
+                    {
                         "$ref": "#\/parameters\/scheduled_at_after"
                     },
                     {
@@ -8587,6 +8593,12 @@
                         "$ref": "#\/parameters\/rating__"
                     },
                     {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
+                    },
+                    {
                         "$ref": "#\/parameters\/scheduled_at_after"
                     },
                     {
@@ -8966,6 +8978,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -9552,6 +9570,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -10216,6 +10240,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -12728,6 +12758,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/rating__"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporter"
+                    },
+                    {
+                        "$ref": "#\/parameters\/reporters__"
                     },
                     {
                         "$ref": "#\/parameters\/scheduled_at_after"
@@ -17959,6 +17995,9 @@
                                 "$ref": "#\/definitions\/Marker"
                             }
                         },
+                        "member": {
+                            "$ref": "#\/definitions\/Member"
+                        },
                         "reporter": {
                             "$ref": "#\/definitions\/Person"
                         },
@@ -17989,6 +18028,9 @@
                             "items": {
                                 "$ref": "#\/definitions\/FeedbackLinksImages"
                             }
+                        },
+                        "member": {
+                            "$ref": "#\/definitions\/FeedbackLinksMember"
                         },
                         "plans": {
                             "type": "array",
@@ -18114,6 +18156,9 @@
                         }
                     }
                 },
+                "member": {
+                    "type": "string"
+                },
                 "metadata": {
                     "type": "object",
                     "additionalProperties": true
@@ -18124,9 +18169,6 @@
                 "priority": {
                     "type": "string"
                 },
-                "reporter": {
-                    "type": "string"
-                },
                 "visibility": {
                     "type": "string",
                     "enum": [
@@ -18135,7 +18177,10 @@
                         "VISIBILITY_SHARED"
                     ]
                 }
-            }
+            },
+            "required": [
+                "place"
+            ]
         },
         "FeedbackGeoCoordinates": {
             "type": "object",
@@ -18226,6 +18271,32 @@
                             "type": "string"
                         },
                         "image": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "FeedbackLinksMember": {
+            "type": "object",
+            "properties": {
+                "href": {
+                    "description": "The URI of the member associated to the given feedback.",
+                    "type": "string",
+                    "format": "string"
+                },
+                "iriTemplate": {
+                    "$ref": "#\/definitions\/FeedbackLinksMemberIriTemplate"
+                }
+            }
+        },
+        "FeedbackLinksMemberIriTemplate": {
+            "type": "object",
+            "properties": {
+                "mapping": {
+                    "type": "object",
+                    "properties": {
+                        "member": {
                             "type": "string"
                         }
                     }
@@ -24977,6 +25048,22 @@
             },
             "name": "rating[]",
             "pattern": "[-+]?\\d+",
+            "type": "array"
+        },
+        "reporter": {
+            "in": "query",
+            "name": "reporter",
+            "pattern": ".*",
+            "type": "string"
+        },
+        "reporters__": {
+            "collectionFormat": "multi",
+            "in": "query",
+            "items": {
+                "type": "string"
+            },
+            "name": "reporters[]",
+            "pattern": ".*",
             "type": "array"
         },
         "scheduled_at_after": {

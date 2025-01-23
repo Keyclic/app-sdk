@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getIntegration**
-> IntegrationJsonhalIntegrationRead getIntegration(identifier, acceptLanguage)
+> IntegrationJsonhalRead getIntegration(identifier, acceptLanguage)
 
 Retrieves a Integration resource.
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**IntegrationJsonhalIntegrationRead**](IntegrationJsonhalIntegrationRead.md)
+[**IntegrationJsonhalRead**](IntegrationJsonhalRead.md)
 
 ### Authorization
 

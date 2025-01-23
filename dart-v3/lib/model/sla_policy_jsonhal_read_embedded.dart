@@ -28,9 +28,9 @@ class SlaPolicyJsonhalReadEmbedded {
     );
   }
 
-  List<String>? fromStates;
+  final List<String>? fromStates;
 
-  List<String>? toStates;
+  final List<String>? toStates;
 
   @override
   bool operator ==(Object other) {

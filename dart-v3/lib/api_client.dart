@@ -119,6 +119,11 @@ class ApiPlatformClient {
     return ContractTypeApi(this);
   }
 
+  /// Get DocumentApi instance
+  DocumentApi getDocumentApi() {
+    return DocumentApi(this);
+  }
+
   /// Get DocumentTypeApi instance
   DocumentTypeApi getDocumentTypeApi() {
     return DocumentTypeApi(this);
@@ -284,8 +289,6 @@ class ApiPlatformClient {
           return AssetTypeJsonhalRead.fromJson(value);
         case 'AssetTypeJsonhalReadLinks':
           return AssetTypeJsonhalReadLinks.fromJson(value);
-        case 'AssignmentJsongeoRead':
-          return AssignmentJsongeoRead.fromJson(value);
         case 'AssignmentJsonhalRead':
           return AssignmentJsonhalRead.fromJson(value);
         case 'AssignmentJsonhalReadLinks':
@@ -302,20 +305,20 @@ class ApiPlatformClient {
           return BrandJsonhalRead.fromJson(value);
         case 'BusinessHoursJsonhalRead':
           return BusinessHoursJsonhalRead.fromJson(value);
-        case 'CategoryJsongeoRead':
-          return CategoryJsongeoRead.fromJson(value);
         case 'CategoryJsonhalRead':
           return CategoryJsonhalRead.fromJson(value);
         case 'CategoryJsonhalReadEmbedded':
           return CategoryJsonhalReadEmbedded.fromJson(value);
         case 'CategoryJsonhalReadLinks':
           return CategoryJsonhalReadLinks.fromJson(value);
-        case 'CategoryTypeJsongeoRead':
-          return CategoryTypeJsongeoRead.fromJson(value);
         case 'CategoryTypeJsonhalRead':
           return CategoryTypeJsonhalRead.fromJson(value);
         case 'CollaboratorJsonhalRead':
           return CollaboratorJsonhalRead.fromJson(value);
+        case 'CollaboratorJsonhalReadEmbedded':
+          return CollaboratorJsonhalReadEmbedded.fromJson(value);
+        case 'CollaboratorJsonhalReadLinks':
+          return CollaboratorJsonhalReadLinks.fromJson(value);
         case 'ConditionJsonhalRead':
           return ConditionJsonhalRead.fromJson(value);
         case 'ConnectionJsonhalAuthProfileRead':
@@ -324,8 +327,6 @@ class ApiPlatformClient {
           return ConnectorJsonhalRead.fromJson(value);
         case 'ContactJsonhalRead':
           return ContactJsonhalRead.fromJson(value);
-        case 'ContactJsonhalReadEmbedded':
-          return ContactJsonhalReadEmbedded.fromJson(value);
         case 'ContactPointJsonhalRead':
           return ContactPointJsonhalRead.fromJson(value);
         case 'ContractCreateContractCommandWrite':
@@ -340,6 +341,8 @@ class ApiPlatformClient {
           return ContractJsonhalReadLinks.fromJson(value);
         case 'ContractTypeJsonhalRead':
           return ContractTypeJsonhalRead.fromJson(value);
+        case 'DocumentTransitionJsonhalRead':
+          return DocumentTransitionJsonhalRead.fromJson(value);
         case 'DocumentTypeJsonhalRead':
           return DocumentTypeJsonhalRead.fromJson(value);
         case 'DurationJsonhalRead':
@@ -348,8 +351,6 @@ class ApiPlatformClient {
           return EquipmentCreateEquipmentCommandWrite.fromJson(value);
         case 'EquipmentEditEquipmentCommandWrite':
           return EquipmentEditEquipmentCommandWrite.fromJson(value);
-        case 'EquipmentJsongeoRead':
-          return EquipmentJsongeoRead.fromJson(value);
         case 'EquipmentJsonhalOrganizationPreferenceRead':
           return EquipmentJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'EquipmentJsonhalRead':
@@ -360,16 +361,12 @@ class ApiPlatformClient {
           return ExportJsonhalRead.fromJson(value);
         case 'ExportRead':
           return ExportRead.fromJson(value);
-        case 'FeedbackJsongeoRead':
-          return FeedbackJsongeoRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
-        case 'GeoCoordinatesJsongeoRead':
-          return GeoCoordinatesJsongeoRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':
           return GeoCoordinatesJsonhalRead.fromJson(value);
         case 'GetAssetCollection200Response':
@@ -494,30 +491,22 @@ class ApiPlatformClient {
         case 'GetTicketWorkflowTransitions200ResponseEmbedded':
           return GetTicketWorkflowTransitions200ResponseEmbedded.fromJson(
               value);
-        case 'IntegrationJsonhalIntegrationRead':
-          return IntegrationJsonhalIntegrationRead.fromJson(value);
-        case 'IntegrationJsonhalIntegrationReadLinks':
-          return IntegrationJsonhalIntegrationReadLinks.fromJson(value);
+        case 'IntegrationJsonhalRead':
+          return IntegrationJsonhalRead.fromJson(value);
+        case 'IntegrationJsonhalReadLinks':
+          return IntegrationJsonhalReadLinks.fromJson(value);
         case 'IntegrationLinkCreateLinkCommandWrite':
           return IntegrationLinkCreateLinkCommandWrite.fromJson(value);
         case 'IntegrationLinkEditLinkCommandWrite':
           return IntegrationLinkEditLinkCommandWrite.fromJson(value);
         case 'IntegrationLinkJsonhalRead':
           return IntegrationLinkJsonhalRead.fromJson(value);
-        case 'MarkerJsongeoRead':
-          return MarkerJsongeoRead.fromJson(value);
         case 'MarkerJsonhalRead':
           return MarkerJsonhalRead.fromJson(value);
         case 'MemberJsonhalRead':
           return MemberJsonhalRead.fromJson(value);
-        case 'MemberJsonhalReadEmbedded':
-          return MemberJsonhalReadEmbedded.fromJson(value);
-        case 'MemberJsonhalReadLinks':
-          return MemberJsonhalReadLinks.fromJson(value);
         case 'MetricJsonhalRead':
           return MetricJsonhalRead.fromJson(value);
-        case 'NodeJsongeoRead':
-          return NodeJsongeoRead.fromJson(value);
         case 'NodeJsonhalRead':
           return NodeJsonhalRead.fromJson(value);
         case 'OccupantJsonhalRead':
@@ -534,16 +523,10 @@ class ApiPlatformClient {
           return PlaceCreatePlaceCommandWriteCreate.fromJson(value);
         case 'PlaceEditPlaceCommandWriteEdit':
           return PlaceEditPlaceCommandWriteEdit.fromJson(value);
-        case 'PlaceJsongeoRead':
-          return PlaceJsongeoRead.fromJson(value);
         case 'PlaceJsonhalRead':
           return PlaceJsonhalRead.fromJson(value);
-        case 'PointJsongeoRead':
-          return PointJsongeoRead.fromJson(value);
         case 'PointJsonhalRead':
           return PointJsonhalRead.fromJson(value);
-        case 'PostalAddressJsongeoRead':
-          return PostalAddressJsongeoRead.fromJson(value);
         case 'PostalAddressJsonhalRead':
           return PostalAddressJsonhalRead.fromJson(value);
         case 'PostalAddressWriteCreate':
@@ -552,8 +535,6 @@ class ApiPlatformClient {
           return PostalAddressWriteEdit.fromJson(value);
         case 'PreferencesAssetRead':
           return PreferencesAssetRead.fromJson(value);
-        case 'PreferencesJsongeoAssetRead':
-          return PreferencesJsongeoAssetRead.fromJson(value);
         case 'PreferencesJsonhalAssetRead':
           return PreferencesJsonhalAssetRead.fromJson(value);
         case 'PreferencesJsonhalOrganizationRead':
@@ -626,8 +607,6 @@ class ApiPlatformClient {
           return TicketJsonhalReadEmbedded.fromJson(value);
         case 'TicketJsonhalReadLinks':
           return TicketJsonhalReadLinks.fromJson(value);
-        case 'TicketPriorityJsongeoRead':
-          return TicketPriorityJsongeoRead.fromJson(value);
         case 'TicketPriorityJsonhalRead':
           return TicketPriorityJsonhalRead.fromJson(value);
         case 'TicketTypeJsonhalRead':
@@ -638,8 +617,6 @@ class ApiPlatformClient {
           return WarrantyJsonhalRead.fromJson(value);
         case 'WarrantyWrite':
           return WarrantyWrite.fromJson(value);
-        case 'WorkflowStateJsongeoRead':
-          return WorkflowStateJsongeoRead.fromJson(value);
         case 'WorkflowStateJsonhalRead':
           return WorkflowStateJsonhalRead.fromJson(value);
         case 'WorkflowTransitionJsonhalRead':

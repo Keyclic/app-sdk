@@ -24,17 +24,17 @@ class MemberJsonhalRead {
     }
 
     return MemberJsonhalRead(
-      links: MemberJsonhalReadLinks.fromJson(json[r'_links']),
+      links: CollaboratorJsonhalReadLinks.fromJson(json[r'_links']),
       contactPoint: ContactPointJsonhalRead.fromJson(json[r'contactPoint']),
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
       type: json[r'type'],
-      embedded: MemberJsonhalReadEmbedded.fromJson(json[r'_embedded']),
+      embedded: CollaboratorJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  MemberJsonhalReadLinks? links;
+  CollaboratorJsonhalReadLinks? links;
 
   ContactPointJsonhalRead? contactPoint;
 
@@ -49,7 +49,7 @@ class MemberJsonhalRead {
 
   final String? type;
 
-  MemberJsonhalReadEmbedded? embedded;
+  CollaboratorJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {

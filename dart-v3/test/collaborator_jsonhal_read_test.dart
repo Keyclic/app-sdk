@@ -10,7 +10,7 @@ void main() {
   // final instance = CollaboratorJsonhalRead();
 
   group('test CollaboratorJsonhalRead', () {
-    // AssetTypeJsonhalReadLinks links
+    // CollaboratorJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // The resource identifier.
@@ -27,5 +27,11 @@ void main() {
 
     // ContactPointJsonhalRead contactPoint
     test('to test the property `contactPoint`', () async {});
+
+    // String type
+    test('to test the property `type`', () async {});
+
+    // CollaboratorJsonhalReadEmbedded embedded
+    test('to test the property `embedded`', () async {});
   });
 }

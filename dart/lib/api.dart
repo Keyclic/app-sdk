@@ -517,6 +517,9 @@ part 'model/report_links_self.dart';
 part 'model/report_links_self_iri_template.dart';
 part 'model/report_links_tracking.dart';
 part 'model/report_links_tracking_iri_template.dart';
+part 'model/report_links_workflow.dart';
+part 'model/report_links_workflow_iri_template.dart';
+part 'model/report_links_workflow_iri_template_mapping.dart';
 part 'model/report_pagination.dart';
 part 'model/report_priority.dart';
 part 'model/report_type_priority.dart';
@@ -596,7 +599,6 @@ part 'model/workflow_data.dart';
 part 'model/workflow_links.dart';
 part 'model/workflow_links_self.dart';
 part 'model/workflow_links_self_iri_template.dart';
-part 'model/workflow_links_self_iri_template_mapping.dart';
 part 'model/workflow_state.dart';
 part 'model/workflow_transition.dart';
 

@@ -12,6 +12,8 @@ class CollaboratorJsonhalRead {
     this.createdAt,
     this.updatedAt,
     this.contactPoint,
+    this.type,
+    this.embedded,
   });
 
   /// Returns a new [CollaboratorJsonhalRead] instance and imports its values from
@@ -22,15 +24,17 @@ class CollaboratorJsonhalRead {
     }
 
     return CollaboratorJsonhalRead(
-      links: AssetTypeJsonhalReadLinks.fromJson(json[r'_links']),
+      links: CollaboratorJsonhalReadLinks.fromJson(json[r'_links']),
       id: json[r'id'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
       contactPoint: ContactPointJsonhalRead.fromJson(json[r'contactPoint']),
+      type: json[r'type'],
+      embedded: CollaboratorJsonhalReadEmbedded.fromJson(json[r'_embedded']),
     );
   }
 
-  AssetTypeJsonhalReadLinks? links;
+  CollaboratorJsonhalReadLinks? links;
 
   /// The resource identifier.
   final String? id;
@@ -42,6 +46,10 @@ class CollaboratorJsonhalRead {
   final DateTime? updatedAt;
 
   ContactPointJsonhalRead? contactPoint;
+
+  final String? type;
+
+  CollaboratorJsonhalReadEmbedded? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -55,7 +63,9 @@ class CollaboratorJsonhalRead {
         other.id == id &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt &&
-        other.contactPoint == contactPoint;
+        other.contactPoint == contactPoint &&
+        other.type == type &&
+        other.embedded == embedded;
   }
 
   @override
@@ -64,7 +74,9 @@ class CollaboratorJsonhalRead {
       (id == null ? 0 : id.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode) +
-      (contactPoint == null ? 0 : contactPoint.hashCode);
+      (contactPoint == null ? 0 : contactPoint.hashCode) +
+      (type == null ? 0 : type.hashCode) +
+      (embedded == null ? 0 : embedded.hashCode);
 
   static List<CollaboratorJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -116,7 +128,7 @@ class CollaboratorJsonhalRead {
 
   @override
   String toString() =>
-      'CollaboratorJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, contactPoint=$contactPoint]';
+      'CollaboratorJsonhalRead[links=$links, id=$id, createdAt=$createdAt, updatedAt=$updatedAt, contactPoint=$contactPoint, type=$type, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -140,6 +152,17 @@ class CollaboratorJsonhalRead {
             <String>[], (List<String> previousValue, String element) {
           if (element.contains(RegExp(r'^contactPoint\.'))) {
             previousValue.add(element.split(RegExp(r'^contactPoint\.')).last);
+          }
+
+          return previousValue;
+        })),
+      if (keys == null || keys.contains(r'type')) r'type': type,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^embedded\.').hasMatch(key)))
+        r'_embedded': embedded?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^embedded\.'))) {
+            previousValue.add(element.split(RegExp(r'^embedded\.')).last);
           }
 
           return previousValue;

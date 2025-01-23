@@ -14,6 +14,7 @@ class ContactPointJsonhalRead {
     this.familyName,
     this.givenName,
     this.name,
+    this.isOpen,
   });
 
   /// Returns a new [ContactPointJsonhalRead] instance and imports its values from
@@ -31,6 +32,7 @@ class ContactPointJsonhalRead {
       familyName: json[r'familyName'],
       givenName: json[r'givenName'],
       name: json[r'name'],
+      isOpen: json[r'isOpen'],
     );
   }
 
@@ -50,6 +52,8 @@ class ContactPointJsonhalRead {
 
   String? name;
 
+  final bool? isOpen;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -64,7 +68,8 @@ class ContactPointJsonhalRead {
         other.telephone == telephone &&
         other.familyName == familyName &&
         other.givenName == givenName &&
-        other.name == name;
+        other.name == name &&
+        other.isOpen == isOpen;
   }
 
   @override
@@ -75,7 +80,8 @@ class ContactPointJsonhalRead {
       (telephone == null ? 0 : telephone.hashCode) +
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode) +
-      (name == null ? 0 : name.hashCode);
+      (name == null ? 0 : name.hashCode) +
+      (isOpen == null ? 0 : isOpen.hashCode);
 
   static List<ContactPointJsonhalRead> listFromJson(Iterable? json) {
     if (json == null) {
@@ -127,7 +133,7 @@ class ContactPointJsonhalRead {
 
   @override
   String toString() =>
-      'ContactPointJsonhalRead[description=$description, email=$email, faxNumber=$faxNumber, telephone=$telephone, familyName=$familyName, givenName=$givenName, name=$name]';
+      'ContactPointJsonhalRead[description=$description, email=$email, faxNumber=$faxNumber, telephone=$telephone, familyName=$familyName, givenName=$givenName, name=$name, isOpen=$isOpen]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -140,6 +146,7 @@ class ContactPointJsonhalRead {
         r'familyName': familyName,
       if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
       if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'isOpen')) r'isOpen': isOpen,
     };
   }
 }

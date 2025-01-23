@@ -22,9 +22,9 @@ class IntegrationApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [IntegrationJsonhalIntegrationRead] as data
+  /// Returns a [Future] containing a [Response] with a [IntegrationJsonhalRead] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<IntegrationJsonhalIntegrationRead>> getIntegration({
+  Future<Response<IntegrationJsonhalRead>> getIntegration({
     required String identifier,
     String? acceptLanguage,
     CancelToken? cancelToken,
@@ -65,12 +65,11 @@ class IntegrationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    IntegrationJsonhalIntegrationRead responseData;
+    IntegrationJsonhalRead responseData;
 
     try {
-      responseData =
-          await _apiClient.deserializeAsync<IntegrationJsonhalIntegrationRead>(
-              response.data!, 'IntegrationJsonhalIntegrationRead');
+      responseData = await _apiClient.deserializeAsync<IntegrationJsonhalRead>(
+          response.data!, 'IntegrationJsonhalRead');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -81,7 +80,7 @@ class IntegrationApi {
       );
     }
 
-    return Response<IntegrationJsonhalIntegrationRead>(
+    return Response<IntegrationJsonhalRead>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

@@ -10,7 +10,7 @@ void main() {
   // final instance = MemberJsonhalRead();
 
   group('test MemberJsonhalRead', () {
-    // MemberJsonhalReadLinks links
+    // CollaboratorJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
     // ContactPointJsonhalRead contactPoint
@@ -31,7 +31,7 @@ void main() {
     // String type
     test('to test the property `type`', () async {});
 
-    // MemberJsonhalReadEmbedded embedded
+    // CollaboratorJsonhalReadEmbedded embedded
     test('to test the property `embedded`', () async {});
   });
 }

@@ -252,6 +252,8 @@ class TicketApi {
   /// * [equipmentsLeftSquareBracketRightSquareBracket] -
   /// * [feedbackPeriodBatch] -
   /// * [feedbackPeriodBatchLeftSquareBracketRightSquareBracket] -
+  /// * [feedbackPeriodMember] -
+  /// * [feedbackPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [feedbackPeriodVisibility] -
   /// * [feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket] -
   /// * [level] -
@@ -356,6 +358,8 @@ class TicketApi {
     List<String>? equipmentsLeftSquareBracketRightSquareBracket,
     String? feedbackPeriodBatch,
     List<String>? feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
+    String? feedbackPeriodMember,
+    List<String>? feedbackPeriodMemberLeftSquareBracketRightSquareBracket,
     String? feedbackPeriodVisibility,
     List<String>? feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket,
     int? level,
@@ -604,6 +608,12 @@ class TicketApi {
         r'feedback.batch[]': encodeCollectionQueryParameter(
             feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
+      if (feedbackPeriodMember != null)
+        r'feedback.member': encodeQueryParameter(feedbackPeriodMember),
+      if (feedbackPeriodMemberLeftSquareBracketRightSquareBracket != null)
+        r'feedback.member[]': encodeCollectionQueryParameter(
+            feedbackPeriodMemberLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (feedbackPeriodVisibility != null)
         r'feedback.visibility': encodeQueryParameter(feedbackPeriodVisibility),
       if (feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket != null)
@@ -765,6 +775,8 @@ class TicketApi {
   /// * [equipmentsLeftSquareBracketRightSquareBracket] -
   /// * [feedbackPeriodBatch] -
   /// * [feedbackPeriodBatchLeftSquareBracketRightSquareBracket] -
+  /// * [feedbackPeriodMember] -
+  /// * [feedbackPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [feedbackPeriodVisibility] -
   /// * [feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket] -
   /// * [level] -
@@ -859,6 +871,8 @@ class TicketApi {
     List<String>? equipmentsLeftSquareBracketRightSquareBracket,
     String? feedbackPeriodBatch,
     List<String>? feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
+    String? feedbackPeriodMember,
+    List<String>? feedbackPeriodMemberLeftSquareBracketRightSquareBracket,
     String? feedbackPeriodVisibility,
     List<String>? feedbackPeriodVisibilityLeftSquareBracketRightSquareBracket,
     int? level,
@@ -1075,6 +1089,12 @@ class TicketApi {
       if (feedbackPeriodBatchLeftSquareBracketRightSquareBracket != null)
         r'feedback.batch[]': encodeCollectionQueryParameter(
             feedbackPeriodBatchLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (feedbackPeriodMember != null)
+        r'feedback.member': encodeQueryParameter(feedbackPeriodMember),
+      if (feedbackPeriodMemberLeftSquareBracketRightSquareBracket != null)
+        r'feedback.member[]': encodeCollectionQueryParameter(
+            feedbackPeriodMemberLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (feedbackPeriodVisibility != null)
         r'feedback.visibility': encodeQueryParameter(feedbackPeriodVisibility),

@@ -28,6 +28,9 @@ void main() {
     // FeedbackDataGeo geo
     test('to test the property `geo`', () async {});
 
+    // String member
+    test('to test the property `member`', () async {});
+
     // Map<String, dynamic> metadata (default value: const {})
     test('to test the property `metadata`', () async {});
 
@@ -36,9 +39,6 @@ void main() {
 
     // String priority
     test('to test the property `priority`', () async {});
-
-    // String reporter
-    test('to test the property `reporter`', () async {});
 
     // String visibility
     test('to test the property `visibility`', () async {});

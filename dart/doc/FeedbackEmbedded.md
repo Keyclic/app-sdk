@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **category** | [**Category**](Category.md) |  | [optional] 
 **markers** | [**List<Marker>**](Marker.md) |  | [optional] [default to const []]
+**member** | [**Member**](Member.md) |  | [optional] 
 **reporter** | [**Person**](Person.md) |  | [optional] 
 **stateTransitions** | **List<String>** |  | [optional] [default to const []]
 **tracking** | **String** |  | [optional] 

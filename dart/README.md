@@ -415,6 +415,8 @@ Class | Method | HTTP request | Description
  - [FeedbackLinksImages](doc//FeedbackLinksImages.md)
  - [FeedbackLinksImagesIriTemplate](doc//FeedbackLinksImagesIriTemplate.md)
  - [FeedbackLinksImagesIriTemplateMapping](doc//FeedbackLinksImagesIriTemplateMapping.md)
+ - [FeedbackLinksMember](doc//FeedbackLinksMember.md)
+ - [FeedbackLinksMemberIriTemplate](doc//FeedbackLinksMemberIriTemplate.md)
  - [FeedbackLinksPlans](doc//FeedbackLinksPlans.md)
  - [FeedbackLinksPlansIriTemplate](doc//FeedbackLinksPlansIriTemplate.md)
  - [FeedbackLinksPlansIriTemplateMapping](doc//FeedbackLinksPlansIriTemplateMapping.md)

@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCategoryCollection**
-> GetCategoryCollection200Response getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, leaf, level, levelLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
+> GetCategoryCollection200Response getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, enabled, leaf, level, levelLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion)
 
 Retrieves the collection of Category resources.
 
@@ -92,6 +92,7 @@ final page = 56; // int | The collection page number
 final limit = 56; // int | The number of items per page
 final pagination = true; // bool | Enable or disable pagination
 final search = search_example; // String | 
+final enabled = true; // bool | 
 final leaf = true; // bool | 
 final level = 56; // int | 
 final levelLeftSquareBracketRightSquareBracket = []; // List<int> | 
@@ -101,7 +102,7 @@ final xKeyclicAppPlatform = xKeyclicAppPlatform_example; // String |
 final xKeyclicAppVersion = xKeyclicAppVersion_example; // String | 
 
 try {
-    final result = api_instance.getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, leaf, level, levelLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
+    final result = api_instance.getCategoryCollection(xKeyclicApp, xOrganizationId, page, limit, pagination, search, enabled, leaf, level, levelLeftSquareBracketRightSquareBracket, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion);
     print(result);
 } catch (e) {
     print('Exception when calling CategoryApi->getCategoryCollection: $e\n');
@@ -118,6 +119,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional] 
  **search** | **String**|  | [optional] 
+ **enabled** | **bool**|  | [optional] 
  **leaf** | **bool**|  | [optional] 
  **level** | **int**|  | [optional] 
  **levelLeftSquareBracketRightSquareBracket** | [**List<int>**](int.md)|  | [optional] [default to const []]

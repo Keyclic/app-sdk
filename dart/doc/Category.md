@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **embedded** | [**CategoryEmbedded**](CategoryEmbedded.md) |  | [optional] 
 **links** | [**CategoryLinks**](CategoryLinks.md) |  | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
+**enabled** | **bool** |  | 
 **id** | **String** |  | [optional] [readonly] 
 **identificationNumber** | **String** |  | [optional] 
 **name** | **String** |  | 

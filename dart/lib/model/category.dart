@@ -10,6 +10,7 @@ class Category {
     this.embedded,
     this.links,
     this.createdAt,
+    required this.enabled,
     this.id,
     this.identificationNumber,
     required this.name,
@@ -28,6 +29,7 @@ class Category {
       embedded: CategoryEmbedded.fromJson(json[r'_embedded']),
       links: CategoryLinks.fromJson(json[r'_links']),
       createdAt: mapToDateTime(json[r'createdAt']),
+      enabled: json[r'enabled'],
       id: json[r'id'],
       identificationNumber: json[r'identificationNumber'],
       name: json[r'name'],
@@ -41,6 +43,8 @@ class Category {
   CategoryLinks? links;
 
   final DateTime? createdAt;
+
+  bool enabled;
 
   final String? id;
 
@@ -63,6 +67,7 @@ class Category {
         other.embedded == embedded &&
         other.links == links &&
         other.createdAt == createdAt &&
+        other.enabled == enabled &&
         other.id == id &&
         other.identificationNumber == identificationNumber &&
         other.name == name &&
@@ -75,6 +80,7 @@ class Category {
       (embedded == null ? 0 : embedded.hashCode) +
       (links == null ? 0 : links.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
+      enabled.hashCode +
       (id == null ? 0 : id.hashCode) +
       (identificationNumber == null ? 0 : identificationNumber.hashCode) +
       name.hashCode +
@@ -127,7 +133,7 @@ class Category {
 
   @override
   String toString() =>
-      'Category[embedded=$embedded, links=$links, createdAt=$createdAt, id=$id, identificationNumber=$identificationNumber, name=$name, type=$type, updatedAt=$updatedAt]';
+      'Category[embedded=$embedded, links=$links, createdAt=$createdAt, enabled=$enabled, id=$id, identificationNumber=$identificationNumber, name=$name, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -152,6 +158,7 @@ class Category {
         })),
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
+      r'enabled': enabled,
       if (keys == null || keys.contains(r'id')) r'id': id,
       if (keys == null || keys.contains(r'identificationNumber'))
         r'identificationNumber': identificationNumber,

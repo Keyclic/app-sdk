@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **links** | [**CategoryJsonhalReadLinks**](CategoryJsonhalReadLinks.md) |  | [optional] 
 **name** | **String** |  | 
 **id** | **String** | The resource identifier. | [optional] [readonly] 
+**enabled** | **bool** |  | [optional] 
 **identificationNumber** | **String** |  | [optional] 
 **path** | [**List<NodeJsonhalRead>**](NodeJsonhalRead.md) |  | [optional] [readonly] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) | The date and time when the resource was created, in UTC format. | [optional] [readonly] 

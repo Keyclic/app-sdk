@@ -20,6 +20,9 @@ void main() {
     // String id
     test('to test the property `id`', () async {});
 
+    // bool enabled
+    test('to test the property `enabled`', () async {});
+
     // String identificationNumber
     test('to test the property `identificationNumber`', () async {});
 

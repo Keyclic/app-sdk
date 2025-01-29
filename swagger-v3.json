@@ -2938,6 +2938,20 @@
                         "allowReserved": false
                     },
                     {
+                        "name": "enabled",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": true,
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "style": "form",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
                         "name": "leaf",
                         "in": "query",
                         "description": "",
@@ -18641,6 +18655,9 @@
                         "readOnly": true,
                         "description": "The resource identifier.",
                         "type": "string"
+                    },
+                    "enabled": {
+                        "type": "boolean"
                     },
                     "identificationNumber": {
                         "minLength": 1,

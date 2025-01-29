@@ -35,6 +35,9 @@ class Permission {
   static const contractColonWrite = Permission._(r'contract:write');
   static const dISPATCHERColonREAD = Permission._(r'DISPATCHER:READ');
   static const dISPATCHERColonWRITE = Permission._(r'DISPATCHER:WRITE');
+  static const documentColonTagsColonRead = Permission._(r'document:tags:read');
+  static const documentColonTagsColonWrite =
+      Permission._(r'document:tags:write');
   static const fILTERColonALL = Permission._(r'FILTER:ALL');
   static const integrationLinkColonRead =
       Permission._(r'integration-link:read');
@@ -66,6 +69,8 @@ class Permission {
   static const ticketColonArchivingColonWrite =
       Permission._(r'ticket:archiving:write');
   static const ticketColonRead = Permission._(r'ticket:read');
+  static const ticketColonTagsColonRead = Permission._(r'ticket:tags:read');
+  static const ticketColonTagsColonWrite = Permission._(r'ticket:tags:write');
   static const ticketColonWrite = Permission._(r'ticket:write');
 
   /// List of all possible values in this [enum][Permission].
@@ -85,6 +90,8 @@ class Permission {
     contractColonWrite,
     dISPATCHERColonREAD,
     dISPATCHERColonWRITE,
+    documentColonTagsColonRead,
+    documentColonTagsColonWrite,
     fILTERColonALL,
     integrationLinkColonRead,
     integrationLinkColonWrite,
@@ -111,6 +118,8 @@ class Permission {
     slaPolicyColonRead,
     ticketColonArchivingColonWrite,
     ticketColonRead,
+    ticketColonTagsColonRead,
+    ticketColonTagsColonWrite,
     ticketColonWrite,
   ];
 
@@ -177,6 +186,10 @@ class PermissionTypeTransformer {
         return Permission.dISPATCHERColonREAD;
       case r'DISPATCHER:WRITE':
         return Permission.dISPATCHERColonWRITE;
+      case r'document:tags:read':
+        return Permission.documentColonTagsColonRead;
+      case r'document:tags:write':
+        return Permission.documentColonTagsColonWrite;
       case r'FILTER:ALL':
         return Permission.fILTERColonALL;
       case r'integration-link:read':
@@ -229,6 +242,10 @@ class PermissionTypeTransformer {
         return Permission.ticketColonArchivingColonWrite;
       case r'ticket:read':
         return Permission.ticketColonRead;
+      case r'ticket:tags:read':
+        return Permission.ticketColonTagsColonRead;
+      case r'ticket:tags:write':
+        return Permission.ticketColonTagsColonWrite;
       case r'ticket:write':
         return Permission.ticketColonWrite;
       default:

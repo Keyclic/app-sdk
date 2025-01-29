@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **equipments** | **List<String>** |  | [optional] [default to const []]
 **geo** | [**FeedbackDataGeo**](FeedbackDataGeo.md) |  | [optional] 
+**member** | **String** |  | [optional] 
 **metadata** | [**Map<String, Object>**](Object.md) |  | [optional] [default to const {}]
-**place** | **String** |  | [optional] 
+**place** | **String** |  | 
 **priority** | **String** |  | [optional] 
-**reporter** | **String** |  | [optional] 
 **visibility** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

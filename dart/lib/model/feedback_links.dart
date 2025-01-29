@@ -10,6 +10,7 @@ class FeedbackLinks {
     this.businessActivity,
     this.category,
     this.images,
+    this.member,
     this.plans,
     this.report,
     this.reporter,
@@ -29,6 +30,7 @@ class FeedbackLinks {
           FeedbackLinksBusinessActivity.fromJson(json[r'businessActivity']),
       category: FeedbackLinksCategory.fromJson(json[r'category']),
       images: FeedbackLinksImages.listFromJson(json[r'images']),
+      member: FeedbackLinksMember.fromJson(json[r'member']),
       plans: FeedbackLinksPlans.listFromJson(json[r'plans']),
       report: FeedbackLinksReport.fromJson(json[r'report']),
       reporter: FeedbackLinksReporter.fromJson(json[r'reporter']),
@@ -42,6 +44,8 @@ class FeedbackLinks {
   FeedbackLinksCategory? category;
 
   List<FeedbackLinksImages>? images;
+
+  FeedbackLinksMember? member;
 
   List<FeedbackLinksPlans>? plans;
 
@@ -64,6 +68,7 @@ class FeedbackLinks {
         other.businessActivity == businessActivity &&
         other.category == category &&
         DeepCollectionEquality.unordered().equals(images, other.images) &&
+        other.member == member &&
         DeepCollectionEquality.unordered().equals(plans, other.plans) &&
         other.report == report &&
         other.reporter == reporter &&
@@ -76,6 +81,7 @@ class FeedbackLinks {
       (businessActivity == null ? 0 : businessActivity.hashCode) +
       (category == null ? 0 : category.hashCode) +
       (images == null ? 0 : images.hashCode) +
+      (member == null ? 0 : member.hashCode) +
       (plans == null ? 0 : plans.hashCode) +
       (report == null ? 0 : report.hashCode) +
       (reporter == null ? 0 : reporter.hashCode) +
@@ -129,7 +135,7 @@ class FeedbackLinks {
 
   @override
   String toString() =>
-      'FeedbackLinks[businessActivity=$businessActivity, category=$category, images=$images, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
+      'FeedbackLinks[businessActivity=$businessActivity, category=$category, images=$images, member=$member, plans=$plans, report=$report, reporter=$reporter, self=$self, tracking=$tracking]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -155,6 +161,15 @@ class FeedbackLinks {
           return previousValue;
         })),
       if (keys == null || keys.contains(r'images')) r'images': images,
+      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
+        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^member\.'))) {
+            previousValue.add(element.split(RegExp(r'^member\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'plans')) r'plans': plans,
       if (keys == null || keys.any((key) => RegExp(r'^report\.').hasMatch(key)))
         r'report': report?.toJson(keys?.fold<List<String>>(<String>[],

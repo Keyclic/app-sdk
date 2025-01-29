@@ -253,6 +253,8 @@ part 'model/feedback_links_category_iri_template.dart';
 part 'model/feedback_links_images.dart';
 part 'model/feedback_links_images_iri_template.dart';
 part 'model/feedback_links_images_iri_template_mapping.dart';
+part 'model/feedback_links_member.dart';
+part 'model/feedback_links_member_iri_template.dart';
 part 'model/feedback_links_plans.dart';
 part 'model/feedback_links_plans_iri_template.dart';
 part 'model/feedback_links_plans_iri_template_mapping.dart';

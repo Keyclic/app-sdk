@@ -211,6 +211,8 @@ doc/FeedbackLinksCategoryIriTemplate.md
 doc/FeedbackLinksImages.md
 doc/FeedbackLinksImagesIriTemplate.md
 doc/FeedbackLinksImagesIriTemplateMapping.md
+doc/FeedbackLinksMember.md
+doc/FeedbackLinksMemberIriTemplate.md
 doc/FeedbackLinksPlans.md
 doc/FeedbackLinksPlansIriTemplate.md
 doc/FeedbackLinksPlansIriTemplateMapping.md
@@ -826,6 +828,8 @@ lib/model/feedback_links_category_iri_template.dart
 lib/model/feedback_links_images.dart
 lib/model/feedback_links_images_iri_template.dart
 lib/model/feedback_links_images_iri_template_mapping.dart
+lib/model/feedback_links_member.dart
+lib/model/feedback_links_member_iri_template.dart
 lib/model/feedback_links_plans.dart
 lib/model/feedback_links_plans_iri_template.dart
 lib/model/feedback_links_plans_iri_template_mapping.dart
@@ -1382,6 +1386,8 @@ test/feedback_links_category_test.dart
 test/feedback_links_images_iri_template_mapping_test.dart
 test/feedback_links_images_iri_template_test.dart
 test/feedback_links_images_test.dart
+test/feedback_links_member_iri_template_test.dart
+test/feedback_links_member_test.dart
 test/feedback_links_plans_iri_template_mapping_test.dart
 test/feedback_links_plans_iri_template_test.dart
 test/feedback_links_plans_test.dart

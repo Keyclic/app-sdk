@@ -15,6 +15,7 @@ class OrganizationPreferences {
     this.form,
     this.offline,
     this.public,
+    this.quote,
     this.reference,
     this.reverseGeocoding,
     this.review,
@@ -38,6 +39,7 @@ class OrganizationPreferences {
       form: PreferencesForm.fromJson(json[r'form']),
       offline: json[r'offline'],
       public: json[r'public'],
+      quote: PreferencesQuote.fromJson(json[r'quote']),
       reference: PreferencesReference.fromJson(json[r'reference']),
       reverseGeocoding: json[r'reverseGeocoding'],
       review: PreferencesReview.fromJson(json[r'review']),
@@ -61,6 +63,8 @@ class OrganizationPreferences {
   bool? offline;
 
   bool? public;
+
+  PreferencesQuote? quote;
 
   PreferencesReference? reference;
 
@@ -88,6 +92,7 @@ class OrganizationPreferences {
         other.form == form &&
         other.offline == offline &&
         other.public == public &&
+        other.quote == quote &&
         other.reference == reference &&
         other.reverseGeocoding == reverseGeocoding &&
         other.review == review &&
@@ -105,6 +110,7 @@ class OrganizationPreferences {
       (form == null ? 0 : form.hashCode) +
       (offline == null ? 0 : offline.hashCode) +
       (public == null ? 0 : public.hashCode) +
+      (quote == null ? 0 : quote.hashCode) +
       (reference == null ? 0 : reference.hashCode) +
       (reverseGeocoding == null ? 0 : reverseGeocoding.hashCode) +
       (review == null ? 0 : review.hashCode) +
@@ -161,7 +167,7 @@ class OrganizationPreferences {
 
   @override
   String toString() =>
-      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled, sla=$sla]';
+      'OrganizationPreferences[archiving=$archiving, categoryRequired=$categoryRequired, contract=$contract, equipment=$equipment, feedbackParentPlace=$feedbackParentPlace, form=$form, offline=$offline, public=$public, quote=$quote, reference=$reference, reverseGeocoding=$reverseGeocoding, review=$review, reviewEnabled=$reviewEnabled, sla=$sla]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -210,6 +216,15 @@ class OrganizationPreferences {
         })),
       if (keys == null || keys.contains(r'offline')) r'offline': offline,
       if (keys == null || keys.contains(r'public')) r'public': public,
+      if (keys == null || keys.any((key) => RegExp(r'^quote\.').hasMatch(key)))
+        r'quote': quote?.toJson(keys?.fold<List<String>>(<String>[],
+            (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^quote\.'))) {
+            previousValue.add(element.split(RegExp(r'^quote\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null ||
           keys.any((key) => RegExp(r'^reference\.').hasMatch(key)))
         r'reference': reference?.toJson(keys?.fold<List<String>>(<String>[],

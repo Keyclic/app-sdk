@@ -460,6 +460,7 @@ part 'model/preferences_contract.dart';
 part 'model/preferences_equipment.dart';
 part 'model/preferences_form.dart';
 part 'model/preferences_notification.dart';
+part 'model/preferences_quote.dart';
 part 'model/preferences_reference.dart';
 part 'model/preferences_review.dart';
 part 'model/preferences_sla.dart';

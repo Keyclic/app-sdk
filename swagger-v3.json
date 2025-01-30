@@ -22860,6 +22860,11 @@
                     "name"
                 ]
             },
+            "Origin-Write": {
+                "type": "object",
+                "description": "",
+                "deprecated": false
+            },
             "Person.jsonhal-Read": {
                 "type": "object",
                 "description": "",

@@ -34,6 +34,9 @@ void main() {
     // bool public
     test('to test the property `public`', () async {});
 
+    // PreferencesQuote quote
+    test('to test the property `quote`', () async {});
+
     // PreferencesReference reference
     test('to test the property `reference`', () async {});
 

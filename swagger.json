@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.69.0-dev.g8aa3ecfb7"
+        "version": "2.69.0-dev.gd63162ab2"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -20941,6 +20941,12 @@
                 "SERVICE:ALL",
                 "NOTE_READ",
                 "NOTE_WRITE",
+                "quote:read",
+                "quote:tags:read",
+                "quote:tags:write",
+                "quote:write:create",
+                "quote:write:delete",
+                "quote:write:edit",
                 "service-offer:write",
                 "sla-policy:read",
                 "ticket:archiving:write",

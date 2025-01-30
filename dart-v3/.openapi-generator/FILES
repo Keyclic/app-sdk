@@ -36,6 +36,7 @@ doc/ConnectorApi.md
 doc/ConnectorJsonhalRead.md
 doc/ContactJsonhalRead.md
 doc/ContactPointJsonhalRead.md
+doc/ContactPointWrite.md
 doc/ContractApi.md
 doc/ContractCreateContractCommandWrite.md
 doc/ContractEditContractCommandWrite.md
@@ -57,9 +58,11 @@ doc/EquipmentJsonhalRead.md
 doc/EquipmentJsonhalReadLinks.md
 doc/ExportApi.md
 doc/ExportJsonhalRead.md
-doc/ExportRead.md
 doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
+doc/FileApi.md
+doc/FileCreateFileCommandWrite.md
+doc/FileJsonhalRead.md
 doc/FormJsonhalOrganizationPreferenceRead.md
 doc/GeoCoordinatesJsonhalRead.md
 doc/GetAssetCollection200Response.md
@@ -101,6 +104,8 @@ doc/GetPlaceCollection200ResponseLinksFirst.md
 doc/GetPlaceCollection200ResponseLinksSelf.md
 doc/GetPublicationCollection200Response.md
 doc/GetPublicationCollection200ResponseEmbedded.md
+doc/GetQuoteCollection200Response.md
+doc/GetQuoteCollection200ResponseEmbedded.md
 doc/GetReviewCollection200Response.md
 doc/GetReviewCollection200ResponseEmbedded.md
 doc/GetReviewRequestCollection200Response.md
@@ -147,6 +152,7 @@ doc/PlaceEditPlaceCommandWriteEdit.md
 doc/PlaceJsonhalRead.md
 doc/PointJsonhalRead.md
 doc/PostalAddressJsonhalRead.md
+doc/PostalAddressWrite.md
 doc/PostalAddressWriteCreate.md
 doc/PostalAddressWriteEdit.md
 doc/PreferencesAssetRead.md
@@ -160,6 +166,13 @@ doc/PublicationApi.md
 doc/PublicationJsonhalRead.md
 doc/PublicationJsonhalReadEmbedded.md
 doc/PublicationJsonhalReadLinks.md
+doc/QuoteApi.md
+doc/QuoteCreateQuoteCommandWrite.md
+doc/QuoteEditQuoteCommandWrite.md
+doc/QuoteJsonhalOrganizationPreferenceRead.md
+doc/QuoteJsonhalRead.md
+doc/QuoteJsonhalReadEmbedded.md
+doc/QuoteJsonhalReadLinks.md
 doc/ReferenceJsonhalOrganizationPreferenceRead.md
 doc/RenewalJsonhalRead.md
 doc/RenewalWrite.md
@@ -222,6 +235,7 @@ lib/api/document_api.dart
 lib/api/document_type_api.dart
 lib/api/equipment_api.dart
 lib/api/export_api.dart
+lib/api/file_api.dart
 lib/api/integration_api.dart
 lib/api/integration_link_api.dart
 lib/api/member_api.dart
@@ -229,6 +243,7 @@ lib/api/metric_api.dart
 lib/api/occupant_api.dart
 lib/api/place_api.dart
 lib/api/publication_api.dart
+lib/api/quote_api.dart
 lib/api/review_api.dart
 lib/api/review_request_api.dart
 lib/api/service_api.dart
@@ -272,6 +287,7 @@ lib/model/connection_jsonhal_auth_profile_read.dart
 lib/model/connector_jsonhal_read.dart
 lib/model/contact_jsonhal_read.dart
 lib/model/contact_point_jsonhal_read.dart
+lib/model/contact_point_write.dart
 lib/model/contract_create_contract_command_write.dart
 lib/model/contract_edit_contract_command_write.dart
 lib/model/contract_jsonhal_organization_preference_read.dart
@@ -287,9 +303,10 @@ lib/model/equipment_jsonhal_organization_preference_read.dart
 lib/model/equipment_jsonhal_read.dart
 lib/model/equipment_jsonhal_read_links.dart
 lib/model/export_jsonhal_read.dart
-lib/model/export_read.dart
 lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
+lib/model/file_create_file_command_write.dart
+lib/model/file_jsonhal_read.dart
 lib/model/form_jsonhal_organization_preference_read.dart
 lib/model/geo_coordinates_jsonhal_read.dart
 lib/model/get_asset_collection200_response.dart
@@ -331,6 +348,8 @@ lib/model/get_place_collection200_response_links_first.dart
 lib/model/get_place_collection200_response_links_self.dart
 lib/model/get_publication_collection200_response.dart
 lib/model/get_publication_collection200_response_embedded.dart
+lib/model/get_quote_collection200_response.dart
+lib/model/get_quote_collection200_response_embedded.dart
 lib/model/get_review_collection200_response.dart
 lib/model/get_review_collection200_response_embedded.dart
 lib/model/get_review_request_collection200_response.dart
@@ -371,6 +390,7 @@ lib/model/place_edit_place_command_write_edit.dart
 lib/model/place_jsonhal_read.dart
 lib/model/point_jsonhal_read.dart
 lib/model/postal_address_jsonhal_read.dart
+lib/model/postal_address_write.dart
 lib/model/postal_address_write_create.dart
 lib/model/postal_address_write_edit.dart
 lib/model/preferences_asset_read.dart
@@ -383,6 +403,12 @@ lib/model/profile_profile_input.dart
 lib/model/publication_jsonhal_read.dart
 lib/model/publication_jsonhal_read_embedded.dart
 lib/model/publication_jsonhal_read_links.dart
+lib/model/quote_create_quote_command_write.dart
+lib/model/quote_edit_quote_command_write.dart
+lib/model/quote_jsonhal_organization_preference_read.dart
+lib/model/quote_jsonhal_read.dart
+lib/model/quote_jsonhal_read_embedded.dart
+lib/model/quote_jsonhal_read_links.dart
 lib/model/reference_jsonhal_organization_preference_read.dart
 lib/model/renewal_jsonhal_read.dart
 lib/model/renewal_write.dart
@@ -453,6 +479,7 @@ test/connector_api_test.dart
 test/connector_jsonhal_read_test.dart
 test/contact_jsonhal_read_test.dart
 test/contact_point_jsonhal_read_test.dart
+test/contact_point_write_test.dart
 test/contract_api_test.dart
 test/contract_create_contract_command_write_test.dart
 test/contract_edit_contract_command_write_test.dart
@@ -474,9 +501,11 @@ test/equipment_jsonhal_read_links_test.dart
 test/equipment_jsonhal_read_test.dart
 test/export_api_test.dart
 test/export_jsonhal_read_test.dart
-test/export_read_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
+test/file_api_test.dart
+test/file_create_file_command_write_test.dart
+test/file_jsonhal_read_test.dart
 test/form_jsonhal_organization_preference_read_test.dart
 test/geo_coordinates_jsonhal_read_test.dart
 test/get_asset_collection200_response_embedded_test.dart
@@ -518,6 +547,8 @@ test/get_place_collection200_response_links_test.dart
 test/get_place_collection200_response_test.dart
 test/get_publication_collection200_response_embedded_test.dart
 test/get_publication_collection200_response_test.dart
+test/get_quote_collection200_response_embedded_test.dart
+test/get_quote_collection200_response_test.dart
 test/get_review_collection200_response_embedded_test.dart
 test/get_review_collection200_response_test.dart
 test/get_review_request_collection200_response_embedded_test.dart
@@ -566,6 +597,7 @@ test/point_jsonhal_read_test.dart
 test/postal_address_jsonhal_read_test.dart
 test/postal_address_write_create_test.dart
 test/postal_address_write_edit_test.dart
+test/postal_address_write_test.dart
 test/preferences_asset_read_test.dart
 test/preferences_jsonhal_asset_read_test.dart
 test/preferences_jsonhal_organization_read_test.dart
@@ -577,6 +609,13 @@ test/publication_api_test.dart
 test/publication_jsonhal_read_embedded_test.dart
 test/publication_jsonhal_read_links_test.dart
 test/publication_jsonhal_read_test.dart
+test/quote_api_test.dart
+test/quote_create_quote_command_write_test.dart
+test/quote_edit_quote_command_write_test.dart
+test/quote_jsonhal_organization_preference_read_test.dart
+test/quote_jsonhal_read_embedded_test.dart
+test/quote_jsonhal_read_links_test.dart
+test/quote_jsonhal_read_test.dart
 test/reference_jsonhal_organization_preference_read_test.dart
 test/renewal_jsonhal_read_test.dart
 test/renewal_write_test.dart

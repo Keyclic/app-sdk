@@ -139,6 +139,11 @@ class ApiPlatformClient {
     return ExportApi(this);
   }
 
+  /// Get FileApi instance
+  FileApi getFileApi() {
+    return FileApi(this);
+  }
+
   /// Get IntegrationApi instance
   IntegrationApi getIntegrationApi() {
     return IntegrationApi(this);
@@ -172,6 +177,11 @@ class ApiPlatformClient {
   /// Get PublicationApi instance
   PublicationApi getPublicationApi() {
     return PublicationApi(this);
+  }
+
+  /// Get QuoteApi instance
+  QuoteApi getQuoteApi() {
+    return QuoteApi(this);
   }
 
   /// Get ReviewApi instance
@@ -329,6 +339,8 @@ class ApiPlatformClient {
           return ContactJsonhalRead.fromJson(value);
         case 'ContactPointJsonhalRead':
           return ContactPointJsonhalRead.fromJson(value);
+        case 'ContactPointWrite':
+          return ContactPointWrite.fromJson(value);
         case 'ContractCreateContractCommandWrite':
           return ContractCreateContractCommandWrite.fromJson(value);
         case 'ContractEditContractCommandWrite':
@@ -359,12 +371,14 @@ class ApiPlatformClient {
           return EquipmentJsonhalReadLinks.fromJson(value);
         case 'ExportJsonhalRead':
           return ExportJsonhalRead.fromJson(value);
-        case 'ExportRead':
-          return ExportRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
+        case 'FileCreateFileCommandWrite':
+          return FileCreateFileCommandWrite.fromJson(value);
+        case 'FileJsonhalRead':
+          return FileJsonhalRead.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':
@@ -448,6 +462,10 @@ class ApiPlatformClient {
           return GetPublicationCollection200Response.fromJson(value);
         case 'GetPublicationCollection200ResponseEmbedded':
           return GetPublicationCollection200ResponseEmbedded.fromJson(value);
+        case 'GetQuoteCollection200Response':
+          return GetQuoteCollection200Response.fromJson(value);
+        case 'GetQuoteCollection200ResponseEmbedded':
+          return GetQuoteCollection200ResponseEmbedded.fromJson(value);
         case 'GetReviewCollection200Response':
           return GetReviewCollection200Response.fromJson(value);
         case 'GetReviewCollection200ResponseEmbedded':
@@ -529,6 +547,8 @@ class ApiPlatformClient {
           return PointJsonhalRead.fromJson(value);
         case 'PostalAddressJsonhalRead':
           return PostalAddressJsonhalRead.fromJson(value);
+        case 'PostalAddressWrite':
+          return PostalAddressWrite.fromJson(value);
         case 'PostalAddressWriteCreate':
           return PostalAddressWriteCreate.fromJson(value);
         case 'PostalAddressWriteEdit':
@@ -553,6 +573,18 @@ class ApiPlatformClient {
           return PublicationJsonhalReadEmbedded.fromJson(value);
         case 'PublicationJsonhalReadLinks':
           return PublicationJsonhalReadLinks.fromJson(value);
+        case 'QuoteCreateQuoteCommandWrite':
+          return QuoteCreateQuoteCommandWrite.fromJson(value);
+        case 'QuoteEditQuoteCommandWrite':
+          return QuoteEditQuoteCommandWrite.fromJson(value);
+        case 'QuoteJsonhalOrganizationPreferenceRead':
+          return QuoteJsonhalOrganizationPreferenceRead.fromJson(value);
+        case 'QuoteJsonhalRead':
+          return QuoteJsonhalRead.fromJson(value);
+        case 'QuoteJsonhalReadEmbedded':
+          return QuoteJsonhalReadEmbedded.fromJson(value);
+        case 'QuoteJsonhalReadLinks':
+          return QuoteJsonhalReadLinks.fromJson(value);
         case 'ReferenceJsonhalOrganizationPreferenceRead':
           return ReferenceJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'RenewalJsonhalRead':

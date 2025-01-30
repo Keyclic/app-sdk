@@ -21,7 +21,7 @@ void main() {
     //
     // Retrieves the collection of Service resources.
     //
-    //Future<GetServiceCollection200Response> getServiceCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
+    //Future<GetServiceCollection200Response> getServiceCollection(String xKeyclicApp, String xOrganizationId, { int page, int limit, bool pagination, String resourceType, String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion }) async
     test('test getServiceCollection', () async {});
   });
 }

@@ -36,6 +36,7 @@ class PlaceApi {
   /// * [parentLeftSquareBracketRightSquareBracket] -
   /// * [subtree] -
   /// * [existsLeftSquareBracketContractsRightSquareBracket] -
+  /// * [existsLeftSquareBracketQuotesRightSquareBracket] -
   /// * [contracts] -
   /// * [contractsLeftSquareBracketRightSquareBracket] -
   /// * [acceptLanguage] -
@@ -75,6 +76,7 @@ class PlaceApi {
     List<String>? parentLeftSquareBracketRightSquareBracket,
     String? subtree,
     bool? existsLeftSquareBracketContractsRightSquareBracket,
+    bool? existsLeftSquareBracketQuotesRightSquareBracket,
     String? contracts,
     List<String>? contractsLeftSquareBracketRightSquareBracket,
     String? acceptLanguage,
@@ -169,6 +171,9 @@ class PlaceApi {
       if (existsLeftSquareBracketContractsRightSquareBracket != null)
         r'exists[contracts]': encodeQueryParameter(
             existsLeftSquareBracketContractsRightSquareBracket),
+      if (existsLeftSquareBracketQuotesRightSquareBracket != null)
+        r'exists[quotes]': encodeQueryParameter(
+            existsLeftSquareBracketQuotesRightSquareBracket),
       if (contracts != null) r'contracts': encodeQueryParameter(contracts),
       if (contractsLeftSquareBracketRightSquareBracket != null)
         r'contracts[]': encodeCollectionQueryParameter(

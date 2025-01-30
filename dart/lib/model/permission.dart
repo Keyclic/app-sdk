@@ -64,6 +64,12 @@ class Permission {
   static const sERVICEColonALL = Permission._(r'SERVICE:ALL');
   static const NOTE_READ = Permission._(r'NOTE_READ');
   static const NOTE_WRITE = Permission._(r'NOTE_WRITE');
+  static const quoteColonRead = Permission._(r'quote:read');
+  static const quoteColonTagsColonRead = Permission._(r'quote:tags:read');
+  static const quoteColonTagsColonWrite = Permission._(r'quote:tags:write');
+  static const quoteColonWriteColonCreate = Permission._(r'quote:write:create');
+  static const quoteColonWriteColonDelete = Permission._(r'quote:write:delete');
+  static const quoteColonWriteColonEdit = Permission._(r'quote:write:edit');
   static const serviceOfferColonWrite = Permission._(r'service-offer:write');
   static const slaPolicyColonRead = Permission._(r'sla-policy:read');
   static const ticketColonArchivingColonWrite =
@@ -116,6 +122,12 @@ class Permission {
     sERVICEColonALL,
     NOTE_READ,
     NOTE_WRITE,
+    quoteColonRead,
+    quoteColonTagsColonRead,
+    quoteColonTagsColonWrite,
+    quoteColonWriteColonCreate,
+    quoteColonWriteColonDelete,
+    quoteColonWriteColonEdit,
     serviceOfferColonWrite,
     slaPolicyColonRead,
     ticketColonArchivingColonWrite,
@@ -237,6 +249,18 @@ class PermissionTypeTransformer {
         return Permission.NOTE_READ;
       case r'NOTE_WRITE':
         return Permission.NOTE_WRITE;
+      case r'quote:read':
+        return Permission.quoteColonRead;
+      case r'quote:tags:read':
+        return Permission.quoteColonTagsColonRead;
+      case r'quote:tags:write':
+        return Permission.quoteColonTagsColonWrite;
+      case r'quote:write:create':
+        return Permission.quoteColonWriteColonCreate;
+      case r'quote:write:delete':
+        return Permission.quoteColonWriteColonDelete;
+      case r'quote:write:edit':
+        return Permission.quoteColonWriteColonEdit;
       case r'service-offer:write':
         return Permission.serviceOfferColonWrite;
       case r'sla-policy:read':

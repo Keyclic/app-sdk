@@ -28,7 +28,7 @@ void main() {
     // DateTime effectiveDate
     test('to test the property `effectiveDate`', () async {});
 
-    // The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
+    // The date and time the contract ends This date is calculated according to effective date, duration and eventually renewal duration.
     // DateTime endDate
     test('to test the property `endDate`', () async {});
 

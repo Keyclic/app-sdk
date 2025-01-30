@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **form** | [**FormJsonhalOrganizationPreferenceRead**](FormJsonhalOrganizationPreferenceRead.md) |  | [optional] 
 **offline** | **bool** |  | [optional] 
 **public** | **bool** |  | [optional] 
+**quote** | [**QuoteJsonhalOrganizationPreferenceRead**](QuoteJsonhalOrganizationPreferenceRead.md) |  | [optional] 
 **reference** | [**ReferenceJsonhalOrganizationPreferenceRead**](ReferenceJsonhalOrganizationPreferenceRead.md) |  | [optional] 
 **reverseGeocoding** | **bool** |  | [optional] 
 **review** | [**ReviewJsonhalOrganizationPreferenceRead**](ReviewJsonhalOrganizationPreferenceRead.md) |  | [optional] 

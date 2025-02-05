@@ -10,10 +10,10 @@ class ContactPointJsonhalRead {
     this.description,
     this.email,
     this.faxNumber,
+    this.name,
     this.telephone,
     this.familyName,
     this.givenName,
-    this.name,
     this.isOpen,
   });
 
@@ -28,10 +28,10 @@ class ContactPointJsonhalRead {
       description: json[r'description'],
       email: json[r'email'],
       faxNumber: json[r'faxNumber'],
+      name: json[r'name'],
       telephone: json[r'telephone'],
       familyName: json[r'familyName'],
       givenName: json[r'givenName'],
-      name: json[r'name'],
       isOpen: json[r'isOpen'],
     );
   }
@@ -42,6 +42,8 @@ class ContactPointJsonhalRead {
 
   String? faxNumber;
 
+  String? name;
+
   String? telephone;
 
   /// Family name. In the U.S., the last name of a Person.
@@ -49,8 +51,6 @@ class ContactPointJsonhalRead {
 
   /// Given name. In the U.S., the first name of a Person.
   String? givenName;
-
-  String? name;
 
   final bool? isOpen;
 
@@ -65,10 +65,10 @@ class ContactPointJsonhalRead {
         other.description == description &&
         other.email == email &&
         other.faxNumber == faxNumber &&
+        other.name == name &&
         other.telephone == telephone &&
         other.familyName == familyName &&
         other.givenName == givenName &&
-        other.name == name &&
         other.isOpen == isOpen;
   }
 
@@ -77,10 +77,10 @@ class ContactPointJsonhalRead {
       (description == null ? 0 : description.hashCode) +
       (email == null ? 0 : email.hashCode) +
       (faxNumber == null ? 0 : faxNumber.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (telephone == null ? 0 : telephone.hashCode) +
       (familyName == null ? 0 : familyName.hashCode) +
       (givenName == null ? 0 : givenName.hashCode) +
-      (name == null ? 0 : name.hashCode) +
       (isOpen == null ? 0 : isOpen.hashCode);
 
   static List<ContactPointJsonhalRead> listFromJson(Iterable? json) {
@@ -133,7 +133,7 @@ class ContactPointJsonhalRead {
 
   @override
   String toString() =>
-      'ContactPointJsonhalRead[description=$description, email=$email, faxNumber=$faxNumber, telephone=$telephone, familyName=$familyName, givenName=$givenName, name=$name, isOpen=$isOpen]';
+      'ContactPointJsonhalRead[description=$description, email=$email, faxNumber=$faxNumber, name=$name, telephone=$telephone, familyName=$familyName, givenName=$givenName, isOpen=$isOpen]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -141,11 +141,11 @@ class ContactPointJsonhalRead {
         r'description': description,
       if (keys == null || keys.contains(r'email')) r'email': email,
       if (keys == null || keys.contains(r'faxNumber')) r'faxNumber': faxNumber,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
       if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
       if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
-      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'isOpen')) r'isOpen': isOpen,
     };
   }

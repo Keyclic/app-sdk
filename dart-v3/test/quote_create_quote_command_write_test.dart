@@ -16,16 +16,14 @@ void main() {
     // PriceWrite amountIncludingTax
     test('to test the property `amountIncludingTax`', () async {});
 
-    //
-    // Map<String, dynamic> documents
-    test('to test the property `documents`', () async {});
-
-    //
-    // Map<String, dynamic> equipments
+    // List<String> equipments (default value: const [])
     test('to test the property `equipments`', () async {});
 
     // DateTime expirationDate
     test('to test the property `expirationDate`', () async {});
+
+    // List<String> files (default value: const [])
+    test('to test the property `files`', () async {});
 
     // DateTime issueDate
     test('to test the property `issueDate`', () async {});

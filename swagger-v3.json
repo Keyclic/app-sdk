@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.69.0-dev.gd63162ab2"
+        "version": "2.70.0-dev.g04a4057a9"
     },
     "servers": [
         {
@@ -7768,6 +7768,372 @@
             },
             "parameters": []
         },
+        "/files": {
+            "post": {
+                "operationId": "postFile",
+                "tags": [
+                    "File"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "File resource created",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File.jsonhal-Read"
+                                }
+                            }
+                        },
+                        "links": {}
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "summary": "Creates a File resource.",
+                "description": "Creates a File resource.",
+                "parameters": [
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "requestBody": {
+                    "description": "The new File resource",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/File.CreateFileCommand-Write"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "deprecated": false
+            },
+            "parameters": []
+        },
+        "/files/{identifier}": {
+            "get": {
+                "operationId": "getFile",
+                "tags": [
+                    "File"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "File resource",
+                        "content": {
+                            "application/hal+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/File.jsonhal-Read"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Retrieves a File resource.",
+                "description": "Retrieves a File resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "File identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "delete": {
+                "operationId": "deleteFile",
+                "tags": [
+                    "File"
+                ],
+                "responses": {
+                    "204": {
+                        "description": "File resource deleted"
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                },
+                "summary": "Removes the File resource.",
+                "description": "Removes the File resource.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "description": "File identifier",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "Accept-Language",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "description": "The preferred language of the user, in ISO 639-1 format",
+                            "default": "en-US",
+                            "enum": [
+                                "en-US",
+                                "es-ES",
+                                "fr-FR"
+                            ]
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Date-Time",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Platform",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "X-Keyclic-App-Version",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        },
+                        "style": "simple",
+                        "explode": false,
+                        "allowReserved": false
+                    }
+                ],
+                "deprecated": false
+            },
+            "parameters": []
+        },
         "/integration-links": {
             "get": {
                 "operationId": "getIntegrationLinkCollection",
@@ -11105,6 +11471,74 @@
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][ancestors][]",
+                        "in": "query",
+                        "description": "Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][descendants][]",
+                        "in": "query",
+                        "description": "Filter on the tree below the node excluding the node itself.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][node][]",
+                        "in": "query",
+                        "description": "Filter on the node only.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "style": "form",
+                        "explode": true,
+                        "allowReserved": false
+                    },
+                    {
+                        "name": "tree[place][subtree][]",
+                        "in": "query",
+                        "description": "Filter on the tree below the node including the node itself.",
+                        "required": false,
+                        "deprecated": false,
+                        "allowEmptyValue": false,
                         "schema": {
                             "type": "array",
                             "items": {
@@ -20373,15 +20807,11 @@
                 "description": "",
                 "deprecated": false,
                 "properties": {
-                    "description": {
-                        "type": "string",
-                        "nullable": true
-                    },
                     "email": {
                         "type": "string",
                         "nullable": true
                     },
-                    "faxNumber": {
+                    "name": {
                         "type": "string",
                         "nullable": true
                     },
@@ -20401,17 +20831,6 @@
                         "maxLength": 255,
                         "description": "Given name. In the U.S., the first name of a Person.",
                         "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "openingHours": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
                         "nullable": true
                     }
                 }
@@ -20433,6 +20852,10 @@
                         "type": "string",
                         "nullable": true
                     },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
                     "telephone": {
                         "type": "string",
                         "nullable": true
@@ -20448,10 +20871,6 @@
                         "minLength": 1,
                         "maxLength": 255,
                         "description": "Given name. In the U.S., the first name of a Person.",
-                        "type": "string",
-                        "nullable": true
-                    },
-                    "name": {
                         "type": "string",
                         "nullable": true
                     },
@@ -21260,11 +21679,6 @@
                     "name"
                 ]
             },
-            "EquipmentCollection-Write": {
-                "type": "object",
-                "description": "",
-                "deprecated": false
-            },
             "Export-Read": {
                 "type": "object",
                 "description": "",
@@ -21497,10 +21911,107 @@
                     "visibility"
                 ]
             },
-            "FileCollection-Write": {
+            "File.CreateFileCommand-Write": {
                 "type": "object",
-                "description": "",
-                "deprecated": false
+                "description": "A File holds the physical representation of binary datas.",
+                "deprecated": false,
+                "required": [
+                    "content"
+                ],
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "contentType": {
+                        "enum": [
+                            "text/csv",
+                            "application/msword",
+                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            "image/jpeg",
+                            "image/jpg",
+                            "application/json",
+                            "application/octet-stream",
+                            "application/pdf",
+                            "image/png",
+                            "text/plain",
+                            "application/vnd.ms-excel",
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            "application/zip"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                }
+            },
+            "File.jsonhal-Read": {
+                "type": "object",
+                "description": "A File holds the physical representation of binary datas.",
+                "deprecated": false,
+                "properties": {
+                    "_links": {
+                        "type": "object",
+                        "properties": {
+                            "self": {
+                                "type": "object",
+                                "properties": {
+                                    "href": {
+                                        "type": "string",
+                                        "format": "iri-reference"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "downloadUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "readOnly": true,
+                        "description": "The resource identifier.",
+                        "type": "string"
+                    },
+                    "contentType": {
+                        "enum": [
+                            "text/csv",
+                            "application/msword",
+                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            "image/jpeg",
+                            "image/jpg",
+                            "application/json",
+                            "application/octet-stream",
+                            "application/pdf",
+                            "image/png",
+                            "text/plain",
+                            "application/vnd.ms-excel",
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            "application/zip"
+                        ],
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was created, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "readOnly": true,
+                        "description": "The date and time when the resource was updated, in UTC format.",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
             },
             "Form.jsonhal-OrganizationPreference-Read": {
                 "type": "object",
@@ -22706,6 +23217,7 @@
                 "required": [
                     "amountExcludingTax",
                     "amountIncludingTax",
+                    "files",
                     "issueDate",
                     "name",
                     "number",
@@ -22718,21 +23230,26 @@
                     "amountIncludingTax": {
                         "$ref": "#/components/schemas/Price-Write"
                     },
-                    "documents": {
-                        "$ref": "#/components/schemas/FileCollection-Write"
-                    },
                     "equipments": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/EquipmentCollection-Write"
-                            }
-                        ],
-                        "nullable": true
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
                     },
                     "expirationDate": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "files": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
                     },
                     "issueDate": {
                         "type": "string",
@@ -22833,26 +23350,26 @@
                         ],
                         "nullable": true
                     },
-                    "documents": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/FileCollection-Write"
-                            }
-                        ],
-                        "nullable": true
-                    },
                     "equipments": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/EquipmentCollection-Write"
-                            }
-                        ],
-                        "nullable": true
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
                     },
                     "expirationDate": {
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
+                    },
+                    "files": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "iri-reference",
+                            "example": "https://example.com/"
+                        }
                     },
                     "issueDate": {
                         "type": "string",
@@ -23011,6 +23528,19 @@
                                     }
                                 },
                                 "nullable": true
+                            },
+                            "files": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "href": {
+                                            "type": "string",
+                                            "format": "iri-reference"
+                                        }
+                                    }
+                                },
+                                "nullable": true
                             }
                         }
                     },
@@ -23112,6 +23642,16 @@
                                 },
                                 "nullable": true
                             },
+                            "files": {
+                                "description": "A list of pdfs files representing the quote.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "iri-reference",
+                                    "example": "https://example.com/"
+                                },
+                                "nullable": true
+                            },
                             "state": {
                                 "anyOf": [
                                     {
@@ -23126,6 +23666,7 @@
                 "required": [
                     "amountExcludingTax",
                     "amountIncludingTax",
+                    "files",
                     "issueDate",
                     "name",
                     "number",
@@ -23586,7 +24127,7 @@
             },
             "SlaPolicy.jsonhal-Read": {
                 "type": "object",
-                "description": "",
+                "description": "Validation constraints to check the consistency of organizations across properties\nFrom and To States are also checked against organization configuration ReportType and OperationType since, for now,\nSLA Policies only concern Tasks.",
                 "deprecated": false,
                 "properties": {
                     "_links": {
@@ -24383,7 +24924,9 @@
                     }
                 },
                 "required": [
-                    "name"
+                    "from",
+                    "name",
+                    "to"
                 ]
             }
         },

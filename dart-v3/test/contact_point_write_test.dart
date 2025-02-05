@@ -10,14 +10,11 @@ void main() {
   // final instance = ContactPointWrite();
 
   group('test ContactPointWrite', () {
-    // String description
-    test('to test the property `description`', () async {});
-
     // String email
     test('to test the property `email`', () async {});
 
-    // String faxNumber
-    test('to test the property `faxNumber`', () async {});
+    // String name
+    test('to test the property `name`', () async {});
 
     // String telephone
     test('to test the property `telephone`', () async {});
@@ -29,11 +26,5 @@ void main() {
     // Given name. In the U.S., the first name of a Person.
     // String givenName
     test('to test the property `givenName`', () async {});
-
-    // String name
-    test('to test the property `name`', () async {});
-
-    // List<String> openingHours (default value: const [])
-    test('to test the property `openingHours`', () async {});
   });
 }

@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amountExcludingTax** | [**PriceWrite**](PriceWrite.md) |  | [optional] 
 **amountIncludingTax** | [**PriceWrite**](PriceWrite.md) |  | [optional] 
-**documents** | [**Object**](.md) |  | [optional] 
-**equipments** | [**Object**](.md) |  | [optional] 
+**equipments** | **List<String>** |  | [optional] [default to const []]
 **expirationDate** | [**DateTime**](DateTime.md) |  | [optional] 
+**files** | **List<String>** |  | [optional] [default to const []]
 **issueDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **member** | **String** |  | [optional] 
 **memberContactPoint** | [**ContactPointWrite**](ContactPointWrite.md) |  | [optional] 

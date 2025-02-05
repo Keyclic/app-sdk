@@ -27,5 +27,8 @@ void main() {
 
     // List<GetPlaceCollection200ResponseLinksSelf> equipments (default value: const [])
     test('to test the property `equipments`', () async {});
+
+    // List<GetPlaceCollection200ResponseLinksSelf> files (default value: const [])
+    test('to test the property `files`', () async {});
   });
 }

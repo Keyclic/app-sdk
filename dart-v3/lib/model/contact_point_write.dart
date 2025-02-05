@@ -7,14 +7,11 @@ part of keyclic_sdk_api_platform;
 class ContactPointWrite {
   /// Returns a new [ContactPointWrite] instance.
   ContactPointWrite({
-    this.description,
     this.email,
-    this.faxNumber,
+    this.name,
     this.telephone,
     this.familyName,
     this.givenName,
-    this.name,
-    this.openingHours,
   });
 
   /// Returns a new [ContactPointWrite] instance and imports its values from
@@ -25,24 +22,17 @@ class ContactPointWrite {
     }
 
     return ContactPointWrite(
-      description: json[r'description'],
       email: json[r'email'],
-      faxNumber: json[r'faxNumber'],
+      name: json[r'name'],
       telephone: json[r'telephone'],
       familyName: json[r'familyName'],
       givenName: json[r'givenName'],
-      name: json[r'name'],
-      openingHours: json[r'openingHours'] == null
-          ? null
-          : List<String>.from(json[r'openingHours']),
     );
   }
 
-  String? description;
-
   String? email;
 
-  String? faxNumber;
+  String? name;
 
   String? telephone;
 
@@ -52,10 +42,6 @@ class ContactPointWrite {
   /// Given name. In the U.S., the first name of a Person.
   String? givenName;
 
-  String? name;
-
-  List<String>? openingHours;
-
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -64,27 +50,20 @@ class ContactPointWrite {
     }
 
     return other is ContactPointWrite &&
-        other.description == description &&
         other.email == email &&
-        other.faxNumber == faxNumber &&
+        other.name == name &&
         other.telephone == telephone &&
         other.familyName == familyName &&
-        other.givenName == givenName &&
-        other.name == name &&
-        DeepCollectionEquality.unordered()
-            .equals(openingHours, other.openingHours);
+        other.givenName == givenName;
   }
 
   @override
   int get hashCode =>
-      (description == null ? 0 : description.hashCode) +
       (email == null ? 0 : email.hashCode) +
-      (faxNumber == null ? 0 : faxNumber.hashCode) +
+      (name == null ? 0 : name.hashCode) +
       (telephone == null ? 0 : telephone.hashCode) +
       (familyName == null ? 0 : familyName.hashCode) +
-      (givenName == null ? 0 : givenName.hashCode) +
-      (name == null ? 0 : name.hashCode) +
-      (openingHours == null ? 0 : openingHours.hashCode);
+      (givenName == null ? 0 : givenName.hashCode);
 
   static List<ContactPointWrite> listFromJson(Iterable? json) {
     if (json == null) {
@@ -135,21 +114,16 @@ class ContactPointWrite {
 
   @override
   String toString() =>
-      'ContactPointWrite[description=$description, email=$email, faxNumber=$faxNumber, telephone=$telephone, familyName=$familyName, givenName=$givenName, name=$name, openingHours=$openingHours]';
+      'ContactPointWrite[email=$email, name=$name, telephone=$telephone, familyName=$familyName, givenName=$givenName]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'description'))
-        r'description': description,
       if (keys == null || keys.contains(r'email')) r'email': email,
-      if (keys == null || keys.contains(r'faxNumber')) r'faxNumber': faxNumber,
+      if (keys == null || keys.contains(r'name')) r'name': name,
       if (keys == null || keys.contains(r'telephone')) r'telephone': telephone,
       if (keys == null || keys.contains(r'familyName'))
         r'familyName': familyName,
       if (keys == null || keys.contains(r'givenName')) r'givenName': givenName,
-      if (keys == null || keys.contains(r'name')) r'name': name,
-      if (keys == null || keys.contains(r'openingHours'))
-        r'openingHours': openingHours,
     };
   }
 }

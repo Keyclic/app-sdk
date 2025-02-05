@@ -13,6 +13,7 @@ class QuoteJsonhalReadLinks {
     this.task,
     this.place,
     this.equipments,
+    this.files,
   });
 
   /// Returns a new [QuoteJsonhalReadLinks] instance and imports its values from
@@ -31,6 +32,8 @@ class QuoteJsonhalReadLinks {
       place: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'place']),
       equipments: GetPlaceCollection200ResponseLinksSelf.listFromJson(
           json[r'equipments']),
+      files:
+          GetPlaceCollection200ResponseLinksSelf.listFromJson(json[r'files']),
     );
   }
 
@@ -46,6 +49,8 @@ class QuoteJsonhalReadLinks {
 
   List<GetPlaceCollection200ResponseLinksSelf>? equipments;
 
+  List<GetPlaceCollection200ResponseLinksSelf>? files;
+
   @override
   bool operator ==(Object other) {
     // Same reference
@@ -59,7 +64,9 @@ class QuoteJsonhalReadLinks {
         other.provider == provider &&
         other.task == task &&
         other.place == place &&
-        DeepCollectionEquality.unordered().equals(equipments, other.equipments);
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
+        DeepCollectionEquality.unordered().equals(files, other.files);
   }
 
   @override
@@ -69,7 +76,8 @@ class QuoteJsonhalReadLinks {
       (provider == null ? 0 : provider.hashCode) +
       (task == null ? 0 : task.hashCode) +
       (place == null ? 0 : place.hashCode) +
-      (equipments == null ? 0 : equipments.hashCode);
+      (equipments == null ? 0 : equipments.hashCode) +
+      (files == null ? 0 : files.hashCode);
 
   static List<QuoteJsonhalReadLinks> listFromJson(Iterable? json) {
     if (json == null) {
@@ -121,7 +129,7 @@ class QuoteJsonhalReadLinks {
 
   @override
   String toString() =>
-      'QuoteJsonhalReadLinks[self=$self, member=$member, provider=$provider, task=$task, place=$place, equipments=$equipments]';
+      'QuoteJsonhalReadLinks[self=$self, member=$member, provider=$provider, task=$task, place=$place, equipments=$equipments, files=$files]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -173,6 +181,7 @@ class QuoteJsonhalReadLinks {
         })),
       if (keys == null || keys.contains(r'equipments'))
         r'equipments': equipments,
+      if (keys == null || keys.contains(r'files')) r'files': files,
     };
   }
 }

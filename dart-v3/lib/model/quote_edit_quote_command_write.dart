@@ -9,9 +9,9 @@ class QuoteEditQuoteCommandWrite {
   QuoteEditQuoteCommandWrite({
     this.amountExcludingTax,
     this.amountIncludingTax,
-    this.documents,
     this.equipments,
     this.expirationDate,
+    this.files,
     this.issueDate,
     this.member,
     this.memberContactPoint,
@@ -38,13 +38,11 @@ class QuoteEditQuoteCommandWrite {
     return QuoteEditQuoteCommandWrite(
       amountExcludingTax: PriceWrite.fromJson(json[r'amountExcludingTax']),
       amountIncludingTax: PriceWrite.fromJson(json[r'amountIncludingTax']),
-      documents: json[r'documents'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'documents']),
       equipments: json[r'equipments'] == null
           ? null
-          : Map<String, Object?>.from(json[r'equipments']),
+          : List<String>.from(json[r'equipments']),
       expirationDate: mapToDateTime(json[r'expirationDate']),
+      files: json[r'files'] == null ? null : List<String>.from(json[r'files']),
       issueDate: mapToDateTime(json[r'issueDate']),
       member: json[r'member'],
       memberContactPoint:
@@ -70,13 +68,11 @@ class QuoteEditQuoteCommandWrite {
 
   PriceWrite? amountIncludingTax;
 
-  ///
-  Map<String, Object?>? documents;
-
-  ///
-  Map<String, Object?>? equipments;
+  List<String>? equipments;
 
   DateTime? expirationDate;
+
+  List<String>? files;
 
   DateTime? issueDate;
 
@@ -117,9 +113,10 @@ class QuoteEditQuoteCommandWrite {
     return other is QuoteEditQuoteCommandWrite &&
         other.amountExcludingTax == amountExcludingTax &&
         other.amountIncludingTax == amountIncludingTax &&
-        other.documents == documents &&
-        other.equipments == equipments &&
+        DeepCollectionEquality.unordered()
+            .equals(equipments, other.equipments) &&
         other.expirationDate == expirationDate &&
+        DeepCollectionEquality.unordered().equals(files, other.files) &&
         other.issueDate == issueDate &&
         other.member == member &&
         other.memberContactPoint == memberContactPoint &&
@@ -140,9 +137,9 @@ class QuoteEditQuoteCommandWrite {
   int get hashCode =>
       (amountExcludingTax == null ? 0 : amountExcludingTax.hashCode) +
       (amountIncludingTax == null ? 0 : amountIncludingTax.hashCode) +
-      (documents == null ? 0 : documents.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       (expirationDate == null ? 0 : expirationDate.hashCode) +
+      (files == null ? 0 : files.hashCode) +
       (issueDate == null ? 0 : issueDate.hashCode) +
       (member == null ? 0 : member.hashCode) +
       (memberContactPoint == null ? 0 : memberContactPoint.hashCode) +
@@ -208,7 +205,7 @@ class QuoteEditQuoteCommandWrite {
 
   @override
   String toString() =>
-      'QuoteEditQuoteCommandWrite[amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, documents=$documents, equipments=$equipments, expirationDate=$expirationDate, issueDate=$issueDate, member=$member, memberContactPoint=$memberContactPoint, name=$name, number=$number, origin=$origin, place=$place, provider=$provider, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, state=$state, tags=$tags, task=$task]';
+      'QuoteEditQuoteCommandWrite[amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, equipments=$equipments, expirationDate=$expirationDate, files=$files, issueDate=$issueDate, member=$member, memberContactPoint=$memberContactPoint, name=$name, number=$number, origin=$origin, place=$place, provider=$provider, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, state=$state, tags=$tags, task=$task]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -236,11 +233,11 @@ class QuoteEditQuoteCommandWrite {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'documents')) r'documents': documents,
       if (keys == null || keys.contains(r'equipments'))
         r'equipments': equipments,
       if (keys == null || keys.contains(r'expirationDate'))
         r'expirationDate': expirationDate?.toUtc().toIso8601String(),
+      if (keys == null || keys.contains(r'files')) r'files': files,
       if (keys == null || keys.contains(r'issueDate'))
         r'issueDate': issueDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'member')) r'member': member,

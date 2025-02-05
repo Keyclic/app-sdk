@@ -139,6 +139,11 @@ class ApiPlatformClient {
     return ExportApi(this);
   }
 
+  /// Get FileApi instance
+  FileApi getFileApi() {
+    return FileApi(this);
+  }
+
   /// Get IntegrationApi instance
   IntegrationApi getIntegrationApi() {
     return IntegrationApi(this);
@@ -372,6 +377,10 @@ class ApiPlatformClient {
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
+        case 'FileCreateFileCommandWrite':
+          return FileCreateFileCommandWrite.fromJson(value);
+        case 'FileJsonhalRead':
+          return FileJsonhalRead.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':

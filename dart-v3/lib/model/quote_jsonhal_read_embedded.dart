@@ -8,6 +8,7 @@ class QuoteJsonhalReadEmbedded {
   /// Returns a new [QuoteJsonhalReadEmbedded] instance.
   QuoteJsonhalReadEmbedded({
     this.equipments,
+    this.files,
     this.state,
   });
 
@@ -22,12 +23,16 @@ class QuoteJsonhalReadEmbedded {
       equipments: json[r'equipments'] == null
           ? null
           : List<String>.from(json[r'equipments']),
+      files: json[r'files'] == null ? null : List<String>.from(json[r'files']),
       state: WorkflowStateJsonhalRead.fromJson(json[r'state']),
     );
   }
 
   /// A list of physical or logical items (e.g., devices, resources) associated with the quote.
   List<String>? equipments;
+
+  /// A list of pdfs files representing the quote.
+  List<String>? files;
 
   WorkflowStateJsonhalRead? state;
 
@@ -41,12 +46,14 @@ class QuoteJsonhalReadEmbedded {
     return other is QuoteJsonhalReadEmbedded &&
         DeepCollectionEquality.unordered()
             .equals(equipments, other.equipments) &&
+        DeepCollectionEquality.unordered().equals(files, other.files) &&
         other.state == state;
   }
 
   @override
   int get hashCode =>
       (equipments == null ? 0 : equipments.hashCode) +
+      (files == null ? 0 : files.hashCode) +
       (state == null ? 0 : state.hashCode);
 
   static List<QuoteJsonhalReadEmbedded> listFromJson(Iterable? json) {
@@ -99,12 +106,13 @@ class QuoteJsonhalReadEmbedded {
 
   @override
   String toString() =>
-      'QuoteJsonhalReadEmbedded[equipments=$equipments, state=$state]';
+      'QuoteJsonhalReadEmbedded[equipments=$equipments, files=$files, state=$state]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
       if (keys == null || keys.contains(r'equipments'))
         r'equipments': equipments,
+      if (keys == null || keys.contains(r'files')) r'files': files,
       if (keys == null || keys.any((key) => RegExp(r'^state\.').hasMatch(key)))
         r'state': state?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {

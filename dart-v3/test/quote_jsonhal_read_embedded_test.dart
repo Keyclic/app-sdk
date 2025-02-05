@@ -14,6 +14,10 @@ void main() {
     // List<String> equipments (default value: const [])
     test('to test the property `equipments`', () async {});
 
+    // A list of pdfs files representing the quote.
+    // List<String> files (default value: const [])
+    test('to test the property `files`', () async {});
+
     // WorkflowStateJsonhalRead state
     test('to test the property `state`', () async {});
   });

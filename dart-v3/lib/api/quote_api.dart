@@ -218,6 +218,7 @@ class QuoteApi {
   /// * [orderLeftSquareBracketIssueDateRightSquareBracket] -
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketNumberRightSquareBracket] -
+  /// * [orderLeftSquareBracketPlacePeriodNameRightSquareBracket] -
   /// * [member] -
   /// * [memberLeftSquareBracketRightSquareBracket] -
   /// * [place] -
@@ -277,6 +278,7 @@ class QuoteApi {
     String? orderLeftSquareBracketIssueDateRightSquareBracket,
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketNumberRightSquareBracket,
+    String? orderLeftSquareBracketPlacePeriodNameRightSquareBracket,
     String? member,
     List<String>? memberLeftSquareBracketRightSquareBracket,
     String? place,
@@ -419,6 +421,9 @@ class QuoteApi {
       if (orderLeftSquareBracketNumberRightSquareBracket != null)
         r'order[number]': encodeQueryParameter(
             orderLeftSquareBracketNumberRightSquareBracket),
+      if (orderLeftSquareBracketPlacePeriodNameRightSquareBracket != null)
+        r'order[place.name]': encodeQueryParameter(
+            orderLeftSquareBracketPlacePeriodNameRightSquareBracket),
       if (member != null) r'member': encodeQueryParameter(member),
       if (memberLeftSquareBracketRightSquareBracket != null)
         r'member[]': encodeCollectionQueryParameter(

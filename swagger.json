@@ -20873,6 +20873,7 @@
                 "service-offer:write",
                 "sla-policy:read",
                 "ticket:archiving:write",
+                "ticket-task:completed:write",
                 "ticket:read",
                 "ticket:tags:read",
                 "ticket:tags:write",

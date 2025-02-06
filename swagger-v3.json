@@ -11268,7 +11268,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "order[amountExcludingTax]",
+                        "name": "order[amountExcludingTax.value]",
                         "in": "query",
                         "description": "",
                         "required": false,
@@ -11286,7 +11286,7 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "order[amountIncludingTax]",
+                        "name": "order[amountIncludingTax.value]",
                         "in": "query",
                         "description": "",
                         "required": false,

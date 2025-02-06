@@ -213,8 +213,8 @@ class QuoteApi {
   /// * [updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketAfterRightSquareBracket] -
   /// * [updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket] -
-  /// * [orderLeftSquareBracketAmountExcludingTaxRightSquareBracket] -
-  /// * [orderLeftSquareBracketAmountIncludingTaxRightSquareBracket] -
+  /// * [orderLeftSquareBracketAmountExcludingTaxPeriodValueRightSquareBracket] -
+  /// * [orderLeftSquareBracketAmountIncludingTaxPeriodValueRightSquareBracket] -
   /// * [orderLeftSquareBracketIssueDateRightSquareBracket] -
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketNumberRightSquareBracket] -
@@ -270,8 +270,10 @@ class QuoteApi {
     String? updatedAtLeftSquareBracketStrictlyBeforeRightSquareBracket,
     String? updatedAtLeftSquareBracketAfterRightSquareBracket,
     String? updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket,
-    String? orderLeftSquareBracketAmountExcludingTaxRightSquareBracket,
-    String? orderLeftSquareBracketAmountIncludingTaxRightSquareBracket,
+    String?
+        orderLeftSquareBracketAmountExcludingTaxPeriodValueRightSquareBracket,
+    String?
+        orderLeftSquareBracketAmountIncludingTaxPeriodValueRightSquareBracket,
     String? orderLeftSquareBracketIssueDateRightSquareBracket,
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketNumberRightSquareBracket,
@@ -400,12 +402,14 @@ class QuoteApi {
       if (updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket != null)
         r'updatedAt[strictly_after]': encodeQueryParameter(
             updatedAtLeftSquareBracketStrictlyAfterRightSquareBracket),
-      if (orderLeftSquareBracketAmountExcludingTaxRightSquareBracket != null)
-        r'order[amountExcludingTax]': encodeQueryParameter(
-            orderLeftSquareBracketAmountExcludingTaxRightSquareBracket),
-      if (orderLeftSquareBracketAmountIncludingTaxRightSquareBracket != null)
-        r'order[amountIncludingTax]': encodeQueryParameter(
-            orderLeftSquareBracketAmountIncludingTaxRightSquareBracket),
+      if (orderLeftSquareBracketAmountExcludingTaxPeriodValueRightSquareBracket !=
+          null)
+        r'order[amountExcludingTax.value]': encodeQueryParameter(
+            orderLeftSquareBracketAmountExcludingTaxPeriodValueRightSquareBracket),
+      if (orderLeftSquareBracketAmountIncludingTaxPeriodValueRightSquareBracket !=
+          null)
+        r'order[amountIncludingTax.value]': encodeQueryParameter(
+            orderLeftSquareBracketAmountIncludingTaxPeriodValueRightSquareBracket),
       if (orderLeftSquareBracketIssueDateRightSquareBracket != null)
         r'order[issueDate]': encodeQueryParameter(
             orderLeftSquareBracketIssueDateRightSquareBracket),

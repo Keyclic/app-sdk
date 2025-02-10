@@ -23038,6 +23038,9 @@
                     "public": {
                         "type": "boolean"
                     },
+                    "quote": {
+                        "$ref": "#/components/schemas/Quote.jsonhal-OrganizationPreference-Read"
+                    },
                     "reference": {
                         "$ref": "#/components/schemas/Reference.jsonhal-OrganizationPreference-Read"
                     },
@@ -23475,6 +23478,16 @@
                         "format": "iri-reference",
                         "example": "https://example.com/",
                         "nullable": true
+                    }
+                }
+            },
+            "Quote.jsonhal-OrganizationPreference-Read": {
+                "type": "object",
+                "description": "",
+                "deprecated": false,
+                "properties": {
+                    "enabled": {
+                        "type": "boolean"
                     }
                 }
             },

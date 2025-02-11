@@ -622,6 +622,7 @@ Class | Method | HTTP request | Description
  - [PreferencesEquipment](doc//PreferencesEquipment.md)
  - [PreferencesForm](doc//PreferencesForm.md)
  - [PreferencesNotification](doc//PreferencesNotification.md)
+ - [PreferencesQuote](doc//PreferencesQuote.md)
  - [PreferencesReference](doc//PreferencesReference.md)
  - [PreferencesReview](doc//PreferencesReview.md)
  - [PreferencesSla](doc//PreferencesSla.md)

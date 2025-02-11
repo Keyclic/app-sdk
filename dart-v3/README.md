@@ -297,6 +297,7 @@ Class | Method | HTTP request | Description
  - [PublicationJsonhalReadLinks](doc//PublicationJsonhalReadLinks.md)
  - [QuoteCreateQuoteCommandWrite](doc//QuoteCreateQuoteCommandWrite.md)
  - [QuoteEditQuoteCommandWrite](doc//QuoteEditQuoteCommandWrite.md)
+ - [QuoteJsonhalOrganizationPreferenceRead](doc//QuoteJsonhalOrganizationPreferenceRead.md)
  - [QuoteJsonhalRead](doc//QuoteJsonhalRead.md)
  - [QuoteJsonhalReadEmbedded](doc//QuoteJsonhalReadEmbedded.md)
  - [QuoteJsonhalReadLinks](doc//QuoteJsonhalReadLinks.md)

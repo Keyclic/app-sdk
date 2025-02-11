@@ -20750,6 +20750,9 @@
                 "public": {
                     "type": "boolean"
                 },
+                "quote": {
+                    "$ref": "#\/definitions\/PreferencesQuote"
+                },
                 "reference": {
                     "$ref": "#\/definitions\/PreferencesReference"
                 },
@@ -21739,6 +21742,14 @@
                     "type": "boolean"
                 },
                 "push": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "PreferencesQuote": {
+            "type": "object",
+            "properties": {
+                "enabled": {
                     "type": "boolean"
                 }
             }

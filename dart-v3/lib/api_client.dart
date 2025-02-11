@@ -579,6 +579,8 @@ class ApiPlatformClient {
           return QuoteCreateQuoteCommandWrite.fromJson(value);
         case 'QuoteEditQuoteCommandWrite':
           return QuoteEditQuoteCommandWrite.fromJson(value);
+        case 'QuoteJsonhalOrganizationPreferenceRead':
+          return QuoteJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'QuoteJsonhalRead':
           return QuoteJsonhalRead.fromJson(value);
         case 'QuoteJsonhalReadEmbedded':

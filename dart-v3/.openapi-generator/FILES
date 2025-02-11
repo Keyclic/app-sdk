@@ -170,6 +170,7 @@ doc/PublicationJsonhalReadLinks.md
 doc/QuoteApi.md
 doc/QuoteCreateQuoteCommandWrite.md
 doc/QuoteEditQuoteCommandWrite.md
+doc/QuoteJsonhalOrganizationPreferenceRead.md
 doc/QuoteJsonhalRead.md
 doc/QuoteJsonhalReadEmbedded.md
 doc/QuoteJsonhalReadLinks.md
@@ -406,6 +407,7 @@ lib/model/publication_jsonhal_read_embedded.dart
 lib/model/publication_jsonhal_read_links.dart
 lib/model/quote_create_quote_command_write.dart
 lib/model/quote_edit_quote_command_write.dart
+lib/model/quote_jsonhal_organization_preference_read.dart
 lib/model/quote_jsonhal_read.dart
 lib/model/quote_jsonhal_read_embedded.dart
 lib/model/quote_jsonhal_read_links.dart
@@ -613,6 +615,7 @@ test/publication_jsonhal_read_test.dart
 test/quote_api_test.dart
 test/quote_create_quote_command_write_test.dart
 test/quote_edit_quote_command_write_test.dart
+test/quote_jsonhal_organization_preference_read_test.dart
 test/quote_jsonhal_read_embedded_test.dart
 test/quote_jsonhal_read_links_test.dart
 test/quote_jsonhal_read_test.dart

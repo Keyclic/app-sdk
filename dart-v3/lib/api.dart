@@ -198,6 +198,7 @@ part 'model/publication_jsonhal_read_embedded.dart';
 part 'model/publication_jsonhal_read_links.dart';
 part 'model/quote_create_quote_command_write.dart';
 part 'model/quote_edit_quote_command_write.dart';
+part 'model/quote_jsonhal_organization_preference_read.dart';
 part 'model/quote_jsonhal_read.dart';
 part 'model/quote_jsonhal_read_embedded.dart';
 part 'model/quote_jsonhal_read_links.dart';

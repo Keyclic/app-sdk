@@ -31,6 +31,9 @@ void main() {
     // bool public
     test('to test the property `public`', () async {});
 
+    // QuoteJsonhalOrganizationPreferenceRead quote
+    test('to test the property `quote`', () async {});
+
     // ReferenceJsonhalOrganizationPreferenceRead reference
     test('to test the property `reference`', () async {});
 

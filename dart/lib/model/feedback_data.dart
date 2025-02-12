@@ -13,10 +13,10 @@ class FeedbackData {
     this.description,
     this.equipments,
     this.geo,
+    this.member,
     this.metadata,
-    this.place,
+    required this.place,
     this.priority,
-    this.reporter,
     this.visibility,
   });
 
@@ -36,12 +36,12 @@ class FeedbackData {
           ? null
           : List<String>.from(json[r'equipments']),
       geo: FeedbackDataGeo.fromJson(json[r'geo']),
+      member: json[r'member'],
       metadata: json[r'metadata'] == null
           ? null
           : Map<String, Object?>.from(json[r'metadata']),
       place: json[r'place'],
       priority: json[r'priority'],
-      reporter: json[r'reporter'],
       visibility: FeedbackDataVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
@@ -58,13 +58,13 @@ class FeedbackData {
 
   FeedbackDataGeo? geo;
 
+  String? member;
+
   Map<String, Object?>? metadata;
 
-  String? place;
+  String place;
 
   String? priority;
-
-  String? reporter;
 
   FeedbackDataVisibilityEnum? visibility;
 
@@ -83,10 +83,10 @@ class FeedbackData {
         DeepCollectionEquality.unordered()
             .equals(equipments, other.equipments) &&
         other.geo == geo &&
+        other.member == member &&
         DeepCollectionEquality.unordered().equals(metadata, other.metadata) &&
         other.place == place &&
         other.priority == priority &&
-        other.reporter == reporter &&
         other.visibility == visibility;
   }
 
@@ -98,10 +98,10 @@ class FeedbackData {
       (description == null ? 0 : description.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       (geo == null ? 0 : geo.hashCode) +
+      (member == null ? 0 : member.hashCode) +
       (metadata == null ? 0 : metadata.hashCode) +
-      (place == null ? 0 : place.hashCode) +
+      place.hashCode +
       (priority == null ? 0 : priority.hashCode) +
-      (reporter == null ? 0 : reporter.hashCode) +
       (visibility == null ? 0 : visibility.hashCode);
 
   static List<FeedbackData> listFromJson(Iterable? json) {
@@ -151,7 +151,7 @@ class FeedbackData {
 
   @override
   String toString() =>
-      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, metadata=$metadata, place=$place, priority=$priority, reporter=$reporter, visibility=$visibility]';
+      'FeedbackData[batch=$batch, businessActivity=$businessActivity, category=$category, description=$description, equipments=$equipments, geo=$geo, member=$member, metadata=$metadata, place=$place, priority=$priority, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -172,10 +172,10 @@ class FeedbackData {
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'member')) r'member': member,
       if (keys == null || keys.contains(r'metadata')) r'metadata': metadata,
-      if (keys == null || keys.contains(r'place')) r'place': place,
+      r'place': place,
       if (keys == null || keys.contains(r'priority')) r'priority': priority,
-      if (keys == null || keys.contains(r'reporter')) r'reporter': reporter,
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
     };

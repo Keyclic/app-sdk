@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **businessActivity** | [**FeedbackLinksBusinessActivity**](FeedbackLinksBusinessActivity.md) |  | [optional] 
 **category** | [**FeedbackLinksCategory**](FeedbackLinksCategory.md) |  | [optional] 
 **images** | [**List<FeedbackLinksImages>**](FeedbackLinksImages.md) |  | [optional] [default to const []]
+**member** | [**FeedbackLinksMember**](FeedbackLinksMember.md) |  | [optional] 
 **plans** | [**List<FeedbackLinksPlans>**](FeedbackLinksPlans.md) |  | [optional] [default to const []]
 **report** | [**FeedbackLinksReport**](FeedbackLinksReport.md) |  | [optional] 
 **reporter** | [**FeedbackLinksReporter**](FeedbackLinksReporter.md) |  | [optional] 

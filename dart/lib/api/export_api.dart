@@ -176,6 +176,8 @@ class ExportApi {
   /// * [prioritiesLeftSquareBracketRightSquareBracket]
   /// * [query]
   /// * [ratingLeftSquareBracketRightSquareBracket]
+  /// * [reporter]
+  /// * [reportersLeftSquareBracketRightSquareBracket]
   /// * [scheduledAtAfter]
   /// * [scheduledAtBefore]
   /// * [state]
@@ -241,6 +243,8 @@ class ExportApi {
     List<String>? prioritiesLeftSquareBracketRightSquareBracket,
     String? query,
     List<String>? ratingLeftSquareBracketRightSquareBracket,
+    String? reporter,
+    List<String>? reportersLeftSquareBracketRightSquareBracket,
     DateTime? scheduledAtAfter,
     DateTime? scheduledAtBefore,
     String? state,
@@ -380,6 +384,11 @@ class ExportApi {
       if (ratingLeftSquareBracketRightSquareBracket != null)
         r'rating[]': encodeCollectionQueryParameter(
             ratingLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (reporter != null) r'reporter': encodeQueryParameter(reporter),
+      if (reportersLeftSquareBracketRightSquareBracket != null)
+        r'reporters[]': encodeCollectionQueryParameter(
+            reportersLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (scheduledAtAfter != null)
         r'scheduled_at_after': encodeQueryParameter(scheduledAtAfter),

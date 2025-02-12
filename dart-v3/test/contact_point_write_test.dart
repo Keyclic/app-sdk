@@ -5,19 +5,13 @@
 // import 'package:keyclic_sdk_api_platform/api.dart';
 import 'package:test/test.dart';
 
-// tests for ContactPointJsonhalRead
+// tests for ContactPointWrite
 void main() {
-  // final instance = ContactPointJsonhalRead();
+  // final instance = ContactPointWrite();
 
-  group('test ContactPointJsonhalRead', () {
-    // String description
-    test('to test the property `description`', () async {});
-
+  group('test ContactPointWrite', () {
     // String email
     test('to test the property `email`', () async {});
-
-    // String faxNumber
-    test('to test the property `faxNumber`', () async {});
 
     // String name
     test('to test the property `name`', () async {});
@@ -32,8 +26,5 @@ void main() {
     // Given name. In the U.S., the first name of a Person.
     // String givenName
     test('to test the property `givenName`', () async {});
-
-    // bool isOpen
-    test('to test the property `isOpen`', () async {});
   });
 }

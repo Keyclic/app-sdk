@@ -9,7 +9,7 @@
             "url": "https://www.keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.70.0-dev.g04a4057a9"
+        "version": "2.71.0-dev.gc35e84f87"
     },
     "servers": [
         {
@@ -11376,34 +11376,21 @@
                         "allowReserved": false
                     },
                     {
-                        "name": "member",
+                        "name": "order[provider.name]",
                         "in": "query",
                         "description": "",
                         "required": false,
                         "deprecated": false,
                         "allowEmptyValue": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
                         },
                         "style": "form",
                         "explode": false,
-                        "allowReserved": false
-                    },
-                    {
-                        "name": "member[]",
-                        "in": "query",
-                        "description": "",
-                        "required": false,
-                        "deprecated": false,
-                        "allowEmptyValue": true,
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "style": "form",
-                        "explode": true,
                         "allowReserved": false
                     },
                     {
@@ -22674,11 +22661,6 @@
                     "name"
                 ]
             },
-            "Origin-Write": {
-                "type": "object",
-                "description": "",
-                "deprecated": false
-            },
             "Person.jsonhal-Read": {
                 "type": "object",
                 "description": "",
@@ -23320,6 +23302,20 @@
                     "amountIncludingTax": {
                         "$ref": "#/components/schemas/Price-Write"
                     },
+                    "author": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "authorContactPoint": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ContactPoint-Write"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "equipments": {
                         "type": "array",
                         "items": {
@@ -23345,20 +23341,6 @@
                         "type": "string",
                         "format": "date-time"
                     },
-                    "member": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "memberContactPoint": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ContactPoint-Write"
-                            }
-                        ],
-                        "nullable": true
-                    },
                     "name": {
                         "type": "string"
                     },
@@ -23366,11 +23348,12 @@
                         "type": "string"
                     },
                     "origin": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Origin-Write"
-                            }
+                        "enum": [
+                            "LINKED",
+                            "PROPOSED",
+                            "REQUESTED"
                         ],
+                        "type": "string",
                         "nullable": true
                     },
                     "place": {
@@ -23440,6 +23423,20 @@
                         ],
                         "nullable": true
                     },
+                    "author": {
+                        "type": "string",
+                        "format": "iri-reference",
+                        "example": "https://example.com/",
+                        "nullable": true
+                    },
+                    "authorContactPoint": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/components/schemas/ContactPoint-Write"
+                            }
+                        ],
+                        "nullable": true
+                    },
                     "equipments": {
                         "type": "array",
                         "items": {
@@ -23466,20 +23463,6 @@
                         "format": "date-time",
                         "nullable": true
                     },
-                    "member": {
-                        "type": "string",
-                        "format": "iri-reference",
-                        "example": "https://example.com/",
-                        "nullable": true
-                    },
-                    "memberContactPoint": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/ContactPoint-Write"
-                            }
-                        ],
-                        "nullable": true
-                    },
                     "name": {
                         "type": "string",
                         "nullable": true
@@ -23489,11 +23472,12 @@
                         "nullable": true
                     },
                     "origin": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/components/schemas/Origin-Write"
-                            }
+                        "enum": [
+                            "LINKED",
+                            "PROPOSED",
+                            "REQUESTED"
                         ],
+                        "type": "string",
                         "nullable": true
                     },
                     "place": {
@@ -23567,7 +23551,7 @@
                                     }
                                 }
                             },
-                            "member": {
+                            "author": {
                                 "type": "object",
                                 "properties": {
                                     "href": {
@@ -23634,14 +23618,14 @@
                             }
                         }
                     },
+                    "authorContactPoint": {
+                        "$ref": "#/components/schemas/ContactPoint.jsonhal-Read"
+                    },
                     "expirationDate": {
                         "description": "The date and time the quote is not valid anymore, in ISO 8601 format.",
                         "type": "string",
                         "format": "date-time",
                         "nullable": true
-                    },
-                    "memberContactPoint": {
-                        "$ref": "#/components/schemas/ContactPoint.jsonhal-Read"
                     },
                     "origin": {
                         "enum": [

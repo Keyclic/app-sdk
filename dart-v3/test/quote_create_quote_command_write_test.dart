@@ -16,6 +16,12 @@ void main() {
     // PriceWrite amountIncludingTax
     test('to test the property `amountIncludingTax`', () async {});
 
+    // String author
+    test('to test the property `author`', () async {});
+
+    // ContactPointWrite authorContactPoint
+    test('to test the property `authorContactPoint`', () async {});
+
     // List<String> equipments (default value: const [])
     test('to test the property `equipments`', () async {});
 
@@ -28,20 +34,13 @@ void main() {
     // DateTime issueDate
     test('to test the property `issueDate`', () async {});
 
-    // String member
-    test('to test the property `member`', () async {});
-
-    // ContactPointWrite memberContactPoint
-    test('to test the property `memberContactPoint`', () async {});
-
     // String name
     test('to test the property `name`', () async {});
 
     // String number
     test('to test the property `number`', () async {});
 
-    //
-    // Map<String, dynamic> origin
+    // String origin
     test('to test the property `origin`', () async {});
 
     // String place

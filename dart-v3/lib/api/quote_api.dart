@@ -219,8 +219,7 @@ class QuoteApi {
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketNumberRightSquareBracket] -
   /// * [orderLeftSquareBracketPlacePeriodNameRightSquareBracket] -
-  /// * [member] -
-  /// * [memberLeftSquareBracketRightSquareBracket] -
+  /// * [orderLeftSquareBracketProviderPeriodNameRightSquareBracket] -
   /// * [place] -
   /// * [placeLeftSquareBracketRightSquareBracket] -
   /// * [provider] -
@@ -279,8 +278,7 @@ class QuoteApi {
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketNumberRightSquareBracket,
     String? orderLeftSquareBracketPlacePeriodNameRightSquareBracket,
-    String? member,
-    List<String>? memberLeftSquareBracketRightSquareBracket,
+    String? orderLeftSquareBracketProviderPeriodNameRightSquareBracket,
     String? place,
     List<String>? placeLeftSquareBracketRightSquareBracket,
     String? provider,
@@ -424,11 +422,9 @@ class QuoteApi {
       if (orderLeftSquareBracketPlacePeriodNameRightSquareBracket != null)
         r'order[place.name]': encodeQueryParameter(
             orderLeftSquareBracketPlacePeriodNameRightSquareBracket),
-      if (member != null) r'member': encodeQueryParameter(member),
-      if (memberLeftSquareBracketRightSquareBracket != null)
-        r'member[]': encodeCollectionQueryParameter(
-            memberLeftSquareBracketRightSquareBracket,
-            format: ListFormat.multi),
+      if (orderLeftSquareBracketProviderPeriodNameRightSquareBracket != null)
+        r'order[provider.name]': encodeQueryParameter(
+            orderLeftSquareBracketProviderPeriodNameRightSquareBracket),
       if (place != null) r'place': encodeQueryParameter(place),
       if (placeLeftSquareBracketRightSquareBracket != null)
         r'place[]': encodeCollectionQueryParameter(

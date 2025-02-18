@@ -9,8 +9,8 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**QuoteJsonhalReadLinks**](QuoteJsonhalReadLinks.md) |  | [optional] 
+**authorContactPoint** | [**ContactPointJsonhalRead**](ContactPointJsonhalRead.md) |  | [optional] 
 **expirationDate** | [**DateTime**](DateTime.md) | The date and time the quote is not valid anymore, in ISO 8601 format. | [optional] 
-**memberContactPoint** | [**ContactPointJsonhalRead**](ContactPointJsonhalRead.md) |  | [optional] 
 **origin** | **String** |  | [optional] 
 **providerAddress** | [**PostalAddressJsonhalRead**](PostalAddressJsonhalRead.md) |  | [optional] 
 **providerContactPoint** | [**ContactPointJsonhalRead**](ContactPointJsonhalRead.md) |  | [optional] 

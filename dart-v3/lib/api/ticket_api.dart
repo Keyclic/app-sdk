@@ -222,6 +222,8 @@ class TicketApi {
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
   /// * [operationStateAll] -
   /// * [operationStateAllLeftSquareBracketRightSquareBracket] -
   /// * [orderLeftSquareBracketCategoryPeriodNameRightSquareBracket] -
@@ -326,6 +328,9 @@ class TicketApi {
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     bool?
         existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? operationStateAll,
     List<String>? operationStateAllLeftSquareBracketRightSquareBracket,
     String? orderLeftSquareBracketCategoryPeriodNameRightSquareBracket,
@@ -516,6 +521,14 @@ class TicketApi {
           null)
         r'exists[feedback.geoCoordinates.point]': encodeQueryParameter(
             existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (operationStateAll != null)
         r'operation_state_all': encodeQueryParameter(operationStateAll),
       if (operationStateAllLeftSquareBracketRightSquareBracket != null)
@@ -755,6 +768,8 @@ class TicketApi {
   /// * [existsLeftSquareBracketAssignmentsRightSquareBracket] -
   /// * [existsLeftSquareBracketDocumentsRightSquareBracket] -
   /// * [existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket] -
+  /// * [searchLeftSquareBracketDescriptionRightSquareBracket] -
+  /// * [searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodMember] -
   /// * [assignmentsPeriodMemberLeftSquareBracketRightSquareBracket] -
   /// * [assignmentsPeriodService] -
@@ -849,6 +864,9 @@ class TicketApi {
     bool? existsLeftSquareBracketDocumentsRightSquareBracket,
     bool?
         existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket,
+    String? searchLeftSquareBracketDescriptionRightSquareBracket,
+    List<String>?
+        searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodMember,
     List<String>? assignmentsPeriodMemberLeftSquareBracketRightSquareBracket,
     String? assignmentsPeriodService,
@@ -1029,6 +1047,14 @@ class TicketApi {
           null)
         r'exists[feedback.geoCoordinates.point]': encodeQueryParameter(
             existsLeftSquareBracketFeedbackPeriodGeoCoordinatesPeriodPointRightSquareBracket),
+      if (searchLeftSquareBracketDescriptionRightSquareBracket != null)
+        r'search[description]': encodeQueryParameter(
+            searchLeftSquareBracketDescriptionRightSquareBracket),
+      if (searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket !=
+          null)
+        r'search[tags][]': encodeCollectionQueryParameter(
+            searchLeftSquareBracketTagsRightSquareBracketLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (assignmentsPeriodMember != null)
         r'assignments.member': encodeQueryParameter(assignmentsPeriodMember),
       if (assignmentsPeriodMemberLeftSquareBracketRightSquareBracket != null)

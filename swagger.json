@@ -9,7 +9,7 @@
             "url": "https:\/\/keyclic.com",
             "email": "techies@keyclic.com"
         },
-        "version": "2.69.0-dev.gd63162ab2"
+        "version": "2.71.0-beta.12.dev.41be87d0a"
     },
     "host": "api.keyclic.com",
     "basePath": "\/",
@@ -4043,99 +4043,6 @@
                 ]
             }
         },
-        "\/feedbacks\/{feedback}\/attachments": {
-            "post": {
-                "tags": [
-                    "Feedback"
-                ],
-                "summary": "Create one Attachment resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postAttachmentByFeedback",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/FileData"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "feedback",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Feedback"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/feedbacks\/issues": {
             "post": {
                 "tags": [
@@ -7325,101 +7232,6 @@
                 ]
             }
         },
-        "\/operations\/{operation}\/attachments\/{attachment}": {
-            "delete": {
-                "tags": [
-                    "Operation"
-                ],
-                "summary": "Remove one Attachment resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "deleteAttachmentByOperationAndAttachment",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "operation",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "attachment",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": ""
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
         "\/operations\/{operation}\/tracking": {
             "get": {
                 "tags": [
@@ -7624,99 +7436,6 @@
                     },
                     {
                         "$ref": "#\/parameters\/AssignData"
-                    },
-                    {
-                        "description": "The identifier of the resource.",
-                        "format": "uuid",
-                        "in": "path",
-                        "name": "operation",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Operation"
-                        }
-                    },
-                    "400": {
-                        "description": "Returned when the request is invalid.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "401": {
-                        "description": "Returned when the resource is unauthorized.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "403": {
-                        "description": "Returned when the resource is forbidden.",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "404": {
-                        "description": "Returned when the resource is not found",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#\/definitions\/Problem"
-                        }
-                    }
-                },
-                "schemes": [
-                    "https"
-                ],
-                "security": [
-                    {
-                        "bearer": []
-                    }
-                ]
-            }
-        },
-        "\/operations\/{operation}\/attachments": {
-            "post": {
-                "tags": [
-                    "Operation"
-                ],
-                "summary": "Create one Attachment resource.",
-                "externalDocs": {
-                    "description": "Keyclic API documentation.",
-                    "url": "https:\/\/docs.keyclic.com\/fr\/master\/overview.html"
-                },
-                "operationId": "postAttachmentByOperation",
-                "consumes": [
-                    "application\/json;charset=UTF-8"
-                ],
-                "produces": [
-                    "application\/hal+json;charset=UTF-8"
-                ],
-                "parameters": [
-                    {
-                        "$ref": "#\/parameters\/accept-language"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-date-time"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-platform"
-                    },
-                    {
-                        "$ref": "#\/parameters\/x-keyclic-app-version"
-                    },
-                    {
-                        "$ref": "#\/parameters\/FileData"
                     },
                     {
                         "description": "The identifier of the resource.",
@@ -8369,6 +8088,12 @@
                     },
                     {
                         "$ref": "#\/parameters\/before"
+                    },
+                    {
+                        "$ref": "#\/parameters\/member"
+                    },
+                    {
+                        "$ref": "#\/parameters\/members__"
                     },
                     {
                         "$ref": "#\/parameters\/query"
@@ -9792,7 +9517,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/BinaryPagination"
+                            "$ref": "#\/definitions\/EmbeddedFilePagination"
                         }
                     },
                     "400": {
@@ -15903,65 +15628,6 @@
                 }
             ]
         },
-        "Binary": {
-            "type": "object",
-            "properties": {
-                "content": {
-                    "format": "string",
-                    "type": "string"
-                },
-                "contentType": {
-                    "enum": [
-                        "text\/csv",
-                        "application\/msword",
-                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                        "image\/jpeg",
-                        "image\/jpg",
-                        "application\/json",
-                        "application\/octet-stream",
-                        "application\/pdf",
-                        "image\/png",
-                        "text\/plain",
-                        "application\/vnd.ms-excel",
-                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                        "application\/zip"
-                    ],
-                    "format": "string",
-                    "type": "string"
-                },
-                "name": {
-                    "format": "string",
-                    "type": "string"
-                }
-            }
-        },
-        "BinaryCollection": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
-                        "$ref": "#\/definitions\/Binary"
-                    }
-                }
-            }
-        },
-        "BinaryPagination": {
-            "allOf": [
-                {
-                    "$ref": "#\/definitions\/Pagination"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "_embedded": {
-                            "$ref": "#\/definitions\/BinaryCollection"
-                        }
-                    }
-                }
-            ]
-        },
         "Bookmark": {
             "type": "object",
             "properties": {
@@ -17174,7 +16840,7 @@
                     "type": "string"
                 },
                 "file": {
-                    "$ref": "#\/definitions\/DocumentFile"
+                    "$ref": "#\/definitions\/DocumentEmbeddedFile"
                 },
                 "id": {
                     "format": "uuid",
@@ -17196,12 +16862,6 @@
                     "format": "string",
                     "maxLength": 18,
                     "type": "string"
-                },
-                "tags": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
                 },
                 "text": {
                     "format": "string",
@@ -17269,7 +16929,7 @@
                 }
             }
         },
-        "DocumentFile": {
+        "DocumentEmbeddedFile": {
             "type": "object",
             "properties": {
                 "contentType": {
@@ -17449,10 +17109,10 @@
                     "type": "string"
                 },
                 "tags": {
+                    "type": "array",
                     "items": {
                         "type": "string"
-                    },
-                    "type": "array"
+                    }
                 }
             }
         },
@@ -17525,6 +17185,61 @@
                     "type": "integer"
                 }
             }
+        },
+        "EmbeddedFile": {
+            "type": "object",
+            "properties": {
+                "contentType": {
+                    "enum": [
+                        "text\/csv",
+                        "application\/msword",
+                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        "image\/jpeg",
+                        "image\/jpg",
+                        "application\/json",
+                        "application\/octet-stream",
+                        "application\/pdf",
+                        "image\/png",
+                        "text\/plain",
+                        "application\/vnd.ms-excel",
+                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "application\/zip"
+                    ],
+                    "format": "string",
+                    "type": "string"
+                },
+                "name": {
+                    "format": "string",
+                    "type": "string"
+                }
+            }
+        },
+        "EmbeddedFileCollection": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "$ref": "#\/definitions\/EmbeddedFile"
+                    }
+                }
+            }
+        },
+        "EmbeddedFilePagination": {
+            "allOf": [
+                {
+                    "$ref": "#\/definitions\/Pagination"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "_embedded": {
+                            "$ref": "#\/definitions\/EmbeddedFileCollection"
+                        }
+                    }
+                }
+            ]
         },
         "Export": {
             "type": "object",
@@ -18267,10 +17982,7 @@
                 "mapping": {
                     "type": "object",
                     "properties": {
-                        "feedback": {
-                            "type": "string"
-                        },
-                        "image": {
+                        "file": {
                             "type": "string"
                         }
                     }
@@ -20201,10 +19913,7 @@
                 "mapping": {
                     "type": "object",
                     "properties": {
-                        "operation": {
-                            "type": "string"
-                        },
-                        "image": {
+                        "file": {
                             "type": "string"
                         }
                     }
@@ -20926,9 +20635,6 @@
                 "integration-link:read",
                 "integration-link:write",
                 "integration:read",
-                "ORGANIZATION:AGENT",
-                "ORGANIZATION:MEMBER",
-                "ORGANIZATION:OPERATOR",
                 "ANALYTICS:ALL",
                 "DOCUMENT:ALL",
                 "EXPORT:ALL",
@@ -20957,7 +20663,10 @@
                 "ticket:read",
                 "ticket:tags:read",
                 "ticket:tags:write",
-                "ticket:write"
+                "ticket:write",
+                "ORGANIZATION:AGENT",
+                "ORGANIZATION:MEMBER",
+                "ORGANIZATION:OPERATOR"
             ]
         },
         "Person": {
@@ -22067,6 +21776,12 @@
             "type": "object",
             "properties": {
                 "allOf": {
+                    "items": {
+                        "$ref": "#\/definitions\/ConditionListCondition"
+                    },
+                    "type": "array"
+                },
+                "anyOf": {
                     "items": {
                         "$ref": "#\/definitions\/ConditionListCondition"
                     },
@@ -25153,14 +24868,6 @@
             },
             "required": true
         },
-        "FileData": {
-            "name": "FileData",
-            "in": "body",
-            "schema": {
-                "$ref": "#\/definitions\/FileData"
-            },
-            "required": true
-        },
         "FeedbackData": {
             "name": "FeedbackData",
             "in": "body",
@@ -25423,6 +25130,14 @@
             "in": "body",
             "schema": {
                 "$ref": "#\/definitions\/OrganizationPatch"
+            },
+            "required": true
+        },
+        "FileData": {
+            "name": "FileData",
+            "in": "body",
+            "schema": {
+                "$ref": "#\/definitions\/FileData"
             },
             "required": true
         },

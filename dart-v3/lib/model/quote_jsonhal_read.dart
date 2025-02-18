@@ -8,8 +8,8 @@ class QuoteJsonhalRead {
   /// Returns a new [QuoteJsonhalRead] instance.
   QuoteJsonhalRead({
     this.links,
+    this.authorContactPoint,
     this.expirationDate,
-    this.memberContactPoint,
     this.origin,
     this.providerAddress,
     this.providerContactPoint,
@@ -35,9 +35,9 @@ class QuoteJsonhalRead {
 
     return QuoteJsonhalRead(
       links: QuoteJsonhalReadLinks.fromJson(json[r'_links']),
+      authorContactPoint:
+          ContactPointJsonhalRead.fromJson(json[r'authorContactPoint']),
       expirationDate: mapToDateTime(json[r'expirationDate']),
-      memberContactPoint:
-          ContactPointJsonhalRead.fromJson(json[r'memberContactPoint']),
       origin: QuoteJsonhalReadOriginEnum.fromJson(json[r'origin']),
       providerAddress:
           PostalAddressJsonhalRead.fromJson(json[r'providerAddress']),
@@ -61,10 +61,10 @@ class QuoteJsonhalRead {
 
   QuoteJsonhalReadLinks? links;
 
+  ContactPointJsonhalRead? authorContactPoint;
+
   /// The date and time the quote is not valid anymore, in ISO 8601 format.
   DateTime? expirationDate;
-
-  ContactPointJsonhalRead? memberContactPoint;
 
   QuoteJsonhalReadOriginEnum? origin;
 
@@ -110,8 +110,8 @@ class QuoteJsonhalRead {
 
     return other is QuoteJsonhalRead &&
         other.links == links &&
+        other.authorContactPoint == authorContactPoint &&
         other.expirationDate == expirationDate &&
-        other.memberContactPoint == memberContactPoint &&
         other.origin == origin &&
         other.providerAddress == providerAddress &&
         other.providerContactPoint == providerContactPoint &&
@@ -131,8 +131,8 @@ class QuoteJsonhalRead {
   @override
   int get hashCode =>
       (links == null ? 0 : links.hashCode) +
+      (authorContactPoint == null ? 0 : authorContactPoint.hashCode) +
       (expirationDate == null ? 0 : expirationDate.hashCode) +
-      (memberContactPoint == null ? 0 : memberContactPoint.hashCode) +
       (origin == null ? 0 : origin.hashCode) +
       (providerAddress == null ? 0 : providerAddress.hashCode) +
       (providerContactPoint == null ? 0 : providerContactPoint.hashCode) +
@@ -195,7 +195,7 @@ class QuoteJsonhalRead {
 
   @override
   String toString() =>
-      'QuoteJsonhalRead[links=$links, expirationDate=$expirationDate, memberContactPoint=$memberContactPoint, origin=$origin, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, issueDate=$issueDate, name=$name, number=$number, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
+      'QuoteJsonhalRead[links=$links, authorContactPoint=$authorContactPoint, expirationDate=$expirationDate, origin=$origin, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, issueDate=$issueDate, name=$name, number=$number, id=$id, tags=$tags, createdAt=$createdAt, updatedAt=$updatedAt, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -208,20 +208,20 @@ class QuoteJsonhalRead {
 
           return previousValue;
         })),
-      if (keys == null || keys.contains(r'expirationDate'))
-        r'expirationDate': expirationDate?.toUtc().toIso8601String(),
       if (keys == null ||
-          keys.any((key) => RegExp(r'^memberContactPoint\.').hasMatch(key)))
-        r'memberContactPoint': memberContactPoint?.toJson(keys
+          keys.any((key) => RegExp(r'^authorContactPoint\.').hasMatch(key)))
+        r'authorContactPoint': authorContactPoint?.toJson(keys
             ?.fold<List<String>>(<String>[],
                 (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^memberContactPoint\.'))) {
+          if (element.contains(RegExp(r'^authorContactPoint\.'))) {
             previousValue
-                .add(element.split(RegExp(r'^memberContactPoint\.')).last);
+                .add(element.split(RegExp(r'^authorContactPoint\.')).last);
           }
 
           return previousValue;
         })),
+      if (keys == null || keys.contains(r'expirationDate'))
+        r'expirationDate': expirationDate?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'origin')) r'origin': origin,
       if (keys == null ||
           keys.any((key) => RegExp(r'^providerAddress\.').hasMatch(key)))

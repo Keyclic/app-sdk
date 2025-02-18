@@ -9,7 +9,7 @@ import 'package:keyclic_sdk_api_platform/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **self** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 
-**member** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
+**author** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **provider** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **task** | [**GetPlaceCollection200ResponseLinksFirst**](GetPlaceCollection200ResponseLinksFirst.md) |  | [optional] 
 **place** | [**GetPlaceCollection200ResponseLinksSelf**](GetPlaceCollection200ResponseLinksSelf.md) |  | [optional] 

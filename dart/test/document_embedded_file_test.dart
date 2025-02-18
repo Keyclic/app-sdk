@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for DocumentFile
+// tests for DocumentEmbeddedFile
 void main() {
-  // final instance = DocumentFile();
+  // final instance = DocumentEmbeddedFile();
 
-  group('test DocumentFile', () {
+  group('test DocumentEmbeddedFile', () {
     // String contentType
     test('to test the property `contentType`', () async {});
 

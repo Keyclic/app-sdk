@@ -8,7 +8,7 @@ class QuoteJsonhalReadLinks {
   /// Returns a new [QuoteJsonhalReadLinks] instance.
   QuoteJsonhalReadLinks({
     this.self,
-    this.member,
+    this.author,
     this.provider,
     this.task,
     this.place,
@@ -25,7 +25,7 @@ class QuoteJsonhalReadLinks {
 
     return QuoteJsonhalReadLinks(
       self: GetPlaceCollection200ResponseLinksSelf.fromJson(json[r'self']),
-      member: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'member']),
+      author: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'author']),
       provider:
           GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'provider']),
       task: GetPlaceCollection200ResponseLinksFirst.fromJson(json[r'task']),
@@ -39,7 +39,7 @@ class QuoteJsonhalReadLinks {
 
   GetPlaceCollection200ResponseLinksSelf? self;
 
-  GetPlaceCollection200ResponseLinksFirst? member;
+  GetPlaceCollection200ResponseLinksFirst? author;
 
   GetPlaceCollection200ResponseLinksFirst? provider;
 
@@ -60,7 +60,7 @@ class QuoteJsonhalReadLinks {
 
     return other is QuoteJsonhalReadLinks &&
         other.self == self &&
-        other.member == member &&
+        other.author == author &&
         other.provider == provider &&
         other.task == task &&
         other.place == place &&
@@ -72,7 +72,7 @@ class QuoteJsonhalReadLinks {
   @override
   int get hashCode =>
       (self == null ? 0 : self.hashCode) +
-      (member == null ? 0 : member.hashCode) +
+      (author == null ? 0 : author.hashCode) +
       (provider == null ? 0 : provider.hashCode) +
       (task == null ? 0 : task.hashCode) +
       (place == null ? 0 : place.hashCode) +
@@ -129,7 +129,7 @@ class QuoteJsonhalReadLinks {
 
   @override
   String toString() =>
-      'QuoteJsonhalReadLinks[self=$self, member=$member, provider=$provider, task=$task, place=$place, equipments=$equipments, files=$files]';
+      'QuoteJsonhalReadLinks[self=$self, author=$author, provider=$provider, task=$task, place=$place, equipments=$equipments, files=$files]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -142,11 +142,11 @@ class QuoteJsonhalReadLinks {
 
           return previousValue;
         })),
-      if (keys == null || keys.any((key) => RegExp(r'^member\.').hasMatch(key)))
-        r'member': member?.toJson(keys?.fold<List<String>>(<String>[],
+      if (keys == null || keys.any((key) => RegExp(r'^author\.').hasMatch(key)))
+        r'author': author?.toJson(keys?.fold<List<String>>(<String>[],
             (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^member\.'))) {
-            previousValue.add(element.split(RegExp(r'^member\.')).last);
+          if (element.contains(RegExp(r'^author\.'))) {
+            previousValue.add(element.split(RegExp(r'^author\.')).last);
           }
 
           return previousValue;

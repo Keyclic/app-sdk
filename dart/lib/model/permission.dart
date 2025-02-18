@@ -44,10 +44,6 @@ class Permission {
   static const integrationLinkColonWrite =
       Permission._(r'integration-link:write');
   static const integrationColonRead = Permission._(r'integration:read');
-  static const oRGANIZATIONColonAGENT = Permission._(r'ORGANIZATION:AGENT');
-  static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
-  static const oRGANIZATIONColonOPERATOR =
-      Permission._(r'ORGANIZATION:OPERATOR');
   static const aNALYTICSColonALL = Permission._(r'ANALYTICS:ALL');
   static const dOCUMENTColonALL = Permission._(r'DOCUMENT:ALL');
   static const eXPORTColonALL = Permission._(r'EXPORT:ALL');
@@ -80,6 +76,10 @@ class Permission {
   static const ticketColonTagsColonRead = Permission._(r'ticket:tags:read');
   static const ticketColonTagsColonWrite = Permission._(r'ticket:tags:write');
   static const ticketColonWrite = Permission._(r'ticket:write');
+  static const oRGANIZATIONColonAGENT = Permission._(r'ORGANIZATION:AGENT');
+  static const oRGANIZATIONColonMEMBER = Permission._(r'ORGANIZATION:MEMBER');
+  static const oRGANIZATIONColonOPERATOR =
+      Permission._(r'ORGANIZATION:OPERATOR');
 
   /// List of all possible values in this [enum][Permission].
   static const values = <Permission>[
@@ -104,9 +104,6 @@ class Permission {
     integrationLinkColonRead,
     integrationLinkColonWrite,
     integrationColonRead,
-    oRGANIZATIONColonAGENT,
-    oRGANIZATIONColonMEMBER,
-    oRGANIZATIONColonOPERATOR,
     aNALYTICSColonALL,
     dOCUMENTColonALL,
     eXPORTColonALL,
@@ -136,6 +133,9 @@ class Permission {
     ticketColonTagsColonRead,
     ticketColonTagsColonWrite,
     ticketColonWrite,
+    oRGANIZATIONColonAGENT,
+    oRGANIZATIONColonMEMBER,
+    oRGANIZATIONColonOPERATOR,
   ];
 
   static Permission? fromJson(dynamic value) =>
@@ -213,12 +213,6 @@ class PermissionTypeTransformer {
         return Permission.integrationLinkColonWrite;
       case r'integration:read':
         return Permission.integrationColonRead;
-      case r'ORGANIZATION:AGENT':
-        return Permission.oRGANIZATIONColonAGENT;
-      case r'ORGANIZATION:MEMBER':
-        return Permission.oRGANIZATIONColonMEMBER;
-      case r'ORGANIZATION:OPERATOR':
-        return Permission.oRGANIZATIONColonOPERATOR;
       case r'ANALYTICS:ALL':
         return Permission.aNALYTICSColonALL;
       case r'DOCUMENT:ALL':
@@ -277,6 +271,12 @@ class PermissionTypeTransformer {
         return Permission.ticketColonTagsColonWrite;
       case r'ticket:write':
         return Permission.ticketColonWrite;
+      case r'ORGANIZATION:AGENT':
+        return Permission.oRGANIZATIONColonAGENT;
+      case r'ORGANIZATION:MEMBER':
+        return Permission.oRGANIZATIONColonMEMBER;
+      case r'ORGANIZATION:OPERATOR':
+        return Permission.oRGANIZATIONColonOPERATOR;
       default:
         if (allowNull == false) {
           throw ArgumentError('Unknown enum value to decode: $data');

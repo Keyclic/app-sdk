@@ -10,15 +10,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amountExcludingTax** | [**PriceWrite**](PriceWrite.md) |  | 
 **amountIncludingTax** | [**PriceWrite**](PriceWrite.md) |  | 
+**author** | **String** |  | [optional] 
+**authorContactPoint** | [**ContactPointWrite**](ContactPointWrite.md) |  | [optional] 
 **equipments** | **List<String>** |  | [optional] [default to const []]
 **expirationDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **files** | **List<String>** |  | [default to const []]
 **issueDate** | [**DateTime**](DateTime.md) |  | 
-**member** | **String** |  | [optional] 
-**memberContactPoint** | [**ContactPointWrite**](ContactPointWrite.md) |  | [optional] 
 **name** | **String** |  | 
 **number** | **String** |  | 
-**origin** | [**Object**](.md) |  | [optional] 
+**origin** | **String** |  | [optional] 
 **place** | **String** |  | 
 **provider** | **String** |  | [optional] 
 **providerAddress** | [**PostalAddressWrite**](PostalAddressWrite.md) |  | [optional] 

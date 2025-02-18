@@ -11,6 +11,10 @@ doc/AssetTypeJsonhalRead.md
 doc/AssetTypeJsonhalReadLinks.md
 doc/AssignmentJsonhalRead.md
 doc/AssignmentJsonhalReadLinks.md
+doc/AttachmentApi.md
+doc/AttachmentCreateAttachmentCommandWrite.md
+doc/AttachmentJsonhalRead.md
+doc/AttachmentJsonhalReadLinks.md
 doc/AuthApi.md
 doc/BillingJsonhalRead.md
 doc/BillingWrite.md
@@ -58,7 +62,6 @@ doc/EquipmentJsonhalRead.md
 doc/EquipmentJsonhalReadLinks.md
 doc/ExportApi.md
 doc/ExportJsonhalRead.md
-doc/ExportRead.md
 doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
 doc/FileApi.md
@@ -70,6 +73,8 @@ doc/GetAssetCollection200Response.md
 doc/GetAssetCollection200ResponseEmbedded.md
 doc/GetAssetTypeCollection200Response.md
 doc/GetAssetTypeCollection200ResponseEmbedded.md
+doc/GetAttachments200Response.md
+doc/GetAttachments200ResponseEmbedded.md
 doc/GetAuthToken200Response.md
 doc/GetAuthTokenRequest.md
 doc/GetBookmarkCollection200Response.md
@@ -223,6 +228,7 @@ git_push.sh
 lib/api.dart
 lib/api/asset_api.dart
 lib/api/asset_type_api.dart
+lib/api/attachment_api.dart
 lib/api/auth_api.dart
 lib/api/bookmark_api.dart
 lib/api/brand_api.dart
@@ -270,6 +276,9 @@ lib/model/asset_type_jsonhal_read.dart
 lib/model/asset_type_jsonhal_read_links.dart
 lib/model/assignment_jsonhal_read.dart
 lib/model/assignment_jsonhal_read_links.dart
+lib/model/attachment_create_attachment_command_write.dart
+lib/model/attachment_jsonhal_read.dart
+lib/model/attachment_jsonhal_read_links.dart
 lib/model/billing_jsonhal_read.dart
 lib/model/billing_write.dart
 lib/model/bookmark_jsonhal_read.dart
@@ -304,7 +313,6 @@ lib/model/equipment_jsonhal_organization_preference_read.dart
 lib/model/equipment_jsonhal_read.dart
 lib/model/equipment_jsonhal_read_links.dart
 lib/model/export_jsonhal_read.dart
-lib/model/export_read.dart
 lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
 lib/model/file_create_file_command_write.dart
@@ -315,6 +323,8 @@ lib/model/get_asset_collection200_response.dart
 lib/model/get_asset_collection200_response_embedded.dart
 lib/model/get_asset_type_collection200_response.dart
 lib/model/get_asset_type_collection200_response_embedded.dart
+lib/model/get_attachments200_response.dart
+lib/model/get_attachments200_response_embedded.dart
 lib/model/get_auth_token200_response.dart
 lib/model/get_auth_token_request.dart
 lib/model/get_bookmark_collection200_response.dart
@@ -456,6 +466,10 @@ test/asset_type_jsonhal_read_links_test.dart
 test/asset_type_jsonhal_read_test.dart
 test/assignment_jsonhal_read_links_test.dart
 test/assignment_jsonhal_read_test.dart
+test/attachment_api_test.dart
+test/attachment_create_attachment_command_write_test.dart
+test/attachment_jsonhal_read_links_test.dart
+test/attachment_jsonhal_read_test.dart
 test/auth_api_test.dart
 test/billing_jsonhal_read_test.dart
 test/billing_write_test.dart
@@ -503,7 +517,6 @@ test/equipment_jsonhal_read_links_test.dart
 test/equipment_jsonhal_read_test.dart
 test/export_api_test.dart
 test/export_jsonhal_read_test.dart
-test/export_read_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
 test/file_api_test.dart
@@ -515,6 +528,8 @@ test/get_asset_collection200_response_embedded_test.dart
 test/get_asset_collection200_response_test.dart
 test/get_asset_type_collection200_response_embedded_test.dart
 test/get_asset_type_collection200_response_test.dart
+test/get_attachments200_response_embedded_test.dart
+test/get_attachments200_response_test.dart
 test/get_auth_token200_response_test.dart
 test/get_auth_token_request_test.dart
 test/get_bookmark_collection200_response_embedded_test.dart

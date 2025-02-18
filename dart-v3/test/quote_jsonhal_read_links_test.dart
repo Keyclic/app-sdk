@@ -13,8 +13,8 @@ void main() {
     // GetPlaceCollection200ResponseLinksSelf self
     test('to test the property `self`', () async {});
 
-    // GetPlaceCollection200ResponseLinksFirst member
-    test('to test the property `member`', () async {});
+    // GetPlaceCollection200ResponseLinksFirst author
+    test('to test the property `author`', () async {});
 
     // GetPlaceCollection200ResponseLinksFirst provider
     test('to test the property `provider`', () async {});

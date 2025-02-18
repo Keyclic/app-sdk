@@ -9,12 +9,12 @@ class QuoteCreateQuoteCommandWrite {
   QuoteCreateQuoteCommandWrite({
     required this.amountExcludingTax,
     required this.amountIncludingTax,
+    this.author,
+    this.authorContactPoint,
     this.equipments,
     this.expirationDate,
     this.files = const [],
     required this.issueDate,
-    this.member,
-    this.memberContactPoint,
     required this.name,
     required this.number,
     this.origin,
@@ -37,20 +37,18 @@ class QuoteCreateQuoteCommandWrite {
     return QuoteCreateQuoteCommandWrite(
       amountExcludingTax: PriceWrite.fromJson(json[r'amountExcludingTax'])!,
       amountIncludingTax: PriceWrite.fromJson(json[r'amountIncludingTax'])!,
+      author: json[r'author'],
+      authorContactPoint:
+          ContactPointWrite.fromJson(json[r'authorContactPoint']),
       equipments: json[r'equipments'] == null
           ? null
           : List<String>.from(json[r'equipments']),
       expirationDate: mapToDateTime(json[r'expirationDate']),
       files: List<String>.from(json[r'files']),
       issueDate: mapToDateTime(json[r'issueDate'])!,
-      member: json[r'member'],
-      memberContactPoint:
-          ContactPointWrite.fromJson(json[r'memberContactPoint']),
       name: json[r'name'],
       number: json[r'number'],
-      origin: json[r'origin'] == null
-          ? null
-          : Map<String, Object?>.from(json[r'origin']),
+      origin: QuoteCreateQuoteCommandWriteOriginEnum.fromJson(json[r'origin']),
       place: json[r'place'],
       provider: json[r'provider'],
       providerAddress: PostalAddressWrite.fromJson(json[r'providerAddress']),
@@ -66,6 +64,10 @@ class QuoteCreateQuoteCommandWrite {
 
   PriceWrite amountIncludingTax;
 
+  String? author;
+
+  ContactPointWrite? authorContactPoint;
+
   List<String>? equipments;
 
   DateTime? expirationDate;
@@ -74,16 +76,11 @@ class QuoteCreateQuoteCommandWrite {
 
   DateTime issueDate;
 
-  String? member;
-
-  ContactPointWrite? memberContactPoint;
-
   String name;
 
   String number;
 
-  ///
-  Map<String, Object?>? origin;
+  QuoteCreateQuoteCommandWriteOriginEnum? origin;
 
   String place;
 
@@ -109,13 +106,13 @@ class QuoteCreateQuoteCommandWrite {
     return other is QuoteCreateQuoteCommandWrite &&
         other.amountExcludingTax == amountExcludingTax &&
         other.amountIncludingTax == amountIncludingTax &&
+        other.author == author &&
+        other.authorContactPoint == authorContactPoint &&
         DeepCollectionEquality.unordered()
             .equals(equipments, other.equipments) &&
         other.expirationDate == expirationDate &&
         DeepCollectionEquality.unordered().equals(files, other.files) &&
         other.issueDate == issueDate &&
-        other.member == member &&
-        other.memberContactPoint == memberContactPoint &&
         other.name == name &&
         other.number == number &&
         other.origin == origin &&
@@ -132,12 +129,12 @@ class QuoteCreateQuoteCommandWrite {
   int get hashCode =>
       amountExcludingTax.hashCode +
       amountIncludingTax.hashCode +
+      (author == null ? 0 : author.hashCode) +
+      (authorContactPoint == null ? 0 : authorContactPoint.hashCode) +
       (equipments == null ? 0 : equipments.hashCode) +
       (expirationDate == null ? 0 : expirationDate.hashCode) +
       files.hashCode +
       issueDate.hashCode +
-      (member == null ? 0 : member.hashCode) +
-      (memberContactPoint == null ? 0 : memberContactPoint.hashCode) +
       name.hashCode +
       number.hashCode +
       (origin == null ? 0 : origin.hashCode) +
@@ -199,7 +196,7 @@ class QuoteCreateQuoteCommandWrite {
 
   @override
   String toString() =>
-      'QuoteCreateQuoteCommandWrite[amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, equipments=$equipments, expirationDate=$expirationDate, files=$files, issueDate=$issueDate, member=$member, memberContactPoint=$memberContactPoint, name=$name, number=$number, origin=$origin, place=$place, provider=$provider, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, state=$state, task=$task]';
+      'QuoteCreateQuoteCommandWrite[amountExcludingTax=$amountExcludingTax, amountIncludingTax=$amountIncludingTax, author=$author, authorContactPoint=$authorContactPoint, equipments=$equipments, expirationDate=$expirationDate, files=$files, issueDate=$issueDate, name=$name, number=$number, origin=$origin, place=$place, provider=$provider, providerAddress=$providerAddress, providerContactPoint=$providerContactPoint, resolutionDate=$resolutionDate, state=$state, task=$task]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -221,25 +218,25 @@ class QuoteCreateQuoteCommandWrite {
 
         return previousValue;
       })),
+      if (keys == null || keys.contains(r'author')) r'author': author,
+      if (keys == null ||
+          keys.any((key) => RegExp(r'^authorContactPoint\.').hasMatch(key)))
+        r'authorContactPoint': authorContactPoint?.toJson(keys
+            ?.fold<List<String>>(<String>[],
+                (List<String> previousValue, String element) {
+          if (element.contains(RegExp(r'^authorContactPoint\.'))) {
+            previousValue
+                .add(element.split(RegExp(r'^authorContactPoint\.')).last);
+          }
+
+          return previousValue;
+        })),
       if (keys == null || keys.contains(r'equipments'))
         r'equipments': equipments,
       if (keys == null || keys.contains(r'expirationDate'))
         r'expirationDate': expirationDate?.toUtc().toIso8601String(),
       r'files': files,
       r'issueDate': issueDate.toUtc().toIso8601String(),
-      if (keys == null || keys.contains(r'member')) r'member': member,
-      if (keys == null ||
-          keys.any((key) => RegExp(r'^memberContactPoint\.').hasMatch(key)))
-        r'memberContactPoint': memberContactPoint?.toJson(keys
-            ?.fold<List<String>>(<String>[],
-                (List<String> previousValue, String element) {
-          if (element.contains(RegExp(r'^memberContactPoint\.'))) {
-            previousValue
-                .add(element.split(RegExp(r'^memberContactPoint\.')).last);
-          }
-
-          return previousValue;
-        })),
       r'name': name,
       r'number': number,
       if (keys == null || keys.contains(r'origin')) r'origin': origin,
@@ -274,4 +271,81 @@ class QuoteCreateQuoteCommandWrite {
       if (keys == null || keys.contains(r'task')) r'task': task,
     };
   }
+}
+
+class QuoteCreateQuoteCommandWriteOriginEnum {
+  /// Instantiate a new enum with the provided [value].
+  const QuoteCreateQuoteCommandWriteOriginEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const LINKED = QuoteCreateQuoteCommandWriteOriginEnum._(r'LINKED');
+  static const PROPOSED = QuoteCreateQuoteCommandWriteOriginEnum._(r'PROPOSED');
+  static const REQUESTED =
+      QuoteCreateQuoteCommandWriteOriginEnum._(r'REQUESTED');
+
+  /// List of all possible values in this [enum][QuoteCreateQuoteCommandWriteOriginEnum].
+  static const values = <QuoteCreateQuoteCommandWriteOriginEnum>[
+    LINKED,
+    PROPOSED,
+    REQUESTED,
+  ];
+
+  static QuoteCreateQuoteCommandWriteOriginEnum? fromJson(dynamic value) =>
+      QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer().decode(value);
+
+  static List<QuoteCreateQuoteCommandWriteOriginEnum> listFromJson(
+      List<dynamic> json) {
+    return json
+        .map((value) {
+          return QuoteCreateQuoteCommandWriteOriginEnum.fromJson(value);
+        })
+        .whereType<QuoteCreateQuoteCommandWriteOriginEnum>()
+        .toList();
+  }
+}
+
+/// Transformation class that can [encode] an instance of [QuoteCreateQuoteCommandWriteOriginEnum] to String,
+/// and [decode] dynamic data back to [QuoteCreateQuoteCommandWriteOriginEnum].
+class QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer {
+  const QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer._();
+
+  factory QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer() =>
+      _instance ??= QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer._();
+
+  String encode(QuoteCreateQuoteCommandWriteOriginEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a QuoteCreateQuoteCommandWriteOriginEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  QuoteCreateQuoteCommandWriteOriginEnum? decode(dynamic data,
+      {bool allowNull = true}) {
+    switch (data) {
+      case r'LINKED':
+        return QuoteCreateQuoteCommandWriteOriginEnum.LINKED;
+      case r'PROPOSED':
+        return QuoteCreateQuoteCommandWriteOriginEnum.PROPOSED;
+      case r'REQUESTED':
+        return QuoteCreateQuoteCommandWriteOriginEnum.REQUESTED;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer] instance.
+  static QuoteCreateQuoteCommandWriteOriginEnumTypeTransformer? _instance;
 }

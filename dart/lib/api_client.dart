@@ -429,12 +429,6 @@ class ApiClient {
           return AssignmentLinksServiceIriTemplateMapping.fromJson(value);
         case 'AssignmentPagination':
           return AssignmentPagination.fromJson(value);
-        case 'Binary':
-          return Binary.fromJson(value);
-        case 'BinaryCollection':
-          return BinaryCollection.fromJson(value);
-        case 'BinaryPagination':
-          return BinaryPagination.fromJson(value);
         case 'Bookmark':
           return Bookmark.fromJson(value);
         case 'BookmarkData':
@@ -601,8 +595,8 @@ class ApiClient {
           return DocumentDataPermission.fromJson(value);
         case 'DocumentEmbedded':
           return DocumentEmbedded.fromJson(value);
-        case 'DocumentFile':
-          return DocumentFile.fromJson(value);
+        case 'DocumentEmbeddedFile':
+          return DocumentEmbeddedFile.fromJson(value);
         case 'DocumentLinks':
           return DocumentLinks.fromJson(value);
         case 'DocumentLinksCreatedBy':
@@ -641,6 +635,12 @@ class ApiClient {
           return DocumentWorkflowData.fromJson(value);
         case 'Duration':
           return Duration.fromJson(value);
+        case 'EmbeddedFile':
+          return EmbeddedFile.fromJson(value);
+        case 'EmbeddedFileCollection':
+          return EmbeddedFileCollection.fromJson(value);
+        case 'EmbeddedFilePagination':
+          return EmbeddedFilePagination.fromJson(value);
         case 'ExportData':
           return ExportData.fromJson(value);
         case 'ExternalService':
@@ -941,8 +941,6 @@ class ApiClient {
           return OperationLinksImages.fromJson(value);
         case 'OperationLinksImagesIriTemplate':
           return OperationLinksImagesIriTemplate.fromJson(value);
-        case 'OperationLinksImagesIriTemplateMapping':
-          return OperationLinksImagesIriTemplateMapping.fromJson(value);
         case 'OperationLinksOperator':
           return OperationLinksOperator.fromJson(value);
         case 'OperationLinksOperatorIriTemplate':

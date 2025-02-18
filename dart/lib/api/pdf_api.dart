@@ -28,11 +28,11 @@ class PdfApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BinaryPagination] as data
+  /// Returns a [Future] containing a [Response] with a [EmbeddedFilePagination] as data
   /// Throws [DioException] if API call or serialization fails
   /// Keyclic API documentation.
   /// Also see [Retrieve all Image resources. Documentation](https://docs.keyclic.com/fr/master/overview.html)
-  Future<Response<BinaryPagination>> cpostImage({
+  Future<Response<EmbeddedFilePagination>> cpostImage({
     required String xKeyclicApp,
     required FileData fileData,
     String? acceptLanguage,
@@ -110,11 +110,11 @@ class PdfApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BinaryPagination responseData;
+    EmbeddedFilePagination responseData;
 
     try {
-      responseData = await _apiClient.deserializeAsync<BinaryPagination>(
-          response.data!, 'BinaryPagination');
+      responseData = await _apiClient.deserializeAsync<EmbeddedFilePagination>(
+          response.data!, 'EmbeddedFilePagination');
     } catch (error, stackTrace) {
       throw DioException(
         error: error,
@@ -125,7 +125,7 @@ class PdfApi {
       );
     }
 
-    return Response<BinaryPagination>(
+    return Response<EmbeddedFilePagination>(
       data: responseData,
       headers: response.headers,
       isRedirect: response.isRedirect,

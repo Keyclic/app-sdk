@@ -13,12 +13,12 @@ void main() {
     // QuoteJsonhalReadLinks links
     test('to test the property `links`', () async {});
 
+    // ContactPointJsonhalRead authorContactPoint
+    test('to test the property `authorContactPoint`', () async {});
+
     // The date and time the quote is not valid anymore, in ISO 8601 format.
     // DateTime expirationDate
     test('to test the property `expirationDate`', () async {});
-
-    // ContactPointJsonhalRead memberContactPoint
-    test('to test the property `memberContactPoint`', () async {});
 
     // String origin
     test('to test the property `origin`', () async {});

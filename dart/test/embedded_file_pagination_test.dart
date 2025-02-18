@@ -5,11 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for BinaryPagination
+// tests for EmbeddedFilePagination
 void main() {
-  // final instance = BinaryPagination();
+  // final instance = EmbeddedFilePagination();
 
-  group('test BinaryPagination', () {
+  group('test EmbeddedFilePagination', () {
     // int limit
     test('to test the property `limit`', () async {});
 
@@ -25,7 +25,7 @@ void main() {
     // PaginationLinks links
     test('to test the property `links`', () async {});
 
-    // BinaryCollection embedded
+    // EmbeddedFileCollection embedded
     test('to test the property `embedded`', () async {});
   });
 }

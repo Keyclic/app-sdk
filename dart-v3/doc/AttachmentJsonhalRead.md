@@ -1,15 +1,15 @@
-# keyclic_sdk_api.model.DocumentFile
+# keyclic_sdk_api_platform.model.AttachmentJsonhalRead
 
 ## Load the model package
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
+import 'package:keyclic_sdk_api_platform/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contentType** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
+**links** | [**AttachmentJsonhalReadLinks**](AttachmentJsonhalReadLinks.md) |  | [optional] 
+**relation** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

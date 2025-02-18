@@ -5,14 +5,11 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for Binary
+// tests for EmbeddedFile
 void main() {
-  // final instance = Binary();
+  // final instance = EmbeddedFile();
 
-  group('test Binary', () {
-    // String content
-    test('to test the property `content`', () async {});
-
+  group('test EmbeddedFile', () {
     // String contentType
     test('to test the property `contentType`', () async {});
 

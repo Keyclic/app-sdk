@@ -5,12 +5,12 @@
 // import 'package:keyclic_sdk_api/api.dart';
 import 'package:test/test.dart';
 
-// tests for BinaryCollection
+// tests for EmbeddedFileCollection
 void main() {
-  // final instance = BinaryCollection();
+  // final instance = EmbeddedFileCollection();
 
-  group('test BinaryCollection', () {
-    // List<Binary> items (default value: const [])
+  group('test EmbeddedFileCollection', () {
+    // List<EmbeddedFile> items (default value: const [])
     test('to test the property `items`', () async {});
   });
 }

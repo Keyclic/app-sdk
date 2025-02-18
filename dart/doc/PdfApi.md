@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **cpostImage**
-> BinaryPagination cpostImage(xKeyclicApp, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit)
+> EmbeddedFilePagination cpostImage(xKeyclicApp, fileData, acceptLanguage, xDateTime, xKeyclicAppPlatform, xKeyclicAppVersion, page, limit)
 
 Retrieve all Image resources.
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BinaryPagination**](BinaryPagination.md)
+[**EmbeddedFilePagination**](EmbeddedFilePagination.md)
 
 ### Authorization
 

@@ -335,6 +335,7 @@ doc/OperationLinksFeedback.md
 doc/OperationLinksFeedbackIriTemplate.md
 doc/OperationLinksImages.md
 doc/OperationLinksImagesIriTemplate.md
+doc/OperationLinksImagesIriTemplateMapping.md
 doc/OperationLinksOperator.md
 doc/OperationLinksOperatorIriTemplate.md
 doc/OperationLinksOrganization.md
@@ -944,6 +945,7 @@ lib/model/operation_links_feedback.dart
 lib/model/operation_links_feedback_iri_template.dart
 lib/model/operation_links_images.dart
 lib/model/operation_links_images_iri_template.dart
+lib/model/operation_links_images_iri_template_mapping.dart
 lib/model/operation_links_operator.dart
 lib/model/operation_links_operator_iri_template.dart
 lib/model/operation_links_organization.dart
@@ -1508,6 +1510,7 @@ test/operation_links_assignments_iri_template_test.dart
 test/operation_links_assignments_test.dart
 test/operation_links_feedback_iri_template_test.dart
 test/operation_links_feedback_test.dart
+test/operation_links_images_iri_template_mapping_test.dart
 test/operation_links_images_iri_template_test.dart
 test/operation_links_images_test.dart
 test/operation_links_operator_iri_template_test.dart

@@ -369,6 +369,7 @@ part 'model/operation_links_feedback.dart';
 part 'model/operation_links_feedback_iri_template.dart';
 part 'model/operation_links_images.dart';
 part 'model/operation_links_images_iri_template.dart';
+part 'model/operation_links_images_iri_template_mapping.dart';
 part 'model/operation_links_operator.dart';
 part 'model/operation_links_operator_iri_template.dart';
 part 'model/operation_links_organization.dart';

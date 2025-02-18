@@ -1,14 +1,15 @@
-# keyclic_sdk_api_platform.model.GetAttachments200ResponseEmbedded
+# keyclic_sdk_api.model.OperationLinksImagesIriTemplateMapping
 
 ## Load the model package
 ```dart
-import 'package:keyclic_sdk_api_platform/api.dart';
+import 'package:keyclic_sdk_api/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item** | [**List<AttachmentJsonhalRead>**](AttachmentJsonhalRead.md) |  | [default to const []]
+**operation** | **String** |  | [optional] 
+**image** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

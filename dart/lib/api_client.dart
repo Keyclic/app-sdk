@@ -941,6 +941,8 @@ class ApiClient {
           return OperationLinksImages.fromJson(value);
         case 'OperationLinksImagesIriTemplate':
           return OperationLinksImagesIriTemplate.fromJson(value);
+        case 'OperationLinksImagesIriTemplateMapping':
+          return OperationLinksImagesIriTemplateMapping.fromJson(value);
         case 'OperationLinksOperator':
           return OperationLinksOperator.fromJson(value);
         case 'OperationLinksOperatorIriTemplate':

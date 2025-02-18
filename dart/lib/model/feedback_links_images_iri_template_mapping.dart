@@ -7,7 +7,8 @@ part of keyclic_sdk_api;
 class FeedbackLinksImagesIriTemplateMapping {
   /// Returns a new [FeedbackLinksImagesIriTemplateMapping] instance.
   FeedbackLinksImagesIriTemplateMapping({
-    this.file,
+    this.feedback,
+    this.image,
   });
 
   /// Returns a new [FeedbackLinksImagesIriTemplateMapping] instance and imports its values from
@@ -18,11 +19,14 @@ class FeedbackLinksImagesIriTemplateMapping {
     }
 
     return FeedbackLinksImagesIriTemplateMapping(
-      file: json[r'file'],
+      feedback: json[r'feedback'],
+      image: json[r'image'],
     );
   }
 
-  String? file;
+  String? feedback;
+
+  String? image;
 
   @override
   bool operator ==(Object other) {
@@ -31,11 +35,15 @@ class FeedbackLinksImagesIriTemplateMapping {
       return true;
     }
 
-    return other is FeedbackLinksImagesIriTemplateMapping && other.file == file;
+    return other is FeedbackLinksImagesIriTemplateMapping &&
+        other.feedback == feedback &&
+        other.image == image;
   }
 
   @override
-  int get hashCode => (file == null ? 0 : file.hashCode);
+  int get hashCode =>
+      (feedback == null ? 0 : feedback.hashCode) +
+      (image == null ? 0 : image.hashCode);
 
   static List<FeedbackLinksImagesIriTemplateMapping> listFromJson(
       Iterable? json) {
@@ -88,11 +96,13 @@ class FeedbackLinksImagesIriTemplateMapping {
   }
 
   @override
-  String toString() => 'FeedbackLinksImagesIriTemplateMapping[file=$file]';
+  String toString() =>
+      'FeedbackLinksImagesIriTemplateMapping[feedback=$feedback, image=$image]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
-      if (keys == null || keys.contains(r'file')) r'file': file,
+      if (keys == null || keys.contains(r'feedback')) r'feedback': feedback,
+      if (keys == null || keys.contains(r'image')) r'image': image,
     };
   }
 }

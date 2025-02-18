@@ -10,7 +10,10 @@ void main() {
   // final instance = FeedbackLinksImagesIriTemplateMapping();
 
   group('test FeedbackLinksImagesIriTemplateMapping', () {
-    // String file
-    test('to test the property `file`', () async {});
+    // String feedback
+    test('to test the property `feedback`', () async {});
+
+    // String image
+    test('to test the property `image`', () async {});
   });
 }

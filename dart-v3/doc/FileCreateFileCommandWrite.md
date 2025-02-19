@@ -1,13 +1,14 @@
-# keyclic_sdk_api.model.DocumentFile
+# keyclic_sdk_api_platform.model.FileCreateFileCommandWrite
 
 ## Load the model package
 ```dart
-import 'package:keyclic_sdk_api/api.dart';
+import 'package:keyclic_sdk_api_platform/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**content** | **String** |  | 
 **contentType** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 

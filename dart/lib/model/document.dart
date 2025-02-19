@@ -35,7 +35,7 @@ class Document {
           ? null
           : List<Map<String, Object?>>.from(json[r'body']),
       createdAt: mapToDateTime(json[r'createdAt']),
-      file: DocumentFile.fromJson(json[r'file']),
+      file: DocumentEmbeddedFile.fromJson(json[r'file']),
       id: json[r'id'],
       permission: DocumentPermission.fromJson(json[r'permission']),
       state: DocumentStateEnum.fromJson(json[r'state'])!,
@@ -54,7 +54,7 @@ class Document {
 
   final DateTime? createdAt;
 
-  DocumentFile? file;
+  DocumentEmbeddedFile? file;
 
   final String? id;
 

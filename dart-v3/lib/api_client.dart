@@ -74,6 +74,11 @@ class ApiPlatformClient {
     return AssetTypeApi(this);
   }
 
+  /// Get AttachmentApi instance
+  AttachmentApi getAttachmentApi() {
+    return AttachmentApi(this);
+  }
+
   /// Get AuthApi instance
   AuthApi getAuthApi() {
     return AuthApi(this);
@@ -137,6 +142,11 @@ class ApiPlatformClient {
   /// Get ExportApi instance
   ExportApi getExportApi() {
     return ExportApi(this);
+  }
+
+  /// Get FileApi instance
+  FileApi getFileApi() {
+    return FileApi(this);
   }
 
   /// Get IntegrationApi instance
@@ -293,6 +303,12 @@ class ApiPlatformClient {
           return AssignmentJsonhalRead.fromJson(value);
         case 'AssignmentJsonhalReadLinks':
           return AssignmentJsonhalReadLinks.fromJson(value);
+        case 'AttachmentCreateAttachmentCommandWrite':
+          return AttachmentCreateAttachmentCommandWrite.fromJson(value);
+        case 'AttachmentJsonhalRead':
+          return AttachmentJsonhalRead.fromJson(value);
+        case 'AttachmentJsonhalReadLinks':
+          return AttachmentJsonhalReadLinks.fromJson(value);
         case 'BillingJsonhalRead':
           return BillingJsonhalRead.fromJson(value);
         case 'BillingWrite':
@@ -359,12 +375,14 @@ class ApiPlatformClient {
           return EquipmentJsonhalReadLinks.fromJson(value);
         case 'ExportJsonhalRead':
           return ExportJsonhalRead.fromJson(value);
-        case 'ExportRead':
-          return ExportRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':
           return FeedbackJsonhalReadLinks.fromJson(value);
+        case 'FileCreateFileCommandWrite':
+          return FileCreateFileCommandWrite.fromJson(value);
+        case 'FileJsonhalRead':
+          return FileJsonhalRead.fromJson(value);
         case 'FormJsonhalOrganizationPreferenceRead':
           return FormJsonhalOrganizationPreferenceRead.fromJson(value);
         case 'GeoCoordinatesJsonhalRead':
@@ -377,6 +395,10 @@ class ApiPlatformClient {
           return GetAssetTypeCollection200Response.fromJson(value);
         case 'GetAssetTypeCollection200ResponseEmbedded':
           return GetAssetTypeCollection200ResponseEmbedded.fromJson(value);
+        case 'GetAttachments200Response':
+          return GetAttachments200Response.fromJson(value);
+        case 'GetAttachments200ResponseEmbedded':
+          return GetAttachments200ResponseEmbedded.fromJson(value);
         case 'GetAuthToken200Response':
           return GetAuthToken200Response.fromJson(value);
         case 'GetAuthTokenRequest':

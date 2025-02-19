@@ -22,7 +22,7 @@ void main() {
     // DateTime createdAt
     test('to test the property `createdAt`', () async {});
 
-    // DocumentFile file
+    // DocumentEmbeddedFile file
     test('to test the property `file`', () async {});
 
     // String id

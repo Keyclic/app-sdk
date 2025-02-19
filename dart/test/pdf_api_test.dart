@@ -12,7 +12,7 @@ void main() {
   group('tests for PdfApi', () {
     // Retrieve all Image resources.
     //
-    //Future<EmbeddedFilePagination> cpostImage(String xKeyclicApp, FileData fileData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, int page, int limit }) async
+    //Future<BinaryPagination> cpostImage(String xKeyclicApp, FileData fileData, { String acceptLanguage, DateTime xDateTime, String xKeyclicAppPlatform, String xKeyclicAppVersion, int page, int limit }) async
     test('test cpostImage', () async {});
   });
 }

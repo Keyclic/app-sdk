@@ -1,4 +1,4 @@
-# keyclic_sdk_api.model.EmbeddedFile
+# keyclic_sdk_api.model.Binary
 
 ## Load the model package
 ```dart
@@ -8,6 +8,7 @@ import 'package:keyclic_sdk_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**content** | **String** |  | [optional] 
 **contentType** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 

@@ -9798,7 +9798,7 @@
                     "200": {
                         "description": "",
                         "schema": {
-                            "$ref": "#\/definitions\/EmbeddedFilePagination"
+                            "$ref": "#\/definitions\/BinaryPagination"
                         }
                     },
                     "400": {
@@ -15909,6 +15909,65 @@
                 }
             ]
         },
+        "Binary": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "format": "string",
+                    "type": "string"
+                },
+                "contentType": {
+                    "enum": [
+                        "text\/csv",
+                        "application\/msword",
+                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        "image\/jpeg",
+                        "image\/jpg",
+                        "application\/json",
+                        "application\/octet-stream",
+                        "application\/pdf",
+                        "image\/png",
+                        "text\/plain",
+                        "application\/vnd.ms-excel",
+                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "application\/zip"
+                    ],
+                    "format": "string",
+                    "type": "string"
+                },
+                "name": {
+                    "format": "string",
+                    "type": "string"
+                }
+            }
+        },
+        "BinaryCollection": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "default": [],
+                    "items": {
+                        "$ref": "#\/definitions\/Binary"
+                    }
+                }
+            }
+        },
+        "BinaryPagination": {
+            "allOf": [
+                {
+                    "$ref": "#\/definitions\/Pagination"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "_embedded": {
+                            "$ref": "#\/definitions\/BinaryCollection"
+                        }
+                    }
+                }
+            ]
+        },
         "Bookmark": {
             "type": "object",
             "properties": {
@@ -17144,6 +17203,12 @@
                     "maxLength": 18,
                     "type": "string"
                 },
+                "tags": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "text": {
                     "format": "string",
                     "type": "string"
@@ -17390,10 +17455,10 @@
                     "type": "string"
                 },
                 "tags": {
-                    "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "type": "array"
                 }
             }
         },
@@ -17466,61 +17531,6 @@
                     "type": "integer"
                 }
             }
-        },
-        "EmbeddedFile": {
-            "type": "object",
-            "properties": {
-                "contentType": {
-                    "enum": [
-                        "text\/csv",
-                        "application\/msword",
-                        "application\/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                        "image\/jpeg",
-                        "image\/jpg",
-                        "application\/json",
-                        "application\/octet-stream",
-                        "application\/pdf",
-                        "image\/png",
-                        "text\/plain",
-                        "application\/vnd.ms-excel",
-                        "application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-                        "application\/zip"
-                    ],
-                    "format": "string",
-                    "type": "string"
-                },
-                "name": {
-                    "format": "string",
-                    "type": "string"
-                }
-            }
-        },
-        "EmbeddedFileCollection": {
-            "type": "object",
-            "properties": {
-                "items": {
-                    "type": "array",
-                    "default": [],
-                    "items": {
-                        "$ref": "#\/definitions\/EmbeddedFile"
-                    }
-                }
-            }
-        },
-        "EmbeddedFilePagination": {
-            "allOf": [
-                {
-                    "$ref": "#\/definitions\/Pagination"
-                },
-                {
-                    "type": "object",
-                    "properties": {
-                        "_embedded": {
-                            "$ref": "#\/definitions\/EmbeddedFileCollection"
-                        }
-                    }
-                }
-            ]
         },
         "Export": {
             "type": "object",

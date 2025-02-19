@@ -4,9 +4,9 @@
 
 part of keyclic_sdk_api;
 
-class EmbeddedFilePagination implements Pagination {
-  /// Returns a new [EmbeddedFilePagination] instance.
-  EmbeddedFilePagination({
+class BinaryPagination implements Pagination {
+  /// Returns a new [BinaryPagination] instance.
+  BinaryPagination({
     this.limit,
     this.page,
     this.pages,
@@ -15,20 +15,20 @@ class EmbeddedFilePagination implements Pagination {
     this.embedded,
   });
 
-  /// Returns a new [EmbeddedFilePagination] instance and imports its values from
+  /// Returns a new [BinaryPagination] instance and imports its values from
   /// [json] if it's non-null, null if [json] is null.
-  static EmbeddedFilePagination? fromJson(Object? json) {
+  static BinaryPagination? fromJson(Object? json) {
     if (json is! Map<String, dynamic>) {
       return null;
     }
 
-    return EmbeddedFilePagination(
+    return BinaryPagination(
       limit: json[r'limit'],
       page: json[r'page'],
       pages: json[r'pages'],
       total: json[r'total'],
       links: PaginationLinks.fromJson(json[r'_links']),
-      embedded: EmbeddedFileCollection.fromJson(json[r'_embedded']),
+      embedded: BinaryCollection.fromJson(json[r'_embedded']),
     );
   }
 
@@ -42,7 +42,7 @@ class EmbeddedFilePagination implements Pagination {
 
   PaginationLinks? links;
 
-  EmbeddedFileCollection? embedded;
+  BinaryCollection? embedded;
 
   @override
   bool operator ==(Object other) {
@@ -51,7 +51,7 @@ class EmbeddedFilePagination implements Pagination {
       return true;
     }
 
-    return other is EmbeddedFilePagination &&
+    return other is BinaryPagination &&
         other.limit == limit &&
         other.page == page &&
         other.pages == pages &&
@@ -69,16 +69,15 @@ class EmbeddedFilePagination implements Pagination {
       (links == null ? 0 : links.hashCode) +
       (embedded == null ? 0 : embedded.hashCode);
 
-  static List<EmbeddedFilePagination> listFromJson(Iterable? json) {
+  static List<BinaryPagination> listFromJson(Iterable? json) {
     if (json == null) {
-      return <EmbeddedFilePagination>[];
+      return <BinaryPagination>[];
     }
 
-    return json.fold(<EmbeddedFilePagination>[],
-        (List<EmbeddedFilePagination> previousValue, element) {
-      final EmbeddedFilePagination? object =
-          EmbeddedFilePagination.fromJson(element);
-      if (object is EmbeddedFilePagination) {
+    return json.fold(<BinaryPagination>[],
+        (List<BinaryPagination> previousValue, element) {
+      final BinaryPagination? object = BinaryPagination.fromJson(element);
+      if (object is BinaryPagination) {
         previousValue.add(object);
       }
 
@@ -86,17 +85,15 @@ class EmbeddedFilePagination implements Pagination {
     });
   }
 
-  static Map<String, EmbeddedFilePagination> mapFromJson(
-      Map<String, dynamic>? json) {
+  static Map<String, BinaryPagination> mapFromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, EmbeddedFilePagination>{};
+      return <String, BinaryPagination>{};
     }
 
-    return json.entries.fold(<String, EmbeddedFilePagination>{},
-        (Map<String, EmbeddedFilePagination> previousValue, element) {
-      final EmbeddedFilePagination? object =
-          EmbeddedFilePagination.fromJson(element.value);
-      if (object is EmbeddedFilePagination) {
+    return json.entries.fold(<String, BinaryPagination>{},
+        (Map<String, BinaryPagination> previousValue, element) {
+      final BinaryPagination? object = BinaryPagination.fromJson(element.value);
+      if (object is BinaryPagination) {
         previousValue[element.key] = object;
       }
 
@@ -104,22 +101,22 @@ class EmbeddedFilePagination implements Pagination {
     });
   }
 
-  // maps a json object with a list of EmbeddedFilePagination-objects as value to a dart map
-  static Map<String, List<EmbeddedFilePagination>> mapListFromJson(
+  // maps a json object with a list of BinaryPagination-objects as value to a dart map
+  static Map<String, List<BinaryPagination>> mapListFromJson(
       Map<String, dynamic>? json) {
     if (json == null) {
-      return <String, List<EmbeddedFilePagination>>{};
+      return <String, List<BinaryPagination>>{};
     }
 
     return json.map((key, value) {
-      return MapEntry<String, List<EmbeddedFilePagination>>(
-          key, EmbeddedFilePagination.listFromJson(value));
+      return MapEntry<String, List<BinaryPagination>>(
+          key, BinaryPagination.listFromJson(value));
     });
   }
 
   @override
   String toString() =>
-      'EmbeddedFilePagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
+      'BinaryPagination[limit=$limit, page=$page, pages=$pages, total=$total, links=$links, embedded=$embedded]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{

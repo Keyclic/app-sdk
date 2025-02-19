@@ -429,6 +429,12 @@ class ApiClient {
           return AssignmentLinksServiceIriTemplateMapping.fromJson(value);
         case 'AssignmentPagination':
           return AssignmentPagination.fromJson(value);
+        case 'Binary':
+          return Binary.fromJson(value);
+        case 'BinaryCollection':
+          return BinaryCollection.fromJson(value);
+        case 'BinaryPagination':
+          return BinaryPagination.fromJson(value);
         case 'Bookmark':
           return Bookmark.fromJson(value);
         case 'BookmarkData':
@@ -635,12 +641,6 @@ class ApiClient {
           return DocumentWorkflowData.fromJson(value);
         case 'Duration':
           return Duration.fromJson(value);
-        case 'EmbeddedFile':
-          return EmbeddedFile.fromJson(value);
-        case 'EmbeddedFileCollection':
-          return EmbeddedFileCollection.fromJson(value);
-        case 'EmbeddedFilePagination':
-          return EmbeddedFilePagination.fromJson(value);
         case 'ExportData':
           return ExportData.fromJson(value);
         case 'ExternalService':

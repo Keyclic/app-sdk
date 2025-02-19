@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] [readonly] 
 **permission** | [**DocumentPermission**](DocumentPermission.md) |  | [optional] 
 **state** | **String** |  | 
+**tags** | **List<String>** |  | [optional] [default to const []]
 **text** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 **updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 

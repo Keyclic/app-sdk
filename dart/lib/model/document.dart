@@ -15,6 +15,7 @@ class Document {
     this.id,
     this.permission,
     required this.state,
+    this.tags,
     this.text,
     this.type,
     this.updatedAt,
@@ -38,6 +39,7 @@ class Document {
       id: json[r'id'],
       permission: DocumentPermission.fromJson(json[r'permission']),
       state: DocumentStateEnum.fromJson(json[r'state'])!,
+      tags: json[r'tags'] == null ? null : List<String>.from(json[r'tags']),
       text: json[r'text'],
       type: json[r'type'],
       updatedAt: mapToDateTime(json[r'updatedAt']),
@@ -59,6 +61,8 @@ class Document {
   DocumentPermission? permission;
 
   DocumentStateEnum state;
+
+  List<String>? tags;
 
   String? text;
 
@@ -82,6 +86,7 @@ class Document {
         other.id == id &&
         other.permission == permission &&
         other.state == state &&
+        DeepCollectionEquality.unordered().equals(tags, other.tags) &&
         other.text == text &&
         other.type == type &&
         other.updatedAt == updatedAt;
@@ -97,6 +102,7 @@ class Document {
       (id == null ? 0 : id.hashCode) +
       (permission == null ? 0 : permission.hashCode) +
       state.hashCode +
+      (tags == null ? 0 : tags.hashCode) +
       (text == null ? 0 : text.hashCode) +
       (type == null ? 0 : type.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
@@ -147,7 +153,7 @@ class Document {
 
   @override
   String toString() =>
-      'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, state=$state, text=$text, type=$type, updatedAt=$updatedAt]';
+      'Document[embedded=$embedded, links=$links, body=$body, createdAt=$createdAt, file=$file, id=$id, permission=$permission, state=$state, tags=$tags, text=$text, type=$type, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -194,6 +200,7 @@ class Document {
           return previousValue;
         })),
       r'state': state,
+      if (keys == null || keys.contains(r'tags')) r'tags': tags,
       if (keys == null || keys.contains(r'text')) r'text': text,
       if (keys == null || keys.contains(r'type')) r'type': type,
       if (keys == null || keys.contains(r'updatedAt'))

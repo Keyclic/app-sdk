@@ -34,6 +34,9 @@ void main() {
     // String state
     test('to test the property `state`', () async {});
 
+    // List<String> tags (default value: const [])
+    test('to test the property `tags`', () async {});
+
     // String text
     test('to test the property `text`', () async {});
 

@@ -57,6 +57,9 @@ doc/AssignmentLinksService.md
 doc/AssignmentLinksServiceIriTemplate.md
 doc/AssignmentLinksServiceIriTemplateMapping.md
 doc/AssignmentPagination.md
+doc/Binary.md
+doc/BinaryCollection.md
+doc/BinaryPagination.md
 doc/Bookmark.md
 doc/BookmarkApi.md
 doc/BookmarkData.md
@@ -170,9 +173,6 @@ doc/DocumentPermission.md
 doc/DocumentType.md
 doc/DocumentWorkflowData.md
 doc/Duration.md
-doc/EmbeddedFile.md
-doc/EmbeddedFileCollection.md
-doc/EmbeddedFilePagination.md
 doc/ExportApi.md
 doc/ExportData.md
 doc/ExternalService.md
@@ -689,6 +689,9 @@ lib/model/assignment_links_service.dart
 lib/model/assignment_links_service_iri_template.dart
 lib/model/assignment_links_service_iri_template_mapping.dart
 lib/model/assignment_pagination.dart
+lib/model/binary.dart
+lib/model/binary_collection.dart
+lib/model/binary_pagination.dart
 lib/model/bookmark.dart
 lib/model/bookmark_data.dart
 lib/model/bookmark_embedded.dart
@@ -792,9 +795,6 @@ lib/model/document_permission.dart
 lib/model/document_type.dart
 lib/model/document_workflow_data.dart
 lib/model/duration.dart
-lib/model/embedded_file.dart
-lib/model/embedded_file_collection.dart
-lib/model/embedded_file_pagination.dart
 lib/model/export_data.dart
 lib/model/external_service.dart
 lib/model/external_service_collection.dart
@@ -1236,6 +1236,9 @@ test/assignment_links_service_test.dart
 test/assignment_links_test.dart
 test/assignment_pagination_test.dart
 test/assignment_test.dart
+test/binary_collection_test.dart
+test/binary_pagination_test.dart
+test/binary_test.dart
 test/bookmark_api_test.dart
 test/bookmark_data_test.dart
 test/bookmark_embedded_test.dart
@@ -1349,9 +1352,6 @@ test/document_test.dart
 test/document_type_test.dart
 test/document_workflow_data_test.dart
 test/duration_test.dart
-test/embedded_file_collection_test.dart
-test/embedded_file_pagination_test.dart
-test/embedded_file_test.dart
 test/export_api_test.dart
 test/export_data_test.dart
 test/external_service_api_test.dart

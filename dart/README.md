@@ -108,7 +108,6 @@ Class | Method | HTTP request | Description
 *FeedbackApi* | [**deleteFeedback**](doc//FeedbackApi.md#deletefeedback) | **DELETE** /feedbacks/{feedback} | Remove one Feedback resource.
 *FeedbackApi* | [**getFeedback**](doc//FeedbackApi.md#getfeedback) | **GET** /feedbacks/{feedback} | Retrieve one Feedback resource.
 *FeedbackApi* | [**getTrackingByFeedback**](doc//FeedbackApi.md#gettrackingbyfeedback) | **GET** /feedbacks/{feedback}/tracking | Retrieve one Tracking resource.
-*FeedbackApi* | [**postAttachmentByFeedback**](doc//FeedbackApi.md#postattachmentbyfeedback) | **POST** /feedbacks/{feedback}/attachments | Create one Attachment resource.
 *FeedbackApi* | [**postCommentByFeedback**](doc//FeedbackApi.md#postcommentbyfeedback) | **POST** /feedbacks/{feedback}/comments | Create one Comment resource.
 *FeedbackApi* | [**postIssue**](doc//FeedbackApi.md#postissue) | **POST** /feedbacks/issues | Create one Issue resource.
 *FeedbackApi* | [**postWorkflowByFeedback**](doc//FeedbackApi.md#postworkflowbyfeedback) | **POST** /feedbacks/{feedback}/workflow | Create one Workflow resource.
@@ -140,13 +139,11 @@ Class | Method | HTTP request | Description
 *OperationApi* | [**cgetAssignmentsByOperation**](doc//OperationApi.md#cgetassignmentsbyoperation) | **GET** /operations/{operation}/assignments | Retrieve all Assignment resources.
 *OperationApi* | [**cgetCommentsByOperation**](doc//OperationApi.md#cgetcommentsbyoperation) | **GET** /operations/{operation}/comments | Retrieve all Comment resources.
 *OperationApi* | [**cgetDocumentsByOperation**](doc//OperationApi.md#cgetdocumentsbyoperation) | **GET** /operations/{operation}/documents | Retrieve all Document resources.
-*OperationApi* | [**deleteAttachmentByOperationAndAttachment**](doc//OperationApi.md#deleteattachmentbyoperationandattachment) | **DELETE** /operations/{operation}/attachments/{attachment} | Remove one Attachment resource.
 *OperationApi* | [**deleteOperation**](doc//OperationApi.md#deleteoperation) | **DELETE** /operations/{operation} | Remove one Operation resource.
 *OperationApi* | [**getOperation**](doc//OperationApi.md#getoperation) | **GET** /operations/{operation} | Retrieve one Operation resource.
 *OperationApi* | [**getTrackingByOperation**](doc//OperationApi.md#gettrackingbyoperation) | **GET** /operations/{operation}/tracking | Retrieve one Tracking resource.
 *OperationApi* | [**patchOperation**](doc//OperationApi.md#patchoperation) | **PATCH** /operations/{operation} | Edit one Operation resource.
 *OperationApi* | [**postAssignByOperation**](doc//OperationApi.md#postassignbyoperation) | **POST** /operations/{operation}/assign | Create one Assign resource.
-*OperationApi* | [**postAttachmentByOperation**](doc//OperationApi.md#postattachmentbyoperation) | **POST** /operations/{operation}/attachments | Create one Attachment resource.
 *OperationApi* | [**postCommentByOperation**](doc//OperationApi.md#postcommentbyoperation) | **POST** /operations/{operation}/comments | Create one Comment resource.
 *OperationApi* | [**postDocumentByOperation**](doc//OperationApi.md#postdocumentbyoperation) | **POST** /operations/{operation}/documents | Create one Document resource.
 *OperationApi* | [**postOperation**](doc//OperationApi.md#postoperation) | **POST** /operations | Create one Operation resource.
@@ -361,7 +358,7 @@ Class | Method | HTTP request | Description
  - [DocumentDataFile](doc//DocumentDataFile.md)
  - [DocumentDataPermission](doc//DocumentDataPermission.md)
  - [DocumentEmbedded](doc//DocumentEmbedded.md)
- - [DocumentFile](doc//DocumentFile.md)
+ - [DocumentEmbeddedFile](doc//DocumentEmbeddedFile.md)
  - [DocumentLinks](doc//DocumentLinks.md)
  - [DocumentLinksCreatedBy](doc//DocumentLinksCreatedBy.md)
  - [DocumentLinksCreatedByIriTemplate](doc//DocumentLinksCreatedByIriTemplate.md)
@@ -531,7 +528,6 @@ Class | Method | HTTP request | Description
  - [OperationLinksFeedbackIriTemplate](doc//OperationLinksFeedbackIriTemplate.md)
  - [OperationLinksImages](doc//OperationLinksImages.md)
  - [OperationLinksImagesIriTemplate](doc//OperationLinksImagesIriTemplate.md)
- - [OperationLinksImagesIriTemplateMapping](doc//OperationLinksImagesIriTemplateMapping.md)
  - [OperationLinksOperator](doc//OperationLinksOperator.md)
  - [OperationLinksOperatorIriTemplate](doc//OperationLinksOperatorIriTemplate.md)
  - [OperationLinksOrganization](doc//OperationLinksOrganization.md)

@@ -153,7 +153,7 @@ doc/DocumentData.md
 doc/DocumentDataFile.md
 doc/DocumentDataPermission.md
 doc/DocumentEmbedded.md
-doc/DocumentFile.md
+doc/DocumentEmbeddedFile.md
 doc/DocumentLinks.md
 doc/DocumentLinksCreatedBy.md
 doc/DocumentLinksCreatedByIriTemplate.md
@@ -335,7 +335,6 @@ doc/OperationLinksFeedback.md
 doc/OperationLinksFeedbackIriTemplate.md
 doc/OperationLinksImages.md
 doc/OperationLinksImagesIriTemplate.md
-doc/OperationLinksImagesIriTemplateMapping.md
 doc/OperationLinksOperator.md
 doc/OperationLinksOperatorIriTemplate.md
 doc/OperationLinksOrganization.md
@@ -775,7 +774,7 @@ lib/model/document_data.dart
 lib/model/document_data_file.dart
 lib/model/document_data_permission.dart
 lib/model/document_embedded.dart
-lib/model/document_file.dart
+lib/model/document_embedded_file.dart
 lib/model/document_links.dart
 lib/model/document_links_created_by.dart
 lib/model/document_links_created_by_iri_template.dart
@@ -945,7 +944,6 @@ lib/model/operation_links_feedback.dart
 lib/model/operation_links_feedback_iri_template.dart
 lib/model/operation_links_images.dart
 lib/model/operation_links_images_iri_template.dart
-lib/model/operation_links_images_iri_template_mapping.dart
 lib/model/operation_links_operator.dart
 lib/model/operation_links_operator_iri_template.dart
 lib/model/operation_links_organization.dart
@@ -1330,8 +1328,8 @@ test/document_collection_test.dart
 test/document_data_file_test.dart
 test/document_data_permission_test.dart
 test/document_data_test.dart
+test/document_embedded_file_test.dart
 test/document_embedded_test.dart
-test/document_file_test.dart
 test/document_links_created_by_iri_template_test.dart
 test/document_links_created_by_test.dart
 test/document_links_file_iri_template_mapping_test.dart
@@ -1510,7 +1508,6 @@ test/operation_links_assignments_iri_template_test.dart
 test/operation_links_assignments_test.dart
 test/operation_links_feedback_iri_template_test.dart
 test/operation_links_feedback_test.dart
-test/operation_links_images_iri_template_mapping_test.dart
 test/operation_links_images_iri_template_test.dart
 test/operation_links_images_test.dart
 test/operation_links_operator_iri_template_test.dart

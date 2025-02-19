@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **links** | [**DocumentLinks**](DocumentLinks.md) |  | [optional] 
 **body** | [**List<Map<String, Object>>**](Map.md) |  | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) |  | [optional] [readonly] 
-**file** | [**DocumentFile**](DocumentFile.md) |  | [optional] 
+**file** | [**DocumentEmbeddedFile**](DocumentEmbeddedFile.md) |  | [optional] 
 **id** | **String** |  | [optional] [readonly] 
 **permission** | [**DocumentPermission**](DocumentPermission.md) |  | [optional] 
 **state** | **String** |  | 

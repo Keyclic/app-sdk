@@ -11,10 +11,10 @@ class ExportJsonhalRead {
     this.id,
     this.contentType =
         const ExportJsonhalReadContentTypeEnum._('application/vnd.ms-excel'),
-    this.downloadUrl,
     this.expiredAt,
     this.groupBy,
     this.name,
+    this.downloadUrl,
     this.createdAt,
     this.updatedAt,
   });
@@ -31,10 +31,10 @@ class ExportJsonhalRead {
       id: json[r'id'],
       contentType:
           ExportJsonhalReadContentTypeEnum.fromJson(json[r'contentType'])!,
-      downloadUrl: json[r'downloadUrl'],
       expiredAt: mapToDateTime(json[r'expiredAt']),
       groupBy: ExportJsonhalReadGroupByEnum.fromJson(json[r'groupBy']),
       name: json[r'name'],
+      downloadUrl: json[r'downloadUrl'],
       createdAt: mapToDateTime(json[r'createdAt']),
       updatedAt: mapToDateTime(json[r'updatedAt']),
     );
@@ -47,13 +47,13 @@ class ExportJsonhalRead {
 
   ExportJsonhalReadContentTypeEnum contentType;
 
-  String? downloadUrl;
-
   final DateTime? expiredAt;
 
   ExportJsonhalReadGroupByEnum? groupBy;
 
   String? name;
+
+  String? downloadUrl;
 
   /// The date and time when the resource was created, in UTC format.
   final DateTime? createdAt;
@@ -72,10 +72,10 @@ class ExportJsonhalRead {
         other.links == links &&
         other.id == id &&
         other.contentType == contentType &&
-        other.downloadUrl == downloadUrl &&
         other.expiredAt == expiredAt &&
         other.groupBy == groupBy &&
         other.name == name &&
+        other.downloadUrl == downloadUrl &&
         other.createdAt == createdAt &&
         other.updatedAt == updatedAt;
   }
@@ -85,10 +85,10 @@ class ExportJsonhalRead {
       (links == null ? 0 : links.hashCode) +
       (id == null ? 0 : id.hashCode) +
       contentType.hashCode +
-      (downloadUrl == null ? 0 : downloadUrl.hashCode) +
       (expiredAt == null ? 0 : expiredAt.hashCode) +
       (groupBy == null ? 0 : groupBy.hashCode) +
       (name == null ? 0 : name.hashCode) +
+      (downloadUrl == null ? 0 : downloadUrl.hashCode) +
       (createdAt == null ? 0 : createdAt.hashCode) +
       (updatedAt == null ? 0 : updatedAt.hashCode);
 
@@ -141,7 +141,7 @@ class ExportJsonhalRead {
 
   @override
   String toString() =>
-      'ExportJsonhalRead[links=$links, id=$id, contentType=$contentType, downloadUrl=$downloadUrl, expiredAt=$expiredAt, groupBy=$groupBy, name=$name, createdAt=$createdAt, updatedAt=$updatedAt]';
+      'ExportJsonhalRead[links=$links, id=$id, contentType=$contentType, expiredAt=$expiredAt, groupBy=$groupBy, name=$name, downloadUrl=$downloadUrl, createdAt=$createdAt, updatedAt=$updatedAt]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
@@ -156,12 +156,12 @@ class ExportJsonhalRead {
         })),
       if (keys == null || keys.contains(r'id')) r'id': id,
       r'contentType': contentType,
-      if (keys == null || keys.contains(r'downloadUrl'))
-        r'downloadUrl': downloadUrl,
       if (keys == null || keys.contains(r'expiredAt'))
         r'expiredAt': expiredAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'groupBy')) r'groupBy': groupBy,
       if (keys == null || keys.contains(r'name')) r'name': name,
+      if (keys == null || keys.contains(r'downloadUrl'))
+        r'downloadUrl': downloadUrl,
       if (keys == null || keys.contains(r'createdAt'))
         r'createdAt': createdAt?.toUtc().toIso8601String(),
       if (keys == null || keys.contains(r'updatedAt'))

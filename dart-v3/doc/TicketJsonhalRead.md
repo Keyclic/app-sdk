@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **updatedAt** | [**DateTime**](DateTime.md) | The date and time when the resource was updated, in UTC format. | [optional] [readonly] 
 **reference** | **String** |  | [optional] [readonly] 
 **archived** | **bool** |  | [optional] 
-**images** | **List<String>** |  | [optional] [readonly] [default to const []]
 **embedded** | [**TicketJsonhalReadEmbedded**](TicketJsonhalReadEmbedded.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -371,8 +371,6 @@ class ApiPlatformClient {
           return EquipmentJsonhalReadLinks.fromJson(value);
         case 'ExportJsonhalRead':
           return ExportJsonhalRead.fromJson(value);
-        case 'ExportRead':
-          return ExportRead.fromJson(value);
         case 'FeedbackJsonhalRead':
           return FeedbackJsonhalRead.fromJson(value);
         case 'FeedbackJsonhalReadLinks':

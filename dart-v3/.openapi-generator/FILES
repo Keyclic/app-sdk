@@ -58,7 +58,6 @@ doc/EquipmentJsonhalRead.md
 doc/EquipmentJsonhalReadLinks.md
 doc/ExportApi.md
 doc/ExportJsonhalRead.md
-doc/ExportRead.md
 doc/FeedbackJsonhalRead.md
 doc/FeedbackJsonhalReadLinks.md
 doc/FileApi.md
@@ -303,7 +302,6 @@ lib/model/equipment_jsonhal_organization_preference_read.dart
 lib/model/equipment_jsonhal_read.dart
 lib/model/equipment_jsonhal_read_links.dart
 lib/model/export_jsonhal_read.dart
-lib/model/export_read.dart
 lib/model/feedback_jsonhal_read.dart
 lib/model/feedback_jsonhal_read_links.dart
 lib/model/file_create_file_command_write.dart
@@ -501,7 +499,6 @@ test/equipment_jsonhal_read_links_test.dart
 test/equipment_jsonhal_read_test.dart
 test/export_api_test.dart
 test/export_jsonhal_read_test.dart
-test/export_read_test.dart
 test/feedback_jsonhal_read_links_test.dart
 test/feedback_jsonhal_read_test.dart
 test/file_api_test.dart

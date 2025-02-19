@@ -194,7 +194,6 @@ Class | Method | HTTP request | Description
  - [EquipmentJsonhalRead](doc//EquipmentJsonhalRead.md)
  - [EquipmentJsonhalReadLinks](doc//EquipmentJsonhalReadLinks.md)
  - [ExportJsonhalRead](doc//ExportJsonhalRead.md)
- - [ExportRead](doc//ExportRead.md)
  - [FeedbackJsonhalRead](doc//FeedbackJsonhalRead.md)
  - [FeedbackJsonhalReadLinks](doc//FeedbackJsonhalReadLinks.md)
  - [FileCreateFileCommandWrite](doc//FileCreateFileCommandWrite.md)

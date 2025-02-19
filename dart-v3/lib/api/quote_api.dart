@@ -219,11 +219,17 @@ class QuoteApi {
   /// * [orderLeftSquareBracketNameRightSquareBracket] -
   /// * [orderLeftSquareBracketNumberRightSquareBracket] -
   /// * [orderLeftSquareBracketPlacePeriodNameRightSquareBracket] -
-  /// * [orderLeftSquareBracketProviderPeriodNameRightSquareBracket] -
+  /// * [orderLeftSquareBracketProviderContactPointPeriodNameRightSquareBracket] -
+  /// * [author] -
+  /// * [authorLeftSquareBracketRightSquareBracket] -
+  /// * [authorContactPointPeriodFamilyName] -
+  /// * [authorContactPointPeriodFamilyNameLeftSquareBracketRightSquareBracket] -
   /// * [place] -
   /// * [placeLeftSquareBracketRightSquareBracket] -
   /// * [provider] -
   /// * [providerLeftSquareBracketRightSquareBracket] -
+  /// * [providerContactPointPeriodName] -
+  /// * [providerContactPointPeriodNameLeftSquareBracketRightSquareBracket] -
   /// * [state] -
   /// * [stateLeftSquareBracketRightSquareBracket] -
   /// * [treeLeftSquareBracketPlaceRightSquareBracketLeftSquareBracketAncestorsRightSquareBracketLeftSquareBracketRightSquareBracket] - Filter on the ancestors of a node, all the nodes along the path from that node to the root of the tree.
@@ -278,11 +284,20 @@ class QuoteApi {
     String? orderLeftSquareBracketNameRightSquareBracket,
     String? orderLeftSquareBracketNumberRightSquareBracket,
     String? orderLeftSquareBracketPlacePeriodNameRightSquareBracket,
-    String? orderLeftSquareBracketProviderPeriodNameRightSquareBracket,
+    String?
+        orderLeftSquareBracketProviderContactPointPeriodNameRightSquareBracket,
+    String? author,
+    List<String>? authorLeftSquareBracketRightSquareBracket,
+    String? authorContactPointPeriodFamilyName,
+    List<String>?
+        authorContactPointPeriodFamilyNameLeftSquareBracketRightSquareBracket,
     String? place,
     List<String>? placeLeftSquareBracketRightSquareBracket,
     String? provider,
     List<String>? providerLeftSquareBracketRightSquareBracket,
+    String? providerContactPointPeriodName,
+    List<String>?
+        providerContactPointPeriodNameLeftSquareBracketRightSquareBracket,
     String? state,
     List<String>? stateLeftSquareBracketRightSquareBracket,
     List<String>?
@@ -422,9 +437,23 @@ class QuoteApi {
       if (orderLeftSquareBracketPlacePeriodNameRightSquareBracket != null)
         r'order[place.name]': encodeQueryParameter(
             orderLeftSquareBracketPlacePeriodNameRightSquareBracket),
-      if (orderLeftSquareBracketProviderPeriodNameRightSquareBracket != null)
-        r'order[provider.name]': encodeQueryParameter(
-            orderLeftSquareBracketProviderPeriodNameRightSquareBracket),
+      if (orderLeftSquareBracketProviderContactPointPeriodNameRightSquareBracket !=
+          null)
+        r'order[providerContactPoint.name]': encodeQueryParameter(
+            orderLeftSquareBracketProviderContactPointPeriodNameRightSquareBracket),
+      if (author != null) r'author': encodeQueryParameter(author),
+      if (authorLeftSquareBracketRightSquareBracket != null)
+        r'author[]': encodeCollectionQueryParameter(
+            authorLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (authorContactPointPeriodFamilyName != null)
+        r'authorContactPoint.familyName':
+            encodeQueryParameter(authorContactPointPeriodFamilyName),
+      if (authorContactPointPeriodFamilyNameLeftSquareBracketRightSquareBracket !=
+          null)
+        r'authorContactPoint.familyName[]': encodeCollectionQueryParameter(
+            authorContactPointPeriodFamilyNameLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
       if (place != null) r'place': encodeQueryParameter(place),
       if (placeLeftSquareBracketRightSquareBracket != null)
         r'place[]': encodeCollectionQueryParameter(
@@ -434,6 +463,14 @@ class QuoteApi {
       if (providerLeftSquareBracketRightSquareBracket != null)
         r'provider[]': encodeCollectionQueryParameter(
             providerLeftSquareBracketRightSquareBracket,
+            format: ListFormat.multi),
+      if (providerContactPointPeriodName != null)
+        r'providerContactPoint.name':
+            encodeQueryParameter(providerContactPointPeriodName),
+      if (providerContactPointPeriodNameLeftSquareBracketRightSquareBracket !=
+          null)
+        r'providerContactPoint.name[]': encodeCollectionQueryParameter(
+            providerContactPointPeriodNameLeftSquareBracketRightSquareBracket,
             format: ListFormat.multi),
       if (state != null) r'state': encodeQueryParameter(state),
       if (stateLeftSquareBracketRightSquareBracket != null)

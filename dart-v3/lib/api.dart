@@ -95,7 +95,6 @@ part 'model/equipment_jsonhal_organization_preference_read.dart';
 part 'model/equipment_jsonhal_read.dart';
 part 'model/equipment_jsonhal_read_links.dart';
 part 'model/export_jsonhal_read.dart';
-part 'model/export_read.dart';
 part 'model/feedback_jsonhal_read.dart';
 part 'model/feedback_jsonhal_read_links.dart';
 part 'model/file_create_file_command_write.dart';

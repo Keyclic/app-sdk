@@ -12,5 +12,8 @@ void main() {
   group('test PropertyConditionList', () {
     // List<ConditionListCondition> allOf (default value: const [])
     test('to test the property `allOf`', () async {});
+
+    // List<ConditionListCondition> anyOf (default value: const [])
+    test('to test the property `anyOf`', () async {});
   });
 }

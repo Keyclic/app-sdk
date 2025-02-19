@@ -67,7 +67,7 @@ class ContractJsonhalRead {
   /// The date and time the contract becomes effective, in ISO 8601 format. The effective date must not be earlier than the billing start date.
   DateTime? effectiveDate;
 
-  /// The date and time the contract ends This date is calculated according to effetive date, duration and eventually renewal duration.
+  /// The date and time the contract ends This date is calculated according to effective date, duration and eventually renewal duration.
   final DateTime? endDate;
 
   /// Name of the contract.

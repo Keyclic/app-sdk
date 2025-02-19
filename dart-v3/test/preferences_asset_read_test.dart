@@ -10,6 +10,9 @@ void main() {
   // final instance = PreferencesAssetRead();
 
   group('test PreferencesAssetRead', () {
+    // bool public
+    test('to test the property `public`', () async {});
+
     // String visibility
     test('to test the property `visibility`', () async {});
   });

@@ -115,6 +115,7 @@ class ServiceApi {
   /// * [page] - The collection page number
   /// * [limit] - The number of items per page
   /// * [pagination] - Enable or disable pagination
+  /// * [resourceType] -
   /// * [acceptLanguage] -
   /// * [xDateTime] -
   /// * [xKeyclicAppPlatform] -
@@ -134,6 +135,7 @@ class ServiceApi {
     int? page,
     int? limit,
     bool? pagination,
+    String? resourceType,
     String? acceptLanguage,
     DateTime? xDateTime,
     String? xKeyclicAppPlatform,
@@ -178,6 +180,8 @@ class ServiceApi {
       if (page != null) r'page': encodeQueryParameter(page),
       if (limit != null) r'limit': encodeQueryParameter(limit),
       if (pagination != null) r'pagination': encodeQueryParameter(pagination),
+      if (resourceType != null)
+        r'resourceType': encodeQueryParameter(resourceType),
     };
 
     final response = await _apiClient.dio.request<Object>(

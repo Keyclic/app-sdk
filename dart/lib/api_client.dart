@@ -601,8 +601,8 @@ class ApiClient {
           return DocumentDataPermission.fromJson(value);
         case 'DocumentEmbedded':
           return DocumentEmbedded.fromJson(value);
-        case 'DocumentFile':
-          return DocumentFile.fromJson(value);
+        case 'DocumentEmbeddedFile':
+          return DocumentEmbeddedFile.fromJson(value);
         case 'DocumentLinks':
           return DocumentLinks.fromJson(value);
         case 'DocumentLinksCreatedBy':
@@ -941,8 +941,6 @@ class ApiClient {
           return OperationLinksImages.fromJson(value);
         case 'OperationLinksImagesIriTemplate':
           return OperationLinksImagesIriTemplate.fromJson(value);
-        case 'OperationLinksImagesIriTemplateMapping':
-          return OperationLinksImagesIriTemplateMapping.fromJson(value);
         case 'OperationLinksOperator':
           return OperationLinksOperator.fromJson(value);
         case 'OperationLinksOperatorIriTemplate':
@@ -1124,6 +1122,8 @@ class ApiClient {
           return PreferencesForm.fromJson(value);
         case 'PreferencesNotification':
           return PreferencesNotification.fromJson(value);
+        case 'PreferencesQuote':
+          return PreferencesQuote.fromJson(value);
         case 'PreferencesReference':
           return PreferencesReference.fromJson(value);
         case 'PreferencesReview':

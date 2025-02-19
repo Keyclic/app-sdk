@@ -7,6 +7,7 @@ part of keyclic_sdk_api;
 class PlacePreferences {
   /// Returns a new [PlacePreferences] instance.
   PlacePreferences({
+    this.public,
     this.visibility,
   });
 
@@ -18,9 +19,12 @@ class PlacePreferences {
     }
 
     return PlacePreferences(
+      public: json[r'public'],
       visibility: PlacePreferencesVisibilityEnum.fromJson(json[r'visibility']),
     );
   }
+
+  bool? public;
 
   PlacePreferencesVisibilityEnum? visibility;
 
@@ -31,11 +35,15 @@ class PlacePreferences {
       return true;
     }
 
-    return other is PlacePreferences && other.visibility == visibility;
+    return other is PlacePreferences &&
+        other.public == public &&
+        other.visibility == visibility;
   }
 
   @override
-  int get hashCode => (visibility == null ? 0 : visibility.hashCode);
+  int get hashCode =>
+      (public == null ? 0 : public.hashCode) +
+      (visibility == null ? 0 : visibility.hashCode);
 
   static List<PlacePreferences> listFromJson(Iterable? json) {
     if (json == null) {
@@ -83,10 +91,12 @@ class PlacePreferences {
   }
 
   @override
-  String toString() => 'PlacePreferences[visibility=$visibility]';
+  String toString() =>
+      'PlacePreferences[public=$public, visibility=$visibility]';
 
   Map<String, dynamic> toJson([Iterable<String>? keys]) {
     return <String, dynamic>{
+      if (keys == null || keys.contains(r'public')) r'public': public,
       if (keys == null || keys.contains(r'visibility'))
         r'visibility': visibility,
     };

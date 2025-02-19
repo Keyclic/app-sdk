@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **form** | [**PreferencesForm**](PreferencesForm.md) |  | [optional] 
 **offline** | **bool** |  | [optional] 
 **public** | **bool** |  | [optional] 
+**quote** | [**PreferencesQuote**](PreferencesQuote.md) |  | [optional] 
 **reference** | [**PreferencesReference**](PreferencesReference.md) |  | [optional] 
 **reverseGeocoding** | **bool** |  | [optional] 
 **review** | [**PreferencesReview**](PreferencesReview.md) |  | [optional] 
